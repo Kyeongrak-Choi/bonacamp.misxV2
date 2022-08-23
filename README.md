@@ -18,13 +18,14 @@ References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1
 
 
 ## Directory
-
+```bash
 lib
- ├─assets
- │  ├─icons
- │  ├─images
- │  └─translations
- ├─components
- ├─layouts
- ├─models
- └─utils
+├─assets
+│  ├─icons
+│  ├─images
+│  └─translations
+├─components
+├─layouts
+├─models
+└─utils
+```
