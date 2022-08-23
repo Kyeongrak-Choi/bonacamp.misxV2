@@ -1,6 +1,6 @@
-# renew_misx
+# renewal_misx
 
-renewal_misx
+경영관리 Ver2
 
 ## Getting Started
 
