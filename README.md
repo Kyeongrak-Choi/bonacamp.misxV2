@@ -10,13 +10,15 @@ This project is a starting point for a Flutter application.
 
 ## Project Configuration
 
+Target Platform : android / iOS / Web / Desktop(windows)
+
 SDK : Flutter 3.0.3
 
 State Management : GetX
 
-References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1f/pages/44695815/MISX
+External Library : Firebase
 
-Target Platform : android / iOS / Web / Desktop(windows)
+References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1f/pages/44695815/MISX
 
 
 ## Directory
