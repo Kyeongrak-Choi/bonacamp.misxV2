@@ -14,9 +14,12 @@ Target Platform : android / iOS / Web / Desktop(windows)
 
 SDK : Flutter 3.0.3
 
-State Management : GetX
-
-External Library : Firebase
+Library 
+  - GetX (https://pub.dev/packages/get)
+  - Hive (https://pub.dev/packages/hive)
+  - fl_chart (https://pub.dev/packages/fl_chart)
+  - naver map (https://pub.dev/packages/naver_map_plugin)
+  - Firebase
 
 References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1f/pages/44695815/MISX
 
