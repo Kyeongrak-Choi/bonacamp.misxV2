@@ -12,8 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
   cupertino_icons: ^1.0.2
   # reference - https://pub.dev/packages/cupertino_icons
   # descryption - iOS style icon
@@ -35,28 +33,28 @@ dependencies:
   # http: ^0.13.5 ( getX include http )
   # reference - https://pub.dev/packages/http - api call
   # descryption - making HTTP requests.
-  permission_handler: ^10.0.0
+  # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage
-  webview_flutter: ^3.0.4
+  # webview_flutter: ^3.0.4
   # reference - https://pub.dev/packages/webview_flutter
   # descryption - webview widget
-  geolocator: ^9.0.1
+  #geolocator: ^9.0.1
   # reference - https://pub.dev/packages/geolocator
   # descryption - gps location service
-  google_maps_flutter: ^2.1.12
+  # google_maps_flutter: ^2.1.12
   # reference - https://pub.dev/packages/google_maps_flutter
   # descryption - map service
-  sqflite: ^2.0.3+1
+  # sqflite: ^2.0.3+1
   # reference - https://pub.dev/packages/sqflite
   # descryption - SQLite plugin for Flutter
-  json_serializable: ^6.3.1
+  # json_serializable: ^6.3.1
   # reference - https://pub.dev/packages/json_serializable
   # descryption - builders for handling JSON
-  logger: ^1.1.0
+  # logger: ^1.1.0
   # reference - https://pub.dev/packages/logger
   # descryption - log util
-  fl_chart: ^0.55.1
+  # fl_chart: ^0.55.1
   # reference - https://pub.dev/packages/fl_chart
   # descryption - chart util
   source_span: ^1.8.2
@@ -79,8 +77,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/translations/
-    - assets/icons/
-    - assets/images/
+    - lib/assets/translations/
+    - lib/assets/icons/
+    - lib/assets/images/
 
 
