@@ -77,8 +77,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/translations/
-    - lib/assets/icons/
-    - lib/assets/images/
+    - assets/translations/
+    - assets/icons/
+    - assets/images/
 
 

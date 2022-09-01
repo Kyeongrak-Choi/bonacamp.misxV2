@@ -1,5 +1,5 @@
 
-/* korean String Manage */
+// Korean String manage
 const Map<String, String> koKR = {
   // Common
   'App_name' : '경영관리',
