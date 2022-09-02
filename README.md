@@ -30,10 +30,17 @@ lib
   ├─assets
   │  ├─icons
   │  ├─images
+  │  ├─json_dummy
   │  └─translations
   ├─components
-  │  └─common
-  ├─layouts
+  │  ├─common
+  │  │  ├─combobox
+  │  │  ├─datepicker
+  │  │  ├─dialog_search
+  │  │  └─monthpicker
+  │  └─login
   ├─models
+  │  └─common
+  ├─screens
   └─utils
 ```
