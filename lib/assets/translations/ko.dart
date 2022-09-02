@@ -6,6 +6,7 @@ const Map<String, String> koKR = {
   'confirm' : '확인',
   'cancel' : '취소',
   'all' : '전체',
+  'search' : '검색',
 
   // Login
   'hint_id_input' : 'ID를 입력해주세요.',

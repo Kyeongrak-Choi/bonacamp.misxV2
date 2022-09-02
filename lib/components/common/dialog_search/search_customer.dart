@@ -8,17 +8,15 @@ class SearchCustomer extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-        // // Obx(()=>) 를 사용하면 count가 변경됐을 때 Text를 갱신할 수 있다.
         appBar: AppBar(title: Text('title_search_customer'.tr)),
         body: Container(
           child: Center(
             child: Column(
               children: <Widget>[
-                SizedBox(height: MediaQuery.of(context).viewPadding.top),
-                //SizedBox(height: 20),
+                //SizedBox(height: MediaQuery.of(context).viewPadding.top),
                 SearchOption(),
-                //SizedBox(height: 20),
-                SearchList(),
+                SizedBox(height: 10),
+                Expanded(child: SearchList()),
               ],
             ),
           ),

@@ -80,5 +80,6 @@ flutter:
     - lib/assets/translations/
     - lib/assets/icons/
     - lib/assets/images/
+    - lib/assets/json_dummy/
 
 

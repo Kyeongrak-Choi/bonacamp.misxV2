@@ -27,7 +27,6 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () => Get.to(SearchCustomer()),
-                //onPressed: () => Get.to(Search_Customer_Sub()),
                 child: Text('search customer')),
             ElevatedButton(onPressed: null, child: Text('search product')),
             ElevatedButton(onPressed: null, child: Text('combo box')),

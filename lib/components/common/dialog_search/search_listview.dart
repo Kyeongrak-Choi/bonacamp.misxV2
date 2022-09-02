@@ -1,33 +1,61 @@
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/models/common/customer.dart';
+import 'package:renew_misx/utils/getDummy.dart';
+import 'dart:developer';
+
+import '../../../constants.dart';
 
 class SearchList extends StatelessWidget {
-  //const SearchList({Key? key}) : super(key: key);
-
-  List<String> datas = <String>['보나캠프1', '보나캠프2', '보나캠프3'];
-
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      ListView.separated(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(10),
-        itemCount: datas.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.amber,
-            padding: const EdgeInsets.all(10),
-            child: Center(child: Text(datas[index])),
-          );
-        },
-        //  Divider 로 구분자 추가.
-        separatorBuilder: (BuildContext context, int index) => const Divider(
-          height: 10,
-          color: Colors.blue,
-        ),
-      )
-    ]);
+    SearchListController listController = Get.put(SearchListController());
+
+    return Obx(() => ListView.separated(
+          shrinkWrap: true,
+          padding: const EdgeInsets.all(10),
+          itemCount: listController.datas.length,
+      //  Divider 로 구분자 추가.
+          separatorBuilder: (BuildContext context, int index) => const Divider(
+            height: 10,
+            color: Colors.blue,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 30,
+              color: Colors.white,
+              padding: const EdgeInsets.all(5),
+              child: Center(child: Text('test')),
+            );
+          },
+        ));
+  }
+}
+
+class SearchListController extends GetxController {
+  RxList datas = [].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
+  void search() async {
+    var jsonString = await getDummy(dummy_customer);
+    var dataObjsJson = jsonDecode(jsonString)['data'] as List;
+    List<CustomerList> parsedResponse = dataObjsJson
+        .map((dataJson) => CustomerList.fromJson(dataJson))
+        .toList();
+    datas.clear();
+    datas.addAll(parsedResponse);
+    update();
   }
 }
