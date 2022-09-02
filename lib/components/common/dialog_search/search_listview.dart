@@ -18,17 +18,19 @@ class SearchList extends StatelessWidget {
           shrinkWrap: true,
           padding: const EdgeInsets.all(10),
           itemCount: listController.datas.length,
-      //  Divider 로 구분자 추가.
+          // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 10,
             color: Colors.blue,
           ),
           itemBuilder: (BuildContext context, int index) {
+            var item = listController.datas[index].toString();
             return Container(
               height: 30,
               color: Colors.white,
               padding: const EdgeInsets.all(5),
-              child: Center(child: Text('test')),
+              //child: Center(child: Text('test')),
+              child: Center(child: Text(item)),
             );
           },
         ));

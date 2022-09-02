@@ -1,6 +1,7 @@
 
 // 거래처 검색 Model
 class CustomerList {
+
   String? custCd;
   String? custNm;
   String? custAbbNm;

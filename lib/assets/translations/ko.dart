@@ -25,3 +25,5 @@ const Map<String, String> koKR = {
   'title_search_product' : '품목 검색',
   'hint_search_product' : '품목 코드/명을 입력해주세요.',
 };
+
+//const Map<String,String> enUs = {};

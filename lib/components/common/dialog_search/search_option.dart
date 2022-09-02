@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
 
 class SearchOption extends StatelessWidget {
-  SearchOptionController optionController = Get.put(SearchOptionController());
+  //SearchOptionController optionController = Get.put(SearchOptionController());
   SearchListController listController = Get.put(SearchListController());
 
   @override
