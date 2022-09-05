@@ -24,6 +24,12 @@ const Map<String, String> koKR = {
   // dialog search product
   'title_search_product' : '품목 검색',
   'hint_search_product' : '품목 코드/명을 입력해주세요.',
+
+  // DashBoard
+  'title_sales' : '매출',
+  'title_purcahse' : '매입',
+  'title_rental' : '대여',
+  'title_chart' : '차트',
 };
 
 //const Map<String,String> enUs = {};

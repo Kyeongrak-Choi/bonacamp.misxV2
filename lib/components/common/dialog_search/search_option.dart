@@ -63,34 +63,14 @@ class SearchOption extends StatelessWidget {
         hint = 'hint_search_product'.tr;
         dummy = dummy_product;
         break;
-      default:
-        hint = 'hint_search_customer'.tr;
-        dummy = dummy_customer;
     }
   }
 }
 
 class SearchOptionController extends GetxController {
-  FocusNode focusNode = FocusNode();
-  var isFocus = true.obs;
-
   @override
   void onInit() async {
     super.onInit();
     SystemChannels.textInput.invokeListMethod('TextInput.hide');
-    focusNode.addListener(() {
-      onFocusChange();
-      update();
-    });
-  }
-
-  void onFocusChange() {
-    isFocus.value = !isFocus.value;
-    update();
-  }
-
-  void unFocus() {
-    focusNode.unfocus();
-    update();
   }
 }

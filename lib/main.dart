@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/assets/translations/strings.dart';
-import 'package:renew_misx/layouts/login.dart';
+import 'package:renew_misx/layouts/funtion.dart';
+
+import 'layouts/login.dart';
 
 void main() {
   runApp(Misx());
