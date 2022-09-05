@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Color(AppColor),
     // textTheme: textTheme(),
     // appBarTheme: appTheme(),
-    primaryColor: Colors.white,
+    primaryColor: Color(AppColor),
   );
 }

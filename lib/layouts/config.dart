@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renew_misx/constants.dart';
 
+// 설정 화면
 class Config extends StatelessWidget {
-  const Config({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Color(AppColor),
+      appBar: AppBar(
+        title: Text('config'.tr),
+      ),
+    );
   }
 }

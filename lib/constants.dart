@@ -1,5 +1,5 @@
 // navigation Item
-enum Navigation {HOME,SALE,SALE2,SALE3}
+enum Navigation {FIRST,SECOND,HOME,THIRD,FOURTH}
 
 // common
 const AppName = "MISX";
