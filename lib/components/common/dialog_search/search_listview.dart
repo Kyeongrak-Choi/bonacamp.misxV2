@@ -3,11 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/components/common/dialog_search/search_listitem.dart';
+import 'package:renew_misx/layouts/login.dart';
 import 'package:renew_misx/models/common/customer.dart';
 import 'package:renew_misx/utils/getDummy.dart';
 import 'dart:developer';
 
 import '../../../constants.dart';
+import '../../../models/common/product.dart';
 
 class SearchList extends StatelessWidget {
   @override
@@ -20,18 +23,29 @@ class SearchList extends StatelessWidget {
           itemCount: listController.datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
-            height: 10,
+            height: 5,
             color: Colors.blue,
           ),
+
           itemBuilder: (BuildContext context, int index) {
-            var item = listController.datas[index].toString();
-            return Container(
-              height: 30,
+            return GestureDetector(
+                child: Container(
+              height: 50,
               color: Colors.white,
               padding: const EdgeInsets.all(5),
-              //child: Center(child: Text('test')),
-              child: Center(child: Text(item)),
-            );
+              child: listController.flag == 'C'
+                  ? SearchListItem(
+                      listController.parsedResponse[index].custCd.toString(),
+                      listController.parsedResponse[index].custNm.toString(),
+                      listController.parsedResponse[index].custAbbNm.toString(),
+                      listController.parsedResponse[index].custStatNm
+                          .toString())
+                  : SearchListItem(
+                      listController.parsedResponse[index].itmCd.toString(),
+                      listController.parsedResponse[index].itmNm.toString(),
+                      listController.parsedResponse[index].itmAbbNm.toString(),
+                      listController.parsedResponse[index].ufFgNm.toString()),
+            ));
           },
         ));
   }
@@ -39,6 +53,8 @@ class SearchList extends StatelessWidget {
 
 class SearchListController extends GetxController {
   RxList datas = [].obs;
+  var parsedResponse = [];
+  var flag;
 
   @override
   void onInit() {
@@ -50,12 +66,21 @@ class SearchListController extends GetxController {
     super.onClose();
   }
 
-  void search() async {
-    var jsonString = await getDummy(dummy_customer);
+  void search(String dummy) async {
+    var jsonString = await getDummy(dummy);
     var dataObjsJson = jsonDecode(jsonString)['data'] as List;
-    List<CustomerList> parsedResponse = dataObjsJson
-        .map((dataJson) => CustomerList.fromJson(dataJson))
-        .toList();
+
+    if (dummy == dummy_customer) {
+      parsedResponse = dataObjsJson
+          .map((dataJson) => CustomerList.fromJson(dataJson))
+          .toList();
+      flag = 'C';
+    } else if (dummy == dummy_product) {
+      parsedResponse = dataObjsJson
+          .map((dataJson) => ProductList.fromJson(dataJson))
+          .toList();
+      flag = 'P';
+    }
     datas.clear();
     datas.addAll(parsedResponse);
     update();

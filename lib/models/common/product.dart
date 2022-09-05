@@ -1,6 +1,5 @@
-
 // 품목 검색 model
-class Product {
+class ProductList {
   String? itmCd;
   String? itmNm;
   String? itmAbbNm;
@@ -10,17 +9,10 @@ class Product {
   String? ut;
   String? utNm;
 
-  Product(
-      this.itmCd,
-      this.itmNm,
-      this.itmAbbNm,
-      this.stnd,
-      this.uzFg,
-      this.ufFgNm,
-      this.ut,
-      this.utNm);
+  ProductList(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg,
+      this.ufFgNm, this.ut, this.utNm);
 
-  Product.fromJson(Map data)
+  ProductList.fromJson(Map data)
       : itmCd = data['ITM_CD'],
         itmNm = data['ITM_NM'],
         itmAbbNm = data['ITM_ABB_NM'],
@@ -30,16 +22,16 @@ class Product {
         ut = data['UT'],
         utNm = data['UT_NM'];
 
-  Map<String, dynamic> toMap(){
+  Map<String, dynamic> toMap() {
     return {
-      'itmCd' : itmCd,
-      'itmNm' : itmNm,
-      'itmAbbNm' : itmAbbNm,
-      'stnd' : stnd,
-      'uzFg' : uzFg,
-      'ufFgNm' : ufFgNm,
-      'ut' : ut,
-      'utNm' : utNm
+      'itmCd': itmCd,
+      'itmNm': itmNm,
+      'itmAbbNm': itmAbbNm,
+      'stnd': stnd,
+      'uzFg': uzFg,
+      'ufFgNm': ufFgNm,
+      'ut': ut,
+      'utNm': utNm
     };
   }
 }

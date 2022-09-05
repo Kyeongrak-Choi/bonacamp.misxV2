@@ -6,43 +6,67 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
 
+import '../../../constants.dart';
+
 class SearchOption extends StatelessWidget {
-  //SearchOptionController optionController = Get.put(SearchOptionController());
+  var flag;
+  var hint;
+  var dummy;
+
+  SearchOption(String flag){
+    this.flag = flag;
+    initVar(flag);
+  }
+
   SearchListController listController = Get.put(SearchListController());
 
   @override
   Widget build(context) {
+
     return Row(
-          children: [
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    filled: true,
-                    fillColor: Colors.grey[100],
-                    hintText: 'hint_search_customer'.tr,
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                    )),
+      children: [
+        Expanded(
+          child: TextField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              filled: true,
+              fillColor: Colors.white,
+              hintText: hint,
+            ),
+          ),
+        ),
+        Container(
+          width: 50,
+          child: Center(
+            child: GestureDetector(
+              onTap: () {
+                listController.search(dummy);
+              },
+              child: Icon(
+                Icons.search,
+                color: Colors.black,
               ),
             ),
-            Container(
-              width: 50,
-              child: Center(
-                child: GestureDetector(
-                  onTap: () {
-                    listController.search();
-                  },
-                  child: Text(
-                    'search'.tr,
-                    style: TextStyle(fontSize: 10),
-                  ),
-                ),
-              ),
-            )
-          ],
-        );
+          ),
+        )
+      ],
+    );
+  }
+
+  void initVar(flag){
+    switch (flag) {
+      case 'C':
+        hint = 'hint_search_customer'.tr;
+        dummy = dummy_customer;
+        break;
+      case 'P':
+        hint = 'hint_search_product'.tr;
+        dummy = dummy_product;
+        break;
+      default:
+        hint = 'hint_search_customer'.tr;
+        dummy = dummy_customer;
+    }
   }
 }
 
@@ -69,6 +93,4 @@ class SearchOptionController extends GetxController {
     focusNode.unfocus();
     update();
   }
-
-
 }

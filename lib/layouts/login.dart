@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get.dart';
 
-import '../components/common/dialog_search/search_customer.dart';
+import '../components/common/dialog_search/search_dialog.dart';
 import '../main.dart';
 
 class Login extends StatefulWidget {
@@ -26,9 +26,10 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-                onPressed: () => Get.to(SearchCustomer()),
-                child: Text('search customer')),
-            ElevatedButton(onPressed: null, child: Text('search product')),
+                onPressed: () => Get.to(SearchDialog('C')),
+                child: Text('title_search_customer'.tr)),
+            ElevatedButton(onPressed: () => Get.to(SearchDialog('P')),
+                child: Text('title_search_product'.tr)),
             ElevatedButton(onPressed: null, child: Text('combo box')),
             ElevatedButton(onPressed: null, child: Text('date picker')),
             ElevatedButton(onPressed: null, child: Text('month picker')),
