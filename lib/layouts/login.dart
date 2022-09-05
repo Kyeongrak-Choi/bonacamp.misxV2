@@ -18,19 +18,16 @@ class Login extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(AppColor),
         ),
-        child: Align(
-          alignment: AlignmentDirectional(0, 1),
+        child: Center(
+          //alignment: AlignmentDirectional(0, 1),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 200, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 36, 0, 0),
@@ -57,15 +54,9 @@ class Login extends StatelessWidget {
                           child: LoginInputId(), // ID
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
-                        ),
-                        Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 16, 20, 20),
                           child: LoginInputPw(), // PW
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                         ),
                         Divider(
                           height: 2,
@@ -75,12 +66,10 @@ class Login extends StatelessWidget {
                           color: Color(0xFFDBE2E7),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
-                        ),
-                        LoginBtn(), // Btn
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
-                        ),
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                          child: LoginBtn(), // PW
+                        ), // Btn
                       ],
                     ),
                   ),

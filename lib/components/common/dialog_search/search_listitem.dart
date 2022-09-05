@@ -26,7 +26,7 @@ class SearchListItem extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 50,
+              width: 60,
               child: Text(
                 '[' + code + ']',
                 style: TextStyle(fontWeight: FontWeight.bold),
