@@ -19,17 +19,18 @@ class Navigation extends GetView<NavigationController> {
   @override
   Widget build(BuildContext context) {
     controller.currentIndex.value = 0;
+
     return Scaffold(
+      key: controller.scaffoldKey,
       appBar: AppBar(
         title: Text('App_name'.tr),
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
-            Scaffold.of(context).openDrawer();
+            controller.openDrawer();
           },
         ),
         actions: [
-          //actions -> 복수의 아이콘 버튼 등을 오른쪽에 배치할 때 사용
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () => Get.to(Config()),
@@ -66,7 +67,7 @@ class Navigation extends GetView<NavigationController> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 activeIcon: Icon(Icons.home_outlined),
-                label: 'nav_home'.tr, // Home화면
+                label: 'nav_home'.tr, // Home
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.point_of_sale),
@@ -95,9 +96,20 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxService {
+
   static NavigationController get to => Get.find();
   RxInt currentIndex = 0.obs;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   void changeIndex(int Index) {
     currentIndex(Index);
+  }
+
+  void openDrawer() {
+    scaffoldKey.currentState?.openDrawer();
+  }
+
+  void closeDrawer() {
+    scaffoldKey.currentState?.openEndDrawer();
   }
 }

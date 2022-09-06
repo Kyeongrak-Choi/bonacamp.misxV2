@@ -13,6 +13,7 @@ void main() {
 }
 
 class Misx extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
