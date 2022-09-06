@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/components/common/dialog_search/search_listitem.dart';
+import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
+import 'package:renew_misx/components/dashboard/dashboard_item.dart';
+import 'package:renew_misx/theme.dart';
 
 class DashBoardSales extends StatelessWidget {
   const DashBoardSales({Key? key}) : super(key: key);
@@ -13,22 +17,39 @@ class DashBoardSales extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
             child: Text(
               'title_sales'.tr,
               textAlign: TextAlign.start,
-              style: TextStyle(color: Colors.white),
+              style: textTheme().subtitle2
             ),
           ),
         ),
         Container(
           width: MediaQuery.of(context).size.width,
-          height: 100,
+          height: 120,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.black,
             borderRadius: BorderRadius.circular(20),
             shape: BoxShape.rectangle,
           ),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                child: DashBoardItem( '매출금액', '890,380'), // 매출
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                child: DashBoardItem( '공급금액', '805,800'), // 매출
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                child: DashBoardItem( '채권잔액', '46,36,346'), // 매출
+              ),
+            ],
+          )
+
         ),
       ],
     );

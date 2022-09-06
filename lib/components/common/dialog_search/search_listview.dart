@@ -1,13 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog_search/search_listitem.dart';
-import 'package:renew_misx/layouts/funtion.dart';
 import 'package:renew_misx/models/common/customer.dart';
-import 'package:renew_misx/utils/getDummy.dart';
-import 'dart:developer';
+import 'package:renew_misx/utils/utillity.dart';
 
 import '../../../constants.dart';
 import '../../../models/common/product.dart';
@@ -24,14 +21,14 @@ class SearchList extends StatelessWidget {
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 5,
-            color: Colors.blue,
+            color: Colors.white,
           ),
 
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
               height: 50,
-              color: Colors.white,
+              color: Color(AppColor),
               padding: const EdgeInsets.all(5),
               child: listController.flag == 'C'
                   ? SearchListItem(
@@ -67,7 +64,7 @@ class SearchListController extends GetxController {
   }
 
   void search(String dummy) async {
-    var jsonString = await getDummy(dummy);
+    var jsonString = await jsonDummy(dummy);
     var dataObjsJson = jsonDecode(jsonString)['data'] as List;
 
     if (dummy == dummy_customer) {

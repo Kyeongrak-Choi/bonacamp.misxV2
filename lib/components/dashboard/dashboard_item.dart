@@ -7,17 +7,13 @@ import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
 import 'package:renew_misx/theme.dart';
 
-class SearchListItem extends StatelessWidget {
+class DashBoardItem extends StatelessWidget {
   var code;
   var name;
-  var sub;
-  var stat;
 
-  SearchListItem(String code, String name, String sub, String stat) {
+  DashBoardItem(String code, String name) {
     this.code = code;
     this.name = name;
-    this.sub = sub;
-    this.stat = stat;
   }
 
   @override
@@ -27,33 +23,16 @@ class SearchListItem extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 70,
               child: Text(
-                '[' + code + ']',
-                style: textTheme().bodyText2,
-              ),
-            ),
-            Container(
-              child: Text(
-                name,
-                style: textTheme().bodyText2,
-              ),
-            )
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              child: Text(
-                sub,
-                style: textTheme().bodyText2,
+                code,
+                style: textTheme().bodyText1,
               ),
             ),
             Expanded(
               child: Text(
-                stat,
+                name,
                 textAlign: TextAlign.right,
-                style: textTheme().bodyText2,
+                style: textTheme().bodyText1,
               ),
             )
           ],

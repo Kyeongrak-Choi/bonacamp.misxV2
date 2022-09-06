@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
+import 'package:renew_misx/theme.dart';
 
 import '../../../constants.dart';
 
@@ -13,7 +14,7 @@ class SearchOption extends StatelessWidget {
   var hint;
   var dummy;
 
-  SearchOption(String flag){
+  SearchOption(String flag) {
     this.flag = flag;
     initVar(flag);
   }
@@ -22,21 +23,21 @@ class SearchOption extends StatelessWidget {
 
   @override
   Widget build(context) {
-
     return Row(
       children: [
         Expanded(
           child: TextField(
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              filled: true,
-              fillColor: Colors.white,
-              hintText: hint,
-            ),
-          ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                filled: true,
+                // fillColor: Color(AppColor),
+                hintText: hint,
+                hintStyle: textTheme().subtitle2,
+              ),
+              style: textTheme().bodyText2),
         ),
         Container(
-          width: 50,
+          width: 70,
           child: Center(
             child: GestureDetector(
               onTap: () {
@@ -44,7 +45,7 @@ class SearchOption extends StatelessWidget {
               },
               child: Icon(
                 Icons.search,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),
@@ -53,7 +54,7 @@ class SearchOption extends StatelessWidget {
     );
   }
 
-  void initVar(flag){
+  void initVar(flag) {
     switch (flag) {
       case 'C':
         hint = 'hint_search_customer'.tr;

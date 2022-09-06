@@ -1,3 +1,4 @@
+
 // 품목 검색 model
 class ProductList {
   String? itmCd;

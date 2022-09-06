@@ -12,35 +12,26 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text('App_name'.tr),
-        // ),
-        backgroundColor: Color(AppColor),
-        body: Container(
-          child: GestureDetector(
-            child: Expanded(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                    child: DashBoardSales(), // 매출
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                    child: DashBoardPurchase(), // 매입
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                    child: DashBoardRental(), // 대여
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                    child: DashBoardChart(), // 차트
-                  ),
-                ],
-              ),
-            ),
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+            child: DashBoardSales(), // 매출
           ),
-        ));
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+            child: DashBoardPurchase(), // 매입
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+            child: DashBoardRental(), // 대여
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+            child: DashBoardChart(), // 차트
+          ),
+        ],
+      ),
+    );
   }
 }
