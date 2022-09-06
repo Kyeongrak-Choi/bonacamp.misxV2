@@ -33,14 +33,7 @@ lib
   │  ├─json_dummy
   │  └─translations
   ├─components
-  │  ├─common
-  │  │  ├─combobox
-  │  │  ├─datepicker
-  │  │  ├─dialog_search
-  │  │  └─monthpicker
-  │  └─login
+  ├─layouts
   ├─models
-  │  └─common
-  ├─screens
   └─utils
 ```
