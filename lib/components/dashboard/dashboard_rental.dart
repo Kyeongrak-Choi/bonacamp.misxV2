@@ -27,12 +27,13 @@ class DashBoardRental extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 120,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.black26,
             borderRadius: BorderRadius.circular(20),
             shape: BoxShape.rectangle,
           ),
             child: Column(
               children: [
+                // dummy
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
                   child: DashBoardItem( '대여금액', '1,200,000'), // 매출

@@ -4,7 +4,8 @@ import 'package:renew_misx/components/login/login_btn.dart';
 import 'package:renew_misx/components/login/login_input_id.dart';
 import 'package:renew_misx/components/login/login_input_pw.dart';
 import 'package:renew_misx/components/login/login_logo.dart';
-import '../constants.dart';
+import 'package:renew_misx/components/login/login_policy.dart';
+import '../../constants.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -67,8 +68,13 @@ class Login extends StatelessWidget {
                         ),
                         Padding(
                           padding:
-                          EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                          child: LoginBtn(), // PW
+                          EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
+                          child: LoginBtn(), // Login
+                        ), // Btn
+                        Padding(
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                          child: PolicyBtn(), // 개인정보 처리방침
                         ), // Btn
                       ],
                     ),

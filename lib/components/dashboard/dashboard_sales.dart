@@ -29,12 +29,13 @@ class DashBoardSales extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 120,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.black26,
             borderRadius: BorderRadius.circular(20),
             shape: BoxShape.rectangle,
           ),
           child: Column(
             children: [
+              // dummy
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
                 child: DashBoardItem( '매출금액', '890,380'), // 매출
@@ -45,7 +46,7 @@ class DashBoardSales extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
-                child: DashBoardItem( '채권잔액', '46,36,346'), // 매출
+                child: DashBoardItem( '채권잔액', '4,636,346'), // 매출
               ),
             ],
           )

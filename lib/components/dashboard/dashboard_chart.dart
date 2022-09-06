@@ -5,39 +5,9 @@ import 'package:get/get.dart';
 import '../../theme.dart';
 
 class DashBoardChart extends StatelessWidget {
-  // const DashBoardChart({Key? key}) : super(key: key);
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Column(
-  //     mainAxisSize: MainAxisSize.max,
-  //     children: [
-  //       Align(
-  //         alignment: AlignmentDirectional(-1, 0),
-  //         child: Padding(
-  //           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-  //           child: Text(
-  //             'title_chart'.tr,
-  //             textAlign: TextAlign.start,
-  //             style: textTheme().subtitle2,
-  //           ),
-  //         ),
-  //       ),
-  //       Container(
-  //         width: MediaQuery.of(context).size.width,
-  //         height: 300,
-  //         decoration: BoxDecoration(
-  //           color: Colors.white,
-  //           borderRadius: BorderRadius.circular(20),
-  //           shape: BoxShape.rectangle,
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
+  // dummy
   bool showAvg = false;
-
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),

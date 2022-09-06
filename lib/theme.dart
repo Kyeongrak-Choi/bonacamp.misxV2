@@ -17,7 +17,7 @@ ThemeData theme() {
 TextTheme textTheme() {
   return TextTheme(
     headline1: GoogleFonts.nanumGothic(
-        fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.bold),
+        fontSize: 18.0, color: Colors.black, fontWeight: FontWeight.bold),
     headline2: GoogleFonts.nanumGothic(
         fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
     bodyText1: GoogleFonts.nanumGothic(

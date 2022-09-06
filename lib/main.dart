@@ -6,7 +6,7 @@ import 'package:renew_misx/theme.dart';
 import 'package:renew_misx/utils/binding.dart';
 import 'constants.dart';
 import 'layouts/navigation.dart';
-import 'layouts/login.dart';
+import 'layouts/login/login.dart';
 
 void main() {
   runApp(Misx());

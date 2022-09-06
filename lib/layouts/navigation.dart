@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:renew_misx/components/common/menu/drawer_menu.dart';
 import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
 import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
 import 'package:renew_misx/components/dashboard/dashboard_sales.dart';
 import 'package:renew_misx/layouts/dashboard.dart';
-import 'package:renew_misx/layouts/salesmenu.dart';
+import 'package:renew_misx/layouts/purchase/purchase_menu.dart';
+import 'package:renew_misx/layouts/sales/sales_menu.dart';
+import 'package:renew_misx/layouts/stock/stock_menu.dart';
+import 'package:renew_misx/layouts/support/support_menu.dart';
 import '../constants.dart';
 import 'config.dart';
 import 'funtion.dart';
@@ -14,20 +18,26 @@ import 'funtion.dart';
 class Navigation extends GetView<NavigationController> {
   @override
   Widget build(BuildContext context) {
-    controller.currentIndex.value=0;
+    controller.currentIndex.value = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text('App_name'.tr),
         leading: IconButton(
           icon: Icon(Icons.menu),
-          onPressed: () {},
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
         ),
-        actions: [          //actions -> 복수의 아이콘 버튼 등을 오른쪽에 배치할 때 사용
+        actions: [
+          //actions -> 복수의 아이콘 버튼 등을 오른쪽에 배치할 때 사용
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () => Get.to(Config()),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: DrawerMenu(),
       ),
       body: Obx(() {
         switch (NavigationItem.values[controller.currentIndex.value]) {
@@ -36,11 +46,11 @@ class Navigation extends GetView<NavigationController> {
           case NavigationItem.FIRST:
             return SalesMenu();
           case NavigationItem.SECOND:
-            return DashBoardPurchase();
+            return PurchaseMenu();
           case NavigationItem.THIRD:
-            return DashBoardChart();
+            return SupportMenu();
           case NavigationItem.FOURTH:
-            return Menu();
+            return StockMenu();
         }
       }),
       bottomNavigationBar: Obx(

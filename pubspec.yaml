@@ -36,7 +36,7 @@ dependencies:
   # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage
-  # webview_flutter: ^3.0.4
+  webview_flutter: ^3.0.4
   # reference - https://pub.dev/packages/webview_flutter
   # descryption - webview widget
   #geolocator: ^9.0.1
