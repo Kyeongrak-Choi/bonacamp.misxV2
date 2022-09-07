@@ -30,7 +30,7 @@ const Map<String, String> koKR = {
   'title_sales': '매출',
   'title_purcahse': '매입',
   'title_rental': '대여',
-  'title_chart': '차트',
+  'title_status': '현황',
 
   //Navigation Label
   'nav_home': 'HOME',

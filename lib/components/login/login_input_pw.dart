@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/theme.dart';
 
 class LoginInputPw extends StatelessWidget {
   const LoginInputPw({Key? key}) : super(key: key);
@@ -13,6 +14,9 @@ class LoginInputPw extends StatelessWidget {
       children: [
         Expanded(
           child: TextFormField(
+            obscureText: true,
+            maxLength: 16,
+            style: textTheme().headline1,
             decoration: InputDecoration(
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,
@@ -33,6 +37,7 @@ class LoginInputPw extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
+              counterText: '',
             ),
           ),
         ),

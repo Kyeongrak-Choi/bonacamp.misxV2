@@ -20,7 +20,7 @@ class SearchList extends StatelessWidget {
           itemCount: listController.datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
-            height: 5,
+            height: 7,
             color: Colors.white,
           ),
 

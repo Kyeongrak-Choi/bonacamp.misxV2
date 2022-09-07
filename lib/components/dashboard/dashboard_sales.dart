@@ -21,7 +21,7 @@ class DashBoardSales extends StatelessWidget {
             child: Text(
               'title_sales'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().subtitle2
+              style: textTheme().headline2
             ),
           ),
         ),

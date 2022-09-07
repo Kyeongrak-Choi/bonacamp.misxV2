@@ -20,7 +20,7 @@ class DashBoardPurchase extends StatelessWidget {
             child: Text(
               'title_purcahse'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().subtitle2,
+              style: textTheme().headline2,
             ),
           ),
         ),

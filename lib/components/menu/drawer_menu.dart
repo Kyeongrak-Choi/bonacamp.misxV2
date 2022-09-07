@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/components/common/dialog_search/search_listview.dart';
 import '../../../constants.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -18,7 +19,7 @@ class DrawerMenu extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40.0),
                     bottomRight: Radius.circular(40.0))),
-            child: Text('Drawer Menu'),
+            child: Text('보나캠프(주)\n\n개발자'),
           ),
           ListTile(
             leading: Icon(
@@ -26,7 +27,33 @@ class DrawerMenu extends StatelessWidget {
               color: Color(AppColor),
             ),
             title: Text(
-              'nav_home'.tr,
+              'menu1'.tr,
+              style: TextStyle(color: Color(AppColor)),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.home,
+              color: Color(AppColor),
+            ),
+            title: Text(
+              'menu2'.tr,
+              style: TextStyle(color: Color(AppColor)),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.home,
+              color: Color(AppColor),
+            ),
+            title: Text(
+              'menu3'.tr,
               style: TextStyle(color: Color(AppColor)),
             ),
             onTap: () {

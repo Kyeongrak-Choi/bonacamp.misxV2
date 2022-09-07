@@ -10,13 +10,13 @@ import '../../layouts/navigation.dart';
 class PolicyBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
         onPressed: () => Get.to(PolicyWebView()),
         child: Text('privacy_policy'.tr),
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: Color(AppColor),
-        ) // foreground  ,
+        // style: ElevatedButton.styleFrom(
+        //   foregroundColor: Colors.white,
+        //   backgroundColor: Color(AppColor),
+        // ) // foreground  ,
         );
   }
 }

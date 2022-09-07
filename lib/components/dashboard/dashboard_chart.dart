@@ -40,9 +40,9 @@ class DashBoardChart extends StatelessWidget {
           child: TextButton(
             onPressed: () {},
             child: Text(
-              '현황',
+              'title_status'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().subtitle2,
+              style: textTheme().headline2,
             ),
           ),
         ),

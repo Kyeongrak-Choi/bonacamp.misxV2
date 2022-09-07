@@ -2,6 +2,7 @@
 //System
 const AppName = 'MISX';
 const AppColor = 0xFF262D34;
+const CopyRight = 'Copyright 2022. BONACAMP All rights reserved.';
 
 //Login
 const PolicyUrl = 'http://www.dionysoserp.com/ex-privacy.html';

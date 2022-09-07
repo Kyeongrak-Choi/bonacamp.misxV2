@@ -19,7 +19,7 @@ class DashBoardRental extends StatelessWidget {
             child: Text(
               'title_rental'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().subtitle2,
+              style: textTheme().headline2,
             ),
           ),
         ),

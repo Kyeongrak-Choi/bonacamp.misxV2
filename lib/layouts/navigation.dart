@@ -48,7 +48,8 @@ class Navigation extends GetView<NavigationController> {
           case NavigationItem.SUPPORT:
             return SupportMenu();
           case NavigationItem.STOCK:
-            return StockMenu();
+            //return StockMenu();
+            return UtilFunction();
         }
       }),
       bottomNavigationBar: Obx(

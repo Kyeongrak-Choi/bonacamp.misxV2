@@ -5,6 +5,7 @@ import 'package:renew_misx/components/login/login_input_id.dart';
 import 'package:renew_misx/components/login/login_input_pw.dart';
 import 'package:renew_misx/components/login/login_logo.dart';
 import 'package:renew_misx/components/login/login_policy.dart';
+import 'package:renew_misx/theme.dart';
 import '../../constants.dart';
 
 class Login extends StatelessWidget {
@@ -74,6 +75,11 @@ class Login extends StatelessWidget {
                           padding:
                           EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                           child: PolicyBtn(), // 개인정보 처리방침
+                        ), // Btn
+                        Padding(
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                          child: Text(CopyRight,style: textTheme().subtitle2,), // CopyRight
                         ), // Btn
                       ],
                     ),

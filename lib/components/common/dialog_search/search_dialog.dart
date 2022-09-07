@@ -23,7 +23,7 @@ class SearchDialog extends StatelessWidget {
               children: <Widget>[
                 //SizedBox(height: MediaQuery.of(context).viewPadding.top),
                 SearchOption(flag), // C:거래처 검색 / P:품목 검색
-                SizedBox(height: 10),
+                SizedBox(height: 14),
                 Expanded(child: SearchList()),
               ],
             ),

@@ -47,16 +47,18 @@ TextTheme textTheme() {
       color: Colors.white,
     ),
     subtitle2: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
+      fontSize: 10.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+    bodyText1: GoogleFonts.nanumGothic(
+      fontSize: 16.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
-    bodyText1: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: Colors.white,
-    ),
     bodyText2: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
   );

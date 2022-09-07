@@ -32,9 +32,9 @@ class SearchOption extends StatelessWidget {
                 filled: true,
                 // fillColor: Color(AppColor),
                 hintText: hint,
-                hintStyle: textTheme().subtitle2,
+                hintStyle: textTheme().bodyText1,
               ),
-              style: textTheme().bodyText2),
+              style: textTheme().bodyText1),
         ),
         Container(
           width: 70,
