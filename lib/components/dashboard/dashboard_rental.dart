@@ -15,17 +15,15 @@ class DashBoardRental extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+            padding: EdgeInsetsDirectional.all(10),
             child: Text(
               'title_rental'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().headline2,
+              style: textTheme().headline3,
             ),
           ),
         ),
         Container(
-          width: MediaQuery.of(context).size.width,
-          height: 120,
           decoration: BoxDecoration(
             color: Colors.black26,
             borderRadius: BorderRadius.circular(20),
@@ -35,15 +33,15 @@ class DashBoardRental extends StatelessWidget {
               children: [
                 // dummy
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                   child: DashBoardItem( '대여금액', '1,200,000'), // 매출
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                   child: DashBoardItem( '회수금액', '850,000'), // 매출
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                   child: DashBoardItem( '대여잔액', '700,000'), // 매출
                 ),
               ],

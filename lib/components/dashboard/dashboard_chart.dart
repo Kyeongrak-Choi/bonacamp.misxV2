@@ -42,7 +42,7 @@ class DashBoardChart extends StatelessWidget {
             child: Text(
               'title_status'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().headline2,
+              style: textTheme().headline3,
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/components/menu/card_radio_menu.dart';
 import '../components/menu/card_icon_menu.dart';
 import '../components/menu/menu_manager.dart';
 import '../constants.dart';
@@ -15,7 +16,7 @@ class Config extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          CardIconMenu(iconMenuList: configMenu),
+          CardRadioMenu(radioMenu: configMenu),
         ],
       ),
     );

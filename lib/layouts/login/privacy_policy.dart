@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../constants.dart';
 
-class PolicyWebView extends StatelessWidget {
+class PrivacyPolicy extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

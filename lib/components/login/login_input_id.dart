@@ -16,7 +16,7 @@ class LoginInputId extends StatelessWidget {
           child: TextFormField(
             obscureText: false,
             maxLength: 16,
-            style: textTheme().headline1,
+            style: textTheme().headline2,
             decoration: InputDecoration(
               labelText: 'text_id'.tr,
               hintText: 'hint_id_input'.tr,

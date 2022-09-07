@@ -9,9 +9,19 @@ class IconMenu {
   IconMenu({
     required this.title,
     required this.iconData
-});
-
+  });
 }
+
+class RadioMenu {
+  String title;
+  bool val;
+
+  RadioMenu({
+    required this.title,
+    required this.val,
+  });
+}
+
 // 영업관리 메뉴
 final List<IconMenu> salesMenu = [
   IconMenu(title : '종합현황' , iconData : FontAwesomeIcons.signal),
@@ -43,11 +53,10 @@ final List<IconMenu> stockMenu = [
 ];
 
 // 옵션 메뉴
-final List<IconMenu> configMenu = [
-  IconMenu(title : '거래처 검색 시 거래처명 우선 선택' , iconData : FontAwesomeIcons.file),
-  IconMenu(title : '거래처 필터링 사용' , iconData : FontAwesomeIcons.file),
-  IconMenu(title : '초성검색시 첫글자부터 비교' , iconData : FontAwesomeIcons.file),
-  IconMenu(title : '품목검색시 품목명 우선 선택' , iconData : FontAwesomeIcons.file),
-  IconMenu(title : '영업사원 선택시 관리사원 포함' , iconData : FontAwesomeIcons.file),
-  IconMenu(title : '기능' , iconData : FontAwesomeIcons.file),
+final List<RadioMenu> configMenu = [
+  RadioMenu(title : '거래처 검색 시 거래처명 우선 선택', val : true),
+  RadioMenu(title : '거래처 필터링 사용', val : true ),
+  RadioMenu(title : '초성검색시 첫글자부터 비교', val : false),
+  RadioMenu(title : '품목검색시 품목명 우선 선택',val : true ),
+  RadioMenu(title : '영업사원 선택시 관리사원 포함', val : false),
 ];

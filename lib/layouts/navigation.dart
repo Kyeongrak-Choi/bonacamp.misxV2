@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:renew_misx/layouts/dashboard.dart';
+import 'package:renew_misx/layouts/menu_example.dart';
 import 'package:renew_misx/layouts/purchase/purchase_menu.dart';
 import 'package:renew_misx/layouts/sales/sales_menu.dart';
 import 'package:renew_misx/layouts/stock/stock_menu.dart';

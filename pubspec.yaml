@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.2
   # reference - https://pub.dev/packages/cupertino_icons
@@ -30,16 +32,25 @@ dependencies:
   shared_preferences: ^2.0.15
   # https://pub.dev/packages/shared_preferences
   # descryption - persistent storage for simple data (NSUserDefaults on iOS and macOS, SharedPreferences on Android)
+  fl_chart: ^0.55.1
+  # reference - https://pub.dev/packages/fl_chart
+  # descryption - chart util
+  source_span: ^1.8.2
+  # reference - https://pub.dev/packages/source_span
+  # descryption - source formatting
+  syncfusion_flutter_datepicker: ^20.2.48
+  # reference - https://pub.dev/packages/syncfusion_flutter_datepicker
+  # descryption - date picker
+  webview_flutter: ^3.0.4
+  # reference - https://pub.dev/packages/webview_flutter
+  # descryption - webview widget
   # http: ^0.13.5 ( getX include http )
   # reference - https://pub.dev/packages/http - api call
   # descryption - making HTTP requests.
   # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage
-  webview_flutter: ^3.0.4
-  # reference - https://pub.dev/packages/webview_flutter
-  # descryption - webview widget
-  #geolocator: ^9.0.1
+  # geolocator: ^9.0.1
   # reference - https://pub.dev/packages/geolocator
   # descryption - gps location service
   # google_maps_flutter: ^2.1.12
@@ -54,12 +65,6 @@ dependencies:
   # logger: ^1.1.0
   # reference - https://pub.dev/packages/logger
   # descryption - log util
-  fl_chart: ^0.55.1
-  # reference - https://pub.dev/packages/fl_chart
-  # descryption - chart util
-  source_span: ^1.8.2
-  # reference - https://pub.dev/packages/source_span
-  # descryption - source formatting
 
   # later setup firebase
 

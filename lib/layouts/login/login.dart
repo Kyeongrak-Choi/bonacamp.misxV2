@@ -39,7 +39,7 @@ class Login extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                    padding: EdgeInsetsDirectional.zero,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +74,7 @@ class Login extends StatelessWidget {
                         Padding(
                           padding:
                           EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-                          child: PolicyBtn(), // 개인정보 처리방침
+                          child: PolicyView(), // 개인정보 처리방침
                         ), // Btn
                         Padding(
                           padding:

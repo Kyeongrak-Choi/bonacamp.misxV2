@@ -17,17 +17,17 @@ ThemeData theme() {
 TextTheme textTheme() {
   return TextTheme(
     headline1: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
     headline2: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.black,
     ),
     headline3: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
+      fontSize: 16.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),

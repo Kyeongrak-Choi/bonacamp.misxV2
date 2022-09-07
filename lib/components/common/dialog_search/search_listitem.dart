@@ -27,18 +27,12 @@ class SearchListItem extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 70,
               child: Text(
-                '[' + code + ']',
+                '[' + code + '] ' + name,
                 style: textTheme().bodyText2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-            Container(
-              child: Text(
-                name,
-                style: textTheme().bodyText2,
-              ),
-            )
           ],
         ),
         Row(
