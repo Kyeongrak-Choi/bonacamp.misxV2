@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:renew_misx/components/common/menu/menu_manager.dart';
-
-import '../../components/common/menu/card_icon_menu.dart';
+import '../../components/menu/card_icon_menu.dart';
+import '../../components/menu/menu_manager.dart';
 
 class PurchaseMenu extends StatelessWidget {
   const PurchaseMenu({Key? key}) : super(key: key);

@@ -17,18 +17,46 @@ ThemeData theme() {
 TextTheme textTheme() {
   return TextTheme(
     headline1: GoogleFonts.nanumGothic(
-        fontSize: 18.0, color: Colors.black, fontWeight: FontWeight.bold),
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
     headline2: GoogleFonts.nanumGothic(
-        fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
-    bodyText1: GoogleFonts.nanumGothic(
-        fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
-    bodyText2: GoogleFonts.nanumGothic(
-        fontSize: 14.0, color: Colors.white, fontWeight: FontWeight.bold),
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    headline3: GoogleFonts.nanumGothic(
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    headline4: GoogleFonts.nanumGothic(
+      fontSize: 12.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    headline5: GoogleFonts.nanumGothic(
+      fontSize: 10.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
     subtitle1: GoogleFonts.nanumGothic(
-        fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
     subtitle2: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    bodyText1: GoogleFonts.nanumGothic(
+      fontSize: 14.0,
+      color: Colors.white,
+    ),
+    bodyText2: GoogleFonts.nanumGothic(
+      fontSize: 12.0,
       color: Colors.white,
     ),
   );

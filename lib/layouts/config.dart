@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/components/common/menu/menu_manager.dart';
-import '../components/common/menu/card_icon_menu.dart';
+import '../components/menu/card_icon_menu.dart';
+import '../components/menu/menu_manager.dart';
 import '../constants.dart';
 
 // 설정 화면

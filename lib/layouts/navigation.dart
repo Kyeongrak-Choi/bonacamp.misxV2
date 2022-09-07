@@ -2,15 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:renew_misx/components/common/menu/drawer_menu.dart';
-import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
-import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
-import 'package:renew_misx/components/dashboard/dashboard_sales.dart';
 import 'package:renew_misx/layouts/dashboard.dart';
 import 'package:renew_misx/layouts/purchase/purchase_menu.dart';
 import 'package:renew_misx/layouts/sales/sales_menu.dart';
 import 'package:renew_misx/layouts/stock/stock_menu.dart';
 import 'package:renew_misx/layouts/support/support_menu.dart';
+import '../components/menu/drawer_menu.dart';
 import '../constants.dart';
 import 'config.dart';
 import 'funtion.dart';
@@ -44,13 +41,13 @@ class Navigation extends GetView<NavigationController> {
         switch (NavigationItem.values[controller.currentIndex.value]) {
           case NavigationItem.HOME:
             return DashBoard();
-          case NavigationItem.FIRST:
+          case NavigationItem.SALES:
             return SalesMenu();
-          case NavigationItem.SECOND:
+          case NavigationItem.PURCHASE:
             return PurchaseMenu();
-          case NavigationItem.THIRD:
+          case NavigationItem.SUPPORT:
             return SupportMenu();
-          case NavigationItem.FOURTH:
+          case NavigationItem.STOCK:
             return StockMenu();
         }
       }),
@@ -72,22 +69,22 @@ class Navigation extends GetView<NavigationController> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.point_of_sale),
                 activeIcon: Icon(Icons.point_of_sale_outlined),
-                label: 'nav_sale'.tr, // 영업관리
+                label: 'nav_sales'.tr, // 영업관리
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.airport_shuttle),
                 activeIcon: Icon(Icons.airport_shuttle_outlined),
-                label: 'nav_purc'.tr, // 매입관리
+                label: 'nav_purchase'.tr, // 매입관리
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.back_hand),
                 activeIcon: Icon(Icons.back_hand_outlined),
-                label: 'nav_supp'.tr, // 지원관리
+                label: 'nav_support'.tr, // 지원관리
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.warehouse),
                 activeIcon: Icon(Icons.warehouse_outlined),
-                label: 'nav_stoc'.tr, // 재고관리
+                label: 'nav_stock'.tr, // 재고관리
               ),
             ]),
       ),

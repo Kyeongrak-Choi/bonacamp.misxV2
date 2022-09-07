@@ -35,8 +35,7 @@ class SearchList extends StatelessWidget {
                       listController.parsedResponse[index].custCd.toString(),
                       listController.parsedResponse[index].custNm.toString(),
                       listController.parsedResponse[index].custAbbNm.toString(),
-                      listController.parsedResponse[index].custStatNm
-                          .toString())
+                      listController.parsedResponse[index].custStatNm.toString())
                   : SearchListItem(
                       listController.parsedResponse[index].itmCd.toString(),
                       listController.parsedResponse[index].itmNm.toString(),

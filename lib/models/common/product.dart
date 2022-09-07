@@ -10,8 +10,16 @@ class ProductList {
   String? ut;
   String? utNm;
 
-  ProductList(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg,
-      this.ufFgNm, this.ut, this.utNm);
+  ProductList(
+      this.itmCd,
+      this.itmNm,
+      this.itmAbbNm,
+      this.stnd,
+      this.uzFg,
+      this.ufFgNm,
+      this.ut,
+      this.utNm
+      );
 
   ProductList.fromJson(Map data)
       : itmCd = data['ITM_CD'],

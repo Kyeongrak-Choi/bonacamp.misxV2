@@ -20,7 +20,6 @@ class Login extends StatelessWidget {
           color: Color(AppColor),
         ),
         child: Center(
-          //alignment: AlignmentDirectional(0, 1),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,

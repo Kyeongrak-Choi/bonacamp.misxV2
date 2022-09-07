@@ -12,7 +12,7 @@ class PolicyBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () => Get.to(PolicyWebView()),
-        child: Text('personal_info_policy'.tr),
+        child: Text('privacy_policy'.tr),
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: Color(AppColor),

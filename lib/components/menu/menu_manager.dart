@@ -49,4 +49,5 @@ final List<IconMenu> configMenu = [
   IconMenu(title : '초성검색시 첫글자부터 비교' , iconData : FontAwesomeIcons.file),
   IconMenu(title : '품목검색시 품목명 우선 선택' , iconData : FontAwesomeIcons.file),
   IconMenu(title : '영업사원 선택시 관리사원 포함' , iconData : FontAwesomeIcons.file),
+  IconMenu(title : '기능' , iconData : FontAwesomeIcons.file),
 ];

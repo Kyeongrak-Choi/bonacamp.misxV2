@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
 import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
 import 'package:renew_misx/components/dashboard/dashboard_rental.dart';
 import 'package:renew_misx/components/dashboard/dashboard_sales.dart';
-import 'package:renew_misx/constants.dart';
 
 class DashBoard extends StatelessWidget {
   @override
