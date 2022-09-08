@@ -68,18 +68,20 @@ class Login extends StatelessWidget {
                         ),
                         Padding(
                           padding:
-                          EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
+                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
                           child: LoginBtn(), // Login
                         ), // Btn
                         Padding(
                           padding:
-                          EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                           child: PolicyView(), // 개인정보 처리방침
                         ), // Btn
                         Padding(
-                          padding:
-                          EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
-                          child: Text(CopyRight,style: textTheme().subtitle2,), // CopyRight
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                          child: Text(
+                            CopyRight,
+                            style: textTheme().subtitle2,
+                          ), // CopyRight
                         ), // Btn
                       ],
                     ),

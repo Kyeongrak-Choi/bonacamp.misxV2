@@ -38,7 +38,7 @@ dependencies:
   source_span: ^1.8.2
   # reference - https://pub.dev/packages/source_span
   # descryption - source formatting
-  syncfusion_flutter_datepicker: ^20.2.48
+  # syncfusion_flutter_datepicker: ^20.2.48
   # reference - https://pub.dev/packages/syncfusion_flutter_datepicker
   # descryption - date picker
   webview_flutter: ^3.0.4

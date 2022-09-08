@@ -5,6 +5,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'dart:developer';
 
+import 'package:renew_misx/constants.dart';
+
 class OptionPeriodPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,24 @@ class PeriodPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 3),
       //initialEntryMode: DatePickerEntryMode.input,
       cancelText: 'cancel'.tr,
+      helpText: null,
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.dark(
+              primary: Colors.yellow, // header background color
+              onPrimary: Colors.black, // header text color
+              onSurface: Colors.green, // body text color
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                primary: Color(AppColor), // button text color
+              ),
+            ),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (pickedFromDate != null && pickedFromDate != fromDate.value) {
@@ -85,6 +105,7 @@ class PeriodPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 3),
       //initialEntryMode: DatePickerEntryMode.input,
       cancelText: 'cancel'.tr,
+
     );
 
     if (pickedToDate != null && pickedToDate != toDate.value) {
@@ -97,7 +118,6 @@ class PeriodPickerController extends GetxController {
   // 기간 Validation
   bool Validate() {
     log(pickedFromDate.compareTo(pickedToDate).toString());
-    //log('pickedToDate : ' + pickedToDate.toString() + ' / toDate.value : ' + toDate.value.toString());
 
     if (pickedFromDate.compareTo(pickedToDate) >= 0) {
       Get.snackbar(
