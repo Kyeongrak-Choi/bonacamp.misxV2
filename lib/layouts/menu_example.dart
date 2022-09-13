@@ -1,29 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renew_misx/components/common/combobox/option_combobox.dart';
 import 'package:renew_misx/components/common/datepicker/option_period_picker.dart';
-import 'package:renew_misx/components/menu/card_radio_menu.dart';
-import '../components/common/datepicker/option_date_picker.dart';
-import '../components/menu/card_icon_menu.dart';
-import '../components/menu/menu_manager.dart';
-import '../constants.dart';
+import 'package:renew_misx/components/common/option_visible_manager.dart';
+import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
+import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
+import 'package:renew_misx/components/dashboard/dashboard_rental.dart';
+import 'package:renew_misx/components/dashboard/dashboard_sales.dart';
+
+import 'common/dialog/search_dialog.dart';
 
 // 예제 화면
 class MenuExample extends StatelessWidget {
+
   @override
   Widget build(context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('매출원장 Exam')),
-        body: Container(
-          child: Center(
+    Get.put(MenuExampleController());
+    return Obx(() => Scaffold(
+          appBar: AppBar(
+            title: Text('매출원장 Exam'),
+            actions: [
+              IconButton(
+                icon: OptionVisibleManager(),
+                onPressed: () => null,
+              ),
+            ],
+          ),
+          body: Container(
             child: Column(
-              children: <Widget>[
-                OptionPeriodPicker(),
-                SizedBox(height: 14),
-                OptionDatePicker(),
-                //Expanded(child: SearchList()),
+              children: [
+                Visibility(
+                  visible: Get.find<MenuExampleController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionPeriodPicker(),
+                      OptionCombobox(),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView(
+                    children: <Widget>[
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                      DashBoardSales(),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
         ));
+  }
+}
+
+class MenuExampleController extends GetxController {
+  var visible = true.obs;
+
+  setVisible() async {
+    visible.value = !visible.value;
+    update();
   }
 }

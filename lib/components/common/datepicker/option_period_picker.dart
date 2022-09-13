@@ -3,38 +3,64 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
-import 'package:omni_datetime_picker/omni_datetime_picker.dart';
-import 'dart:developer';
-
-import 'package:renew_misx/constants.dart';
+import 'package:renew_misx/theme.dart';
+import '../../../constants.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PeriodPickerController());
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Obx(
-          () => TextButton(
-            onPressed: () =>
-                Get.find<PeriodPickerController>().chooseFromDate(),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                // primary: Colors.blueAccent,
+                // onPrimary: Colors.white,
+                ),
+            onPressed: () {},
             child: Text(
-              DateFormat('yyyy-MM-dd')
-                  .format(Get.find<PeriodPickerController>().fromDate.value)
-                  .toString(),
-              style: TextStyle(fontSize: 20),
+              'period'.tr,
+              style: textTheme().headline3,
             ),
-          ),
+          ), // 매출
         ),
-        Obx(
-          () => TextButton(
-            onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-            child: Text(
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          child: Obx(
+            () => TextButton(
+              onPressed: () =>
+                  Get.find<PeriodPickerController>().chooseFromDate(),
+              child: Text(
                 DateFormat('yyyy-MM-dd')
-                    .format(Get.find<PeriodPickerController>().toDate.value)
+                    .format(Get.find<PeriodPickerController>().fromDate.value)
                     .toString(),
-                style: TextStyle(fontSize: 20)),
+                style: textTheme().headline3,
+              ),
+            ),
+          ), // 매출
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          child: Text(
+            '~',
+            style: textTheme().headline3,
+          ), // 매출
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          child: Obx(
+            () => TextButton(
+              onPressed: () =>
+                  Get.find<PeriodPickerController>().chooseToDate(),
+              child: Text(
+                  DateFormat('yyyy-MM-dd')
+                      .format(Get.find<PeriodPickerController>().toDate.value)
+                      .toString(),
+                  style: textTheme().headline3),
+            ),
           ),
         ),
       ],
@@ -51,6 +77,8 @@ class PeriodPickerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    pickedFromDate = fromDate.value;
+    pickedToDate = toDate.value;
   }
 
   @override
@@ -64,56 +92,30 @@ class PeriodPickerController extends GetxController {
   }
 
   chooseFromDate() async {
-    // pickedFromDate = await showDatePicker(
-    //   context: Get.context!,
-    //   initialDate: fromDate.value,
-    //   firstDate: DateTime(DateTime.now().year - 3),
-    //   lastDate: DateTime(DateTime.now().year + 3),
-    //   //initialEntryMode: DatePickerEntryMode.input,
-    //   cancelText: 'cancel'.tr,
-    //   helpText: '',
-    //   builder: (context, child) {
-    //     return Theme(
-    //       data: Theme.of(context).copyWith(
-    //         colorScheme: ColorScheme.dark(
-    //           primary: Color(AppColor), // header background color
-    //           onPrimary: Colors.black, // header text color
-    //           onSurface: Colors.green, // body text color
-    //           background: Color(AppColor),
-    //           onBackground: Color(AppColor),
-    //
-    //         ),
-    //         textButtonTheme: TextButtonThemeData(
-    //           style: TextButton.styleFrom(
-    //             primary: Color(AppColor), // button text color
-    //           ),
-    //         ),
-    //       ),
-    //       child: child!,
-    //     );
-    //   },
-    // );
-
-    pickedFromDate = await showOmniDateTimePicker(
+    pickedFromDate = await showDatePicker(
       context: Get.context!,
-      primaryColor: Colors.cyan,
-      backgroundColor: Colors.grey[900],
-      calendarTextColor: Colors.white,
-      tabTextColor: Colors.white,
-      unselectedTabBackgroundColor: Colors.grey[700],
-      buttonTextColor: Colors.white,
-      timeSpinnerTextStyle:
-          const TextStyle(color: Colors.white70, fontSize: 18),
-      timeSpinnerHighlightedTextStyle:
-          const TextStyle(color: Colors.white, fontSize: 24),
-      is24HourMode: false,
-      isShowSeconds: false,
-      startInitialDate: DateTime.now(),
-      startFirstDate: DateTime(1600).subtract(const Duration(days: 3652)),
-      startLastDate: DateTime.now().add(
-        const Duration(days: 3652),
-      ),
-      borderRadius: const Radius.circular(16),
+      initialDate: fromDate.value,
+      firstDate: DateTime(DateTime.now().year - 2),
+      lastDate: DateTime(DateTime.now().year + 1),
+
+      //initialEntryMode: DatePickerEntryMode.input,
+      cancelText: 'cancel'.tr,
+      helpText: '',
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+              primary: Color(AppColor), // header background color
+              onPrimary: Colors.white, // header text color
+              onSurface: Color(AppColor), // body text color
+              background: Color(AppColor),
+              onBackground: Color(AppColor),
+            ),
+            textTheme: TextTheme(),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (pickedFromDate != null && pickedFromDate != fromDate.value) {
@@ -127,10 +129,26 @@ class PeriodPickerController extends GetxController {
     pickedToDate = await showDatePicker(
       context: Get.context!,
       initialDate: toDate.value,
-      firstDate: DateTime(DateTime.now().year - 3),
-      lastDate: DateTime(DateTime.now().year),
+      firstDate: DateTime(DateTime.now().year - 2),
+      lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
       cancelText: 'cancel'.tr,
+      helpText: '',
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+              primary: Color(AppColor), // header background color
+              onPrimary: Colors.white, // header text color
+              onSurface: Color(AppColor), // body text color
+              background: Color(AppColor),
+              onBackground: Color(AppColor),
+            ),
+            textTheme: TextTheme(),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (pickedToDate != null && pickedToDate != toDate.value) {
@@ -142,12 +160,10 @@ class PeriodPickerController extends GetxController {
 
   // 기간 Validation
   bool Validate() {
-    log(pickedFromDate.compareTo(pickedToDate).toString());
-
-    if (pickedFromDate.compareTo(pickedToDate) >= 0) {
+    if (pickedFromDate.compareTo(pickedToDate) > 0) {
       Get.snackbar(
-        '일자오류',
-        '일자를 확인해주세요',
+        'period_error_header'.tr,
+        'period_error_content'.tr,
         snackPosition: SnackPosition.TOP,
         forwardAnimationCurve: Curves.elasticInOut,
         reverseAnimationCurve: Curves.easeOut,

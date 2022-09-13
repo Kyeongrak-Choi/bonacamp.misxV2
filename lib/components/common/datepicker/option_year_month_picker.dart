@@ -5,7 +5,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'dart:developer';
 
-class OptionMonthPicker extends StatelessWidget {
+import 'package:month_year_picker/month_year_picker.dart';
+
+class OptionYearMonthPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +17,9 @@ class OptionMonthPicker extends StatelessWidget {
       children: [
         Obx(
           () => TextButton(
-            onPressed: () => Get.find<MonthPickerController>().chooseDate(),
+            onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
             child: Text(
-              DateFormat('yyyy-MM-dd')
+              DateFormat('yyyy-MM')
                   .format(Get.find<MonthPickerController>().date.value)
                   .toString(),
               style: TextStyle(fontSize: 20),
@@ -47,14 +49,14 @@ class MonthPickerController extends GetxController {
     super.onClose();
   }
 
-  chooseDate() async {
-    DateTime? pickedDate = await showDatePicker(
+  chooseYearMonth() async {
+    DateTime? pickedDate = await showMonthYearPicker(
       context: Get.context!,
       initialDate: date.value,
-      firstDate: DateTime(DateTime.now().year - 3),
-      lastDate: DateTime(DateTime.now().year + 3),
+      firstDate: DateTime(DateTime.now().year - 2),
+      lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
-      cancelText: 'cancel'.tr,
+      locale: const Locale('en', 'US'),
     );
 
     if (pickedDate != null && pickedDate != date.value) {

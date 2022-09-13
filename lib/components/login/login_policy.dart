@@ -13,10 +13,6 @@ class PolicyView extends StatelessWidget {
     return TextButton(
         onPressed: () => Get.to(PrivacyPolicy()),
         child: Text('privacy_policy'.tr),
-        // style: ElevatedButton.styleFrom(
-        //   foregroundColor: Colors.white,
-        //   backgroundColor: Color(AppColor),
-        // ) // foreground  ,
         );
   }
 }

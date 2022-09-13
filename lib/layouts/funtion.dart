@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:renew_misx/layouts/menu_example.dart';
-import '../components/common/dialog_search/search_dialog.dart';
+import 'common/dialog/search_dialog.dart';
 
 class UtilFunction extends StatelessWidget {
 
