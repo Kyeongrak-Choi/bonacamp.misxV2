@@ -13,54 +13,69 @@ class OptionPeriodPicker extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                // primary: Colors.blueAccent,
-                // onPrimary: Colors.white,
+        Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              child: Container(
+                width: 100.0,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      // primary: Colors.blueAccent,
+                      // onPrimary: Colors.white,
+                      ),
+                  onPressed: () {},
+                  child: Text(
+                    'opt_period'.tr,
+                    style: textTheme().headline3,
+                  ),
                 ),
-            onPressed: () {},
-            child: Text(
-              'period'.tr,
-              style: textTheme().headline3,
-            ),
-          ), // 매출
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-          child: Obx(
-            () => TextButton(
-              onPressed: () =>
-                  Get.find<PeriodPickerController>().chooseFromDate(),
-              child: Text(
-                DateFormat('yyyy-MM-dd')
-                    .format(Get.find<PeriodPickerController>().fromDate.value)
-                    .toString(),
-                style: textTheme().headline3,
+              ), // 매출
+            )),
+        Expanded(
+          flex: 3,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () =>
+                        Get.find<PeriodPickerController>().chooseFromDate(),
+                    child: Text(
+                      DateFormat('yyyy-MM-dd')
+                          .format(
+                              Get.find<PeriodPickerController>().fromDate.value)
+                          .toString(),
+                      style: textTheme().headline3,
+                    ),
+                  ),
+                ), // 매출
               ),
-            ),
-          ), // 매출
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-          child: Text(
-            '~',
-            style: textTheme().headline3,
-          ), // 매출
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-          child: Obx(
-            () => TextButton(
-              onPressed: () =>
-                  Get.find<PeriodPickerController>().chooseToDate(),
-              child: Text(
-                  DateFormat('yyyy-MM-dd')
-                      .format(Get.find<PeriodPickerController>().toDate.value)
-                      .toString(),
-                  style: textTheme().headline3),
-            ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                child: Text(
+                  '~',
+                  style: textTheme().headline3,
+                ), // 매출
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () =>
+                        Get.find<PeriodPickerController>().chooseToDate(),
+                    child: Text(
+                        DateFormat('yyyy-MM-dd')
+                            .format(
+                                Get.find<PeriodPickerController>().toDate.value)
+                            .toString(),
+                        style: textTheme().headline3),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ],

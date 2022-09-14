@@ -27,7 +27,7 @@ TextTheme textTheme() {
       color: Colors.black,
     ),
     headline3: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+      fontSize: 14.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),

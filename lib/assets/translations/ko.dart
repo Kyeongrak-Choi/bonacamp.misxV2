@@ -9,9 +9,6 @@ const Map<String, String> koKR = {
   'all': '전체',
   'search': '검색',
   'config': '설정',
-  'period' : '기간',
-  'date' : '일자',
-  'month' : '연월',
 
   // Login
   'text_id': 'ID',
@@ -46,6 +43,15 @@ const Map<String, String> koKR = {
   'nav_purchase': '매입관리',
   'nav_support': '지원관리',
   'nav_stock': '재고관리',
+
+  // option
+  'opt_period' : '기간',
+  'opt_date' : '일자',
+  'opt_month' : '연월',
+  'opt_workspace' : '사업장',
+  'opt_customer' : '거래처',
+  'opt_sales' : '영업담당',
+  'opt_manage' : '관리담당',
 
 };
 
