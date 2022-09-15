@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class IconMenu {
   String title;
@@ -52,11 +53,17 @@ final List<IconMenu> stockMenu = [
   IconMenu(title : '재고수불현황' , iconData : FontAwesomeIcons.signal),
 ];
 
-// 옵션 메뉴
-final List<RadioMenu> configMenu = [
+// 시스템 설정 메뉴
+final List<RadioMenu> systemConfig = [
+  RadioMenu(title : 'dark_mode'.tr, val : false),
+];
+
+// 메뉴 설정 메뉴
+final List<RadioMenu> menuConfig = [
   RadioMenu(title : '거래처 검색 시 거래처명 우선 선택', val : true),
   RadioMenu(title : '거래처 필터링 사용', val : true ),
   RadioMenu(title : '초성검색시 첫글자부터 비교', val : false),
   RadioMenu(title : '품목검색시 품목명 우선 선택',val : true ),
   RadioMenu(title : '영업사원 선택시 관리사원 포함', val : false),
 ];
+

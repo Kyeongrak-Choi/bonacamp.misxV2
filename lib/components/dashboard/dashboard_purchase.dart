@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../theme.dart';
+import '../../utils/theme/text_theme.dart';
+import '../../utils/theme/theme_manager.dart';
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {
@@ -19,7 +20,7 @@ class DashBoardPurchase extends StatelessWidget {
             child: Text(
               'title_purcahse'.tr,
               textAlign: TextAlign.start,
-              style: textTheme().headline3,
+              style: textThemeDark().headline3,
             ),
           ),
         ),

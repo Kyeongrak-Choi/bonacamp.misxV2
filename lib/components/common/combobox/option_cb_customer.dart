@@ -4,10 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/constants.dart';
-import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/constants.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
 
 import '../../../layouts/common/dialog/search_dialog.dart';
+import '../../../utils/theme/text_theme.dart';
 
 class OptionCbCustomer extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class OptionCbCustomer extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_customer'.tr,
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     )),
               ),
             )),
@@ -41,7 +42,7 @@ class OptionCbCustomer extends StatelessWidget {
                   onPressed: () => Get.to(SearchDialog('C')),
                   child: Obx(() => Text(
                         Get.find<CbCustomerController>().selectedValue.value,
-                        style: textTheme().headline3,
+                        style: textThemeDark().bodyText1,
                       )),
                 ))),
       ],

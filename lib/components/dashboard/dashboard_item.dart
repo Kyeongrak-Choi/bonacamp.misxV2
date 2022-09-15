@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+
+import '../../utils/theme/text_theme.dart';
 
 class DashBoardItem extends StatelessWidget {
   var code;
@@ -21,14 +23,14 @@ class DashBoardItem extends StatelessWidget {
             Container(
               child: Text(
                 code,
-                style: textTheme().bodyText1,
+                style: textThemeDark().bodyText1,
               ),
             ),
             Expanded(
               child: Text(
                 name,
                 textAlign: TextAlign.right,
-                style: textTheme().bodyText1,
+                style: textThemeDark().bodyText1,
               ),
             )
           ],

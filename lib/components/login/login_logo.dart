@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+
+import '../../utils/theme/text_theme.dart';
 
 class LoginLogo extends StatelessWidget {
   const LoginLogo({Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class LoginLogo extends StatelessWidget {
         Expanded(
           child: Text(
             'App_name'.tr,
-            style: textTheme().headline1,
+            style: textThemeDark().headline1,
           ),
         ),
       ],

@@ -27,9 +27,12 @@ dependencies:
   # reference - https://pub.dev/packages/intl
   # descryption - utility
   get: ^4.6.5
-  # https://pub.dev/packages/get
+  # https://pub.dev/packages/get_storage
   # descryption - state manager
-  shared_preferences: ^2.0.15
+  get_storage: ^2.0.3
+  # https://pub.dev/packages/get
+  # descryption - persistent storage for simple data
+  # shared_preferences: ^2.0.15
   # https://pub.dev/packages/shared_preferences
   # descryption - persistent storage for simple data (NSUserDefaults on iOS and macOS, SharedPreferences on Android)
   fl_chart: ^0.55.1

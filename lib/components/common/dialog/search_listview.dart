@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog/search_listitem.dart';
 import 'package:renew_misx/models/common/customer.dart';
 import 'package:renew_misx/utils/utillity.dart';
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 import '../../../models/common/product.dart';
 
 class SearchList extends StatelessWidget {

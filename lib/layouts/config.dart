@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/menu/card_radio_menu.dart';
-import '../components/menu/card_icon_menu.dart';
+import 'package:renew_misx/utils/theme/text_theme.dart';
 import '../components/menu/menu_manager.dart';
-import '../constants.dart';
+import '../utils/constants.dart';
 
 // 설정 화면
 class Config extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(AppColor),
+      backgroundColor: context.theme.primaryColor,
       appBar: AppBar(
         title: Text('config'.tr),
       ),
       body: ListView(
         children: <Widget>[
-          CardRadioMenu(radioMenu: configMenu),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+            child: Text(
+              'system_setting'.tr,
+              style: textThemeLight().headline3,
+            ),
+          ),
+          CardRadioMenu(radioMenu: systemConfig),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+            child: Text(
+              'menu_setting'.tr,
+              style: textThemeLight().headline3,
+            ),
+          ),
+          CardRadioMenu(radioMenu: menuConfig),
         ],
       ),
     );

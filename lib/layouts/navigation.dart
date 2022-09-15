@@ -9,7 +9,7 @@ import 'package:renew_misx/layouts/sales/sales_menu.dart';
 import 'package:renew_misx/layouts/stock/stock_menu.dart';
 import 'package:renew_misx/layouts/support/support_menu.dart';
 import '../components/menu/drawer_menu.dart';
-import '../constants.dart';
+import '../utils/constants.dart';
 import 'config.dart';
 import 'funtion.dart';
 
@@ -24,6 +24,7 @@ class Navigation extends GetView<NavigationController> {
         title: Text('App_name'.tr),
         leading: IconButton(
           icon: Icon(Icons.menu),
+          color: context.theme.primaryColor,
           onPressed: () {
             controller.openDrawer();
           },
@@ -31,6 +32,7 @@ class Navigation extends GetView<NavigationController> {
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
+            color: context.theme.primaryColor,
             onPressed: () => Get.to(Config()),
           ),
         ],
@@ -55,13 +57,13 @@ class Navigation extends GetView<NavigationController> {
       }),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-            backgroundColor: Color(AppColor),
+            backgroundColor: context.theme.primaryColorLight,
             type: BottomNavigationBarType.fixed,
             currentIndex: controller.currentIndex.value,
             showSelectedLabels: true,
             onTap: controller.changeIndex,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey.withOpacity(.50),
+            selectedItemColor: context.theme.primaryColorDark,
+            unselectedItemColor: context.theme.primaryColorDark.withOpacity(.30),
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
@@ -95,7 +97,6 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxService {
-
   static NavigationController get to => Get.find();
   RxInt currentIndex = 0.obs;
   var scaffoldKey = GlobalKey<ScaffoldState>();

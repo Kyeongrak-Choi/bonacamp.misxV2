@@ -4,8 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/constants.dart';
-import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/constants.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+
+import '../../../utils/theme/text_theme.dart';
 
 class OptionCbManage extends StatelessWidget {
   @override
@@ -27,7 +29,7 @@ class OptionCbManage extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_manage'.tr,
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     )),
               ),
             )),
@@ -39,7 +41,7 @@ class OptionCbManage extends StatelessWidget {
                   () => DropdownButtonFormField(
                     isExpanded: true,
                     value: Get.find<CbManageController>().selectedValue,
-                    style: textTheme().headline3,
+                    style: textThemeDark().bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: Color(AppColor),
                     items: Get.find<CbManageController>()
@@ -49,7 +51,7 @@ class OptionCbManage extends StatelessWidget {
                         alignment: Alignment.center,
                         value: selectedValue,
                         child:
-                            Text(selectedValue, style: textTheme().headline3),
+                            Text(selectedValue, style: textThemeDark().bodyText1),
                       );
                     }).toList(),
                     onChanged: (value) {

@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../theme.dart';
+import '../../utils/theme/text_theme.dart';
+import '../../utils/theme/theme_manager.dart';
 
 class DashBoardAdmob extends StatelessWidget {
   @override
@@ -24,7 +25,7 @@ class DashBoardAdmob extends StatelessWidget {
             child: Text(
               'admob_banner'.tr,
               textAlign: TextAlign.center,
-              style: textTheme().headline3,
+              style: textThemeDark().headline3,
             ),
           ),
         ],

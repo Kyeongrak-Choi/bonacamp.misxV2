@@ -1,18 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:renew_misx/components/login/login_btn.dart';
 import 'package:renew_misx/components/login/login_input_id.dart';
 import 'package:renew_misx/components/login/login_input_pw.dart';
 import 'package:renew_misx/components/login/login_logo.dart';
 import 'package:renew_misx/components/login/login_policy.dart';
-import 'package:renew_misx/theme.dart';
-import '../../constants.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+import '../../utils/constants.dart';
+import '../../utils/theme/text_theme.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -80,7 +86,7 @@ class Login extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                           child: Text(
                             CopyRight,
-                            style: textTheme().subtitle2,
+                            style: textThemeDark().bodyText2,
                           ), // CopyRight
                         ), // Btn
                       ],
@@ -95,3 +101,5 @@ class Login extends StatelessWidget {
     );
   }
 }
+
+

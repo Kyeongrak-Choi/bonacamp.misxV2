@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/constants.dart';
+import 'package:renew_misx/utils/constants.dart';
 import 'package:renew_misx/models/exam_model.dart';
-import '../../theme.dart';
-import 'exam_table.dart';
+import '../../utils/theme/text_theme.dart';
+import '../../utils/theme/theme_manager.dart';
 
 class ExamTableItem extends StatelessWidget {
   List<ExamModel> list = generateData(7);
@@ -25,21 +23,21 @@ class ExamTableItem extends StatelessWidget {
                   children: [
                     Text(
                       examModel.date,
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
                       examModel.type,
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
                       examModel.partNm,
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     )
                   ],
                 );
@@ -51,14 +49,14 @@ class ExamTableItem extends StatelessWidget {
                     children: [
                       Text(
                         '[BOX] ' + examModel.box.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         '[ea] ' + examModel.ea.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                     ],
                   ),
@@ -69,21 +67,21 @@ class ExamTableItem extends StatelessWidget {
                     children: [
                       Text(
                         '[매출액] ' + examModel.amt1.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         '[공급가] ' + examModel.amt2.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         '[부가세] ' + examModel.amt3.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                     ],
                   ),
@@ -94,21 +92,21 @@ class ExamTableItem extends StatelessWidget {
                     children: [
                       Text(
                         '[보증금] ' + examModel.amt4.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         '[입금액] ' + examModel.amt5.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         '[채권잔액] ' + examModel.amt6.toString(),
-                        style: textTheme().headline4,
+                        style: textThemeDark().bodyText2,
                       ),
                     ],
                   ),
@@ -124,11 +122,3 @@ class ExamTableItem extends StatelessWidget {
     );
   }
 }
-
-// class ExamTableItemController extends GetxController {
-//   var expanded = false.obs;
-//
-//   stateChange() async {
-//     expanded.value = !expanded.value;
-//   }
-// }

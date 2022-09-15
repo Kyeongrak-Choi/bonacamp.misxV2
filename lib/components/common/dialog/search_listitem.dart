@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
 
 import '../../../layouts/menu_example.dart';
+import '../../../utils/theme/text_theme.dart';
 import '../combobox/option_cb_customer.dart';
 
 class SearchListItem extends StatelessWidget {
@@ -36,7 +37,7 @@ class SearchListItem extends StatelessWidget {
               Container(
                 child: Text(
                   '[' + code + '] ' + name,
-                  style: textTheme().bodyText2,
+                  style: textThemeDark().bodyText2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -47,14 +48,14 @@ class SearchListItem extends StatelessWidget {
               Container(
                 child: Text(
                   sub,
-                  style: textTheme().bodyText2,
+                  style: textThemeDark().bodyText2,
                 ),
               ),
               Expanded(
                 child: Text(
                   stat,
                   textAlign: TextAlign.right,
-                  style: textTheme().bodyText2,
+                  style: textThemeDark().bodyText2,
                 ),
               )
             ],

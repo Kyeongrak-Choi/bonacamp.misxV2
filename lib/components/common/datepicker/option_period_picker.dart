@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
-import 'package:renew_misx/theme.dart';
-import '../../../constants.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class OptionPeriodPicker extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'opt_period'.tr,
-                    style: textTheme().headline3,
+                    style: textThemeDark().bodyText1,
                   ),
                 ),
               ), // 매출
@@ -48,7 +49,7 @@ class OptionPeriodPicker extends StatelessWidget {
                           .format(
                               Get.find<PeriodPickerController>().fromDate.value)
                           .toString(),
-                      style: textTheme().headline3,
+                      style: textThemeDark().bodyText1,
                     ),
                   ),
                 ), // 매출
@@ -57,7 +58,7 @@ class OptionPeriodPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Text(
                   '~',
-                  style: textTheme().headline3,
+                  style: textThemeDark().bodyText1,
                 ), // 매출
               ),
               Padding(
@@ -71,7 +72,7 @@ class OptionPeriodPicker extends StatelessWidget {
                             .format(
                                 Get.find<PeriodPickerController>().toDate.value)
                             .toString(),
-                        style: textTheme().headline3),
+                        style: textThemeDark().bodyText1),
                   ),
                 ),
               )
@@ -126,7 +127,7 @@ class PeriodPickerController extends GetxController {
               background: Color(AppColor),
               onBackground: Color(AppColor),
             ),
-            textTheme: TextTheme(),
+            textTheme: textThemeDark(),
           ),
           child: child!,
         );
@@ -159,7 +160,7 @@ class PeriodPickerController extends GetxController {
               background: Color(AppColor),
               onBackground: Color(AppColor),
             ),
-            textTheme: TextTheme(),
+            textTheme: textThemeDark(),
           ),
           child: child!,
         );

@@ -19,6 +19,11 @@ const Map<String, String> koKR = {
   'privacy_policy': '개인정보 처리방침',
   'admob_banner' : '광고배너',
 
+  // config
+  'system_setting' : '시스템 설정',
+  'menu_setting' : '메뉴 설정',
+  'dark_mode' : '다크 모드',
+
   // Dialog search customer
   'title_search_customer': '거래처 검색',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
@@ -52,6 +57,8 @@ const Map<String, String> koKR = {
   'opt_customer' : '거래처',
   'opt_sales' : '영업담당',
   'opt_manage' : '관리담당',
+
+
 
 };
 

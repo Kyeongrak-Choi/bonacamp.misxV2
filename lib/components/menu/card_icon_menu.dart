@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renew_misx/constants.dart';
-import '../../../theme.dart';
+import 'package:get/get.dart';
+import 'package:renew_misx/utils/constants.dart';
+import '../../utils/theme/text_theme.dart';
+import '../../utils/theme/theme_manager.dart';
 import 'menu_manager.dart';
 
 class CardIconMenu extends StatelessWidget {
@@ -15,7 +17,7 @@ class CardIconMenu extends StatelessWidget {
       elevation: 0.5,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: Color(AppColor),
+      color: context.theme.primaryColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -42,7 +44,7 @@ class CardIconMenu extends StatelessWidget {
           SizedBox(width: 20),
           Text(
             title,
-            style: textTheme().subtitle1,
+            style: textThemeDark().subtitle1,
           )
         ],
       ),

@@ -3,8 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/common/dialog/search_listview.dart';
-import 'package:renew_misx/theme.dart';
-import '../../../constants.dart';
+import 'package:renew_misx/utils/theme/theme_manager.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
 
 class SearchOption extends StatelessWidget {
   var flag;
@@ -29,9 +30,9 @@ class SearchOption extends StatelessWidget {
                 filled: true,
                 // fillColor: Color(AppColor),
                 hintText: hint,
-                hintStyle: textTheme().bodyText1,
+                hintStyle: textThemeDark().bodyText1,
               ),
-              style: textTheme().bodyText1),
+              style: textThemeDark().bodyText1),
         ),
         Container(
           width: 70,

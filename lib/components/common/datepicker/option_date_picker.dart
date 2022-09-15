@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
+import '../../../utils/theme/theme_manager.dart';
 
 class OptionDatePicker extends StatelessWidget {
   @override
@@ -66,7 +68,7 @@ class DatePickerController extends GetxController {
               background: Color(AppColor),
               onBackground: Color(AppColor),
             ),
-            textTheme: TextTheme(),
+            textTheme: textThemeDark(),
           ),
           child: child!,
         );
