@@ -41,6 +41,11 @@ TextTheme textTheme() {
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
+    headline6: GoogleFonts.nanumGothic(
+      fontSize: 10.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
     subtitle1: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,

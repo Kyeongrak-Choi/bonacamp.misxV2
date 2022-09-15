@@ -8,7 +8,9 @@ class ExamTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [ExamTableItem(), ExamTableItem(),ExamTableItem(), ExamTableItem(),ExamTableItem(), ExamTableItem()],
+      children: [
+        ExamTableItem(),
+      ],
     );
   }
 }

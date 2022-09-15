@@ -20,7 +20,7 @@ class Misx extends StatelessWidget {
       fallbackLocale: Locale('ko', 'KR'), // default locale set
       initialBinding: InitBinding(),
       theme: theme(),
-      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.white),
+      //darkTheme: ThemeData.light().copyWith(primaryColor: Colors.white),
       supportedLocales: [
         const Locale('ko', 'KR'),
       ],
