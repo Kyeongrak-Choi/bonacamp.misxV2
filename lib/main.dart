@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/assets/translations/strings.dart';
+import 'package:renew_misx/theme.dart';
+import 'package:renew_misx/utils/binding.dart';
+import 'layouts/login/login.dart';
 
 void main() {
   runApp(Misx());
@@ -11,37 +14,22 @@ class Misx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      translations: Strings(),
+      debugShowCheckedModeBanner: false, // in emulator hide 'debug'
+      translations: Strings(), // multi language
       locale: Get.deviceLocale,
-      fallbackLocale: Locale('ko', 'KR'),
-      theme: ThemeData(primarySwatch: Colors.blue),
-      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
+      fallbackLocale: Locale('ko', 'KR'), // default locale set
+      initialBinding: InitBinding(),
+      theme: theme(),
+      //darkTheme: ThemeData.light().copyWith(primaryColor: Colors.white),
+      supportedLocales: [
+        const Locale('ko', 'KR'),
+      ],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       home: Login(),
-    );
-  }
-}
-
-class Login extends StatefulWidget {
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: Get.isDarkMode
-            ? SystemUiOverlayStyle.light
-            : SystemUiOverlayStyle.dark,
-        title: Text('App_name'.tr),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-      ),
     );
   }
 }
