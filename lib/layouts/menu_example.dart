@@ -7,13 +7,7 @@ import 'package:renew_misx/components/common/combobox/option_cb_sale.dart';
 import 'package:renew_misx/components/common/combobox/option_cb_workspace.dart';
 import 'package:renew_misx/components/common/datepicker/option_period_picker.dart';
 import 'package:renew_misx/components/common/button/option_btn_visible.dart';
-import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
-import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
-import 'package:renew_misx/components/dashboard/dashboard_rental.dart';
-import 'package:renew_misx/components/dashboard/dashboard_sales.dart';
-
 import '../components/datatable/exam_table.dart';
-import 'common/dialog/search_dialog.dart';
 
 // 예제 화면
 class MenuExample extends StatelessWidget {
@@ -23,6 +17,8 @@ class MenuExample extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
             title: Text('매출원장 Exam'),
+            backgroundColor: context.theme.backgroundColor,
+            iconTheme: context.theme.iconTheme,
             actions: [
               IconButton(
                 icon: OptionBtnVisible(),
@@ -31,6 +27,7 @@ class MenuExample extends StatelessWidget {
             ],
           ),
           body: Container(
+            color: context.theme.backgroundColor,
             child: Column(
               children: [
                 Visibility(

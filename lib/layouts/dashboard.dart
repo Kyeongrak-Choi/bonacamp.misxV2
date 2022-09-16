@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renew_misx/components/dashboard/dashboard_admob.dart';
 import 'package:renew_misx/components/dashboard/dashboard_chart.dart';
 import 'package:renew_misx/components/dashboard/dashboard_purchase.dart';
@@ -9,6 +10,7 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.theme.backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

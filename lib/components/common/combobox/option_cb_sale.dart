@@ -23,13 +23,12 @@ class OptionCbSale extends StatelessWidget {
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        // primary: Colors.blueAccent,
-                        // onPrimary: Colors.white,
-                        ),
+                      backgroundColor: context.theme.canvasColor,
+                    ),
                     onPressed: () {},
                     child: Text(
                       'opt_sales'.tr,
-                      style: textThemeDark().bodyText1,
+                      style: context.textTheme.bodyText1,
                     )),
               ),
             )),
@@ -41,16 +40,18 @@ class OptionCbSale extends StatelessWidget {
                   () => DropdownButtonFormField(
                     isExpanded: true,
                     value: Get.find<CbSaleController>().selectedValue,
-                    style: textThemeDark().headline3,
+                    style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: Color(AppColor),
+                    dropdownColor: context.theme.backgroundColor,
                     items:
                         Get.find<CbSaleController>().data.map((selectedValue) {
                       return DropdownMenuItem(
                         alignment: Alignment.center,
                         value: selectedValue,
-                        child:
-                            Text(selectedValue, style: textThemeDark().bodyText1),
+                        child: Text(
+                          selectedValue,
+                          style: context.textTheme.bodyText1,
+                        ),
                       );
                     }).toList(),
                     onChanged: (value) {

@@ -17,34 +17,35 @@ class CardIconMenu extends StatelessWidget {
       elevation: 0.5,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.primaryColor,
+      color: context.theme.backgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: List.generate(
               iconMenuList.length,
-              (index) => _buildRowIconItem(
-                  iconMenuList[index].title, iconMenuList[index].iconData)),
+              (index) => buildRowIconItem(
+                  iconMenuList[index].title, iconMenuList[index].iconData,context)),
         ),
       ),
     );
   }
 
-  Widget _buildRowIconItem(String title, IconData iconData) {
+  Widget buildRowIconItem(String title, IconData iconData, BuildContext context) {
     return Container(
       height: 50,
-      color: Color(AppColor),
+      //color: Color(AppColor),
+      color: context.theme.backgroundColor,
       child: Row(
         children: [
           Icon(
             iconData,
             size: 17,
-            color: Colors.white,
+            color: context.theme.primaryColor ,
           ),
           SizedBox(width: 20),
           Text(
             title,
-            style: textThemeDark().subtitle1,
+            style: context.textTheme.subtitle1,
           )
         ],
       ),

@@ -18,7 +18,7 @@ class LoginInputPw extends StatelessWidget {
           child: TextFormField(
             obscureText: true,
             maxLength: 16,
-            style: textThemeDark().subtitle2,
+            style: textThemeLogin().headline2,
             decoration: InputDecoration(
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,

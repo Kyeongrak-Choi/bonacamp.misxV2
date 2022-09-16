@@ -18,14 +18,14 @@ class DashBoardAdmob extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: 50,
             decoration: BoxDecoration(
-              color: Colors.black26,
+              color: context.theme.canvasColor,
               borderRadius: BorderRadius.circular(10),
               shape: BoxShape.rectangle,
             ),
             child: Text(
               'admob_banner'.tr,
               textAlign: TextAlign.center,
-              style: textThemeDark().headline3,
+              style: context.textTheme.headline3,
             ),
           ),
         ],

@@ -21,35 +21,33 @@ class DashBoardSales extends StatelessWidget {
             child: Text(
               'title_sales'.tr,
               textAlign: TextAlign.start,
-              style: textThemeDark().headline3,
+              style: context.textTheme.headline3,
             ),
           ),
         ),
         Container(
-          decoration: BoxDecoration(
-            color: Colors.black26,
-            borderRadius: BorderRadius.circular(20),
-            shape: BoxShape.rectangle,
-          ),
-          child: Column(
-            children: [
-              // dummy
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                child: DashBoardItem( '매출금액', '890,380'), // 매출
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                child: DashBoardItem( '공급금액', '805,800'), // 매출
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                child: DashBoardItem( '채권잔액', '4,636,346'), // 매출
-              ),
-            ],
-          )
-
-        ),
+            decoration: BoxDecoration(
+              color: context.theme.canvasColor,
+              borderRadius: BorderRadius.circular(20),
+              shape: BoxShape.rectangle,
+            ),
+            child: Column(
+              children: [
+                // dummy
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                  child: DashBoardItem('매출금액', '890,380'), // 매출
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                  child: DashBoardItem('공급금액', '805,800'), // 매출
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                  child: DashBoardItem('채권잔액', '4,636,346'), // 매출
+                ),
+              ],
+            )),
       ],
     );
   }

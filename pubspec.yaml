@@ -29,7 +29,7 @@ dependencies:
   get: ^4.6.5
   # https://pub.dev/packages/get_storage
   # descryption - state manager
-  get_storage: ^2.0.3
+  # get_storage: ^2.0.3
   # https://pub.dev/packages/get
   # descryption - persistent storage for simple data
   # shared_preferences: ^2.0.15

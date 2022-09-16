@@ -16,7 +16,7 @@ class LoginLogo extends StatelessWidget {
         Expanded(
           child: Text(
             'App_name'.tr,
-            style: textThemeDark().headline1,
+            style: textThemeLogin().headline1,
           ),
         ),
       ],

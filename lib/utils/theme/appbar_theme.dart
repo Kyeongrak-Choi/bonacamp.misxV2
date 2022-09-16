@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:renew_misx/utils/theme/text_theme.dart';
 import '../constants.dart';
 
@@ -11,7 +8,7 @@ AppBarTheme appBarThemeLight() {
       centerTitle: false,
       color: Colors.white,
       elevation: 0.0,
-      titleTextStyle: textThemeDark().headline3);
+      titleTextStyle: textThemeLight().headline3);
 }
 
 AppBarTheme appBarThemeDark() {
@@ -19,5 +16,5 @@ AppBarTheme appBarThemeDark() {
       centerTitle: false,
       color: Color(AppColor),
       elevation: 0.0,
-      titleTextStyle: textThemeLight().headline3);
+      titleTextStyle: textThemeDark().headline3);
 }

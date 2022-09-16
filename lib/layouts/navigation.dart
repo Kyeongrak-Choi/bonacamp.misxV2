@@ -57,14 +57,16 @@ class Navigation extends GetView<NavigationController> {
       }),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-            backgroundColor: context.theme.primaryColorLight,
+            backgroundColor: context.theme.backgroundColor,
             type: BottomNavigationBarType.fixed,
             currentIndex: controller.currentIndex.value,
             showSelectedLabels: true,
             onTap: controller.changeIndex,
-            selectedItemColor: context.theme.primaryColorDark,
-            unselectedItemColor: context.theme.primaryColorDark.withOpacity(.30),
+            selectedItemColor: context.theme.primaryColor,
+            unselectedItemColor: context.theme.primaryColor.withOpacity(.30),
             items: [
+
+
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 activeIcon: Icon(Icons.home_outlined),

@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
-import 'package:renew_misx/utils/theme/theme_manager.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
   @override
@@ -19,19 +16,17 @@ class OptionPeriodPicker extends StatelessWidget {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
               child: Container(
-                width: 100.0,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      // primary: Colors.blueAccent,
-                      // onPrimary: Colors.white,
-                      ),
+                    backgroundColor: context.theme.canvasColor,
+                  ),
                   onPressed: () {},
                   child: Text(
                     'opt_period'.tr,
-                    style: textThemeDark().bodyText1,
+                    style: context.textTheme.bodyText1,
                   ),
                 ),
-              ), // 매출
+              ),
             )),
         Expanded(
           flex: 3,
@@ -49,7 +44,7 @@ class OptionPeriodPicker extends StatelessWidget {
                           .format(
                               Get.find<PeriodPickerController>().fromDate.value)
                           .toString(),
-                      style: textThemeDark().bodyText1,
+                      style: context.textTheme.bodyText1,
                     ),
                   ),
                 ), // 매출
@@ -58,7 +53,7 @@ class OptionPeriodPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Text(
                   '~',
-                  style: textThemeDark().bodyText1,
+                  style: context.textTheme.bodyText1,
                 ), // 매출
               ),
               Padding(
@@ -72,7 +67,7 @@ class OptionPeriodPicker extends StatelessWidget {
                             .format(
                                 Get.find<PeriodPickerController>().toDate.value)
                             .toString(),
-                        style: textThemeDark().bodyText1),
+                        style: context.textTheme.bodyText1),
                   ),
                 ),
               )
@@ -119,16 +114,7 @@ class PeriodPickerController extends GetxController {
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Color(AppColor), // header background color
-              onPrimary: Colors.white, // header text color
-              onSurface: Color(AppColor), // body text color
-              background: Color(AppColor),
-              onBackground: Color(AppColor),
-            ),
-            textTheme: textThemeDark(),
-          ),
+          data: context.theme,
           child: child!,
         );
       },
@@ -152,16 +138,7 @@ class PeriodPickerController extends GetxController {
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Color(AppColor), // header background color
-              onPrimary: Colors.white, // header text color
-              onSurface: Color(AppColor), // body text color
-              background: Color(AppColor),
-              onBackground: Color(AppColor),
-            ),
-            textTheme: textThemeDark(),
-          ),
+          data: context.theme,
           child: child!,
         );
       },

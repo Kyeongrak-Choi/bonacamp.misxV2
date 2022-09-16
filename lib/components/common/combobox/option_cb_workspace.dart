@@ -1,13 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:renew_misx/utils/constants.dart';
-import 'package:renew_misx/utils/theme/theme_manager.dart';
-
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbWorkspace extends StatelessWidget {
   @override
@@ -23,13 +18,12 @@ class OptionCbWorkspace extends StatelessWidget {
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        // primary: Colors.blueAccent,
-                        // onPrimary: Colors.white,
-                        ),
+                      backgroundColor: context.theme.canvasColor,
+                    ),
                     onPressed: () {},
                     child: Text(
                       'opt_workspace'.tr,
-                      style: textThemeDark().bodyText1,
+                      style: context.textTheme.bodyText1,
                     )),
               ),
             )),
@@ -41,7 +35,7 @@ class OptionCbWorkspace extends StatelessWidget {
                   () => DropdownButtonFormField(
                     isExpanded: true,
                     value: Get.find<CbWorkspaceController>().selectedValue,
-                    style: textThemeDark().bodyText1,
+                    style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: Color(AppColor),
                     items: Get.find<CbWorkspaceController>()
@@ -50,8 +44,8 @@ class OptionCbWorkspace extends StatelessWidget {
                       return DropdownMenuItem(
                         alignment: Alignment.center,
                         value: selectedValue,
-                        child:
-                            Text(selectedValue, style: textThemeDark().bodyText1),
+                        child: Text(selectedValue,
+                            style: context.textTheme.bodyText1),
                       );
                     }).toList(),
                     onChanged: (value) {

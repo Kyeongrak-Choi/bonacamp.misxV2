@@ -24,13 +24,12 @@ class OptionCbCustomer extends StatelessWidget {
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        // primary: Colors.blueAccent,
-                        // onPrimary: Colors.white,
+                      backgroundColor: context.theme.canvasColor,
                         ),
                     onPressed: () {},
                     child: Text(
                       'opt_customer'.tr,
-                      style: textThemeDark().bodyText1,
+                      style: context.textTheme.bodyText1,
                     )),
               ),
             )),
@@ -42,7 +41,7 @@ class OptionCbCustomer extends StatelessWidget {
                   onPressed: () => Get.to(SearchDialog('C')),
                   child: Obx(() => Text(
                         Get.find<CbCustomerController>().selectedValue.value,
-                        style: textThemeDark().bodyText1,
+                        style: context.textTheme.bodyText1,
                       )),
                 ))),
       ],
@@ -59,20 +58,8 @@ class CbCustomerController extends GetxController {
     selectedValue = 'all'.tr.obs;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   chooseItem(code, name) async {
     selectedValue = RxString(name).value.obs;
-
-    refresh();
     update();
   }
 

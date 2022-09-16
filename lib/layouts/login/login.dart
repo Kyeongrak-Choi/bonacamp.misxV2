@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:renew_misx/components/login/login_btn.dart';
 import 'package:renew_misx/components/login/login_input_id.dart';
 import 'package:renew_misx/components/login/login_input_pw.dart';
@@ -86,7 +82,7 @@ class Login extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                           child: Text(
                             CopyRight,
-                            style: textThemeDark().bodyText2,
+                            style: textThemeLogin().bodyText2,
                           ), // CopyRight
                         ), // Btn
                       ],

@@ -13,6 +13,7 @@ class Themes {
     primaryColor: Color(AppColor),
     primaryColorLight: Colors.white,
     primaryColorDark: Color(AppColor),
+    canvasColor: Colors.blueGrey,
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
       buttonColor: Colors.white,
@@ -25,8 +26,9 @@ class Themes {
     backgroundColor: Color(AppColor),
     bottomAppBarColor: Color(AppColor),
     primaryColor: Colors.white,
-    primaryColorLight: Color(AppColor),
-    primaryColorDark: Colors.white,
+    primaryColorLight: Colors.white,
+    primaryColorDark: Color(AppColor),
+    canvasColor: Colors.black26,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(
       buttonColor: Color(AppColor),

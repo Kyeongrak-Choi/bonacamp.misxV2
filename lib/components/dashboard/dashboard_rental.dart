@@ -20,13 +20,13 @@ class DashBoardRental extends StatelessWidget {
             child: Text(
               'title_rental'.tr,
               textAlign: TextAlign.start,
-              style: textThemeDark().headline3,
+              style: context.textTheme.headline3,
             ),
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            color: Colors.black26,
+            color: context.theme.canvasColor,
             borderRadius: BorderRadius.circular(20),
             shape: BoxShape.rectangle,
           ),

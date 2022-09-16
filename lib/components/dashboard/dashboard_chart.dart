@@ -2,20 +2,22 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../utils/theme/text_theme.dart';
-import '../../utils/theme/theme_manager.dart';
+
+import '../../main.dart';
+import '../../utils/constants.dart';
 
 class DashBoardChart extends StatelessWidget {
 
   // dummy
   bool showAvg = false;
   List<Color> gradientColors = [
-    const Color(0xff23b6e6),
-    const Color(0xff02d39a),
+     const Color(0xff23b6e6),
+     const Color(0xff02d39a),
   ];
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ThemeModeController());
     return Stack(
       children: <Widget>[
         AspectRatio(
@@ -25,7 +27,8 @@ class DashBoardChart extends StatelessWidget {
                 borderRadius: BorderRadius.all(
                   Radius.circular(18),
                 ),
-                color: Color(0xff232d37)),
+                //color: Color(0xff232d37)
+            ),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -43,7 +46,7 @@ class DashBoardChart extends StatelessWidget {
             child: Text(
               'title_status'.tr,
               textAlign: TextAlign.start,
-              style: textThemeDark().headline3,
+              style: context.textTheme.headline3,
             ),
           ),
         ),
