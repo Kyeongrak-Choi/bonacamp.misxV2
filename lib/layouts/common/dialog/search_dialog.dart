@@ -16,8 +16,14 @@ class SearchDialog extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-        appBar: AppBar(title: Text(title)),
+        appBar: AppBar(
+          title: Text(title),
+          backgroundColor: context.theme.backgroundColor,
+          iconTheme: context.theme.iconTheme,
+        ),
+        backgroundColor: context.theme.backgroundColor,
         body: Container(
+          color: context.theme.backgroundColor,
           child: Center(
             child: Column(
               children: <Widget>[

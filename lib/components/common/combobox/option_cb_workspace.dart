@@ -37,7 +37,7 @@ class OptionCbWorkspace extends StatelessWidget {
                     value: Get.find<CbWorkspaceController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: Color(AppColor),
+                    dropdownColor: context.theme.backgroundColor,
                     items: Get.find<CbWorkspaceController>()
                         .data
                         .map((selectedValue) {

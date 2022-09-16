@@ -25,7 +25,7 @@ class OptionCbCustomer extends StatelessWidget {
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: context.theme.canvasColor,
-                        ),
+                    ),
                     onPressed: () {},
                     child: Text(
                       'opt_customer'.tr,
@@ -62,5 +62,4 @@ class CbCustomerController extends GetxController {
     selectedValue = RxString(name).value.obs;
     update();
   }
-
 }

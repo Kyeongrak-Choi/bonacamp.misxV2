@@ -4,7 +4,6 @@ import '../../components/menu/card_icon_menu.dart';
 import '../../components/menu/menu_manager.dart';
 
 class PurchaseMenu extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -8,6 +8,7 @@ import '../../../utils/constants.dart';
 import '../../../utils/theme/text_theme.dart';
 
 class SearchOption extends StatelessWidget {
+
   var flag;
   var hint;
   var dummy;
@@ -17,38 +18,39 @@ class SearchOption extends StatelessWidget {
     initVar(flag);
   }
 
-  SearchListController listController = Get.put(SearchListController());
-
   @override
   Widget build(context) {
-    return Row(
-      children: [
-        Expanded(
-          child: TextField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                filled: true,
-                // fillColor: Color(AppColor),
-                hintText: hint,
-                hintStyle: textThemeDark().bodyText1,
-              ),
-              style: textThemeDark().bodyText1),
-        ),
-        Container(
-          width: 70,
-          child: Center(
-            child: GestureDetector(
-              onTap: () {
-                listController.search(dummy);
-              },
-              child: Icon(
-                Icons.search,
-                color: Colors.white,
+    Get.put(SearchListController());
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  filled: true,
+                  hintText: hint,
+                  hintStyle: context.textTheme.bodyText1,
+                ),
+                style: context.textTheme.bodyText1),
+          ),
+          Container(
+            width: 70,
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  Get.find<SearchListController>().search(dummy);
+                },
+                child: Icon(
+                  Icons.search,
+                  color: context.theme.primaryColor,
+                ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 

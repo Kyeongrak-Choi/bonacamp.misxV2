@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../utils/theme/text_theme.dart';
-import '../../utils/theme/theme_manager.dart';
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {
@@ -25,29 +23,28 @@ class DashBoardPurchase extends StatelessWidget {
           ),
         ),
         Container(
-          decoration: BoxDecoration(
-            color: context.theme.canvasColor,
-            borderRadius: BorderRadius.circular(20),
-            shape: BoxShape.rectangle,
-          ),
+            decoration: BoxDecoration(
+              color: context.theme.canvasColor,
+              borderRadius: BorderRadius.circular(20),
+              shape: BoxShape.rectangle,
+            ),
             child: Column(
               children: [
                 // dummy
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem( '매입금액', '157,380'), // 매출
+                  child: DashBoardItem('매입금액', '157,380'),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem( '공급금액', '143,520'), // 매출
+                  child: DashBoardItem('공급금액', '143,520'),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                  child: DashBoardItem( '채무잔액', '5,123,346'), // 매출
+                  child: DashBoardItem('채무잔액', '5,123,346'),
                 ),
               ],
-            )
-        ),
+            )),
       ],
     );
   }

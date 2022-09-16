@@ -47,14 +47,14 @@ class OptionPeriodPicker extends StatelessWidget {
                       style: context.textTheme.bodyText1,
                     ),
                   ),
-                ), // 매출
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Text(
                   '~',
                   style: context.textTheme.bodyText1,
-                ), // 매출
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
@@ -108,7 +108,6 @@ class PeriodPickerController extends GetxController {
       initialDate: fromDate.value,
       firstDate: DateTime(DateTime.now().year - 2),
       lastDate: DateTime(DateTime.now().year + 1),
-
       //initialEntryMode: DatePickerEntryMode.input,
       cancelText: 'cancel'.tr,
       helpText: '',

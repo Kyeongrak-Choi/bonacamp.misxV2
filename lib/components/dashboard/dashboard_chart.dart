@@ -7,12 +7,11 @@ import '../../main.dart';
 import '../../utils/constants.dart';
 
 class DashBoardChart extends StatelessWidget {
-
   // dummy
   bool showAvg = false;
   List<Color> gradientColors = [
-     const Color(0xff23b6e6),
-     const Color(0xff02d39a),
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
   ];
 
   @override
@@ -24,10 +23,10 @@ class DashBoardChart extends StatelessWidget {
           aspectRatio: 1.70,
           child: Container(
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(18),
-                ),
-                //color: Color(0xff232d37)
+              borderRadius: BorderRadius.all(
+                Radius.circular(18),
+              ),
+              //color: Color(0xff232d37)
             ),
             child: Padding(
               padding: const EdgeInsets.only(

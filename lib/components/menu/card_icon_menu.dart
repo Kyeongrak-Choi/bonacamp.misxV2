@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/utils/constants.dart';
-import '../../utils/theme/text_theme.dart';
-import '../../utils/theme/theme_manager.dart';
 import 'menu_manager.dart';
 
 class CardIconMenu extends StatelessWidget {
@@ -23,14 +20,15 @@ class CardIconMenu extends StatelessWidget {
         child: Column(
           children: List.generate(
               iconMenuList.length,
-              (index) => buildRowIconItem(
-                  iconMenuList[index].title, iconMenuList[index].iconData,context)),
+              (index) => buildRowIconItem(iconMenuList[index].title,
+                  iconMenuList[index].iconData, context)),
         ),
       ),
     );
   }
 
-  Widget buildRowIconItem(String title, IconData iconData, BuildContext context) {
+  Widget buildRowIconItem(
+      String title, IconData iconData, BuildContext context) {
     return Container(
       height: 50,
       //color: Color(AppColor),
@@ -40,7 +38,7 @@ class CardIconMenu extends StatelessWidget {
           Icon(
             iconData,
             size: 17,
-            color: context.theme.primaryColor ,
+            color: context.theme.primaryColor,
           ),
           SizedBox(width: 20),
           Text(

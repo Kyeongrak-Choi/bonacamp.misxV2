@@ -11,12 +11,11 @@ import '../../../models/common/product.dart';
 class SearchList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SearchListController listController = Get.put(SearchListController());
-
+    Get.put(SearchListController());
     return Obx(() => ListView.separated(
           shrinkWrap: true,
           padding: const EdgeInsets.all(10),
-          itemCount: listController.datas.length,
+          itemCount: Get.find<SearchListController>().datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 5,
@@ -27,19 +26,43 @@ class SearchList extends StatelessWidget {
             return GestureDetector(
                 child: Container(
               height: 50,
-              color: Color(AppColor),
+              color: context.theme.backgroundColor,
               padding: const EdgeInsets.all(5),
-              child: listController.flag == 'C'
+              child: Get.find<SearchListController>().flag == 'C'
                   ? SearchListItem(
-                      listController.parsedResponse[index].custCd.toString(),
-                      listController.parsedResponse[index].custNm.toString(),
-                      listController.parsedResponse[index].custAbbNm.toString(),
-                      listController.parsedResponse[index].custStatNm.toString())
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custCd
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custAbbNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custStatNm
+                          .toString())
                   : SearchListItem(
-                      listController.parsedResponse[index].itmCd.toString(),
-                      listController.parsedResponse[index].itmNm.toString(),
-                      listController.parsedResponse[index].itmAbbNm.toString(),
-                      listController.parsedResponse[index].ufFgNm.toString()),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmCd
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmAbbNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .ufFgNm
+                          .toString()),
             ));
           },
         ));

@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/dashboard/dashboard_item.dart';
-import 'package:renew_misx/utils/theme/theme_manager.dart';
-
-import '../../utils/theme/text_theme.dart';
 
 class DashBoardSales extends StatelessWidget {
   const DashBoardSales({Key? key}) : super(key: key);
@@ -36,15 +33,15 @@ class DashBoardSales extends StatelessWidget {
                 // dummy
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem('매출금액', '890,380'), // 매출
+                  child: DashBoardItem('매출금액', '890,380'),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem('공급금액', '805,800'), // 매출
+                  child: DashBoardItem('공급금액', '805,800'),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                  child: DashBoardItem('채권잔액', '4,636,346'), // 매출
+                  child: DashBoardItem('채권잔액', '4,636,346'),
                 ),
               ],
             )),

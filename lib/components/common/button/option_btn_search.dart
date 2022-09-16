@@ -20,8 +20,7 @@ class OptionBtnSearch extends StatelessWidget {
                 onPressed: () {
                   Get.find<MenuExampleController>().setVisible();
                 },
-                child:
-                    Icon(Icons.search, color: context.theme.primaryColor),
+                child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: context.theme.canvasColor,

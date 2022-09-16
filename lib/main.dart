@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/assets/translations/strings.dart';
-import 'package:renew_misx/utils/constants.dart';
 import 'package:renew_misx/utils/theme/theme_manager.dart';
-import 'components/menu/card_radio_menu.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
 
@@ -45,17 +43,15 @@ class InitBinding implements Bindings {
 }
 
 class ThemeModeController extends GetxController {
-   RxBool isDark = false.obs;
+  RxBool isDark = false.obs;
 
   @override
   void onInit() {
     super.onInit();
   }
-  //ThemeData get theme => isDark ? Themes.dark : Themes.light;
 
   void changeTheme(bool val) {
     isDark.value = val;
     Get.changeThemeMode(isDark.value ? ThemeMode.dark : ThemeMode.light);
   }
 }
-

@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
-import 'dart:developer';
-
 import 'package:month_year_picker/month_year_picker.dart';
 
 class OptionYearMonthPicker extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(MonthPickerController());
@@ -17,7 +14,8 @@ class OptionYearMonthPicker extends StatelessWidget {
       children: [
         Obx(
           () => TextButton(
-            onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
+            onPressed: () =>
+                Get.find<MonthPickerController>().chooseYearMonth(),
             child: Text(
               DateFormat('yyyy-MM')
                   .format(Get.find<MonthPickerController>().date.value)

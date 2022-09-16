@@ -5,16 +5,12 @@ import 'package:renew_misx/components/login/login_input_id.dart';
 import 'package:renew_misx/components/login/login_input_pw.dart';
 import 'package:renew_misx/components/login/login_logo.dart';
 import 'package:renew_misx/components/login/login_policy.dart';
-import 'package:renew_misx/utils/theme/theme_manager.dart';
 import '../../utils/constants.dart';
 import '../../utils/theme/text_theme.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -33,7 +29,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 36, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
@@ -72,19 +68,19 @@ class Login extends StatelessWidget {
                           padding:
                               EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
                           child: LoginBtn(), // Login
-                        ), // Btn
+                        ),
                         Padding(
                           padding:
                               EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                           child: PolicyView(), // 개인정보 처리방침
-                        ), // Btn
+                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                           child: Text(
                             CopyRight,
                             style: textThemeLogin().bodyText2,
-                          ), // CopyRight
-                        ), // Btn
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -97,5 +93,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-
-

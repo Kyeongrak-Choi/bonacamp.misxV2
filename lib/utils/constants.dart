@@ -1,6 +1,6 @@
 
 //System
-const AppName = 'MISX';
+const AppName = 'MISX Ver2';
 const AppColor = 0xFF262D34;
 const CopyRight = 'Copyright 2022. BONACAMP All rights reserved.';
 

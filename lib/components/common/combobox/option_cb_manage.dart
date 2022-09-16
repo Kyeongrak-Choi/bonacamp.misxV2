@@ -49,8 +49,10 @@ class OptionCbManage extends StatelessWidget {
                       return DropdownMenuItem(
                         alignment: Alignment.center,
                         value: selectedValue,
-                        child: Text(selectedValue,
-                            style: context.textTheme.bodyText1,),
+                        child: Text(
+                          selectedValue,
+                          style: context.textTheme.bodyText1,
+                        ),
                       );
                     }).toList(),
                     onChanged: (value) {

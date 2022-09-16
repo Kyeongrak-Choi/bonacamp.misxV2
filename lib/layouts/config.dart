@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renew_misx/components/menu/card_radio_menu.dart';
-import 'package:renew_misx/utils/theme/text_theme.dart';
 import '../components/menu/menu_manager.dart';
-import '../utils/constants.dart';
 
 // 설정 화면
 class Config extends StatelessWidget {

@@ -1,12 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/utils/constants.dart';
 import '../../main.dart';
-import '../../utils/theme/text_theme.dart';
-import '../../utils/theme/theme_manager.dart';
 import 'menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {
@@ -26,9 +21,10 @@ class CardRadioMenu extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: List.generate(
-              radioMenu.length,
-              (index) =>
-                  buildRowItem(radioMenu[index].title, radioMenu[index].val,context),),
+            radioMenu.length,
+            (index) => buildRowItem(
+                radioMenu[index].title, radioMenu[index].val, context),
+          ),
         ),
       ),
     );
@@ -57,5 +53,3 @@ class CardRadioMenu extends StatelessWidget {
     );
   }
 }
-
-

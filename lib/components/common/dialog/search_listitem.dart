@@ -37,7 +37,7 @@ class SearchListItem extends StatelessWidget {
               Container(
                 child: Text(
                   '[' + code + '] ' + name,
-                  style: textThemeDark().bodyText2,
+                  style: context.textTheme.bodyText2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -48,14 +48,14 @@ class SearchListItem extends StatelessWidget {
               Container(
                 child: Text(
                   sub,
-                  style: textThemeDark().bodyText2,
+                  style: context.textTheme.bodyText2,
                 ),
               ),
               Expanded(
                 child: Text(
                   stat,
                   textAlign: TextAlign.right,
-                  style: textThemeDark().bodyText2,
+                  style: context.textTheme.bodyText2,
                 ),
               )
             ],
