@@ -38,9 +38,9 @@ class Config extends StatelessWidget {
               style: context.textTheme.subtitle1,
             ),
           ),
-          Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-              child: CardRadioMenu(radioMenu: menuConfig)),
+          // Padding(
+          //     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+          //     child: CardRadioMenu(radioMenu: menuConfig)),
         ],
       ),
     );

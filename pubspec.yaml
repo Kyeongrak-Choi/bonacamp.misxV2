@@ -29,6 +29,10 @@ dependencies:
   get: ^4.6.5
   # https://pub.dev/packages/get_storage
   # descryption - state manager
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  # https://pub.dev/packages/hive
+  # descryption - local DB
   # get_storage: ^2.0.3
   # https://pub.dev/packages/get
   # descryption - persistent storage for simple data
@@ -59,9 +63,6 @@ dependencies:
   # google_maps_flutter: ^2.1.12
   # reference - https://pub.dev/packages/google_maps_flutter
   # descryption - map service
-  # sqflite: ^2.0.3+1
-  # reference - https://pub.dev/packages/sqflite
-  # descryption - SQLite plugin for Flutter
   # json_serializable: ^6.3.1
   # reference - https://pub.dev/packages/json_serializable
   # descryption - builders for handling JSON
@@ -79,6 +80,12 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   # reference - https://pub.dev/packages/flutter_lints
   # descryption - lint setup (analysis_options.yaml)
+  hive_generator: ^1.1.0
+  # reference -
+  # descryption -
+  build_runner: ^2.0.4
+  # reference -
+  # descryption -
 
 flutter:
 

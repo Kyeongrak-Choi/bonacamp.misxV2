@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:renew_misx/assets/translations/strings.dart';
 import 'package:renew_misx/utils/theme/theme_manager.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
+import 'package:hive/hive.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('OPTION');
+
+  // init Theme Setting
+  var optionBox = Hive.box('OPTION');
+  Get.changeThemeMode(optionBox.get('isDark', defaultValue: false)
+      ? ThemeMode.dark
+      : ThemeMode.light);
   runApp(Misx());
 }
 
@@ -43,15 +53,20 @@ class InitBinding implements Bindings {
 }
 
 class ThemeModeController extends GetxController {
-  RxBool isDark = false.obs;
+  var optionBox = Hive.box('OPTION');
+  var isDark;
 
   @override
   void onInit() {
     super.onInit();
+    isDark = RxBool(optionBox.get('isDark', defaultValue: false));
   }
 
-  void changeTheme(bool val) {
-    isDark.value = val;
-    Get.changeThemeMode(isDark.value ? ThemeMode.dark : ThemeMode.light);
+  Future<void> changeTheme(bool val) async {
+    isDark = RxBool(val);
+    await optionBox.put('isDark', val);
+    Get.changeThemeMode(optionBox.get('isDark', defaultValue: false)
+        ? ThemeMode.dark
+        : ThemeMode.light);
   }
 }
