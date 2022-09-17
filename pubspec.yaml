@@ -1,5 +1,5 @@
-name: renew_misx
-description: renewal_misx
+name: misxV2
+description: misxV2
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -51,6 +51,9 @@ dependencies:
   webview_flutter: ^3.0.4
   # reference - https://pub.dev/packages/webview_flutter
   # descryption - webview widget
+  change_app_package_name: ^1.1.0
+  # reference - https://pub.dev/packages/change_app_package_name
+  # descryption - packagename change
   # http: ^0.13.5 ( getX include http )
   # reference - https://pub.dev/packages/http - api call
   # descryption - making HTTP requests.

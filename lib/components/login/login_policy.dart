@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/layouts/login/privacy_policy.dart';
+import '../../layouts/login/privacy_policy.dart';
 
 class PolicyView extends StatelessWidget {
   @override

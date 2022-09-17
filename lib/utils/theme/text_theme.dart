@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renew_misx/utils/constants.dart';
+import 'package:misxV2/utils/constants.dart';
 
 TextTheme textThemeLight() {
   return TextTheme(

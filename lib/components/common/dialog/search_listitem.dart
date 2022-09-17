@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/utils/theme/theme_manager.dart';
+import 'package:misxV2/utils/theme/theme_manager.dart';
 
 import '../../../layouts/menu_example.dart';
 import '../../../utils/theme/text_theme.dart';

@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/components/common/dialog/search_listitem.dart';
-import 'package:renew_misx/models/common/customer.dart';
-import 'package:renew_misx/utils/utillity.dart';
+import 'package:misxV2/components/common/dialog/search_listitem.dart';
+import 'package:misxV2/models/common/customer.dart';
+import 'package:misxV2/utils/utillity.dart';
 import '../../../utils/constants.dart';
 import '../../../models/common/product.dart';
 

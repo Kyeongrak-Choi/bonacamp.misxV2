@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/components/dashboard/dashboard_item.dart';
+import 'package:misxV2/components/dashboard/dashboard_item.dart';
 
 class DashBoardSales extends StatelessWidget {
   const DashBoardSales({Key? key}) : super(key: key);

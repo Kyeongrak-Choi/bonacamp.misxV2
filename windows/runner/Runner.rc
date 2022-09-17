@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "renew_misx" "\0"
+            VALUE "FileDescription", "misxV2" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "renew_misx" "\0"
+            VALUE "InternalName", "misxV2" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "renew_misx.exe" "\0"
-            VALUE "ProductName", "renew_misx" "\0"
+            VALUE "OriginalFilename", "misxV2.exe" "\0"
+            VALUE "ProductName", "misxV2" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

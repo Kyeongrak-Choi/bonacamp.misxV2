@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:renew_misx/layouts/menu_example.dart';
+import 'package:misxV2/layouts/menu_example.dart';
 import 'common/dialog/search_dialog.dart';
 
 class UtilFunction extends StatelessWidget {

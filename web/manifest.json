@@ -1,11 +1,11 @@
 {
-    "name": "renew_misx",
-    "short_name": "renew_misx",
+    "name": "misxV2",
+    "short_name": "misxV2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "renewal_misx",
+    "description": "misxV2",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

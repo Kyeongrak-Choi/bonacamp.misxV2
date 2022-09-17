@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renew_misx/components/login/login_btn.dart';
-import 'package:renew_misx/components/login/login_input_id.dart';
-import 'package:renew_misx/components/login/login_input_pw.dart';
-import 'package:renew_misx/components/login/login_logo.dart';
-import 'package:renew_misx/components/login/login_policy.dart';
+import 'package:misxV2/components/login/login_btn.dart';
+import 'package:misxV2/components/login/login_input_id.dart';
+import 'package:misxV2/components/login/login_input_pw.dart';
+import 'package:misxV2/components/login/login_logo.dart';
+import 'package:misxV2/components/login/login_policy.dart';
 import '../../utils/constants.dart';
 import '../../utils/theme/text_theme.dart';
 

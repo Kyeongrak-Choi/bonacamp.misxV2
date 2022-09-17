@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:renew_misx/utils/theme/text_theme.dart';
+import 'package:misxV2/utils/theme/text_theme.dart';
 import '../constants.dart';
 
 AppBarTheme appBarThemeLight() {

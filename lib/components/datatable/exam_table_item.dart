@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/models/exam_model.dart';
+import 'package:misxV2/models/exam_model.dart';
 
 class ExamTableItem extends StatelessWidget {
   List<ExamModel> list = generateData(7);

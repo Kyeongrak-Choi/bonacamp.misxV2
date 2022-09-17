@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renew_misx/components/menu/card_radio_menu.dart';
+import 'package:misxV2/components/menu/card_radio_menu.dart';
 import '../components/menu/menu_manager.dart';
 
 // 설정 화면
