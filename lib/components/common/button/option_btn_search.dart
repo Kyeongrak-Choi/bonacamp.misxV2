@@ -22,8 +22,8 @@ class OptionBtnSearch extends StatelessWidget {
                 },
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
-                  //foregroundColor: Colors.white,
-                  //backgroundColor: context.theme.canvasColor,
+                  foregroundColor: Colors.white,
+                  backgroundColor: context.theme.canvasColor,
                 )),
           ),
         )),

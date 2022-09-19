@@ -78,7 +78,7 @@ class Login extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                           child: Text(
                             CopyRight,
-                            style: textThemeLogin().bodyText2,
+                            style: textThemeLogin().bodyText1,
                           ),
                         ),
                       ],

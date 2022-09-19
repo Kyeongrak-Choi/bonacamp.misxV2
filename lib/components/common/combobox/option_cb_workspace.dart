@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:misxV2/utils/constants.dart';
 
 class OptionCbWorkspace extends StatelessWidget {
   @override
@@ -18,7 +17,7 @@ class OptionCbWorkspace extends StatelessWidget {
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      //backgroundColor: context.theme.canvasColor,
+                      backgroundColor: context.theme.canvasColor,
                     ),
                     onPressed: () {},
                     child: Text(

@@ -94,5 +94,15 @@ TextTheme textThemeLogin() {
       fontWeight: FontWeight.bold,
       color: Color(AppColor),
     ),
+    headline3: GoogleFonts.nanumGothic(
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+      color: Color(AppColor),
+    ),
+    bodyText1: GoogleFonts.nanumGothic(
+      fontSize: 12.0,
+      fontWeight: FontWeight.bold,
+      color: Color(AppColor),
+    ),
   );
 }
