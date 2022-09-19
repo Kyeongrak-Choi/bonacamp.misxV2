@@ -18,7 +18,7 @@ Library
   - GetX (https://pub.dev/packages/get)
   - Hive (https://pub.dev/packages/hive)
   - fl_chart (https://pub.dev/packages/fl_chart)
-  - naver map (https://pub.dev/packages/naver_map_plugin)
+  - Google map (https://pub.dev/packages/google_maps_flutter)
   - Firebase
 
 References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1f/pages/44695815/MISX
