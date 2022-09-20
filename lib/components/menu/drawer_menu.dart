@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/dialog/logout_check.dart';
 import '../../utils/constants.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -28,6 +29,19 @@ class DrawerMenu extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.logout,
+              color: Color(AppColor),
+            ),
+            title: Text(
+              'logout'.tr,
+              style: TextStyle(color: Color(AppColor)),
+            ),
+            onTap: () {
+             LogoutCheckDialog(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.home,
               color: Color(AppColor),
             ),
@@ -46,19 +60,6 @@ class DrawerMenu extends StatelessWidget {
             ),
             title: Text(
               'menu2'.tr,
-              style: TextStyle(color: Color(AppColor)),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.home,
-              color: Color(AppColor),
-            ),
-            title: Text(
-              'menu3'.tr,
               style: TextStyle(color: Color(AppColor)),
             ),
             onTap: () {

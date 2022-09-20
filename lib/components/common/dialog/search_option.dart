@@ -8,7 +8,6 @@ import '../../../utils/constants.dart';
 import '../../../utils/theme/text_theme.dart';
 
 class SearchOption extends StatelessWidget {
-
   var flag;
   var hint;
   var dummy;
@@ -25,7 +24,8 @@ class SearchOption extends StatelessWidget {
       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
       child: Row(
         children: [
-          Expanded(
+          Flexible(
+            flex: 7,
             child: TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -35,20 +35,21 @@ class SearchOption extends StatelessWidget {
                 ),
                 style: context.textTheme.bodyText1),
           ),
-          Container(
-            width: 70,
-            child: Center(
-              child: GestureDetector(
-                onTap: () {
-                  Get.find<SearchListController>().search(dummy);
-                },
-                child: Icon(
-                  Icons.search,
-                  color: context.theme.primaryColor,
+          Flexible(
+              flex: 1,
+              child: Container(
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.find<SearchListController>().search(dummy);
+                    },
+                    child: Icon(
+                      Icons.search,
+                      color: context.theme.primaryColor,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          )
+              ))
         ],
       ),
     );

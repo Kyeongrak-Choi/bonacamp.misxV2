@@ -34,7 +34,7 @@ class SearchListItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
+              Expanded(
                 child: Text(
                   '[' + code + '] ' + name,
                   style: context.textTheme.bodyText2,
@@ -45,13 +45,15 @@ class SearchListItem extends StatelessWidget {
           ),
           Row(
             children: [
-              Container(
+              Expanded(
+                flex: 5,
                 child: Text(
                   sub,
                   style: context.textTheme.bodyText2,
                 ),
               ),
               Expanded(
+                flex: 1,
                 child: Text(
                   stat,
                   textAlign: TextAlign.right,

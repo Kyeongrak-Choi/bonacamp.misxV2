@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,14 +12,27 @@ class LoginBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(LoginBtnController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
             child: ElevatedButton(
-                onPressed: () => Get.to(
-                      Navigation(),
-                    ),
+                onPressed: () {
+                  if(Get.find<LoginBtnController>().LoginCheck()){
+                    Get.to(Navigation());
+                  }else{
+                    Get.snackbar(
+                      'check_login_header'.tr,
+                      'check_login_content'.tr,
+                      snackPosition: SnackPosition.TOP,
+                      forwardAnimationCurve: Curves.elasticInOut,
+                      reverseAnimationCurve: Curves.easeOut,
+                      backgroundColor: Colors.white,
+                      colorText: Color(AppColor),
+                    );
+                  }
+                },
                 child: Text('text_login'.tr),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
@@ -25,5 +40,22 @@ class LoginBtn extends StatelessWidget {
                 )))
       ],
     );
+  }
+}
+
+class LoginBtnController extends GetxController {
+  var inputId="";
+  var inputPw="";
+
+  LoginCheck(){
+    if(inputId=="" ||inputPw==""){
+      return false;
+    }else{
+      // 로그인 API 처리
+      inputId ="";
+      inputPw ="";
+
+      return true;
+    }
   }
 }

@@ -12,9 +12,10 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+          child: Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 1,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Color(AppColor),
         ),
@@ -29,7 +30,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
@@ -44,17 +45,17 @@ class Login extends StatelessWidget {
                       children: [
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                           child: LoginLogo(), // Logo
                         ),
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                           child: LoginInputId(), // ID
                         ),
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 16, 20, 20),
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                           child: LoginInputPw(), // PW
                         ),
                         Divider(
@@ -66,7 +67,7 @@ class Login extends StatelessWidget {
                         ),
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                           child: LoginBtn(), // Login
                         ),
                         Padding(
@@ -89,7 +90,7 @@ class Login extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

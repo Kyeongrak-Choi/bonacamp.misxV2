@@ -14,10 +14,12 @@ const Map<String, String> koKR = {
   'text_id': 'ID',
   'text_pw': 'PW',
   'text_login': 'LOGIN',
-  'hint_id_input': 'ID를 입력해주세요.',
-  'hint_pw_input': 'PW를 입력해주세요.',
+  'hint_id_input': 'ID를 입력해 주세요.',
+  'hint_pw_input': 'PW를 입력해 주세요.',
   'privacy_policy': '개인정보 처리방침',
   'admob_banner' : '광고배너',
+  'check_login_header' : 'ID/PW 확인',
+  'check_login_content' : 'ID/PW를 확인해 주세요.',
 
   // config
   'system_setting' : '시스템 설정',
@@ -57,6 +59,10 @@ const Map<String, String> koKR = {
   'opt_customer' : '거래처',
   'opt_sales' : '영업담당',
   'opt_manage' : '관리담당',
+
+  // Drawer Menu Label
+  'logout' : '로그아웃',
+  'logout_content' : '로그아웃 하시겠습니까?',
 
 
 

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/utils/theme/theme_manager.dart';
-
 import '../../utils/theme/text_theme.dart';
 
 class LoginLogo extends StatelessWidget {

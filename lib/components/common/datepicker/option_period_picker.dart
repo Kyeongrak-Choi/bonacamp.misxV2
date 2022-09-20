@@ -150,7 +150,7 @@ class PeriodPickerController extends GetxController {
     }
   }
 
-  // 기간 Validation
+  // 기간 Validation check
   bool Validate() {
     if (pickedFromDate.compareTo(pickedToDate) > 0) {
       Get.snackbar(
