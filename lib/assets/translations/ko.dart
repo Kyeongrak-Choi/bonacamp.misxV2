@@ -64,7 +64,10 @@ const Map<String, String> koKR = {
   'logout' : '로그아웃',
   'logout_content' : '로그아웃 하시겠습니까?',
 
-
+  // Snack Bar
+  'snack_alram' : '알림',
+  'snack_error' : '에러',
+  'snack_information' : '정보',
 
 };
 

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
 
-import '../../../layouts/menu_example.dart';
+import '../../../layouts/example/menu_example.dart';
 import '../../../utils/theme/text_theme.dart';
 import '../combobox/option_cb_customer.dart';
 

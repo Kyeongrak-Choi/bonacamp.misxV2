@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:misxV2/layouts/menu_example.dart';
+import 'package:misxV2/layouts/example/api_example.dart';
+import 'package:misxV2/layouts/example/menu_example.dart';
 import 'common/dialog/search_dialog.dart';
 
 class UtilFunction extends StatelessWidget {
@@ -21,6 +22,8 @@ class UtilFunction extends StatelessWidget {
                 child: Text('title_search_product'.tr)),
             ElevatedButton(onPressed: () => Get.to(MenuExample()),
                 child: Text('매출원장 exam')),
+            ElevatedButton(onPressed: () => Get.to(ApiExample()),
+                child: Text('Api Call exam')),
           ],
         ),
       ),

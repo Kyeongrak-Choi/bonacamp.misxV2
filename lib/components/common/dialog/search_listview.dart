@@ -101,6 +101,6 @@ class SearchListController extends GetxController {
     }
     datas.clear();
     datas.addAll(parsedResponse);
-    update();
+
   }
 }

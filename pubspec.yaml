@@ -54,7 +54,7 @@ dependencies:
   change_app_package_name: ^1.1.0
   # reference - https://pub.dev/packages/change_app_package_name
   # descryption - packagename change
-  # http: ^0.13.5 ( getX include http )
+  http: ^0.13.5
   # reference - https://pub.dev/packages/http - api call
   # descryption - making HTTP requests.
   # permission_handler: ^10.0.0

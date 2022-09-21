@@ -60,6 +60,6 @@ class CbCustomerController extends GetxController {
 
   chooseItem(code, name) async {
     selectedValue = RxString(name).value.obs;
-    update();
+
   }
 }

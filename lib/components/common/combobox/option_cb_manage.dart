@@ -77,6 +77,6 @@ class CbManageController extends GetxController {
 
   chooseItem(value) async {
     selectedValue = value;
-    update();
+
   }
 }

@@ -7,7 +7,7 @@ import 'package:misxV2/components/common/combobox/option_cb_sale.dart';
 import 'package:misxV2/components/common/combobox/option_cb_workspace.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import '../components/datatable/exam_table.dart';
+import '../../components/datatable/exam_table.dart';
 
 // 예제 화면
 class MenuExample extends StatelessWidget {
@@ -62,6 +62,5 @@ class MenuExampleController extends GetxController {
 
   setVisible() async {
     visible.value = !visible.value;
-    update();
   }
 }

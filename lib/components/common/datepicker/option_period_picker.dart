@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
+import 'package:misxV2/utils/snackbar.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
   @override
@@ -153,13 +154,7 @@ class PeriodPickerController extends GetxController {
   // 기간 Validation check
   bool Validate() {
     if (pickedFromDate.compareTo(pickedToDate) > 0) {
-      Get.snackbar(
-        'period_error_header'.tr,
-        'period_error_content'.tr,
-        snackPosition: SnackPosition.TOP,
-        forwardAnimationCurve: Curves.elasticInOut,
-        reverseAnimationCurve: Curves.easeOut,
-      );
+      ShowSnackBar('e', 'period_error_content'.tr);
       return false;
     } else {
       return true;
