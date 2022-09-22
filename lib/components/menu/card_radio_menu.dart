@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import '../../layouts/config.dart';
 import '../../main.dart';
 import 'menu_manager.dart';
 
@@ -47,7 +48,6 @@ class CardRadioMenu extends StatelessWidget {
           Obx(() => Switch(
               activeColor: Colors.tealAccent,
               value: Get.find<ThemeModeController>().isDark.value,
-              //value: optionBox.get('isDark', defaultValue: false),
               onChanged: (value) {
                 Get.find<ThemeModeController>().changeTheme(value);
               })),

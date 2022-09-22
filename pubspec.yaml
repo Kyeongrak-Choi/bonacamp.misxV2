@@ -55,8 +55,11 @@ dependencies:
   # reference - https://pub.dev/packages/change_app_package_name
   # descryption - packagename change
   http: ^0.13.5
-  # reference - https://pub.dev/packages/http - api call
+  # reference - https://pub.dev/packages/http
   # descryption - making HTTP requests.
+  curved_navigation_bar: ^1.0.3
+  # reference - https://pub.dev/packages/curved_navigation_bar
+  # descryption - navigation bar design
   # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage

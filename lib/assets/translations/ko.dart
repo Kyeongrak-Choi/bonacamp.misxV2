@@ -45,11 +45,11 @@ const Map<String, String> koKR = {
   'title_status': '현황',
 
   // Navigation Label
-  'nav_home': 'HOME',
-  'nav_sales': '영업관리',
-  'nav_purchase': '매입관리',
-  'nav_support': '지원관리',
-  'nav_stock': '재고관리',
+  'nav_home': '홈',
+  'nav_mymenu': '마이메뉴',
+  'nav_menu': '메뉴',
+  'nav_premium': '프리미엄',
+  'nav_more': '더보기',
 
   // option
   'opt_period' : '기간',

@@ -1,14 +1,11 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:misxV2/layouts/dashboard.dart';
-import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/purchase/purchase_menu.dart';
-import 'package:misxV2/layouts/sales/sales_menu.dart';
-import 'package:misxV2/layouts/stock/stock_menu.dart';
-import 'package:misxV2/layouts/support/support_menu.dart';
-import '../components/menu/drawer_menu.dart';
+import '../components/common/dialog/logout_check.dart';
 import '../utils/constants.dart';
 import 'config.dart';
 import 'funtion.dart';
@@ -19,85 +16,120 @@ class Navigation extends GetView<NavigationController> {
     controller.currentIndex.value = 0;
 
     return WillPopScope(
+      onWillPop: () {
+        return Future(() => false);
+      },
       child: Scaffold(
         key: controller.scaffoldKey,
         appBar: AppBar(
-          title: Text('App_name'.tr),
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            color: context.theme.primaryColor,
-            onPressed: () {
-              controller.openDrawer();
-            },
+          //title: Text('App_name'.tr),
+          title: Image.asset(
+            'lib/assets/icons/logo.png',
           ),
+          automaticallyImplyLeading: false,
+          // leading: IconButton(
+          //   icon: Icon(Icons.account_circle_sharp),
+          //   color: context.theme.primaryColor,
+          //   onPressed: () {
+          //     //controller.openDrawer();
+          //   },
+          // ),
           actions: [
             IconButton(
-              icon: Icon(Icons.settings),
-              color: context.theme.primaryColor,
-              onPressed: () => Get.to(Config()),
-            ),
+                icon: Icon(Icons.logout),
+                color: context.theme.primaryColor,
+                onPressed: () => LogoutCheckDialog(context)),
           ],
         ),
-        drawer: Drawer(
-          child: DrawerMenu(),
-        ),
+        // drawer: Drawer(
+        //   child: DrawerMenu(),
+        // ),
         body: Obx(() {
           switch (NavigationItem.values[controller.currentIndex.value]) {
             case NavigationItem.HOME:
               return DashBoard();
-            case NavigationItem.SALES:
-              return SalesMenu();
-            case NavigationItem.PURCHASE:
+            case NavigationItem.MY:
               return PurchaseMenu();
-            case NavigationItem.SUPPORT:
-              return SupportMenu();
-            case NavigationItem.STOCK:
-              //return StockMenu();
+            case NavigationItem.MENU:
               return UtilFunction();
+            case NavigationItem.PREMIUM:
+              return UtilFunction();
+            case NavigationItem.CONFIG:
+              return Config();
           }
         }),
-        bottomNavigationBar: Obx(
-          () => BottomNavigationBar(
-              backgroundColor: context.theme.backgroundColor,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: controller.currentIndex.value,
-              showSelectedLabels: true,
-              onTap: controller.changeIndex,
-              selectedItemColor: context.theme.primaryColor,
-              unselectedItemColor: context.theme.primaryColor.withOpacity(.30),
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  activeIcon: Icon(Icons.home_outlined),
-                  label: 'nav_home'.tr, // Home
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.point_of_sale),
-                  activeIcon: Icon(Icons.point_of_sale_outlined),
-                  label: 'nav_sales'.tr, // 영업관리
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.airport_shuttle),
-                  activeIcon: Icon(Icons.airport_shuttle_outlined),
-                  label: 'nav_purchase'.tr, // 매입관리
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.back_hand),
-                  activeIcon: Icon(Icons.back_hand_outlined),
-                  label: 'nav_support'.tr, // 지원관리
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.warehouse),
-                  activeIcon: Icon(Icons.warehouse_outlined),
-                  label: 'nav_stock'.tr, // 재고관리
-                ),
-              ]),
+        bottomNavigationBar: CurvedNavigationBar(
+          height: 50,
+          color: context.theme.primaryColor,
+          backgroundColor: context.theme.backgroundColor,
+          buttonBackgroundColor: context.theme.backgroundColor,
+          items: [
+            Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.home, color: Colors.blueGrey),
+                  Text(
+                    'nav_home'.tr,
+                    style: TextStyle(color: Colors.blueGrey),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.star_border, color: Colors.blueGrey),
+                  Text(
+                    'nav_mymenu'.tr,
+                    style: TextStyle(color: Colors.blueGrey),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.menu, color: Colors.blueGrey),
+                  Text(
+                    'nav_menu'.tr,
+                    style: TextStyle(color: Colors.blueGrey),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.workspace_premium, color: Colors.blueGrey),
+                  Text(
+                    'nav_premium'.tr,
+                    style: TextStyle(color: Colors.blueGrey),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.more_horiz_sharp, color: Colors.blueGrey),
+                  Text(
+                    'nav_more'.tr,
+                    style: TextStyle(color: Colors.blueGrey),
+                  )
+                ],
+              ),
+            ),
+          ],
+          onTap: (index) {
+            controller.currentIndex.value = index;
+          },
         ),
       ),
-      onWillPop: () {
-        // 홈화면에서 back button 비활성화
-        return Future(() => false);
-      },
     );
   }
 }

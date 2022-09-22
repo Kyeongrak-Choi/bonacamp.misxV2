@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/strings.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
+import 'package:misxV2/utils/utillity.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
 import 'package:hive/hive.dart';
@@ -14,7 +15,7 @@ void main() async {
 
   // init Theme Setting
   var optionBox = Hive.box('OPTION');
-  Get.changeThemeMode(optionBox.get('isDark', defaultValue: false)
+  Get.changeThemeMode(optionBox.get('isDark', defaultValue: GetSystemMode())
       ? ThemeMode.dark
       : ThemeMode.light);
   runApp(Misx());
@@ -65,7 +66,7 @@ class ThemeModeController extends GetxController {
   Future<void> changeTheme(bool val) async {
     isDark = RxBool(val);
     await optionBox.put('isDark', val);
-    Get.changeThemeMode(optionBox.get('isDark', defaultValue: false)
+    Get.changeThemeMode(optionBox.get('isDark')
         ? ThemeMode.dark
         : ThemeMode.light);
   }

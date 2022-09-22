@@ -16,7 +16,7 @@ const ParsedMsg = 'message';
 const PolicyUrl = 'http://www.dionysoserp.com/ex-privacy.html';
 
 // Navigation Item
-enum NavigationItem { HOME, SALES, PURCHASE, SUPPORT, STOCK }
+enum NavigationItem { HOME, MY, MENU, PREMIUM, CONFIG }
 
 // Dummy data
 const dummy_customer = 'lib/assets/json_dummy/customerList';

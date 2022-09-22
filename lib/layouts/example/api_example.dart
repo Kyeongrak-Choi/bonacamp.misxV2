@@ -14,16 +14,8 @@ class ApiExample extends StatelessWidget {
         title: Text('Api Test Exam'),
         backgroundColor: context.theme.backgroundColor,
         iconTheme: context.theme.iconTheme,
-        actions: [
-          IconButton(
-            icon: OptionBtnVisible(),
-            onPressed: () => null,
-          ),
-        ],
       ),
-      body: Container(
-          color: context.theme.backgroundColor,
-          child: Column(
+      body: Obx(() => Column(
             children: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -35,11 +27,9 @@ class ApiExample extends StatelessWidget {
                     'api call'.tr,
                     style: context.textTheme.bodyText1,
                   )),
-              Obx(
-                () => Text(
-                  Get.find<RequestController>().responseData.value,
-                ),
-              )
+              Text(
+                Get.find<RequestController>().responseData.value,
+              ),
             ],
           )),
     );
