@@ -34,7 +34,7 @@ final List<IconMenu> systemMaster = [
 // system setting detail
 final List<RadioMenu> systemDetail = [
   RadioMenu(
-    id: 'darkmode',
+    id: 'isDark',
     title: 'dark_mode'.tr,
     val: Hive.box('SYSTEM').get('isDark'),
   ),
@@ -51,28 +51,18 @@ final List<IconMenu> menuMaster = [
 // menu setting detail
 final List<RadioMenu> menuDetail = [
   RadioMenu(
-    id: 'opt1',
-    title: '거래처 검색 시 거래처명 우선 선택',
-    val: Hive.box('OPTION').get('opt1', defaultValue: false),
+    id: 'isCustomFilter',
+    title: 'isCustomFilter'.tr,
+    val: Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false),
   ),
   RadioMenu(
-    id: 'opt2',
-    title: '거래처 필터링 사용',
-    val: Hive.box('OPTION').get('opt2', defaultValue: false),
+    id: 'isIncludeSalChrgCd',
+    title: 'isIncludeSalChrgCd'.tr,
+    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: false),
   ),
   RadioMenu(
-    id: 'opt3',
-    title: '초성검색시 첫글자부터 비교',
-    val: Hive.box('OPTION').get('opt3', defaultValue: false),
-  ),
-  RadioMenu(
-    id: 'opt4',
-    title: '품목검색시 품목명 우선 선택',
-    val: Hive.box('OPTION').get('opt4', defaultValue: false),
-  ),
-  RadioMenu(
-    id: 'opt5',
-    title: '영업사원 선택시 관리사원 포함',
-    val: Hive.box('OPTION').get('opt5', defaultValue: false),
+    id: 'isCompareFirst',
+    title: 'isCompareFirst'.tr,
+    val: Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false),
   ),
 ];

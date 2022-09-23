@@ -35,8 +35,8 @@ class MenuExample extends StatelessWidget {
                   child: Column(
                     children: [
                       OptionPeriodPicker(),
+                      OptionDialogCustomer(),
                       OptionCbWorkspace(),
-                      OptionCbCustomer(),
                       OptionCbSale(),
                       OptionCbManage(),
                       OptionBtnSearch(),

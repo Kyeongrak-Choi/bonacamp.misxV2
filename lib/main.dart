@@ -20,7 +20,6 @@ import 'package:hive/hive.dart';
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox('SYSTEM');
-  await Hive.openBox('OPTION');
 
   // init Theme Setting
   var systemBox = Hive.box('SYSTEM');

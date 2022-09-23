@@ -25,6 +25,9 @@ const Map<String, String> koKR = {
   'system_setting' : '시스템 설정',
   'menu_setting' : '메뉴 설정',
   'dark_mode' : '다크 모드',
+  'isCustomFilter' : '거래처 필터링 사용',
+  'isIncludeSalChrgCd' : '영업사원 선택시 관리담당 포함',
+  'isCompareFirst' : '초성검색시 첫글자부터 비교',
 
   // Dialog search customer
   'title_search_customer': '거래처 검색',

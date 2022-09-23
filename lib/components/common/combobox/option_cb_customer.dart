@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class OptionCbCustomer extends StatelessWidget {
+class OptionDialogCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(CbCustomerController());

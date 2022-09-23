@@ -37,23 +37,17 @@ class CardRadioMenu extends StatelessWidget {
   Widget buildRowItem(String id, String title, bool val, BuildContext context) {
     var optValue;
     switch (id) {
-      case 'darkmode':
+      case 'isDark':
         optValue = Get.find<ThemeModeController>().isDark;
         break;
-      case 'opt1':
-        optValue = Get.find<OptionController>().opt1;
+      case 'isCustomFilter':
+        optValue = Get.find<OptionController>().isCustomFilter;
         break;
-      case 'opt2':
-        optValue = Get.find<OptionController>().opt2;
+      case 'isIncludeSalChrgCd':
+        optValue = Get.find<OptionController>().isIncludeSalChrgCd;
         break;
-      case 'opt3':
-        optValue = Get.find<OptionController>().opt3;
-        break;
-      case 'opt4':
-        optValue = Get.find<OptionController>().opt4;
-        break;
-      case 'opt5':
-        optValue = Get.find<OptionController>().opt5;
+      case 'isCompareFirst':
+        optValue = Get.find<OptionController>().isCompareFirst;
         break;
     }
 
@@ -76,11 +70,9 @@ class CardRadioMenu extends StatelessWidget {
                   case 'darkmode':
                     Get.find<ThemeModeController>().changeTheme(value);
                     break;
-                  case 'opt1':
-                  case 'opt2':
-                  case 'opt3':
-                  case 'opt4':
-                  case 'opt5':
+                  case 'isCustomFilter':
+                  case 'isIncludeSalChrgCd':
+                  case 'isCompareFirst':
                     Get.find<OptionController>().changeOption(id, value);
                     break;
                 }

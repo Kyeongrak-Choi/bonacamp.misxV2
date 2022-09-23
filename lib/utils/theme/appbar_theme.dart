@@ -5,7 +5,7 @@ import '../constants.dart';
 
 AppBarTheme appBarThemeLight() {
   return AppBarTheme(
-      centerTitle: true,
+      centerTitle: false,
       color: Colors.white,
       elevation: 0.0,
       titleTextStyle: textThemeLight().headline3);
@@ -13,7 +13,7 @@ AppBarTheme appBarThemeLight() {
 
 AppBarTheme appBarThemeDark() {
   return AppBarTheme(
-      centerTitle: true,
+      centerTitle: false,
       color: Color(AppColor),
       elevation: 0.0,
       titleTextStyle: textThemeDark().headline3);
