@@ -69,6 +69,5 @@ class CbWorkspaceController extends GetxController {
 
   chooseItem(value) async {
     selectedValue = value;
-
   }
 }

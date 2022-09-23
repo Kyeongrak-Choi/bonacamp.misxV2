@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:misxV2/layouts/dashboard.dart';
-import 'package:misxV2/layouts/purchase/purchase_menu.dart';
+import 'package:misxV2/layouts/menu/menu_list.dart';
+import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
+import 'package:misxV2/layouts/premium/premium_list.dart';
 import '../components/common/dialog/logout_check.dart';
 import '../utils/constants.dart';
-import 'config.dart';
-import 'funtion.dart';
+import 'config/config.dart';
+import 'example/funtion.dart';
 
 class Navigation extends GetView<NavigationController> {
   @override
@@ -41,6 +43,7 @@ class Navigation extends GetView<NavigationController> {
                 onPressed: () => LogoutCheckDialog(context)),
           ],
         ),
+        // Drawer Use X
         // drawer: Drawer(
         //   child: DrawerMenu(),
         // ),
@@ -49,10 +52,11 @@ class Navigation extends GetView<NavigationController> {
             case NavigationItem.HOME:
               return DashBoard();
             case NavigationItem.MY:
-              return PurchaseMenu();
+              return MyMenuList();
             case NavigationItem.MENU:
-              return UtilFunction();
+              return MenuList();
             case NavigationItem.PREMIUM:
+              //return PremiumList();
               return UtilFunction();
             case NavigationItem.CONFIG:
               return Config();

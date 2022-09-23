@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:misxV2/utils/constants.dart';
 import '../../utils/theme/text_theme.dart';
 import 'login_btn.dart';
 
 class LoginInputId extends StatelessWidget {
-  const LoginInputId({Key? key}) : super(key: key);
+  var systemBox = Hive.box('SYSTEM');
 
   @override
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
+
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -44,8 +46,9 @@ class LoginInputId extends StatelessWidget {
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),
+          initialValue: systemBox.get('savedId', defaultValue: ''),
           onChanged: (text) {
-            Get.find<LoginBtnController>().inputId = text;
+            Get.find<LoginBtnController>().setInputId(text);
           },
         )),
       ],

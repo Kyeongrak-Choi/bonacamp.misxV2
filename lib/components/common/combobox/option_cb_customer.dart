@@ -1,14 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:misxV2/utils/constants.dart';
-import 'package:misxV2/utils/theme/theme_manager.dart';
-
-import '../../../layouts/common/dialog/search_dialog.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbCustomer extends StatelessWidget {
   @override
@@ -38,7 +31,7 @@ class OptionCbCustomer extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: TextButton(
-                  onPressed: () => Get.to(SearchDialog('C')),
+                  onPressed: () => Get.toNamed('/searchCustomer'),
                   child: Obx(() => Text(
                         Get.find<CbCustomerController>().selectedValue.value,
                         style: context.textTheme.bodyText1,
@@ -60,6 +53,5 @@ class CbCustomerController extends GetxController {
 
   chooseItem(code, name) async {
     selectedValue = RxString(name).value.obs;
-
   }
 }

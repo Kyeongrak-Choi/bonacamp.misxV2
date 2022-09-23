@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:hive/hive.dart';
 import 'package:misxV2/utils/snackbar.dart';
 import '../../utils/constants.dart';
-import '../../layouts/navigation.dart';
 
 class LoginBtn extends StatelessWidget {
   const LoginBtn({Key? key}) : super(key: key);
@@ -19,12 +17,11 @@ class LoginBtn extends StatelessWidget {
       children: [
         Expanded(
             child: ElevatedButton(
-                onPressed: () {
-                  if (Get.find<LoginBtnController>().LoginCheck()) {
-                    Get.to(Navigation());
+                onPressed: () async {
+                  if (await Get.find<LoginBtnController>().LoginCheck()) {
+                    Get.toNamed('/navigation');
                   } else {
-                    ShowSnackBar(
-                        'a', 'check_login_content'.tr);
+                    ShowSnackBar('a', 'check_login_content'.tr);
                   }
                 },
                 child: Text('text_login'.tr),
@@ -38,16 +35,34 @@ class LoginBtn extends StatelessWidget {
 }
 
 class LoginBtnController extends GetxController {
-  var inputId = "";
-  var inputPw = "";
+  var inputId;
+  var inputPw;
+  var systemBox = Hive.box('SYSTEM');
 
-  LoginCheck() {
+  @override
+  void onInit() {
+    super.onInit();
+    inputId = systemBox.get('savedId', defaultValue: '');
+    inputPw = '';
+  }
+
+  void setInputId(text) {
+    inputId = text;
+  }
+
+  void setInputPw(text) {
+    inputPw = text;
+  }
+
+  Future<bool> LoginCheck() async {
     if (inputId == "" || inputPw == "") {
       return false;
     } else {
-      // 로그인 API 처리
-      inputId = "";
-      inputPw = "";
+      // id save
+      await systemBox.put('savedId', inputId);
+      inputPw = '';
+
+      // login API process
 
       return true;
     }

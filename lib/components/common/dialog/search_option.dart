@@ -3,9 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/search_listview.dart';
-import 'package:misxV2/utils/theme/theme_manager.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class SearchOption extends StatelessWidget {
   var flag;

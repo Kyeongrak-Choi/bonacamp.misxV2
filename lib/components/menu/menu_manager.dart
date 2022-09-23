@@ -1,64 +1,78 @@
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 
 class IconMenu {
   String title;
   IconData iconData;
+  String path;
 
-  IconMenu({required this.title, required this.iconData});
+  IconMenu({required this.title, required this.iconData, required this.path});
 }
 
 class RadioMenu {
+  String id;
   String title;
   bool val;
 
   RadioMenu({
+    required this.id,
     required this.title,
     required this.val,
   });
 }
 
-// 영업관리 메뉴
-final List<IconMenu> salesMenu = [
-  IconMenu(title: '종합현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '영업일보', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '영업사원별 기여현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '매출처별 기여현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '판매분류별 현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '매출순위현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '분석그래프', iconData: FontAwesomeIcons.signal),
+// system setting master
+final List<IconMenu> systemMaster = [
+  IconMenu(
+      title: 'system_setting'.tr,
+      iconData: Icons.settings,
+      path: '/systemConfig'),
 ];
 
-// 매입관리 메뉴
-final List<IconMenu> purchaseMenu = [
-  IconMenu(title: '매입현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '매입원장', iconData: FontAwesomeIcons.signal),
+// system setting detail
+final List<RadioMenu> systemDetail = [
+  RadioMenu(
+    id: 'darkmode',
+    title: 'dark_mode'.tr,
+    val: Hive.box('SYSTEM').get('isDark'),
+  ),
 ];
 
-// 지원관리 메뉴
-final List<IconMenu> supportMenu = [
-  IconMenu(title: '대여금 현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '대여자산현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '대여자산현황(이력)', iconData: FontAwesomeIcons.signal),
+// menu setting master
+final List<IconMenu> menuMaster = [
+  IconMenu(
+      title: 'menu_setting'.tr,
+      iconData: Icons.copy_outlined,
+      path: '/menuConfig'),
 ];
 
-// 재고관리 메뉴
-final List<IconMenu> stockMenu = [
-  IconMenu(title: '재고 현황', iconData: FontAwesomeIcons.signal),
-  IconMenu(title: '재고수불현황', iconData: FontAwesomeIcons.signal),
-];
-
-// 시스템 설정 메뉴
-final List<RadioMenu> systemConfig = [
-  RadioMenu(title: 'dark_mode'.tr, val: false),
-];
-
-// 메뉴 설정 메뉴
-final List<RadioMenu> menuConfig = [
-  RadioMenu(title: '거래처 검색 시 거래처명 우선 선택', val: true),
-  RadioMenu(title: '거래처 필터링 사용', val: true),
-  RadioMenu(title: '초성검색시 첫글자부터 비교', val: false),
-  RadioMenu(title: '품목검색시 품목명 우선 선택', val: true),
-  RadioMenu(title: '영업사원 선택시 관리사원 포함', val: false),
+// menu setting detail
+final List<RadioMenu> menuDetail = [
+  RadioMenu(
+    id: 'opt1',
+    title: '거래처 검색 시 거래처명 우선 선택',
+    val: Hive.box('OPTION').get('opt1', defaultValue: false),
+  ),
+  RadioMenu(
+    id: 'opt2',
+    title: '거래처 필터링 사용',
+    val: Hive.box('OPTION').get('opt2', defaultValue: false),
+  ),
+  RadioMenu(
+    id: 'opt3',
+    title: '초성검색시 첫글자부터 비교',
+    val: Hive.box('OPTION').get('opt3', defaultValue: false),
+  ),
+  RadioMenu(
+    id: 'opt4',
+    title: '품목검색시 품목명 우선 선택',
+    val: Hive.box('OPTION').get('opt4', defaultValue: false),
+  ),
+  RadioMenu(
+    id: 'opt5',
+    title: '영업사원 선택시 관리사원 포함',
+    val: Hive.box('OPTION').get('opt5', defaultValue: false),
+  ),
 ];

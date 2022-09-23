@@ -2,12 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:misxV2/layouts/example/api_example.dart';
-import 'package:misxV2/layouts/example/menu_example.dart';
-import 'common/dialog/search_dialog.dart';
 
 class UtilFunction extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +12,16 @@ class UtilFunction extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-                onPressed: () => Get.to(SearchDialog('C')),
+                onPressed: () => Get.toNamed('/searchCustomer'),
                 child: Text('title_search_customer'.tr)),
-            ElevatedButton(onPressed: () => Get.to(SearchDialog('P')),
+            ElevatedButton(
+                onPressed: () => Get.toNamed('/searchProduct'),
                 child: Text('title_search_product'.tr)),
-            ElevatedButton(onPressed: () => Get.to(MenuExample()),
+            ElevatedButton(
+                onPressed: () => Get.toNamed('/menuExample'),
                 child: Text('매출원장 exam')),
-            ElevatedButton(onPressed: () => Get.to(ApiExample()),
+            ElevatedButton(
+                onPressed: () => Get.toNamed('/apiExample'),
                 child: Text('Api Call exam')),
           ],
         ),

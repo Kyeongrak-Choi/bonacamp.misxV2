@@ -45,7 +45,7 @@ class LoginInputPw extends StatelessWidget {
               counterText: '',
             ),
             onChanged: (text) {
-              Get.find<LoginBtnController>().inputPw = text;
+              Get.find<LoginBtnController>().setInputPw(text);
             },
           ),
         ),
