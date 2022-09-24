@@ -17,7 +17,8 @@ class OptionCbManage extends StatelessWidget {
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: context.theme.canvasColor,
+                      primary: context.theme.canvasColor,
+                      //backgroundColor: context.theme.canvasColor,
                     ),
                     onPressed: () {},
                     child: Text(

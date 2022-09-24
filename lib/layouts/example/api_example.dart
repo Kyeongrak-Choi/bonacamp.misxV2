@@ -23,7 +23,8 @@ class ApiExample extends StatelessWidget {
             children: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: context.theme.canvasColor,
+                    primary: context.theme.canvasColor,
+                    //backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () =>
                       Get.find<RequestController>().RequestApi(HealthCheck, ''),
