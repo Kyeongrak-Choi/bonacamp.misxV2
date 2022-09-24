@@ -26,9 +26,8 @@ class LoginBtn extends StatelessWidget {
                 },
                 child: Text('text_login'.tr),
                 style: ElevatedButton.styleFrom(
-                  primary: Color(AppColor),
-                  // foregroundColor: Colors.white,
-                  // backgroundColor: Color(AppColor),
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color(AppColor),
                 )))
       ],
     );
