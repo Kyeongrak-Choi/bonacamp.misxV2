@@ -41,7 +41,7 @@ Future<Object> CallApi(api, params) async {
       return responseData.toString().obs;
     } else {
       ShowSnackBar(
-          'e', 'Request failed : ${api}\nstatus: ${responseData[ParsedMsg]}');
+          'e', 'Request failed : ${api}\nstatus: ${responseData[MsgTag]}');
       return false.obs;
     }
   } catch (e) {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {

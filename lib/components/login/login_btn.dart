@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/utils/snackbar.dart';
-
 import '../../utils/constants.dart';
+import '../../utils/hive_manager.dart';
 
 class LoginBtn extends StatelessWidget {
   const LoginBtn({Key? key}) : super(key: key);
@@ -64,6 +64,9 @@ class LoginBtnController extends GetxController {
       inputPw = '';
 
       // login API process
+
+      // Hive DB Set
+      ClearBox();
 
       return true;
     }

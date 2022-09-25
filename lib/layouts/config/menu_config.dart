@@ -9,6 +9,7 @@ import '../../components/menu/menu_manager.dart';
 class MenuConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Get.put(OptionController());
     return Scaffold(
       appBar: AppBar(
         title: Text('menu_setting'.tr),
@@ -29,7 +30,7 @@ class MenuConfig extends StatelessWidget {
 }
 
 class OptionController extends GetxController {
-  var isCustomFilter; // 거래처 필터링 사용
+  var isCustomFilter;  // 거래처 필터링 사용
   var isCompareFirst; // 초성검색시 첫글자부터 비교
   var isIncludeSalChrgCd; // 영업사원 선택시 관리사원 포함
 
@@ -44,18 +45,19 @@ class OptionController extends GetxController {
   Future<void> changeOption(String id, bool val) async {
     switch (id) {
       case 'isCustomFilter':
-        isCustomFilter != isCustomFilter;
-        isCustomFilter = RxBool(val);
+        //isCustomFilter != isCustomFilter;
+        isCustomFilter = val;
         break;
       case 'isCompareFirst':
-        isCompareFirst != isCompareFirst;
-        isCompareFirst = RxBool(val);
+        //isCompareFirst != isCompareFirst;
+        isCompareFirst = val;
         break;
       case 'isIncludeSalChrgCd':
-        isIncludeSalChrgCd != isIncludeSalChrgCd;
-        isIncludeSalChrgCd = RxBool(val);
+        //isIncludeSalChrgCd != isIncludeSalChrgCd;
+        isIncludeSalChrgCd = val;
         break;
     }
     await Hive.box('SYSTEM').put(id, val);
   }
+
 }

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-
 import '../../layouts/config/menu_config.dart';
 import '../../main.dart';
 import 'menu_manager.dart';
