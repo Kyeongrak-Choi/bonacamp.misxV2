@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/strings.dart';
-import 'package:misxV2/components/login/login_policy.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/login/privacy_policy.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
-import 'package:misxV2/utils/utillity.dart';
+
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
-import 'package:hive/hive.dart';
+import 'utils/hive_init.dart';
 
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox('SYSTEM');
 
+  // init local db set
+  SystemBoxInit();
+
   // init Theme Setting
   var systemBox = Hive.box('SYSTEM');
-  Get.changeThemeMode(systemBox.get('isDark', defaultValue: GetSystemMode())
-      ? ThemeMode.dark
-      : ThemeMode.light);
+  Get.changeThemeMode(
+      systemBox.get('isDark') ? ThemeMode.dark : ThemeMode.light);
+
   runApp(Misx());
 }
 
@@ -87,19 +90,18 @@ class InitBinding implements Bindings {
 }
 
 class ThemeModeController extends GetxController {
-  var systemBox = Hive.box('SYSTEM');
   var isDark;
 
   @override
   void onInit() {
     super.onInit();
-    isDark = RxBool(systemBox.get('isDark', defaultValue: false));
+    isDark = RxBool(Hive.box('SYSTEM').get('isDark'));
   }
 
   Future<void> changeTheme(bool val) async {
     isDark = RxBool(val);
-    await systemBox.put('isDark', val);
+    await Hive.box('SYSTEM').put('isDark', val);
     Get.changeThemeMode(
-        systemBox.get('isDark') ? ThemeMode.dark : ThemeMode.light);
+        Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
   }
 }

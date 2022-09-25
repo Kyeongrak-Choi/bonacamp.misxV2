@@ -53,16 +53,16 @@ final List<RadioMenu> menuDetail = [
   RadioMenu(
     id: 'isCustomFilter',
     title: 'isCustomFilter'.tr,
-    val: Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false),
+    val: Hive.box('SYSTEM').get('isCustomFilter'),
   ),
   RadioMenu(
     id: 'isIncludeSalChrgCd',
     title: 'isIncludeSalChrgCd'.tr,
-    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: false),
+    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd'),
   ),
   RadioMenu(
     id: 'isCompareFirst',
     title: 'isCompareFirst'.tr,
-    val: Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false),
+    val: Hive.box('SYSTEM').get('isCompareFirst'),
   ),
 ];

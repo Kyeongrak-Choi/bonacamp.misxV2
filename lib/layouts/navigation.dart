@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
 import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
-import 'package:misxV2/layouts/premium/premium_list.dart';
+
 import '../components/common/dialog/logout_check.dart';
 import '../utils/constants.dart';
 import 'config/config.dart';

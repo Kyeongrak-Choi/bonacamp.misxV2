@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+
 import '../../layouts/config/menu_config.dart';
 import '../../main.dart';
 import 'menu_manager.dart';
@@ -15,7 +18,7 @@ class CardRadioMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ThemeModeController());
-    Get.put(OptionController());
+
     return Card(
       elevation: 0.5,
       margin: EdgeInsets.zero,
@@ -35,6 +38,7 @@ class CardRadioMenu extends StatelessWidget {
   }
 
   Widget buildRowItem(String id, String title, bool val, BuildContext context) {
+    Get.put(OptionController());
     var optValue;
     switch (id) {
       case 'isDark':
@@ -67,12 +71,13 @@ class CardRadioMenu extends StatelessWidget {
               value: optValue.value,
               onChanged: (value) {
                 switch (id) {
-                  case 'darkmode':
+                  case 'isDark':
                     Get.find<ThemeModeController>().changeTheme(value);
                     break;
                   case 'isCustomFilter':
                   case 'isIncludeSalChrgCd':
                   case 'isCompareFirst':
+                    log('id : ' + id + ' / value : ' + value.toString());
                     Get.find<OptionController>().changeOption(id, value);
                     break;
                 }

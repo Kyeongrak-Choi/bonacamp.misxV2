@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/utils/snackbar.dart';
+
 import '../../utils/constants.dart';
 
 class LoginBtn extends StatelessWidget {
@@ -42,7 +43,7 @@ class LoginBtnController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    inputId = systemBox.get('savedId', defaultValue: '');
+    inputId = systemBox.get('savedId');
     inputPw = '';
   }
 

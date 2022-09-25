@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
-import '../../components/common/dialog/logout_check.dart';
+
 import '../../components/menu/menu_manager.dart';
-import '../../utils/constants.dart';
 
 // System Config Setting
 class SystemConfig extends StatelessWidget {

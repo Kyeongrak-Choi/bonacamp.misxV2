@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
-import '../../components/common/dialog/logout_check.dart';
+
 import '../../components/menu/menu_manager.dart';
-import '../../utils/constants.dart';
 
 // Menu Config Setting
 class MenuConfig extends StatelessWidget {
@@ -31,7 +29,6 @@ class MenuConfig extends StatelessWidget {
 }
 
 class OptionController extends GetxController {
-  var optionBox = Hive.box('SYSTEM');
   var isCustomFilter; // 거래처 필터링 사용
   var isCompareFirst; // 초성검색시 첫글자부터 비교
   var isIncludeSalChrgCd; // 영업사원 선택시 관리사원 포함
@@ -39,27 +36,26 @@ class OptionController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    isCustomFilter = RxBool(optionBox.get('isCustomFilter', defaultValue: false));
-    isCompareFirst = RxBool(optionBox.get('isCompareFirst', defaultValue: false));
-    isIncludeSalChrgCd = RxBool(optionBox.get('isIncludeSalChrgCd', defaultValue: false));
+    isCustomFilter = RxBool(Hive.box('SYSTEM').get('isCustomFilter'));
+    isCompareFirst = RxBool(Hive.box('SYSTEM').get('isCompareFirst'));
+    isIncludeSalChrgCd = RxBool(Hive.box('SYSTEM').get('isIncludeSalChrgCd'));
   }
 
-  Future<void> changeOption(String id,bool val) async {
+  Future<void> changeOption(String id, bool val) async {
     switch (id) {
-      case 'isCustomFilter' :
+      case 'isCustomFilter':
         isCustomFilter != isCustomFilter;
         isCustomFilter = RxBool(val);
         break;
-      case 'isCompareFirst' :
+      case 'isCompareFirst':
         isCompareFirst != isCompareFirst;
         isCompareFirst = RxBool(val);
         break;
-      case 'isIncludeSalChrgCd' :
+      case 'isIncludeSalChrgCd':
         isIncludeSalChrgCd != isIncludeSalChrgCd;
         isIncludeSalChrgCd = RxBool(val);
         break;
     }
-    await optionBox.put(id,val);
+    await Hive.box('SYSTEM').put(id, val);
   }
-
 }

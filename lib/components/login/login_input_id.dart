@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/utils/constants.dart';
+
 import '../../utils/theme/text_theme.dart';
 import 'login_btn.dart';
 
 class LoginInputId extends StatelessWidget {
-  var systemBox = Hive.box('SYSTEM');
-
   @override
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
@@ -46,7 +45,7 @@ class LoginInputId extends StatelessWidget {
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),
-          initialValue: systemBox.get('savedId', defaultValue: ''),
+          initialValue: Hive.box('SYSTEM').get('savedId'),
           onChanged: (text) {
             Get.find<LoginBtnController>().setInputId(text);
           },
