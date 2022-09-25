@@ -9,14 +9,13 @@ import '../../main.dart';
 import 'menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {
-  final List<RadioMenu> radioMenu;
-  final systemBox = Hive.box('SYSTEM');
+  List<RadioMenu> radioMenu;
 
   CardRadioMenu({required this.radioMenu});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ThemeModeController());
+    Get.put(OptionController());
 
     return Card(
       elevation: 0.5,
@@ -37,20 +36,19 @@ class CardRadioMenu extends StatelessWidget {
   }
 
   Widget buildRowItem(String id, String title, bool val, BuildContext context) {
-    Get.put(OptionController());
     var optValue;
     switch (id) {
       case 'isDark':
-        optValue = Get.find<ThemeModeController>().isDark;
+        optValue = Get.find<OptionController>().isDark.value;
         break;
       case 'isCustomFilter':
-        optValue = Get.find<OptionController>().isCustomFilter;
+        optValue = Get.find<OptionController>().isCustomFilter.value;
         break;
       case 'isIncludeSalChrgCd':
-        optValue = Get.find<OptionController>().isIncludeSalChrgCd;
+        optValue = Get.find<OptionController>().isIncludeSalChrgCd.value;
         break;
       case 'isCompareFirst':
-        optValue = Get.find<OptionController>().isCompareFirst;
+        optValue = Get.find<OptionController>().isCompareFirst.value;
         break;
     }
 
@@ -67,11 +65,11 @@ class CardRadioMenu extends StatelessWidget {
           SizedBox(width: 20),
           Obx(() => Switch(
               activeColor: Colors.tealAccent,
-              value: optValue.value,
+              value: optValue,
               onChanged: (value) {
                 switch (id) {
                   case 'isDark':
-                    Get.find<ThemeModeController>().changeTheme(value);
+                    Get.find<OptionController>().changeTheme(value);
                     break;
                   case 'isCustomFilter':
                   case 'isIncludeSalChrgCd':

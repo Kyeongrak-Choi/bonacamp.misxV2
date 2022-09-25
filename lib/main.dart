@@ -19,10 +19,9 @@ import 'utils/hive_manager.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox('SYSTEM');
 
   // init local db set
-  SystemBoxInit();
+  await SystemBoxInit();
 
   // init Theme Setting
   var systemBox = Hive.box('SYSTEM');
@@ -89,19 +88,19 @@ class InitBinding implements Bindings {
   }
 }
 
-class ThemeModeController extends GetxController {
-  var isDark;
-
-  @override
-  void onInit() {
-    super.onInit();
-    isDark = RxBool(Hive.box('SYSTEM').get('isDark'));
-  }
-
-  Future<void> changeTheme(bool val) async {
-    isDark = RxBool(val);
-    await Hive.box('SYSTEM').put('isDark', val);
-    Get.changeThemeMode(
-        Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
-  }
-}
+// class ThemeModeController extends GetxController {
+//   var isDark;
+//
+//   @override
+//   void onInit() {
+//     super.onInit();
+//     isDark = RxBool(Hive.box('SYSTEM').get('isDark')).obs;
+//   }
+//
+//   Future<void> changeTheme(bool val) async {
+//     isDark = RxBool(val);
+//     await Hive.box('SYSTEM').put('isDark', val);
+//     Get.changeThemeMode(
+//         Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
+//   }
+// }

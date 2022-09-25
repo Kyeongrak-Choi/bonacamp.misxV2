@@ -66,7 +66,8 @@ class LoginBtnController extends GetxController {
       // login API process
 
       // Hive DB Set
-      ClearBox();
+      await OpenBox();
+      await ClearBox();
 
       return true;
     }

@@ -14,7 +14,6 @@ class DashBoardChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ThemeModeController());
     return Stack(
       children: <Widget>[
         AspectRatio(
