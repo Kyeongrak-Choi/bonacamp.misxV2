@@ -7,8 +7,8 @@ import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
 import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
 
-import '../components/common/dialog/logout_check.dart';
 import '../utils/constants.dart';
+import '../utils/utillity.dart';
 import 'config/config.dart';
 import 'example/funtion.dart';
 
@@ -19,7 +19,7 @@ class Navigation extends GetView<NavigationController> {
 
     return WillPopScope(
       onWillPop: () {
-        return Future(() => false);
+        return Future(() => false); // HW Back key disenable
       },
       child: Scaffold(
         key: controller.scaffoldKey,
@@ -40,7 +40,7 @@ class Navigation extends GetView<NavigationController> {
             IconButton(
                 icon: Icon(Icons.logout),
                 color: context.theme.primaryColor,
-                onPressed: () => LogoutCheckDialog(context)),
+                onPressed: () => ShowDialog(DialogTypeChoice,'logout'.tr,'logout_content'.tr,context)),
           ],
         ),
         // drawer: Drawer(
@@ -63,7 +63,7 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: context.theme.primaryColor,
+          color: Color(CommonColor),
           backgroundColor: context.theme.backgroundColor,
           buttonBackgroundColor: context.theme.backgroundColor,
           items: [

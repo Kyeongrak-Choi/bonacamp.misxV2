@@ -56,11 +56,11 @@ class SearchOption extends StatelessWidget {
 
   void initVar(flag) {
     switch (flag) {
-      case 'C':
+      case SearchDialogCustomer :
         hint = 'hint_search_customer'.tr;
         dummy = dummy_customer;
         break;
-      case 'P':
+      case SearchDialogProduct :
         hint = 'hint_search_product'.tr;
         dummy = dummy_product;
         break;

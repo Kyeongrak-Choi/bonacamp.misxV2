@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/button/option_btn_mymenu.dart';
 import 'package:misxV2/components/common/button/option_btn_search.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_customer.dart';
@@ -23,6 +24,10 @@ class MenuExample extends StatelessWidget {
             actions: [
               IconButton(
                 icon: OptionBtnVisible(),
+                onPressed: () => null,
+              ),
+              IconButton(
+                icon: OptionBtnMyMenu(),
                 onPressed: () => null,
               ),
             ],

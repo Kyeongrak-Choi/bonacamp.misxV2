@@ -23,13 +23,13 @@ class LoginBtn extends StatelessWidget {
                   if (await Get.find<LoginBtnController>().LoginCheck()) {
                     Get.toNamed('/navigation');
                   } else {
-                    ShowSnackBar('a', 'check_login_content'.tr);
+                    ShowSnackBar(SnackTypeAlarm, 'check_login_content'.tr);
                   }
                 },
                 child: Text('text_login'.tr),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Color(AppColor),
+                  backgroundColor: Color(DarkColor),
                 )))
       ],
     );

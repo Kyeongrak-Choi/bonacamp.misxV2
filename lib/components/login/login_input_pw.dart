@@ -25,17 +25,17 @@ class LoginInputPw extends StatelessWidget {
               labelStyle: textThemeLogin().headline3,
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,
-              hintStyle: TextStyle(color: Color(AppColor)),
+              hintStyle: TextStyle(color: Color(DarkColor)),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Color(AppColor),
+                  color: Color(DarkColor),
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Color(AppColor),
+                  color: Color(DarkColor),
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../components/common/dialog/search_listview.dart';
 import '../../../components/common/dialog/search_option.dart';
+import '../../../utils/constants.dart';
 
 class SearchDialog extends StatelessWidget {
   var flag;
@@ -39,14 +40,12 @@ class SearchDialog extends StatelessWidget {
 
   void initVar(flag) {
     switch (flag) {
-      case 'C':
+      case SearchDialogCustomer:
         title = 'title_search_customer'.tr;
         break;
-      case 'P':
+      case SearchDialogProduct:
         title = 'title_search_product'.tr;
         break;
-      default:
-        title = 'title_search_customer'.tr;
     }
   }
 }

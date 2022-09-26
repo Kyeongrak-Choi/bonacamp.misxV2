@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/constants.dart';
 import '../../../utils/utillity.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
@@ -155,7 +156,7 @@ class PeriodPickerController extends GetxController {
   // 기간 Validation check
   bool Validate() {
     if (pickedFromDate.compareTo(pickedToDate) > 0) {
-      ShowSnackBar('e', 'period_error_content'.tr);
+      ShowSnackBar(SnackTypeError, 'period_error_content'.tr);
       return false;
     } else {
       return true;

@@ -8,7 +8,9 @@ import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/login/privacy_policy.dart';
+import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
+import 'package:misxV2/utils/utillity.dart';
 
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
@@ -20,13 +22,10 @@ import 'utils/database/hive_manager.dart';
 void main() async {
   await Hive.initFlutter();
 
-  // init local db set
-  await SystemBoxInit();
-
   // init Theme Setting
-  var systemBox = Hive.box('SYSTEM');
+  await Hive.openBox('SYSTEM');
   Get.changeThemeMode(
-      systemBox.get('isDark') ? ThemeMode.dark : ThemeMode.light);
+      Hive.box('SYSTEM').get('isDark',defaultValue: GetSystemMode()) ? ThemeMode.dark : ThemeMode.light);
 
   runApp(Misx());
 }
@@ -54,6 +53,7 @@ class Misx extends StatelessWidget {
       // Route manage
       getPages: [
         // Layout
+        GetPage(name: '/login', page: () => Login()), // Login
         GetPage(name: '/navigation', page: () => Navigation()), // Main
         GetPage(name: '/policy', page: () => PrivacyPolicy()), // Policy
         GetPage(name: '/config', page: () => Config()), // Config
@@ -67,10 +67,10 @@ class Misx extends StatelessWidget {
         // Dialog
         GetPage(
             name: '/searchCustomer',
-            page: () => SearchDialog('C')), // Search Customer Dialog
+            page: () => SearchDialog(SearchDialogCustomer)), // Search Customer Dialog
         GetPage(
             name: '/searchProduct',
-            page: () => SearchDialog('P')), // Search Product Dialog
+            page: () => SearchDialog(SearchDialogProduct)), // Search Product Dialog
 
         // example
         GetPage(name: '/menuExample', page: () => MenuExample()),

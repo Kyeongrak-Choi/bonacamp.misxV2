@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: Color(AppColor),
+          color: Color(DarkColor),
         ),
         child: Center(
           child: Column(

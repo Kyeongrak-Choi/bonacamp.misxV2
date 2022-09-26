@@ -16,11 +16,11 @@ class Config extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
             child: Container(
               height: 100,
               decoration: BoxDecoration(
-                  color: Color(AppColor),
+                  color: Color(CommonColor),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40.0),
                       bottomRight: Radius.circular(40.0))),
@@ -28,12 +28,12 @@ class Config extends StatelessWidget {
                 Text(
                   '보나캠프(주)',
                   textAlign: TextAlign.start,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color(DarkColor)),
                 ),
                 Text(
                   '개발자',
                   textAlign: TextAlign.start,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color(DarkColor)),
                 ),
               ]),
             ),
@@ -53,10 +53,16 @@ class Config extends StatelessWidget {
 }
 
 class OptionController extends GetxController {
-  RxBool isDark = getHiveBool(Hive.box('SYSTEM').get('isDark')).obs; // 다크모드 여부
-  RxBool isCustomFilter = getHiveBool(Hive.box('SYSTEM').get('isCustomFilter',defaultValue: false)).obs;  // 거래처 필터링 사용
-  RxBool isIncludeSalChrgCd = getHiveBool(Hive.box('SYSTEM').get('isIncludeSalChrgCd',defaultValue: true)).obs; // 영업사원 선택시 관리사원 포함
-  RxBool isCompareFirst = getHiveBool(Hive.box('SYSTEM').get('isCompareFirst',defaultValue: false)).obs; // 초성검색시 첫글자부터 비교
+  RxBool isDark = getHiveBool(Hive.box('SYSTEM').get('isDark')).obs; // 다크모드
+  RxBool isCustomFilter =
+      getHiveBool(Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false))
+          .obs; // 거래처 필터링 사용
+  RxBool isIncludeSalChrgCd = getHiveBool(
+          Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: true))
+      .obs; // 영업사원 선택시 관리사원 포함
+  RxBool isCompareFirst =
+      getHiveBool(Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false))
+          .obs; // 초성검색시 첫글자부터 비교
 
   @override
   void onInit() {
@@ -68,7 +74,6 @@ class OptionController extends GetxController {
     await Hive.box('SYSTEM').put('isDark', val);
     Get.changeThemeMode(
         Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
-
   }
 
   Future<void> changeOption(String id, bool val) async {
@@ -85,5 +90,4 @@ class OptionController extends GetxController {
     }
     await Hive.box('SYSTEM').put(id, val);
   }
-
 }

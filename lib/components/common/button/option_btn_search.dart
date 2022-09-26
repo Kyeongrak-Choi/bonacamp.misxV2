@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/utillity.dart';
 
 import '../../../layouts/example/menu_example.dart';
 
@@ -18,6 +19,7 @@ class OptionBtnSearch extends StatelessWidget {
             color: context.theme.backgroundColor,
             child: ElevatedButton(
                 onPressed: () {
+                  ShowProgress(context);
                   Get.find<MenuExampleController>().setVisible();
                 },
                 child: Icon(Icons.search, color: context.theme.primaryColor),

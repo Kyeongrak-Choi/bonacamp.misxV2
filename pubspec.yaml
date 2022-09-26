@@ -60,6 +60,9 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   # reference - https://pub.dev/packages/curved_navigation_bar
   # descryption - navigation bar design
+  dialogs: ^0.0.7
+  # reference - https://pub.dev/packages/dialogs
+  # descryption - dialog design
   # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage

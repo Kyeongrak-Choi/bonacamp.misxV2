@@ -11,9 +11,9 @@ class Themes {
     appBarTheme: appBarThemeLight(),
     backgroundColor: Colors.white,
     bottomAppBarColor: Colors.white,
-    primaryColor: Color(AppColor),
+    primaryColor: Color(DarkColor),
     primaryColorLight: Colors.white,
-    primaryColorDark: Color(AppColor),
+    primaryColorDark: Color(DarkColor),
     canvasColor: Colors.blueGrey,
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
@@ -28,16 +28,16 @@ class Themes {
   static final dark = ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: appBarThemeDark(),
-    backgroundColor: Color(AppColor),
-    bottomAppBarColor: Color(AppColor),
+    backgroundColor: Color(DarkColor),
+    bottomAppBarColor: Color(DarkColor),
     primaryColor: Colors.white,
     primaryColorLight: Colors.white,
-    primaryColorDark: Color(AppColor),
+    primaryColorDark: Color(DarkColor),
     hoverColor: Colors.blueGrey ,
     canvasColor: Colors.black26,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(
-      buttonColor: Color(AppColor),
+      buttonColor: Color(DarkColor),
       textTheme: ButtonTextTheme.primary,
     ),
     navigationBarTheme: const NavigationBarThemeData(

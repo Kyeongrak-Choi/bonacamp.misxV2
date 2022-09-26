@@ -72,6 +72,9 @@ const Map<String, String> koKR = {
   'snack_error' : '에러',
   'snack_information' : '정보',
 
+  // Progress Bar
+  'loading' : '로딩중입니다...',
+
 };
 
 //const Map<String,String> enUs = {};
