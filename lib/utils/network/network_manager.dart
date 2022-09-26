@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../constants.dart';
-import '../utillity.dart';
+import '../utility.dart';
 
 class NetworkManager extends GetxController {
   RxString responseData = ''.obs;
@@ -22,8 +22,8 @@ class NetworkManager extends GetxController {
 Future<String> CallApi(api, params) async {
   try {
     var url = Uri.parse(api);
-    var response =
-        await http.get(url).timeout(const Duration(seconds: 3000), onTimeout: () {
+    var response = await http.get(url).timeout(const Duration(seconds: 3000),
+        onTimeout: () {
       ShowSnackBar(SnackTypeError, 'Request failed : ${api}\nstatus: 500');
       return http.Response('Error', 500);
     });
@@ -33,8 +33,8 @@ Future<String> CallApi(api, params) async {
       responseData = jsonDecode(utf8.decode(response.bodyBytes));
       return responseData.toString();
     } else {
-      ShowSnackBar(
-          SnackTypeError, 'Request failed : ${api}\nstatus: ${responseData[MsgTag]}');
+      ShowSnackBar(SnackTypeError,
+          'Request failed : ${api}\nstatus: ${responseData[MsgTag]}');
       return responseData[MsgTag];
     }
   } catch (e) {

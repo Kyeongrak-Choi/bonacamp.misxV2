@@ -33,7 +33,7 @@ class Themes {
     primaryColor: Colors.white,
     primaryColorLight: Colors.white,
     primaryColorDark: Color(DarkColor),
-    hoverColor: Colors.blueGrey ,
+    hoverColor: Colors.blueGrey,
     canvasColor: Colors.black26,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(

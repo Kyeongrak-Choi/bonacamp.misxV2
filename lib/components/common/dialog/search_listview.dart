@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
-import 'package:misxV2/utils/utillity.dart';
+import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/common/product.dart';
 import '../../../utils/constants.dart';
@@ -30,41 +30,42 @@ class SearchList extends StatelessWidget {
               height: 50,
               color: context.theme.backgroundColor,
               padding: const EdgeInsets.all(5),
-              child: Get.find<SearchListController>().flag == SearchDialogCustomer
-                  ? SearchListItem(
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custCd
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custNm
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custAbbNm
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custStatNm
-                          .toString())
-                  : SearchListItem(
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmCd
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmNm
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmAbbNm
-                          .toString(),
-                      Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .ufFgNm
-                          .toString()),
+              child:
+                  Get.find<SearchListController>().flag == SearchDialogCustomer
+                      ? SearchListItem(
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .custCd
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .custNm
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .custAbbNm
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .custStatNm
+                              .toString())
+                      : SearchListItem(
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .itmCd
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .itmNm
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .itmAbbNm
+                              .toString(),
+                          Get.find<SearchListController>()
+                              .parsedResponse[index]
+                              .ufFgNm
+                              .toString()),
             ));
           },
         ));

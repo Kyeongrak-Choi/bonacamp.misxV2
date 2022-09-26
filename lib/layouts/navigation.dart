@@ -8,7 +8,7 @@ import 'package:misxV2/layouts/menu/menu_list.dart';
 import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
 
 import '../utils/constants.dart';
-import '../utils/utillity.dart';
+import '../utils/utility.dart';
 import 'config/config.dart';
 import 'example/funtion.dart';
 
@@ -40,7 +40,8 @@ class Navigation extends GetView<NavigationController> {
             IconButton(
                 icon: Icon(Icons.logout),
                 color: context.theme.primaryColor,
-                onPressed: () => ShowDialog(DialogTypeChoice,'logout'.tr,'logout_content'.tr,context)),
+                onPressed: () => ShowDialog(DialogTypeChoice, 'logout'.tr,
+                    'logout_content'.tr, context)),
           ],
         ),
         // drawer: Drawer(

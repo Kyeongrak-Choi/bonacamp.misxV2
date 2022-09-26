@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/utillity.dart';
+import '../../../utils/utility.dart';
 
 class OptionPeriodPicker extends StatelessWidget {
   @override

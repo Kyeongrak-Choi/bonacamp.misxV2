@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../layouts/config/config.dart';
-import '../../layouts/config/menu_config.dart';
 import 'menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {

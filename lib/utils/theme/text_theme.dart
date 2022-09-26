@@ -82,7 +82,7 @@ TextTheme textThemeDark() {
   );
 }
 
-TextTheme textThemeLogin() {
+TextTheme textThemeCommon() {
   return TextTheme(
     headline1: GoogleFonts.nanumGothic(
       fontSize: 24.0,

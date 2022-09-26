@@ -1,31 +1,25 @@
 import 'package:hive/hive.dart';
-import 'package:misxV2/utils/utillity.dart';
 
 // Data Insert
 Future<void> UserInfoBoxInit() async {
   await Hive.openBox('USER_INFO');
   //await Hive.box('USER_INFO').put('testKey', 'testValue');
-
 }
 
 Future<void> SalChrgCdBoxInit() async {
   await Hive.openBox('SAL_CHRG_CD');
-
 }
 
 Future<void> NodeCdBoxInit() async {
   await Hive.openBox('NODE_CD');
-
 }
 
 Future<void> TeamCdBoxInit() async {
   await Hive.openBox('TEAM_CD');
-
 }
 
 Future<void> WhCdBoxInit() async {
   await Hive.openBox('WH_CD');
-
 }
 
 Future<void> OpenBox() async {
@@ -46,8 +40,8 @@ Future<void> ClearBox() async {
 }
 
 // return Bool Data
-bool getHiveBool(bool data){
-  if(data == true) {
+bool getHiveBool(bool data) {
+  if (data == true) {
     return true;
   } else {
     return false;

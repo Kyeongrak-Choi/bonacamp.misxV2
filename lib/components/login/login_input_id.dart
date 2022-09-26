@@ -20,9 +20,9 @@ class LoginInputId extends StatelessWidget {
             child: TextFormField(
           obscureText: false,
           maxLength: 16,
-          style: textThemeLogin().headline3,
+          style: textThemeCommon().headline3,
           decoration: InputDecoration(
-            labelStyle: textThemeLogin().headline3,
+            labelStyle: textThemeCommon().headline3,
             labelText: 'text_id'.tr,
             hintText: 'hint_id_input'.tr,
             hintStyle: TextStyle(color: Color(DarkColor)),
@@ -41,7 +41,7 @@ class LoginInputId extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Color(CommonColor),
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),

@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
-import '../../utils/utillity.dart';
+import '../../utils/utility.dart';
 
 class LoginBtn extends StatelessWidget {
   const LoginBtn({Key? key}) : super(key: key);

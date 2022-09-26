@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../../utils/utillity.dart';
+import '../../utils/utility.dart';
 
 class IconMenu {
   String title;
@@ -38,7 +38,7 @@ final List<RadioMenu> systemDetail = [
   RadioMenu(
     id: 'isDark',
     title: 'dark_mode'.tr,
-    val: Hive.box('SYSTEM').get('isDark',defaultValue: GetSystemMode()),
+    val: Hive.box('SYSTEM').get('isDark', defaultValue: GetSystemMode()),
   ),
 ];
 
@@ -55,16 +55,16 @@ final List<RadioMenu> menuDetail = [
   RadioMenu(
     id: 'isCustomFilter',
     title: 'isCustomFilter'.tr,
-    val: Hive.box('SYSTEM').get('isCustomFilter',defaultValue: false),
+    val: Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false),
   ),
   RadioMenu(
     id: 'isIncludeSalChrgCd',
     title: 'isIncludeSalChrgCd'.tr,
-    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd',defaultValue: true),
+    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: true),
   ),
   RadioMenu(
     id: 'isCompareFirst',
     title: 'isCompareFirst'.tr,
-    val: Hive.box('SYSTEM').get('isCompareFirst',defaultValue: false),
+    val: Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false),
   ),
 ];

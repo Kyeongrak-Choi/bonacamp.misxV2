@@ -1,4 +1,3 @@
-
 // System
 const AppName = 'MISX Ver2';
 const DarkColor = 0xFF262D34;
@@ -38,4 +37,3 @@ enum NavigationItem { HOME, MY, MENU, PREMIUM, CONFIG }
 // Dummy data
 const dummy_customer = 'lib/assets/json_dummy/customerList';
 const dummy_product = 'lib/assets/json_dummy/productList';
-

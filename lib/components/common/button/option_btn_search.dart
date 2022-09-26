@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/utils/utillity.dart';
+import 'package:misxV2/utils/utility.dart';
 
 import '../../../layouts/example/menu_example.dart';
 

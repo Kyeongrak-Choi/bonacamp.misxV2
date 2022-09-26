@@ -65,11 +65,16 @@ void ShowDialog(type, title, content, context) {
       buttonOkOnPressed: () => Get.offAllNamed('/login'),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
-      iconButtonOk: Icon(Icons.check,color: Color(DarkColor),),
-      iconButtonCancel: Icon(Icons.cancel,color: Colors.red,),
+      iconButtonOk: Icon(
+        Icons.check,
+        color: Color(DarkColor),
+      ),
+      iconButtonCancel: Icon(
+        Icons.cancel,
+        color: Colors.red,
+      ),
     );
     choiceDialog.show(context, barrierColor: Colors.white);
-
   } else if (type == DialogTypeMessage) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
@@ -88,7 +93,7 @@ void ShowDialog(type, title, content, context) {
 }
 
 // Progress Bar
-void ShowProgress(context){
+void ShowProgress(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
     backgroundColor: Color(CommonColor),
@@ -96,5 +101,6 @@ void ShowProgress(context){
     loadingText: 'loading'.tr,
   );
   progressDialog.show();
-  Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
+  Future.delayed(Duration(seconds: 3))
+      .then((value) => progressDialog.dismiss());
 }

@@ -25,15 +25,21 @@ class Config extends StatelessWidget {
                       bottomLeft: Radius.circular(40.0),
                       bottomRight: Radius.circular(40.0))),
               child: Column(children: [
-                Text(
-                  '보나캠프(주)',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: Color(DarkColor)),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                  child: Text(
+                    '보나캠프(주) 214-86-65741',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Color(DarkColor), fontSize: 18),
+                  ),
                 ),
-                Text(
-                  '개발자',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: Color(DarkColor)),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                  child: Text(
+                    'bonabank / 개발자',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(color: Color(DarkColor), fontSize: 14),
+                  ),
                 ),
               ]),
             ),

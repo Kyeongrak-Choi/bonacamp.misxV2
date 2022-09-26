@@ -1,7 +1,5 @@
-
 // Korean String manage
 const Map<String, String> koKR = {
-
   // Common
   'App_name': '경영관리',
   'confirm': '확인',
@@ -17,17 +15,17 @@ const Map<String, String> koKR = {
   'hint_id_input': 'ID를 입력해 주세요.',
   'hint_pw_input': 'PW를 입력해 주세요.',
   'privacy_policy': '개인정보 처리방침',
-  'admob_banner' : '광고배너',
-  'check_login_header' : 'ID/PW 확인',
-  'check_login_content' : 'ID/PW를 확인해 주세요.',
+  'admob_banner': '광고배너',
+  'check_login_header': 'ID/PW 확인',
+  'check_login_content': 'ID/PW를 확인해 주세요.',
 
   // config
-  'system_setting' : '시스템 설정',
-  'menu_setting' : '메뉴 설정',
-  'dark_mode' : '다크 모드',
-  'isCustomFilter' : '거래처 필터링 사용',
-  'isIncludeSalChrgCd' : '영업사원 선택시 관리담당 포함',
-  'isCompareFirst' : '초성검색시 첫글자부터 비교',
+  'system_setting': '시스템 설정',
+  'menu_setting': '메뉴 설정',
+  'dark_mode': '다크 모드',
+  'isCustomFilter': '거래처 필터링 사용',
+  'isIncludeSalChrgCd': '영업사원 선택시 관리담당 포함',
+  'isCompareFirst': '초성검색시 첫글자부터 비교',
 
   // Dialog search customer
   'title_search_customer': '거래처 검색',
@@ -38,8 +36,8 @@ const Map<String, String> koKR = {
   'hint_search_product': '품목 코드/명을 입력해주세요.',
 
   // Period Picker
-  'period_error_header' : '기간오류',
-  'period_error_content' : '기간을 확인해주세요.',
+  'period_error_header': '기간오류',
+  'period_error_content': '기간을 확인해주세요.',
 
   // DashBoard
   'title_sales': '매출',
@@ -55,26 +53,25 @@ const Map<String, String> koKR = {
   'nav_more': '더보기',
 
   // option
-  'opt_period' : '기간',
-  'opt_date' : '일자',
-  'opt_month' : '연월',
-  'opt_workspace' : '사업장',
-  'opt_customer' : '거래처',
-  'opt_sales' : '영업담당',
-  'opt_manage' : '관리담당',
+  'opt_period': '기간',
+  'opt_date': '일자',
+  'opt_month': '연월',
+  'opt_workspace': '사업장',
+  'opt_customer': '거래처',
+  'opt_sales': '영업담당',
+  'opt_manage': '관리담당',
 
   // Drawer Menu Label
-  'logout' : '로그아웃',
-  'logout_content' : '로그아웃 하시겠습니까?',
+  'logout': '로그아웃',
+  'logout_content': '로그아웃 하시겠습니까?',
 
   // Snack Bar
-  'snack_alram' : '알림',
-  'snack_error' : '에러',
-  'snack_information' : '정보',
+  'snack_alram': '알림',
+  'snack_error': '에러',
+  'snack_information': '정보',
 
   // Progress Bar
-  'loading' : '로딩중입니다...',
-
+  'loading': '로딩중입니다...',
 };
 
 //const Map<String,String> enUs = {};
