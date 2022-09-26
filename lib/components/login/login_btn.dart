@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/utils/snackbar.dart';
+
 import '../../utils/constants.dart';
-import '../../utils/hive_manager.dart';
+import '../../utils/database/hive_manager.dart';
+import '../../utils/utillity.dart';
 
 class LoginBtn extends StatelessWidget {
   const LoginBtn({Key? key}) : super(key: key);
@@ -38,12 +39,11 @@ class LoginBtn extends StatelessWidget {
 class LoginBtnController extends GetxController {
   var inputId;
   var inputPw;
-  var systemBox = Hive.box('SYSTEM');
 
   @override
   void onInit() {
     super.onInit();
-    inputId = systemBox.get('savedId');
+    inputId = Hive.box('SYSTEM').get('savedId');
     inputPw = '';
   }
 
@@ -60,7 +60,7 @@ class LoginBtnController extends GetxController {
       return false;
     } else {
       // id save
-      await systemBox.put('savedId', inputId);
+      await Hive.box('SYSTEM').put('savedId', inputId);
       inputPw = '';
 
       // login API process

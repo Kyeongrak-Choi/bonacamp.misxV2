@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
-import '../../utils/network/request_controller.dart';
+import '../../utils/network/network_manager.dart';
 
 // 예제 화면
 class ApiExample extends StatelessWidget {
@@ -11,7 +11,7 @@ class ApiExample extends StatelessWidget {
 
   @override
   Widget build(context) {
-    Get.put(RequestController());
+    Get.put(NetworkManager());
     return Scaffold(
       appBar: AppBar(
         title: Text('Api Test Exam'),
@@ -25,13 +25,13 @@ class ApiExample extends StatelessWidget {
                     backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () =>
-                      Get.find<RequestController>().RequestApi(HealthCheck, ''),
+                      Get.find<NetworkManager>().RequestApi(HealthCheck, ''),
                   child: Text(
                     'api call'.tr,
                     style: context.textTheme.bodyText1,
                   )),
               Text(
-                Get.find<RequestController>().responseData.value,
+                Get.find<NetworkManager>().responseData.value,
               ),
             ],
           )),

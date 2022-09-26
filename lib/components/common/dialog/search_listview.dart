@@ -1,12 +1,14 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
 import 'package:misxV2/utils/utillity.dart';
-import '../../../utils/constants.dart';
+
 import '../../../models/common/product.dart';
+import '../../../utils/constants.dart';
 
 class SearchList extends StatelessWidget {
   @override
@@ -86,7 +88,7 @@ class SearchListController extends GetxController {
 
   void search(String dummy) async {
     var jsonString = await jsonDummy(dummy);
-    var dataObjsJson = jsonDecode(jsonString)['data'] as List;
+    var dataObjsJson = jsonDecode(jsonString)[DataTag] as List;
 
     if (dummy == dummy_customer) {
       parsedResponse = dataObjsJson

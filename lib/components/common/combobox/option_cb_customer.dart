@@ -43,15 +43,15 @@ class OptionDialogCustomer extends StatelessWidget {
 }
 
 class CbCustomerController extends GetxController {
-  var selectedValue;
+  RxString selectedValue = 'all'.tr.obs;
 
   @override
   void onInit() {
     super.onInit();
-    selectedValue = 'all'.tr.obs;
+    //selectedValue = 'all'.tr.obs;
   }
 
   chooseItem(code, name) async {
-    selectedValue = RxString(name).value.obs;
+    selectedValue.value = name;
   }
 }

@@ -6,12 +6,12 @@ Future<void> SystemBoxInit() async {
 
   // System Option
   await Hive.box('SYSTEM').put('isDark', GetSystemMode()); // theme Mode
-  await Hive.box('SYSTEM').put('savedId', ''); // user Id
-
-  // Menu Option
-  await Hive.box('SYSTEM').put('isCustomFilter', false); // 거래처 필터링 사용
-  await Hive.box('SYSTEM').put('isCompareFirst', true); // 영업사원 선택시 관리담당 포함
-  await Hive.box('SYSTEM').put('isIncludeSalChrgCd', false); // 초성검색시 첫글자부터 비교
+  // await Hive.box('SYSTEM').put('savedId', ''); // user Id
+  //
+  // // Menu Option
+  // await Hive.box('SYSTEM').put('isCustomFilter', false); // 거래처 필터링 사용
+  // await Hive.box('SYSTEM').put('isCompareFirst', true); // 영업사원 선택시 관리담당 포함
+  // await Hive.box('SYSTEM').put('isIncludeSalChrgCd', false); // 초성검색시 첫글자부터 비교
 }
 
 // Data Insert
@@ -41,7 +41,6 @@ Future<void> WhCdBoxInit() async {
 
 }
 
-// Data Delete
 Future<void> OpenBox() async {
   await Hive.openBox('USER_INFO');
   await Hive.openBox('SAL_CHRG_CD');
@@ -50,7 +49,6 @@ Future<void> OpenBox() async {
   await Hive.openBox('WH_CD');
 }
 
-
 // Data Delete
 Future<void> ClearBox() async {
   await Hive.box('USER_INFO').clear();
@@ -58,4 +56,13 @@ Future<void> ClearBox() async {
   await Hive.box('NODE_CD').clear();
   await Hive.box('TEAM_CD').clear();
   await Hive.box('WH_CD').clear();
+}
+
+// return Bool Data
+bool getHiveBool(bool data){
+  if(data == true) {
+    return true;
+  } else {
+    return false;
+  }
 }

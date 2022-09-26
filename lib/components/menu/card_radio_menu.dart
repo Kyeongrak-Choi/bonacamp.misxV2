@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
+
+import '../../layouts/config/config.dart';
 import '../../layouts/config/menu_config.dart';
-import '../../main.dart';
 import 'menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {
@@ -39,16 +39,16 @@ class CardRadioMenu extends StatelessWidget {
     var optValue;
     switch (id) {
       case 'isDark':
-        optValue = Get.find<OptionController>().isDark.value;
+        optValue = Get.find<OptionController>().isDark;
         break;
       case 'isCustomFilter':
-        optValue = Get.find<OptionController>().isCustomFilter.value;
+        optValue = Get.find<OptionController>().isCustomFilter;
         break;
       case 'isIncludeSalChrgCd':
-        optValue = Get.find<OptionController>().isIncludeSalChrgCd.value;
+        optValue = Get.find<OptionController>().isIncludeSalChrgCd;
         break;
       case 'isCompareFirst':
-        optValue = Get.find<OptionController>().isCompareFirst.value;
+        optValue = Get.find<OptionController>().isCompareFirst;
         break;
     }
 
@@ -65,7 +65,7 @@ class CardRadioMenu extends StatelessWidget {
           SizedBox(width: 20),
           Obx(() => Switch(
               activeColor: Colors.tealAccent,
-              value: optValue,
+              value: optValue.value,
               onChanged: (value) {
                 switch (id) {
                   case 'isDark':

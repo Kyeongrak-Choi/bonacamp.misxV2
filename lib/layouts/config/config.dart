@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
+import 'package:misxV2/utils/database/hive_manager.dart';
 
 import '../../components/menu/menu_manager.dart';
 import '../../utils/constants.dart';
@@ -48,4 +50,40 @@ class Config extends StatelessWidget {
       ),
     );
   }
+}
+
+class OptionController extends GetxController {
+  RxBool isDark = getHiveBool(Hive.box('SYSTEM').get('isDark')).obs; // 다크모드 여부
+  RxBool isCustomFilter = getHiveBool(Hive.box('SYSTEM').get('isCustomFilter',defaultValue: false)).obs;  // 거래처 필터링 사용
+  RxBool isIncludeSalChrgCd = getHiveBool(Hive.box('SYSTEM').get('isIncludeSalChrgCd',defaultValue: true)).obs; // 영업사원 선택시 관리사원 포함
+  RxBool isCompareFirst = getHiveBool(Hive.box('SYSTEM').get('isCompareFirst',defaultValue: false)).obs; // 초성검색시 첫글자부터 비교
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  Future<void> changeTheme(bool val) async {
+    isDark.value = val;
+    await Hive.box('SYSTEM').put('isDark', val);
+    Get.changeThemeMode(
+        Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
+
+  }
+
+  Future<void> changeOption(String id, bool val) async {
+    switch (id) {
+      case 'isCustomFilter':
+        isCustomFilter.value = val;
+        break;
+      case 'isIncludeSalChrgCd':
+        isIncludeSalChrgCd.value = val;
+        break;
+      case 'isCompareFirst':
+        isCompareFirst.value = val;
+        break;
+    }
+    await Hive.box('SYSTEM').put(id, val);
+  }
+
 }

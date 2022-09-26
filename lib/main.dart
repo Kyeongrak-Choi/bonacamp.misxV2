@@ -15,7 +15,7 @@ import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
-import 'utils/hive_manager.dart';
+import 'utils/database/hive_manager.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -87,20 +87,3 @@ class InitBinding implements Bindings {
     Get.put(NavigationController());
   }
 }
-
-// class ThemeModeController extends GetxController {
-//   var isDark;
-//
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     isDark = RxBool(Hive.box('SYSTEM').get('isDark')).obs;
-//   }
-//
-//   Future<void> changeTheme(bool val) async {
-//     isDark = RxBool(val);
-//     await Hive.box('SYSTEM').put('isDark', val);
-//     Get.changeThemeMode(
-//         Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
-//   }
-// }

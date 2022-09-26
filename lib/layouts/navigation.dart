@@ -28,7 +28,7 @@ class Navigation extends GetView<NavigationController> {
           title: Image.asset(
             'lib/assets/icons/logo.png',
           ),
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: false, // HW Back Key disenable
           // leading: IconButton(
           //   icon: Icon(Icons.account_circle_sharp),
           //   color: context.theme.primaryColor,
@@ -43,7 +43,6 @@ class Navigation extends GetView<NavigationController> {
                 onPressed: () => LogoutCheckDialog(context)),
           ],
         ),
-        // Drawer Use X
         // drawer: Drawer(
         //   child: DrawerMenu(),
         // ),
@@ -147,11 +146,11 @@ class NavigationController extends GetxService {
     currentIndex(Index);
   }
 
-  void openDrawer() {
-    scaffoldKey.currentState?.openDrawer();
-  }
-
-  void closeDrawer() {
-    scaffoldKey.currentState?.openEndDrawer();
-  }
+  // void openDrawer() {
+  //   scaffoldKey.currentState?.openDrawer();
+  // }
+  //
+  // void closeDrawer() {
+  //   scaffoldKey.currentState?.openEndDrawer();
+  // }
 }
