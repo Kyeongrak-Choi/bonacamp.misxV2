@@ -33,12 +33,6 @@ dependencies:
   hive_flutter: ^1.1.0
   # https://pub.dev/packages/hive
   # descryption - local DB
-  # get_storage: ^2.0.3
-  # https://pub.dev/packages/get
-  # descryption - persistent storage for simple data
-  # shared_preferences: ^2.0.15
-  # https://pub.dev/packages/shared_preferences
-  # descryption - persistent storage for simple data (NSUserDefaults on iOS and macOS, SharedPreferences on Android)
   fl_chart: ^0.55.1
   # reference - https://pub.dev/packages/fl_chart
   # descryption - chart util
@@ -63,6 +57,16 @@ dependencies:
   dialogs: ^0.0.7
   # reference - https://pub.dev/packages/dialogs
   # descryption - dialog design
+  carousel_slider: ^4.1.1
+  # reference - https://pub.dev/packages/carousel_slide
+  # descryption - admob auto slide
+
+  # get_storage: ^2.0.3
+  # https://pub.dev/packages/get
+  # descryption - persistent storage for simple data
+  # shared_preferences: ^2.0.15
+  # https://pub.dev/packages/shared_preferences
+  # descryption - persistent storage for simple data (NSUserDefaults on iOS and macOS, SharedPreferences on Android)
   # permission_handler: ^10.0.0
   # reference - https://pub.dev/packages/permission_handler
   # descryption - permission manage
