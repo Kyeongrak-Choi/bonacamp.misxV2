@@ -65,13 +65,12 @@ class LoginBtnController extends GetxController {
 
       // login API process
 
-      // Hive DB Set
-      // await OpenBox();
-      // await ClearBox();
-
+      // local DB Set
       UserInfoBoxInit(); // USER_INFO Init
       SalChrgBoxInit(); // SAL_CHRG Init
       NodeBoxInit(); // NODE Init
+      TeamBoxInit(); // TEAM Init
+      //WhBoxInit(); // WH Init
 
       return true;
     }

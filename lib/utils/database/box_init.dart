@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 
 import '../../models/localDB/node.dart';
 import '../../models/localDB/salchrg.dart';
+import '../../models/localDB/team.dart';
 import '../../models/localDB/userinfo.dart';
 import '../constants.dart';
 import '../utility.dart';
@@ -16,6 +17,7 @@ Future<void> UserInfoBoxInit() async {
       parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
 }
 
+// SAL_CHRG Hive DB Insert
 Future<void> SalChrgBoxInit() async {
   await Hive.openBox(NM_SALCHRG_BOX);
   var parsedData = jsonDecode(await jsonDummy(DUMMY_SALCHRG))[TAG_DATA] as List;
@@ -23,6 +25,7 @@ Future<void> SalChrgBoxInit() async {
       parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
 }
 
+// NODE Hive DB Insert
 Future<void> NodeBoxInit() async {
   await Hive.openBox(NM_NODE_BOX);
   var parsedData = jsonDecode(await jsonDummy(DUMMY_NODE))[TAG_DATA] as List;
@@ -30,10 +33,18 @@ Future<void> NodeBoxInit() async {
       parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
 }
 
-Future<void> TeamCdBoxInit() async {
-  // await Hive.openBox('TEAM_CD');
+// TEAM Hive DB Insert
+Future<void> TeamBoxInit() async {
+  await Hive.openBox(NM_TEAM_BOX);
+  var parsedData = jsonDecode(await jsonDummy(DUMMY_TEAM))[TAG_DATA] as List;
+  await Hive.box(NM_TEAM_BOX).put(KEY_TEAM_BOX,
+      parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 }
 
-Future<void> WhCdBoxInit() async {
-  // await Hive.openBox('WH_CD');
+// WH Hive DB Insert
+Future<void> WhBoxInit() async {
+  await Hive.openBox(NM_WH_BOX);
+  var parsedData = jsonDecode(await jsonDummy(DUMMY_WH))[TAG_DATA] as List;
+  await Hive.box(NM_WH_BOX).put(KEY_WH_BOX,
+      parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 }

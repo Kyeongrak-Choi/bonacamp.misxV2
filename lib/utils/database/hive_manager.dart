@@ -2,12 +2,14 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/models/localDB/node.dart';
 import 'package:misxV2/models/localDB/salchrg.dart';
 
+import '../../models/localDB/team.dart';
 import '../../models/localDB/userinfo.dart';
 
 void RegisterAdapter() {
   Hive.registerAdapter(UserinfoModelAdapter());
   Hive.registerAdapter(SalChrgModelAdapter());
   Hive.registerAdapter(NodeModelAdapter());
+  Hive.registerAdapter(TeamModelAdapter());
 }
 
 // Future<void> OpenBox() async {

@@ -48,6 +48,10 @@ const NM_SALCHRG_BOX = 'SAL_CHRG'; // USER_INFO box name
 const KEY_SALCHRG_BOX = 'salchrg'; // USER_INFO box key value
 const NM_NODE_BOX = 'NODE'; // NODE box name
 const KEY_NODE_BOX = 'node'; // NODE box key value
+const NM_TEAM_BOX = 'TEAM'; // TEAM box name
+const KEY_TEAM_BOX = 'team'; // TEAM box key value
+const NM_WH_BOX = 'WH'; // WH box name
+const KEY_WH_BOX = 'wh'; // WH box key value
 
 /*
   Dummy data
@@ -57,3 +61,5 @@ const DUMMY_PROD = 'lib/assets/json_dummy/productList';
 const DUMMY_USER = 'lib/assets/json_dummy/userinfo';
 const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
 const DUMMY_NODE = 'lib/assets/json_dummy/node';
+const DUMMY_TEAM = 'lib/assets/json_dummy/team';
+const DUMMY_WH = 'lib/assets/json_dummy/wh';
