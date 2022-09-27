@@ -70,8 +70,10 @@ class LoginBtnController extends GetxController {
       // await OpenBox();
       // await ClearBox();
 
-      // USER_INFO Hive DB Insert
-      UserInfoBoxInit();
+
+      UserInfoBoxInit(); // USER_INFO Init
+      SalChrgBoxInit(); // SAL_CHRG Init
+      NodeBoxInit(); // NODE Init
 
 
       return true;

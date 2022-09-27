@@ -48,7 +48,6 @@ class CbCustomerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    //selectedValue = 'all'.tr.obs;
   }
 
   chooseItem(code, name) async {

@@ -5,7 +5,7 @@ import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
 import '../../components/menu/menu_manager.dart';
-import '../../models/userinfo.dart';
+import '../../models/localDB/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/utility.dart';
 

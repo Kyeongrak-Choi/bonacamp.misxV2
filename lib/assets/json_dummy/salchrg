@@ -1,0 +1,274 @@
+{
+	"payload" :[
+	{
+		"SAL_CHRG_CD" : "00",
+		"SAL_CHRG_NM" : "jkl",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "0000",
+		"SAL_CHRG_NM" : "test",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "001",
+		"SAL_CHRG_NM" : "1231111",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "002",
+		"SAL_CHRG_NM" : "홍길동",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "003",
+		"SAL_CHRG_NM" : "김담당",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "01",
+		"SAL_CHRG_NM" : "배송1",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "02",
+		"SAL_CHRG_NM" : "김대휘",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "03",
+		"SAL_CHRG_NM" : "김광섭",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "04",
+		"SAL_CHRG_NM" : "승태",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "05",
+		"SAL_CHRG_NM" : "송정민",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "06",
+		"SAL_CHRG_NM" : "경기도1",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "07",
+		"SAL_CHRG_NM" : "경기도2",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "09",
+		"SAL_CHRG_NM" : "강도연2",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "10",
+		"SAL_CHRG_NM" : "김고니",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "100",
+		"SAL_CHRG_NM" : "퇴사자",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "101",
+		"SAL_CHRG_NM" : "앱 테스트",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "11",
+		"SAL_CHRG_NM" : "김경용",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "111",
+		"SAL_CHRG_NM" : "관리담당",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "1234",
+		"SAL_CHRG_NM" : "ffff",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "17",
+		"SAL_CHRG_NM" : "박찬익2",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "18",
+		"SAL_CHRG_NM" : "황원현",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "22",
+		"SAL_CHRG_NM" : "홍길동1",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "29",
+		"SAL_CHRG_NM" : "삭제 홍길동1",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "31",
+		"SAL_CHRG_NM" : "홍길동",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "33",
+		"SAL_CHRG_NM" : "김성진",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "44",
+		"SAL_CHRG_NM" : "홍길동1",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "46",
+		"SAL_CHRG_NM" : "김보나",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "66",
+		"SAL_CHRG_NM" : "대구테스트",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "67",
+		"SAL_CHRG_NM" : "나다",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "68",
+		"SAL_CHRG_NM" : "김현성",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "6S",
+		"SAL_CHRG_NM" : "sun",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "71",
+		"SAL_CHRG_NM" : "박아무개",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "75",
+		"SAL_CHRG_NM" : "김덕배",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "99",
+		"SAL_CHRG_NM" : "홍길동1",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "999",
+		"SAL_CHRG_NM" : "999",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "A1",
+		"SAL_CHRG_NM" : "지점",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "A2",
+		"SAL_CHRG_NM" : "TEST",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "A5",
+		"SAL_CHRG_NM" : "김무궁",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "AC",
+		"SAL_CHRG_NM" : "ju",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "ASD",
+		"SAL_CHRG_NM" : "asdf",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "AX",
+		"SAL_CHRG_NM" : "hj",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "B",
+		"SAL_CHRG_NM" : "허석",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "C",
+		"SAL_CHRG_NM" : "전형태",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "SD",
+		"SAL_CHRG_NM" : "s",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "X1",
+		"SAL_CHRG_NM" : "X1(사용)",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "Z1",
+		"SAL_CHRG_NM" : "이지인3",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "Z10",
+		"SAL_CHRG_NM" : "김민성",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "Z12",
+		"SAL_CHRG_NM" : "홍길동",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "Z4",
+		"SAL_CHRG_NM" : "권준호",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "Z6",
+		"SAL_CHRG_NM" : "오써니",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "ZS",
+		"SAL_CHRG_NM" : "이찬우",
+		"MGMT_CHRGR_YN" : "N"
+	},
+	{
+		"SAL_CHRG_CD" : "ZZZ",
+		"SAL_CHRG_NM" : "권준호22",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "ZZZZ",
+		"SAL_CHRG_NM" : "홍지수",
+		"MGMT_CHRGR_YN" : "Y"
+	},
+	{
+		"SAL_CHRG_CD" : "호",
+		"SAL_CHRG_NM" : "테스트",
+		"MGMT_CHRGR_YN" : "N"
+	}
+	]
+}

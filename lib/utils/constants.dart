@@ -44,9 +44,14 @@ const TAG_MSG = 'message'; // response message tag
 
 
 /*
-  DB BOX Key
+  DB BOX
  */
-const KEY_USER_BOX = 'user';  // USER_INFO box key value
+const NM_USERINFO_BOX = 'USER_INFO'; // USER_INFO box name
+const KEY_USERINFO_BOX = 'user';  // USER_INFO box key value
+const NM_SALCHRG_BOX = 'SAL_CHRG'; // USER_INFO box name
+const KEY_SALCHRG_BOX = 'salchrg';  // USER_INFO box key value
+const NM_NODE_BOX = 'NODE'; // NODE box name
+const KEY_NODE_BOX = 'node';  // NODE box key value
 
 
 /*
@@ -55,3 +60,5 @@ const KEY_USER_BOX = 'user';  // USER_INFO box key value
 const DUMMY_CUST = 'lib/assets/json_dummy/customerList';
 const DUMMY_PROD = 'lib/assets/json_dummy/productList';
 const DUMMY_USER = 'lib/assets/json_dummy/userinfo';
+const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
+const DUMMY_NODE = 'lib/assets/json_dummy/node';
