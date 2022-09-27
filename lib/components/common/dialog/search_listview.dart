@@ -31,7 +31,7 @@ class SearchList extends StatelessWidget {
               color: context.theme.backgroundColor,
               padding: const EdgeInsets.all(5),
               child:
-                  Get.find<SearchListController>().flag == SearchDialogCustomer
+                  Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
                       ? SearchListItem(
                           Get.find<SearchListController>()
                               .parsedResponse[index]
@@ -89,18 +89,18 @@ class SearchListController extends GetxController {
 
   void search(String dummy) async {
     var jsonString = await jsonDummy(dummy);
-    var dataObjsJson = jsonDecode(jsonString)[DataTag] as List;
+    var dataObjsJson = jsonDecode(jsonString)[TAG_DATA] as List;
 
-    if (dummy == dummy_customer) {
+    if (dummy == DUMMY_CUST) {
       parsedResponse = dataObjsJson
-          .map((dataJson) => CustomerList.fromJson(dataJson))
+          .map((dataJson) => CustomerModel.fromJson(dataJson))
           .toList();
-      flag = SearchDialogCustomer;
-    } else if (dummy == dummy_product) {
+      flag = SEARCH_DIALOG_CUST;
+    } else if (dummy == DUMMY_PROD) {
       parsedResponse = dataObjsJson
-          .map((dataJson) => ProductList.fromJson(dataJson))
+          .map((dataJson) => ProductModel.fromJson(dataJson))
           .toList();
-      flag = SearchDialogProduct;
+      flag = SEARCH_DIALOG_PROD;
     }
     datas.clear();
     datas.addAll(parsedResponse);

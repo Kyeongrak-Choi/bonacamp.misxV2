@@ -40,10 +40,10 @@ class SearchDialog extends StatelessWidget {
 
   void initVar(flag) {
     switch (flag) {
-      case SearchDialogCustomer:
+      case SEARCH_DIALOG_CUST:
         title = 'title_search_customer'.tr;
         break;
-      case SearchDialogProduct:
+      case SEARCH_DIALOG_PROD:
         title = 'title_search_product'.tr;
         break;
     }

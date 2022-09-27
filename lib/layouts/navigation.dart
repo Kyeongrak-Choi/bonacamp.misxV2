@@ -17,6 +17,8 @@ class Navigation extends GetView<NavigationController> {
   Widget build(BuildContext context) {
     controller.currentIndex.value = 0;
 
+
+
     return WillPopScope(
       onWillPop: () {
         return Future(() => false); // HW Back key disenable
@@ -40,7 +42,7 @@ class Navigation extends GetView<NavigationController> {
             IconButton(
                 icon: Icon(Icons.logout),
                 color: context.theme.primaryColor,
-                onPressed: () => ShowDialog(DialogTypeChoice, 'logout'.tr,
+                onPressed: () => ShowDialog(DIALOG_TYPE_SELECT, 'logout'.tr,
                     'logout_content'.tr, context)),
           ],
         ),
@@ -48,23 +50,23 @@ class Navigation extends GetView<NavigationController> {
         //   child: DrawerMenu(),
         // ),
         body: Obx(() {
-          switch (NavigationItem.values[controller.currentIndex.value]) {
-            case NavigationItem.HOME:
+          switch (NAVIGATION_BAR_ITEM.values[controller.currentIndex.value]) {
+            case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
-            case NavigationItem.MY:
+            case NAVIGATION_BAR_ITEM.MY:
               return MyMenuList();
-            case NavigationItem.MENU:
+            case NAVIGATION_BAR_ITEM.MENU:
               return MenuList();
-            case NavigationItem.PREMIUM:
+            case NAVIGATION_BAR_ITEM.PREMIUM:
               //return PremiumList();
               return UtilFunction();
-            case NavigationItem.CONFIG:
+            case NAVIGATION_BAR_ITEM.CONFIG:
               return Config();
           }
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: Color(CommonColor),
+          color: Color(COMMON_COLOR),
           backgroundColor: context.theme.backgroundColor,
           buttonBackgroundColor: context.theme.backgroundColor,
           items: [
@@ -146,6 +148,7 @@ class NavigationController extends GetxService {
   void changeIndex(int Index) {
     currentIndex(Index);
   }
+
 
   // void openDrawer() {
   //   scaffoldKey.currentState?.openDrawer();

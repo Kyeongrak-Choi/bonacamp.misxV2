@@ -8,7 +8,7 @@ class PrivacyPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: WebView(
-      initialUrl: PolicyUrl,
+      initialUrl: POLICY_URL,
       javascriptMode: JavascriptMode.unrestricted,
     ));
   }

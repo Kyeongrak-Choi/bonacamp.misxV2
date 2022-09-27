@@ -7,37 +7,37 @@ TextTheme textThemeLight() {
     headline1: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     headline2: GoogleFonts.nanumGothic(
       fontSize: 22.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     headline3: GoogleFonts.nanumGothic(
       fontSize: 20.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     subtitle1: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     subtitle2: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     bodyText1: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     bodyText2: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
   );
 }
@@ -87,22 +87,22 @@ TextTheme textThemeCommon() {
     headline1: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     headline2: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     headline3: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
     bodyText1: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
     ),
   );
 }

@@ -15,7 +15,7 @@ AppBarTheme appBarThemeLight() {
 AppBarTheme appBarThemeDark() {
   return AppBarTheme(
       centerTitle: false,
-      color: Color(DarkColor),
+      color: Color(DARK_COLOR),
       elevation: 0.0,
       titleTextStyle: textThemeDark().headline3);
 }

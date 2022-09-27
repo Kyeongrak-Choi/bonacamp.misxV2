@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
+import '../../utils/database/box_init.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/utility.dart';
 
@@ -23,13 +24,13 @@ class LoginBtn extends StatelessWidget {
                   if (await Get.find<LoginBtnController>().LoginCheck()) {
                     Get.toNamed('/navigation');
                   } else {
-                    ShowSnackBar(SnackTypeAlarm, 'check_login_content'.tr);
+                    ShowSnackBar(SNACK_TYPE_ALARM, 'check_login_content'.tr);
                   }
                 },
                 child: Text('text_login'.tr),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Color(DarkColor),
+                  backgroundColor: Color(DARK_COLOR),
                 )))
       ],
     );
@@ -66,10 +67,16 @@ class LoginBtnController extends GetxController {
       // login API process
 
       // Hive DB Set
-      await OpenBox();
-      await ClearBox();
+      // await OpenBox();
+      // await ClearBox();
+
+      // USER_INFO Hive DB Insert
+      UserInfoBoxInit();
+
 
       return true;
     }
   }
+
+
 }

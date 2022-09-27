@@ -1,25 +1,9 @@
 import 'package:hive/hive.dart';
 
-// Data Insert
-Future<void> UserInfoBoxInit() async {
-  await Hive.openBox('USER_INFO');
-  //await Hive.box('USER_INFO').put('testKey', 'testValue');
-}
+import '../../models/userinfo.dart';
 
-Future<void> SalChrgCdBoxInit() async {
-  await Hive.openBox('SAL_CHRG_CD');
-}
-
-Future<void> NodeCdBoxInit() async {
-  await Hive.openBox('NODE_CD');
-}
-
-Future<void> TeamCdBoxInit() async {
-  await Hive.openBox('TEAM_CD');
-}
-
-Future<void> WhCdBoxInit() async {
-  await Hive.openBox('WH_CD');
+void RegisterAdapter(){
+  Hive.registerAdapter(UserinfoModelAdapter());
 }
 
 Future<void> OpenBox() async {

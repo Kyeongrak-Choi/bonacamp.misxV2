@@ -1,5 +1,5 @@
-// 품목 검색 model
-class ProductList {
+// 품목 검색 Model
+class ProductModel {
   String? itmCd;
   String? itmNm;
   String? itmAbbNm;
@@ -9,10 +9,10 @@ class ProductList {
   String? ut;
   String? utNm;
 
-  ProductList(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg,
+  ProductModel(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg,
       this.ufFgNm, this.ut, this.utNm);
 
-  ProductList.fromJson(Map data)
+  ProductModel.fromJson(Map data)
       : itmCd = data['ITM_CD'],
         itmNm = data['ITM_NM'],
         itmAbbNm = data['ITM_ABB_NM'],

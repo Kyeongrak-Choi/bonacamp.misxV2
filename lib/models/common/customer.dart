@@ -1,5 +1,5 @@
 // 거래처 검색 Model
-class CustomerList {
+class CustomerModel {
   String? custCd;
   String? custNm;
   String? custAbbNm;
@@ -14,7 +14,7 @@ class CustomerList {
   String? telNo;
   String? addr;
 
-  CustomerList(
+  CustomerModel(
       this.custCd,
       this.custNm,
       this.custAbbNm,
@@ -29,7 +29,7 @@ class CustomerList {
       this.telNo,
       this.addr);
 
-  CustomerList.fromJson(Map data)
+  CustomerModel.fromJson(Map data)
       : custCd = data['CUST_CD'],
         custNm = data['CUST_NM'],
         custAbbNm = data['CUST_ABB_NM'],

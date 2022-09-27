@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: Color(DarkColor),
+          color: Color(DARK_COLOR),
         ),
         child: Center(
           child: Column(
@@ -35,7 +35,7 @@ class Login extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: Color(CommonColor),
+                    color: Color(COMMON_COLOR),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
@@ -64,7 +64,7 @@ class Login extends StatelessWidget {
                           thickness: 2,
                           indent: 20,
                           endIndent: 20,
-                          color: Color(DarkColor),
+                          color: Color(DARK_COLOR),
                         ),
                         Padding(
                           padding:
@@ -79,7 +79,7 @@ class Login extends StatelessWidget {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                           child: Text(
-                            CopyRight,
+                            COPY_RIGHT,
                             style: textThemeCommon().bodyText1,
                           ),
                         ),

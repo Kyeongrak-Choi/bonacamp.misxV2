@@ -24,7 +24,7 @@ Future<String> CallApi(api, params) async {
     var url = Uri.parse(api);
     var response = await http.get(url).timeout(const Duration(seconds: 3000),
         onTimeout: () {
-      ShowSnackBar(SnackTypeError, 'Request failed : ${api}\nstatus: 500');
+      ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
       return http.Response('Error', 500);
     });
     //var response = await http.get(url,headers: header add);
@@ -33,12 +33,12 @@ Future<String> CallApi(api, params) async {
       responseData = jsonDecode(utf8.decode(response.bodyBytes));
       return responseData.toString();
     } else {
-      ShowSnackBar(SnackTypeError,
-          'Request failed : ${api}\nstatus: ${responseData[MsgTag]}');
-      return responseData[MsgTag];
+      ShowSnackBar(SNACK_TYPE_ERROR,
+          'Request failed : ${api}\nstatus: ${responseData[TAG_MSG]}');
+      return responseData[TAG_MSG];
     }
   } catch (e) {
-    ShowSnackBar(SnackTypeError, 'Request failed : ${api}\nstatus: 500');
+    ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
     return e.toString();
   }
 }

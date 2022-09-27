@@ -27,13 +27,13 @@ void ShowSnackBar(type, content) {
   var header;
 
   switch (type) {
-    case SnackTypeInfo:
+    case SNACK_TYPE_INFO:
       header = 'snack_information'.tr;
       break;
-    case SnackTypeError:
+    case SNACK_TYPE_ERROR:
       header = 'snack_error'.tr;
       break;
-    case SnackTypeAlarm:
+    case SNACK_TYPE_ALARM:
       header = 'snack_alram'.tr;
       break;
   }
@@ -43,23 +43,23 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: Color(CommonColor),
-    colorText: Color(DarkColor),
+    backgroundColor: Color(COMMON_COLOR),
+    colorText: Color(DARK_COLOR),
   );
 }
 
 // Dialog
 void ShowDialog(type, title, content, context) {
-  if (type == DialogTypeChoice) {
+  if (type == DIALOG_TYPE_SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: Color(CommonColor),
+      dialogBackgroundColor: Color(COMMON_COLOR),
       title: title,
-      titleColor: Color(DarkColor),
+      titleColor: Color(DARK_COLOR),
       message: content,
-      messageColor: Color(DarkColor),
+      messageColor: Color(DARK_COLOR),
       buttonOkText: '',
-      buttonOkColor: Color(DarkColor),
+      buttonOkColor: Color(DARK_COLOR),
       buttonCancelText: '',
       buttonCancelBorderColor: Colors.red,
       buttonOkOnPressed: () => Get.offAllNamed('/login'),
@@ -67,7 +67,7 @@ void ShowDialog(type, title, content, context) {
       buttonRadius: 18.0,
       iconButtonOk: Icon(
         Icons.check,
-        color: Color(DarkColor),
+        color: Color(DARK_COLOR),
       ),
       iconButtonCancel: Icon(
         Icons.cancel,
@@ -75,15 +75,15 @@ void ShowDialog(type, title, content, context) {
       ),
     );
     choiceDialog.show(context, barrierColor: Colors.white);
-  } else if (type == DialogTypeMessage) {
+  } else if (type == DIALOG_TYPE_MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: Color(CommonColor),
+        dialogBackgroundColor: Color(COMMON_COLOR),
         buttonOkColor: Colors.red,
         title: title,
-        titleColor: Color(DarkColor),
+        titleColor: Color(DARK_COLOR),
         message: content,
-        messageColor: Color(DarkColor),
+        messageColor: Color(DARK_COLOR),
         buttonOkText: 'confirm'.tr,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
@@ -96,11 +96,15 @@ void ShowDialog(type, title, content, context) {
 void ShowProgress(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
-    backgroundColor: Color(CommonColor),
-    textColor: Color(DarkColor),
+    backgroundColor: Color(COMMON_COLOR),
+    textColor: Color(DARK_COLOR),
     loadingText: 'loading'.tr,
   );
   progressDialog.show();
   Future.delayed(Duration(seconds: 3))
       .then((value) => progressDialog.dismiss());
+}
+
+String convertBusinessNo(String businessNo) {
+  return '${businessNo.substring(0,3)}-${businessNo.substring(3,5)}-${businessNo.substring(5,10)}';
 }

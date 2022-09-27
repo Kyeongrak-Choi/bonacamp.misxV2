@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/layouts/navigation.dart';
 
 import '../../layouts/config/config.dart';
 import 'menu_manager.dart';
@@ -73,7 +74,6 @@ class CardRadioMenu extends StatelessWidget {
                   case 'isCustomFilter':
                   case 'isIncludeSalChrgCd':
                   case 'isCompareFirst':
-                    log('id : ' + id + ' / value : ' + value.toString());
                     Get.find<OptionController>().changeOption(id, value);
                     break;
                 }
