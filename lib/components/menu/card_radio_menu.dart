@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/layouts/navigation.dart';
 
 import '../../layouts/config/config.dart';
 import 'menu_manager.dart';

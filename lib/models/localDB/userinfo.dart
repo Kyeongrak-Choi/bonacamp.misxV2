@@ -24,7 +24,6 @@ class UserinfoModel {
   UserinfoModel(this._clientCd, this._clientNm, this._userId, this._userNm,
       this._businessNo, this._systemCd, this._dbUid);
 
-
   UserinfoModel.fromJson(Map data)
       : _clientCd = data['CLIENT_CODE'],
         _clientNm = data['CLIENT_NAME'],

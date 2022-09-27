@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 final admobItem = {
   Image.asset('lib/assets/images/admob_1.png', fit: BoxFit.cover),
@@ -10,7 +9,6 @@ final admobItem = {
 };
 
 class DashBoardAdmob extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     // return Center(
@@ -39,22 +37,22 @@ class DashBoardAdmob extends StatelessWidget {
     // );
     return CarouselSlider(
         items: admobItem.map((image) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
-                    child: image,
-                  ),
-                );
-              },
-            );
-          }).toList(),
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: image,
+                ),
+              );
+            },
+          );
+        }).toList(),
         options: CarouselOptions(
           height: 100,
-          aspectRatio: 16/9,
+          aspectRatio: 16 / 9,
           viewportFraction: 0.8,
           initialPage: 0,
           enableInfiniteScroll: true,
@@ -64,9 +62,8 @@ class DashBoardAdmob extends StatelessWidget {
           autoPlayAnimationDuration: Duration(milliseconds: 800),
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
-         // onPageChanged: callbackFunction,
+          // onPageChanged: callbackFunction,
           scrollDirection: Axis.horizontal,
-        )
-    );
+        ));
   }
 }

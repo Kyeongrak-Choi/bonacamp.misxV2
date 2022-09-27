@@ -34,7 +34,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
-                        style: TextStyle(color: Color(DARK_COLOR), fontSize: 18),
+                        style:
+                            TextStyle(color: Color(DARK_COLOR), fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -42,7 +43,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
-                        style: TextStyle(color: Color(DARK_COLOR), fontSize: 14),
+                        style:
+                            TextStyle(color: Color(DARK_COLOR), fontSize: 14),
                       ),
                     ),
                   ]),

@@ -41,15 +41,17 @@ class OptionCbSale extends StatelessWidget {
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-
-                    items: Get.find<CbSaleController>().data.map<DropdownMenuItem<SalChrgModel>>((SalChrgModel value){
+                    items: Get.find<CbSaleController>()
+                        .data
+                        .map<DropdownMenuItem<SalChrgModel>>(
+                            (SalChrgModel value) {
                       return DropdownMenuItem<SalChrgModel>(
                         alignment: Alignment.center,
-                        value : value,
+                        value: value,
                         child: Text(value.salChrgNm),
                       );
                     }).toList(),
-                    onChanged: (value){
+                    onChanged: (value) {
                       Get.find<CbSaleController>().chooseItem(value!);
                     },
                   ),
@@ -66,9 +68,9 @@ class CbSaleController extends GetxController {
   ].obs;
 
   // param sample
-  String paramSalChrgCd ='';
-  String paramSalChrgNm ='';
-  String paramMgmtChrgrYn ='';
+  String paramSalChrgCd = '';
+  String paramSalChrgNm = '';
+  String paramMgmtChrgrYn = '';
 
   @override
   void onInit() {
@@ -88,7 +90,9 @@ class CbSaleController extends GetxController {
       NM_SALCHRG_BOX,
     );
 
-    for (int i = 0; i < Hive.box(NM_SALCHRG_BOX).get(KEY_SALCHRG_BOX).length; i++) {
+    for (int i = 0;
+        i < Hive.box(NM_SALCHRG_BOX).get(KEY_SALCHRG_BOX).length;
+        i++) {
       data.add(Hive.box(NM_SALCHRG_BOX).get(KEY_SALCHRG_BOX).elementAt(i));
     }
   }

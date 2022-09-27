@@ -18,7 +18,6 @@ import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
-import 'models/localDB/userinfo.dart';
 
 void main() async {
   await Hive.initFlutter();

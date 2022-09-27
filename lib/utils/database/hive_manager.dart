@@ -4,7 +4,7 @@ import 'package:misxV2/models/localDB/salchrg.dart';
 
 import '../../models/localDB/userinfo.dart';
 
-void RegisterAdapter(){
+void RegisterAdapter() {
   Hive.registerAdapter(UserinfoModelAdapter());
   Hive.registerAdapter(SalChrgModelAdapter());
   Hive.registerAdapter(NodeModelAdapter());

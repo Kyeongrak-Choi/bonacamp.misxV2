@@ -30,42 +30,41 @@ class SearchList extends StatelessWidget {
               height: 50,
               color: context.theme.backgroundColor,
               padding: const EdgeInsets.all(5),
-              child:
-                  Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
-                      ? SearchListItem(
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .custCd
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .custNm
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .custAbbNm
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .custStatNm
-                              .toString())
-                      : SearchListItem(
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .itmCd
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .itmNm
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .itmAbbNm
-                              .toString(),
-                          Get.find<SearchListController>()
-                              .parsedResponse[index]
-                              .ufFgNm
-                              .toString()),
+              child: Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
+                  ? SearchListItem(
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custCd
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custAbbNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .custStatNm
+                          .toString())
+                  : SearchListItem(
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmCd
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .itmAbbNm
+                          .toString(),
+                      Get.find<SearchListController>()
+                          .parsedResponse[index]
+                          .ufFgNm
+                          .toString()),
             ));
           },
         ));

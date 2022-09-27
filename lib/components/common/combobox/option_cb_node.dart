@@ -35,21 +35,22 @@ class OptionCbNode extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                      () => DropdownButtonFormField<NodeModel>(
+                  () => DropdownButtonFormField<NodeModel>(
                     isExpanded: true,
                     value: Get.find<CbNodeController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-
-                    items: Get.find<CbNodeController>().data.map<DropdownMenuItem<NodeModel>>((NodeModel value){
+                    items: Get.find<CbNodeController>()
+                        .data
+                        .map<DropdownMenuItem<NodeModel>>((NodeModel value) {
                       return DropdownMenuItem<NodeModel>(
                         alignment: Alignment.center,
-                        value : value,
+                        value: value,
                         child: Text(value.braNm),
                       );
                     }).toList(),
-                    onChanged: (value){
+                    onChanged: (value) {
                       Get.find<CbNodeController>().chooseItem(value!);
                     },
                   ),
@@ -62,15 +63,15 @@ class OptionCbNode extends StatelessWidget {
 class CbNodeController extends GetxController {
   var selectedValue;
   List<NodeModel> data = [
-    NodeModel('', '', '전체','',''),
+    NodeModel('', '', '전체', '', ''),
   ].obs;
 
   // param sample
-  String paramNodeCd ='';
-  String paramComNm ='';
-  String paramBraNm ='';
-  String paramReprNm ='';
-  String paramBizgRegno ='';
+  String paramNodeCd = '';
+  String paramComNm = '';
+  String paramBraNm = '';
+  String paramReprNm = '';
+  String paramBizgRegno = '';
 
   @override
   void onInit() {

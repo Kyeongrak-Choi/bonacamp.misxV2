@@ -106,5 +106,5 @@ void ShowProgress(context) {
 }
 
 String convertBusinessNo(String businessNo) {
-  return '${businessNo.substring(0,3)}-${businessNo.substring(3,5)}-${businessNo.substring(5,10)}';
+  return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
 }

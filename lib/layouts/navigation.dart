@@ -17,8 +17,6 @@ class Navigation extends GetView<NavigationController> {
   Widget build(BuildContext context) {
     controller.currentIndex.value = 0;
 
-
-
     return WillPopScope(
       onWillPop: () {
         return Future(() => false); // HW Back key disenable
@@ -148,7 +146,6 @@ class NavigationController extends GetxService {
   void changeIndex(int Index) {
     currentIndex(Index);
   }
-
 
   // void openDrawer() {
   //   scaffoldKey.currentState?.openDrawer();

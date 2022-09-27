@@ -6,7 +6,6 @@ import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/database/box_init.dart';
-import '../../utils/database/hive_manager.dart';
 import '../../utils/utility.dart';
 
 class LoginBtn extends StatelessWidget {
@@ -70,15 +69,11 @@ class LoginBtnController extends GetxController {
       // await OpenBox();
       // await ClearBox();
 
-
       UserInfoBoxInit(); // USER_INFO Init
       SalChrgBoxInit(); // SAL_CHRG Init
       NodeBoxInit(); // NODE Init
 
-
       return true;
     }
   }
-
-
 }
