@@ -51,6 +51,9 @@ dependencies:
   http: ^0.13.5
   # reference - https://pub.dev/packages/http
   # descryption - making HTTP requests.
+  json_serializable: ^6.4.0
+  # reference - https://pub.dev/packages/json_serializable
+  # descryption - builders for handling JSON
   curved_navigation_bar: ^1.0.3
   # reference - https://pub.dev/packages/curved_navigation_bar
   # descryption - navigation bar design
@@ -76,9 +79,6 @@ dependencies:
   # google_maps_flutter: ^2.1.12
   # reference - https://pub.dev/packages/google_maps_flutter
   # descryption - map service
-  # json_serializable: ^6.3.1
-  # reference - https://pub.dev/packages/json_serializable
-  # descryption - builders for handling JSON
   # logger: ^1.1.0
   # reference - https://pub.dev/packages/logger
   # descryption - log util

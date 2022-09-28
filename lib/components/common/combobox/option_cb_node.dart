@@ -47,7 +47,7 @@ class OptionCbNode extends StatelessWidget {
                       return DropdownMenuItem<NodeModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.braNm),
+                        child: Text(value.getBraNm),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -81,11 +81,11 @@ class CbNodeController extends GetxController {
   }
 
   chooseItem(NodeModel value) async {
-    paramNodeCd = value.nodeCd;
-    paramComNm = value.comNm;
-    paramBraNm = value.braNm;
-    paramReprNm = value.reprNm;
-    paramBizgRegno = value.bizrRegNo;
+    paramNodeCd = value.getNodeCd;
+    paramComNm = value.getComNm;
+    paramBraNm = value.getBraNm;
+    paramReprNm = value.getReprNm;
+    paramBizgRegno = value.getBizrRegNo;
   }
 
   Future<void> setNode() async {

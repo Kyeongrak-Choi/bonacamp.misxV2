@@ -30,15 +30,15 @@ class NodeModelAdapter extends TypeAdapter<NodeModel> {
     writer
       ..writeByte(5)
       ..writeByte(0)
-      ..write(obj._nodeCd)
+      ..write(obj.NODE_CODE)
       ..writeByte(1)
-      ..write(obj._comNm)
+      ..write(obj.COM_NM)
       ..writeByte(2)
-      ..write(obj._braNm)
+      ..write(obj.BRA_NM)
       ..writeByte(3)
-      ..write(obj._reprNm)
+      ..write(obj.REPR_NM)
       ..writeByte(4)
-      ..write(obj._bizrRegNo);
+      ..write(obj.BIZR_REG_NO);
   }
 
   @override
@@ -51,3 +51,23 @@ class NodeModelAdapter extends TypeAdapter<NodeModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+NodeModel _$NodeModelFromJson(Map<String, dynamic> json) => NodeModel(
+      json['NODE_CODE'] as String,
+      json['COM_NM'] as String,
+      json['BRA_NM'] as String,
+      json['REPR_NM'] as String,
+      json['BIZR_REG_NO'] as String,
+    );
+
+Map<String, dynamic> _$NodeModelToJson(NodeModel instance) => <String, dynamic>{
+      'NODE_CODE': instance.NODE_CODE,
+      'COM_NM': instance.COM_NM,
+      'BRA_NM': instance.BRA_NM,
+      'REPR_NM': instance.REPR_NM,
+      'BIZR_REG_NO': instance.BIZR_REG_NO,
+    };

@@ -28,11 +28,11 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
     writer
       ..writeByte(3)
       ..writeByte(0)
-      ..write(obj._salChrgCd)
+      ..write(obj.SAL_CHRG_CD)
       ..writeByte(1)
-      ..write(obj._salChrgNm)
+      ..write(obj.SAL_CHRG_NM)
       ..writeByte(2)
-      ..write(obj._mgmtChrgrYn);
+      ..write(obj.MGMT_CHRGR_YN);
   }
 
   @override
@@ -45,3 +45,20 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+SalChrgModel _$SalChrgModelFromJson(Map<String, dynamic> json) => SalChrgModel(
+      json['SAL_CHRG_CD'] as String,
+      json['SAL_CHRG_NM'] as String,
+      json['MGMT_CHRGR_YN'] as String,
+    );
+
+Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) =>
+    <String, dynamic>{
+      'SAL_CHRG_CD': instance.SAL_CHRG_CD,
+      'SAL_CHRG_NM': instance.SAL_CHRG_NM,
+      'MGMT_CHRGR_YN': instance.MGMT_CHRGR_YN,
+    };

@@ -1,6 +1,7 @@
 /*
   System
  */
+
 const APP_NAME = 'MISX Ver2';
 const DARK_COLOR = 0xFF262D34; // common dark color value
 const COMMON_COLOR = 0xFFCDECFA; // common color value
@@ -10,9 +11,23 @@ const POLICY_URL =
 
 enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
 
+// Route
+const ROUTE_LOGIN = '/login';
+const ROUTE_NATIGATION = '/navigation';
+const ROUTE_POLICY = '/policy';
+const ROUTE_CONFIG = '/config';
+const ROUTE_SYSTEM_CONFIG = '/systemConfig';
+const ROUTE_MENU_CONFIG = '/menuConfig';
+const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';
+const ROUTE_DIALOG_PRODUCT = '/searchProduct';
+
+const ROUTE_MENU_EXAMPLE = '/menuExample';
+const ROUTE_API_EXAMPLE = '/apiExample';
+
 /*
   Util
  */
+
 // Snack Bar Type
 const SNACK_TYPE_INFO = 'I'; // info view snack bar type
 const SNACK_TYPE_ERROR = 'E'; // error view snack bar type
@@ -29,12 +44,14 @@ const SEARCH_DIALOG_PROD = 'P'; // product search type
 /*
  APIs
 */
+
 const API_URL = 'http://172.27.235.104:9000/api/v1/'; // test
 const API_TEST1 = API_URL + 'health'; // test
 
 /*
   Json
  */
+
 const TAG_DATA = 'payload'; // response data tag
 const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
@@ -42,6 +59,7 @@ const TAG_MSG = 'message'; // response message tag
 /*
   HIVE DB
  */
+
 const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
@@ -56,7 +74,6 @@ const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
 
-
 // Google Map Key
 const GOOGLE_MAPKEY_IOS = '';
 const GOOGLE_MAPKEY_AOS = '';
@@ -64,6 +81,7 @@ const GOOGLE_MAPKEY_AOS = '';
 /*
   Dummy data
  */
+
 const DUMMY_CUST = 'lib/assets/json_dummy/customerList';
 const DUMMY_PROD = 'lib/assets/json_dummy/productList';
 const DUMMY_USER = 'lib/assets/json_dummy/userinfo';

@@ -32,19 +32,19 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
     writer
       ..writeByte(7)
       ..writeByte(0)
-      ..write(obj._clientCd)
+      ..write(obj.CLIENT_CODE)
       ..writeByte(1)
-      ..write(obj._clientNm)
+      ..write(obj.CLIENT_NAME)
       ..writeByte(2)
-      ..write(obj._userId)
+      ..write(obj.USER_ID)
       ..writeByte(3)
-      ..write(obj._userNm)
+      ..write(obj.USER_NAME)
       ..writeByte(4)
-      ..write(obj._businessNo)
+      ..write(obj.BUSINESS_NO)
       ..writeByte(5)
-      ..write(obj._systemCd)
+      ..write(obj.SYSTEM_CD)
       ..writeByte(6)
-      ..write(obj._dbUid);
+      ..write(obj.DB_UID);
   }
 
   @override
@@ -57,3 +57,29 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
+    UserinfoModel(
+      json['CLIENT_CODE'] as String,
+      json['CLIENT_NAME'] as String,
+      json['USER_ID'] as String,
+      json['USER_NAME'] as String,
+      json['BUSINESS_NO'] as String,
+      json['SYSTEM_CD'] as String,
+      json['DB_UID'] as String,
+    );
+
+Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
+    <String, dynamic>{
+      'CLIENT_CODE': instance.CLIENT_CODE,
+      'CLIENT_NAME': instance.CLIENT_NAME,
+      'USER_ID': instance.USER_ID,
+      'USER_NAME': instance.USER_NAME,
+      'BUSINESS_NO': instance.BUSINESS_NO,
+      'SYSTEM_CD': instance.SYSTEM_CD,
+      'DB_UID': instance.DB_UID,
+    };

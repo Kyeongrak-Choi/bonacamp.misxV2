@@ -56,30 +56,30 @@ class Misx extends StatelessWidget {
       // Route manage
       getPages: [
         // Layout
-        GetPage(name: '/login', page: () => Login()), // Login
-        GetPage(name: '/navigation', page: () => Navigation()), // Main
-        GetPage(name: '/policy', page: () => PrivacyPolicy()), // Policy
-        GetPage(name: '/config', page: () => Config()), // Config
+        GetPage(name: ROUTE_LOGIN, page: () => Login()), // Login
+        GetPage(name: ROUTE_NATIGATION, page: () => Navigation()), // Main
+        GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
+        GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
         GetPage(
-            name: '/systemConfig',
+            name: ROUTE_SYSTEM_CONFIG,
             page: () => SystemConfig()), // Config - SystemConfig
         GetPage(
-            name: '/menuConfig',
+            name: ROUTE_MENU_CONFIG,
             page: () => MenuConfig()), // Config - MenuConfig
 
         // Dialog
         GetPage(
-            name: '/searchCustomer',
+            name: ROUTE_DIALOG_CUSTOMER,
             page: () =>
                 SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
         GetPage(
-            name: '/searchProduct',
+            name: ROUTE_DIALOG_PRODUCT,
             page: () =>
                 SearchDialog(SEARCH_DIALOG_PROD)), // Search Product Dialog
 
         // example
-        GetPage(name: '/menuExample', page: () => MenuExample()),
-        GetPage(name: '/apiExample', page: () => ApiExample()),
+        GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
+        GetPage(name: ROUTE_API_EXAMPLE, page: () => ApiExample()),
       ],
       home: Login(),
     );

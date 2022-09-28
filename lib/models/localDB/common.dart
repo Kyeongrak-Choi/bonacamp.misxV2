@@ -1,43 +1,45 @@
 import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'common.g.dart'; // *.g.dart : in same directory
 
 // 공통코드 Model
+@JsonSerializable(explicitToJson: true)
 @HiveType(typeId: 6)
 class CommonModel {
   @HiveField(0)
-  String _mainCd; // 메인 코드
+  String MAIN_CD; // 메인 코드
   @HiveField(1)
-  String _subCd; // 서브 코드
+  String SUB_CD; // 서브 코드
   @HiveField(2)
-  String _subNm; // 서브 명
+  String SUB_NM; // 서브 명
 
-  CommonModel(this._mainCd, this._subCd, this._subNm);
+  CommonModel(this.MAIN_CD, this.SUB_CD, this.SUB_NM);
 
   Map<String, dynamic> toMap() {
-    return {'mainCd': _mainCd, 'subCd': _subCd, 'subNm': _subNm};
+    return {'MAIN_CD': MAIN_CD, 'SUB_CD': SUB_NM, 'subNm': SUB_NM};
   }
 
-  CommonModel.fromJson(Map data)
-      : _mainCd = data['MAIN_CD'],
-        _subCd = data['SUB_CD'],
-        _subNm = data['SUB_NM'];
+  factory CommonModel.fromJson(Map<String, dynamic> json) =>
+      _$CommonModelFromJson(json);
 
-  String get mainCd => _mainCd;
+  Map<String, dynamic> toJson() => _$CommonModelToJson(this);
 
-  set mainCd(String value) {
-    _mainCd = value;
+  String get getMainCd => MAIN_CD;
+
+  set setMainCd(String value) {
+    MAIN_CD = value;
   }
 
-  String get subCd => _subCd;
+  String get getSubCd => SUB_CD;
 
-  set subCd(String value) {
-    _subCd = value;
+  set setSubCd(String value) {
+    SUB_CD = value;
   }
 
-  String get subNm => _subNm;
+  String get getSubNm => SUB_NM;
 
-  set subNm(String value) {
-    _subNm = value;
+  set setSubNm(String value) {
+    SUB_NM = value;
   }
 }

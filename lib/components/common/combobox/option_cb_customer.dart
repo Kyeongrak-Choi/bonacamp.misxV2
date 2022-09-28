@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../utils/constants.dart';
+
 class OptionDialogCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class OptionDialogCustomer extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: TextButton(
-                  onPressed: () => Get.toNamed('/searchCustomer'),
+                  onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
                   child: Obx(() => Text(
                         Get.find<CbCustomerController>().selectedValue.value,
                         style: context.textTheme.bodyText1,

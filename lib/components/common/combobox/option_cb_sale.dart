@@ -48,7 +48,7 @@ class OptionCbSale extends StatelessWidget {
                       return DropdownMenuItem<SalChrgModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.salChrgNm),
+                        child: Text(value.getSalChrgNm),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -80,9 +80,9 @@ class CbSaleController extends GetxController {
   }
 
   chooseItem(SalChrgModel value) async {
-    paramSalChrgCd = value.salChrgCd;
-    paramSalChrgNm = value.salChrgNm;
-    paramMgmtChrgrYn = value.mgmtChrgrYn;
+    paramSalChrgCd = value.getSalChrgCd;
+    paramSalChrgNm = value.getSalChrgNm;
+    paramMgmtChrgrYn = value.getMgmtChrgrYn;
   }
 
   Future<void> setSalChrg() async {

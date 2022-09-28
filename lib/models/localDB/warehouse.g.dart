@@ -27,9 +27,9 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj._whCd)
+      ..write(obj.WH_CD)
       ..writeByte(1)
-      ..write(obj._whNm);
+      ..write(obj.WH_NM);
   }
 
   @override
@@ -42,3 +42,19 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) =>
+    WarehouseModel(
+      json['WH_CD'] as String,
+      json['WH_NM'] as String,
+    );
+
+Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) =>
+    <String, dynamic>{
+      'WH_CD': instance.WH_CD,
+      'WH_NM': instance.WH_NM,
+    };

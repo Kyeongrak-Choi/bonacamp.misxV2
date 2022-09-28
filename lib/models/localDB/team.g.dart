@@ -27,9 +27,9 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj._subCd)
+      ..write(obj.SUB_CD)
       ..writeByte(1)
-      ..write(obj._subNm);
+      ..write(obj.SUB_NM);
   }
 
   @override
@@ -42,3 +42,17 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+TeamModel _$TeamModelFromJson(Map<String, dynamic> json) => TeamModel(
+      json['SUB_CD'] as String,
+      json['SUB_NM'] as String,
+    );
+
+Map<String, dynamic> _$TeamModelToJson(TeamModel instance) => <String, dynamic>{
+      'SUB_CD': instance.SUB_CD,
+      'SUB_NM': instance.SUB_NM,
+    };

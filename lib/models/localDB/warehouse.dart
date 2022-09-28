@@ -1,34 +1,37 @@
 import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'warehouse.g.dart'; // *.g.dart : in same directory
 
 // 창고 Model
+@JsonSerializable(explicitToJson: true)
 @HiveType(typeId: 5)
 class WarehouseModel {
   @HiveField(0)
-  String _whCd; // 창고 코드
+  String WH_CD; // 창고 코드
   @HiveField(1)
-  String _whNm; // 창고 명
+  String WH_NM; // 창고 명
 
-  WarehouseModel(this._whCd, this._whNm);
+  WarehouseModel(this.WH_CD, this.WH_NM);
 
   Map<String, dynamic> toMap() {
-    return {'whCd': _whCd, 'whNm': _whNm};
+    return {'WH_CD': WH_CD, 'WH_NM': WH_NM};
   }
 
-  WarehouseModel.fromJson(Map data)
-      : _whCd = data['WH_CD'],
-        _whNm = data['WH_NM'];
+  factory WarehouseModel.fromJson(Map<String, dynamic> json) =>
+      _$WarehouseModelFromJson(json);
 
-  String get whCd => _whCd;
+  Map<String, dynamic> toJson() => _$WarehouseModelToJson(this);
 
-  set whCd(String value) {
-    _whCd = value;
+  String get getWhCd => WH_CD;
+
+  set setWhCd(String value) {
+    WH_CD = value;
   }
 
-  String get whNm => _whNm;
+  String get getWhNm => WH_NM;
 
-  set whNm(String value) {
-    _whNm = value;
+  set setWhNm(String value) {
+    WH_NM = value;
   }
 }

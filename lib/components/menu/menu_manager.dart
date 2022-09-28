@@ -31,7 +31,7 @@ final List<IconMenu> systemMaster = [
   IconMenu(
       title: 'system_setting'.tr,
       iconData: Icons.settings,
-      path: '/systemConfig'),
+      path: ROUTE_SYSTEM_CONFIG),
 ];
 
 // system setting detail
@@ -48,7 +48,7 @@ final List<IconMenu> menuMaster = [
   IconMenu(
       title: 'menu_setting'.tr,
       iconData: Icons.copy_outlined,
-      path: '/menuConfig'),
+      path: ROUTE_MENU_CONFIG),
 ];
 
 // menu setting detail

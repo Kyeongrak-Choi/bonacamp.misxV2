@@ -62,7 +62,7 @@ void ShowDialog(type, title, content, context) {
       buttonOkColor: Color(DARK_COLOR),
       buttonCancelText: '',
       buttonCancelBorderColor: Colors.red,
-      buttonOkOnPressed: () => Get.offAllNamed('/login'),
+      buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
       iconButtonOk: Icon(

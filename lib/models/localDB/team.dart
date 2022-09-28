@@ -1,34 +1,37 @@
 import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'team.g.dart'; // *.g.dart : in same directory
 
 // 팀 Model
+@JsonSerializable(explicitToJson: true)
 @HiveType(typeId: 4)
 class TeamModel {
   @HiveField(0)
-  String _subCd; // 팀코드
+  String SUB_CD; // 팀코드
   @HiveField(1)
-  String _subNm; // 팀명
+  String SUB_NM; // 팀명
 
-  TeamModel(this._subCd, this._subNm);
-
-  TeamModel.fromJson(Map data)
-      : _subCd = data['SUB_CD'],
-        _subNm = data['SUB_NM'];
+  TeamModel(this.SUB_CD, this.SUB_NM);
 
   Map<String, dynamic> toMap() {
-    return {'subCd': _subCd, 'subNm': _subNm};
+    return {'SUB_CD': SUB_CD, 'SUB_NM': SUB_NM};
   }
 
-  String get subCd => _subCd;
+  factory TeamModel.fromJson(Map<String, dynamic> json) =>
+      _$TeamModelFromJson(json);
 
-  set subCd(String value) {
-    _subCd = value;
+  Map<String, dynamic> toJson() => _$TeamModelToJson(this);
+
+  String get getSubCd => SUB_CD;
+
+  set setSubCd(String value) {
+    SUB_CD = value;
   }
 
-  String get subNm => _subNm;
+  String get getSubNm => SUB_NM;
 
-  set subNm(String value) {
-    _subNm = value;
+  set setSubNm(String value) {
+    SUB_NM = value;
   }
 }

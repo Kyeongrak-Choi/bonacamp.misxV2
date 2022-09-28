@@ -21,7 +21,7 @@ class LoginBtn extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: () async {
                   if (await Get.find<LoginBtnController>().LoginCheck()) {
-                    Get.toNamed('/navigation');
+                    Get.toNamed(ROUTE_NATIGATION);
                   } else {
                     ShowSnackBar(SNACK_TYPE_ALARM, 'check_login_content'.tr);
                   }
