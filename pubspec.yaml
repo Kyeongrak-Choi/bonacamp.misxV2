@@ -14,15 +14,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
-  # reference - https://pub.dev/packages/cupertino_icons
-  # descryption - iOS style icon
-  google_fonts: ^3.0.1
-  # reference - https://pub.dev/packages/google_fonts
-  # descryption - font
-  font_awesome_flutter: ^10.1.0
-  # reference - https://pub.dev/packages/font_awesome_flutter
-  # descryption - font
+  # =========================================================================
+  # System
+  # =========================================================================
   intl: ^0.17.0
   # reference - https://pub.dev/packages/intl
   # descryption - utility
@@ -33,27 +27,46 @@ dependencies:
   hive_flutter: ^1.1.0
   # https://pub.dev/packages/hive
   # descryption - local DB
-  fl_chart: ^0.55.1
-  # reference - https://pub.dev/packages/fl_chart
-  # descryption - chart util
   source_span: ^1.8.2
   # reference - https://pub.dev/packages/source_span
   # descryption - source formatting
-  month_year_picker: ^0.2.0+2
-  # reference - https://pub.dev/packages/month_year_picker
-  # descryption - month picker
-  webview_flutter: ^3.0.4
-  # reference - https://pub.dev/packages/webview_flutter
-  # descryption - webview widget
   change_app_package_name: ^1.1.0
   # reference - https://pub.dev/packages/change_app_package_name
   # descryption - packagename change
+  webview_flutter: ^3.0.4
+  # reference - https://pub.dev/packages/webview_flutter
+  # descryption - webview widget
+
+
+  # =========================================================================
+  # Network
+  # =========================================================================
   http: ^0.13.5
   # reference - https://pub.dev/packages/http
   # descryption - making HTTP requests.
   json_serializable: ^6.4.0
   # reference - https://pub.dev/packages/json_serializable
   # descryption - builders for handling JSON
+
+
+  # =========================================================================
+  # ui
+  # =========================================================================
+  cupertino_icons: ^1.0.2
+  # reference - https://pub.dev/packages/cupertino_icons
+  # descryption - iOS style icon
+  google_fonts: ^3.0.1
+  # reference - https://pub.dev/packages/google_fonts
+  # descryption - font
+  font_awesome_flutter: ^10.1.0
+  # reference - https://pub.dev/packages/font_awesome_flutter
+  # descryption - font
+  fl_chart: ^0.55.1
+  # reference - https://pub.dev/packages/fl_chart
+  # descryption - chart util
+  month_year_picker: ^0.2.0+2
+  # reference - https://pub.dev/packages/month_year_picker
+  # descryption - month picker
   curved_navigation_bar: ^1.0.3
   # reference - https://pub.dev/packages/curved_navigation_bar
   # descryption - navigation bar design
@@ -63,6 +76,7 @@ dependencies:
   carousel_slider: ^4.1.1
   # reference - https://pub.dev/packages/carousel_slide
   # descryption - admob auto slide
+
 
   # get_storage: ^2.0.3
   # https://pub.dev/packages/get
