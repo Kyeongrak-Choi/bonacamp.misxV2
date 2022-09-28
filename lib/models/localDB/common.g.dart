@@ -1,44 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'node.dart';
+part of 'common.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NodeModelAdapter extends TypeAdapter<NodeModel> {
+class CommonModelAdapter extends TypeAdapter<CommonModel> {
   @override
-  final int typeId = 3;
+  final int typeId = 6;
 
   @override
-  NodeModel read(BinaryReader reader) {
+  CommonModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return NodeModel(
+    return CommonModel(
       fields[0] as String,
       fields[1] as String,
       fields[2] as String,
-      fields[3] as String,
-      fields[4] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, NodeModel obj) {
+  void write(BinaryWriter writer, CommonModel obj) {
     writer
-      ..writeByte(5)
-      ..writeByte(0)
-      ..write(obj._nodeCd)
-      ..writeByte(1)
-      ..write(obj._comNm)
-      ..writeByte(2)
-      ..write(obj._braNm)
       ..writeByte(3)
-      ..write(obj._reprNm)
-      ..writeByte(4)
-      ..write(obj._bizrRegNo);
+      ..writeByte(0)
+      ..write(obj._mainCd)
+      ..writeByte(1)
+      ..write(obj._subCd)
+      ..writeByte(2)
+      ..write(obj._subNm);
   }
 
   @override
@@ -47,7 +41,7 @@ class NodeModelAdapter extends TypeAdapter<NodeModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NodeModelAdapter &&
+      other is CommonModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

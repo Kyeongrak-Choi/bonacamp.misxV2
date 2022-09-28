@@ -40,18 +40,26 @@ const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
 
 /*
-  DB BOX
+  HIVE DB
  */
-const NM_USERINFO_BOX = 'USER_INFO'; // USER_INFO box name
-const KEY_USERINFO_BOX = 'user'; // USER_INFO box key value
-const NM_SALCHRG_BOX = 'SAL_CHRG'; // USER_INFO box name
-const KEY_SALCHRG_BOX = 'salchrg'; // USER_INFO box key value
-const NM_NODE_BOX = 'NODE'; // NODE box name
-const KEY_NODE_BOX = 'node'; // NODE box key value
-const NM_TEAM_BOX = 'TEAM'; // TEAM box name
-const KEY_TEAM_BOX = 'team'; // TEAM box key value
-const NM_WH_BOX = 'WH'; // WH box name
-const KEY_WH_BOX = 'wh'; // WH box key value
+const LOCAL_DB = 'LOCAL_DB'; // Box name
+const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
+const KEY_SAVED_ID = 'savedId'; // save id Key
+const KEY_CUSTOM_FILTER = 'sCustomFilter'; // '거래처필터링 사용' Key
+const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrg'; // '영업사원 선택시 관리담당 포함' Key
+const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key
+const KEY_USERINFO = 'USERINFO'; // USERINFO Object key - @HiveType(typeId: 1)
+const KEY_SALCHRG = 'SALCHRG'; // SALCHRG Object key - @HiveType(typeId: 2)
+const KEY_NODE = 'NODE'; // NODE Object key - @HiveType(typeId: 3)
+const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
+const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
+const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
+const KEY_MENU = 'MENU'; // MENU Object key
+
+
+// Google Map Key
+const GOOGLE_MAPKEY_IOS = '';
+const GOOGLE_MAPKEY_AOS = '';
 
 /*
   Dummy data

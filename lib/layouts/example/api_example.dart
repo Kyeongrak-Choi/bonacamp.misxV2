@@ -7,7 +7,7 @@ import '../../utils/network/network_manager.dart';
 
 // 예제 화면
 class ApiExample extends StatelessWidget {
-  final systemBox = Hive.box('SYSTEM');
+  final systemBox = Hive.box(LOCAL_DB);
 
   @override
   Widget build(context) {

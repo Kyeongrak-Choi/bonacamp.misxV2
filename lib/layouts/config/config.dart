@@ -70,15 +70,15 @@ class OptionController extends GetxController {
   RxString userId = ''.obs;
   RxString userNm = ''.obs;
 
-  RxBool isDark = getHiveBool(Hive.box('SYSTEM').get('isDark')).obs; // 다크모드
+  RxBool isDark = getHiveBool(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())).obs; // 다크모드
   RxBool isCustomFilter =
-      getHiveBool(Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false))
+      getHiveBool(Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false))
           .obs; // 거래처 필터링 사용
   RxBool isIncludeSalChrgCd = getHiveBool(
-          Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: true))
+          Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true))
       .obs; // 영업사원 선택시 관리사원 포함
   RxBool isCompareFirst =
-      getHiveBool(Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false))
+      getHiveBool(Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false))
           .obs; // 초성검색시 첫글자부터 비교
 
   @override
@@ -89,9 +89,9 @@ class OptionController extends GetxController {
 
   Future<void> setUserinfo() async {
     await Hive.openBox(
-      'USER_INFO',
+      LOCAL_DB,
     );
-    UserinfoModel user = Hive.box('USER_INFO').get('user').elementAt(0);
+    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO).elementAt(0);
 
     clientNm.value = user.clientNm;
     businessNo.value = convertBusinessNo(user.businessNo.toString());
@@ -101,23 +101,23 @@ class OptionController extends GetxController {
 
   Future<void> changeTheme(bool val) async {
     isDark.value = val;
-    await Hive.box('SYSTEM').put('isDark', val);
+    await Hive.box(LOCAL_DB).put(KEY_THEME_MODE, val);
     Get.changeThemeMode(
-        Hive.box('SYSTEM').get('isDark') ? ThemeMode.dark : ThemeMode.light);
+        Hive.box(LOCAL_DB).get(KEY_THEME_MODE) ? ThemeMode.dark : ThemeMode.light);
   }
 
   Future<void> changeOption(String id, bool val) async {
     switch (id) {
-      case 'isCustomFilter':
+      case KEY_CUSTOM_FILTER:
         isCustomFilter.value = val;
         break;
-      case 'isIncludeSalChrgCd':
+      case KEY_INCLUDE_SALCHRG:
         isIncludeSalChrgCd.value = val;
         break;
-      case 'isCompareFirst':
+      case KEY_COMPARE_FIRST:
         isCompareFirst.value = val;
         break;
     }
-    await Hive.box('SYSTEM').put(id, val);
+    await Hive.box(LOCAL_DB).put(id, val);
   }
 }

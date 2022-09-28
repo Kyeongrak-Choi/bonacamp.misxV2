@@ -81,7 +81,7 @@ class CbNodeController extends GetxController {
   }
 
   chooseItem(NodeModel value) async {
-    paramNodeCd = value.nodeCode;
+    paramNodeCd = value.nodeCd;
     paramComNm = value.comNm;
     paramBraNm = value.braNm;
     paramReprNm = value.reprNm;
@@ -90,11 +90,11 @@ class CbNodeController extends GetxController {
 
   Future<void> setNode() async {
     await Hive.openBox(
-      NM_NODE_BOX,
+      LOCAL_DB,
     );
 
-    for (int i = 0; i < Hive.box(NM_NODE_BOX).get(KEY_NODE_BOX).length; i++) {
-      data.add(Hive.box(NM_NODE_BOX).get(KEY_NODE_BOX).elementAt(i));
+    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_NODE).length; i++) {
+      data.add(Hive.box(LOCAL_DB).get(KEY_NODE).elementAt(i));
     }
   }
 }

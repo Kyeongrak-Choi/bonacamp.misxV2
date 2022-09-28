@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
-import '../../utils/database/box_init.dart';
+import '../../utils/database/hive_manager.dart';
 import '../../utils/utility.dart';
 
 class LoginBtn extends StatelessWidget {
@@ -43,7 +43,7 @@ class LoginBtnController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    inputId = Hive.box('SYSTEM').get('savedId');
+    inputId = Hive.box(LOCAL_DB).get(KEY_SAVED_ID);
     inputPw = '';
   }
 
@@ -60,17 +60,12 @@ class LoginBtnController extends GetxController {
       return false;
     } else {
       // id save
-      await Hive.box('SYSTEM').put('savedId', inputId);
+      await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId);
       inputPw = '';
 
       // login API process
 
-      // local DB Set
-      UserInfoBoxInit(); // USER_INFO Init
-      SalChrgBoxInit(); // SAL_CHRG Init
-      NodeBoxInit(); // NODE Init
-      TeamBoxInit(); // TEAM Init
-      //WhBoxInit(); // WH Init
+      BoxInit(); // local DB Set
 
       return true;
     }

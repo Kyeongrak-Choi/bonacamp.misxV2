@@ -87,13 +87,11 @@ class CbSaleController extends GetxController {
 
   Future<void> setSalChrg() async {
     await Hive.openBox(
-      NM_SALCHRG_BOX,
+      LOCAL_DB,
     );
 
-    for (int i = 0;
-        i < Hive.box(NM_SALCHRG_BOX).get(KEY_SALCHRG_BOX).length;
-        i++) {
-      data.add(Hive.box(NM_SALCHRG_BOX).get(KEY_SALCHRG_BOX).elementAt(i));
+    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_SALCHRG).length; i++) {
+      data.add(Hive.box(LOCAL_DB).get(KEY_SALCHRG).elementAt(i));
     }
   }
 }

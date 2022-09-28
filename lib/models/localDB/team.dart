@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'team.g.dart'; // *.g.dart : in same directory
 
-// 사업장 Model
+// 팀 Model
 @HiveType(typeId: 4)
 class TeamModel {
   @HiveField(0)

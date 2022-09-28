@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
+import '../../utils/constants.dart';
 import '../../utils/utility.dart';
 
 class IconMenu {
@@ -36,9 +37,9 @@ final List<IconMenu> systemMaster = [
 // system setting detail
 final List<RadioMenu> systemDetail = [
   RadioMenu(
-    id: 'isDark',
+    id: KEY_THEME_MODE,
     title: 'dark_mode'.tr,
-    val: Hive.box('SYSTEM').get('isDark', defaultValue: GetSystemMode()),
+    val: Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()),
   ),
 ];
 
@@ -53,18 +54,18 @@ final List<IconMenu> menuMaster = [
 // menu setting detail
 final List<RadioMenu> menuDetail = [
   RadioMenu(
-    id: 'isCustomFilter',
+    id: KEY_CUSTOM_FILTER,
     title: 'isCustomFilter'.tr,
-    val: Hive.box('SYSTEM').get('isCustomFilter', defaultValue: false),
+    val: Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false),
   ),
   RadioMenu(
-    id: 'isIncludeSalChrgCd',
+    id: KEY_INCLUDE_SALCHRG,
     title: 'isIncludeSalChrgCd'.tr,
-    val: Hive.box('SYSTEM').get('isIncludeSalChrgCd', defaultValue: true),
+    val: Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true),
   ),
   RadioMenu(
-    id: 'isCompareFirst',
-    title: 'isCompareFirst'.tr,
-    val: Hive.box('SYSTEM').get('isCompareFirst', defaultValue: false),
+    id: KEY_COMPARE_FIRST,
+    title: KEY_COMPARE_FIRST.tr,
+    val: Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false),
   ),
 ];

@@ -45,7 +45,7 @@ class LoginInputId extends StatelessWidget {
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),
-          initialValue: Hive.box('SYSTEM').get('savedId'),
+          initialValue: Hive.box(LOCAL_DB).get(KEY_SAVED_ID),
           onChanged: (text) {
             Get.find<LoginBtnController>().setInputId(text);
           },

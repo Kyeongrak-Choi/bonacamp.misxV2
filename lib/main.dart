@@ -24,9 +24,9 @@ void main() async {
   RegisterAdapter(); // Adapter Regist
 
   // init Theme Setting
-  await Hive.openBox('SYSTEM');
+  await Hive.openBox(LOCAL_DB);
   Get.changeThemeMode(
-      Hive.box('SYSTEM').get('isDark', defaultValue: GetSystemMode())
+      Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())
           ? ThemeMode.dark
           : ThemeMode.light);
 

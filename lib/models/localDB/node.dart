@@ -6,7 +6,7 @@ part 'node.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 3)
 class NodeModel {
   @HiveField(0)
-  String _nodeCode; // 사업장코드:DA100T0
+  String _nodeCd; // 사업장코드:DA100T0
   @HiveField(1)
   String _comNm; // 회사 명
   @HiveField(2)
@@ -16,11 +16,11 @@ class NodeModel {
   @HiveField(4)
   String _bizrRegNo;
 
-  NodeModel(this._nodeCode, this._comNm, this._braNm, this._reprNm,
+  NodeModel(this._nodeCd, this._comNm, this._braNm, this._reprNm,
       this._bizrRegNo); //사업자등록번호
 
   NodeModel.fromJson(Map data)
-      : _nodeCode = data['NODE_CODE'],
+      : _nodeCd = data['NODE_CODE'],
         _comNm = data['COM_NM'],
         _braNm = data['BRA_NM'],
         _reprNm = data['REPR_NM'],
@@ -28,7 +28,7 @@ class NodeModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'nodeCd': _nodeCode,
+      'nodeCd': _nodeCd,
       'comNm': _comNm,
       'braNm': _braNm,
       'reprNm': _reprNm,
@@ -36,10 +36,10 @@ class NodeModel {
     };
   }
 
-  String get nodeCode => _nodeCode;
+  String get nodeCd => _nodeCd;
 
-  set nodeCode(String value) {
-    _nodeCode = value;
+  set nodeCd(String value) {
+    _nodeCd = value;
   }
 
   String get comNm => _comNm;

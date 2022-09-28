@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../layouts/config/config.dart';
+import '../../utils/constants.dart';
 import 'menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {
@@ -35,16 +36,16 @@ class CardRadioMenu extends StatelessWidget {
   Widget buildRowItem(String id, String title, bool val, BuildContext context) {
     var optValue;
     switch (id) {
-      case 'isDark':
+      case KEY_THEME_MODE:
         optValue = Get.find<OptionController>().isDark;
         break;
-      case 'isCustomFilter':
+      case KEY_CUSTOM_FILTER:
         optValue = Get.find<OptionController>().isCustomFilter;
         break;
-      case 'isIncludeSalChrgCd':
+      case KEY_INCLUDE_SALCHRG:
         optValue = Get.find<OptionController>().isIncludeSalChrgCd;
         break;
-      case 'isCompareFirst':
+      case KEY_COMPARE_FIRST:
         optValue = Get.find<OptionController>().isCompareFirst;
         break;
     }
@@ -65,12 +66,12 @@ class CardRadioMenu extends StatelessWidget {
               value: optValue.value,
               onChanged: (value) {
                 switch (id) {
-                  case 'isDark':
+                  case KEY_THEME_MODE:
                     Get.find<OptionController>().changeTheme(value);
                     break;
-                  case 'isCustomFilter':
-                  case 'isIncludeSalChrgCd':
-                  case 'isCompareFirst':
+                  case KEY_CUSTOM_FILTER:
+                  case KEY_INCLUDE_SALCHRG:
+                  case KEY_COMPARE_FIRST:
                     Get.find<OptionController>().changeOption(id, value);
                     break;
                 }

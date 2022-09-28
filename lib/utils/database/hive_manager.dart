@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/localDB/node.dart';
 import 'package:misxV2/models/localDB/salchrg.dart';
 
 import '../../models/localDB/team.dart';
 import '../../models/localDB/userinfo.dart';
+import '../constants.dart';
+import '../utility.dart';
 
 void RegisterAdapter() {
   Hive.registerAdapter(UserinfoModelAdapter());
@@ -12,22 +16,46 @@ void RegisterAdapter() {
   Hive.registerAdapter(TeamModelAdapter());
 }
 
-// Future<void> OpenBox() async {
-//   await Hive.openBox('USER_INFO');
-//   await Hive.openBox('SAL_CHRG_CD');
-//   await Hive.openBox('NODE_CD');
-//   await Hive.openBox('TEAM_CD');
-//   await Hive.openBox('WH_CD');
-// }
-//
-// // Data Delete
-// Future<void> ClearBox() async {
-//   await Hive.box('USER_INFO').clear();
-//   await Hive.box('SAL_CHRG_CD').clear();
-//   await Hive.box('NODE_CD').clear();
-//   await Hive.box('TEAM_CD').clear();
-//   await Hive.box('WH_CD').clear();
-// }
+// Hive DB Initialize
+Future<void> BoxInit() async {
+  await Hive.openBox(LOCAL_DB);
+  var parsedData;
+
+  // USER_INFO
+  parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
+  await Hive.box(LOCAL_DB).put(KEY_USERINFO,
+      parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
+
+  // SAL_CHRG
+  parsedData = jsonDecode(await jsonDummy(DUMMY_SALCHRG))[TAG_DATA] as List;
+  await Hive.box(LOCAL_DB).put(KEY_SALCHRG,
+      parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
+
+  // NODE
+  parsedData = jsonDecode(await jsonDummy(DUMMY_NODE))[TAG_DATA] as List;
+  await Hive.box(LOCAL_DB).put(KEY_NODE,
+      parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
+
+  // TEAM
+  parsedData = jsonDecode(await jsonDummy(DUMMY_TEAM))[TAG_DATA] as List;
+  await Hive.box(LOCAL_DB).put(KEY_TEAM,
+      parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+
+  // WAREHOUSE
+  // parsedData = jsonDecode()[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_WH,
+  //     parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+
+  // COMMON
+  // parsedData = jsonDecode()[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_COMMON,
+  //     parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+
+  // MENU
+  // parsedData = jsonDecode()[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_COMMON,
+  //     parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+}
 
 // return Bool Data
 bool getHiveBool(bool data) {

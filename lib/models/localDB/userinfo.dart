@@ -5,7 +5,6 @@ part 'userinfo.g.dart'; // *.g.dart : in same directory
 // 사용자정보 Model
 @HiveType(typeId: 1)
 class UserinfoModel {
-  // in front of variable '_' -> private
   @HiveField(0)
   String _clientCd; // 사업장코드
   @HiveField(1)
