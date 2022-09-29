@@ -1,37 +1,85 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'product.g.dart'; // *.g.dart : in same directory
+
 // 품목 검색 Model
+@JsonSerializable(explicitToJson: true)
 class ProductModel {
-  String? itmCd;
-  String? itmNm;
-  String? itmAbbNm;
-  String? stnd;
-  String? uzFg;
-  String? ufFgNm;
-  String? ut;
-  String? utNm;
+  String ITM_CD; // 품목코드:DA121T0
+  String ITM_NM; // 품목명
+  String ITM_ABB_NM; // 품목 별칭
+  String STND; // 규격/용량
+  String UZ_FG; // 용도
+  String UZ_FG_NM; // 용도명
+  String UT; // 단위
+  String UT_NM; // 단위명
 
-  ProductModel(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg,
-      this.ufFgNm, this.ut, this.utNm);
-
-  ProductModel.fromJson(Map data)
-      : itmCd = data['ITM_CD'],
-        itmNm = data['ITM_NM'],
-        itmAbbNm = data['ITM_ABB_NM'],
-        stnd = data['STND'],
-        uzFg = data['UZ_FG'],
-        ufFgNm = data['UZ_FG_NM'],
-        ut = data['UT'],
-        utNm = data['UT_NM'];
+  ProductModel(this.ITM_CD, this.ITM_NM, this.ITM_ABB_NM, this.STND, this.UZ_FG,
+      this.UZ_FG_NM, this.UT, this.UT_NM);
 
   Map<String, dynamic> toMap() {
     return {
-      'itmCd': itmCd,
-      'itmNm': itmNm,
-      'itmAbbNm': itmAbbNm,
-      'stnd': stnd,
-      'uzFg': uzFg,
-      'ufFgNm': ufFgNm,
-      'ut': ut,
-      'utNm': utNm
+      'ITM_CD': ITM_CD,
+      'ITM_NM': ITM_NM,
+      'ITM_ABB_NM': ITM_ABB_NM,
+      'STND': STND,
+      'UZ_FG': UZ_FG,
+      'UZ_FG_NM': UZ_FG_NM,
+      'UT': UT,
+      'UT_NM': UT_NM
     };
+  }
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductModelToJson(this);
+
+  String get getItmCd => ITM_CD;
+
+  set setItmCd(String value) {
+    ITM_CD = value;
+  }
+
+  String get getItmNm => ITM_NM;
+
+  set setItmNm(String value) {
+    ITM_NM = value;
+  }
+
+  String get getItmAbbNm => ITM_ABB_NM;
+
+  set setItmAbbNm(String value) {
+    ITM_ABB_NM = value;
+  }
+
+  String get getStnd => STND;
+
+  set setStnd(String value) {
+    STND = value;
+  }
+
+  String get getUzFg => UZ_FG;
+
+  set setUzFg(String value) {
+    UZ_FG = value;
+  }
+
+  String get getUzFgNm => UZ_FG_NM;
+
+  set setUzFgNm(String value) {
+    UZ_FG_NM = value;
+  }
+
+  String get getUt => UT;
+
+  set setUt(String value) {
+    UT = value;
+  }
+
+  String get getUtNm => UT_NM;
+
+  set setUtNm(String value) {
+    UT_NM = value;
   }
 }

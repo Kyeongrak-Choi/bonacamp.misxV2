@@ -22,7 +22,7 @@ class NetworkManager extends GetxController {
 Future<String> CallApi(api, params) async {
   try {
     var url = Uri.parse(api);
-    var response = await http.get(url).timeout(const Duration(seconds: 3000),
+    var response = await http.get(url).timeout(const Duration(seconds: TIMTOUT),
         onTimeout: () {
       ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
       return http.Response('Error', 500);

@@ -6,8 +6,7 @@ const APP_NAME = 'MISX Ver2';
 const DARK_COLOR = 0xFF262D34; // common dark color value
 const COMMON_COLOR = 0xFFCDECFA; // common color value
 const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
-const POLICY_URL =
-    'http://www.dionysoserp.com/ex-privacy.html'; // Privacy Policy
+const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 
 enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
 
@@ -48,6 +47,8 @@ const SEARCH_DIALOG_PROD = 'P'; // product search type
 const API_URL = 'http://172.27.235.104:9000/api/v1/'; // test
 const API_TEST1 = API_URL + 'health'; // test
 
+const TIMTOUT = 3000;
+
 /*
   Json
  */
@@ -73,10 +74,6 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
-
-// Google Map Key
-const GOOGLE_MAPKEY_IOS = '';
-const GOOGLE_MAPKEY_AOS = '';
 
 /*
   Dummy data
