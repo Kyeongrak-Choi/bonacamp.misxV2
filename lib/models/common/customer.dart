@@ -14,7 +14,7 @@ class CustomerModel {
   String CUST_STAT_NM; // 거래처 상태명
   String BIZ_ITM; // 사업 종목:ABS010 - 품목의 용도와 관계(DA107T0:용도 종목)
   String BIZ_ITM_NM; // 사업종목 명
-  String BIZ_REG_NO; // 사업자등록번호
+  String BIZR_REG_NO; // 사업자등록번호
   String REPR_NM; // 대표자 명
   String TEL_NO; // 사업장 전화 번호
   String ADDR; // 사업장 주소
@@ -29,7 +29,7 @@ class CustomerModel {
       this.CUST_STAT_NM,
       this.BIZ_ITM,
       this.BIZ_ITM_NM,
-      this.BIZ_REG_NO,
+      this.BIZR_REG_NO,
       this.REPR_NM,
       this.TEL_NO,
       this.ADDR);
@@ -45,7 +45,7 @@ class CustomerModel {
       'CUST_STAT_NM': CUST_STAT_NM,
       'BIZ_ITM': BIZ_ITM,
       'BIZ_ITM_NM': BIZ_ITM_NM,
-      'BIZ_REG_NO': BIZ_REG_NO,
+      'BIZR_REG_NO': BIZR_REG_NO,
       'REPR_NM': REPR_NM,
       'TEL_NO': TEL_NO,
       'ADDR': ADDR
@@ -111,10 +111,10 @@ class CustomerModel {
     BIZ_ITM_NM = value;
   }
 
-  String get getBizRegNo => BIZ_REG_NO;
+  String get getBizrRegNo => BIZR_REG_NO;
 
-  set setBizRegNo(String value) {
-    BIZ_REG_NO = value;
+  set setBizrRegNo(String value) {
+    BIZR_REG_NO = value;
   }
 
   String get getReprNm => REPR_NM;

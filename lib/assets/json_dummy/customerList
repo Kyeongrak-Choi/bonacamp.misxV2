@@ -2,8 +2,8 @@
 	"payload" :[
 	{
 		"CUST_CD" : "56560",
-		"CUST_NM" : " ",
-		"CUST_ABB_NM" : " ",
+		"CUST_NM" : "123",
+		"CUST_ABB_NM" : "123",
 		"CUST_STAT" : "1",
 		"SAL_CHRG_CD" : "002",
 		"SAL_CHRG_NM" : "홍길동",
@@ -11,9 +11,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1421232323",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80162",
@@ -55,9 +55,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 강릉시 교항안길 4 "
 	},
 	{
@@ -70,9 +70,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 고양시 덕양구 도내로 53 (도내동) "
 	},
 	{
@@ -87,7 +87,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2158620086",
 		"REPR_NM" : "김평규",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 송파구 양재대로 932(가락동,축산물직판장2층008호) "
 	},
 	{
@@ -100,9 +100,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 원주시 팔포길 26 "
 	},
 	{
@@ -115,9 +115,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 강릉시 남부로 136 "
 	},
 	{
@@ -177,7 +177,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1208719196",
 		"REPR_NM" : "손영은",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 삼성로95길 14(삼성동 1,2층) "
 	},
 	{
@@ -237,7 +237,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1078609325",
 		"REPR_NM" : "박규석",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 종로구 신문로2가 92 "
 	},
 	{
@@ -357,7 +357,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2152378021",
 		"REPR_NM" : "김연숙",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 송파구 풍성로25길 7 (풍납동,1층) "
 	},
 	{
@@ -370,10 +370,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41545",
@@ -387,8 +387,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4451545646",
 		"REPR_NM" : "sdsa",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00059",
@@ -401,9 +401,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6020419680",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00011",
@@ -445,10 +445,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "54534",
@@ -460,10 +460,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "99993",
@@ -475,9 +475,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 금천구 범안로 1130 (가산동, 디지털엠파이어빌딩) "
 	},
 	{
@@ -490,10 +490,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10738",
@@ -505,10 +505,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "56004",
@@ -520,10 +520,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "32100",
@@ -535,10 +535,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "ㅇㄹ호",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40008",
@@ -550,10 +550,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "40008",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "I1212",
@@ -565,10 +565,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80691",
@@ -582,7 +582,7 @@
 		"BIZ_ITM_NM" : "실수요자",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "45675467",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 신사동 12345 "
 	},
 	{
@@ -595,10 +595,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "권준호",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "11064",
@@ -611,9 +611,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5552010000",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70000",
@@ -627,7 +627,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "7777777777",
 		"REPR_NM" : "7000 메일전송하기",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "ㄴㅇㅀㄴㅇㅀㄴㅇㅎㄹ "
 	},
 	{
@@ -657,8 +657,8 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "2222222223",
 		"REPR_NM" : "ㅁㄴㄹㅇ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70003",
@@ -672,7 +672,7 @@
 		"BIZ_ITM_NM" : "슈퍼(3)",
 		"BIZR_REG_NO" : "3333333333",
 		"REPR_NM" : "강도연",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "70003 슈퍼3ㅀㄴㅇㅀㄴㅇㅀㅇㄴㅀㅇㄹㄶㅇㅀ "
 	},
 	{
@@ -687,8 +687,8 @@
 		"BIZ_ITM_NM" : "슈퍼(4)",
 		"BIZR_REG_NO" : "4444444444",
 		"REPR_NM" : "70004  슈퍼4",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70005",
@@ -702,7 +702,7 @@
 		"BIZ_ITM_NM" : "실수요자",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "70005 실수요자 대표자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "70005 실수요자 주소 "
 	},
 	{
@@ -717,8 +717,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "6666666666",
 		"REPR_NM" : "70006 공용",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70007",
@@ -732,8 +732,8 @@
 		"BIZ_ITM_NM" : "할인",
 		"BIZR_REG_NO" : "7777777777",
 		"REPR_NM" : "70007 대형매장",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70018",
@@ -747,7 +747,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "098765432",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 "
 	},
 	{
@@ -760,10 +760,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70021",
@@ -776,8 +776,8 @@
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "9632587412",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "dbdkdkrkfkttkk "
 	},
 	{
@@ -792,8 +792,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "7003070030",
 		"REPR_NM" : "70030",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70100",
@@ -805,10 +805,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "70100 거래처계 약단가 테스트",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70101",
@@ -820,9 +820,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "70101 유흥",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "70101 유흥 "
 	},
 	{
@@ -835,9 +835,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "70102 가정",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "70102 가정 "
 	},
 	{
@@ -850,9 +850,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "70103 매출할인테스트",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "70103 매출할인테스트 "
 	},
 	{
@@ -882,7 +882,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "2222222222",
 		"REPR_NM" : "댕ㅁ나란ㅁ",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강남구 강남대로 708 (압구정동, 한남대교레인보우카폐) 123"
 	},
 	{
@@ -897,7 +897,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "3333333333",
 		"REPR_NM" : "345634ㅛㅅㄷ교",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경남 김해시 한림면 가동로 2 (가동리) 1234567890"
 	},
 	{
@@ -912,7 +912,7 @@
 		"BIZ_ITM_NM" : "할인",
 		"BIZR_REG_NO" : "4444444444",
 		"REPR_NM" : "44444ㅈㄱㄷㅅㅈㄷㄳ",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경북 울릉군 울릉읍 독도안용복길 3 (독도리) 111111111111"
 	},
 	{
@@ -927,7 +927,7 @@
 		"BIZ_ITM_NM" : "실수요자",
 		"BIZR_REG_NO" : "5555555555",
 		"REPR_NM" : "ㅎㄹㅇ놀",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "제주특별자치도 서귀포시 대정읍 마라로73번길 5 (가파리) 5555555555555"
 	},
 	{
@@ -942,7 +942,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "나대표",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "주소 기간  "
 	},
 	{
@@ -957,7 +957,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "1111111",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "11111111111111111 "
 	},
 	{
@@ -970,9 +970,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "72001 매입매출원장 테스트",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "72001 매입매출원장 테스트 "
 	},
 	{
@@ -987,7 +987,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "0000000000",
 		"REPR_NM" : "ㅁㄴㄹㄴㅁ",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 구로구 디지털로 219 (가리봉동) 100"
 	},
 	{
@@ -1000,9 +1000,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 관악구 신림동 1638-1 12345"
 	},
 	{
@@ -1017,8 +1017,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "0000000000",
 		"REPR_NM" : "0000000",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88000",
@@ -1030,10 +1030,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "88000",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88001",
@@ -1047,8 +1047,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "0000000000",
 		"REPR_NM" : "나",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88004",
@@ -1060,10 +1060,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "88004",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88481",
@@ -1077,7 +1077,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 관악구 신원로 35 (신림동, 삼모더프라임타워) 22331199"
 	},
 	{
@@ -1090,10 +1090,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "88801",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88802",
@@ -1107,7 +1107,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0123456789",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강남구 논현로26길 35 (도곡동, 프라임빌라) 1234567890"
 	},
 	{
@@ -1135,10 +1135,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "계약단가",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "44444",
@@ -1152,8 +1152,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1028142945",
 		"REPR_NM" : "88888",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88888",
@@ -1167,7 +1167,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "8888888888",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 관악구 신원로 35 (신림동, 삼모더프라임타워) 123456789"
 	},
 	{
@@ -1182,8 +1182,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "ㅁㄴㅇㄹㄴㅇㄹ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40121",
@@ -1210,7 +1210,7 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "미ㅏ",
 		"TEL_NO" : "1 ",
 		"ADDR" : "서울 금천구 가산디지털1로 1 (가산동, 더루벤스밸리) 11"
@@ -1226,9 +1226,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "98989898",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "71000",
@@ -1242,8 +1242,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "7777777777",
 		"REPR_NM" : "77777777777777777",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "09999",
@@ -1255,10 +1255,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10715",
@@ -1270,10 +1270,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30022",
@@ -1302,7 +1302,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "258085",
 		"REPR_NM" : "dgjnggjjj",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "hfjdkdkfkrk여야라각 "
 	},
 	{
@@ -1315,10 +1315,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10004",
@@ -1331,9 +1331,9 @@
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "0007777777",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00081",
@@ -1345,9 +1345,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "대구 북구 침산동 476-51 "
 	},
 	{
@@ -1360,9 +1360,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "짠짠슈퍼",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "짠짠슈퍼 "
 	},
 	{
@@ -1390,10 +1390,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "22001",
@@ -1405,10 +1405,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88889",
@@ -1421,9 +1421,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000099",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "20123",
@@ -1435,10 +1435,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10729",
@@ -1451,9 +1451,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "35890",
@@ -1465,10 +1465,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "60013",
@@ -1480,10 +1480,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "aaaaa",
@@ -1496,9 +1496,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000000",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "88880",
@@ -1511,9 +1511,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "88999",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "R00-1",
@@ -1525,10 +1525,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "33030",
@@ -1540,10 +1540,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "66003",
@@ -1555,10 +1555,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "50003",
@@ -1601,7 +1601,7 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1101951749",
-		"REPR_NM" : " ",
+		"REPR_NM" : "123",
 		"TEL_NO" : "01043009771 ",
 		"ADDR" : "서울특별시 서대문구 연세로 42-24 (창천동) "
 	},
@@ -1647,7 +1647,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "7896541235",
 		"REPR_NM" : "이고구",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 136 "
 	},
 	{
@@ -1675,10 +1675,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10010",
@@ -1720,10 +1720,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00108",
@@ -1737,8 +1737,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00021",
@@ -1750,9 +1750,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "김고구마",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 동구 효신로 8-5 "
 	},
 	{
@@ -1842,8 +1842,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000011111",
 		"REPR_NM" : "야옹",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "12137",
@@ -1855,10 +1855,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "12107",
@@ -1870,10 +1870,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "01119",
@@ -1901,9 +1901,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4161522151",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00079",
@@ -1915,10 +1915,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10704",
@@ -1932,8 +1932,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6060504554",
 		"REPR_NM" : "대표자",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80154",
@@ -1947,7 +1947,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121794337",
 		"REPR_NM" : "김선옥",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 둔촌동 426-10 "
 	},
 	{
@@ -1977,7 +1977,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "9658741232",
 		"REPR_NM" : "구 렁",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 달서구 달서대로64길 93 "
 	},
 	{
@@ -1991,9 +1991,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "3261600025",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10062",
@@ -2007,8 +2007,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2251565831",
 		"REPR_NM" : "권가",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10053",
@@ -2021,9 +2021,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00060",
@@ -2035,10 +2035,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80214",
@@ -2067,7 +2067,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9696857423",
 		"REPR_NM" : "김기린",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 서구 고성로 15 "
 	},
 	{
@@ -2082,7 +2082,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5556666666",
 		"REPR_NM" : "이기린",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 중랑구 면목동 496-16 6층 "
 	},
 	{
@@ -2095,10 +2095,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00037",
@@ -2112,7 +2112,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "7776655555",
 		"REPR_NM" : "박나비",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 검단공단로 22 "
 	},
 	{
@@ -2127,7 +2127,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "1378139709",
 		"REPR_NM" : "김무궁",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "인천 부평구 부평문화로 14 (부평동) "
 	},
 	{
@@ -2141,8 +2141,8 @@
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "8907068906",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 부천시 부일로 654-10 (역곡동, 삼성하이츠빌) "
 	},
 	{
@@ -2158,7 +2158,7 @@
 		"BIZR_REG_NO" : "2148665742",
 		"REPR_NM" : "김성진",
 		"TEL_NO" : "123654 987123",
-		"ADDR" : " "
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "91111",
@@ -2172,7 +2172,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "2145599999",
 		"REPR_NM" : "대표자 1116일이력",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 광명시 도덕공원로 61-33 (철산동) "
 	},
 	{
@@ -2202,7 +2202,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121593159",
 		"REPR_NM" : "김민자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 길동 386-8 1층 103 "
 	},
 	{
@@ -2232,7 +2232,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9696969696",
 		"REPR_NM" : "이꿀",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 134 (사곡동) "
 	},
 	{
@@ -2245,9 +2245,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "익산바다",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로4길 20 (임은동) "
 	},
 	{
@@ -2276,9 +2276,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2146865741",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00052",
@@ -2292,7 +2292,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "8596541251",
 		"REPR_NM" : "김나나",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 달서구 한들로 31 "
 	},
 	{
@@ -2336,8 +2336,8 @@
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "2222211111",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "충청남도 논산시 성동면 개척1길 4 (개척리) "
 	},
 	{
@@ -2395,10 +2395,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "57033",
@@ -2425,10 +2425,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41075",
@@ -2457,7 +2457,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2150838593",
 		"REPR_NM" : "이미라",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 천호동 410-11외 필지 2층 "
 	},
 	{
@@ -2470,9 +2470,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "노충식",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 강릉시 율곡로 2606 "
 	},
 	{
@@ -2487,7 +2487,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1100952448",
 		"REPR_NM" : "이석찬",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 서대문구 대현동 56-63, B1층 "
 	},
 	{
@@ -2502,7 +2502,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "박다다",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 팔달로33길 50 "
 	},
 	{
@@ -2517,7 +2517,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1040576049",
 		"REPR_NM" : "이정희",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 중구 남대문로5, 17-10 "
 	},
 	{
@@ -2547,7 +2547,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2090432107",
 		"REPR_NM" : "오숙향",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강북구 수유동 46-19 1층 "
 	},
 	{
@@ -2562,8 +2562,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1112133666",
 		"REPR_NM" : "김사장",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "34057",
@@ -2652,7 +2652,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2062040952",
 		"REPR_NM" : "최은미",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 봉은사로66길 7(삼성동,1층) "
 	},
 	{
@@ -2665,9 +2665,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 양주시 평화로 1491 "
 	},
 	{
@@ -2680,10 +2680,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "38008",
@@ -2772,7 +2772,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1051976831",
 		"REPR_NM" : "신미경 외 1명",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 마포구 잔다리로 19-6 (서교동,지상2층) "
 	},
 	{
@@ -2787,7 +2787,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9638527412",
 		"REPR_NM" : "이국종",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 142 "
 	},
 	{
@@ -2832,7 +2832,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "3336677777",
 		"REPR_NM" : "김돈",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 금천구 범안로 1130 (가산동, 디지털엠파이어빌딩) "
 	},
 	{
@@ -2847,7 +2847,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121770785",
 		"REPR_NM" : "이종범",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 암사동 490-5 1층 "
 	},
 	{
@@ -2877,7 +2877,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2151988008",
 		"REPR_NM" : "황미화",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 송파구 삼전동 181-4 "
 	},
 	{
@@ -2891,8 +2891,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0007777777",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 구암로16길 7 "
 	},
 	{
@@ -2907,7 +2907,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2896574555",
 		"REPR_NM" : "4565656",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 달서구 달구벌대로 1370 (장기동) "
 	},
 	{
@@ -2937,7 +2937,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6549877894",
 		"REPR_NM" : "박 올",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 동구 동부로 185-1 "
 	},
 	{
@@ -2950,7 +2950,7 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "박민수",
 		"TEL_NO" : "01043009246 ",
 		"ADDR" : "대구광역시 달서구 이곡서로 35 102호"
@@ -2965,10 +2965,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43002",
@@ -3027,7 +3027,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1080110866",
 		"REPR_NM" : "장장진",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 동작구 상도동 214-291 "
 	},
 	{
@@ -3040,9 +3040,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 이천시 장호원읍 샘재로 141 (장호원리) "
 	},
 	{
@@ -3055,9 +3055,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 연천군 전곡읍 전곡역로 53 (전곡리, 동호상사) "
 	},
 	{
@@ -3117,7 +3117,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122217974",
 		"REPR_NM" : "박봉석",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 길동 413-10 지하 1층 "
 	},
 	{
@@ -3190,10 +3190,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "나냐나",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00019",
@@ -3207,7 +3207,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1115252525",
 		"REPR_NM" : "김진영",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 사당동 사당로2다길 8  "
 	},
 	{
@@ -3222,8 +3222,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "기미김",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80112",
@@ -3312,7 +3312,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1233334567",
 		"REPR_NM" : "김 회",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 20 "
 	},
 	{
@@ -3355,10 +3355,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "52041",
@@ -3387,8 +3387,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "8888577123",
 		"REPR_NM" : "최동원",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "57022",
@@ -3507,7 +3507,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6777777777",
 		"REPR_NM" : "이마마",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 낙산로 126-24 "
 	},
 	{
@@ -3537,7 +3537,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0007777777",
 		"REPR_NM" : "허석",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 서초구 방배로4길 6 (방배동, 정도빌딩) "
 	},
 	{
@@ -3565,10 +3565,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10761",
@@ -3580,10 +3580,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10052",
@@ -3597,8 +3597,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000002",
 		"REPR_NM" : "이랑이",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80459",
@@ -3655,10 +3655,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30068",
@@ -3671,9 +3671,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "50053",
@@ -3685,10 +3685,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "50009",
@@ -3702,7 +3702,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1061311993",
 		"REPR_NM" : "박성호",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 남양주시 수석동 368-2 "
 	},
 	{
@@ -3732,7 +3732,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1235555555",
 		"REPR_NM" : "이감자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 128 "
 	},
 	{
@@ -3747,7 +3747,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6549873258",
 		"REPR_NM" : "김",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 수성구 들안로 11 "
 	},
 	{
@@ -3790,10 +3790,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80540",
@@ -3865,9 +3865,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 종로구 묘동 175 "
 	},
 	{
@@ -3882,8 +3882,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "화장",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80008",
@@ -3927,7 +3927,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4161916505",
 		"REPR_NM" : "김명란",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대전광역시 유성구 온천서로 7 "
 	},
 	{
@@ -3987,7 +3987,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122194765",
 		"REPR_NM" : "조미현",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 길동 334-5 "
 	},
 	{
@@ -4047,7 +4047,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9874563210",
 		"REPR_NM" : "김바바",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 달서구 조암로20길 55 "
 	},
 	{
@@ -4062,7 +4062,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0123456789",
 		"REPR_NM" : "20171215",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 102 (공단동, (주)도레이케미칼) "
 	},
 	{
@@ -4075,10 +4075,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80359",
@@ -4137,8 +4137,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000019",
 		"REPR_NM" : "김혜미",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "63010",
@@ -4152,7 +4152,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2034009891",
 		"REPR_NM" : "전지영",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 중구 남산동2가 14-9 "
 	},
 	{
@@ -4167,7 +4167,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122253742",
 		"REPR_NM" : "하경호",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 길동 349-6 "
 	},
 	{
@@ -4181,8 +4181,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0109460740",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 의정부시 산곡로 88 (산곡동) "
 	},
 	{
@@ -4195,9 +4195,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 관악로30길 27 (사당동, 관악푸르지오) "
 	},
 	{
@@ -4210,10 +4210,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "31097",
@@ -4272,8 +4272,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234578901",
 		"REPR_NM" : "홍지수",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10000",
@@ -4287,7 +4287,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "박보나",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 금천구 범안로 1130 (가산동, 디지털엠파이어빌딩) "
 	},
 	{
@@ -4302,8 +4302,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
 		"REPR_NM" : "홍길동",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00004",
@@ -4332,8 +4332,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
 		"REPR_NM" : "나야나",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00003",
@@ -4347,7 +4347,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1082040978",
 		"REPR_NM" : "박피치",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 화성시 향남읍 서봉로 227-22 (하길리) "
 	},
 	{
@@ -4362,7 +4362,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0007777777",
 		"REPR_NM" : "이소주",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 화성시 봉담읍 수영리 642-1 "
 	},
 	{
@@ -4392,7 +4392,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000009",
 		"REPR_NM" : "오영주",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 마포구 서교동 365-5 2층 "
 	},
 	{
@@ -4406,9 +4406,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111122",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43018",
@@ -4435,10 +4435,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30001",
@@ -4467,7 +4467,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1290965587",
 		"REPR_NM" : "이유정",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 강동구 천호대로187길 74 (길동, 길동우성아파트) "
 	},
 	{
@@ -4482,8 +4482,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1099424344",
 		"REPR_NM" : "김현성",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10089",
@@ -4497,8 +4497,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1099424344",
 		"REPR_NM" : "김현성2",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10090",
@@ -4512,8 +4512,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
 		"REPR_NM" : "김현성3",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10056",
@@ -4527,8 +4527,8 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1237894283",
 		"REPR_NM" : "김현성",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00073",
@@ -4557,7 +4557,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "부산3",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "부산시 "
 	},
 	{
@@ -4572,7 +4572,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "부산4",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "부산시 "
 	},
 	{
@@ -4587,8 +4587,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5151515151",
 		"REPR_NM" : "박찬익2",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "89996",
@@ -4601,9 +4601,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00055",
@@ -4632,7 +4632,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1042854156",
 		"REPR_NM" : "김병성",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 중구 남창동 47-10 "
 	},
 	{
@@ -4690,10 +4690,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "이경숙",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43029",
@@ -4752,7 +4752,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1140520862",
 		"REPR_NM" : "임재식",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 종로구 대명1길 (명륜4가) "
 	},
 	{
@@ -4767,7 +4767,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1101975396",
 		"REPR_NM" : "장경희",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 은평구 가좌로 318(신사) "
 	},
 	{
@@ -4782,7 +4782,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "8574236599",
 		"REPR_NM" : "이 뱀",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 침산남로9길 119-1 "
 	},
 	{
@@ -4827,7 +4827,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2208836129",
 		"REPR_NM" : "장선우",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 언주로98길 9, 101호(역삼동,제1층) "
 	},
 	{
@@ -4900,10 +4900,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80099",
@@ -4917,7 +4917,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121257297",
 		"REPR_NM" : "김종희",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 고덕로38길 45(명일동, 1층) "
 	},
 	{
@@ -4933,7 +4933,7 @@
 		"BIZR_REG_NO" : "0000000000",
 		"REPR_NM" : "ㅏ호",
 		"TEL_NO" : "01028135880 01028135880",
-		"ADDR" : " "
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10050",
@@ -4947,8 +4947,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9999944444",
 		"REPR_NM" : "이애플",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80360",
@@ -4990,10 +4990,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "55000",
@@ -5007,8 +5007,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5448877777",
 		"REPR_NM" : "555",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "49081",
@@ -5035,10 +5035,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "2222",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00033",
@@ -5050,9 +5050,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "다판다",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 달성군 강정본길 79-1 "
 	},
 	{
@@ -5065,10 +5065,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80084",
@@ -5110,9 +5110,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 강릉시 율곡로 2606 "
 	},
 	{
@@ -5125,9 +5125,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 고양시 일산동구 공릉천로 110 "
 	},
 	{
@@ -5155,10 +5155,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40103",
@@ -5172,7 +5172,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1352463480",
 		"REPR_NM" : "박성규",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 용인시 모현면 왕산리 717-3 "
 	},
 	{
@@ -5187,7 +5187,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "2146666666",
 		"REPR_NM" : "박민수",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구 남구 대명동 2566-6 76 "
 	},
 	{
@@ -5217,7 +5217,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5556855545",
 		"REPR_NM" : "이준호",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 동구 팔공로51길 21-1 "
 	},
 	{
@@ -5232,8 +5232,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4018101540",
 		"REPR_NM" : "정길진",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00022",
@@ -5247,7 +5247,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2020202020",
 		"REPR_NM" : "장상임",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구 중구 봉산동 134-6 78   "
 	},
 	{
@@ -5277,7 +5277,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2068401704",
 		"REPR_NM" : "INOUE KENTA",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 성동구 무학로2길 33-2 (도선동,1층) "
 	},
 	{
@@ -5352,7 +5352,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "6930200941",
 		"REPR_NM" : "변창옥",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대전광역시 유성구 계룡로105번길74(봉명동) 지하1층"
 	},
 	{
@@ -5442,7 +5442,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "3011256114",
 		"REPR_NM" : "신순식",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "충북 청주시 상당구 탑동 145-1 "
 	},
 	{
@@ -5457,8 +5457,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "3011256114",
 		"REPR_NM" : "신순식",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70023",
@@ -5470,10 +5470,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80159",
@@ -5532,8 +5532,8 @@
 		"BIZ_ITM_NM" : "슈퍼(3)",
 		"BIZR_REG_NO" : "7777777777",
 		"REPR_NM" : "술사장님",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10049",
@@ -5547,7 +5547,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000001",
 		"REPR_NM" : "이나나",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 관악구 신원로 35 (신림동, 삼모더프라임타워) 12345"
 	},
 	{
@@ -5560,10 +5560,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41090",
@@ -5592,7 +5592,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2111012522",
 		"REPR_NM" : "김미영",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 압구정로42길 22(신사동,지하1층) "
 	},
 	{
@@ -5605,10 +5605,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "마르코 권",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "64007",
@@ -5681,9 +5681,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234512235",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "50058",
@@ -5696,9 +5696,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234512235",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00075",
@@ -5710,10 +5710,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10055",
@@ -5727,8 +5727,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "박시형",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40000",
@@ -5740,9 +5740,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 관악구 신림동 1638-1 "
 	},
 	{
@@ -5757,7 +5757,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122146661",
 		"REPR_NM" : "서정임",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 천호동 201-28 "
 	},
 	{
@@ -5802,7 +5802,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1240845027",
 		"REPR_NM" : "박상용",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 수원시 권선구 권선로639번길 6 (권선동) "
 	},
 	{
@@ -5832,7 +5832,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2200963470",
 		"REPR_NM" : "문재진 외1명",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강남구 봉은사로4길 29(역삼동,지하1층) "
 	},
 	{
@@ -5847,7 +5847,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2300109235",
 		"REPR_NM" : "유희경 외 1명",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 송파구 삼전로 100 (삼전동, 아카데미빌딩) "
 	},
 	{
@@ -5860,7 +5860,7 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "자연인",
 		"TEL_NO" : "010-5187-8983 ",
 		"ADDR" : "서울특별시 구로구 구로동 1127-32, 2층 "
@@ -5905,10 +5905,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10006",
@@ -5922,7 +5922,7 @@
 		"BIZ_ITM_NM" : "슈퍼(4)",
 		"BIZR_REG_NO" : "1234512345",
 		"REPR_NM" : "김용환",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "인천광역시 계양구 용종동 209-6 202 "
 	},
 	{
@@ -5937,8 +5937,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1078152429",
 		"REPR_NM" : "송",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00014",
@@ -5952,7 +5952,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1078152429",
 		"REPR_NM" : "테스트",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 첨단기업1로 49 "
 	},
 	{
@@ -5967,7 +5967,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2120558075",
 		"REPR_NM" : "박순자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 암사동 506-9 "
 	},
 	{
@@ -5995,9 +5995,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "오웅규",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 관악구 신림동 1637-10 "
 	},
 	{
@@ -6027,8 +6027,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1104586864",
 		"REPR_NM" : "이상원",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "50060",
@@ -6040,10 +6040,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80091",
@@ -6115,10 +6115,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "5",
 		"BIZ_ITM_NM" : "실수요자",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00050",
@@ -6132,7 +6132,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9685742053",
 		"REPR_NM" : "이엄마",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 동구 동부로 185 "
 	},
 	{
@@ -6222,7 +6222,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "3564789855",
 		"REPR_NM" : "신경숙",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 구미시 구미대로 58 (공단동, 제일모직(주)) "
 	},
 	{
@@ -6327,7 +6327,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4160136850",
 		"REPR_NM" : "김임순",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 수원시 팔달구 영동 11-3 외1필지(11-11) "
 	},
 	{
@@ -6342,7 +6342,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "8529637410",
 		"REPR_NM" : "박주미",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경상북도 칠곡군 칠곡대로 132 "
 	},
 	{
@@ -6387,7 +6387,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1245182197",
 		"REPR_NM" : "이금선",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 수원시 장안구 연무로7번길 4(연무동,1층) "
 	},
 	{
@@ -6417,7 +6417,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121351378",
 		"REPR_NM" : "신영이",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 길동 317-53 "
 	},
 	{
@@ -6432,7 +6432,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2356875412",
 		"REPR_NM" : "박수영",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "광주광역시 북구 태봉로 70 "
 	},
 	{
@@ -6447,7 +6447,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "5225555555",
 		"REPR_NM" : "이쁘니",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "충남 논산시 광석면 논산평야로 371 (갈산리) "
 	},
 	{
@@ -6460,10 +6460,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "유지성",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40116",
@@ -6492,7 +6492,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9685741236",
 		"REPR_NM" : "이종승",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 팔거천동로4길 25 "
 	},
 	{
@@ -6522,7 +6522,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1100113643",
 		"REPR_NM" : "전병인",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 중구 서소문동 120-12 "
 	},
 	{
@@ -6552,7 +6552,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "6363636363",
 		"REPR_NM" : "이오이",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 사당로2길 2-14 (상도동) "
 	},
 	{
@@ -6565,10 +6565,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "64009",
@@ -6643,7 +6643,7 @@
 		"BIZR_REG_NO" : "1330642433",
 		"REPR_NM" : "조군환",
 		"TEL_NO" : "02-508-8464 010-8802-5272",
-		"ADDR" : " "
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80489",
@@ -6700,7 +6700,7 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "5",
 		"BIZ_ITM_NM" : "실수요자",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "윤종천",
 		"TEL_NO" : "123456 ",
 		"ADDR" : "서울특별시 종로구 내수동 75 용비어천가 116, 117 호 "
@@ -6745,10 +6745,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30057",
@@ -6760,9 +6760,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 구리시 동구릉로 393 "
 	},
 	{
@@ -6775,10 +6775,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "78888 ",
 		"TEL_NO" : "78888  78888 ",
-		"ADDR" : " "
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00085",
@@ -6805,10 +6805,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00012",
@@ -6822,7 +6822,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "3434343434",
 		"REPR_NM" : "박당근",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 동구 효신로 35-5 (신천동) "
 	},
 	{
@@ -6852,7 +6852,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "4778885555",
 		"REPR_NM" : "손오공",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 중구 달구벌대로 2188 "
 	},
 	{
@@ -6882,7 +6882,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2152174905",
 		"REPR_NM" : "기도화",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 송파 문정동 516 가든파이브 라이프T-6012호 "
 	},
 	{
@@ -6895,9 +6895,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 강릉시 종합운동장길 26-8 "
 	},
 	{
@@ -6911,9 +6911,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000001",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00096",
@@ -6926,9 +6926,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000010",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00097",
@@ -6941,9 +6941,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000011",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00098",
@@ -6956,9 +6956,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000012",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00099",
@@ -6971,9 +6971,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000013",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00101",
@@ -6986,9 +6986,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000014",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00102",
@@ -7001,9 +7001,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000015",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00103",
@@ -7016,9 +7016,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000016",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00104",
@@ -7031,9 +7031,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000017",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00105",
@@ -7046,9 +7046,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000018",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00087",
@@ -7061,9 +7061,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000002",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00088",
@@ -7076,9 +7076,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000003",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00089",
@@ -7091,9 +7091,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000004",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00090",
@@ -7106,9 +7106,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000005",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00091",
@@ -7121,9 +7121,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000006",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00092",
@@ -7136,9 +7136,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000007",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00094",
@@ -7151,9 +7151,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000008",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00095",
@@ -7166,9 +7166,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1000000009",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "45761",
@@ -7180,10 +7180,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80267",
@@ -7225,9 +7225,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "7",
 		"BIZ_ITM_NM" : "할인",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 고양시 일산동구 감내길 105 "
 	},
 	{
@@ -7241,9 +7241,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1101234567",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "37001",
@@ -7286,9 +7286,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0009998887",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "95000",
@@ -7300,10 +7300,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "이너써",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10017",
@@ -7315,10 +7315,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "31064",
@@ -7361,9 +7361,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2980501708",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80409",
@@ -7377,7 +7377,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1201105402",
 		"REPR_NM" : "박선자",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강남 수서동 713 현대벤처빌 빌딩  지하1층 33 "
 	},
 	{
@@ -7390,10 +7390,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "5",
 		"BIZ_ITM_NM" : "실수요자",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "이지인",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10756",
@@ -7405,10 +7405,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "3",
 		"BIZ_ITM_NM" : "슈퍼(3)",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "89990",
@@ -7420,10 +7420,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80483",
@@ -7466,9 +7466,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "8989898989",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00062",
@@ -7481,8 +7481,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "9898989898",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 시흥시 배미골길 23 (목감동, 호반베르디움더프라임) "
 	},
 	{
@@ -7495,10 +7495,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "03080",
@@ -7525,10 +7525,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90351",
@@ -7540,10 +7540,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90328",
@@ -7555,10 +7555,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90352",
@@ -7570,10 +7570,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90354",
@@ -7585,10 +7585,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90355",
@@ -7600,10 +7600,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90356",
@@ -7615,10 +7615,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90329",
@@ -7630,10 +7630,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "90347",
@@ -7645,10 +7645,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00044",
@@ -7662,7 +7662,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "8565856856",
 		"REPR_NM" : "박 곰",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 공평로 147-1 "
 	},
 	{
@@ -7690,10 +7690,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "85001",
@@ -7705,10 +7705,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80422",
@@ -7750,10 +7750,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "64032",
@@ -7780,10 +7780,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43125",
@@ -7810,10 +7810,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "31084",
@@ -7842,7 +7842,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "2170391041",
 		"REPR_NM" : "1",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 서초구 방배로5길 33 (방배동, 공작빌라트) "
 	},
 	{
@@ -7872,7 +7872,7 @@
 		"BIZ_ITM_NM" : "실수요자",
 		"BIZR_REG_NO" : "0007777777",
 		"REPR_NM" : "조기철",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 강남구 대치동 889-56 204호, 205호 206호 "
 	},
 	{
@@ -7900,10 +7900,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30009",
@@ -7915,9 +7915,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 의정부시 용민로 27 "
 	},
 	{
@@ -7932,8 +7932,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "4112153866",
 		"REPR_NM" : "염민식",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10063",
@@ -7947,8 +7947,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234512345",
 		"REPR_NM" : "나야나",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "82017",
@@ -8035,10 +8035,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00046",
@@ -8052,7 +8052,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5854777777",
 		"REPR_NM" : "이원석",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 태전로7길 27-13 "
 	},
 	{
@@ -8097,7 +8097,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "2158173332",
 		"REPR_NM" : "한상진",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 중구 세종대로7길 56(서소문동) "
 	},
 	{
@@ -8110,9 +8110,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "김훌랄라",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 남양주시 다산중앙 222"
 	},
 	{
@@ -8172,7 +8172,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2120953520",
 		"REPR_NM" : "김영석",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강동구 천호동 50-13 1층 "
 	},
 	{
@@ -8185,10 +8185,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41026",
@@ -8307,7 +8307,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "8585858585",
 		"REPR_NM" : "김영선",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 사당로2라길 9 (사당동) "
 	},
 	{
@@ -8320,10 +8320,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43051",
@@ -8365,10 +8365,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "40117",
@@ -8397,7 +8397,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122435016",
 		"REPR_NM" : "정연미",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 둔촌동 441-4 1층 "
 	},
 	{
@@ -8410,7 +8410,7 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "고선옥",
 		"TEL_NO" : "010-7331-4509 ",
 		"ADDR" : "서울시 구로구 디지털로 288 (구로동,대륭포스트타워1차지하1층123호) "
@@ -8425,10 +8425,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41028",
@@ -8517,7 +8517,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1011142819",
 		"REPR_NM" : "이창민",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 종로구 혜화로9길 7 (명륜1가,1층) "
 	},
 	{
@@ -8562,7 +8562,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "3332255555",
 		"REPR_NM" : "김 코",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구광역시 북구 팔달북로8길 82-11 "
 	},
 	{
@@ -8577,7 +8577,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2077107773",
 		"REPR_NM" : "김세종",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 동대문구 회기동 16-68 3층 "
 	},
 	{
@@ -8637,7 +8637,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122468934",
 		"REPR_NM" : "최은진",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 양재대로 81길 8 (성내동) "
 	},
 	{
@@ -8666,9 +8666,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2145555555",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00018",
@@ -8682,7 +8682,7 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "1065656565",
 		"REPR_NM" : "쑥나물",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 사당동 사당로2다길 2  "
 	},
 	{
@@ -8727,7 +8727,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2122492680",
 		"REPR_NM" : "조대훈",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 양재대로 95길 15 (성내동) "
 	},
 	{
@@ -8770,10 +8770,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "65006",
@@ -8787,7 +8787,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2270659490",
 		"REPR_NM" : "김상섭",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "강원도 속초시 중앙로129번길 6 (중앙동,2층) "
 	},
 	{
@@ -8800,10 +8800,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "C0001",
@@ -8815,10 +8815,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "00001",
@@ -8847,7 +8847,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "권준호",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 동작구 여의대방로 22 (신대방동, 우성아파트) 101동 1906호"
 	},
 	{
@@ -8860,10 +8860,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "05405",
@@ -8876,8 +8876,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 강남구 강남대로 708 (압구정동, 한남대교레인보우카폐) "
 	},
 	{
@@ -8892,8 +8892,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1232112346",
 		"REPR_NM" : "테스트사장",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10064",
@@ -8907,7 +8907,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1232112345",
 		"REPR_NM" : "테스트사장",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 양천구 목동남로2길 60-7 (신정동, 양천중앙하이츠아파트) "
 	},
 	{
@@ -8920,10 +8920,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "10069",
@@ -8935,10 +8935,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "4",
 		"BIZ_ITM_NM" : "슈퍼(4)",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "31086",
@@ -9011,8 +9011,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1232985661",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 부천시 범안로 1 (괴안동) "
 	},
 	{
@@ -9055,10 +9055,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43158",
@@ -9087,7 +9087,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "2148665741",
 		"REPR_NM" : "이석훈",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "대구 북구 침산동 476-51 "
 	},
 	{
@@ -9117,7 +9117,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2091634641",
 		"REPR_NM" : "김민종",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 성북구 동소문로20길 37-6 (동선동1가, 해송빌딩) "
 	},
 	{
@@ -9176,8 +9176,8 @@
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "0987654321",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "거류야댜어어러러거 "
 	},
 	{
@@ -9192,7 +9192,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567890",
 		"REPR_NM" : "이파인",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 서초구 청계산로 10 "
 	},
 	{
@@ -9220,10 +9220,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "6",
 		"BIZ_ITM_NM" : "공용",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "111",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "41043",
@@ -9282,7 +9282,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1060446466",
 		"REPR_NM" : "임원혁",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 양천구 목동동로 293(목동,현대41타워제지1층제비-11호) "
 	},
 	{
@@ -9371,9 +9371,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1234567899",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "16007",
@@ -9385,10 +9385,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "47240",
@@ -9402,7 +9402,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2042352977",
 		"REPR_NM" : "이동민",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울특별시 동대문구 휘경동 319-13 "
 	},
 	{
@@ -9430,10 +9430,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "1",
 		"BIZ_ITM_NM" : "일반",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "21153",
@@ -9462,7 +9462,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "1322101510",
 		"REPR_NM" : "김범규",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "경기도 남양주시 평내동 152-19 "
 	},
 	{
@@ -9490,10 +9490,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "43148",
@@ -9507,7 +9507,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2091632361",
 		"REPR_NM" : "전길성",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 성북구 보문로30길 35(동선동2가, 1층) "
 	},
 	{
@@ -9551,8 +9551,8 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "5621201460",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "부산 해운대구 반여로155번길 21 (반여동) ."
 	},
 	{
@@ -9597,7 +9597,7 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2121956486",
 		"REPR_NM" : "이석원",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울시 강동구 둔촌동 425-1 "
 	},
 	{
@@ -9655,10 +9655,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
+		"BIZR_REG_NO" : "123",
 		"REPR_NM" : "송정민",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "17141",
@@ -9702,8 +9702,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2140000000",
 		"REPR_NM" : "김소주",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70013",
@@ -9717,8 +9717,8 @@
 		"BIZ_ITM_NM" : "일반",
 		"BIZR_REG_NO" : "4432111524",
 		"REPR_NM" : "김현성",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "30065",
@@ -9731,9 +9731,9 @@
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "2148665741",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "70008",
@@ -9747,7 +9747,7 @@
 		"BIZ_ITM_NM" : "공용",
 		"BIZR_REG_NO" : "1111111111",
 		"REPR_NM" : "이야옹",
-		"TEL_NO" : " ",
+		"TEL_NO" : "123",
 		"ADDR" : "서울 관악구 신원로 35 (신림동, 삼모더프라임타워) 1234"
 	},
 	{
@@ -9762,8 +9762,8 @@
 		"BIZ_ITM_NM" : "유흥",
 		"BIZR_REG_NO" : "0000000003",
 		"REPR_NM" : "김타이거",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "64040",
@@ -9820,10 +9820,10 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
-		"ADDR" : " "
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
+		"ADDR" : "123"
 	},
 	{
 		"CUST_CD" : "80138",
@@ -9850,9 +9850,9 @@
 		"CUST_STAT_NM" : "정상",
 		"BIZ_ITM" : "2",
 		"BIZ_ITM_NM" : "유흥",
-		"BIZR_REG_NO" : " ",
-		"REPR_NM" : " ",
-		"TEL_NO" : " ",
+		"BIZR_REG_NO" : "123",
+		"REPR_NM" : "123",
+		"TEL_NO" : "123",
 		"ADDR" : "경기 성남시 중원구 산성대로 264-10 (중앙동) 2층"
 	},
 	{

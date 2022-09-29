@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,38 +34,31 @@ class SearchList extends StatelessWidget {
               child: Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
                   ? SearchListItem(
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custCd
-                          .toString(),
+                          .datas[index]
+                          .getCustCd,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custNm
-                          .toString(),
+                          .datas[index]
+                          .getCustNm,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custAbbNm
-                          .toString(),
+                          .datas[index]
+                          .getCustAbbNm,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .custStatNm
-                          .toString())
+                          .datas[index]
+                          .getCustStatNm
+                        )
                   : SearchListItem(
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmCd
-                          .toString(),
+                          .datas[index]
+                          .getItmCd,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmNm
-                          .toString(),
+                          .datas[index]
+                          .getItmNm,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .itmAbbNm
-                          .toString(),
+                          .datas[index]
+                          .getItmAbbNm,
                       Get.find<SearchListController>()
-                          .parsedResponse[index]
-                          .ufFgNm
-                          .toString()),
+                          .datas[index]
+                          .getUzFgNm),
             ));
           },
         ));
