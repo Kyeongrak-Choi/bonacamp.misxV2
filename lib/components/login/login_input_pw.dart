@@ -25,23 +25,23 @@ class LoginInputPw extends StatelessWidget {
               labelStyle: textThemeCommon().headline3,
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,
-              hintStyle: TextStyle(color: CommonColors.common_dark),
+              hintStyle: TextStyle(color: CommonColors.dark),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: CommonColors.common_dark,
+                  color: CommonColors.dark,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: CommonColors.common_dark,
+                  color: CommonColors.dark,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
               filled: true,
-              fillColor: CommonColors.common_bluesky,
+              fillColor: CommonColors.bluesky,
               contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
               counterText: '',
             ),

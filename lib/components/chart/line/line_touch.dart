@@ -1,9 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 LineTouchData get lineTouchData => LineTouchData(
       handleBuiltInTouches: true,
       touchTooltipData: LineTouchTooltipData(
-        tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
+        tooltipBgColor: CommonColors.navigation.withOpacity(0.5),
       ),
     );

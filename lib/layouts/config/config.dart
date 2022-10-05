@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -25,7 +27,7 @@ class Config extends StatelessWidget {
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(
-                    color: CommonColors.common_bluesky,
+                    color: CommonColors.bluesky,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40.0),
                         bottomRight: Radius.circular(40.0))),
@@ -36,8 +38,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
-                        style: TextStyle(
-                            color: CommonColors.common_dark, fontSize: 18),
+                        style:
+                            TextStyle(color: CommonColors.dark, fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -45,8 +47,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
-                        style: TextStyle(
-                            color: CommonColors.common_dark, fontSize: 14),
+                        style:
+                            TextStyle(color: CommonColors.dark, fontSize: 14),
                       ),
                     ),
                   ]),
@@ -109,9 +111,8 @@ class OptionController extends GetxController {
 
   Future<void> changeTheme(bool val) async {
     Get.put(NavigationController());
-    Get.find<NavigationController>().changeIndex();
-
     isDark.value = val;
+
     await Hive.box(LOCAL_DB).put(KEY_THEME_MODE, val);
     Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE)
         ? ThemeMode.dark

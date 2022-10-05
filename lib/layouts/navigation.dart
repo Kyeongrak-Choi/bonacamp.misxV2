@@ -23,7 +23,7 @@ class Navigation extends GetView<NavigationController> {
         return Future(() => false); // HW Back key disenable
       },
       child: Scaffold(
-        key: controller.scaffoldKey,
+        //key: controller.scaffoldKey,
         appBar: AppBar(
           //title: Text('App_name'.tr),
           title: Image.asset(
@@ -65,7 +65,7 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: CommonColors.common_bluesky,
+          color: CommonColors.bluesky,
           backgroundColor: context.theme.backgroundColor,
           buttonBackgroundColor: context.theme.backgroundColor,
           items: [
@@ -140,14 +140,14 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxService {
-  static NavigationController get to => Get.find();
   RxInt currentIndex = 0.obs;
-  var scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void changeIndex() {
+  changeIndex() {
     currentIndex.value = 4;
   }
 
+  // drawer not use
+  // var scaffoldKey = GlobalKey<ScaffoldState>();
   // void openDrawer() {
   //   scaffoldKey.currentState?.openDrawer();
   // }

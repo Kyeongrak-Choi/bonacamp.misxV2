@@ -32,7 +32,7 @@ class Themes {
     bottomAppBarColor: DarkColors.basic,
     primaryColor: LightColors.basic,
     primaryColorLight: DarkColors.important,
-    primaryColorDark: CommonColors.common_dark,
+    primaryColorDark: CommonColors.dark,
     canvasColor: DarkColors.canvas,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(

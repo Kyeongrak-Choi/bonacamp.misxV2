@@ -44,8 +44,8 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.common_bluesky,
-    colorText: CommonColors.common_dark,
+    backgroundColor: CommonColors.bluesky,
+    colorText: CommonColors.dark,
   );
 }
 
@@ -54,42 +54,42 @@ void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE_SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: CommonColors.common_bluesky,
+      dialogBackgroundColor: CommonColors.bluesky,
       title: title,
-      titleColor: CommonColors.common_dark,
+      titleColor: CommonColors.dark,
       message: content,
-      messageColor: CommonColors.common_dark,
+      messageColor: CommonColors.dark,
       buttonOkText: '',
-      buttonOkColor: CommonColors.common_dark,
+      buttonOkColor: CommonColors.dark,
       buttonCancelText: '',
-      buttonCancelBorderColor: CommonColors.common_bluesky,
+      buttonCancelBorderColor: CommonColors.bluesky,
       buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
       iconButtonOk: Icon(
         Icons.check,
-        color: CommonColors.common_dark,
+        color: CommonColors.dark,
       ),
       iconButtonCancel: Icon(
         Icons.cancel,
         color: CommonColors.red,
       ),
     );
-    choiceDialog.show(context, barrierColor: CommonColors.common_bluesky);
+    choiceDialog.show(context, barrierColor: CommonColors.bluesky);
   } else if (type == DIALOG_TYPE_MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.common_bluesky,
+        dialogBackgroundColor: CommonColors.bluesky,
         buttonOkColor: CommonColors.red,
         title: title,
-        titleColor: CommonColors.common_dark,
+        titleColor: CommonColors.dark,
         message: content,
-        messageColor: CommonColors.common_dark,
+        messageColor: CommonColors.dark,
         buttonOkText: 'confirm'.tr,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
         iconButtonOk: Icon(Icons.one_k));
-    messageDialog.show(context, barrierColor: CommonColors.common_bluesky);
+    messageDialog.show(context, barrierColor: CommonColors.bluesky);
   }
 }
 
@@ -97,8 +97,8 @@ void ShowDialog(type, title, content, context) {
 void ShowProgress(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
-    backgroundColor: CommonColors.common_bluesky,
-    textColor: CommonColors.common_dark,
+    backgroundColor: CommonColors.bluesky,
+    textColor: CommonColors.dark,
     loadingText: 'loading'.tr,
   );
   progressDialog.show();
