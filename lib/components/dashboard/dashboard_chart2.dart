@@ -31,32 +31,17 @@ class DashBoardChart2 extends StatelessWidget {
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const <Widget>[
+              children: <Widget>[
                 SizedBox(
-                  height: 37,
+                  height: 10,
                 ),
-                // Text(
-                //   'bonacamp',
-                //   style: TextStyle(
-                //     color: Color(0xff827daa),
-                //     fontSize: 16,
-                //   ),
-                //   textAlign: TextAlign.center,
-                // ),
-                // SizedBox(
-                //   height: 4,
-                // ),
                 Text(
                   'bonacamp',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: context.textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 37,
+                  height: 10,
                 ),
                 Expanded(
                     child: Padding(

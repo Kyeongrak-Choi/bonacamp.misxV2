@@ -44,7 +44,7 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.common_white,
+    backgroundColor: CommonColors.common_bluesky,
     colorText: CommonColors.common_dark,
   );
 }
@@ -54,7 +54,7 @@ void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE_SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: CommonColors.common_white,
+      dialogBackgroundColor: CommonColors.common_bluesky,
       title: title,
       titleColor: CommonColors.common_dark,
       message: content,
@@ -62,7 +62,7 @@ void ShowDialog(type, title, content, context) {
       buttonOkText: '',
       buttonOkColor: CommonColors.common_dark,
       buttonCancelText: '',
-      buttonCancelBorderColor: CommonColors.common_white,
+      buttonCancelBorderColor: CommonColors.common_bluesky,
       buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
@@ -75,11 +75,11 @@ void ShowDialog(type, title, content, context) {
         color: CommonColors.red,
       ),
     );
-    choiceDialog.show(context, barrierColor: CommonColors.common_white);
+    choiceDialog.show(context, barrierColor: CommonColors.common_bluesky);
   } else if (type == DIALOG_TYPE_MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.common_white,
+        dialogBackgroundColor: CommonColors.common_bluesky,
         buttonOkColor: CommonColors.red,
         title: title,
         titleColor: CommonColors.common_dark,
@@ -89,7 +89,7 @@ void ShowDialog(type, title, content, context) {
         dialogRadius: 15.0,
         buttonRadius: 18.0,
         iconButtonOk: Icon(Icons.one_k));
-    messageDialog.show(context, barrierColor: CommonColors.common_white);
+    messageDialog.show(context, barrierColor: CommonColors.common_bluesky);
   }
 }
 
@@ -97,7 +97,7 @@ void ShowDialog(type, title, content, context) {
 void ShowProgress(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
-    backgroundColor: CommonColors.common_white,
+    backgroundColor: CommonColors.common_bluesky,
     textColor: CommonColors.common_dark,
     loadingText: 'loading'.tr,
   );

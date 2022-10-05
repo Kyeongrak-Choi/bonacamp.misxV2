@@ -42,7 +42,7 @@ class LoginInputId extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             filled: true,
-            fillColor: CommonColors.common_white,
+            fillColor: CommonColors.common_bluesky,
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),

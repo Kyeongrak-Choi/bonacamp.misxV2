@@ -65,7 +65,7 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: CommonColors.common_white,
+          color: CommonColors.common_bluesky,
           backgroundColor: context.theme.backgroundColor,
           buttonBackgroundColor: context.theme.backgroundColor,
           items: [

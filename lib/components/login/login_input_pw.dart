@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/constants.dart';
 import '../../utils/theme/color_manager.dart';
 import '../../utils/theme/text_theme.dart';
 import 'login_btn.dart';
@@ -42,7 +41,7 @@ class LoginInputPw extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               filled: true,
-              fillColor: CommonColors.common_white,
+              fillColor: CommonColors.common_bluesky,
               contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
               counterText: '',
             ),

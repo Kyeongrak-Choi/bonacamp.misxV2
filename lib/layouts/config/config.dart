@@ -25,7 +25,7 @@ class Config extends StatelessWidget {
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(
-                    color: CommonColors.common_white,
+                    color: CommonColors.common_bluesky,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40.0),
                         bottomRight: Radius.circular(40.0))),
@@ -36,8 +36,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
-                        style:
-                            TextStyle(color: CommonColors.common_dark, fontSize: 18),
+                        style: TextStyle(
+                            color: CommonColors.common_dark, fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -45,8 +45,8 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
-                        style:
-                            TextStyle(color: CommonColors.common_dark, fontSize: 14),
+                        style: TextStyle(
+                            color: CommonColors.common_dark, fontSize: 14),
                       ),
                     ),
                   ]),

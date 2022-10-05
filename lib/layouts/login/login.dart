@@ -36,7 +36,7 @@ class Login extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: CommonColors.common_white,
+                    color: CommonColors.common_bluesky,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(

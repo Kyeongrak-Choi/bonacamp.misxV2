@@ -25,6 +25,6 @@ class CommonColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF2D2D2D);
   static const Color common_dark = Color(0xFF262D34);
-  static const Color common_white = Color(0xFFCDECFA);
+  static const Color common_bluesky = Color(0xFFCDECFA);
   static const Color navigation = Color(0xFF78909C);
 }
