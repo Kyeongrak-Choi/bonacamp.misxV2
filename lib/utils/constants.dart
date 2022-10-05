@@ -15,6 +15,7 @@ const ROUTE_LOGIN = '/login';
 const ROUTE_NATIGATION = '/navigation';
 const ROUTE_POLICY = '/policy';
 const ROUTE_CONFIG = '/config';
+const ROUTE_NOTICE = '/notice';
 const ROUTE_SYSTEM_CONFIG = '/systemConfig';
 const ROUTE_MENU_CONFIG = '/menuConfig';
 const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';

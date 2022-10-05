@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
-import 'package:misxV2/components/dashboard/dashboard_chart.dart';
+import 'package:misxV2/components/dashboard/dashboard_chart2.dart';
 import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
@@ -44,7 +44,7 @@ class DashBoard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardChart(), // 차트
+                        child: DashBoardChart2(), // 차트
                       ),
                     ],
                   ),

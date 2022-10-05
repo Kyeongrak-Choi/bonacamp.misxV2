@@ -4,9 +4,9 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
-import '../../components/menu/menu_manager.dart';
 import '../../models/localDB/userinfo.dart';
 import '../../utils/constants.dart';
+import '../../utils/menu_manager.dart';
 import '../../utils/utility.dart';
 
 // 더보기 화면
@@ -49,6 +49,10 @@ class Config extends StatelessWidget {
                     ),
                   ]),
                 )),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+            child: CardIconMenu(iconMenuList: noticeMaster),
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),

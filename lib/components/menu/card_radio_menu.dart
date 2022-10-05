@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../layouts/config/config.dart';
 import '../../utils/constants.dart';
-import 'menu_manager.dart';
+import '../../utils/menu_manager.dart';
 
 class CardRadioMenu extends StatelessWidget {
   List<RadioMenu> radioMenu;

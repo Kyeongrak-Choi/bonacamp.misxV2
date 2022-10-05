@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
 
-import '../../components/menu/menu_manager.dart';
+import '../../utils/menu_manager.dart';
 
 // System Config Setting
 class SystemConfig extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,32 +32,19 @@ class SearchList extends StatelessWidget {
               padding: const EdgeInsets.all(5),
               child: Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
                   ? SearchListItem(
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getCustCd,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getCustNm,
+                      Get.find<SearchListController>().datas[index].getCustCd,
+                      Get.find<SearchListController>().datas[index].getCustNm,
                       Get.find<SearchListController>()
                           .datas[index]
                           .getCustAbbNm,
                       Get.find<SearchListController>()
                           .datas[index]
-                          .getCustStatNm
-                        )
+                          .getCustStatNm)
                   : SearchListItem(
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getItmCd,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getItmNm,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getItmAbbNm,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getUzFgNm),
+                      Get.find<SearchListController>().datas[index].getItmCd,
+                      Get.find<SearchListController>().datas[index].getItmNm,
+                      Get.find<SearchListController>().datas[index].getItmAbbNm,
+                      Get.find<SearchListController>().datas[index].getUzFgNm),
             ));
           },
         ));

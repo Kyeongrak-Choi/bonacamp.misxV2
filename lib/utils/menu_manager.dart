@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../../utils/constants.dart';
-import '../../utils/utility.dart';
+import 'constants.dart';
+import 'utility.dart';
 
 class IconMenu {
   String title;
@@ -25,6 +25,14 @@ class RadioMenu {
     required this.val,
   });
 }
+
+// system setting master
+final List<IconMenu> noticeMaster = [
+  IconMenu(
+      title: 'notice'.tr,
+      iconData: CupertinoIcons.speaker_2_fill,
+      path: ROUTE_NOTICE),
+];
 
 // system setting master
 final List<IconMenu> systemMaster = [

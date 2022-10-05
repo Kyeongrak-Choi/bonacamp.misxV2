@@ -20,6 +20,7 @@ const Map<String, String> koKR = {
   'check_login_content': 'ID/PW를 확인해 주세요.',
 
   // config
+  'notice': '공지 사항',
   'system_setting': '시스템 설정',
   'menu_setting': '메뉴 설정',
   'dark_mode': '다크 모드',
