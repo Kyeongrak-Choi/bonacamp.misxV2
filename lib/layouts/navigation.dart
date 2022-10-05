@@ -8,6 +8,7 @@ import 'package:misxV2/layouts/menu/menu_list.dart';
 import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
 
 import '../utils/constants.dart';
+import '../utils/theme/color_manager.dart';
 import '../utils/utility.dart';
 import 'config/config.dart';
 import 'example/funtion.dart';
@@ -64,7 +65,7 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: Color(COMMON_COLOR),
+          color: CommonColors.common_white,
           backgroundColor: context.theme.backgroundColor,
           buttonBackgroundColor: context.theme.backgroundColor,
           items: [
@@ -72,10 +73,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.home, color: Colors.blueGrey),
+                  Icon(Icons.home, color: CommonColors.navigation),
                   Text(
                     'nav_home'.tr,
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: CommonColors.navigation),
                   )
                 ],
               ),
@@ -84,10 +85,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.star_border, color: Colors.blueGrey),
+                  Icon(Icons.star_border, color: CommonColors.navigation),
                   Text(
                     'nav_mymenu'.tr,
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: CommonColors.navigation),
                   )
                 ],
               ),
@@ -96,10 +97,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.menu, color: Colors.blueGrey),
+                  Icon(Icons.menu, color: CommonColors.navigation),
                   Text(
                     'nav_menu'.tr,
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: CommonColors.navigation),
                   )
                 ],
               ),
@@ -108,10 +109,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.workspace_premium, color: Colors.blueGrey),
+                  Icon(Icons.workspace_premium, color: CommonColors.navigation),
                   Text(
                     'nav_premium'.tr,
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: CommonColors.navigation),
                   )
                 ],
               ),
@@ -120,10 +121,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.more_horiz_sharp, color: Colors.blueGrey),
+                  Icon(Icons.more_horiz_sharp, color: CommonColors.navigation),
                   Text(
                     'nav_more'.tr,
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: CommonColors.navigation),
                   )
                 ],
               ),
@@ -143,8 +144,8 @@ class NavigationController extends GetxService {
   RxInt currentIndex = 0.obs;
   var scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void changeIndex(int Index) {
-    currentIndex(Index);
+  void changeIndex() {
+    currentIndex.value = 4;
   }
 
   // void openDrawer() {

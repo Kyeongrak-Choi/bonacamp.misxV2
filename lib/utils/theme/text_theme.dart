@@ -2,42 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:misxV2/utils/constants.dart';
 
+import 'color_manager.dart';
+
 TextTheme textThemeLight() {
   return TextTheme(
     headline1: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     headline2: GoogleFonts.nanumGothic(
       fontSize: 22.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     headline3: GoogleFonts.nanumGothic(
       fontSize: 20.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     subtitle1: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     subtitle2: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     bodyText1: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     bodyText2: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
   );
 }
@@ -87,22 +89,22 @@ TextTheme textThemeCommon() {
     headline1: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     headline2: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     headline3: GoogleFonts.nanumGothic(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
     bodyText1: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
-      color: Color(DARK_COLOR),
+      color: CommonColors.common_dark,
     ),
   );
 }

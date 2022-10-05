@@ -7,7 +7,9 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import '../../models/localDB/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
+import '../navigation.dart';
 
 // 더보기 화면
 class Config extends StatelessWidget {
@@ -23,7 +25,7 @@ class Config extends StatelessWidget {
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(
-                    color: Color(COMMON_COLOR),
+                    color: CommonColors.common_white,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40.0),
                         bottomRight: Radius.circular(40.0))),
@@ -35,7 +37,7 @@ class Config extends StatelessWidget {
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
                         style:
-                            TextStyle(color: Color(DARK_COLOR), fontSize: 18),
+                            TextStyle(color: CommonColors.common_dark, fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -44,7 +46,7 @@ class Config extends StatelessWidget {
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
                         style:
-                            TextStyle(color: Color(DARK_COLOR), fontSize: 14),
+                            TextStyle(color: CommonColors.common_dark, fontSize: 14),
                       ),
                     ),
                   ]),
@@ -106,11 +108,16 @@ class OptionController extends GetxController {
   }
 
   Future<void> changeTheme(bool val) async {
+    Get.put(NavigationController());
+    Get.find<NavigationController>().changeIndex();
+
     isDark.value = val;
     await Hive.box(LOCAL_DB).put(KEY_THEME_MODE, val);
     Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE)
         ? ThemeMode.dark
         : ThemeMode.light);
+
+    Get.find<NavigationController>().changeIndex();
   }
 
   Future<void> changeOption(String id, bool val) async {

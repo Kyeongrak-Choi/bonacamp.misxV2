@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../layouts/config/config.dart';
 import '../../utils/constants.dart';
@@ -54,7 +55,7 @@ class CardRadioMenu extends StatelessWidget {
       height: 50,
       color: context.theme.backgroundColor,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween, // 각 위젯간의 공간을 둠
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
@@ -62,7 +63,7 @@ class CardRadioMenu extends StatelessWidget {
           ),
           SizedBox(width: 20),
           Obx(() => Switch(
-              activeColor: Colors.tealAccent,
+              activeColor: CommonColors.green,
               value: optValue.value,
               onChanged: (value) {
                 switch (id) {

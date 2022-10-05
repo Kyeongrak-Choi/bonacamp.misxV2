@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/common/product.dart';
@@ -21,7 +22,7 @@ class SearchList extends StatelessWidget {
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 5,
-            color: Colors.white,
+            color: CommonColors.white,
           ),
 
           itemBuilder: (BuildContext context, int index) {

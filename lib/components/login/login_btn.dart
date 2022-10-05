@@ -6,6 +6,7 @@ import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 
 class LoginBtn extends StatelessWidget {
@@ -28,8 +29,8 @@ class LoginBtn extends StatelessWidget {
                 },
                 child: Text('text_login'.tr),
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Color(DARK_COLOR),
+                  foregroundColor: CommonColors.white,
+                  backgroundColor: CommonColors.common_dark,
                 )))
       ],
     );

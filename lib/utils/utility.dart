@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart' show Brightness, rootBundle;
 import 'package:get/get.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 import 'constants.dart';
 
@@ -43,8 +44,8 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: Color(COMMON_COLOR),
-    colorText: Color(DARK_COLOR),
+    backgroundColor: CommonColors.common_white,
+    colorText: CommonColors.common_dark,
   );
 }
 
@@ -53,42 +54,42 @@ void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE_SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: Color(COMMON_COLOR),
+      dialogBackgroundColor: CommonColors.common_white,
       title: title,
-      titleColor: Color(DARK_COLOR),
+      titleColor: CommonColors.common_dark,
       message: content,
-      messageColor: Color(DARK_COLOR),
+      messageColor: CommonColors.common_dark,
       buttonOkText: '',
-      buttonOkColor: Color(DARK_COLOR),
+      buttonOkColor: CommonColors.common_dark,
       buttonCancelText: '',
-      buttonCancelBorderColor: Colors.red,
+      buttonCancelBorderColor: CommonColors.common_white,
       buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
       iconButtonOk: Icon(
         Icons.check,
-        color: Color(DARK_COLOR),
+        color: CommonColors.common_dark,
       ),
       iconButtonCancel: Icon(
         Icons.cancel,
-        color: Colors.red,
+        color: CommonColors.red,
       ),
     );
-    choiceDialog.show(context, barrierColor: Colors.white);
+    choiceDialog.show(context, barrierColor: CommonColors.common_white);
   } else if (type == DIALOG_TYPE_MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: Color(COMMON_COLOR),
-        buttonOkColor: Colors.red,
+        dialogBackgroundColor: CommonColors.common_white,
+        buttonOkColor: CommonColors.red,
         title: title,
-        titleColor: Color(DARK_COLOR),
+        titleColor: CommonColors.common_dark,
         message: content,
-        messageColor: Color(DARK_COLOR),
+        messageColor: CommonColors.common_dark,
         buttonOkText: 'confirm'.tr,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
         iconButtonOk: Icon(Icons.one_k));
-    messageDialog.show(context, barrierColor: Colors.white);
+    messageDialog.show(context, barrierColor: CommonColors.common_white);
   }
 }
 
@@ -96,8 +97,8 @@ void ShowDialog(type, title, content, context) {
 void ShowProgress(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
-    backgroundColor: Color(COMMON_COLOR),
-    textColor: Color(DARK_COLOR),
+    backgroundColor: CommonColors.common_white,
+    textColor: CommonColors.common_dark,
     loadingText: 'loading'.tr,
   );
   progressDialog.show();

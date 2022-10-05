@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/utils/constants.dart';
 
+import '../../utils/theme/color_manager.dart';
 import '../../utils/theme/text_theme.dart';
 import 'login_btn.dart';
 
@@ -25,23 +26,23 @@ class LoginInputId extends StatelessWidget {
             labelStyle: textThemeCommon().headline3,
             labelText: 'text_id'.tr,
             hintText: 'hint_id_input'.tr,
-            hintStyle: TextStyle(color: Color(DARK_COLOR)),
+            hintStyle: TextStyle(color: CommonColors.common_dark),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color(DARK_COLOR),
+                color: CommonColors.common_dark,
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color(DARK_COLOR),
+                color: CommonColors.common_dark,
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
             filled: true,
-            fillColor: Color(COMMON_COLOR),
+            fillColor: CommonColors.common_white,
             contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
             counterText: '',
           ),

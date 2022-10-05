@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:misxV2/utils/constants.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/theme/text_theme.dart';
 
 import 'appbar_theme.dart';
@@ -9,40 +8,40 @@ class Themes {
   static final light = ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: appBarThemeLight(),
-    backgroundColor: Colors.white,
-    bottomAppBarColor: Colors.white,
-    primaryColor: Color(DARK_COLOR),
-    primaryColorLight: Colors.white,
-    primaryColorDark: Color(DARK_COLOR),
-    canvasColor: Colors.blueGrey,
+    backgroundColor: LightColors.basic,
+    bottomAppBarColor: LightColors.basic,
+    primaryColor: DarkColors.basic,
+    primaryColorLight: LightColors.basic,
+    primaryColorDark: DarkColors.basic,
+    canvasColor: LightColors.canvas,
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.white,
+      buttonColor: LightColors.basic,
       textTheme: ButtonTextTheme.primary,
     ),
     navigationBarTheme: const NavigationBarThemeData(
-      indicatorColor: Colors.blueGrey,
-      backgroundColor: Colors.white,
+      indicatorColor: LightColors.canvas,
+      backgroundColor: LightColors.basic,
     ),
   );
+
   static final dark = ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: appBarThemeDark(),
-    backgroundColor: Color(DARK_COLOR),
-    bottomAppBarColor: Color(DARK_COLOR),
-    primaryColor: Colors.white,
-    primaryColorLight: Colors.white,
-    primaryColorDark: Color(DARK_COLOR),
-    hoverColor: Colors.blueGrey,
-    canvasColor: Colors.black26,
+    backgroundColor: DarkColors.basic,
+    bottomAppBarColor: DarkColors.basic,
+    primaryColor: LightColors.basic,
+    primaryColorLight: DarkColors.important,
+    primaryColorDark: CommonColors.common_dark,
+    canvasColor: DarkColors.canvas,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(
-      buttonColor: Color(DARK_COLOR),
+      buttonColor: DarkColors.basic,
       textTheme: ButtonTextTheme.primary,
     ),
     navigationBarTheme: const NavigationBarThemeData(
-      indicatorColor: Colors.blueGrey,
-      backgroundColor: Colors.blueGrey,
+      indicatorColor: DarkColors.canvas,
+      backgroundColor: DarkColors.basic,
     ),
   );
 }

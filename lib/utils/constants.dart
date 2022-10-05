@@ -3,8 +3,6 @@
  */
 
 const APP_NAME = 'MISX Ver2';
-const DARK_COLOR = 0xFF262D34; // common dark color value
-const COMMON_COLOR = 0xFFCDECFA; // common color value
 const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 

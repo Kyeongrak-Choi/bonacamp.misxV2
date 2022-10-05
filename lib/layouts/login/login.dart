@@ -7,6 +7,7 @@ import 'package:misxV2/components/login/login_logo.dart';
 import 'package:misxV2/components/login/login_policy.dart';
 
 import '../../utils/constants.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/theme/text_theme.dart';
 
 class Login extends StatelessWidget {
@@ -18,7 +19,7 @@ class Login extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: Color(DARK_COLOR),
+          color: CommonColors.common_dark,
         ),
         child: Center(
           child: Column(
@@ -35,7 +36,7 @@ class Login extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: Color(COMMON_COLOR),
+                    color: CommonColors.common_white,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
@@ -64,7 +65,7 @@ class Login extends StatelessWidget {
                           thickness: 2,
                           indent: 20,
                           endIndent: 20,
-                          color: Color(DARK_COLOR),
+                          color: CommonColors.common_dark,
                         ),
                         Padding(
                           padding:
