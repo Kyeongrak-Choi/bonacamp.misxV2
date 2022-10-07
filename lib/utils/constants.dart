@@ -46,7 +46,8 @@ const SEARCH_DIALOG_PROD = 'P'; // product search type
 const API_URL = 'http://172.27.235.104:9000/api/v1/'; // test
 const API_TEST1 = API_URL + 'health'; // test
 
-const TIMTOUT = 3000;
+const CONNECT_TIMEOUT = 5000;
+const RECEIVE_TIMEOUT = 3000;
 
 /*
   Json

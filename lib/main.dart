@@ -60,7 +60,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_NATIGATION, page: () => Navigation()), // Main
         GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
-        GetPage(name: ROUTE_NOTICE, page: () => MenuExample()), // Config
+        //GetPage(name: ROUTE_NOTICE, page: () => ), // Config
         GetPage(
             name: ROUTE_SYSTEM_CONFIG,
             page: () => SystemConfig()), // Config - SystemConfig

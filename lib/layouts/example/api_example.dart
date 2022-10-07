@@ -25,7 +25,7 @@ class ApiExample extends StatelessWidget {
                     backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () =>
-                      Get.find<NetworkManager>().RequestApi(API_TEST1, ''),
+                      Get.find<NetworkManager>().RequestApi(API_TEST1, '',context),
                   child: Text(
                     'api call'.tr,
                     style: context.textTheme.bodyText1,
