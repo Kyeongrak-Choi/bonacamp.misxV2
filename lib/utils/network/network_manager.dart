@@ -24,30 +24,30 @@ class NetworkManager extends GetxController {
   }
 }
 
-Future<String> CallApi(api, params) async {
-  try {
-    var url = Uri.parse(api);
-    var response = await http
-        .get(url)
-        .timeout(const Duration(seconds: CONNECT_TIMEOUT), onTimeout: () {
-      ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
-      return http.Response('Error', 500);
-    });
-    //var response = await http.get(url,headers: header add);
-    var responseData;
-    if (response.statusCode == 200) {
-      responseData = jsonDecode(utf8.decode(response.bodyBytes));
-      return responseData.toString();
-    } else {
-      ShowSnackBar(SNACK_TYPE_ERROR,
-          'Request failed : ${api}\nstatus: ${responseData[TAG_MSG]}');
-      return responseData[TAG_MSG];
-    }
-  } catch (e) {
-    ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
-    return e.toString();
-  }
-}
+// Future<String> CallApi(api, params) async {
+//   try {
+//     var url = Uri.parse(api);
+//     var response = await http
+//         .get(url)
+//         .timeout(const Duration(seconds: CONNECT_TIMEOUT), onTimeout: () {
+//       ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
+//       return http.Response('Error', 500);
+//     });
+//     //var response = await http.get(url,headers: header add);
+//     var responseData;
+//     if (response.statusCode == 200) {
+//       responseData = jsonDecode(utf8.decode(response.bodyBytes));
+//       return responseData.toString();
+//     } else {
+//       ShowSnackBar(SNACK_TYPE_ERROR,
+//           'Request failed : ${api}\nstatus: ${responseData[TAG_MSG]}');
+//       return responseData[TAG_MSG];
+//     }
+//   } catch (e) {
+//     ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
+//     return e.toString();
+//   }
+// }
 
 // Future<Response> post(
 //   String url, {
@@ -132,7 +132,7 @@ Future<Dio> authDio(BuildContext context) async {
           .add(InterceptorsWrapper(onError: (error, handler) async {
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
         if (error.response?.statusCode == 401) {
-          // 기기의 자동 로그인 정보 삭제
+          // 기기의 자동 로그인 정보 삭제d
           await storage.deleteAll();
 
           // . . .

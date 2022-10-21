@@ -63,12 +63,12 @@ final List<IconMenu> menuMaster = [
 final List<RadioMenu> menuDetail = [
   RadioMenu(
     id: KEY_CUSTOM_FILTER,
-    title: 'isCustomFilter'.tr,
+    title: KEY_CUSTOM_FILTER.tr,
     val: Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false),
   ),
   RadioMenu(
     id: KEY_INCLUDE_SALCHRG,
-    title: 'isIncludeSalChrgCd'.tr,
+    title: KEY_INCLUDE_SALCHRG.tr,
     val: Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true),
   ),
   RadioMenu(

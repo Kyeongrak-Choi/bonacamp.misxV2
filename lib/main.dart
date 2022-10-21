@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:misxV2/assets/translations/strings.dart';
+import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
@@ -21,7 +21,7 @@ import 'layouts/navigation.dart';
 
 void main() async {
   await Hive.initFlutter();
-  RegisterAdapter(); // Adapter Regist
+  RegisterAdapter(); // Hive Adapter Regist
 
   // init Theme Setting
   await Hive.openBox(LOCAL_DB);
@@ -38,7 +38,7 @@ class Misx extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false, // in emulator hide 'debug'
-      translations: Strings(), // multi language
+      translations: LanguageManager(), // multi language
       locale: Get.deviceLocale,
       fallbackLocale: Locale('ko', 'KR'), // default locale set
       initialBinding: InitBinding(),
