@@ -1,14 +1,10 @@
-import 'dart:convert';
-
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
 
 import '../constants.dart';
-import '../utility.dart';
 
 class NetworkManager extends GetxController {
   RxString responseData = ''.obs;
