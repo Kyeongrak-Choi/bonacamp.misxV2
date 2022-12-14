@@ -17,12 +17,13 @@ class DashBoard extends StatelessWidget {
       backgroundColor: context.theme.backgroundColor,
       body: RefreshIndicator(
           onRefresh: () async {
-            await Get.find<NetworkManager>().RequestApi(API_TEST1, '', context);
+            await Get.find<NetworkManager>().RequestApi(API_URL_DEV, '', context);
           },
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
                 Padding(
                   padding: EdgeInsetsDirectional.all(5),
                   child: DashBoardAdmob(), // 광고

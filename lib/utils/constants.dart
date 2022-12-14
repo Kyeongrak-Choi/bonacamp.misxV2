@@ -40,22 +40,44 @@ const SEARCH_DIALOG_CUST = 'C'; // customer search type
 const SEARCH_DIALOG_PROD = 'P'; // product search type
 
 /*
- APIs
+  Netwrok Config
 */
-
-const API_URL = 'http://172.27.235.104:9000/api/v1/'; // test
-const API_TEST1 = API_URL + 'health'; // test
-
 const CONNECT_TIMEOUT = 5000;
 const RECEIVE_TIMEOUT = 3000;
+
+/*
+ Certification
+*/
+const CERT_URL_PROD = '';
+const CERT_URL_DEV = 'http://172.27.235.104:9040/api/auth';
+const CERT_URL_LOCAL = 'http://172.16.25.47:9040/api/auth';
+
+const CERT_TOKEN = '/token';
+
+/*
+ APIs
+*/
+const API_URL_PROD = '';
+const API_URL_DEV = 'http://172.27.235.104:9030/api';
+
+const API_HEALTH_CHECK = '/health';
+
 
 /*
   Json
  */
 
+// common
 const TAG_DATA = 'payload'; // response data tag
 const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
+
+// Authorization
+const TAG_TOKEN = 'token'; // response token tag
+const TAG_GRANT_TYPE = 'Bearer '; // response token - grant type tag
+const TAG_ACCESS_TOKEN = 'access-token'; // response token - access token tag
+const TAG_TOEKN_EXPIRE_TIME ='access-token-expiration-time'; // response token - expire time tag
+
 
 /*
   HIVE DB

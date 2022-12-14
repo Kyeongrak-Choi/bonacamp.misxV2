@@ -25,9 +25,19 @@ class ApiExample extends StatelessWidget {
                     backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () => Get.find<NetworkManager>()
-                      .RequestApi(API_TEST1, '', context),
+                      .RequestApi(API_URL_DEV, '', context),
                   child: Text(
-                    'api call'.tr,
+                    'health check'.tr,
+                    style: context.textTheme.bodyText1,
+                  )),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: context.theme.canvasColor,
+                  ),
+                  onPressed: () => Get.find<NetworkManager>()
+                      .getToken(CERT_TOKEN),
+                  child: Text(
+                    'get token call'.tr,
                     style: context.textTheme.bodyText1,
                   )),
               Text(
