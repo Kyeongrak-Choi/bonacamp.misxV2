@@ -65,3 +65,19 @@ bool getHiveBool(bool data) {
     return false;
   }
 }
+
+// init set token
+Future<void> initToken() async {
+  await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN, '');
+}
+
+
+Future<String> getToken() async {
+  String token =  await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
+
+  if(token == 'fail'){
+    return 'GetToken() Failed';
+  }else {
+    return token;
+  }
+}

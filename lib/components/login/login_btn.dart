@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +8,7 @@ import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
+import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 
@@ -68,6 +71,7 @@ class LoginBtnController extends GetxController {
 
       BoxInit(); // local DB Set
 
+      await setToken(); // Token get
       return true;
     }
   }

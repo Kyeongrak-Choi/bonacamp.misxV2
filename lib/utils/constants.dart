@@ -86,9 +86,11 @@ const TAG_TOEKN_EXPIRE_TIME ='access-token-expiration-time'; // response token -
 const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
+const KEY_SAVED_TOKEN = 'token'; // save token Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key
+
 const KEY_USERINFO = 'USERINFO'; // USERINFO Object key - @HiveType(typeId: 1)
 const KEY_SALCHRG = 'SALCHRG'; // SALCHRG Object key - @HiveType(typeId: 2)
 const KEY_NODE = 'NODE'; // NODE Object key - @HiveType(typeId: 3)

@@ -25,7 +25,7 @@ class ApiExample extends StatelessWidget {
                     backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () => Get.find<NetworkManager>()
-                      .RequestApi(API_URL_DEV, '', context),
+                      .requestApi(API_URL_DEV, '', context),
                   child: Text(
                     'health check'.tr,
                     style: context.textTheme.bodyText1,
@@ -35,7 +35,7 @@ class ApiExample extends StatelessWidget {
                     backgroundColor: context.theme.canvasColor,
                   ),
                   onPressed: () => Get.find<NetworkManager>()
-                      .getToken(CERT_TOKEN),
+                      .testToken(CERT_TOKEN),
                   child: Text(
                     'get token call'.tr,
                     style: context.textTheme.bodyText1,

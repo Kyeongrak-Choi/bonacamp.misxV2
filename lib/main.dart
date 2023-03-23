@@ -20,15 +20,19 @@ import 'layouts/login/login.dart';
 import 'layouts/navigation.dart';
 
 void main() async {
+  // init Hive
   await Hive.initFlutter();
-  RegisterAdapter(); // Hive Adapter Regist
-
-  // init Theme Setting
+  // Hive Adapter Regist
+  RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
+  // init Theme Setting
   Get.changeThemeMode(
       Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())
           ? ThemeMode.dark
           : ThemeMode.light);
+
+  // init Token Setting
+  initToken();
 
   runApp(Misx());
 }
