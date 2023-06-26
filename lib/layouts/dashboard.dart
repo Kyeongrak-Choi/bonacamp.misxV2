@@ -23,7 +23,6 @@ class DashBoard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
                 Padding(
                   padding: EdgeInsetsDirectional.all(5),
                   child: DashBoardAdmob(), // 광고

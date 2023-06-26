@@ -18,8 +18,7 @@ class TeamModel {
     return {'SUB_CD': SUB_CD, 'SUB_NM': SUB_NM};
   }
 
-  factory TeamModel.fromJson(Map<String, dynamic> json) =>
-      _$TeamModelFromJson(json);
+  factory TeamModel.fromJson(Map<String, dynamic> json) => _$TeamModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TeamModelToJson(this);
 

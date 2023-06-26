@@ -41,8 +41,7 @@ class Navigation extends GetView<NavigationController> {
             IconButton(
                 icon: Icon(Icons.logout),
                 color: context.theme.primaryColor,
-                onPressed: () => ShowDialog(DIALOG_TYPE_SELECT, 'logout'.tr,
-                    'logout_content'.tr, context)),
+                onPressed: () => ShowDialog(DIALOG_TYPE_SELECT, 'logout'.tr, 'logout_content'.tr, context)),
           ],
         ),
         // drawer: Drawer(

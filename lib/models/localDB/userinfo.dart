@@ -22,8 +22,7 @@ class UserinfoModel {
   @HiveField(6)
   String DB_UID; // DB접속-ID
 
-  UserinfoModel(this.CLIENT_CODE, this.CLIENT_NAME, this.USER_ID,
-      this.USER_NAME, this.BUSINESS_NO, this.SYSTEM_CD, this.DB_UID);
+  UserinfoModel(this.CLIENT_CODE, this.CLIENT_NAME, this.USER_ID, this.USER_NAME, this.BUSINESS_NO, this.SYSTEM_CD, this.DB_UID);
 
   Map<String, dynamic> toMap() {
     return {
@@ -37,8 +36,7 @@ class UserinfoModel {
     };
   }
 
-  factory UserinfoModel.fromJson(Map<String, dynamic> json) =>
-      _$UserinfoModelFromJson(json);
+  factory UserinfoModel.fromJson(Map<String, dynamic> json) => _$UserinfoModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserinfoModelToJson(this);
 

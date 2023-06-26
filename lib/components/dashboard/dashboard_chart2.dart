@@ -43,10 +43,7 @@ class DashBoardChart2 extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Expanded(
-                    child: Padding(
-                        padding: EdgeInsets.only(right: 16.0, left: 6.0),
-                        child: ChartManager())),
+                Expanded(child: Padding(padding: EdgeInsets.only(right: 16.0, left: 6.0), child: ChartManager())),
                 SizedBox(
                   height: 10,
                 ),

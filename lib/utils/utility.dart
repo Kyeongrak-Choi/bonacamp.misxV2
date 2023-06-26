@@ -102,8 +102,7 @@ void ShowProgress(context) {
     loadingText: 'loading'.tr,
   );
   progressDialog.show();
-  Future.delayed(Duration(seconds: 3))
-      .then((value) => progressDialog.dismiss());
+  Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
 }
 
 String convertBusinessNo(String businessNo) {

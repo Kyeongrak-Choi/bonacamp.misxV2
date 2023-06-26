@@ -19,20 +19,14 @@ class CardIconMenu extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          children: List.generate(
-              iconMenuList.length,
-              (index) => buildRowIconItem(
-                  iconMenuList[index].title,
-                  iconMenuList[index].iconData,
-                  iconMenuList[index].path,
-                  context)),
+          children: List.generate(iconMenuList.length,
+              (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
         ),
       ),
     );
   }
 
-  Widget buildRowIconItem(
-      String title, IconData iconData, String path, BuildContext context) {
+  Widget buildRowIconItem(String title, IconData iconData, String path, BuildContext context) {
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed(path),
       child: Container(

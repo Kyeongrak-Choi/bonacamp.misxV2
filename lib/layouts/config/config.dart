@@ -26,9 +26,7 @@ class Config extends StatelessWidget {
                 height: 100,
                 decoration: BoxDecoration(
                     color: CommonColors.bluesky,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(40.0),
-                        bottomRight: Radius.circular(40.0))),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40.0), bottomRight: Radius.circular(40.0))),
                 child: Obx(
                   () => Column(children: [
                     Padding(
@@ -36,8 +34,7 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
-                        style:
-                            TextStyle(color: CommonColors.dark, fontSize: 18),
+                        style: TextStyle(color: CommonColors.dark, fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -45,8 +42,7 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
-                        style:
-                            TextStyle(color: CommonColors.dark, fontSize: 14),
+                        style: TextStyle(color: CommonColors.dark, fontSize: 14),
                       ),
                     ),
                   ]),
@@ -76,18 +72,10 @@ class OptionController extends GetxController {
   RxString userId = ''.obs;
   RxString userNm = ''.obs;
 
-  RxBool isDark = getHiveBool(
-          Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()))
-      .obs; // 다크모드
-  RxBool isCustomFilter = getHiveBool(
-          Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false))
-      .obs; // 거래처 필터링 사용
-  RxBool isIncludeSalChrgCd = getHiveBool(
-          Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true))
-      .obs; // 영업사원 선택시 관리사원 포함
-  RxBool isCompareFirst = getHiveBool(
-          Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false))
-      .obs; // 초성검색시 첫글자부터 비교
+  RxBool isDark = getHiveBool(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())).obs; // 다크모드
+  RxBool isCustomFilter = getHiveBool(Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false)).obs; // 거래처 필터링 사용
+  RxBool isIncludeSalChrgCd = getHiveBool(Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true)).obs; // 영업사원 선택시 관리사원 포함
+  RxBool isCompareFirst = getHiveBool(Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false)).obs; // 초성검색시 첫글자부터 비교
 
   @override
   void onInit() {
@@ -112,9 +100,7 @@ class OptionController extends GetxController {
     isDark.value = val;
 
     await Hive.box(LOCAL_DB).put(KEY_THEME_MODE, val);
-    Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE)
-        ? ThemeMode.dark
-        : ThemeMode.light);
+    Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE) ? ThemeMode.dark : ThemeMode.light);
 
     Get.find<NavigationController>().changeIndex();
   }

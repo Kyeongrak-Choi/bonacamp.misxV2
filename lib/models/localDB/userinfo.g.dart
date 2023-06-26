@@ -52,18 +52,14 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserinfoModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is UserinfoModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
-    UserinfoModel(
+UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) => UserinfoModel(
       json['CLIENT_CODE'] as String,
       json['CLIENT_NAME'] as String,
       json['USER_ID'] as String,
@@ -73,8 +69,7 @@ UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
       json['DB_UID'] as String,
     );
 
-Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) => <String, dynamic>{
       'CLIENT_CODE': instance.CLIENT_CODE,
       'CLIENT_NAME': instance.CLIENT_NAME,
       'USER_ID': instance.USER_ID,

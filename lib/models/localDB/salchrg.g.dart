@@ -40,10 +40,7 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is SalChrgModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is SalChrgModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -56,8 +53,7 @@ SalChrgModel _$SalChrgModelFromJson(Map<String, dynamic> json) => SalChrgModel(
       json['MGMT_CHRGR_YN'] as String,
     );
 
-Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) => <String, dynamic>{
       'SAL_CHRG_CD': instance.SAL_CHRG_CD,
       'SAL_CHRG_NM': instance.SAL_CHRG_NM,
       'MGMT_CHRGR_YN': instance.MGMT_CHRGR_YN,

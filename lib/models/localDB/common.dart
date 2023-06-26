@@ -20,8 +20,7 @@ class CommonModel {
     return {'MAIN_CD': MAIN_CD, 'SUB_CD': SUB_NM, 'subNm': SUB_NM};
   }
 
-  factory CommonModel.fromJson(Map<String, dynamic> json) =>
-      _$CommonModelFromJson(json);
+  factory CommonModel.fromJson(Map<String, dynamic> json) => _$CommonModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CommonModelToJson(this);
 

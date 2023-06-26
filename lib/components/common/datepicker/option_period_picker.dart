@@ -40,13 +40,9 @@ class OptionPeriodPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
                   () => TextButton(
-                    onPressed: () =>
-                        Get.find<PeriodPickerController>().chooseFromDate(),
+                    onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
                     child: Text(
-                      DateFormat('yyyy-MM-dd')
-                          .format(
-                              Get.find<PeriodPickerController>().fromDate.value)
-                          .toString(),
+                      DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
                       style: context.textTheme.bodyText1,
                     ),
                   ),
@@ -63,13 +59,8 @@ class OptionPeriodPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
                   () => TextButton(
-                    onPressed: () =>
-                        Get.find<PeriodPickerController>().chooseToDate(),
-                    child: Text(
-                        DateFormat('yyyy-MM-dd')
-                            .format(
-                                Get.find<PeriodPickerController>().toDate.value)
-                            .toString(),
+                    onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                    child: Text(DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
                         style: context.textTheme.bodyText1),
                   ),
                 ),

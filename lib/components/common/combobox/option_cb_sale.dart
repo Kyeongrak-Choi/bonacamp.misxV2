@@ -41,10 +41,7 @@ class OptionCbSale extends StatelessWidget {
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbSaleController>()
-                        .data
-                        .map<DropdownMenuItem<SalChrgModel>>(
-                            (SalChrgModel value) {
+                    items: Get.find<CbSaleController>().data.map<DropdownMenuItem<SalChrgModel>>((SalChrgModel value) {
                       return DropdownMenuItem<SalChrgModel>(
                         alignment: Alignment.center,
                         value: value,

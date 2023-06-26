@@ -18,21 +18,13 @@ class NodeModel {
   @HiveField(4)
   String BIZR_REG_NO; //사업자등록번호
 
-  NodeModel(
-      this.NODE_CODE, this.COM_NM, this.BRA_NM, this.REPR_NM, this.BIZR_REG_NO);
+  NodeModel(this.NODE_CODE, this.COM_NM, this.BRA_NM, this.REPR_NM, this.BIZR_REG_NO);
 
   Map<String, dynamic> toMap() {
-    return {
-      'NODE_CODE': NODE_CODE,
-      'COM_NM': COM_NM,
-      'BRA_NM': BRA_NM,
-      'REPR_NM': REPR_NM,
-      'BIZR_REG_NO': BIZR_REG_NO
-    };
+    return {'NODE_CODE': NODE_CODE, 'COM_NM': COM_NM, 'BRA_NM': BRA_NM, 'REPR_NM': REPR_NM, 'BIZR_REG_NO': BIZR_REG_NO};
   }
 
-  factory NodeModel.fromJson(Map<String, dynamic> json) =>
-      _$NodeModelFromJson(json);
+  factory NodeModel.fromJson(Map<String, dynamic> json) => _$NodeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$NodeModelToJson(this);
 

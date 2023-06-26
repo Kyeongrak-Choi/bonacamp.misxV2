@@ -37,9 +37,7 @@ class OptionCbManage extends StatelessWidget {
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbManageController>()
-                        .data
-                        .map((selectedValue) {
+                    items: Get.find<CbManageController>().data.map((selectedValue) {
                       return DropdownMenuItem(
                         alignment: Alignment.center,
                         value: selectedValue,

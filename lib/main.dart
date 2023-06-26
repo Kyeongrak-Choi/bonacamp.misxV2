@@ -26,10 +26,7 @@ void main() async {
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
   // init Theme Setting
-  Get.changeThemeMode(
-      Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())
-          ? ThemeMode.dark
-          : ThemeMode.light);
+  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()) ? ThemeMode.dark : ThemeMode.light);
 
   // init Token Setting
   initToken();
@@ -65,22 +62,12 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
         //GetPage(name: ROUTE_NOTICE, page: () => ), // Config
-        GetPage(
-            name: ROUTE_SYSTEM_CONFIG,
-            page: () => SystemConfig()), // Config - SystemConfig
-        GetPage(
-            name: ROUTE_MENU_CONFIG,
-            page: () => MenuConfig()), // Config - MenuConfig
+        GetPage(name: ROUTE_SYSTEM_CONFIG, page: () => SystemConfig()), // Config - SystemConfig
+        GetPage(name: ROUTE_MENU_CONFIG, page: () => MenuConfig()), // Config - MenuConfig
 
         // Dialog
-        GetPage(
-            name: ROUTE_DIALOG_CUSTOMER,
-            page: () =>
-                SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
-        GetPage(
-            name: ROUTE_DIALOG_PRODUCT,
-            page: () =>
-                SearchDialog(SEARCH_DIALOG_PROD)), // Search Product Dialog
+        GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
+        GetPage(name: ROUTE_DIALOG_PRODUCT, page: () => SearchDialog(SEARCH_DIALOG_PROD)), // Search Product Dialog
 
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),

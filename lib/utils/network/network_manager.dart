@@ -20,6 +20,7 @@ class NetworkManager extends GetxController {
   // Token Test
   testToken(String api) async {
     responseData.value = await getToken();
+    // responseData.value = await setToken();
   }
 
   requestApi(String api, String params, BuildContext context) async {
@@ -29,28 +30,16 @@ class NetworkManager extends GetxController {
 }
 
 Future<void> setToken() async {
-
   var options = BaseOptions(
-    baseUrl: CERT_URL_DEV,
-    contentType : 'application/json',
+    baseUrl: CERT_URL_PROD,
+    contentType: 'application/json',
     connectTimeout: CONNECT_TIMEOUT, // 5s
     receiveTimeout: RECEIVE_TIMEOUT, // 3s
   );
 
   Dio dio = Dio(options);
 
-  var testData1 = FormData.fromMap(
-      {
-        "id": "obman1"
-      , "password": "obman1"
-      , "client_id": "7Jik67mE66el7KO8"
-      });
-
-  var testData2 = {
-      "id": "diony2"
-    , "password": "diony2"
-    , "client_id": "7Jik67mE66el7KO8"
-  };
+  var authAccount = {"id": "diony-xps", "password": "!@!diony-xps1234", "client-id": "Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ=="};
 
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     return handler.next(options); //continue
@@ -61,10 +50,10 @@ Future<void> setToken() async {
   }));
 
   try {
-   Response response = await dio.post(CERT_TOKEN, data: testData2);
+    Response response = await dio.post(CERT_TOKEN, data: authAccount);
 
-   // internal DB Write
-   await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN, response.data);
+    // internal DB Write
+    await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN, response.data);
   } catch (e) {
     Exception(e);
   }
@@ -72,13 +61,15 @@ Future<void> setToken() async {
 
 Future<String> CallApi(api, params) async {
   var options = BaseOptions(
-    baseUrl: API_URL_DEV,
+    baseUrl: CERT_URL_PROD,
     headers: {'Authorization': 'Bearer Token'},
     connectTimeout: CONNECT_TIMEOUT, // 5s
     receiveTimeout: RECEIVE_TIMEOUT, // 3s
   );
 
   Dio dio = Dio(options);
+
+  var authAccount = {"id": "diony-xps", "password": "!@!diony-xps1234", "client-id": "Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ=="};
 
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     return handler.next(options); //continue
@@ -89,7 +80,7 @@ Future<String> CallApi(api, params) async {
   }));
 
   try {
-    Response response = await dio.get(API_HEALTH_CHECK);
+    Response response = await dio.post(CERT_TOKEN, data: authAccount);
     return response.data[TAG_DATA].toString();
   } catch (e) {
     Exception(e);
@@ -123,8 +114,7 @@ Future<Dio> authDio(BuildContext context) async {
 
       refreshDio.interceptors.clear();
 
-      refreshDio.interceptors
-          .add(InterceptorsWrapper(onError: (error, handler) async {
+      refreshDio.interceptors.add(InterceptorsWrapper(onError: (error, handler) async {
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
         return handler.next(error);
       }));
@@ -148,9 +138,7 @@ Future<Dio> authDio(BuildContext context) async {
 
       // 수행하지 못했던 API 요청 복사본 생성
       final clonedRequest = await dio.request(error.requestOptions.path,
-          options: Options(
-              method: error.requestOptions.method,
-              headers: error.requestOptions.headers),
+          options: Options(method: error.requestOptions.method, headers: error.requestOptions.headers),
           data: error.requestOptions.data,
           queryParameters: error.requestOptions.queryParameters);
 
@@ -163,53 +151,3 @@ Future<Dio> authDio(BuildContext context) async {
 
   return dio;
 }
-
-// Future<String> CallApi(api, params) async {
-//   try {
-//     var url = Uri.parse(api);
-//     var response = await http
-//         .get(url)
-//         .timeout(const Duration(seconds: CONNECT_TIMEOUT), onTimeout: () {
-//       ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
-//       return http.Response('Error', 500);
-//     });
-//     //var response = await http.get(url,headers: header add);
-//     var responseData;
-//     if (response.statusCode == 200) {
-//       responseData = jsonDecode(utf8.decode(response.bodyBytes));
-//       return responseData.toString();
-//     } else {
-//       ShowSnackBar(SNACK_TYPE_ERROR,
-//           'Request failed : ${api}\nstatus: ${responseData[TAG_MSG]}');
-//       return responseData[TAG_MSG];
-//     }
-//   } catch (e) {
-//     ShowSnackBar(SNACK_TYPE_ERROR, 'Request failed : ${api}\nstatus: 500');
-//     return e.toString();
-//   }
-// }
-
-// Future<Response> post(
-//   String url, {
-//   data,
-//   Map<String, dynamic>? queryParameters,
-//   Options? options,
-//   CancelToken? cancelToken,
-//   ProgressCallback? onSendProgress,
-//   ProgressCallback? onReceiveProgress,
-// }) async {
-//   try {
-//     final Response response = await dio.post(
-//       url,
-//       data: data,
-//       queryParameters: queryParameters,
-//       options: options,
-//       cancelToken: cancelToken,
-//       onSendProgress: onSendProgress,
-//       onReceiveProgress: onReceiveProgress,
-//     );
-//     return response;
-//   } catch (e) {
-//     rethrow;
-//   }
-// }

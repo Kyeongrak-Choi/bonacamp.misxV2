@@ -32,20 +32,10 @@ class SearchList extends StatelessWidget {
               color: context.theme.backgroundColor,
               padding: const EdgeInsets.all(5),
               child: Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST
-                  ? SearchListItem(
-                      Get.find<SearchListController>().datas[index].getCustCd,
-                      Get.find<SearchListController>().datas[index].getCustNm,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getCustAbbNm,
-                      Get.find<SearchListController>()
-                          .datas[index]
-                          .getCustStatNm)
-                  : SearchListItem(
-                      Get.find<SearchListController>().datas[index].getItmCd,
-                      Get.find<SearchListController>().datas[index].getItmNm,
-                      Get.find<SearchListController>().datas[index].getItmAbbNm,
-                      Get.find<SearchListController>().datas[index].getUzFgNm),
+                  ? SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
+                      Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm)
+                  : SearchListItem(Get.find<SearchListController>().datas[index].getItmCd, Get.find<SearchListController>().datas[index].getItmNm,
+                      Get.find<SearchListController>().datas[index].getItmAbbNm, Get.find<SearchListController>().datas[index].getUzFgNm),
             ));
           },
         ));
@@ -72,14 +62,10 @@ class SearchListController extends GetxController {
     var dataObjsJson = jsonDecode(jsonString)[TAG_DATA] as List;
 
     if (dummy == DUMMY_CUST) {
-      parsedResponse = dataObjsJson
-          .map((dataJson) => CustomerModel.fromJson(dataJson))
-          .toList();
+      parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
       flag = SEARCH_DIALOG_CUST;
     } else if (dummy == DUMMY_PROD) {
-      parsedResponse = dataObjsJson
-          .map((dataJson) => ProductModel.fromJson(dataJson))
-          .toList();
+      parsedResponse = dataObjsJson.map((dataJson) => ProductModel.fromJson(dataJson)).toList();
       flag = SEARCH_DIALOG_PROD;
     }
     datas.clear();

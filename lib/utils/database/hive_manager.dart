@@ -23,23 +23,19 @@ Future<void> BoxInit() async {
 
   // USER_INFO
   parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_USERINFO,
-      parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
+  await Hive.box(LOCAL_DB).put(KEY_USERINFO, parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
 
   // SAL_CHRG
   parsedData = jsonDecode(await jsonDummy(DUMMY_SALCHRG))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_SALCHRG,
-      parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
+  await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
 
   // NODE
   parsedData = jsonDecode(await jsonDummy(DUMMY_NODE))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_NODE,
-      parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
+  await Hive.box(LOCAL_DB).put(KEY_NODE, parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
 
   // TEAM
   parsedData = jsonDecode(await jsonDummy(DUMMY_TEAM))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_TEAM,
-      parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+  await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 
   // WAREHOUSE
   // parsedData = jsonDecode()[TAG_DATA] as List;
@@ -71,13 +67,12 @@ Future<void> initToken() async {
   await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN, '');
 }
 
-
 Future<String> getToken() async {
-  String token =  await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
+  String token = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
 
-  if(token == 'fail'){
+  if (token == 'fail') {
     return 'GetToken() Failed';
-  }else {
+  } else {
     return token;
   }
 }

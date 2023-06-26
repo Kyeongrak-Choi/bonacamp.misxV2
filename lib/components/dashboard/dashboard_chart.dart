@@ -25,8 +25,7 @@ class DashBoardChart extends StatelessWidget {
               //color: Color(0xff232d37)
             ),
             child: Padding(
-              padding: const EdgeInsets.only(
-                  right: 18.0, left: 12.0, top: 24, bottom: 12),
+              padding: const EdgeInsets.only(right: 18.0, left: 12.0, top: 24, bottom: 12),
               child: LineChart(
                 showAvg ? avgData() : mainData(),
               ),
@@ -95,9 +94,7 @@ class DashBoardChart extends StatelessWidget {
           sideTitles: SideTitles(showTitles: false),
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -116,10 +113,8 @@ class DashBoardChart extends StatelessWidget {
           isCurved: true,
           gradient: LinearGradient(
             colors: [
-              ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                  .lerp(0.2)!,
-              ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                  .lerp(0.2)!,
+              ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!,
+              ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!,
             ],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
@@ -133,12 +128,8 @@ class DashBoardChart extends StatelessWidget {
             show: true,
             gradient: LinearGradient(
               colors: [
-                ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                    .lerp(0.2)!
-                    .withOpacity(0.1),
-                ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                    .lerp(0.2)!
-                    .withOpacity(0.1),
+                ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!.withOpacity(0.1),
+                ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!.withOpacity(0.1),
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
@@ -194,9 +185,7 @@ class DashBoardChart extends StatelessWidget {
           ),
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -226,9 +215,7 @@ class DashBoardChart extends StatelessWidget {
           belowBarData: BarAreaData(
             show: true,
             gradient: LinearGradient(
-              colors: gradientColors
-                  .map((color) => color.withOpacity(0.3))
-                  .toList(),
+              colors: gradientColors.map((color) => color.withOpacity(0.3)).toList(),
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),

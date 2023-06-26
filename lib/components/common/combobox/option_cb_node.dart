@@ -41,9 +41,7 @@ class OptionCbNode extends StatelessWidget {
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbNodeController>()
-                        .data
-                        .map<DropdownMenuItem<NodeModel>>((NodeModel value) {
+                    items: Get.find<CbNodeController>().data.map<DropdownMenuItem<NodeModel>>((NodeModel value) {
                       return DropdownMenuItem<NodeModel>(
                         alignment: Alignment.center,
                         value: value,

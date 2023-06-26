@@ -26,8 +26,7 @@ class CardRadioMenu extends StatelessWidget {
         child: Column(
           children: List.generate(
             radioMenu.length,
-            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title,
-                radioMenu[index].val, context),
+            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title, radioMenu[index].val, context),
           ),
         ),
       ),

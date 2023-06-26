@@ -73,7 +73,6 @@ const Map<String, String> koKR = {
 
   // Progress Bar
   'loading': '로딩중입니다...',
-
 };
 
 //const Map<String,String> enUs = {};

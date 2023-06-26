@@ -71,7 +71,7 @@ class LoginBtnController extends GetxController {
 
       BoxInit(); // local DB Set
 
-      await setToken(); // Token get
+      //await setToken(); // Token get
       return true;
     }
   }

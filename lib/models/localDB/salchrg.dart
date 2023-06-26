@@ -17,15 +17,10 @@ class SalChrgModel {
   SalChrgModel(this.SAL_CHRG_CD, this.SAL_CHRG_NM, this.MGMT_CHRGR_YN);
 
   Map<String, dynamic> toMap() {
-    return {
-      'SAL_CHRG_CD': SAL_CHRG_CD,
-      'salChrgNm': SAL_CHRG_NM,
-      'mgmtChrgrYn': MGMT_CHRGR_YN
-    };
+    return {'SAL_CHRG_CD': SAL_CHRG_CD, 'salChrgNm': SAL_CHRG_NM, 'mgmtChrgrYn': MGMT_CHRGR_YN};
   }
 
-  factory SalChrgModel.fromJson(Map<String, dynamic> json) =>
-      _$SalChrgModelFromJson(json);
+  factory SalChrgModel.fromJson(Map<String, dynamic> json) => _$SalChrgModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalChrgModelToJson(this);
 

@@ -19,20 +19,8 @@ class CustomerModel {
   String TEL_NO; // 사업장 전화 번호
   String ADDR; // 사업장 주소
 
-  CustomerModel(
-      this.CUST_CD,
-      this.CUST_NM,
-      this.CUST_ABB_NM,
-      this.CUST_STAT,
-      this.SAL_CHRG_CD,
-      this.SAL_CHRG_NM,
-      this.CUST_STAT_NM,
-      this.BIZ_ITM,
-      this.BIZ_ITM_NM,
-      this.BIZR_REG_NO,
-      this.REPR_NM,
-      this.TEL_NO,
-      this.ADDR);
+  CustomerModel(this.CUST_CD, this.CUST_NM, this.CUST_ABB_NM, this.CUST_STAT, this.SAL_CHRG_CD, this.SAL_CHRG_NM, this.CUST_STAT_NM, this.BIZ_ITM,
+      this.BIZ_ITM_NM, this.BIZR_REG_NO, this.REPR_NM, this.TEL_NO, this.ADDR);
 
   Map<String, dynamic> toMap() {
     return {
@@ -52,8 +40,7 @@ class CustomerModel {
     };
   }
 
-  factory CustomerModel.fromJson(Map<String, dynamic> json) =>
-      _$CustomerModelFromJson(json);
+  factory CustomerModel.fromJson(Map<String, dynamic> json) => _$CustomerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);
 

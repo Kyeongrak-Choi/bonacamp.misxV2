@@ -15,9 +15,7 @@ class OptionDatePicker extends StatelessWidget {
           () => TextButton(
             onPressed: () => Get.find<DatePickerController>().chooseDate(),
             child: Text(
-              DateFormat('yyyy-MM-dd')
-                  .format(Get.find<DatePickerController>().date.value)
-                  .toString(),
+              DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
               style: TextStyle(fontSize: 20),
             ),
           ),

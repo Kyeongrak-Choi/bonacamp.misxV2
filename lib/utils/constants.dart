@@ -48,9 +48,9 @@ const RECEIVE_TIMEOUT = 3000;
 /*
  Certification
 */
-const CERT_URL_PROD = '';
+const CERT_URL_PROD = 'http://146.56.38.8:9000/api/auth';
 const CERT_URL_DEV = 'http://172.27.235.104:9040/api/auth';
-const CERT_URL_LOCAL = 'http://172.16.25.47:9040/api/auth';
+//const CERT_URL_LOCAL = 'http://172.16.25.47:9040/api/auth';
 
 const CERT_TOKEN = '/token';
 
@@ -61,7 +61,6 @@ const API_URL_PROD = '';
 const API_URL_DEV = 'http://172.27.235.104:9030/api';
 
 const API_HEALTH_CHECK = '/health';
-
 
 /*
   Json
@@ -76,8 +75,7 @@ const TAG_MSG = 'message'; // response message tag
 const TAG_TOKEN = 'token'; // response token tag
 const TAG_GRANT_TYPE = 'Bearer '; // response token - grant type tag
 const TAG_ACCESS_TOKEN = 'access-token'; // response token - access token tag
-const TAG_TOEKN_EXPIRE_TIME ='access-token-expiration-time'; // response token - expire time tag
-
+const TAG_TOEKN_EXPIRE_TIME = 'access-token-expiration-time'; // response token - expire time tag
 
 /*
   HIVE DB

@@ -14,8 +14,7 @@ class ProductModel {
   String UT; // 단위
   String UT_NM; // 단위명
 
-  ProductModel(this.ITM_CD, this.ITM_NM, this.ITM_ABB_NM, this.STND, this.UZ_FG,
-      this.UZ_FG_NM, this.UT, this.UT_NM);
+  ProductModel(this.ITM_CD, this.ITM_NM, this.ITM_ABB_NM, this.STND, this.UZ_FG, this.UZ_FG_NM, this.UT, this.UT_NM);
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,8 +29,7 @@ class ProductModel {
     };
   }
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) =>
-      _$ProductModelFromJson(json);
+  factory ProductModel.fromJson(Map<String, dynamic> json) => _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
