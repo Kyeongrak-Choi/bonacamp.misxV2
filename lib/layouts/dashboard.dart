@@ -17,7 +17,7 @@ class DashBoard extends StatelessWidget {
       backgroundColor: context.theme.backgroundColor,
       body: RefreshIndicator(
           onRefresh: () async {
-            await Get.find<NetworkManager>().requestApi(API_URL_DEV, '', context);
+            //await Get.find<NetworkManager>().requestApi(API_URL_DEV, '', context);
           },
           child: Center(
             child: Column(

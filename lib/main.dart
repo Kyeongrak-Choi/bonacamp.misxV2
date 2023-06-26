@@ -28,9 +28,6 @@ void main() async {
   // init Theme Setting
   Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()) ? ThemeMode.dark : ThemeMode.light);
 
-  // init Token Setting
-  initToken();
-
   runApp(Misx());
 }
 

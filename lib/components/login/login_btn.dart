@@ -63,15 +63,21 @@ class LoginBtnController extends GetxController {
     if (inputId == "" || inputPw == "") {
       return false;
     } else {
-      // id save
+      // Request Token
+      // 입력 ID로 인증서버 개발/운영 분기
+      if(inputId == "dev"){
+        await reqToken(true); // Token get
+      }else{
+        await reqToken(false); // Token get
+      }
+
+      // login api 호출 성공시 Hive Box Init -> Id Save
+      // login API process
+      BoxInit(); // local DB Set
+      // Id save
       await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId);
       inputPw = '';
 
-      // login API process
-
-      BoxInit(); // local DB Set
-
-      //await setToken(); // Token get
       return true;
     }
   }

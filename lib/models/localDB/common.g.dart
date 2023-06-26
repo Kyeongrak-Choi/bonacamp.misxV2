@@ -40,7 +40,10 @@ class CommonModelAdapter extends TypeAdapter<CommonModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CommonModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is CommonModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -53,7 +56,8 @@ CommonModel _$CommonModelFromJson(Map<String, dynamic> json) => CommonModel(
       json['SUB_NM'] as String,
     );
 
-Map<String, dynamic> _$CommonModelToJson(CommonModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CommonModelToJson(CommonModel instance) =>
+    <String, dynamic>{
       'MAIN_CD': instance.MAIN_CD,
       'SUB_CD': instance.SUB_CD,
       'SUB_NM': instance.SUB_NM,
