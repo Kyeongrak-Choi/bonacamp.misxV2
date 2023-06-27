@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';

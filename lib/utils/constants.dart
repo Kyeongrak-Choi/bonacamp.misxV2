@@ -59,13 +59,11 @@ const AUTH_ID = 'diony-xps';
 const AUTH_PW = '!@!diony-xps1234';
 const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ==';
 
-
 /*
  APIs
 */
 const API_HEALTH_CHECK = '/health';
 const API_ACCOUNT_GET = '/accounts';
-
 
 /*
   Json
@@ -91,7 +89,6 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
-
 /*
   HIVE DB
  */
@@ -100,7 +97,7 @@ const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
-const KEY_BASE_URL = 'baseUrl'; // save token Key
+const KEY_BASE_URL = 'baseUrl'; // target api url Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key

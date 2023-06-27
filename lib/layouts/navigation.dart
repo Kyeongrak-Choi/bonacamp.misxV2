@@ -1,8 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
 import 'package:misxV2/layouts/mymenu/mymenu_list.dart';

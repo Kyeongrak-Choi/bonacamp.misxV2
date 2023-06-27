@@ -26,6 +26,4 @@ class ServerModel {
   factory ServerModel.fromJson(Map<String, dynamic> json) => _$ServerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ServerModelToJson(this);
-
-
 }

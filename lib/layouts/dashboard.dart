@@ -6,7 +6,6 @@ import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
 
-import '../utils/constants.dart';
 import '../utils/network/network_manager.dart';
 
 class DashBoard extends StatelessWidget {

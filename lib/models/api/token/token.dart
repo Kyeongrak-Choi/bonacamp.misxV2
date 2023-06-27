@@ -10,7 +10,12 @@ class ToKenModel {
   int ACCESS_TOKEN_EXPIRATION_TIME; //
   String ISSUE_DATE; //
 
-  ToKenModel(this.GRANT_TYPE, this.ACCESS_TOKEN, this.ACCESS_TOKEN_EXPIRATION_TIME, this.ISSUE_DATE,);
+  ToKenModel(
+    this.GRANT_TYPE,
+    this.ACCESS_TOKEN,
+    this.ACCESS_TOKEN_EXPIRATION_TIME,
+    this.ISSUE_DATE,
+  );
 
   Map<String, dynamic> toMap() {
     return {

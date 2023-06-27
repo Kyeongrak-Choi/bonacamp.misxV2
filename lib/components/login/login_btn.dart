@@ -1,9 +1,5 @@
-import 'dart:developer';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hive/hive.dart';
 
 import '../../utils/constants.dart';
@@ -65,9 +61,9 @@ class LoginBtnController extends GetxController {
     } else {
       // Request Token
       // 입력 ID로 인증서버 개발/운영 분기
-      if(inputId == "dev"){
+      if (inputId == "dev") {
         await reqToken(true); // Token get
-      }else{
+      } else {
         await reqToken(false); // Token get
       }
 

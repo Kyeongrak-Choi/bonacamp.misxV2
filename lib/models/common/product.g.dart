@@ -17,8 +17,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
       json['UT_NM'] as String,
     );
 
-Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductModelToJson(ProductModel instance) => <String, dynamic>{
       'ITM_CD': instance.ITM_CD,
       'ITM_NM': instance.ITM_NM,
       'ITM_ABB_NM': instance.ITM_ABB_NM,

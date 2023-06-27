@@ -1,7 +1,6 @@
 import 'dart:async' show Future;
 
 import 'package:dialogs/dialogs.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart' show Brightness, rootBundle;

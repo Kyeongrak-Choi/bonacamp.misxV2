@@ -10,7 +10,10 @@ class ResTokenModel {
   ToKenModel TOKEN; //
   List<ServerModel> SERVER;
 
-  ResTokenModel(this.TOKEN, this.SERVER,); //
+  ResTokenModel(
+    this.TOKEN,
+    this.SERVER,
+  ); //
 
   Map<String, dynamic> toMap() {
     return {
@@ -22,6 +25,4 @@ class ResTokenModel {
   factory ResTokenModel.fromJson(Map<String, dynamic> json) => _$ResTokenModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResTokenModelToJson(this);
-
-
 }

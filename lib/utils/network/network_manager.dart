@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -6,9 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/utils/database/hive_manager.dart';
 
-import '../../models/api/token/res_token.dart';
 import '../constants.dart';
 
 class NetworkManager extends GetxController {
@@ -25,7 +22,9 @@ class NetworkManager extends GetxController {
 }
 
 Future<void> reqToken(bool isDev) async {
-  isDev ? await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_DEV+API_BASIC) : await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_PROD+API_BASIC);
+  isDev
+      ? await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_DEV + API_BASIC)
+      : await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_PROD + API_BASIC);
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
@@ -48,6 +47,7 @@ Future<void> reqToken(bool isDev) async {
 
   try {
     Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: authAccount);
+
     // 성공
     if (response.statusCode == 200) {
       // Access token 저장
@@ -55,8 +55,7 @@ Future<void> reqToken(bool isDev) async {
           response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
       // Resource Url 저장
-       await Hive.box(LOCAL_DB).put(KEY_BASE_URL,
-           response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
+      await Hive.box(LOCAL_DB).put(KEY_BASE_URL, response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
       log('server : ' + response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
     }
   } catch (e) {
@@ -66,7 +65,6 @@ Future<void> reqToken(bool isDev) async {
 }
 
 Future<String> CallApi(api, params) async {
-
   log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
   log('accessToken : ' + await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'));
 

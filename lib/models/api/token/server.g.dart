@@ -14,8 +14,7 @@ ServerModel _$ServerModelFromJson(Map<String, dynamic> json) => ServerModel(
       (json['ROLE_IDS'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$ServerModelToJson(ServerModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ServerModelToJson(ServerModel instance) => <String, dynamic>{
       'SERVER_CODE': instance.SERVER_CODE,
       'SERVER_NAME': instance.SERVER_NAME,
       'RESORUCE_URL': instance.RESORUCE_URL,
