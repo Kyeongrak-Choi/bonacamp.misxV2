@@ -23,7 +23,7 @@ class LoginBtn extends StatelessWidget {
                   if (await Get.find<LoginBtnController>().LoginCheck()) {
                     Get.toNamed(ROUTE_NATIGATION);
                   } else {
-                    ShowSnackBar(SNACK_TYPE_ALARM, 'check_login_content'.tr);
+                    ShowSnackBar(SNACK_TYPE.ALARM, 'check_login_content'.tr);
                   }
                 },
                 child: Text('text_login'.tr),

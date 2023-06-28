@@ -27,13 +27,13 @@ void ShowSnackBar(type, content) {
   var header;
 
   switch (type) {
-    case SNACK_TYPE_INFO:
+    case SNACK_TYPE.INFO:
       header = 'snack_information'.tr;
       break;
-    case SNACK_TYPE_ERROR:
+    case SNACK_TYPE.ERROR:
       header = 'snack_error'.tr;
       break;
-    case SNACK_TYPE_ALARM:
+    case SNACK_TYPE.ALARM:
       header = 'snack_alram'.tr;
       break;
   }
@@ -50,7 +50,7 @@ void ShowSnackBar(type, content) {
 
 // Dialog
 void ShowDialog(type, title, content, context) {
-  if (type == DIALOG_TYPE_SELECT) {
+  if (type == DIALOG_TYPE.SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
       dialogBackgroundColor: CommonColors.bluesky,
@@ -75,7 +75,7 @@ void ShowDialog(type, title, content, context) {
       ),
     );
     choiceDialog.show(context, barrierColor: CommonColors.bluesky);
-  } else if (type == DIALOG_TYPE_MSG) {
+  } else if (type == DIALOG_TYPE.MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
         dialogBackgroundColor: CommonColors.bluesky,
@@ -101,7 +101,17 @@ void ShowProgress(context) {
     loadingText: 'loading'.tr,
   );
   progressDialog.show();
-  Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
+  //Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
+}
+
+void HideProgess(context){
+  ProgressDialog progressDialog = ProgressDialog(
+    context: context,
+    backgroundColor: CommonColors.bluesky,
+    textColor: CommonColors.dark,
+    loadingText: 'loading'.tr,
+  );
+  progressDialog.dismiss();
 }
 
 String convertBusinessNo(String businessNo) {

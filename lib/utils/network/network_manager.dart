@@ -56,7 +56,6 @@ Future<void> reqToken(bool isDev) async {
 
       // Resource Url 저장
       await Hive.box(LOCAL_DB).put(KEY_BASE_URL, response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
-      log('server : ' + response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
     }
   } catch (e) {
     Exception(e);

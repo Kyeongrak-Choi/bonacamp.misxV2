@@ -27,17 +27,14 @@ const ROUTE_API_EXAMPLE = '/apiExample';
  */
 
 // Snack Bar Type
-const SNACK_TYPE_INFO = 'I'; // info view snack bar type
-const SNACK_TYPE_ERROR = 'E'; // error view snack bar type
-const SNACK_TYPE_ALARM = 'A'; // alarm view snack bar type
+enum SNACK_TYPE { INFO,ERROR,ALARM }
 
 // Dialog Type
-const DIALOG_TYPE_SELECT = 'S'; // yes/no select dialog type
-const DIALOG_TYPE_MSG = 'M'; // msg view dialog type
+enum DIALOG_TYPE { SELECT,MSG } // SELECT : yes & no select
 
 // Search Dialog Type
-const SEARCH_DIALOG_CUST = 'C'; // customer search type
-const SEARCH_DIALOG_PROD = 'P'; // product search type
+const SEARCH_DIALOG_CUST = 'CUST';
+const SEARCH_DIALOG_PROD = 'PROD';
 
 /*
   Netwrok Config
