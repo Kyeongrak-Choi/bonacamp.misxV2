@@ -12,7 +12,7 @@ This project is a starting point for a Flutter application.
 
 Target Platform : android / iOS / Web / Desktop(windows)
 
-SDK : Flutter 3.0.3
+SDK : Flutter 3.13.1
 
 Library 
   - GetX (https://pub.dev/packages/get)
