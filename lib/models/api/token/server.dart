@@ -2,14 +2,14 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'server.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// Token - Server Model
 @JsonSerializable(explicitToJson: true)
 class ServerModel {
   String SERVER_CODE; //
   String SERVER_NAME; //
   String RESORUCE_URL; //
   String MEMO; //
-  List<String> ROLE_IDS;
+  List<String> ROLE_IDS; //
 
   ServerModel(this.SERVER_CODE, this.SERVER_NAME, this.RESORUCE_URL, this.MEMO, this.ROLE_IDS); //
 

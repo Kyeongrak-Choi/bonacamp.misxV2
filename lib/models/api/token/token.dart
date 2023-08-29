@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'token.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// Token - Token Model
 @JsonSerializable(explicitToJson: true)
 class ToKenModel {
   String GRANT_TYPE; //

@@ -104,7 +104,7 @@ void ShowProgress(context) {
   //Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
 }
 
-void HideProgess(context){
+void HideProgess(context) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
     backgroundColor: CommonColors.bluesky,

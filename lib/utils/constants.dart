@@ -27,10 +27,10 @@ const ROUTE_API_EXAMPLE = '/apiExample';
  */
 
 // Snack Bar Type
-enum SNACK_TYPE { INFO,ERROR,ALARM }
+enum SNACK_TYPE { INFO, ERROR, ALARM }
 
 // Dialog Type
-enum DIALOG_TYPE { SELECT,MSG } // SELECT : yes & no select
+enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
 
 // Search Dialog Type
 const SEARCH_DIALOG_CUST = 'CUST';
@@ -118,3 +118,15 @@ const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
 const DUMMY_NODE = 'lib/assets/json_dummy/node';
 const DUMMY_TEAM = 'lib/assets/json_dummy/team';
 const DUMMY_WH = 'lib/assets/json_dummy/wh';
+
+/*
+  # Project Plan #
+ 1. Admin Page
+  - Menu Manage
+  - Admob Manage
+
+ 2. Package Naming Rule
+  - new Package
+  - use as-is package
+
+ */
