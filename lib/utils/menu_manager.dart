@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -27,9 +26,9 @@ class RadioMenu {
 }
 
 // system setting master
-final List<IconMenu> noticeMaster = [
-  IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_2_fill, path: ROUTE_NOTICE),
-];
+// final List<IconMenu> noticeMaster = [
+//   IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_2_fill, path: ROUTE_NOTICE),
+// ];
 
 // system setting master
 final List<IconMenu> systemMaster = [

@@ -6,7 +6,8 @@ const APP_NAME = 'MISX Ver2';
 const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 
-enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
+//enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
+enum NAVIGATION_BAR_ITEM { HOME, MENU, CONFIG } // Navigation Item
 
 // Route
 const ROUTE_LOGIN = '/login';
@@ -39,8 +40,8 @@ const SEARCH_DIALOG_PROD = 'PROD';
 /*
   Netwrok Config
 */
-const CONNECT_TIMEOUT = 5000;
-const RECEIVE_TIMEOUT = 3000;
+const CONNECT_TIMEOUT = 5;
+const RECEIVE_TIMEOUT = 3;
 
 /*
  Authorization

@@ -29,8 +29,8 @@ Future<void> reqToken(bool isDev) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     contentType: 'application/json',
-    connectTimeout: CONNECT_TIMEOUT, // 5s
-    receiveTimeout: RECEIVE_TIMEOUT, // 3s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
   Dio dio = Dio(options);
@@ -70,8 +70,8 @@ Future<String> CallApi(api, params) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
-    connectTimeout: CONNECT_TIMEOUT, // 5s
-    receiveTimeout: RECEIVE_TIMEOUT, // 3s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
   Dio dio = Dio(options);

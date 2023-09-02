@@ -48,10 +48,10 @@ class Config extends StatelessWidget {
                   ]),
                 )),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: noticeMaster),
-          ),
+          // Padding(
+          //   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          //   child: CardIconMenu(iconMenuList: noticeMaster),
+          // ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
             child: CardIconMenu(iconMenuList: systemMaster),

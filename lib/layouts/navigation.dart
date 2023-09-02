@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
-import 'package:misxV2/layouts/mymenu/mymenu_list.dart';
 
 import '../utils/constants.dart';
 import '../utils/theme/color_manager.dart';
 import '../utils/utility.dart';
 import 'config/config.dart';
-import 'example/funtion.dart';
 
 class Navigation extends GetView<NavigationController> {
   @override
@@ -49,13 +47,13 @@ class Navigation extends GetView<NavigationController> {
           switch (NAVIGATION_BAR_ITEM.values[controller.currentIndex.value]) {
             case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
-            case NAVIGATION_BAR_ITEM.MY:
-              return MyMenuList();
+            // case NAVIGATION_BAR_ITEM.MY:
+            //   return MyMenuList();
             case NAVIGATION_BAR_ITEM.MENU:
               return MenuList();
-            case NAVIGATION_BAR_ITEM.PREMIUM:
-              //return PremiumList();
-              return UtilFunction();
+            // case NAVIGATION_BAR_ITEM.PREMIUM:
+            //   //return PremiumList();
+            //   return UtilFunction();
             case NAVIGATION_BAR_ITEM.CONFIG:
               return Config();
           }
@@ -78,18 +76,18 @@ class Navigation extends GetView<NavigationController> {
                 ],
               ),
             ),
-            Container(
-              height: 50,
-              child: Column(
-                children: [
-                  Icon(Icons.star_border, color: CommonColors.navigation),
-                  Text(
-                    'nav_mymenu'.tr,
-                    style: TextStyle(color: CommonColors.navigation),
-                  )
-                ],
-              ),
-            ),
+            // Container(
+            //   height: 50,
+            //   child: Column(
+            //     children: [
+            //       Icon(Icons.star_border, color: CommonColors.navigation),
+            //       Text(
+            //         'nav_mymenu'.tr,
+            //         style: TextStyle(color: CommonColors.navigation),
+            //       )
+            //     ],
+            //   ),
+            // ),
             Container(
               height: 50,
               child: Column(
@@ -102,18 +100,18 @@ class Navigation extends GetView<NavigationController> {
                 ],
               ),
             ),
-            Container(
-              height: 50,
-              child: Column(
-                children: [
-                  Icon(Icons.workspace_premium, color: CommonColors.navigation),
-                  Text(
-                    'nav_premium'.tr,
-                    style: TextStyle(color: CommonColors.navigation),
-                  )
-                ],
-              ),
-            ),
+            // Container(
+            //   height: 50,
+            //   child: Column(
+            //     children: [
+            //       Icon(Icons.workspace_premium, color: CommonColors.navigation),
+            //       Text(
+            //         'nav_premium'.tr,
+            //         style: TextStyle(color: CommonColors.navigation),
+            //       )
+            //     ],
+            //   ),
+            // ),
             Container(
               height: 50,
               child: Column(
@@ -140,16 +138,16 @@ class NavigationController extends GetxService {
   RxInt currentIndex = 0.obs;
 
   changeIndex() {
-    currentIndex.value = 4;
+    currentIndex.value = 2;
   }
 
-  // drawer not use
-  // var scaffoldKey = GlobalKey<ScaffoldState>();
-  // void openDrawer() {
-  //   scaffoldKey.currentState?.openDrawer();
-  // }
-  //
-  // void closeDrawer() {
-  //   scaffoldKey.currentState?.openEndDrawer();
-  // }
+// drawer not use
+// var scaffoldKey = GlobalKey<ScaffoldState>();
+// void openDrawer() {
+//   scaffoldKey.currentState?.openDrawer();
+// }
+//
+// void closeDrawer() {
+//   scaffoldKey.currentState?.openEndDrawer();
+// }
 }

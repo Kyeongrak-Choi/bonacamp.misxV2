@@ -22,7 +22,7 @@ class OptionDialogCustomer extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_customer'.tr,
-                      style: context.textTheme.bodyText1,
+                      style: context.textTheme.bodyLarge,
                     )),
               ),
             )),

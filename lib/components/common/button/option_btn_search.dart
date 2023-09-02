@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/utils/utility.dart';
 
 import '../../../layouts/example/menu_example.dart';
 import '../../../utils/theme/color_manager.dart';

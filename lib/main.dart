@@ -6,7 +6,6 @@ import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
-import 'package:misxV2/layouts/login/privacy_policy.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
@@ -16,6 +15,7 @@ import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
+import 'layouts/login/privacy_policy.dart';
 import 'layouts/navigation.dart';
 
 void main() async {
@@ -34,10 +34,13 @@ class Misx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false, // in emulator hide 'debug'
-      translations: LanguageManager(), // multi language
+      debugShowCheckedModeBanner: false,
+      // in emulator hide 'debug'
+      translations: LanguageManager(),
+      // multi language
       locale: Get.deviceLocale,
-      fallbackLocale: Locale('ko', 'KR'), // default locale set
+      fallbackLocale: Locale('ko', 'KR'),
+      // default locale set
       initialBinding: InitBinding(),
       theme: Themes.light,
       darkTheme: Themes.dark,
@@ -55,7 +58,7 @@ class Misx extends StatelessWidget {
         // Layout
         GetPage(name: ROUTE_LOGIN, page: () => Login()), // Login
         GetPage(name: ROUTE_NATIGATION, page: () => Navigation()), // Main
-       // GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
+        GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
         //GetPage(name: ROUTE_NOTICE, page: () => ), // Config
         GetPage(name: ROUTE_SYSTEM_CONFIG, page: () => SystemConfig()), // Config - SystemConfig

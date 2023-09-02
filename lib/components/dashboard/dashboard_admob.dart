@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final admobItem = {
-  Image.asset('lib/assets/images/admob_1.png', fit: BoxFit.cover),
-  Image.asset('lib/assets/images/admob_2.png', fit: BoxFit.cover),
-  Image.asset('lib/assets/images/admob_3.png', fit: BoxFit.cover),
+  Image.asset('lib/assets/images/getju_main.png', fit: BoxFit.cover),
+  Image.asset('lib/assets/images/getju_1.jpg', fit: BoxFit.cover),
+  Image.asset('lib/assets/images/getju_2.jpg', fit: BoxFit.cover),
 };
 
 class DashBoardAdmob extends StatelessWidget {
@@ -51,7 +51,7 @@ class DashBoardAdmob extends StatelessWidget {
           );
         }).toList(),
         options: CarouselOptions(
-          height: 100,
+          height: 80,
           aspectRatio: 16 / 9,
           viewportFraction: 0.8,
           initialPage: 0,
