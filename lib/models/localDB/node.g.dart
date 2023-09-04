@@ -30,22 +30,26 @@ class NodeModelAdapter extends TypeAdapter<NodeModel> {
     writer
       ..writeByte(5)
       ..writeByte(0)
-      ..write(obj.NODE_CODE)
+      ..write(obj.nodeCd)
       ..writeByte(1)
-      ..write(obj.COM_NM)
+      ..write(obj.comNm)
       ..writeByte(2)
-      ..write(obj.BRA_NM)
+      ..write(obj.braNm)
       ..writeByte(3)
-      ..write(obj.REPR_NM)
+      ..write(obj.reprNm)
       ..writeByte(4)
-      ..write(obj.BIZR_REG_NO);
+      ..write(obj.bizrRegNo);
   }
 
   @override
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NodeModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NodeModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -53,17 +57,17 @@ class NodeModelAdapter extends TypeAdapter<NodeModel> {
 // **************************************************************************
 
 NodeModel _$NodeModelFromJson(Map<String, dynamic> json) => NodeModel(
-      json['NODE_CODE'] as String,
-      json['COM_NM'] as String,
-      json['BRA_NM'] as String,
-      json['REPR_NM'] as String,
-      json['BIZR_REG_NO'] as String,
+      json['nodeCd'] as String,
+      json['comNm'] as String,
+      json['braNm'] as String,
+      json['reprNm'] as String,
+      json['bizrRegNo'] as String,
     );
 
 Map<String, dynamic> _$NodeModelToJson(NodeModel instance) => <String, dynamic>{
-      'NODE_CODE': instance.NODE_CODE,
-      'COM_NM': instance.COM_NM,
-      'BRA_NM': instance.BRA_NM,
-      'REPR_NM': instance.REPR_NM,
-      'BIZR_REG_NO': instance.BIZR_REG_NO,
+      'nodeCd': instance.nodeCd,
+      'comNm': instance.comNm,
+      'braNm': instance.braNm,
+      'reprNm': instance.reprNm,
+      'bizrRegNo': instance.bizrRegNo,
     };

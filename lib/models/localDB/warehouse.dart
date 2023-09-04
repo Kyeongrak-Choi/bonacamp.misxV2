@@ -8,29 +8,29 @@ part 'warehouse.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 5)
 class WarehouseModel {
   @HiveField(0)
-  String WH_CD; // 창고 코드
+  String whCd; // 창고 코드
   @HiveField(1)
-  String WH_NM; // 창고 명
+  String whNm; // 창고 명
 
-  WarehouseModel(this.WH_CD, this.WH_NM);
+  WarehouseModel(this.whCd, this.whNm);
 
   Map<String, dynamic> toMap() {
-    return {'WH_CD': WH_CD, 'WH_NM': WH_NM};
+    return {'whCd': whNm, 'whNm': whNm};
   }
 
   factory WarehouseModel.fromJson(Map<String, dynamic> json) => _$WarehouseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$WarehouseModelToJson(this);
 
-  String get getWhCd => WH_CD;
+  String get getWhCd => whCd;
 
   set setWhCd(String value) {
-    WH_CD = value;
+    whCd = value;
   }
 
-  String get getWhNm => WH_NM;
+  String get getWhNm => whNm;
 
   set setWhNm(String value) {
-    WH_NM = value;
+    whNm = value;
   }
 }

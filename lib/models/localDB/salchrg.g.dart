@@ -28,11 +28,11 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
     writer
       ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.SAL_CHRG_CD)
+      ..write(obj.salChrgCd)
       ..writeByte(1)
-      ..write(obj.SAL_CHRG_NM)
+      ..write(obj.salChrgNm)
       ..writeByte(2)
-      ..write(obj.MGMT_CHRGR_YN);
+      ..write(obj.mgmtChrgrYn);
   }
 
   @override
@@ -40,7 +40,10 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SalChrgModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is SalChrgModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -48,13 +51,14 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
 // **************************************************************************
 
 SalChrgModel _$SalChrgModelFromJson(Map<String, dynamic> json) => SalChrgModel(
-      json['SAL_CHRG_CD'] as String,
-      json['SAL_CHRG_NM'] as String,
-      json['MGMT_CHRGR_YN'] as String,
+      json['salChrgCd'] as String,
+      json['salChrgNm'] as String,
+      json['mgmtChrgrYn'] as String,
     );
 
-Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) => <String, dynamic>{
-      'SAL_CHRG_CD': instance.SAL_CHRG_CD,
-      'SAL_CHRG_NM': instance.SAL_CHRG_NM,
-      'MGMT_CHRGR_YN': instance.MGMT_CHRGR_YN,
+Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) =>
+    <String, dynamic>{
+      'salChrgCd': instance.salChrgCd,
+      'salChrgNm': instance.salChrgNm,
+      'mgmtChrgrYn': instance.mgmtChrgrYn,
     };

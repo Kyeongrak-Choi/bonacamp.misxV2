@@ -27,16 +27,20 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.SUB_CD)
+      ..write(obj.teamCd)
       ..writeByte(1)
-      ..write(obj.SUB_NM);
+      ..write(obj.teamNm);
   }
 
   @override
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TeamModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TeamModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -44,11 +48,11 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
 // **************************************************************************
 
 TeamModel _$TeamModelFromJson(Map<String, dynamic> json) => TeamModel(
-      json['SUB_CD'] as String,
-      json['SUB_NM'] as String,
+      json['teamCd'] as String,
+      json['teamNm'] as String,
     );
 
 Map<String, dynamic> _$TeamModelToJson(TeamModel instance) => <String, dynamic>{
-      'SUB_CD': instance.SUB_CD,
-      'SUB_NM': instance.SUB_NM,
+      'teamCd': instance.teamCd,
+      'teamNm': instance.teamNm,
     };

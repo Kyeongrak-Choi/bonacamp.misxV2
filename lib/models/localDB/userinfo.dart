@@ -8,31 +8,31 @@ part 'userinfo.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 1)
 class UserinfoModel {
   @HiveField(0)
-  String CLIENT_CODE; // 사업장코드
+  String clientCd; // 사업장코드
   @HiveField(1)
-  String CLIENT_NAME; // 사업장명
+  String clientNm; // 사업장명
   @HiveField(2)
-  String USER_ID; // 사용자ID
+  String userId; // 사용자ID
   @HiveField(3)
-  String USER_NAME; // 사용자이름
+  String userNm; // 사용자이름
   @HiveField(4)
-  String BUSINESS_NO; // 사업자번호
+  String businessNo; // 사업자번호
   @HiveField(5)
-  String SYSTEM_CD; // 시스템구분
+  String systemCd; // 시스템구분
   @HiveField(6)
-  String DB_UID; // DB접속-ID
+  String dbUid; // DB접속-ID
 
-  UserinfoModel(this.CLIENT_CODE, this.CLIENT_NAME, this.USER_ID, this.USER_NAME, this.BUSINESS_NO, this.SYSTEM_CD, this.DB_UID);
+  UserinfoModel(this.clientCd, this.clientNm, this.userId, this.userNm, this.businessNo, this.systemCd, this.dbUid);
 
   Map<String, dynamic> toMap() {
     return {
-      'CLIENT_CODE': CLIENT_CODE,
-      'CLIENT_NAME': CLIENT_NAME,
-      'USER_ID': USER_ID,
-      'USER_NAME': USER_NAME,
-      'BUSINESS_NO': BUSINESS_NO,
-      'SYSTEM_CD': SYSTEM_CD,
-      'DB_UID': DB_UID
+      'clientCd': clientCd,
+      'clientNm': clientNm,
+      'userId': userId,
+      'userNm': userNm,
+      'businessNo': businessNo,
+      'systemCd': systemCd,
+      'dbUid': dbUid
     };
   }
 
@@ -40,45 +40,45 @@ class UserinfoModel {
 
   Map<String, dynamic> toJson() => _$UserinfoModelToJson(this);
 
-  String get getClientCd => CLIENT_CODE;
+  String get getClientCd => clientCd;
 
   set setClientCd(String value) {
-    CLIENT_CODE = value;
+    clientCd = value;
   }
 
-  String get getClientNm => CLIENT_NAME;
+  String get getClientNm => clientNm;
 
   set setClientNm(String value) {
-    CLIENT_NAME = value;
+    clientNm = value;
   }
 
-  String get getUserId => USER_ID;
+  String get getUserId => userId;
 
   set setUserId(String value) {
-    USER_ID = value;
+    userId = value;
   }
 
-  String get getUserNm => USER_NAME;
+  String get getUserNm => userNm;
 
   set setUserNm(String value) {
-    USER_NAME = value;
+    userNm = value;
   }
 
-  String get getBusinessNo => BUSINESS_NO;
+  String get getBusinessNo => businessNo;
 
   set setBusinessNo(String value) {
-    BUSINESS_NO = value;
+    businessNo = value;
   }
 
-  String get getSystemCd => SYSTEM_CD;
+  String get getSystemCd => systemCd;
 
   set setSystemCd(String value) {
-    SYSTEM_CD = value;
+    systemCd = value;
   }
 
-  String get getDbUid => DB_UID;
+  String get getDbUid => dbUid;
 
   set setDbUid(String value) {
-    DB_UID = value;
+    dbUid = value;
   }
 }

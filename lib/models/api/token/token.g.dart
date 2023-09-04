@@ -13,7 +13,8 @@ ToKenModel _$ToKenModelFromJson(Map<String, dynamic> json) => ToKenModel(
       json['ISSUE_DATE'] as String,
     );
 
-Map<String, dynamic> _$ToKenModelToJson(ToKenModel instance) => <String, dynamic>{
+Map<String, dynamic> _$ToKenModelToJson(ToKenModel instance) =>
+    <String, dynamic>{
       'GRANT_TYPE': instance.GRANT_TYPE,
       'ACCESS_TOKEN': instance.ACCESS_TOKEN,
       'ACCESS_TOKEN_EXPIRATION_TIME': instance.ACCESS_TOKEN_EXPIRATION_TIME,

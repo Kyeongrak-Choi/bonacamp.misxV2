@@ -8,53 +8,53 @@ part 'node.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 3)
 class NodeModel {
   @HiveField(0)
-  String NODE_CODE; // 사업장코드:DA100T0
+  String nodeCd; // 사업장코드:DA100T0
   @HiveField(1)
-  String COM_NM; // 회사 명
+  String comNm; // 회사 명
   @HiveField(2)
-  String BRA_NM; // 지점 명
+  String braNm; // 지점 명
   @HiveField(3)
-  String REPR_NM; // 대표자 명
+  String reprNm; // 대표자 명
   @HiveField(4)
-  String BIZR_REG_NO; //사업자등록번호
+  String bizrRegNo; //사업자등록번호
 
-  NodeModel(this.NODE_CODE, this.COM_NM, this.BRA_NM, this.REPR_NM, this.BIZR_REG_NO);
+  NodeModel(this.nodeCd, this.comNm, this.braNm, this.reprNm, this.bizrRegNo);
 
   Map<String, dynamic> toMap() {
-    return {'NODE_CODE': NODE_CODE, 'COM_NM': COM_NM, 'BRA_NM': BRA_NM, 'REPR_NM': REPR_NM, 'BIZR_REG_NO': BIZR_REG_NO};
+    return {'nodeCd': nodeCd, 'comNm': comNm, 'braNm': braNm, 'reprNm': reprNm, 'bizrRegNo': bizrRegNo};
   }
 
   factory NodeModel.fromJson(Map<String, dynamic> json) => _$NodeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$NodeModelToJson(this);
 
-  String get getNodeCd => NODE_CODE;
+  String get getNodeCd => nodeCd;
 
   set setNodeCd(String value) {
-    NODE_CODE = value;
+    nodeCd = value;
   }
 
-  String get getComNm => COM_NM;
+  String get getComNm => comNm;
 
   set setComNm(String value) {
-    COM_NM = value;
+    comNm = value;
   }
 
-  String get getBraNm => BRA_NM;
+  String get getBraNm => braNm;
 
   set setBraNm(String value) {
-    BRA_NM = value;
+    braNm = value;
   }
 
-  String get getReprNm => REPR_NM;
+  String get getReprNm => reprNm;
 
   set setReprNm(String value) {
-    REPR_NM = value;
+    reprNm = value;
   }
 
-  String get getBizrRegNo => BIZR_REG_NO;
+  String get getBizrRegNo => bizrRegNo;
 
   set setBizrRegNo(String value) {
-    BIZR_REG_NO = value;
+    bizrRegNo = value;
   }
 }
