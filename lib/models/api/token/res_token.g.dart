@@ -8,14 +8,14 @@ part of 'res_token.dart';
 
 ResTokenModel _$ResTokenModelFromJson(Map<String, dynamic> json) =>
     ResTokenModel(
-      ToKenModel.fromJson(json['TOKEN'] as Map<String, dynamic>),
-      (json['SERVER'] as List<dynamic>)
+      ToKenModel.fromJson(json['token'] as Map<String, dynamic>),
+      (json['server'] as List<dynamic>)
           .map((e) => ServerModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$ResTokenModelToJson(ResTokenModel instance) =>
     <String, dynamic>{
-      'TOKEN': instance.TOKEN.toJson(),
-      'SERVER': instance.SERVER.map((e) => e.toJson()).toList(),
+      'token': instance.token.toJson(),
+      'server': instance.server.map((e) => e.toJson()).toList(),
     };

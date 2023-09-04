@@ -7,18 +7,18 @@ part 'res_token.g.dart'; // *.g.dart : in same directory
 // 거래처 검색 Model
 @JsonSerializable(explicitToJson: true)
 class ResTokenModel {
-  ToKenModel TOKEN; //
-  List<ServerModel> SERVER;
+  ToKenModel token; //
+  List<ServerModel> server;
 
   ResTokenModel(
-    this.TOKEN,
-    this.SERVER,
+    this.token,
+    this.server,
   ); //
 
   Map<String, dynamic> toMap() {
     return {
-      'TOKEN': TOKEN,
-      'SERVER': SERVER,
+      'token': token,
+      'server': server,
     };
   }
 

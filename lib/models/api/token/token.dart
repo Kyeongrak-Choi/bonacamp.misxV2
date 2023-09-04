@@ -5,24 +5,24 @@ part 'token.g.dart'; // *.g.dart : in same directory
 // Token - Token Model
 @JsonSerializable(explicitToJson: true)
 class ToKenModel {
-  String GRANT_TYPE; //
-  String ACCESS_TOKEN; //
-  int ACCESS_TOKEN_EXPIRATION_TIME; //
-  String ISSUE_DATE; //
+  String grant_type; //
+  String access_token; //
+  int access_token_expiration_time; //
+  String issue_date; //
 
   ToKenModel(
-    this.GRANT_TYPE,
-    this.ACCESS_TOKEN,
-    this.ACCESS_TOKEN_EXPIRATION_TIME,
-    this.ISSUE_DATE,
+    this.grant_type,
+    this.access_token,
+    this.access_token_expiration_time,
+    this.issue_date,
   );
 
   Map<String, dynamic> toMap() {
     return {
-      'GRANT_TYPE': GRANT_TYPE,
-      'ACCESS_TOKEN': ACCESS_TOKEN,
-      'ACCESS_TOKEN_EXPIRATION_TIME': ACCESS_TOKEN_EXPIRATION_TIME,
-      'ISSUE_DATE': ISSUE_DATE,
+      'grant-type': grant_type,
+      'access-token': access_token,
+      'access-token_EXPIRATION_TIME': access_token_expiration_time,
+      'issue-date': issue_date,
     };
   }
 

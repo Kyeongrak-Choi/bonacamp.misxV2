@@ -5,21 +5,23 @@ part 'server.g.dart'; // *.g.dart : in same directory
 // Token - Server Model
 @JsonSerializable(explicitToJson: true)
 class ServerModel {
-  String SERVER_CODE; //
-  String SERVER_NAME; //
-  String RESORUCE_URL; //
-  String MEMO; //
-  List<String> ROLE_IDS; //
+  String server_code; //
+  String server_name; //
+  String resource_url; //
+  String memo; //
+  String status; // 상태
+  List<String> role_ids; //
 
-  ServerModel(this.SERVER_CODE, this.SERVER_NAME, this.RESORUCE_URL, this.MEMO, this.ROLE_IDS); //
+  ServerModel(this.server_code, this.server_name, this.resource_url, this.memo, this.status, this.role_ids); //
 
   Map<String, dynamic> toMap() {
     return {
-      'SERVER_CODE': SERVER_CODE,
-      'SERVER_NAME': SERVER_NAME,
-      'RESORUCE_URL': RESORUCE_URL,
-      'MEMO': MEMO,
-      'ROLE_IDS': ROLE_IDS,
+      'server-code': server_code,
+      'server-name': server_name,
+      'resource-url': resource_url,
+      'memo': memo,
+      'status': status,
+      'role-ids': role_ids,
     };
   }
 

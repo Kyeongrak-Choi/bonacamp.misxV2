@@ -7,18 +7,20 @@ part of 'server.dart';
 // **************************************************************************
 
 ServerModel _$ServerModelFromJson(Map<String, dynamic> json) => ServerModel(
-      json['SERVER_CODE'] as String,
-      json['SERVER_NAME'] as String,
-      json['RESORUCE_URL'] as String,
-      json['MEMO'] as String,
-      (json['ROLE_IDS'] as List<dynamic>).map((e) => e as String).toList(),
+      json['server_code'] as String,
+      json['server_name'] as String,
+      json['resource_url'] as String,
+      json['memo'] as String,
+      json['status'] as String,
+      (json['role_ids'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ServerModelToJson(ServerModel instance) =>
     <String, dynamic>{
-      'SERVER_CODE': instance.SERVER_CODE,
-      'SERVER_NAME': instance.SERVER_NAME,
-      'RESORUCE_URL': instance.RESORUCE_URL,
-      'MEMO': instance.MEMO,
-      'ROLE_IDS': instance.ROLE_IDS,
+      'server_code': instance.server_code,
+      'server_name': instance.server_name,
+      'resource_url': instance.resource_url,
+      'memo': instance.memo,
+      'status': instance.status,
+      'role_ids': instance.role_ids,
     };
