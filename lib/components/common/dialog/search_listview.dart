@@ -7,7 +7,7 @@ import 'package:misxV2/models/common/customer.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/utility.dart';
 
-import '../../../models/common/product.dart';
+import '../../../models/common/item.dart';
 import '../../../utils/constants.dart';
 
 class SearchList extends StatelessWidget {
@@ -64,7 +64,7 @@ class SearchListController extends GetxController {
       parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
       flag = SEARCH_DIALOG_CUST;
     } else if (dummy == DUMMY_PROD) {
-      parsedResponse = dataObjsJson.map((dataJson) => ProductModel.fromJson(dataJson)).toList();
+      parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
       flag = SEARCH_DIALOG_PROD;
     }
     datas.clear();
