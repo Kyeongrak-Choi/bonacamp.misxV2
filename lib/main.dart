@@ -66,7 +66,8 @@ class Misx extends StatelessWidget {
 
         // Dialog
         GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
-        GetPage(name: ROUTE_DIALOG_PRODUCT, page: () => SearchDialog(SEARCH_DIALOG_PROD)), // Search Product Dialog
+        GetPage(name: ROUTE_DIALOG_ITEM, page: () => SearchDialog(SEARCH_DIALOG_ITEM)), // Search item Dialog
+        GetPage(name: ROUTE_DIALOG_LENDITM, page: () => SearchDialog(SEARCH_DIALOG_LEND)), // Search lendItem Dialog
 
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),

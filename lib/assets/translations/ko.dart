@@ -23,6 +23,7 @@ const Map<String, String> koKR = {
   'notice': '공지 사항',
   'system_setting': '시스템 설정',
   'menu_setting': '메뉴 설정',
+  'exam_menu' : '예제 메뉴',
   'dark_mode': '다크 모드',
   'isCustomFilter': '거래처 필터링 사용',
   'isIncludeSalChrgCd': '영업사원 선택시 관리담당 포함',
@@ -32,9 +33,13 @@ const Map<String, String> koKR = {
   'title_search_customer': '거래처 검색',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
 
-  // Dialog search product
-  'title_search_product': '품목 검색',
-  'hint_search_product': '품목 코드/명을 입력해주세요.',
+  // Dialog search item
+  'title_search_item': '품목 검색',
+  'hint_search_item': '품목 코드/명을 입력해주세요.',
+
+  // Dialog search lendItem
+  'title_search_lenditem': '용공 검색',
+  'hint_search_lenditem': '용공 코드/명을 입력해주세요.',
 
   // Period Picker
   'period_error_header': '기간오류',

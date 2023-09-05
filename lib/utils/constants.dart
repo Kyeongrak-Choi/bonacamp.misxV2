@@ -17,8 +17,10 @@ const ROUTE_CONFIG = '/config';
 const ROUTE_NOTICE = '/notice';
 const ROUTE_SYSTEM_CONFIG = '/systemConfig';
 const ROUTE_MENU_CONFIG = '/menuConfig';
+const ROUTE_EXAM_MENU = '/menuConfig';
 const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';
-const ROUTE_DIALOG_PRODUCT = '/searchProduct';
+const ROUTE_DIALOG_ITEM = '/searchItem';
+const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 
 const ROUTE_MENU_EXAMPLE = '/menuExample';
 const ROUTE_API_EXAMPLE = '/apiExample';
@@ -35,7 +37,8 @@ enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
 
 // Search Dialog Type
 const SEARCH_DIALOG_CUST = 'CUST';
-const SEARCH_DIALOG_PROD = 'PROD';
+const SEARCH_DIALOG_ITEM = 'ITEM';
+const SEARCH_DIALOG_LEND = 'LEND';
 
 /*
   Netwrok Config
@@ -46,11 +49,10 @@ const RECEIVE_TIMEOUT = 3;
 /*
  Authorization
 */
-const CERT_URL_PROD = 'http://146.56.38.8:9000';
-const CERT_URL_DEV = 'http://172.27.235.104:9040';
-const API_BASIC = '/api';
-const CERT_AUTH = '/auth';
-const CERT_TOKEN = '/token';
+const CERT_URL_PROD = 'http://auth.bona-camp.com/api/';
+const CERT_URL_DEV = 'http://130.162.137.207:9040/api/';
+const CERT_AUTH = 'auth/';
+const CERT_TOKEN = 'token/';
 
 //  Authorization Account
 const AUTH_ID = 'diony-xps';
@@ -113,7 +115,8 @@ const KEY_MENU = 'MENU'; // MENU Object key
  */
 
 const DUMMY_CUST = 'lib/assets/json_dummy/customerList';
-const DUMMY_PROD = 'lib/assets/json_dummy/productList';
+const DUMMY_ITEM = 'lib/assets/json_dummy/itemList';
+const DUMMY_LEND = 'lib/assets/json_dummy/lendItemList';
 const DUMMY_USER = 'lib/assets/json_dummy/userinfo';
 const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
 const DUMMY_NODE = 'lib/assets/json_dummy/node';

@@ -59,9 +59,13 @@ class SearchOption extends StatelessWidget {
         hint = 'hint_search_customer'.tr;
         dummy = DUMMY_CUST;
         break;
-      case SEARCH_DIALOG_PROD:
-        hint = 'hint_search_product'.tr;
-        dummy = DUMMY_PROD;
+      case SEARCH_DIALOG_ITEM:
+        hint = 'hint_search_item'.tr;
+        dummy = DUMMY_ITEM;
+        break;
+      case SEARCH_DIALOG_LEND:
+        hint = 'hint_search_lenditem'.tr;
+        dummy = DUMMY_LEND;
         break;
     }
   }

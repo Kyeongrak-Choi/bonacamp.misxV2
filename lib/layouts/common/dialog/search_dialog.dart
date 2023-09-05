@@ -28,7 +28,7 @@ class SearchDialog extends StatelessWidget {
           child: Center(
             child: Column(
               children: <Widget>[
-                SearchOption(flag), // C:거래처 검색 / P:품목 검색
+                SearchOption(flag), // C:거래처 검색 / P:품목 검색 / L:용공 검색
                 SizedBox(height: 14),
                 Expanded(child: SearchList()),
               ],
@@ -42,8 +42,11 @@ class SearchDialog extends StatelessWidget {
       case SEARCH_DIALOG_CUST:
         title = 'title_search_customer'.tr;
         break;
-      case SEARCH_DIALOG_PROD:
-        title = 'title_search_product'.tr;
+      case SEARCH_DIALOG_ITEM:
+        title = 'title_search_item'.tr;
+        break;
+      case SEARCH_DIALOG_LEND:
+        title = 'title_search_lenditem'.tr;
         break;
     }
   }

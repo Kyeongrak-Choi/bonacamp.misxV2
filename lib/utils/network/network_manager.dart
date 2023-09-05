@@ -23,8 +23,8 @@ class NetworkManager extends GetxController {
 
 Future<void> reqToken(bool isDev) async {
   isDev
-      ? await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_DEV + API_BASIC)
-      : await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_PROD + API_BASIC);
+      ? await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_DEV)
+      : await Hive.box(LOCAL_DB).put(KEY_BASE_URL, CERT_URL_PROD);
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
@@ -55,7 +55,7 @@ Future<void> reqToken(bool isDev) async {
           response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
       // Resource Url 저장
-      await Hive.box(LOCAL_DB).put(KEY_BASE_URL, response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString() + API_BASIC);
+      await Hive.box(LOCAL_DB).put(KEY_BASE_URL, response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString());
     }
   } catch (e) {
     Exception(e);

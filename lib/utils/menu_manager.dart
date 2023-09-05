@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
+import '../layouts/example/funtion.dart';
 import 'constants.dart';
 import 'utility.dart';
 
@@ -66,4 +67,15 @@ final List<RadioMenu> menuDetail = [
     title: KEY_COMPARE_FIRST.tr,
     val: Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false),
   ),
+
 ];
+
+// exam menu master
+// final List<IconMenu> examMaster = [
+//   IconMenu(title: 'exam_menu'.tr, iconData: Icons.copy_outlined, path: ROUTE_EXAM_MENU),
+// ];
+
+// menu setting detail
+// final List<IconMenu> examDetail = [
+//   UtilFunction();
+// ];
