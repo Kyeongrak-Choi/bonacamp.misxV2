@@ -56,12 +56,17 @@ Future<void> reqToken(bool isDev) async {
 
       // Resource Url 저장
       await Hive.box(LOCAL_DB).put(KEY_BASE_URL, response.data[TAG_DATA][TAG_SERVER][0][TAG_RESOURCE_URL].toString());
+
+      // login api call
+
     }
   } catch (e) {
     Exception(e);
     log('error : ' + e.toString());
   }
 }
+
+
 
 Future<String> CallApi(api, params) async {
   log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
@@ -82,36 +87,6 @@ Future<String> CallApi(api, params) async {
     return handler.next(response); // continue
   }, onError: (DioError error, handler) async {
     return handler.next(error);
-    // // 토큰 갱신 요청을 담당할 dio 객체 구현 후 그에 따른 interceptor 정의
-    // var refreshDio = Dio();
-    //
-    // refreshDio.interceptors.clear();
-    //
-    // refreshDio.interceptors.add(InterceptorsWrapper(onError: (error, handler) async {
-    //   // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
-    //   return handler.next(error);
-    // }));
-    //
-    // // 토큰 갱신 API 요청 시 AccessToken(만료), RefreshToken 포함
-    // refreshDio.options.headers['Authorization'] = 'Bearer $accessToken';
-    // //refreshDio.options.headers['Refresh'] = 'Bearer $refreshToken';
-    //
-    // //final newRefreshToken = refreshResponse.headers['Refresh']![0];
-    //
-    // // 기기에 저장된 AccessToken과 RefreshToken 갱신
-    // //await storage.write(key: TAG_ACCESS_TOKEN, value: newAccessToken);
-    //
-    // // AccessToken의 만료로 수행하지 못했던 API 요청에 담겼던 AccessToken 갱신
-    // //error.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
-    //
-    // // 수행하지 못했던 API 요청 복사본 생성
-    // final clonedRequest = await dio.request(error.requestOptions.path,
-    //     options: Options(method: error.requestOptions.method, headers: error.requestOptions.headers),
-    //     data: error.requestOptions.data,
-    //     queryParameters: error.requestOptions.queryParameters);
-    //
-    // // API 복사본으로 재요청
-    // return handler.resolve(clonedRequest);
   }));
 
   try {

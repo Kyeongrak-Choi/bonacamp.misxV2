@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/localDB/node.dart';
-import 'package:misxV2/models/localDB/salchrg.dart';
 
-import '../../models/localDB/team.dart';
-import '../../models/localDB/userinfo.dart';
+import '../../models/system/node.dart';
+import '../../models/system/salchrg.dart';
+import '../../models/system/team.dart';
+import '../../models/system/userinfo.dart';
 import '../constants.dart';
 import '../utility.dart';
 

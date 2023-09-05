@@ -60,12 +60,8 @@ class LoginBtnController extends GetxController {
       return false;
     } else {
       // Request Token
-      // 입력 ID로 인증서버 개발/운영 분기
-      if (inputId == "dev") {
-        await reqToken(true); // Token get
-      } else {
-        await reqToken(false); // Token get
-      }
+      // parameter로 prod/dev 분기
+      await reqToken(false); // Token get -> true : prod / false : dev
 
       // login api 호출 성공시 Hive Box Init -> Id Save
       // login API process

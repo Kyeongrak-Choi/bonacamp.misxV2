@@ -4,12 +4,12 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
-import '../../models/localDB/userinfo.dart';
-import '../../utils/constants.dart';
-import '../../utils/menu_manager.dart';
-import '../../utils/theme/color_manager.dart';
-import '../../utils/utility.dart';
-import '../navigation.dart';
+import '../../../layouts/navigation.dart';
+import '../../../models/system/userinfo.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/menu_manager.dart';
+import '../../../utils/theme/color_manager.dart';
+import '../../../utils/utility.dart';
 
 // 더보기 화면
 class Config extends StatelessWidget {
@@ -93,10 +93,10 @@ class OptionController extends GetxController {
     );
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO).elementAt(0);
 
-    clientNm.value = user.getClientNm;
+    clientNm.value = user.getClientName;
     businessNo.value = convertBusinessNo(user.getBusinessNo.toString());
     userId.value = user.getUserId.toString();
-    userNm.value = user.getUserNm.toString();
+    userNm.value = user.getUserId.toString();
   }
 
   Future<void> changeTheme(bool val) async {

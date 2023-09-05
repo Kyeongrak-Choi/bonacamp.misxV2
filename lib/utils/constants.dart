@@ -62,8 +62,11 @@ const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEt
 /*
  APIs
 */
+const API_SERVER_CODE = 'DJWRLDPN0U';
+
 const API_HEALTH_CHECK = '/health';
 const API_ACCOUNT_GET = '/accounts';
+
 
 /*
   Json

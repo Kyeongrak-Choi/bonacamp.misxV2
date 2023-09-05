@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/api/token/server.dart';
-import 'package:misxV2/models/api/token/token.dart';
+import 'package:misxV2/models/token/server.dart';
+import 'package:misxV2/models/token/token.dart';
 
 part 'res_token.g.dart'; // *.g.dart : in same directory
 
