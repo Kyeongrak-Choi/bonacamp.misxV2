@@ -32,19 +32,19 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
     writer
       ..writeByte(7)
       ..writeByte(0)
-      ..write(obj.clientCd)
+      ..write(obj.clientCode)
       ..writeByte(1)
-      ..write(obj.clientNm)
+      ..write(obj.clientName)
       ..writeByte(2)
-      ..write(obj.userId)
-      ..writeByte(3)
-      ..write(obj.userNm)
-      ..writeByte(4)
       ..write(obj.businessNo)
+      ..writeByte(3)
+      ..write(obj.userId)
+      ..writeByte(4)
+      ..write(obj.userName)
       ..writeByte(5)
-      ..write(obj.systemCd)
+      ..write(obj.roleCode)
       ..writeByte(6)
-      ..write(obj.dbUid);
+      ..write(obj.schemaCode);
   }
 
   @override
@@ -64,22 +64,22 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
 
 UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
     UserinfoModel(
-      json['clientCd'] as String,
-      json['clientNm'] as String,
-      json['userId'] as String,
-      json['userNm'] as String,
+      json['clientCode'] as String,
+      json['clientName'] as String,
       json['businessNo'] as String,
-      json['systemCd'] as String,
-      json['dbUid'] as String,
+      json['userId'] as String,
+      json['userName'] as String,
+      json['roleCode'] as String,
+      json['schemaCode'] as String,
     );
 
 Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
     <String, dynamic>{
-      'clientCd': instance.clientCd,
-      'clientNm': instance.clientNm,
+      'schemaCode': instance.schemaCode,
+      'roleCode': instance.roleCode,
+      'userName': instance.userName,
       'userId': instance.userId,
-      'userNm': instance.userNm,
       'businessNo': instance.businessNo,
-      'systemCd': instance.systemCd,
-      'dbUid': instance.dbUid,
+      'clientName': instance.clientName,
+      'clientCode': instance.clientCode,
     };

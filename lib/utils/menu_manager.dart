@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../layouts/example/funtion.dart';
 import 'constants.dart';
 import 'utility.dart';
 

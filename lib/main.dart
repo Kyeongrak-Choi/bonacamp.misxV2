@@ -11,7 +11,7 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
 import 'package:misxV2/utils/utility.dart';
 
-import 'layouts/config/config.dart';
+import 'components/common/combobox/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';

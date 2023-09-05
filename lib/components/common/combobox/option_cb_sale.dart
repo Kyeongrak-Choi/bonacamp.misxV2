@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/localDB/salchrg.dart';
 
+import '../../../models/system/salchrg.dart';
 import '../../../utils/constants.dart';
 
 class OptionCbSale extends StatelessWidget {

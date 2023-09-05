@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/localDB/node.dart';
 
+import '../../../models/system/node.dart';
 import '../../../utils/constants.dart';
 
 class OptionCbNode extends StatelessWidget {
