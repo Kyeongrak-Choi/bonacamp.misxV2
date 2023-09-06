@@ -50,6 +50,59 @@ final List<IconMenu> menuMaster = [
   IconMenu(title: 'menu_setting'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONFIG),
 ];
 
+// menu setting master
+final List<IconMenu> commonModulesMaster = [
+  IconMenu(title: 'title_search_lenditem'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_search_item'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_search_customer'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+];
+
+final List<IconMenu> managementAnalysisMaster = [
+  IconMenu(title: 'title_1'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_2'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_3'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+  IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
+  IconMenu(title: 'title_5'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_6'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_8'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+];
+
+final List<IconMenu> salesAnalysisMaster = [
+  IconMenu(title: 'title_9'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_10'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_11'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+  IconMenu(title: 'title_12'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
+  IconMenu(title: 'title_13'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_14'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_15'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+  IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ROUTE_API_EXAMPLE),
+];
+
+final List<IconMenu> purchaseAnalysisMaster = [
+  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+];
+
+final List<IconMenu> supportStatusMaster = [
+  IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+];
+
+final List<IconMenu> locationSearchMaster = [
+  IconMenu(title: 'title_24'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+];
+
+final List<IconMenu> inventoryAnalysisMaster = [
+  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+  IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
+];
+
 // menu setting detail
 final List<RadioMenu> menuDetail = [
   RadioMenu(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:misxV2/components/menu/card_title_menu.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
