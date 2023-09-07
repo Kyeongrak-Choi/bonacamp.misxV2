@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:misxV2/models/token/req_token.dart';
 
+import '../../models/system/req_login.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
@@ -14,6 +18,7 @@ class LoginBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
+    Get.put(NetworkManager());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -58,19 +63,31 @@ class LoginBtnController extends GetxController {
   Future<bool> LoginCheck() async {
     if (inputId == "" || inputPw == "") {
       return false;
+
     } else {
       // Request Token
-      // parameter로 prod/dev 분기
-      await reqToken(false); // Token get -> true : prod / false : dev
+      if(await reqToken(true)){ // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
+        await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
 
-      // login api 호출 성공시 Hive Box Init -> Id Save
-      // login API process
-      BoxInit(); // local DB Set
-      // Id save
-      await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId);
-      inputPw = '';
+        String result = await Get.find<NetworkManager>().requestApi(API_SYSTEM_LOGIN
+            ,  ReqLoginModel(inputId,inputPw,APP_ID).toMap()
+            , API_REQ_POST );
+        log('result : ' + result);
 
-      return true;
+        if(result =='200'){
+          // login success
+          inputPw = ''; // pw 초기화
+          return true;
+        }else{
+          // login fail
+          return false;
+        }
+        //BoxInit(); // local DB Set  -> 나중에
+
+      }else {
+        log('login check fail');
+        return false;
+      }
     }
   }
 }

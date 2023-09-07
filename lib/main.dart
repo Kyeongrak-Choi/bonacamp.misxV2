@@ -71,7 +71,7 @@ class Misx extends StatelessWidget {
 
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
-        GetPage(name: ROUTE_API_EXAMPLE, page: () => ApiExample()),
+        //GetPage(name: ROUTE_API_EXAMPLE, page: () => ApiExample()),
       ],
       home: Login(),
     );
