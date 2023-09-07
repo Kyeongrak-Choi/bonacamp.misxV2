@@ -12,11 +12,11 @@ class UserinfoModel {
   @HiveField(1)
   String clientName; // 도매사명
   @HiveField(2)
-  String userId; // 사용자ID
-  @HiveField(3)
-  String userName; // 사용자이름
-  @HiveField(4)
   String businessNo; // 도매사 사업자번호
+  @HiveField(3)
+  String userId; // 사용자ID
+  @HiveField(4)
+  String userName; // 사용자이름
   @HiveField(5)
   String roleCode; // 권한 코드
   @HiveField(6)

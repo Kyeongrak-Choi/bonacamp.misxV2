@@ -122,12 +122,4 @@ final List<RadioMenu> menuDetail = [
 
 ];
 
-// exam menu master
-// final List<IconMenu> examMaster = [
-//   IconMenu(title: 'exam_menu'.tr, iconData: Icons.copy_outlined, path: ROUTE_EXAM_MENU),
-// ];
 
-// menu setting detail
-// final List<IconMenu> examDetail = [
-//   UtilFunction();
-// ];

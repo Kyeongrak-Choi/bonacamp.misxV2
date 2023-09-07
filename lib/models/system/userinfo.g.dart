@@ -19,9 +19,9 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
     return UserinfoModel(
       fields[0] as String,
       fields[1] as String,
-      fields[4] as String,
       fields[2] as String,
       fields[3] as String,
+      fields[4] as String,
       fields[5] as String,
       fields[6] as String,
     );
@@ -36,11 +36,11 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
       ..writeByte(1)
       ..write(obj.clientName)
       ..writeByte(2)
-      ..write(obj.userId)
-      ..writeByte(3)
-      ..write(obj.userName)
-      ..writeByte(4)
       ..write(obj.businessNo)
+      ..writeByte(3)
+      ..write(obj.userId)
+      ..writeByte(4)
+      ..write(obj.userName)
       ..writeByte(5)
       ..write(obj.roleCode)
       ..writeByte(6)
@@ -77,9 +77,9 @@ Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
     <String, dynamic>{
       'clientCode': instance.clientCode,
       'clientName': instance.clientName,
+      'businessNo': instance.businessNo,
       'userId': instance.userId,
       'userName': instance.userName,
-      'businessNo': instance.businessNo,
       'roleCode': instance.roleCode,
       'schemaCode': instance.schemaCode,
     };

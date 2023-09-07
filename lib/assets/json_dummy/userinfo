@@ -1,5 +1,5 @@
 {
-	"payload":[
+	"payload":
 	{
 		"CLIENT_CODE" : "A0570",
 		"CLIENT_NAME" : "보나뱅크(영업관리)",
@@ -9,5 +9,5 @@
 		"SYSTEM_CD" : "DM04",
 		"DB_UID" : "CUST_A0570"
 	}
-	]
+
 }

@@ -21,21 +21,21 @@ Future<void> BoxInit() async {
   await Hive.openBox(LOCAL_DB);
   var parsedData;
 
-  // USER_INFO
-  parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_USERINFO, parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
-
-  // SAL_CHRG
-  parsedData = jsonDecode(await jsonDummy(DUMMY_SALCHRG))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
-
-  // NODE
-  parsedData = jsonDecode(await jsonDummy(DUMMY_NODE))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_NODE, parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
-
-  // TEAM
-  parsedData = jsonDecode(await jsonDummy(DUMMY_TEAM))[TAG_DATA] as List;
-  await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+  // // USER_INFO
+  // parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_USERINFO, parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
+  //
+  // // SAL_CHRG
+  // parsedData = jsonDecode(await jsonDummy(DUMMY_SALCHRG))[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
+  //
+  // // NODE
+  // parsedData = jsonDecode(await jsonDummy(DUMMY_NODE))[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_NODE, parsedData.map((dataJson) => NodeModel.fromJson(dataJson)).toList());
+  //
+  // // TEAM
+  // parsedData = jsonDecode(await jsonDummy(DUMMY_TEAM))[TAG_DATA] as List;
+  // await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 
   // WAREHOUSE
   // parsedData = jsonDecode()[TAG_DATA] as List;

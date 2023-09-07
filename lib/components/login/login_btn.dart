@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/models/token/req_token.dart';
 
 import '../../models/system/req_login.dart';
+import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
@@ -61,28 +63,25 @@ class LoginBtnController extends GetxController {
   }
 
   Future<bool> LoginCheck() async {
-    if (inputId == "" || inputPw == "") {
+    inputId = 'bonabank';
+    inputPw = 'bona1234';
+    if (inputId == '' || inputPw == '') {
       return false;
 
     } else {
       // Request Token
       if(await reqToken(true)){ // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
-        await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
+        String res = await reqLogin(ReqLoginModel(inputId,inputPw,APP_ID).toMap());
 
-        String result = await Get.find<NetworkManager>().requestApi(API_SYSTEM_LOGIN
-            ,  ReqLoginModel(inputId,inputPw,APP_ID).toMap()
-            , API_REQ_POST );
-        log('result : ' + result);
-
-        if(result =='200'){
-          // login success
+        if(res == '200'){
+          await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
           inputPw = ''; // pw 초기화
           return true;
         }else{
-          // login fail
+          ShowSnackBar(SNACK_TYPE.ALARM,res);
           return false;
         }
-        //BoxInit(); // local DB Set  -> 나중에
+
 
       }else {
         log('login check fail');

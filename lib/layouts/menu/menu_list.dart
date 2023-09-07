@@ -14,41 +14,37 @@ class MenuList extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(  // 어떤 항목을 넣을지 몰라 일단 홈과 같이 광고로 채웠습니다. 추후 필요 항목으로 변경 예정.
-              padding: EdgeInsetsDirectional.all(5),
-              child: DashBoardAdmob(), // 광고
-            ),
             Expanded(
               child: ListView(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "공통", iconMenuList: commonModulesMaster),
+                    child: CardTitleMenuList(menuTitleName: "공통-test용", iconMenuList: commonModulesMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "경영분석", iconMenuList: managementAnalysisMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_1'.tr, iconMenuList: managementAnalysisMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "영업분석", iconMenuList: salesAnalysisMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_2'.tr, iconMenuList: salesAnalysisMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "매입분석", iconMenuList: purchaseAnalysisMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_3'.tr, iconMenuList: purchaseAnalysisMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "지원현황", iconMenuList: supportStatusMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_4'.tr, iconMenuList: supportStatusMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "위치조회", iconMenuList: locationSearchMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_5'.tr, iconMenuList: locationSearchMaster),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "재고분석", iconMenuList: inventoryAnalysisMaster),
+                    child: CardTitleMenuList(menuTitleName: 'sector_6'.tr, iconMenuList: inventoryAnalysisMaster),
                   ),
                 ],
               ),
