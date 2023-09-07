@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/components/menu/card_title_menu.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
-
 
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
@@ -30,7 +28,7 @@ class Config extends StatelessWidget {
                     color: CommonColors.bluesky,
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40.0), bottomRight: Radius.circular(40.0))),
                 child: Obx(
-                      () => Column(children: [
+                  () => Column(children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Text(

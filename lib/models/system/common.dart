@@ -29,7 +29,17 @@ class CommonModel {
   CommonModel(this.mainCd, this.subCd, this.subNm, this.conn1, this.conn2, this.conn3, this.conn4, this.conn5, this.inqOrd);
 
   Map<String, dynamic> toMap() {
-    return {'mainCd': mainCd, 'subCd': subCd, 'subNm': subNm, 'conn1': conn1, 'conn2': conn2, 'conn3': conn3, 'conn4': conn4, 'conn5': conn5, 'inqOrd': inqOrd};
+    return {
+      'mainCd': mainCd,
+      'subCd': subCd,
+      'subNm': subNm,
+      'conn1': conn1,
+      'conn2': conn2,
+      'conn3': conn3,
+      'conn4': conn4,
+      'conn5': conn5,
+      'inqOrd': inqOrd
+    };
   }
 
   factory CommonModel.fromJson(Map<String, dynamic> json) => _$CommonModelFromJson(json);
@@ -89,6 +99,4 @@ class CommonModel {
   set setInqOrd(String value) {
     inqOrd = value;
   }
-
-
 }

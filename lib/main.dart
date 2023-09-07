@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
-import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';

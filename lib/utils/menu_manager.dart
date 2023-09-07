@@ -119,7 +119,4 @@ final List<RadioMenu> menuDetail = [
     title: KEY_COMPARE_FIRST.tr,
     val: Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false),
   ),
-
 ];
-
-

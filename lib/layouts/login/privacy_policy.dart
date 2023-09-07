@@ -4,7 +4,6 @@ import 'package:misxV2/utils/constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PrivacyPolicy extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(PrivacyPolicyController());
@@ -13,14 +12,11 @@ class PrivacyPolicy extends StatelessWidget {
       child: WebViewWidget(
         controller: Get.find<PrivacyPolicyController>()._webViewController!,
       ),
-
     );
-
   }
 }
 
 class PrivacyPolicyController extends GetxController {
-
   WebViewController? _webViewController;
 
   @override
@@ -30,5 +26,4 @@ class PrivacyPolicyController extends GetxController {
       ..loadRequest(Uri.parse(POLICY_URL))
       ..setJavaScriptMode(JavaScriptMode.unrestricted);
   }
-
 }

@@ -23,7 +23,7 @@ const Map<String, String> koKR = {
   'notice': '공지 사항',
   'system_setting': '시스템 설정',
   'menu_setting': '메뉴 설정',
-  'exam_menu' : '예제 메뉴',
+  'exam_menu': '예제 메뉴',
   'dark_mode': '다크 모드',
   'isCustomFilter': '거래처 필터링 사용',
   'isIncludeSalChrgCd': '영업사원 선택시 관리담당 포함',
@@ -80,7 +80,7 @@ const Map<String, String> koKR = {
   'loading': '로딩중입니다...',
 
   //title Dummy 추후 각 페이지 별 위치 변경
-  'sector_1' : '경영분석',
+  'sector_1': '경영분석',
   'title_1': '종합현황',
   'title_2': '영업일보',
   'title_3': '영업사원별 기여현황',
@@ -90,7 +90,7 @@ const Map<String, String> koKR = {
   'title_7': '분석 그래프',
   'title_8': '영업일보(용도별)',
 
-  'sector_2' : '영업분석',
+  'sector_2': '영업분석',
   'title_9': '거래처 현황',
   'title_10': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
@@ -102,24 +102,23 @@ const Map<String, String> koKR = {
   'title_17': '채권 및 대여 현황',
   'title_18': '매출 및 대여 원장',
 
-  'sector_3' : '매입분석',
+  'sector_3': '매입분석',
   'title_19': '매입현황',
   'title_20': '매입원장',
 
-  'sector_4' : '지원현황',
+  'sector_4': '지원현황',
   'title_21': '대여금 현황',
   'title_22': '대여자산 현황',
   'title_23': '대여자산 현황(이력)',
 
-  'sector_5' : '위치조회',
+  'sector_5': '위치조회',
   'title_24': '매출처 위치조회',
 
-  'sector_6' : '재고분석',
+  'sector_6': '재고분석',
   'title_25': '재고현황',
   'title_26': '재고수불현황',
   'title_27': '용공수불(창고)',
   'title_28': '용공수불현황(거래처)',
-
 };
 
 //const Map<String,String> enUs = {};

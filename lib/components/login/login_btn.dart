@@ -1,15 +1,11 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/token/req_token.dart';
 
 import '../../models/system/req_login.dart';
-import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
-import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
@@ -67,23 +63,21 @@ class LoginBtnController extends GetxController {
     inputPw = 'bona1234';
     if (inputId == '' || inputPw == '') {
       return false;
-
     } else {
       // Request Token
-      if(await reqToken(true)){ // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
-        String res = await reqLogin(ReqLoginModel(inputId,inputPw,APP_ID).toMap());
+      if (await reqToken(true)) {
+        // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
+        String res = await reqLogin(ReqLoginModel(inputId, inputPw, APP_ID).toMap());
 
-        if(res == '200'){
+        if (res == '200') {
           await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
           inputPw = ''; // pw 초기화
           return true;
-        }else{
-          ShowSnackBar(SNACK_TYPE.ALARM,res);
+        } else {
+          ShowSnackBar(SNACK_TYPE.ALARM, res);
           return false;
         }
-
-
-      }else {
+      } else {
         log('login check fail');
         return false;
       }

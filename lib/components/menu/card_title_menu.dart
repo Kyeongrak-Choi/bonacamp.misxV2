@@ -13,15 +13,15 @@ class CardTitleMenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '[' + menuTitleName + '] ',
-              style: context.textTheme.headline1,
-              overflow: TextOverflow.ellipsis,
-            ),
+        Container(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            '[' + menuTitleName + '] ',
+            style: context.textTheme.headline1,
+            overflow: TextOverflow.ellipsis,
           ),
-          Card(
+        ),
+        Card(
           elevation: 0.5,
           margin: EdgeInsets.zero,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
@@ -30,7 +30,7 @@ class CardTitleMenuList extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: List.generate(iconMenuList.length,
-                      (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
+                  (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
             ),
           ),
         )

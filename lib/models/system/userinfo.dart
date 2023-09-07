@@ -25,13 +25,15 @@ class UserinfoModel {
   UserinfoModel(this.clientCode, this.clientName, this.businessNo, this.userId, this.userName, this.roleCode, this.schemaCode);
 
   Map<String, dynamic> toMap() {
-    return {'clientCode': clientCode
-          , 'clientName': clientName
-          , 'businessNo': businessNo
-          , 'userId': userId
-          , 'userName': userName
-          , 'roleCode': roleCode
-          , 'schemaCode': schemaCode};
+    return {
+      'clientCode': clientCode,
+      'clientName': clientName,
+      'businessNo': businessNo,
+      'userId': userId,
+      'userName': userName,
+      'roleCode': roleCode,
+      'schemaCode': schemaCode
+    };
   }
 
   factory UserinfoModel.fromJson(Map<String, dynamic> json) => _$UserinfoModelFromJson(json);

@@ -71,7 +71,6 @@ const API_REQ_POST = 'POST';
 const API_SYSTEM_LOGIN = '/v1/account/sign-in';
 const API_SYSTEM_1 = '/v1/account/sign-in';
 
-
 /*
   Json
  */

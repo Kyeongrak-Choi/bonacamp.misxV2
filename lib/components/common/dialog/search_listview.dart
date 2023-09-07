@@ -27,33 +27,28 @@ class SearchList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
-                  height: 50,
-                  color: context.theme.backgroundColor,
-                  padding: const EdgeInsets.all(5),
-                  child: selectSearchListItem(index),
+              height: 50,
+              color: context.theme.backgroundColor,
+              padding: const EdgeInsets.all(5),
+              child: selectSearchListItem(index),
             ));
           },
         ));
   }
 
-  Widget selectSearchListItem(int index){
-    if(Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST){
+  Widget selectSearchListItem(int index) {
+    if (Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST) {
       return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
           Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
-    }
-    else if(Get.find<SearchListController>().flag == SEARCH_DIALOG_ITEM){
+    } else if (Get.find<SearchListController>().flag == SEARCH_DIALOG_ITEM) {
       return SearchListItem(Get.find<SearchListController>().datas[index].getItmCd, Get.find<SearchListController>().datas[index].getItmNm,
           Get.find<SearchListController>().datas[index].getItmAbbNm, Get.find<SearchListController>().datas[index].getUzFgNm);
-    }
-    else{
+    } else {
       return SearchListItem(Get.find<SearchListController>().datas[index].getLendItmCd, Get.find<SearchListController>().datas[index].getLendItmNm,
           Get.find<SearchListController>().datas[index].getVesFgNm, Get.find<SearchListController>().datas[index].getEmptyBotlNm);
     }
   }
-
-
 }
-
 
 class SearchListController extends GetxController {
   RxList datas = [].obs;
