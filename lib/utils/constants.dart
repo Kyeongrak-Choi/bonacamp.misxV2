@@ -5,6 +5,7 @@
 const APP_NAME = 'MISX Ver2';
 const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
+const APP_ID = 'MISX';
 
 //enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
 enum NAVIGATION_BAR_ITEM { HOME, MENU, CONFIG } // Navigation Item
@@ -49,10 +50,10 @@ const RECEIVE_TIMEOUT = 3;
 /*
  Authorization
 */
-const CERT_URL_PROD = 'http://auth.bona-camp.com/api/';
-const CERT_URL_DEV = 'http://130.162.137.207:9040/api/';
-const CERT_AUTH = 'auth/';
-const CERT_TOKEN = 'token/';
+const CERT_URL_PROD = 'http://auth.bona-camp.com/api';
+const CERT_URL_DEV = 'http://130.162.137.207:9040/api';
+const CERT_AUTH = '/auth';
+const CERT_TOKEN = '/token';
 
 //  Authorization Account
 const AUTH_ID = 'diony-xps';
@@ -63,9 +64,12 @@ const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEt
  APIs
 */
 const API_SERVER_CODE = 'DJWRLDPN0U';
+const API_REQ_GET = 'GET';
+const API_REQ_POST = 'POST';
 
-const API_HEALTH_CHECK = '/health';
-const API_ACCOUNT_GET = '/accounts';
+// System
+const API_SYSTEM_LOGIN = '/v1/account/sign-in';
+const API_SYSTEM_1 = '/v1/account/sign-in';
 
 
 /*
@@ -100,6 +104,7 @@ const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
+const KEY_AUTH_URL = 'baseUr;'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
