@@ -141,6 +141,8 @@ class NavigationController extends GetxService {
     currentIndex.value = 2;
   }
 
+// local db Setting
+
 // drawer not use
 // var scaffoldKey = GlobalKey<ScaffoldState>();
 // void openDrawer() {

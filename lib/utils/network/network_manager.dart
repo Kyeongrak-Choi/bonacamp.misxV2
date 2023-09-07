@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
@@ -12,21 +10,18 @@ import '../constants.dart';
 import '../database/hive_manager.dart';
 
 class NetworkManager extends GetxController {
-
   @override
   void onInit() {
     super.onInit();
   }
 
-  // Future<dynamic> requestApi(String api, Map params,String method) async {
-  //  return await CallApi(api, params,method);
-  // }
+// Future<dynamic> requestApi(String api, Map params,String method) async {
+//  return await CallApi(api, params,method);
+// }
 }
 
 Future<bool> reqToken(bool isDev) async {
-  isDev
-      ? await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_DEV)
-      : await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_PROD);
+  isDev ? await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_DEV) : await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_PROD);
 
   log('call auth url : ' + await Hive.box(LOCAL_DB).get(KEY_AUTH_URL, defaultValue: 'fail'));
 
@@ -48,7 +43,7 @@ Future<bool> reqToken(bool isDev) async {
   }));
 
   try {
-    Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID,AUTH_PW,AUTH_CLIENT_ID).toMap());
+    Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
       // var parsedResponse = [];
@@ -60,7 +55,7 @@ Future<bool> reqToken(bool isDev) async {
           response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
       // target url 저장
-      await Hive.box(LOCAL_DB).put(KEY_BASE_URL,'http://172.27.235.104:9030/api'); // test
+      await Hive.box(LOCAL_DB).put(KEY_BASE_URL, 'http://172.27.235.104:9030/api'); // test
     }
   } catch (e) {
     Exception(e);
@@ -70,13 +65,13 @@ Future<bool> reqToken(bool isDev) async {
   return true;
 }
 
-
 Future<String> reqLogin(params) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
@@ -94,46 +89,31 @@ Future<String> reqLogin(params) async {
     Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
 
     if (response.statusCode == 200) {
-      // var parsedResponse = [];
-      // var dataObjsJson = jsonDecode(response.data)[TAG_DATA] as List;
-      // parsedResponse = dataObjsJson.map((dataJson) => ResTokenModel.fromJson(dataJson)).toList();
-
-      // Access token 저장
-      // await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN,
-      //     response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
+      BoxInit(); // local DB Set
+      // var parsedData = response.data[TAG_DATA];
       //
-      // // target url 저장
-      // await Hive.box(LOCAL_DB).put(KEY_BASE_URL,'http://172.27.235.104:9030/api'); // test
+      // UserinfoModel userinfoModel = (response.data).map<UserinfoModel>((json){
+      //   return UserinfoModel.fromJson(json);
+      // }).toList();
 
+      // parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
+      // await Hive.box(LOCAL_DB).put(KEY_USERINFO, parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
 
-      // final responseData = response.data;
-      // final parsedData = json.decode(responseData);
-      // final myData = UserinfoModel.fromJson(parsedData);
+      UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
 
-      BoxInit(); // local DB Set  -> 나중에
-
-
-      var parsedData = response.data[TAG_DATA];
-
-      UserinfoModel userinfoModel = (response.data).map<UserinfoModel>((json){
-        return UserinfoModel.fromJson(json);
-      }).toList();
-
+      // var parsedData = response.data[TAG_DATA];
       await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
-      // // USER_INFO
-      // await Hive.box(LOCAL_DB).put(KEY_USERINFO, myData.toJson());
 
       return response.statusCode.toString();
-    } else if (response.statusCode == 401){
+    } else if (response.statusCode == 401) {
       return '인증 에러';
-    } else if (response.statusCode == 400){
+    } else if (response.statusCode == 400) {
       return '400 에러';
-    } else if (response.statusCode == 500){
+    } else if (response.statusCode == 500) {
       return '시스템 에러';
-    } else{
+    } else {
       return response.data[TAG_MSG];
     }
-    
   } catch (e) {
     Exception(e);
     log('error : ' + e.toString());
@@ -141,8 +121,7 @@ Future<String> reqLogin(params) async {
   }
 }
 
-
-Future<Response?> CallApi(api, params, method) async {
+Future<Response?> reqApi(api, params, method) async {
   log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
   log('accessToken : ' + await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'));
 
@@ -150,7 +129,8 @@ Future<Response?> CallApi(api, params, method) async {
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
@@ -167,13 +147,12 @@ Future<Response?> CallApi(api, params, method) async {
   Response response;
 
   try {
-    if(method == API_REQ_GET){
-      response = await dio.get(api,data: params);
-    }else {
-      response =  await dio.post(api,data: params);
+    if (method == API_REQ_GET) {
+      response = await dio.get(api, data: params);
+    } else {
+      response = await dio.post(api, data: params);
     }
     return response;
-
   } catch (e) {
     Exception(e);
   }

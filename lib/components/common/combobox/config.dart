@@ -87,12 +87,12 @@ class OptionController extends GetxController {
     await Hive.openBox(
       LOCAL_DB,
     );
-    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO).elementAt(0);
+    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
 
     clientNm.value = user.getClientName;
     businessNo.value = convertBusinessNo(user.getBusinessNo.toString());
     userId.value = user.getUserId.toString();
-    userNm.value = user.getUserId.toString();
+    userNm.value = user.getUserName.toString();
   }
 
   Future<void> changeTheme(bool val) async {

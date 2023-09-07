@@ -1,6 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/token/server.dart';
-import 'package:misxV2/models/token/token.dart';
 
 part 'req_login.g.dart'; // *.g.dart : in same directory
 
@@ -12,16 +10,16 @@ class ReqLoginModel {
   String appId;
 
   ReqLoginModel(
-      this.id,
-      this.password,
-      this.appId,
+    this.id,
+    this.password,
+    this.appId,
   ); //
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id
-    , 'password': password
-    , 'appId' : appId,
+      'id': id,
+      'password': password,
+      'appId': appId,
     };
   }
 

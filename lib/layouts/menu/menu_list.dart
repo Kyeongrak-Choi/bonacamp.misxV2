@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../components/dashboard/dashboard_admob.dart';
 import '../../components/menu/card_title_menu.dart';
 import '../../utils/menu_manager.dart';
 
@@ -11,46 +10,43 @@ class MenuList extends StatelessWidget {
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: "공통-test용", iconMenuList: commonModulesMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_1'.tr, iconMenuList: managementAnalysisMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_2'.tr, iconMenuList: salesAnalysisMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_3'.tr, iconMenuList: purchaseAnalysisMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_4'.tr, iconMenuList: supportStatusMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_5'.tr, iconMenuList: locationSearchMaster),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                    child: CardTitleMenuList(menuTitleName: 'sector_6'.tr, iconMenuList: inventoryAnalysisMaster),
-                  ),
-                ],
-              ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Expanded(
+            child: ListView(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: "공통-test용", iconMenuList: commonModulesMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_1'.tr, iconMenuList: managementAnalysisMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_2'.tr, iconMenuList: salesAnalysisMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_3'.tr, iconMenuList: purchaseAnalysisMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_4'.tr, iconMenuList: supportStatusMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_5'.tr, iconMenuList: locationSearchMaster),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: CardTitleMenuList(menuTitleName: 'sector_6'.tr, iconMenuList: inventoryAnalysisMaster),
+                ),
+              ],
             ),
-          ]
-        ),
+          ),
+        ]),
       ),
     );
   }
