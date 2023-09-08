@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/salchrg.dart';
+import 'package:misxV2/models/system/employee.dart';
 
 import '../../models/system/req_login.dart';
 import '../../models/system/userinfo.dart';
@@ -76,9 +76,6 @@ class LoginBtnController extends GetxController {
         if (res == '200') {
           await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
           inputPw = ''; // pw 초기화
-
-          await Hive.box(LOCAL_DB).put(KEY_SALCHRG, '');
-
           return true;
         } else {
           ShowSnackBar(SNACK_TYPE.ALARM, res);

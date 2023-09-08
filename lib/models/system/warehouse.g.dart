@@ -17,8 +17,8 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return WarehouseModel(
-      fields[0] as String,
-      fields[1] as String,
+      fields[0] as String?,
+      fields[1] as String?,
     );
   }
 
@@ -27,9 +27,9 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.whCd)
+      ..write(obj.warehouseCode)
       ..writeByte(1)
-      ..write(obj.whNm);
+      ..write(obj.warehouseName);
   }
 
   @override
@@ -37,19 +37,24 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is WarehouseModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is WarehouseModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) => WarehouseModel(
-      json['whCd'] as String,
-      json['whNm'] as String,
+WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) =>
+    WarehouseModel(
+      json['warehouseCode'] as String?,
+      json['warehouseName'] as String?,
     );
 
-Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) => <String, dynamic>{
-      'whCd': instance.whCd,
-      'whNm': instance.whNm,
+Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) =>
+    <String, dynamic>{
+      'warehouseCode': instance.warehouseCode,
+      'warehouseName': instance.warehouseName,
     };

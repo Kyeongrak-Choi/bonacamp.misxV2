@@ -17,8 +17,8 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return TeamModel(
-      fields[0] as String,
-      fields[1] as String,
+      fields[0] as String?,
+      fields[1] as String?,
     );
   }
 
@@ -27,16 +27,20 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.teamCd)
+      ..write(obj.teamCode)
       ..writeByte(1)
-      ..write(obj.teamNm);
+      ..write(obj.teamName);
   }
 
   @override
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TeamModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TeamModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -44,11 +48,11 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
 // **************************************************************************
 
 TeamModel _$TeamModelFromJson(Map<String, dynamic> json) => TeamModel(
-      json['teamCd'] as String,
-      json['teamNm'] as String,
+      json['teamCode'] as String?,
+      json['teamName'] as String?,
     );
 
 Map<String, dynamic> _$TeamModelToJson(TeamModel instance) => <String, dynamic>{
-      'teamCd': instance.teamCd,
-      'teamNm': instance.teamNm,
+      'teamCode': instance.teamCode,
+      'teamName': instance.teamName,
     };

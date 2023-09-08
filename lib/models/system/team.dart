@@ -8,29 +8,29 @@ part 'team.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 4)
 class TeamModel {
   @HiveField(0)
-  String teamCd; // 팀코드
+  String? teamCode; // 팀코드
   @HiveField(1)
-  String teamNm; // 팀명
+  String? teamName; // 팀명
 
-  TeamModel(this.teamCd, this.teamNm);
+  TeamModel(this.teamCode, this.teamName);
 
   Map<String, dynamic> toMap() {
-    return {'teamCd': teamCd, 'teamNm': teamNm};
+    return {'teamCode': teamCode, 'teamName': teamName};
   }
 
   factory TeamModel.fromJson(Map<String, dynamic> json) => _$TeamModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TeamModelToJson(this);
 
-  String get getSubCd => teamCd;
+  String? get getTeamCode => teamCode;
 
-  set setSubCd(String value) {
-    teamCd = value;
+  set setTeamCode(String value) {
+    teamCode = value;
   }
 
-  String get getSubNm => teamNm;
+  String? get getTeamName => teamName;
 
-  set setSubNm(String value) {
-    teamNm = value;
+  set setTeamName(String value) {
+    teamName = value;
   }
 }

@@ -1,30 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'salchrg.dart';
+part of 'employee.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
+class EmployeeModelAdapter extends TypeAdapter<EmployeeModel> {
   @override
   final int typeId = 2;
 
   @override
-  SalChrgModel read(BinaryReader reader) {
+  EmployeeModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return SalChrgModel(
-      fields[0] as String,
-      fields[1] as String,
-      fields[2] as bool,
+    return EmployeeModel(
+      fields[0] as String?,
+      fields[1] as String?,
+      fields[2] as bool?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, SalChrgModel obj) {
+  void write(BinaryWriter writer, EmployeeModel obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,7 +41,7 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SalChrgModelAdapter &&
+      other is EmployeeModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -50,13 +50,14 @@ class SalChrgModelAdapter extends TypeAdapter<SalChrgModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalChrgModel _$SalChrgModelFromJson(Map<String, dynamic> json) => SalChrgModel(
-      json['employeeCode'] as String,
-      json['employeeName'] as String,
-      json['manager'] as bool,
+EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) =>
+    EmployeeModel(
+      json['employeeCode'] as String?,
+      json['employeeName'] as String?,
+      json['manager'] as bool?,
     );
 
-Map<String, dynamic> _$SalChrgModelToJson(SalChrgModel instance) =>
+Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) =>
     <String, dynamic>{
       'employeeCode': instance.employeeCode,
       'employeeName': instance.employeeName,

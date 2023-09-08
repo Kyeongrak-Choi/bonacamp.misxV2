@@ -7,9 +7,10 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
 
-import '../../models/system/node.dart';
-import '../../models/system/salchrg.dart';
+import '../../models/system/branch.dart';
+import '../../models/system/employee.dart';
 import '../../models/token/req_token.dart';
+import '../../models/token/res_token.dart';
 import '../constants.dart';
 import '../database/hive_manager.dart';
 import '../utility.dart';
@@ -19,10 +20,6 @@ class NetworkManager extends GetxController {
   void onInit() {
     super.onInit();
   }
-
-// Future<dynamic> requestApi(String api, Map params,String method) async {
-//  return await CallApi(api, params,method);
-// }
 }
 
 Future<bool> reqToken(bool isDev) async {
@@ -51,9 +48,9 @@ Future<bool> reqToken(bool isDev) async {
     Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
-      // var parsedResponse = [];
       // var dataObjsJson = jsonDecode(response.data)[TAG_DATA] as List;
-      // parsedResponse = dataObjsJson.map((dataJson) => ResTokenModel.fromJson(dataJson)).toList();
+      //
+      // log('check : $dataObjsJson');
 
       // Access token 저장
       await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN,

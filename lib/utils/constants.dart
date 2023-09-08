@@ -71,7 +71,11 @@ const API_REQ_POST = 'POST';
 const API_SYSTEM_LOGIN = '/v1/account/sign-in';
 const API_SYSTEM_MASTER = '/v1/clients/';
 const API_SYSTEM_EMPLOYEES = '/employees';
-
+const API_SYSTEM_BRANCHES = '/branches';
+const API_SYSTEM_TEAMS = '/teams';
+const API_SYSTEM_WAREHOUSES = '/warehouses';
+const API_SYSTEM_COMMON = '/common';
+const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021';
 
 
 /*
@@ -113,25 +117,12 @@ const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key
 
 const KEY_USERINFO = 'USERINFO'; // USERINFO Object key - @HiveType(typeId: 1)
-const KEY_SALCHRG = 'SALCHRG'; // SALCHRG Object key - @HiveType(typeId: 2)
-const KEY_NODE = 'NODE'; // NODE Object key - @HiveType(typeId: 3)
+const KEY_EMPLOYEE = 'EMPLOYEE'; // SALCHRG Object key - @HiveType(typeId: 2)
+const KEY_BRANCH = 'BRANCH'; // BRANCH Object key - @HiveType(typeId: 3)
 const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
-
-/*
-  Dummy data
- */
-
-const DUMMY_CUST = 'lib/assets/json_dummy/customerList';
-const DUMMY_ITEM = 'lib/assets/json_dummy/itemList';
-const DUMMY_LEND = 'lib/assets/json_dummy/lendItemList';
-const DUMMY_USER = 'lib/assets/json_dummy/userinfo';
-const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
-const DUMMY_NODE = 'lib/assets/json_dummy/node';
-const DUMMY_TEAM = 'lib/assets/json_dummy/team';
-const DUMMY_WH = 'lib/assets/json_dummy/wh';
 
 /*
   # Project Plan #

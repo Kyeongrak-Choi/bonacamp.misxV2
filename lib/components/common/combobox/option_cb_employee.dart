@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../../../models/system/salchrg.dart';
+import '../../../models/system/employee.dart';
 import '../../../utils/constants.dart';
 
-class OptionCbSale extends StatelessWidget {
+class OptionCbEmployee extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(CbSaleController());
@@ -33,17 +33,17 @@ class OptionCbSale extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                  () => DropdownButtonFormField<SalChrgModel>(
+                  () => DropdownButtonFormField<EmployeeModel>(
                     isExpanded: true,
                     value: Get.find<CbSaleController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbSaleController>().data.map<DropdownMenuItem<SalChrgModel>>((SalChrgModel value) {
-                      return DropdownMenuItem<SalChrgModel>(
+                    items: Get.find<CbSaleController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                      return DropdownMenuItem<EmployeeModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.getEmployeeName),
+                        child: Text(value.getEmployeeName ?? ''),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -58,8 +58,8 @@ class OptionCbSale extends StatelessWidget {
 
 class CbSaleController extends GetxController {
   var selectedValue;
-  List<SalChrgModel> data = [
-    SalChrgModel('', '전체', false),
+  List<EmployeeModel> data = [
+    EmployeeModel('', '전체', false),
   ].obs;
 
   // param sample
@@ -70,23 +70,23 @@ class CbSaleController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    setSalChrg();
+    setEmployee();
     selectedValue = data.first;
   }
 
-  chooseItem(SalChrgModel value) async {
-    paramEmployeeCode = value.getEmployeeCode;
-    paramEmployeeName = value.getEmployeeName;
-    paramManager = value.getManager;
+  chooseItem(EmployeeModel value) async {
+    paramEmployeeCode = value.getEmployeeCode ?? '';
+    paramEmployeeName = value.getEmployeeName ?? '';
+    paramManager = value.getManager ?? false;
   }
 
-  Future<void> setSalChrg() async {
+  Future<void> setEmployee() async {
     await Hive.openBox(
       LOCAL_DB,
     );
 
-    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_SALCHRG).length; i++) {
-      data.add(Hive.box(LOCAL_DB).get(KEY_SALCHRG).elementAt(i));
+    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_EMPLOYEE).length; i++) {
+      data.add(Hive.box(LOCAL_DB).get(KEY_EMPLOYEE).elementAt(i));
     }
   }
 }

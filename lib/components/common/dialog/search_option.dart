@@ -12,7 +12,7 @@ class SearchOption extends StatelessWidget {
 
   SearchOption(String flag) {
     this.flag = flag;
-    initVar(flag);
+    //initVar(flag);
   }
 
   @override
@@ -53,22 +53,22 @@ class SearchOption extends StatelessWidget {
     );
   }
 
-  void initVar(flag) {
-    switch (flag) {
-      case SEARCH_DIALOG_CUST:
-        hint = 'hint_search_customer'.tr;
-        dummy = DUMMY_CUST;
-        break;
-      case SEARCH_DIALOG_ITEM:
-        hint = 'hint_search_item'.tr;
-        dummy = DUMMY_ITEM;
-        break;
-      case SEARCH_DIALOG_LEND:
-        hint = 'hint_search_lenditem'.tr;
-        dummy = DUMMY_LEND;
-        break;
-    }
-  }
+  // void initVar(flag) {
+  //   switch (flag) {
+  //     case SEARCH_DIALOG_CUST:
+  //       hint = 'hint_search_customer'.tr;
+  //       dummy = DUMMY_CUST;
+  //       break;
+  //     case SEARCH_DIALOG_ITEM:
+  //       hint = 'hint_search_item'.tr;
+  //       dummy = DUMMY_ITEM;
+  //       break;
+  //     case SEARCH_DIALOG_LEND:
+  //       hint = 'hint_search_lenditem'.tr;
+  //       dummy = DUMMY_LEND;
+  //       break;
+  //   }
+  //}
 }
 
 class SearchOptionController extends GetxController {

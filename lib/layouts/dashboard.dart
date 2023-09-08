@@ -9,8 +9,10 @@ import 'package:misxV2/components/dashboard/dashboard_chart2.dart';
 import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
+import 'package:misxV2/models/system/team.dart';
+import 'package:misxV2/models/system/warehouse.dart';
 
-import '../models/system/salchrg.dart';
+import '../models/system/employee.dart';
 import '../models/system/userinfo.dart';
 import '../utils/constants.dart';
 import '../utils/network/network_manager.dart';
@@ -72,16 +74,34 @@ class DashBoardController extends GetxController {
 
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
-    // System data Save
-    //await reqSystem(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES,'');
+    var response;
+    var parsedData;
 
-    var res = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES, '', API_REQ_GET);
+    // get Employees
+    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES, '', API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
 
-    log('res1 : $res');
+    // get Branches
+    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, '', API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
 
-    var parsedData = await jsonDecode(res)[TAG_DATA] as List;
-     await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
+    // get Teams
+    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS, '', API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 
-    log('res2 : $res');
+    // get Warehouses
+    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES, '', API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+
+    // get Common
+    // response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, '', API_REQ_GET);
+    // parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    // await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+
+
   }
 }
