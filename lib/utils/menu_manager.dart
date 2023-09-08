@@ -57,7 +57,7 @@ final List<IconMenu> commonModulesMaster = [
 ];
 
 final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'title_1'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+  IconMenu(title: 'title_1'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
   IconMenu(title: 'title_2'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
   IconMenu(title: 'title_3'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
   IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),

@@ -91,7 +91,7 @@ const Map<String, String> koKR = {
   'title_8': '영업일보(용도별)',
 
   'sector_2': '영업분석',
-  'title_9': '거래처 현황',
+  'title_9' : '거래처 현황',
   'title_10': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
   'title_12': '매출현황',
@@ -119,6 +119,11 @@ const Map<String, String> koKR = {
   'title_26': '재고수불현황',
   'title_27': '용공수불(창고)',
   'title_28': '용공수불현황(거래처)',
+
+  // API Result Message
+  'msg_api_success' : '성공',
+  'msg_api_401' : '인증에러 발생',
+  'msg_api_error' : '서버에러 발생',
 };
 
 //const Map<String,String> enUs = {};

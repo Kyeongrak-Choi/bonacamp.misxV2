@@ -43,7 +43,7 @@ class OptionCbSale extends StatelessWidget {
                       return DropdownMenuItem<SalChrgModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.getSalChrgNm),
+                        child: Text(value.getEmployeeName),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -59,13 +59,13 @@ class OptionCbSale extends StatelessWidget {
 class CbSaleController extends GetxController {
   var selectedValue;
   List<SalChrgModel> data = [
-    SalChrgModel('', '전체', ''),
+    SalChrgModel('', '전체', false),
   ].obs;
 
   // param sample
-  String paramSalChrgCd = '';
-  String paramSalChrgNm = '';
-  String paramMgmtChrgrYn = '';
+  String paramEmployeeCode = '';
+  String paramEmployeeName = '';
+  bool paramManager = false;
 
   @override
   void onInit() {
@@ -75,9 +75,9 @@ class CbSaleController extends GetxController {
   }
 
   chooseItem(SalChrgModel value) async {
-    paramSalChrgCd = value.getSalChrgCd;
-    paramSalChrgNm = value.getSalChrgNm;
-    paramMgmtChrgrYn = value.getMgmtChrgrYn;
+    paramEmployeeCode = value.getEmployeeCode;
+    paramEmployeeName = value.getEmployeeName;
+    paramManager = value.getManager;
   }
 
   Future<void> setSalChrg() async {

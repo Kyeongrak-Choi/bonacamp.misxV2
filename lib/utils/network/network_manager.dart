@@ -1,13 +1,18 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
 
+import '../../models/system/node.dart';
+import '../../models/system/salchrg.dart';
 import '../../models/token/req_token.dart';
 import '../constants.dart';
 import '../database/hive_manager.dart';
+import '../utility.dart';
 
 class NetworkManager extends GetxController {
   @override
@@ -90,18 +95,8 @@ Future<String> reqLogin(params) async {
 
     if (response.statusCode == 200) {
       BoxInit(); // local DB Set
-      // var parsedData = response.data[TAG_DATA];
-      //
-      // UserinfoModel userinfoModel = (response.data).map<UserinfoModel>((json){
-      //   return UserinfoModel.fromJson(json);
-      // }).toList();
-
-      // parsedData = jsonDecode(await jsonDummy(DUMMY_USER))[TAG_DATA] as List;
-      // await Hive.box(LOCAL_DB).put(KEY_USERINFO, parsedData.map((dataJson) => UserinfoModel.fromJson(dataJson)).toList());
-
       UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
 
-      // var parsedData = response.data[TAG_DATA];
       await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
 
       return response.statusCode.toString();
@@ -121,9 +116,8 @@ Future<String> reqLogin(params) async {
   }
 }
 
-Future<Response?> reqApi(api, params, method) async {
-  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-  log('accessToken : ' + await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'));
+Future<void> reqSystem(api, params) async {
+  log('req system url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
@@ -147,13 +141,57 @@ Future<Response?> reqApi(api, params, method) async {
   Response response;
 
   try {
+      response = await dio.get(api);
+      log(response.data);
+
+       var parsedData;
+      // log('parsedData : ' + parsedData);
+      // await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
+      // log('success');
+      log('success');
+
+
+    //return response.data[TAG_DATA];
+  } catch (e) {
+    Exception(e);
+    //return e.toString();
+  }
+}
+
+
+Future<dynamic> reqApi(api, params, method) async {
+  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
+  log('accessToken : ' + await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'));
+
+  var options = BaseOptions(
+    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
+    contentType: 'application/json',
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 5s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
+  );
+
+  Dio dio = Dio(options);
+
+  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+    return handler.next(options); //continue
+  }, onResponse: (response, handler) {
+    return handler.next(response); // continue
+  }, onError: (DioError e, handler) {
+    return handler.next(e);
+  }));
+
+  Response response;
+  try {
     if (method == API_REQ_GET) {
       response = await dio.get(api, data: params);
     } else {
       response = await dio.post(api, data: params);
     }
-    return response;
+    return jsonEncode(response.data);
   } catch (e) {
     Exception(e);
+    return e.toString();
   }
 }

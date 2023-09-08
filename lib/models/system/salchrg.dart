@@ -8,37 +8,37 @@ part 'salchrg.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 2)
 class SalChrgModel {
   @HiveField(0)
-  String salChrgCd; // 영업담당 코드:DA104T0
+  String employeeCode; // 영업담당 코드:DA104T0
   @HiveField(1)
-  String salChrgNm; // 영업담당 명
+  String employeeName; // 영업담당 명
   @HiveField(2)
-  String mgmtChrgrYn; // 관리 담당자 여부:ABS021-예/아니오
+  bool manager; // 관리 담당자 여부:ABS021-예/아니오
 
-  SalChrgModel(this.salChrgCd, this.salChrgNm, this.mgmtChrgrYn);
+  SalChrgModel(this.employeeCode, this.employeeName, this.manager);
 
   Map<String, dynamic> toMap() {
-    return {'salChrgCd': salChrgCd, 'salChrgNm': salChrgNm, 'mgmtChrgrYn': mgmtChrgrYn};
+    return {'employeeCode': employeeCode, 'employeeName': employeeName, 'manager': manager};
   }
 
   factory SalChrgModel.fromJson(Map<String, dynamic> json) => _$SalChrgModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalChrgModelToJson(this);
 
-  String get getSalChrgCd => salChrgCd;
+  String get getEmployeeCode => employeeCode;
 
-  set setSalChrgCd(String value) {
-    salChrgCd = value;
+  set setEmployeeCode(String value) {
+    employeeCode = value;
   }
 
-  String get getSalChrgNm => salChrgNm;
+  String get getEmployeeName => employeeName;
 
-  set setSalChrgNm(String value) {
-    salChrgNm = value;
+  set setEmployeeName(String value) {
+    employeeName = value;
   }
 
-  String get getMgmtChrgrYn => mgmtChrgrYn;
+  bool get getManager => manager;
 
-  set setMgmtChrgrYn(String value) {
-    mgmtChrgrYn = value;
+  set setManager(bool value) {
+    manager = value;
   }
 }

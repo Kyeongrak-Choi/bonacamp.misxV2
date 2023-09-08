@@ -69,7 +69,10 @@ const API_REQ_POST = 'POST';
 
 // System
 const API_SYSTEM_LOGIN = '/v1/account/sign-in';
-const API_SYSTEM_1 = '/v1/account/sign-in';
+const API_SYSTEM_MASTER = '/v1/clients/';
+const API_SYSTEM_EMPLOYEES = '/employees';
+
+
 
 /*
   Json
