@@ -74,7 +74,7 @@ const API_SYSTEM_EMPLOYEES = '/employees';
 const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
-const API_SYSTEM_COMMON = '/common';
+const API_SYSTEM_COMMON = '/v1/main/common';
 const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021';
 
 

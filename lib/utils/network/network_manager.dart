@@ -158,11 +158,11 @@ Future<void> reqSystem(api, params) async {
 
 Future<dynamic> reqApi(api, params, method) async {
   log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-  log('accessToken : ' + await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'));
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
+    'Client-Code' : params},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
     // 5s

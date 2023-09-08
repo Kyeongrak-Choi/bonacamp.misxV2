@@ -9,6 +9,7 @@ import 'package:misxV2/components/dashboard/dashboard_chart2.dart';
 import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
+import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 
@@ -98,9 +99,9 @@ class DashBoardController extends GetxController {
     await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
 
     // get Common
-    // response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, '', API_REQ_GET);
-    // parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    // await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+    response = await reqApi(API_SYSTEM_COMMON + '?codes=' +API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA] as List;
+    await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
 
 
   }
