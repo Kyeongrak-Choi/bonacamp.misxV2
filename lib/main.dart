@@ -10,7 +10,7 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
 import 'package:misxV2/utils/utility.dart';
 
-import 'components/common/combobox/config.dart';
+import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
@@ -70,7 +70,6 @@ class Misx extends StatelessWidget {
 
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
-        //GetPage(name: ROUTE_API_EXAMPLE, page: () => ApiExample()),
       ],
       home: Login(),
     );

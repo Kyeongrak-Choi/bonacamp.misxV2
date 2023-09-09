@@ -77,7 +77,8 @@ const Map<String, String> koKR = {
   'snack_information': '정보',
 
   // Progress Bar
-  'loading': '로딩중입니다...',
+  'progress_loading': '로딩중입니다...',
+  'progress_login' : '로그인중입니다...',
 
   //title Dummy 추후 각 페이지 별 위치 변경
   'sector_1': '경영분석',
@@ -122,8 +123,11 @@ const Map<String, String> koKR = {
 
   // API Result Message
   'msg_api_success' : '성공',
-  'msg_api_401' : '인증에러 발생',
-  'msg_api_error' : '서버에러 발생',
+  'msg_api_401' : '유효한 인증 자격 증명이 없습니다.',
+  'msg_api_500' : 'ID/PW를 확인하세요',
+
+  'msg_conn_api_server' : '서버에 접속할 수 없습니다.',
+  'msg_conn_auth_server' : '인증서버에 접속할 수 없습니다.',
 };
 
 //const Map<String,String> enUs = {};

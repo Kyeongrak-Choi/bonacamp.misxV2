@@ -25,7 +25,7 @@ class RadioMenu {
   });
 }
 
-// system setting master
+// notice master - step2
 // final List<IconMenu> noticeMaster = [
 //   IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_2_fill, path: ROUTE_NOTICE),
 // ];

@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
+import 'package:misxV2/models/token/server.dart';
 
 import '../../models/system/branch.dart';
 import '../../models/system/employee.dart';
@@ -48,23 +49,28 @@ Future<bool> reqToken(bool isDev) async {
     Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
-      // var dataObjsJson = jsonDecode(response.data)[TAG_DATA] as List;
-      //
-      // log('check : $dataObjsJson');
+
+      // target url 저장
+      for (var server in jsonDecode(await jsonEncode(response.data))[TAG_DATA][TAG_SERVER]){
+        if(server['server-code'] == API_SERVER_CODE){
+          await Hive.box(LOCAL_DB).put(KEY_BASE_URL, server['resource-url']+'/api');
+        }
+      }
 
       // Access token 저장
       await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN,
-          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
+          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString()
+              + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
-      // target url 저장
-      await Hive.box(LOCAL_DB).put(KEY_BASE_URL, 'http://172.27.235.104:9030/api'); // test
+      return true;
+    }else{
+      return false;
     }
   } catch (e) {
     Exception(e);
     log('error : ' + e.toString());
     return false;
   }
-  return true;
 }
 
 Future<String> reqLogin(params) async {
@@ -72,8 +78,7 @@ Future<String> reqLogin(params) async {
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
-    // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
@@ -93,19 +98,9 @@ Future<String> reqLogin(params) async {
     if (response.statusCode == 200) {
       BoxInit(); // local DB Set
       UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
-
       await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
-
-      return response.statusCode.toString();
-    } else if (response.statusCode == 401) {
-      return '인증 에러';
-    } else if (response.statusCode == 400) {
-      return '400 에러';
-    } else if (response.statusCode == 500) {
-      return '시스템 에러';
-    } else {
-      return response.data[TAG_MSG];
     }
+    return response.statusCode.toString();
   } catch (e) {
     Exception(e);
     log('error : ' + e.toString());
@@ -113,59 +108,15 @@ Future<String> reqLogin(params) async {
   }
 }
 
-Future<void> reqSystem(api, params) async {
-  log('req system url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-
-  var options = BaseOptions(
-    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
-    contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
-    // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
-  );
-
-  Dio dio = Dio(options);
-
-  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
-    return handler.next(options); //continue
-  }, onResponse: (response, handler) {
-    return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e);
-  }));
-
-  Response response;
-
-  try {
-      response = await dio.get(api);
-      log(response.data);
-
-       var parsedData;
-      // log('parsedData : ' + parsedData);
-      // await Hive.box(LOCAL_DB).put(KEY_SALCHRG, parsedData.map((dataJson) => SalChrgModel.fromJson(dataJson)).toList());
-      // log('success');
-      log('success');
-
-
-    //return response.data[TAG_DATA];
-  } catch (e) {
-    Exception(e);
-    //return e.toString();
-  }
-}
-
-
 Future<dynamic> reqApi(api, params, method) async {
   log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-    'Client-Code' : params},
+      'Client-Code' : params},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
-    // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 

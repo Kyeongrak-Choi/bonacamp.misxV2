@@ -44,8 +44,8 @@ const SEARCH_DIALOG_LEND = 'LEND';
 /*
   Netwrok Config
 */
-const CONNECT_TIMEOUT = 5;
-const RECEIVE_TIMEOUT = 3;
+const CONNECT_TIMEOUT = 15;
+const RECEIVE_TIMEOUT = 10;
 
 /*
  Authorization
@@ -63,7 +63,7 @@ const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEt
 /*
  APIs
 */
-const API_SERVER_CODE = 'DJWRLDPN0U';
+const API_SERVER_CODE = 'DJWRLDPN0U'; // 디오니소스 ERP MOBILE 경영관리 데이터 서버 코드값
 const API_REQ_GET = 'GET';
 const API_REQ_POST = 'POST';
 
@@ -75,8 +75,9 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021';
+const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021'; // 시스템 코드
 
+const API_SALES_OVERALL = '/v1/management/overall';
 
 /*
   Json

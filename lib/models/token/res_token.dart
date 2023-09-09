@@ -4,7 +4,7 @@ import 'package:misxV2/models/token/token.dart';
 
 part 'res_token.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// token response model
 @JsonSerializable(explicitToJson: true)
 class ResTokenModel {
   ToKenModel token; //
