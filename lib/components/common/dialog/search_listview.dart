@@ -69,16 +69,16 @@ class SearchListController extends GetxController {
     var jsonString = await jsonDummy(dummy);
     var dataObjsJson = jsonDecode(jsonString)[TAG_DATA] as List;
 
-    if (dummy == DUMMY_CUST) {
-      parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
-      flag = SEARCH_DIALOG_CUST;
-    } else if (dummy == DUMMY_ITEM) {
-      parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
-      flag = SEARCH_DIALOG_ITEM;
-    } else if (dummy == DUMMY_LEND) {
-      parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
-      flag = SEARCH_DIALOG_LEND;
-    }
+    // if (dummy == DUMMY_CUST) {
+    //   parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+    //   flag = SEARCH_DIALOG_CUST;
+    // } else if (dummy == DUMMY_ITEM) {
+    //   parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
+    //   flag = SEARCH_DIALOG_ITEM;
+    // } else if (dummy == DUMMY_LEND) {
+    //   parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
+    //   flag = SEARCH_DIALOG_LEND;
+    // }
     datas.clear();
     datas.addAll(parsedResponse);
   }

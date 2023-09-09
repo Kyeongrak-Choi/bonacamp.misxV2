@@ -1,35 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'team.dart';
+part of 'employee.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TeamModelAdapter extends TypeAdapter<TeamModel> {
+class EmployeeModelAdapter extends TypeAdapter<EmployeeModel> {
   @override
-  final int typeId = 4;
+  final int typeId = 2;
 
   @override
-  TeamModel read(BinaryReader reader) {
+  EmployeeModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return TeamModel(
+    return EmployeeModel(
       fields[0] as String?,
       fields[1] as String?,
+      fields[2] as bool?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, TeamModel obj) {
+  void write(BinaryWriter writer, EmployeeModel obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.teamCode)
+      ..write(obj.employeeCode)
       ..writeByte(1)
-      ..write(obj.teamName);
+      ..write(obj.employeeName)
+      ..writeByte(2)
+      ..write(obj.manager);
   }
 
   @override
@@ -38,7 +41,7 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TeamModelAdapter &&
+      other is EmployeeModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -47,12 +50,16 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-TeamModel _$TeamModelFromJson(Map<String, dynamic> json) => TeamModel(
-      json['teamCode'] as String?,
-      json['teamName'] as String?,
+EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) =>
+    EmployeeModel(
+      json['employeeCode'] as String?,
+      json['employeeName'] as String?,
+      json['manager'] as bool?,
     );
 
-Map<String, dynamic> _$TeamModelToJson(TeamModel instance) => <String, dynamic>{
-      'teamCode': instance.teamCode,
-      'teamName': instance.teamName,
+Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) =>
+    <String, dynamic>{
+      'employeeCode': instance.employeeCode,
+      'employeeName': instance.employeeName,
+      'manager': instance.manager,
     };

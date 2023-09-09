@@ -8,37 +8,39 @@ part 'common.g.dart'; // *.g.dart : in same directory
 @HiveType(typeId: 6)
 class CommonModel {
   @HiveField(0)
-  String mainCd; // 메인 코드
+  String? mainCode; // 메인 코드
   @HiveField(1)
-  String subCd; // 서브 코드
+  int? no; // 코드 순번
   @HiveField(2)
-  String subNm; // 서브 명
+  String? code; // 서브 코드
   @HiveField(3)
-  String conn1; // 서브 데이터1
+  String? name; // 서브 코드 명
   @HiveField(4)
-  String conn2; // 서브 데이터2
+  String? option1; // 옵션 1
   @HiveField(5)
-  String conn3; // 서브 데이터3
+  String? option2; // 옵션 2
   @HiveField(6)
-  String conn4; // 서브 데이터4
+  String? option3; // 옵션 3
   @HiveField(7)
-  String conn5; // 서브 데이터5
+  String? option4; // 옵션 4
   @HiveField(8)
-  String inqOrd; // 정렬순서
+  String? option5; // 옵션 5
 
-  CommonModel(this.mainCd, this.subCd, this.subNm, this.conn1, this.conn2, this.conn3, this.conn4, this.conn5, this.inqOrd);
+  CommonModel(this.mainCode, this.no, this.code, this.name, this.option1, this.option2, this.option3, this.option4, this.option5); // 정렬순서
+
+
 
   Map<String, dynamic> toMap() {
     return {
-      'mainCd': mainCd,
-      'subCd': subCd,
-      'subNm': subNm,
-      'conn1': conn1,
-      'conn2': conn2,
-      'conn3': conn3,
-      'conn4': conn4,
-      'conn5': conn5,
-      'inqOrd': inqOrd
+      'mainCode': mainCode,
+      'no': no,
+      'code': code,
+      'name': name,
+      'option1': option1,
+      'option2': option2,
+      'option3': option3,
+      'option4': option4,
+      'option5': option5
     };
   }
 
@@ -46,57 +48,59 @@ class CommonModel {
 
   Map<String, dynamic> toJson() => _$CommonModelToJson(this);
 
-  String get getMainCd => mainCd;
+  String? get getMainCode => mainCode;
 
-  set setMainCd(String value) {
-    mainCd = value;
+  set setMainCode(String value) {
+    mainCode = value;
   }
 
-  String get getSubCd => subCd;
+  int? get getNo => no;
 
-  set setSubCd(String value) {
-    subCd = value;
+  set setNo(int value) {
+    no = value;
   }
 
-  String get getSubNm => subNm;
+  String? get getCode => code;
 
-  set setSubNm(String value) {
-    subNm = value;
+  set setCode(String value) {
+    code = value;
   }
 
-  String get getConn1 => conn1;
+  String? get getName => name;
 
-  set setConn1(String value) {
-    conn1 = value;
+  set setName(String value) {
+    name = value;
   }
 
-  String get getConn2 => conn2;
+  String? get getOption1 => option1;
 
-  set setConn2(String value) {
-    conn2 = value;
+  set setOption1(String value) {
+    option1 = value;
   }
 
-  String get getConn3 => conn3;
+  String? get getOption2 => option2;
 
-  set setConn3(String value) {
-    conn3 = value;
+  set setOption2(String value) {
+    option2 = value;
   }
 
-  String get getConn4 => conn4;
+  String? get getOption3 => option3;
 
-  set setConn4(String value) {
-    conn4 = value;
+  set setOption3(String value) {
+    option3 = value;
   }
 
-  String get getConn5 => conn5;
+  String? get getOption4 => option4;
 
-  set setConn5(String value) {
-    conn5 = value;
+  set setOption4(String value) {
+    option4 = value;
   }
 
-  String get getInqOrd => inqOrd;
+  String? get getOption5 => option5;
 
-  set setInqOrd(String value) {
-    inqOrd = value;
+  set setOption5(String value) {
+    option5 = value;
   }
+
+
 }

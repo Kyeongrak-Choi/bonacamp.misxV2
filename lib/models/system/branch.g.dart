@@ -1,50 +1,47 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'userinfo.dart';
+part of 'branch.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
+class BranchModelAdapter extends TypeAdapter<BranchModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 3;
 
   @override
-  UserinfoModel read(BinaryReader reader) {
+  BranchModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return UserinfoModel(
-      fields[0] as String,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as String,
-      fields[5] as String,
-      fields[6] as String,
+    return BranchModel(
+      fields[0] as String?,
+      fields[1] as String?,
+      fields[2] as String?,
+      fields[3] as String?,
+      fields[4] as String?,
+      fields[5] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, UserinfoModel obj) {
+  void write(BinaryWriter writer, BranchModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.clientCode)
       ..writeByte(1)
       ..write(obj.clientName)
       ..writeByte(2)
-      ..write(obj.businessNo)
+      ..write(obj.branchCode)
       ..writeByte(3)
-      ..write(obj.userId)
+      ..write(obj.branchName)
       ..writeByte(4)
-      ..write(obj.userName)
+      ..write(obj.businessNo)
       ..writeByte(5)
-      ..write(obj.roleCode)
-      ..writeByte(6)
-      ..write(obj.schemaCode);
+      ..write(obj.representative);
   }
 
   @override
@@ -53,7 +50,7 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserinfoModelAdapter &&
+      other is BranchModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -62,24 +59,21 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
-    UserinfoModel(
-      json['clientCode'] as String,
-      json['clientName'] as String,
-      json['businessNo'] as String,
-      json['userId'] as String,
-      json['userName'] as String,
-      json['roleCode'] as String,
-      json['schemaCode'] as String,
+BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
+      json['clientCode'] as String?,
+      json['clientName'] as String?,
+      json['branchCode'] as String?,
+      json['branchName'] as String?,
+      json['businessNo'] as String?,
+      json['representative'] as String?,
     );
 
-Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
+Map<String, dynamic> _$BranchModelToJson(BranchModel instance) =>
     <String, dynamic>{
       'clientCode': instance.clientCode,
       'clientName': instance.clientName,
+      'branchCode': instance.branchCode,
+      'branchName': instance.branchName,
       'businessNo': instance.businessNo,
-      'userId': instance.userId,
-      'userName': instance.userName,
-      'roleCode': instance.roleCode,
-      'schemaCode': instance.schemaCode,
+      'representative': instance.representative,
     };

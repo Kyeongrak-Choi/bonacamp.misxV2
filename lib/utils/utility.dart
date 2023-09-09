@@ -93,27 +93,24 @@ void ShowDialog(type, title, content, context) {
 }
 
 // Progress Bar
-void ShowProgress(context) {
+void ShowProgress(context,dynamic,bool) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
     backgroundColor: CommonColors.bluesky,
     textColor: CommonColors.dark,
-    loadingText: 'loading'.tr,
+    loadingText: dynamic,
   );
-  progressDialog.show();
-  //Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
+  if(bool) {
+    progressDialog.show();
+  }else{
+    progressDialog.dismiss();
+  }
 }
 
-void HideProgess(context) {
-  ProgressDialog progressDialog = ProgressDialog(
-    context: context,
-    backgroundColor: CommonColors.bluesky,
-    textColor: CommonColors.dark,
-    loadingText: 'loading'.tr,
-  );
-  progressDialog.dismiss();
-}
 
 String convertBusinessNo(String businessNo) {
   return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
 }
+
+// ProgressDialog pd = ProgressDialog(context: context);
+// pd.show(max: 100, msg: '로그인중...');

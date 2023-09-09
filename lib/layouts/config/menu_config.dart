@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
 
-import '../../components/common/combobox/config.dart';
 import '../../utils/menu_manager.dart';
+import 'config.dart';
 
 // Menu Config Setting
 class MenuConfig extends StatelessWidget {
