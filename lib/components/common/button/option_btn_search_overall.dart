@@ -34,6 +34,8 @@ class OptionBtnSearchOverAll extends StatelessWidget {
                       await Get.find<OverAllController>().showResult();
 
                       pd.close();
+
+                      Get.find<OverAllController>().setVisible();
                       //HideProgess(context);
                     },
                     child: Icon(Icons.search, color: context.theme.primaryColor),

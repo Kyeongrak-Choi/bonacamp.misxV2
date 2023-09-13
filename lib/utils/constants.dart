@@ -106,6 +106,15 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
+// Response payload data name
+const TAG_SALES = 'sales';
+const TAG_PURCHASE = 'purchase';
+const TAG_DEPOSIT = 'deposit';
+const TAG_WITHDRAW = 'withdraw';
+const TAG_RETURN = 'return';
+const TAG_RENTAL = 'rental';
+const TAG_ASSET = 'asset';
+
 /*
   HIVE DB
  */

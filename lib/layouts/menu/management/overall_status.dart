@@ -28,23 +28,34 @@ import '../../../utils/network/network_manager.dart';
 class OverallStatus extends StatelessWidget {
   @override
   Widget build(context) {
-    //Get.put(OverAllController());
-    return Scaffold(
+    Get.put(OverAllController());
+    return Obx(() => Scaffold(
         appBar: AppBar(
-            title: Text('종합 현황'),
+            title: Text('appbar_title_overall_status'.tr),
             backgroundColor: context.theme.backgroundColor,
             iconTheme: context.theme.iconTheme,
+            actions: [
+              IconButton(
+                icon: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
+                onPressed: () {
+                  Get.find<OverAllController>().setVisible();
+                },
+              ),
+            ]
           ),
         body: Container(
           color: context.theme.backgroundColor,
           child: Column(
             children: [
-              Column(
-                children: [
-                  OptionPeriodPicker(),
-                  OptionCbBranch(),
-                  OptionBtnSearchOverAll(),
-                ],
+              Visibility(
+                visible: Get.find<OverAllController>().visible.value,
+                child: Column(
+                  children: [
+                    OptionPeriodPicker(),
+                    OptionCbBranch(),
+                    OptionBtnSearchOverAll(),
+                  ],
+                ),
               ),
               Expanded(
                 child: OverAllTable(),
@@ -52,7 +63,7 @@ class OverallStatus extends StatelessWidget {
             ],
           ),
         ),
-    );
+    ));
   }
 }
 
@@ -65,6 +76,12 @@ class OverAllController extends GetxController {
   var controllerReturnModel;
   var controllerRentalModel;
   var controllerAssetModel;
+
+  var visible = true.obs;
+
+  setVisible() async {
+    visible.value = !visible.value;
+  }
 
   Future showResult() async {
 
@@ -88,13 +105,13 @@ class OverAllController extends GetxController {
     try {
       response = await reqApiThrow(API_SALES_OVERALL + '?nodeCd=' + tempNodeCd + '&fromDt=' + tempFromDt + '&toDt=' + tempToDt, param, API_REQ_GET);
 
-      parsedDataSales     = await jsonDecode(response)[TAG_DATA]['sales'];
-      parsedDataPurchase  = await jsonDecode(response)[TAG_DATA]['purchase'];
-      parsedDataDeposit   = await jsonDecode(response)[TAG_DATA]['deposit'];
-      parsedDataWithdraw  = await jsonDecode(response)[TAG_DATA]['withdraw'];
-      parsedDataReturn    = await jsonDecode(response)[TAG_DATA]['return'];
-      parsedDataRental   = await jsonDecode(response)[TAG_DATA]['rental'];
-      parsedDataAsset     = await jsonDecode(response)[TAG_DATA]['asset'];
+      parsedDataSales     = await jsonDecode(response)[TAG_DATA][TAG_SALES];
+      parsedDataPurchase  = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
+      parsedDataDeposit   = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
+      parsedDataWithdraw  = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
+      parsedDataReturn    = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
+      parsedDataRental   = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
+      parsedDataAsset     = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
 
       //controllerOverAllModel = OverAllModel.fromJson(parsedData);
 

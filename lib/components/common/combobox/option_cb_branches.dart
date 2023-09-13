@@ -37,6 +37,7 @@ class OptionCbBranch extends StatelessWidget {
                       () => DropdownButtonFormField<BranchModel>(
                     isExpanded: true,
                     value: Get.find<CbBranchController>().selectedValue,
+
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
@@ -85,6 +86,8 @@ class CbBranchController extends GetxController {
     paramBranchName = value.getBranchName ?? '';
     paramBusinessNo = value.getBusinessNo ?? '';
     paramRepresentative = value.getRepresentative ?? '';
+
+    selectedValue = value;
   }
 
   Future<void> setBranch() async {

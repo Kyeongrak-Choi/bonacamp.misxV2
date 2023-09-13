@@ -23,8 +23,10 @@ class MenuExample extends StatelessWidget {
             iconTheme: context.theme.iconTheme,
             actions: [
               IconButton(
-                icon: OptionBtnVisible(),
-                onPressed: () => null,
+                icon: OptionBtnVisible(visible: Get.find<MenuExampleController>().visible.value,),
+                onPressed: () {
+                  Get.find<MenuExampleController>().setVisible();
+                },
               ),
               // IconButton(
               //   icon: OptionBtnMyMenu(),
