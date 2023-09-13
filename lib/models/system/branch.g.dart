@@ -49,10 +49,7 @@ class BranchModelAdapter extends TypeAdapter<BranchModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is BranchModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is BranchModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -68,8 +65,7 @@ BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
       json['representative'] as String?,
     );
 
-Map<String, dynamic> _$BranchModelToJson(BranchModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$BranchModelToJson(BranchModel instance) => <String, dynamic>{
       'clientCode': instance.clientCode,
       'clientName': instance.clientName,
       'branchCode': instance.branchCode,

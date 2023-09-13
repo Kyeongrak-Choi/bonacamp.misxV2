@@ -8,15 +8,11 @@ import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
 import 'package:misxV2/utils/network/network_manager.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
-import 'package:misxV2/utils/utility.dart';
 
-import '../../../models/common/item.dart';
-import '../../../models/common/lenditem.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 
 class SearchList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(SearchListController());
@@ -59,7 +55,6 @@ class SearchList extends StatelessWidget {
     // }
     return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
         Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
-
   }
 }
 
@@ -82,7 +77,7 @@ class SearchListController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
     var response;
-    var dataObjsJson ;
+    var dataObjsJson;
 
     switch (flag) {
       case SEARCH_DIALOG_CUST:

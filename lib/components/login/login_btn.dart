@@ -1,17 +1,15 @@
 import 'dart:async';
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../models/system/req_login.dart';
 import '../../utils/constants.dart';
 import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 class LoginBtn extends StatelessWidget {
   const LoginBtn({Key? key}) : super(key: key);
@@ -27,9 +25,7 @@ class LoginBtn extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);
-                  pd.show(max: 100
-                      , msg: 'progress_login'.tr
-                      ,backgroundColor: CommonColors.bluesky);
+                  pd.show(max: 100, msg: 'progress_login'.tr, backgroundColor: CommonColors.bluesky);
                   if (await Get.find<LoginBtnController>().LoginCheck()) {
                     pd.close();
                     Get.toNamed(ROUTE_NATIGATION);
@@ -73,7 +69,6 @@ class LoginBtnController extends GetxController {
     if (inputId == '' || inputPw == '') {
       return false;
     } else {
-
       // Request Token
       if (await reqToken(true)) {
         // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
@@ -83,10 +78,10 @@ class LoginBtnController extends GetxController {
           await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
           inputPw = ''; // pw 초기화
           return true;
-        } else if(res == '401'){
+        } else if (res == '401') {
           ShowSnackBar(SNACK_TYPE.ALARM, 'msg_api_401'.tr);
           return false;
-        } else if(res == '500'){
+        } else if (res == '500') {
           ShowSnackBar(SNACK_TYPE.ALARM, 'msg_api_500'.tr);
           return false;
         } else {

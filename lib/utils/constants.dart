@@ -83,7 +83,6 @@ const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,A
 const API_COMMON = '/v1/common';
 const API_COMMON_CUSTOMER = '/customer';
 
-
 const API_SALES_OVERALL = '/v1/management/overall';
 
 /*

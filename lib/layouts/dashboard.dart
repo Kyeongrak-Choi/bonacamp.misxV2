@@ -5,23 +5,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
-import 'package:misxV2/components/dashboard/dashboard_chart2.dart';
+import 'package:misxV2/components/dashboard/dashboard_asset.dart';
+import 'package:misxV2/components/dashboard/dashboard_deposit.dart';
 import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
+import 'package:misxV2/components/dashboard/dashboard_return.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
+import 'package:misxV2/components/dashboard/dashboard_withdraw.dart';
 import 'package:misxV2/models/management/overall/overallsales.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
+import 'package:misxV2/utils/utility.dart';
 
-import '../models/management/overall/overall.dart';
+import '../models/management/overall/overallasset.dart';
+import '../models/management/overall/overalldeposit.dart';
+import '../models/management/overall/overallpurchase.dart';
+import '../models/management/overall/overallrental.dart';
+import '../models/management/overall/overallreturn.dart';
+import '../models/management/overall/overallwithdraw.dart';
 import '../models/system/employee.dart';
 import '../models/system/userinfo.dart';
 import '../utils/constants.dart';
 import '../utils/network/network_manager.dart';
 
 class DashBoard extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(NetworkManager());
@@ -53,12 +61,28 @@ class DashBoard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardRental(), // 대여
+                        child: DashBoardDeposit(), // 회수
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardChart2(), // 차트
+                        child: DashBoardWithdraw(), // 출금
                       ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        child: DashBoardReturn(), // 반납
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        child: DashBoardRental(), // 대여
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 30),
+                        child: DashBoardAsset(), // 자산
+                      ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardChart2(), // 차트
+                      // ),
                     ],
                   ),
                 )
@@ -70,6 +94,14 @@ class DashBoard extends StatelessWidget {
 }
 
 class DashBoardController extends GetxController {
+  var controllerOverAllModel;
+  var controllerSalesModel;
+  var controllerPurchaseModel;
+  var controllerDepositModel;
+  var controllerWithdrawModel;
+  var controllerReturnModel;
+  var controllerRentalModel;
+  var controllerAssetModel;
 
   @override
   void onInit() async {
@@ -101,17 +133,33 @@ class DashBoardController extends GetxController {
     await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
 
     // get System Common
-    response = await reqApi(API_SYSTEM_COMMON + '?codes=' +API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
+    response = await reqApi(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
     parsedData = await jsonDecode(response)[TAG_DATA] as List;
     await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
 
     //get overall - dashboard
-    response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt=20230905&toDt=20230905', param, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA]['sales'];
+    try {
+      //response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt='+getToday()+'&toDt='+getToday(), param, API_REQ_GET);
+      response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt=20230901' + '&toDt=' + getToday(), param, API_REQ_GET);
 
-    OverAllSalesModel salesModel = OverAllSalesModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['sales'];
+      controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['purchase'];
+      controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['deposit'];
+      controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['withdraw'];
+      controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['return'];
+      controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['rental'];
+      controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
+      parsedData = await jsonDecode(response)[TAG_DATA]['asset'];
+      controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
 
-    log('check 2 : ' + salesModel.getGrntAmt.toString());
-
+      update();
+    } catch (e) {
+      log(e.toString());
+    }
   }
 }

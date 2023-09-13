@@ -28,8 +28,6 @@ class CommonModel {
 
   CommonModel(this.mainCode, this.no, this.code, this.name, this.option1, this.option2, this.option3, this.option4, this.option5); // 정렬순서
 
-
-
   Map<String, dynamic> toMap() {
     return {
       'mainCode': mainCode,
@@ -101,6 +99,4 @@ class CommonModel {
   set setOption5(String value) {
     option5 = value;
   }
-
-
 }

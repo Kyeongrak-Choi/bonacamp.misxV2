@@ -50,9 +50,13 @@ const Map<String, String> koKR = {
   'period_error_content': '기간을 확인해주세요.',
 
   // DashBoard
-  'title_sales': '매출',
-  'title_purcahse': '매입',
-  'title_rental': '대여',
+  'title_sales': '당월 매출',
+  'title_purchase': '당월 매입',
+  'title_deposit': '당월 회수',
+  'title_withdraw': '당월 출금',
+  'title_return': '당월 반납',
+  'title_rental': '당월 대여',
+  'title_asset': '당월 자산',
   'title_status': '현황',
 
   // Navigation Label
@@ -82,7 +86,7 @@ const Map<String, String> koKR = {
 
   // Progress Bar
   'progress_loading': '로딩중입니다...',
-  'progress_login' : '로그인중입니다...',
+  'progress_login': '로그인중입니다...',
 
   // menu
   'menu_main_managemnent': '경영분석',
@@ -96,7 +100,7 @@ const Map<String, String> koKR = {
   'title_8': '영업일보(용도별)',
 
   'sector_2': '영업분석',
-  'title_9' : '거래처 현황',
+  'title_9': '거래처 현황',
   'title_10': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
   'title_12': '매출현황',
@@ -126,13 +130,13 @@ const Map<String, String> koKR = {
   'title_28': '용공수불현황(거래처)',
 
   // API Result Message
-  'msg_api_success' : '성공',
-  'msg_api_400' : '잘못된 요청입니다.',
-  'msg_api_401' : '유효한 인증 자격 증명이 없습니다.',
-  'msg_api_500' : '서버 에러입니다.',
+  'msg_api_success': '성공',
+  'msg_api_400': '잘못된 요청입니다.',
+  'msg_api_401': '유효한 인증 자격 증명이 없습니다.',
+  'msg_api_500': '서버 에러입니다.',
 
-  'msg_conn_api_server' : '서버에 접속할 수 없습니다.',
-  'msg_conn_auth_server' : '인증서버에 접속할 수 없습니다.',
+  'msg_conn_api_server': '서버에 접속할 수 없습니다.',
+  'msg_conn_auth_server': '인증서버에 접속할 수 없습니다.',
 };
 
 //const Map<String,String> enUs = {};

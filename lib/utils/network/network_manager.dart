@@ -2,21 +2,14 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+import 'package:dio/src/response.dart' as Res;
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
-import 'package:misxV2/models/token/server.dart';
-import 'package:dio/src/response.dart' as Res;
 
-import '../../models/system/branch.dart';
-import '../../models/system/employee.dart';
 import '../../models/token/req_token.dart';
-import '../../models/token/res_token.dart';
 import '../constants.dart';
 import '../database/hive_manager.dart';
-import '../utility.dart';
 
 class NetworkManager extends GetxController {
   @override
@@ -51,21 +44,19 @@ Future<bool> reqToken(bool isDev) async {
     Res.Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
-
       // target url 저장
-      for (var server in jsonDecode(await jsonEncode(response.data))[TAG_DATA][TAG_SERVER]){
-        if(server['server-code'] == API_SERVER_CODE){
-          await Hive.box(LOCAL_DB).put(KEY_BASE_URL, server['resource-url']+'/api');
+      for (var server in jsonDecode(await jsonEncode(response.data))[TAG_DATA][TAG_SERVER]) {
+        if (server['server-code'] == API_SERVER_CODE) {
+          await Hive.box(LOCAL_DB).put(KEY_BASE_URL, server['resource-url'] + '/api');
         }
       }
 
       // Access token 저장
       await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN,
-          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString()
-              + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
+          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
       return true;
-    }else{
+    } else {
       return false;
     }
   } catch (e) {
@@ -80,7 +71,8 @@ Future<String> reqLogin(params) async {
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 15s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 15s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 10s
   );
 
@@ -115,10 +107,10 @@ Future<dynamic> reqApi(api, params, method) async {
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-      'Client-Code' : params},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 15s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 15s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 10s
   );
 
@@ -147,7 +139,7 @@ Future<dynamic> reqApi(api, params, method) async {
         return 'msg_api_400'.tr;
       case 401:
         return 'msg_api_401'.tr;
-      case 500 :
+      case 500:
         return 'msg_api_500'.tr;
     }
   } catch (e) {

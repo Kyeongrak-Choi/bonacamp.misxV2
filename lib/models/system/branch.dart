@@ -23,12 +23,14 @@ class BranchModel {
   BranchModel(this.clientCode, this.clientName, this.branchCode, this.branchName, this.businessNo, this.representative);
 
   Map<String, dynamic> toMap() {
-    return {'clientCode': clientCode
-          , 'clientName': clientName
-          , 'branchCode': branchCode
-          , 'branchName': branchName
-          , 'businessNo': businessNo
-          , 'representative': representative};
+    return {
+      'clientCode': clientCode,
+      'clientName': clientName,
+      'branchCode': branchCode,
+      'branchName': branchName,
+      'businessNo': businessNo,
+      'representative': representative
+    };
   }
 
   factory BranchModel.fromJson(Map<String, dynamic> json) => _$BranchModelFromJson(json);
@@ -70,5 +72,4 @@ class BranchModel {
   set setRepresentative(String value) {
     representative = value;
   }
-
 }
