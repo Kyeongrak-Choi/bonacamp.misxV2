@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -58,7 +59,7 @@ final List<IconMenu> commonModulesMaster = [
 ];
 
 final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'title_1'.tr, iconData: Icons.copy_outlined, path: ROUTE_EXAM_MENU),
+  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_EXAM_MENU),
   IconMenu(title: 'title_2'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
   IconMenu(title: 'title_3'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
   IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),

@@ -106,12 +106,12 @@ class DashBoardController extends GetxController {
     await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
 
     //get overall - dashboard
-    // response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt=20230905&toDt=20230905', param, API_REQ_GET);
-    // parsedData = await jsonDecode(response)[TAG_DATA]['sales'];
-    //
-    // OverAllSalesModel salesModel = OverAllSalesModel.fromJson(parsedData);
-    //
-    // log('check 2 : ' + salesModel.getGrntAmt.toString());
+    response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt=20230905&toDt=20230905', param, API_REQ_GET);
+    parsedData = await jsonDecode(response)[TAG_DATA]['sales'];
+
+    OverAllSalesModel salesModel = OverAllSalesModel.fromJson(parsedData);
+
+    log('check 2 : ' + salesModel.getGrntAmt.toString());
 
   }
 }

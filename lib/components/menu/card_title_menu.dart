@@ -16,7 +16,7 @@ class CardTitleMenuList extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           child: Text(
-            '[' + menuTitleName + '] ',
+             menuTitleName,
             style: context.textTheme.headline1,
             overflow: TextOverflow.ellipsis,
           ),

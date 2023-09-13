@@ -3,10 +3,12 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
 import 'package:misxV2/models/token/server.dart';
+import 'package:dio/src/response.dart' as Res;
 
 import '../../models/system/branch.dart';
 import '../../models/system/employee.dart';
@@ -46,7 +48,7 @@ Future<bool> reqToken(bool isDev) async {
   }));
 
   try {
-    Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
+    Res.Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
 
@@ -78,8 +80,8 @@ Future<String> reqLogin(params) async {
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 15s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 10s
   );
 
   Dio dio = Dio(options);
@@ -93,7 +95,7 @@ Future<String> reqLogin(params) async {
   }));
 
   try {
-    Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
+    Res.Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
 
     if (response.statusCode == 200) {
       BoxInit(); // local DB Set
@@ -116,8 +118,8 @@ Future<dynamic> reqApi(api, params, method) async {
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
       'Client-Code' : params},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 15s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 10s
   );
 
   Dio dio = Dio(options);
@@ -130,56 +132,26 @@ Future<dynamic> reqApi(api, params, method) async {
     return handler.next(e);
   }));
 
-  Response response;
+  Res.Response response;
   try {
     if (method == API_REQ_GET) {
       response = await dio.get(api, data: params);
     } else {
       response = await dio.post(api, data: params);
     }
-    return jsonEncode(response.data);
+
+    switch (response.statusCode) {
+      case 200:
+        return jsonEncode(response.data);
+      case 400:
+        return 'msg_api_400'.tr;
+      case 401:
+        return 'msg_api_401'.tr;
+      case 500 :
+        return 'msg_api_500'.tr;
+    }
   } catch (e) {
     Exception(e);
     return e.toString();
-
   }
 }
-
-Future<Response> reqApi2(api, params, method) async {
-  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-
-  var options = BaseOptions(
-    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-      'Client-Code' : params},
-    contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
-  );
-
-  Dio dio = Dio(options);
-
-  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
-    return handler.next(options); //continue
-  }, onResponse: (response, handler) {
-    return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e);
-  }));
-
-  Response response;
-  try {
-    if (method == API_REQ_GET) {
-      response = await dio.get(api, data: params);
-    } else {
-      response = await dio.post(api, data: params);
-    }
-    return response;
-  } catch (e) {
-    // if(response.statusCode ='401'){
-    //   return response.statusCode;
-    // }
-    return response;
-  }
-}
-

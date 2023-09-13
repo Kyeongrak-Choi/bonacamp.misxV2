@@ -17,11 +17,11 @@ class MenuList extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: "공통-test용", iconMenuList: commonModulesMaster),
+                  child: CardTitleMenuList(menuTitleName: "공통 팝업(추후 삭제)", iconMenuList: commonModulesMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_1'.tr, iconMenuList: managementAnalysisMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
