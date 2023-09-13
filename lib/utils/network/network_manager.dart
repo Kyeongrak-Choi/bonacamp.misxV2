@@ -141,5 +141,45 @@ Future<dynamic> reqApi(api, params, method) async {
   } catch (e) {
     Exception(e);
     return e.toString();
+
   }
 }
+
+Future<Response> reqApi2(api, params, method) async {
+  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
+
+  var options = BaseOptions(
+    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
+      'Client-Code' : params},
+    contentType: 'application/json',
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
+  );
+
+  Dio dio = Dio(options);
+
+  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+    return handler.next(options); //continue
+  }, onResponse: (response, handler) {
+    return handler.next(response); // continue
+  }, onError: (DioError e, handler) {
+    return handler.next(e);
+  }));
+
+  Response response;
+  try {
+    if (method == API_REQ_GET) {
+      response = await dio.get(api, data: params);
+    } else {
+      response = await dio.post(api, data: params);
+    }
+    return response;
+  } catch (e) {
+    // if(response.statusCode ='401'){
+    //   return response.statusCode;
+    // }
+    return response;
+  }
+}
+

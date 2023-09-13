@@ -33,6 +33,10 @@ const Map<String, String> koKR = {
   'title_search_customer': '거래처 검색',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
 
+  // Dialog search purchase
+  'title_search_purchase': '매입처 검색',
+  'hint_search_purchase': '매입처 코드/명을 입력해주세요.',
+
   // Dialog search item
   'title_search_item': '품목 검색',
   'hint_search_item': '품목 코드/명을 입력해주세요.',

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'req_login.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// Login Request Model
 @JsonSerializable(explicitToJson: true)
 class ReqLoginModel {
   String id;
