@@ -26,6 +26,9 @@ const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 const ROUTE_MENU_EXAMPLE = '/menuExample';
 const ROUTE_API_EXAMPLE = '/apiExample';
 
+// Route 경영 분석
+const ROUTE_MENU_OVERALL_STATUS = '/overallStatus';
+
 /*
   Util
  */

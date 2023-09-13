@@ -14,30 +14,30 @@ part 'overall.g.dart'; // *.g.dart : in same directory
 @JsonSerializable(explicitToJson: true)
 class OverAllModel {
   OverAllSalesModel overAllSales; // 종합현황 - 매출
-  OverAllPurchaseModel overAllPuchase; // 종합현황 - 매입
+  OverAllPurchaseModel overAllPurchase; // 종합현황 - 매입
   OverAllDepositModel overAllDeposit; // 종합현황 - 입금
   OverAllWithdrawModel overAllWithdraw; // 종합현황 - 출금
   OverAllReturnModel overAllReturn; // 종합현황 - 반납
-  OverAllRentalModel overAllRentall; // 종합현황 - 대여금
+  OverAllRentalModel overAllRental; // 종합현황 - 대여금
   OverAllAssetModel overAllAsset; // 종합현황 - 대여자산
 
   OverAllModel(
         this.overAllSales
-      , this.overAllPuchase
+      , this.overAllPurchase
       , this.overAllDeposit
       , this.overAllWithdraw
       , this.overAllReturn
-      , this.overAllRentall
+      , this.overAllRental
       , this.overAllAsset );
 
   Map<String, dynamic> toMap() {
     return {
       'overAllSales': overAllSales,
-      'overAllPuchase': overAllPuchase,
+      'overAllPuchase': overAllPurchase,
       'overAllDeposit': overAllDeposit,
       'overAllWithdraw': overAllWithdraw,
       'overAllReturn': overAllReturn,
-      'overAllRentall': overAllRentall,
+      'overAllRental': overAllRental,
       'overAllAsset': overAllAsset,
     };
   }

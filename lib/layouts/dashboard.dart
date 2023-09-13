@@ -15,6 +15,7 @@ import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 
 import '../models/management/overall/overall.dart';
+import '../models/system/branch.dart';
 import '../models/system/employee.dart';
 import '../models/system/userinfo.dart';
 import '../utils/constants.dart';
@@ -88,7 +89,7 @@ class DashBoardController extends GetxController {
     // get Branches
     response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, null, API_REQ_GET);
     parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+    await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
 
     // get Teams
     response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS, null, API_REQ_GET);

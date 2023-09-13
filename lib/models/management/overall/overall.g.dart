@@ -9,7 +9,7 @@ part of 'overall.dart';
 OverAllModel _$OverAllModelFromJson(Map<String, dynamic> json) => OverAllModel(
       OverAllSalesModel.fromJson(json['overAllSales'] as Map<String, dynamic>),
       OverAllPurchaseModel.fromJson(
-          json['overAllPuchase'] as Map<String, dynamic>),
+          json['overAllPurchase'] as Map<String, dynamic>),
       OverAllDepositModel.fromJson(
           json['overAllDeposit'] as Map<String, dynamic>),
       OverAllWithdrawModel.fromJson(
@@ -17,17 +17,17 @@ OverAllModel _$OverAllModelFromJson(Map<String, dynamic> json) => OverAllModel(
       OverAllReturnModel.fromJson(
           json['overAllReturn'] as Map<String, dynamic>),
       OverAllRentalModel.fromJson(
-          json['overAllRentall'] as Map<String, dynamic>),
+          json['overAllRental'] as Map<String, dynamic>),
       OverAllAssetModel.fromJson(json['overAllAsset'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$OverAllModelToJson(OverAllModel instance) =>
     <String, dynamic>{
       'overAllSales': instance.overAllSales.toJson(),
-      'overAllPuchase': instance.overAllPuchase.toJson(),
+      'overAllPuchase': instance.overAllPurchase.toJson(),
       'overAllDeposit': instance.overAllDeposit.toJson(),
       'overAllWithdraw': instance.overAllWithdraw.toJson(),
       'overAllReturn': instance.overAllReturn.toJson(),
-      'overAllRentall': instance.overAllRentall.toJson(),
+      'overAllRental': instance.overAllRental.toJson(),
       'overAllAsset': instance.overAllAsset.toJson(),
     };
