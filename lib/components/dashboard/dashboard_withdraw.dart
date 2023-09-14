@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import '../../layouts/dashboard.dart';
 import 'dashboard_item.dart';
 
-class DashBoardPurchase extends StatelessWidget {
+class DashBoardWithdraw extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
 
   @override
@@ -21,7 +21,7 @@ class DashBoardPurchase extends StatelessWidget {
             child: Padding(
               padding: EdgeInsetsDirectional.all(10),
               child: Text(
-                'title_purchase'.tr,
+                'title_withdraw'.tr,
                 textAlign: TextAlign.start,
                 style: context.textTheme.headline3,
               ),
@@ -39,17 +39,12 @@ class DashBoardPurchase extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '매입계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.boTotAmt)) : '0'),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem(
-                        '공급계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.suppAmt)) : '0'),
+                        '신규대여수량계', controller.controllerAssetModel != null ? f.format(int.parse(controller.controllerAssetModel.totQty)) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '채무계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.grntAmt)) : '0'),
+                        '신규대여금액계', controller.controllerAssetModel != null ? f.format(int.parse(controller.controllerAssetModel.totAmt)) : '0'),
                   ),
                 ],
               )),

@@ -17,31 +17,31 @@ class MenuList extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: "공통-test용", iconMenuList: commonModulesMaster),
+                  child: CardTitleMenuList(menuTitleName: "공통 팝업(추후 삭제)", iconMenuList: commonModulesMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_1'.tr, iconMenuList: managementAnalysisMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_2'.tr, iconMenuList: salesAnalysisMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_sales'.tr, iconMenuList: salesAnalysisMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_3'.tr, iconMenuList: purchaseAnalysisMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_purchase'.tr, iconMenuList: purchaseAnalysisMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_4'.tr, iconMenuList: supportStatusMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_rental'.tr, iconMenuList: supportStatusMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_5'.tr, iconMenuList: locationSearchMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_location'.tr, iconMenuList: locationSearchMaster),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: CardTitleMenuList(menuTitleName: 'sector_6'.tr, iconMenuList: inventoryAnalysisMaster),
+                  child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster),
                 ),
               ],
             ),
