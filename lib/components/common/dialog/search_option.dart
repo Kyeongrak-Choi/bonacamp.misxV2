@@ -13,6 +13,7 @@ class SearchOption extends StatelessWidget {
   SearchOption(String flag) {
     this.flag = flag;
     initVar(flag);
+
   }
 
   @override
@@ -31,6 +32,9 @@ class SearchOption extends StatelessWidget {
                   hintText: hint,
                   hintStyle: context.textTheme.bodyText1,
                 ),
+                onChanged: (text) {
+                  Get.find<SearchListController>().setSearchTxt(text);
+                },
                 style: context.textTheme.bodyText1),
           ),
           Flexible(
@@ -54,6 +58,7 @@ class SearchOption extends StatelessWidget {
   }
 
   void initVar(flag) {
+
     switch (flag) {
       case SEARCH_DIALOG_CUST:
         hint = 'hint_search_customer'.tr;

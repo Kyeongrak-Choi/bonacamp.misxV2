@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/branch.dart';
 
-import '../../../models/system/employee.dart';
 import '../../../utils/constants.dart';
 
 class OptionCbBranch extends StatelessWidget {
@@ -34,10 +33,9 @@ class OptionCbBranch extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                      () => DropdownButtonFormField<BranchModel>(
+                  () => DropdownButtonFormField<BranchModel>(
                     isExpanded: true,
                     value: Get.find<CbBranchController>().selectedValue,
-
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
@@ -74,7 +72,7 @@ class CbBranchController extends GetxController {
   void onInit() async {
     super.onInit();
     await setBranch();
-    if(data != null) {
+    if (data != null) {
       chooseItem(data.first);
       //selectedValue = data.first;
     }

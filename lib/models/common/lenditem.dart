@@ -4,30 +4,30 @@ part 'lenditem.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class LendItemModel {
-  String LEND_ITM_CD;
-  String LEND_ITM_NM;
-  String STND;
-  String UT;
-  String UT_NM;
-  String VES_FG;
-  String VES_FG_NM;
-  String EMPTY_BOTL_CD;
-  String EMPTY_BOTL_NM;
+  String? lendItmCd;
+  String? lendItmNm;
+  String? stnd;
+  String? ut;
+  String? utNm;
+  String? vesFg;
+  String? vesFgNm;
+  String? emptyBotlCd;
+  String? emptyBotlNm;
 
   LendItemModel(
-      this.LEND_ITM_CD, this.LEND_ITM_NM, this.STND, this.UT, this.UT_NM, this.VES_FG, this.VES_FG_NM, this.EMPTY_BOTL_CD, this.EMPTY_BOTL_NM);
+      this.lendItmCd, this.lendItmNm, this.stnd, this.ut, this.utNm, this.vesFg, this.vesFgNm, this.emptyBotlCd, this.emptyBotlNm);
 
   Map<String, dynamic> toMap() {
     return {
-      'LEND_ITM_CD': LEND_ITM_CD,
-      'LEND_ITM_NM': LEND_ITM_NM,
-      'STND': STND,
-      'UT': UT,
-      'UT_NM': UT_NM,
-      'VES_FG': VES_FG,
-      'VES_FG_NM': VES_FG_NM,
-      'EMPTY_BOTL_CD': EMPTY_BOTL_CD,
-      'EMPTY_BOTL_NM': EMPTY_BOTL_NM
+      'lendItmCd': lendItmCd,
+      'lendItmNm': lendItmNm,
+      'stnd': stnd,
+      'ut': ut,
+      'utNm': utNm,
+      'vesFg': vesFg,
+      'vesFgNm': vesFgNm,
+      'emptyBotlCd': emptyBotlCd,
+      'emptyBotlNm': emptyBotlNm
     };
   }
 
@@ -35,57 +35,57 @@ class LendItemModel {
 
   Map<String, dynamic> toJson() => _$LendItemModelToJson(this);
 
-  String get getLendItmCd => LEND_ITM_CD;
+  String? get getLendItmCd => lendItmCd;
 
   set setLendItmCd(String value) {
-    LEND_ITM_CD = value;
+    lendItmCd = value;
   }
 
-  String get getLendItmNm => LEND_ITM_NM;
+  String? get getLendItmNm => lendItmNm;
 
   set setLendItmNm(String value) {
-    LEND_ITM_NM = value;
+    lendItmNm = value;
   }
 
-  String get getstnd => STND;
+  String? get getstnd => stnd;
 
   set setStnd(String value) {
-    STND = value;
+    stnd = value;
   }
 
-  String get getUt => UT;
+  String? get getUt => ut;
 
   set setUt(String value) {
-    UT = value;
+    ut = value;
   }
 
-  String get getUtNm => UT_NM;
+  String? get getUtNm => utNm;
 
   set setUtNm(String value) {
-    UT_NM = value;
+    utNm = value;
   }
 
-  String get getVesFg => VES_FG;
+  String? get getVesFg => vesFg;
 
   set setVesFg(String value) {
-    VES_FG = value;
+    vesFg = value;
   }
 
-  String get getVesFgNm => VES_FG_NM;
+  String? get getVesFgNm => vesFgNm;
 
   set setVesFgNm(String value) {
-    VES_FG_NM = value;
+    vesFgNm = value;
   }
 
-  String get getEmptyBotlCd => EMPTY_BOTL_CD;
+  String? get getEmptyBotlCd => emptyBotlCd;
 
   set setEmptyBotlCd(String value) {
-    EMPTY_BOTL_CD = value;
+    emptyBotlCd = value;
   }
 
-  String get getEmptyBotlNm => EMPTY_BOTL_NM;
+  String? get getEmptyBotlNm => emptyBotlNm;
 
   set setEmptyBotlNm(String value) {
-    EMPTY_BOTL_NM = value;
+    emptyBotlNm = value;
   }
 }

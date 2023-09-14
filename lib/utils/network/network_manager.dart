@@ -102,12 +102,10 @@ Future<String> reqLogin(params) async {
   }
 }
 
-Future<dynamic> reqApi(api, params, method) async {
-  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-
+Future<Dio> reqApi(header) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
     // 15s
@@ -121,32 +119,17 @@ Future<dynamic> reqApi(api, params, method) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e);
+  }, onError: (DioError dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+    if (dioError.response?.statusCode == 200) {
+    } else if (dioError.response?.statusCode == 401) {
+      print("인증 토큰 만료"); // 추후 처리
+    } else {
+      return errorInterceptorHandler.next(dioError);
+    }
+    return errorInterceptorHandler.next(dioError);
   }));
 
-  Res.Response response;
-  try {
-    if (method == API_REQ_GET) {
-      response = await dio.get(api, data: params);
-    } else {
-      response = await dio.post(api, data: params);
-    }
-
-    switch (response.statusCode) {
-      case 200:
-        return jsonEncode(response.data);
-      case 400:
-        return 'msg_api_400'.tr;
-      case 401:
-        return 'msg_api_401'.tr;
-      case 500:
-        return 'msg_api_500'.tr;
-    }
-  } catch (e) {
-    Exception(e);
-    return e.toString();
-  }
+  return dio;
 }
 
 Future<dynamic> reqApiThrow(api, params, method) async {
@@ -154,10 +137,10 @@ Future<dynamic> reqApiThrow(api, params, method) async {
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-      'Client-Code' : params},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 
