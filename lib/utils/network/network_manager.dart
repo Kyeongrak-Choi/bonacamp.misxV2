@@ -116,7 +116,8 @@ Future<dynamic> reqApi(api, params, method) async {
 
   Dio dio = Dio(options);
 
-  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+  dio.interceptors.clear();
+  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue

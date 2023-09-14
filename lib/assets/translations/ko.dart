@@ -92,7 +92,7 @@ const Map<String, String> koKR = {
   // menu
   'menu_main_managemnent': '경영분석',
   'menu_sub_overall': '종합현황',
-  'title_2': '영업일보',
+  'menu_sub_salesdaily': '영업일보',
   'title_3': '영업사원별 기여현황',
   'title_4': '매출처별 기여현황',
   'title_5': '판매분류별 현황',
@@ -129,6 +129,7 @@ const Map<String, String> koKR = {
   'title_26': '재고수불현황',
   'title_27': '용공수불(창고)',
   'title_28': '용공수불현황(거래처)',
+  'title_29': '용공수불현황(영업담당)',
 
   // API Result Message
   'msg_api_success': '성공',
