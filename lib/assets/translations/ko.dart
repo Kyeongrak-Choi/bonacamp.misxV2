@@ -99,7 +99,7 @@ const Map<String, String> koKR = {
   'title_7': '분석 그래프',
   'title_8': '영업일보(용도별)',
 
-  'sector_2': '영업분석',
+  'menu_main_sales': '영업분석',
   'title_9': '거래처 현황',
   'title_10': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
@@ -111,19 +111,19 @@ const Map<String, String> koKR = {
   'title_17': '채권 및 대여 현황',
   'title_18': '매출 및 대여 원장',
 
-  'sector_3': '매입분석',
+  'menu_main_purchase': '매입분석',
   'title_19': '매입현황',
   'title_20': '매입원장',
 
-  'sector_4': '지원현황',
+  'menu_main_rental': '지원현황',
   'title_21': '대여금 현황',
   'title_22': '대여자산 현황',
   'title_23': '대여자산 현황(이력)',
 
-  'sector_5': '위치조회',
+  'menu_main_location': '위치조회',
   'title_24': '매출처 위치조회',
 
-  'sector_6': '재고분석',
+  'menu_main_asset': '재고분석',
   'title_25': '재고현황',
   'title_26': '재고수불현황',
   'title_27': '용공수불(창고)',

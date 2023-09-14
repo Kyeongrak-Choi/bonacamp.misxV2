@@ -112,6 +112,16 @@ String convertBusinessNo(String businessNo) {
   return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
 }
 
+// 당월 1일
+String getFirstDay() {
+  DateTime currentDate = DateTime.now();
+  DateTime firstDayOfMonth = DateTime(currentDate.year, currentDate.month, 1);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(firstDayOfMonth);
+}
+
+// 오늘
 String getToday() {
   DateTime now = DateTime.now();
   DateFormat formatter = DateFormat('yyyyMMdd');

@@ -13,10 +13,12 @@ import 'package:misxV2/components/dashboard/dashboard_return.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
 import 'package:misxV2/components/dashboard/dashboard_withdraw.dart';
 import 'package:misxV2/models/management/overall/overallsales.dart';
+import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
 import '../models/management/overall/overallasset.dart';
 import '../models/management/overall/overalldeposit.dart';
@@ -28,6 +30,7 @@ import '../models/system/employee.dart';
 import '../models/system/userinfo.dart';
 import '../utils/constants.dart';
 import '../utils/network/network_manager.dart';
+import '../utils/theme/color_manager.dart';
 
 class DashBoard extends StatelessWidget {
   @override
@@ -112,54 +115,67 @@ class DashBoardController extends GetxController {
     var response;
     var parsedData;
 
-    // get Employees
-    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES, null, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+    try {
 
-    // get Branches
-    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, null, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+      // get Employees
+      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES, null, API_REQ_GET);
+      parsedData = await jsonDecode(response)[TAG_DATA] as List;
+      await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
 
-    // get Teams
-    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS, null, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+      // get Branches
+      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, null, API_REQ_GET);
+      parsedData = await jsonDecode(response)[TAG_DATA] as List;
+      await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
 
-    // get Warehouses
-    response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES, null, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+      // get Teams
+      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS, null, API_REQ_GET);
+      parsedData = await jsonDecode(response)[TAG_DATA] as List;
+      await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
 
-    // get System Common
-    response = await reqApi(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
-    parsedData = await jsonDecode(response)[TAG_DATA] as List;
-    await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
+      // get Warehouses
+      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES, null, API_REQ_GET);
+      parsedData = await jsonDecode(response)[TAG_DATA] as List;
+      await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+
+      // get System Common
+      response = await reqApi(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
+      parsedData = await jsonDecode(response)[TAG_DATA] as List;
+      await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
+
+    } catch(e){
+      log(e.toString());
+    }
+
 
     //get overall - dashboard
     try {
-      //response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt='+getToday()+'&toDt='+getToday(), param, API_REQ_GET);
-      response = await reqApi(API_SALES_OVERALL + '?nodeCd=0000&fromDt=20230901' + '&toDt=' + getToday(), param, API_REQ_GET);
+      sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
+      pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
+      BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
+      var branchCode = branch.getBranchCode;
+      response = await reqApi(API_SALES_OVERALL + '?nodeCd='+branchCode!+'&fromDt=' + getFirstDay() + '&toDt=' + getToday(), param, API_REQ_GET);
 
-      parsedData = await jsonDecode(response)[TAG_DATA]['sales'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_SALES];
       controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['purchase'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
       controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['deposit'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
       controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['withdraw'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
       controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['return'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
       controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['rental'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RANTAL];
       controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA]['asset'];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
       controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
 
       update();
+      pd.close();
     } catch (e) {
       log(e.toString());
+      //pd.close();
     }
+
   }
 }

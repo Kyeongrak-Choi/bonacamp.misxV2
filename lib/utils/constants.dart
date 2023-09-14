@@ -111,6 +111,15 @@ const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
 const TAG_COMMON_CUSTOMER = 'customerList';
 
+// sales
+const TAG_SALES = 'sales';
+const TAG_PURCHASE = 'purchase';
+const TAG_DEPOSIT = 'deposit';
+const TAG_WITHDRAW = 'withdraw';
+const TAG_RETURN = 'return';
+const TAG_RANTAL = 'rental';
+const TAG_ASSET = 'asset';
+
 /*
   HIVE DB
  */
