@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'customer.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// 거래처(매출처) 검색 Model
 @JsonSerializable(explicitToJson: true)
 class CustomerModel {
   String custCd; // 거래처코드:DA150T0

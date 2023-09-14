@@ -22,13 +22,7 @@ class OverAllModel {
   OverAllAssetModel overAllAsset; // 종합현황 - 대여자산
 
   OverAllModel(
-        this.overAllSales
-      , this.overAllPuchase
-      , this.overAllDeposit
-      , this.overAllWithdraw
-      , this.overAllReturn
-      , this.overAllRentall
-      , this.overAllAsset );
+      this.overAllSales, this.overAllPuchase, this.overAllDeposit, this.overAllWithdraw, this.overAllReturn, this.overAllRentall, this.overAllAsset);
 
   Map<String, dynamic> toMap() {
     return {

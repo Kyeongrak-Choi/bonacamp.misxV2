@@ -10,7 +10,6 @@ class OverAllSalesModel {
   String? vatAmt; // 부가세
   String? grntAmt; // 보증금
 
-
   OverAllSalesModel(this.totAmt, this.suppAmt, this.vatAmt, this.grntAmt);
 
   Map<String, dynamic> toMap() {
@@ -49,5 +48,4 @@ class OverAllSalesModel {
   set setGrntAmt(String value) {
     grntAmt = value;
   }
-
 }

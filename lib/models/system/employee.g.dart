@@ -40,25 +40,20 @@ class EmployeeModelAdapter extends TypeAdapter<EmployeeModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is EmployeeModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is EmployeeModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) =>
-    EmployeeModel(
+EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) => EmployeeModel(
       json['employeeCode'] as String?,
       json['employeeName'] as String?,
       json['manager'] as bool?,
     );
 
-Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) => <String, dynamic>{
       'employeeCode': instance.employeeCode,
       'employeeName': instance.employeeName,
       'manager': instance.manager,

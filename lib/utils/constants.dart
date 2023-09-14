@@ -20,6 +20,7 @@ const ROUTE_SYSTEM_CONFIG = '/systemConfig';
 const ROUTE_MENU_CONFIG = '/menuConfig';
 const ROUTE_EXAM_MENU = '/menuConfig';
 const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';
+const ROUTE_DIALOG_PURCHASE = '/searchPurchase';
 const ROUTE_DIALOG_ITEM = '/searchItem';
 const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 
@@ -37,9 +38,10 @@ enum SNACK_TYPE { INFO, ERROR, ALARM }
 enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
 
 // Search Dialog Type
-const SEARCH_DIALOG_CUST = 'CUST';
-const SEARCH_DIALOG_ITEM = 'ITEM';
-const SEARCH_DIALOG_LEND = 'LEND';
+const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색
+const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
+const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
+const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
 
 /*
   Netwrok Config
@@ -77,6 +79,10 @@ const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
 const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021'; // 시스템 코드
 
+// common
+const API_COMMON = '/v1/common';
+const API_COMMON_CUSTOMER = '/customer';
+
 const API_SALES_OVERALL = '/v1/management/overall';
 
 /*
@@ -102,6 +108,17 @@ const TAG_RESOURCE_URL = 'resource-url'; // response server - resource url tag
 const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
+
+const TAG_COMMON_CUSTOMER = 'customerList';
+
+// sales
+const TAG_SALES = 'sales';
+const TAG_PURCHASE = 'purchase';
+const TAG_DEPOSIT = 'deposit';
+const TAG_WITHDRAW = 'withdraw';
+const TAG_RETURN = 'return';
+const TAG_RANTAL = 'rental';
+const TAG_ASSET = 'asset';
 
 /*
   HIVE DB

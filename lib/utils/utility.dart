@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart' show Brightness, rootBundle;
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
 import 'constants.dart';
@@ -93,24 +94,36 @@ void ShowDialog(type, title, content, context) {
 }
 
 // Progress Bar
-void ShowProgress(context,dynamic,bool) {
+void ShowProgress(context, dynamic, bool) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
     backgroundColor: CommonColors.bluesky,
     textColor: CommonColors.dark,
     loadingText: dynamic,
   );
-  if(bool) {
+  if (bool) {
     progressDialog.show();
-  }else{
+  } else {
     progressDialog.dismiss();
   }
 }
-
 
 String convertBusinessNo(String businessNo) {
   return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
 }
 
-// ProgressDialog pd = ProgressDialog(context: context);
-// pd.show(max: 100, msg: '로그인중...');
+// 당월 1일
+String getFirstDay() {
+  DateTime currentDate = DateTime.now();
+  DateTime firstDayOfMonth = DateTime(currentDate.year, currentDate.month, 1);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(firstDayOfMonth);
+}
+
+// 오늘
+String getToday() {
+  DateTime now = DateTime.now();
+  DateFormat formatter = DateFormat('yyyyMMdd');
+  return formatter.format(now);
+}
