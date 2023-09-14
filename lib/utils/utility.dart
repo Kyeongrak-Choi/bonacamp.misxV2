@@ -1,18 +1,11 @@
-import 'dart:async' show Future;
-
 import 'package:dialogs/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart' show Brightness, rootBundle;
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
 import 'constants.dart';
-
-Future<String> jsonDummy(String path) async {
-  return rootBundle.loadString(path);
-}
 
 // System Theme Mode Check
 bool GetSystemMode() {

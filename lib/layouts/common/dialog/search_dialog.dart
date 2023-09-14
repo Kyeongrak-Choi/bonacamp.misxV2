@@ -12,10 +12,12 @@ class SearchDialog extends StatelessWidget {
   SearchDialog(String flag) {
     this.flag = flag;
     initVar(flag);
+
   }
 
   @override
   Widget build(context) {
+    Get.put(SearchListController());
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
@@ -30,7 +32,7 @@ class SearchDialog extends StatelessWidget {
               children: <Widget>[
                 SearchOption(flag),
                 SizedBox(height: 14),
-                Expanded(child: SearchList()),
+                Expanded(child: SearchList(flag)),
               ],
             ),
           ),

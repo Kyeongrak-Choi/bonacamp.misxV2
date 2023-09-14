@@ -85,7 +85,11 @@ const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,A
 // common
 const API_COMMON = '/v1/common';
 const API_COMMON_CUSTOMER = '/customer';
+const API_COMMON_PURCHASE = '/purchase';
+const API_COMMON_ITEM = '/item';
+const API_COMMON_LENDITEM = '/lendItem';
 
+// management
 const API_SALES_OVERALL = '/v1/management/overall';
 
 /*
@@ -96,6 +100,7 @@ const API_SALES_OVERALL = '/v1/management/overall';
 const TAG_DATA = 'payload'; // response data tag
 const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
+const TAG_ERROR = 'errors'; // response error tag
 
 // Authorization
 const TAG_TOKEN = 'token'; // response token tag
@@ -112,8 +117,10 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
-
 const TAG_COMMON_CUSTOMER = 'customerList';
+const TAG_COMMON_PURCHASE = 'purchaseList';
+const TAG_COMMON_ITEM = 'itemList';
+const TAG_COMMON_LENDITEM = 'lendItemList';
 
 // sales
 const TAG_SALES = 'sales';

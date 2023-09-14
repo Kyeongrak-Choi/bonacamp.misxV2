@@ -6,13 +6,11 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_search_overall.dart';
-import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
+import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
-import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/datatable/overall_table.dart';
-import '../../../models/management/overall/overall.dart';
 import '../../../models/management/overall/overallasset.dart';
 import '../../../models/management/overall/overalldeposit.dart';
 import '../../../models/management/overall/overallpurchase.dart';
@@ -24,46 +22,44 @@ import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 
-
 class OverallStatus extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
-        appBar: AppBar(
-            title: Text('appbar_title_overall_status'.tr),
-            backgroundColor: context.theme.backgroundColor,
-            iconTheme: context.theme.iconTheme,
-            actions: [
-              IconButton(
-                icon: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
-                onPressed: () {
-                  Get.find<OverAllController>().setVisible();
-                },
-              ),
-            ]
-          ),
-        body: Container(
-          color: context.theme.backgroundColor,
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<OverAllController>().visible.value,
-                child: Column(
-                  children: [
-                    OptionPeriodPicker(),
-                    OptionCbBranch(),
-                    OptionBtnSearchOverAll(),
-                  ],
+          appBar: AppBar(
+              title: Text('appbar_title_overall_status'.tr),
+              backgroundColor: context.theme.backgroundColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
+                  onPressed: () {
+                    Get.find<OverAllController>().setVisible();
+                  },
                 ),
-              ),
-              Expanded(
-                child: OverAllTable(),
-              ),
-            ],
+              ]),
+          body: Container(
+            color: context.theme.backgroundColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<OverAllController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionPeriodPicker(),
+                      OptionCbBranch(),
+                      OptionBtnSearchOverAll(),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: OverAllTable(),
+                ),
+              ],
+            ),
           ),
-        ),
-    ));
+        ));
   }
 }
 
@@ -84,7 +80,6 @@ class OverAllController extends GetxController {
   }
 
   Future showResult() async {
-
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
 
     String tempNodeCd = Get.find<CbBranchController>().paramBranchCode;
@@ -105,38 +100,34 @@ class OverAllController extends GetxController {
     try {
       response = await reqApiThrow(API_SALES_OVERALL + '?nodeCd=' + tempNodeCd + '&fromDt=' + tempFromDt + '&toDt=' + tempToDt, param, API_REQ_GET);
 
-      parsedDataSales     = await jsonDecode(response)[TAG_DATA][TAG_SALES];
-      parsedDataPurchase  = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
-      parsedDataDeposit   = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
-      parsedDataWithdraw  = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
-      parsedDataReturn    = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
-      parsedDataRental   = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
-      parsedDataAsset     = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
+      parsedDataSales = await jsonDecode(response)[TAG_DATA][TAG_SALES];
+      parsedDataPurchase = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
+      parsedDataDeposit = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
+      parsedDataWithdraw = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
+      parsedDataReturn = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
+      parsedDataRental = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
+      parsedDataAsset = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
 
       //controllerOverAllModel = OverAllModel.fromJson(parsedData);
 
       controllerSalesModel = OverAllSalesModel.fromJson(parsedDataSales);
 
-      controllerPurchaseModel  = OverAllPurchaseModel.fromJson(parsedDataPurchase);
-      controllerDepositModel   = OverAllDepositModel.fromJson(parsedDataDeposit);
-      controllerWithdrawModel  = OverAllWithdrawModel.fromJson(parsedDataWithdraw);
-      controllerReturnModel    = OverAllReturnModel.fromJson(parsedDataReturn);
-      controllerRentalModel    = OverAllRentalModel.fromJson(parsedDataRental);
-      controllerAssetModel     = OverAllAssetModel.fromJson(parsedDataAsset);
+      controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedDataPurchase);
+      controllerDepositModel = OverAllDepositModel.fromJson(parsedDataDeposit);
+      controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedDataWithdraw);
+      controllerReturnModel = OverAllReturnModel.fromJson(parsedDataReturn);
+      controllerRentalModel = OverAllRentalModel.fromJson(parsedDataRental);
+      controllerAssetModel = OverAllAssetModel.fromJson(parsedDataAsset);
 
       update();
-
-    }
-    on DioException catch(e){
-      if(e.response != null){
-        if(e.response?.statusCode == 500){
-          print("Server Error");  // 추후 메세지 제작
+    } on DioException catch (e) {
+      if (e.response != null) {
+        if (e.response?.statusCode == 500) {
+          print("Server Error"); // 추후 메세지 제작
         }
       }
-    }
-    catch(e){
+    } catch (e) {
       print("other error");
     }
   }
-
 }

@@ -17,10 +17,6 @@ import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
-
-import '../models/management/overall/overall.dart';
-import '../models/system/branch.dart';
-
 import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
@@ -30,7 +26,6 @@ import '../models/management/overall/overallpurchase.dart';
 import '../models/management/overall/overallrental.dart';
 import '../models/management/overall/overallreturn.dart';
 import '../models/management/overall/overallwithdraw.dart';
-
 import '../models/system/employee.dart';
 import '../models/system/userinfo.dart';
 import '../utils/constants.dart';
@@ -117,71 +112,93 @@ class DashBoardController extends GetxController {
 
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
-    var response;
+    var dio;
     var parsedData;
 
     try {
+      dio = await reqApi(param);
 
       // get Employees
-      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES, null, API_REQ_GET);
-      parsedData = await jsonDecode(response)[TAG_DATA] as List;
-      await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
-
+      final resEmployee = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES);
+      if (resEmployee.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resEmployee.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+      } else {
+        log('employee error : ' + resEmployee.data);
+      }
 
       // get Branches
-      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES, null, API_REQ_GET);
-      parsedData = await jsonDecode(response)[TAG_DATA] as List;
-      await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
+      final resBranches = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES);
+      if (resBranches.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resBranches.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
+      } else {
+        log('branches error : ' + resBranches.data);
+      }
 
       // get Teams
-      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS, null, API_REQ_GET);
-      parsedData = await jsonDecode(response)[TAG_DATA] as List;
-      await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+      final resTeams = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS);
+      if (resTeams.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resTeams.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+      } else {
+        log('teams error : ' + resTeams.data);
+      }
 
       // get Warehouses
-      response = await reqApi(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES, null, API_REQ_GET);
-      parsedData = await jsonDecode(response)[TAG_DATA] as List;
-      await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+      final resWarehouses = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES);
+      if (resWarehouses.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resWarehouses.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+      } else {
+        log('warehouses error : ' + resWarehouses.data);
+      }
 
       // get System Common
-      response = await reqApi(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, param, API_REQ_GET);
-      parsedData = await jsonDecode(response)[TAG_DATA] as List;
-      await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
-
-    } catch(e){
+      final resSystem = await dio.get(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, data: param);
+      if (resSystem.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resSystem.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
+      } else {
+        log('System Common error : ' + resSystem.data);
+      }
+    } catch (e) {
       log(e.toString());
     }
 
-
     //get overall - dashboard
+    sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
       pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
-      response = await reqApi(API_SALES_OVERALL + '?nodeCd='+branchCode!+'&fromDt=' + getFirstDay() + '&toDt=' + getToday(), param, API_REQ_GET);
+      final resOverall =
+          await dio.get(API_SALES_OVERALL + '?nodeCd=' + branchCode! + '&fromDt=' + getFirstDay() + '&toDt=' + getToday(), data: param);
 
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_SALES];
-      controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
-      controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
-      controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
-      controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
-      controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
-      controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
-      controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
+      if (resOverall.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
+        controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_PURCHASE];
+        controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_DEPOSIT];
+        controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_WITHDRAW];
+        controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RETURN];
+        controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RENTAL];
+        controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_ASSET];
+        controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
 
-      update();
+        update();
+      } else {
+        log('over all error : ' + resOverall.data);
+      }
       pd.close();
     } catch (e) {
       log(e.toString());
-      //pd.close();
+      pd.close();
     }
-
   }
 }
