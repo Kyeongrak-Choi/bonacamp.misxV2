@@ -5,6 +5,7 @@
 const APP_NAME = 'MISX Ver2';
 const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
+const APP_ID = 'MISX';
 
 //enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
 enum NAVIGATION_BAR_ITEM { HOME, MENU, CONFIG } // Navigation Item
@@ -19,11 +20,15 @@ const ROUTE_SYSTEM_CONFIG = '/systemConfig';
 const ROUTE_MENU_CONFIG = '/menuConfig';
 const ROUTE_EXAM_MENU = '/menuConfig';
 const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';
+const ROUTE_DIALOG_PURCHASE = '/searchPurchase';
 const ROUTE_DIALOG_ITEM = '/searchItem';
 const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 
 const ROUTE_MENU_EXAMPLE = '/menuExample';
 const ROUTE_API_EXAMPLE = '/apiExample';
+
+// Route 경영 분석
+const ROUTE_MENU_OVERALL_STATUS = '/overallStatus';
 
 /*
   Util
@@ -36,23 +41,24 @@ enum SNACK_TYPE { INFO, ERROR, ALARM }
 enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
 
 // Search Dialog Type
-const SEARCH_DIALOG_CUST = 'CUST';
-const SEARCH_DIALOG_ITEM = 'ITEM';
-const SEARCH_DIALOG_LEND = 'LEND';
+const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색
+const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
+const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
+const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
 
 /*
   Netwrok Config
 */
-const CONNECT_TIMEOUT = 5;
-const RECEIVE_TIMEOUT = 3;
+const CONNECT_TIMEOUT = 15;
+const RECEIVE_TIMEOUT = 10;
 
 /*
  Authorization
 */
-const CERT_URL_PROD = 'http://auth.bona-camp.com/api/';
-const CERT_URL_DEV = 'http://130.162.137.207:9040/api/';
-const CERT_AUTH = 'auth/';
-const CERT_TOKEN = 'token/';
+const CERT_URL_PROD = 'http://auth.bona-camp.com/api';
+const CERT_URL_DEV = 'http://130.162.137.207:9040/api';
+const CERT_AUTH = '/auth';
+const CERT_TOKEN = '/token';
 
 //  Authorization Account
 const AUTH_ID = 'diony-xps';
@@ -62,8 +68,25 @@ const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEt
 /*
  APIs
 */
-const API_HEALTH_CHECK = '/health';
-const API_ACCOUNT_GET = '/accounts';
+const API_SERVER_CODE = 'DJWRLDPN0U'; // 디오니소스 ERP MOBILE 경영관리 데이터 서버 코드값
+const API_REQ_GET = 'GET';
+const API_REQ_POST = 'POST';
+
+// System
+const API_SYSTEM_LOGIN = '/v1/account/sign-in';
+const API_SYSTEM_MASTER = '/v1/clients/';
+const API_SYSTEM_EMPLOYEES = '/employees';
+const API_SYSTEM_BRANCHES = '/branches';
+const API_SYSTEM_TEAMS = '/teams';
+const API_SYSTEM_WAREHOUSES = '/warehouses';
+const API_SYSTEM_COMMON = '/v1/main/common';
+const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021'; // 시스템 코드
+
+// common
+const API_COMMON = '/v1/common';
+const API_COMMON_CUSTOMER = '/customer';
+
+const API_SALES_OVERALL = '/v1/management/overall';
 
 /*
   Json
@@ -89,6 +112,18 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
+
+const TAG_COMMON_CUSTOMER = 'customerList';
+
+// sales
+const TAG_SALES = 'sales';
+const TAG_PURCHASE = 'purchase';
+const TAG_DEPOSIT = 'deposit';
+const TAG_WITHDRAW = 'withdraw';
+const TAG_RETURN = 'return';
+const TAG_RENTAL = 'rental';
+const TAG_ASSET = 'asset';
+
 /*
   HIVE DB
  */
@@ -97,31 +132,19 @@ const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
+const KEY_AUTH_URL = 'baseUr;'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key
 
 const KEY_USERINFO = 'USERINFO'; // USERINFO Object key - @HiveType(typeId: 1)
-const KEY_SALCHRG = 'SALCHRG'; // SALCHRG Object key - @HiveType(typeId: 2)
-const KEY_NODE = 'NODE'; // NODE Object key - @HiveType(typeId: 3)
+const KEY_EMPLOYEE = 'EMPLOYEE'; // SALCHRG Object key - @HiveType(typeId: 2)
+const KEY_BRANCH = 'BRANCH'; // BRANCH Object key - @HiveType(typeId: 3)
 const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
-
-/*
-  Dummy data
- */
-
-const DUMMY_CUST = 'lib/assets/json_dummy/customerList';
-const DUMMY_ITEM = 'lib/assets/json_dummy/itemList';
-const DUMMY_LEND = 'lib/assets/json_dummy/lendItemList';
-const DUMMY_USER = 'lib/assets/json_dummy/userinfo';
-const DUMMY_SALCHRG = 'lib/assets/json_dummy/salchrg';
-const DUMMY_NODE = 'lib/assets/json_dummy/node';
-const DUMMY_TEAM = 'lib/assets/json_dummy/team';
-const DUMMY_WH = 'lib/assets/json_dummy/wh';
 
 /*
   # Project Plan #

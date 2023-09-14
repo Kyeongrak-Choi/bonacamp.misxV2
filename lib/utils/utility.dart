@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart' show Brightness, rootBundle;
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
 import 'constants.dart';
@@ -93,27 +94,36 @@ void ShowDialog(type, title, content, context) {
 }
 
 // Progress Bar
-void ShowProgress(context) {
+void ShowProgress(context, dynamic, bool) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
     backgroundColor: CommonColors.bluesky,
     textColor: CommonColors.dark,
-    loadingText: 'loading'.tr,
+    loadingText: dynamic,
   );
-  progressDialog.show();
-  //Future.delayed(Duration(seconds: 3)).then((value) => progressDialog.dismiss());
-}
-
-void HideProgess(context) {
-  ProgressDialog progressDialog = ProgressDialog(
-    context: context,
-    backgroundColor: CommonColors.bluesky,
-    textColor: CommonColors.dark,
-    loadingText: 'loading'.tr,
-  );
-  progressDialog.dismiss();
+  if (bool) {
+    progressDialog.show();
+  } else {
+    progressDialog.dismiss();
+  }
 }
 
 String convertBusinessNo(String businessNo) {
   return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
+}
+
+// 당월 1일
+String getFirstDay() {
+  DateTime currentDate = DateTime.now();
+  DateTime firstDayOfMonth = DateTime(currentDate.year, currentDate.month, 1);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(firstDayOfMonth);
+}
+
+// 오늘
+String getToday() {
+  DateTime now = DateTime.now();
+  DateFormat formatter = DateFormat('yyyyMMdd');
+  return formatter.format(now);
 }

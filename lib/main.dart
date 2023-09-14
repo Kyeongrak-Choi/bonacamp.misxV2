@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
-import 'package:misxV2/layouts/example/api_example.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
+import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
@@ -66,12 +66,14 @@ class Misx extends StatelessWidget {
 
         // Dialog
         GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
+        GetPage(name: ROUTE_DIALOG_PURCHASE, page: () => SearchDialog(SEARCH_DIALOG_PRCH)), // Search Purchase Dialog
         GetPage(name: ROUTE_DIALOG_ITEM, page: () => SearchDialog(SEARCH_DIALOG_ITEM)), // Search item Dialog
         GetPage(name: ROUTE_DIALOG_LENDITM, page: () => SearchDialog(SEARCH_DIALOG_LEND)), // Search lendItem Dialog
 
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
-        GetPage(name: ROUTE_API_EXAMPLE, page: () => ApiExample()),
+
+        GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()),
       ],
       home: Login(),
     );

@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../layouts/example/funtion.dart';
 import 'constants.dart';
 import 'utility.dart';
 
@@ -26,7 +26,7 @@ class RadioMenu {
   });
 }
 
-// system setting master
+// notice master - step2
 // final List<IconMenu> noticeMaster = [
 //   IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_2_fill, path: ROUTE_NOTICE),
 // ];
@@ -50,6 +50,69 @@ final List<IconMenu> menuMaster = [
   IconMenu(title: 'menu_setting'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONFIG),
 ];
 
+
+/* Icon Reference
+ 1. cupertino * https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
+  - example : iconData: CupertinoIcons.airplane
+ 2. material * https://fonts.google.com/icons
+  - example : iconData: Icons.copy_outlined
+ */
+
+// menu setting master
+final List<IconMenu> commonModulesMaster = [
+  IconMenu(title: 'title_search_customer'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
+  IconMenu(title: 'title_search_purchase'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_PURCHASE),
+  IconMenu(title: 'title_search_item'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
+  IconMenu(title: 'title_search_lenditem'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
+];
+
+final List<IconMenu> managementAnalysisMaster = [
+  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
+  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: Icons.leaderboard, path: ''),
+  IconMenu(title: 'title_3'.tr, iconData: CupertinoIcons.person_2_fill, path: ''),
+  IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_5'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_6'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_8'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
+final List<IconMenu> salesAnalysisMaster = [
+  IconMenu(title: 'title_9'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_10'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_11'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_12'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_13'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_14'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_15'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
+final List<IconMenu> purchaseAnalysisMaster = [
+  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
+final List<IconMenu> supportStatusMaster = [
+  IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
+final List<IconMenu> locationSearchMaster = [
+  IconMenu(title: 'title_24'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
+final List<IconMenu> inventoryAnalysisMaster = [
+  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''),
+];
+
 // menu setting detail
 final List<RadioMenu> menuDetail = [
   RadioMenu(
@@ -67,15 +130,4 @@ final List<RadioMenu> menuDetail = [
     title: KEY_COMPARE_FIRST.tr,
     val: Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false),
   ),
-
 ];
-
-// exam menu master
-// final List<IconMenu> examMaster = [
-//   IconMenu(title: 'exam_menu'.tr, iconData: Icons.copy_outlined, path: ROUTE_EXAM_MENU),
-// ];
-
-// menu setting detail
-// final List<IconMenu> examDetail = [
-//   UtilFunction();
-// ];

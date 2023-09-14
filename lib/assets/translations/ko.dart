@@ -23,7 +23,7 @@ const Map<String, String> koKR = {
   'notice': '공지 사항',
   'system_setting': '시스템 설정',
   'menu_setting': '메뉴 설정',
-  'exam_menu' : '예제 메뉴',
+  'exam_menu': '예제 메뉴',
   'dark_mode': '다크 모드',
   'isCustomFilter': '거래처 필터링 사용',
   'isIncludeSalChrgCd': '영업사원 선택시 관리담당 포함',
@@ -32,6 +32,10 @@ const Map<String, String> koKR = {
   // Dialog search customer
   'title_search_customer': '거래처 검색',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
+
+  // Dialog search purchase
+  'title_search_purchase': '매입처 검색',
+  'hint_search_purchase': '매입처 코드/명을 입력해주세요.',
 
   // Dialog search item
   'title_search_item': '품목 검색',
@@ -46,9 +50,13 @@ const Map<String, String> koKR = {
   'period_error_content': '기간을 확인해주세요.',
 
   // DashBoard
-  'title_sales': '매출',
-  'title_purcahse': '매입',
-  'title_rental': '대여',
+  'title_sales': '당월 매출',
+  'title_purchase': '당월 매입',
+  'title_deposit': '당월 회수',
+  'title_withdraw': '당월 출금',
+  'title_return': '당월 반납',
+  'title_rental': '당월 대여',
+  'title_asset': '당월 자산',
   'title_status': '현황',
 
   // Navigation Label
@@ -77,7 +85,90 @@ const Map<String, String> koKR = {
   'snack_information': '정보',
 
   // Progress Bar
-  'loading': '로딩중입니다...',
+  'progress_loading': '로딩중입니다...',
+  'progress_login' : '로그인중입니다...',
+  'progress_search' : '서버 조회중 입니다...',
+
+  // menu
+  'menu_main_managemnent': '경영분석',
+  'menu_sub_overall': '종합현황',
+  'menu_sub_salesdaily': '영업일보',
+  'title_3': '영업사원별 기여현황',
+  'title_4': '매출처별 기여현황',
+  'title_5': '판매분류별 현황',
+  'title_6': '매출순위현황',
+  'title_7': '분석 그래프',
+  'title_8': '영업일보(용도별)',
+
+  'menu_main_sales': '영업분석',
+  'title_9': '거래처 현황',
+  'title_10': '영업사원별 매출현황',
+  'title_11': '영업사원별 월별 매출현황',
+  'title_12': '매출현황',
+  'title_13': '월별 매출현황',
+  'title_14': '매출원장',
+  'title_15': '목표대비 실적현황',
+  'title_16': '채권현황',
+  'title_17': '채권 및 대여 현황',
+  'title_18': '매출 및 대여 원장',
+
+  'menu_main_purchase': '매입분석',
+  'title_19': '매입현황',
+  'title_20': '매입원장',
+
+  'menu_main_rental': '지원현황',
+  'title_21': '대여금 현황',
+  'title_22': '대여자산 현황',
+  'title_23': '대여자산 현황(이력)',
+
+  'menu_main_location': '위치조회',
+  'title_24': '매출처 위치조회',
+
+  'menu_main_asset': '재고분석',
+  'title_25': '재고현황',
+  'title_26': '재고수불현황',
+  'title_27': '용공수불(창고)',
+  'title_28': '용공수불현황(거래처)',
+  'title_29': '용공수불현황(영업담당)',
+
+  // API Result Message
+  'msg_api_success': '성공',
+  'msg_api_400': '잘못된 요청입니다.',
+  'msg_api_401': '유효한 인증 자격 증명이 없습니다.',
+  'msg_api_500': '서버 에러입니다.',
+
+  'msg_conn_api_server' : '서버에 접속할 수 없습니다.',
+  'msg_conn_auth_server' : '인증서버에 접속할 수 없습니다.',
+
+  // OverAll Item Title
+  'appbar_title_overall_status' : '종합 현황',
+  'sales_title_totAmt' : '매출액',
+  'sales_title_suppAmt' : '공급가',
+  'sales_title_vatAmt' : '부가세',
+  'sales_title_grntAmt' : '보증금',
+  'deposit_title_retrvAmt' : '회수액',
+  'deposit_title_ipTot' : '입금액',
+  'deposit_title_amt' : '채권잔액',
+
+  'purchase_title_boTotAmt' : '매입액',
+  'purchase_title_suppAmt' : '공급가',
+  'purchase_title_vatAmt' : '부가세',
+  'purchase_title_grntAmt' : '보증금',
+  'return_title_oTot' : '반납액',
+  'withdraw_title_outTot' : '출금액',
+  'withdraw_title_amt' : '채무잔액',
+
+  'rental_title_lendAmt' : '대여금액',
+  'rental_title_inspayLendAmt' : '회수예정금액',
+  'rental_title_retrvAmt' : '회수금액',
+  'rental_title_remAmt' : '미회수잔액',
+  'rental_title_totAmt' : '대여금잔액',
+
+  'asset_title_totQty' : '신규대여수량',
+  'asset_title_totAmt' : '신규대여금액',
+
+
+
 };
 
 //const Map<String,String> enUs = {};

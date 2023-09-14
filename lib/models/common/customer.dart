@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'customer.g.dart'; // *.g.dart : in same directory
 
-// 거래처 검색 Model
+// 거래처(매출처) 검색 Model
 @JsonSerializable(explicitToJson: true)
 class CustomerModel {
   String custCd; // 거래처코드:DA150T0
@@ -13,8 +13,7 @@ class CustomerModel {
   String bizItm; // 사업 종목:ABS010 - 품목의 용도와 관계(DA107T0:용도 종목)
   String bizItmNm; // 사업종목 명
 
-  CustomerModel(this.custCd, this.custNm, this.custAbbNm, this.custStat, this.custStatNm, this.bizItm,
-      this.bizItmNm);
+  CustomerModel(this.custCd, this.custNm, this.custAbbNm, this.custStat, this.custStatNm, this.bizItm, this.bizItmNm);
 
   Map<String, dynamic> toMap() {
     return {

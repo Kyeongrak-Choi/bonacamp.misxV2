@@ -1,52 +1,60 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
+import '../../layouts/dashboard.dart';
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {
-  const DashBoardPurchase({Key? key}) : super(key: key);
+  var f = NumberFormat('###,###,###,###');
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Align(
-          alignment: AlignmentDirectional(-1, 0),
-          child: Padding(
-            padding: EdgeInsetsDirectional.all(10),
-            child: Text(
-              'title_purcahse'.tr,
-              textAlign: TextAlign.start,
-              style: context.textTheme.headline3,
+    Get.put(DashBoardController());
+    return GetBuilder<DashBoardController>(builder: (DashBoardController controller) {
+      return Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(-1, 0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(10),
+              child: Text(
+                'title_purchase'.tr,
+                textAlign: TextAlign.start,
+                style: context.textTheme.headline3,
+              ),
             ),
           ),
-        ),
-        Container(
-            decoration: BoxDecoration(
-              color: context.theme.canvasColor,
-              borderRadius: BorderRadius.circular(20),
-              shape: BoxShape.rectangle,
-            ),
-            child: Column(
-              children: [
-                // dummy
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem('매입금액', '157,380'),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  child: DashBoardItem('공급금액', '143,520'),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                  child: DashBoardItem('채무잔액', '5,123,346'),
-                ),
-              ],
-            )),
-      ],
-    );
+          Container(
+              decoration: BoxDecoration(
+                color: context.theme.canvasColor,
+                borderRadius: BorderRadius.circular(20),
+                shape: BoxShape.rectangle,
+              ),
+              child: Column(
+                children: [
+                  // dummy
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    child: DashBoardItem(
+                        '매입계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.boTotAmt)) : '0'),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    child: DashBoardItem(
+                        '공급계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.suppAmt)) : '0'),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    child: DashBoardItem(
+                        '채무계', controller.controllerPurchaseModel != null ? f.format(int.parse(controller.controllerPurchaseModel.grntAmt)) : '0'),
+                  ),
+                ],
+              )),
+        ],
+      );
+    });
   }
 }

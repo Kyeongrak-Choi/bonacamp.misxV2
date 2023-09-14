@@ -14,7 +14,8 @@ class LendItemModel {
   String EMPTY_BOTL_CD;
   String EMPTY_BOTL_NM;
 
-  LendItemModel(this.LEND_ITM_CD, this.LEND_ITM_NM, this.STND, this.UT, this.UT_NM, this.VES_FG, this.VES_FG_NM, this.EMPTY_BOTL_CD, this.EMPTY_BOTL_NM);
+  LendItemModel(
+      this.LEND_ITM_CD, this.LEND_ITM_NM, this.STND, this.UT, this.UT_NM, this.VES_FG, this.VES_FG_NM, this.EMPTY_BOTL_CD, this.EMPTY_BOTL_NM);
 
   Map<String, dynamic> toMap() {
     return {
@@ -87,5 +88,4 @@ class LendItemModel {
   set setEmptyBotlNm(String value) {
     EMPTY_BOTL_NM = value;
   }
-
 }

@@ -39,7 +39,7 @@ class SearchOption extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.find<SearchListController>().search(dummy);
+                      Get.find<SearchListController>().search(flag);
                     },
                     child: Icon(
                       Icons.search,
@@ -57,15 +57,15 @@ class SearchOption extends StatelessWidget {
     switch (flag) {
       case SEARCH_DIALOG_CUST:
         hint = 'hint_search_customer'.tr;
-        dummy = DUMMY_CUST;
+        break;
+      case SEARCH_DIALOG_PRCH:
+        hint = 'hint_search_purchase'.tr;
         break;
       case SEARCH_DIALOG_ITEM:
         hint = 'hint_search_item'.tr;
-        dummy = DUMMY_ITEM;
         break;
       case SEARCH_DIALOG_LEND:
         hint = 'hint_search_lenditem'.tr;
-        dummy = DUMMY_LEND;
         break;
     }
   }

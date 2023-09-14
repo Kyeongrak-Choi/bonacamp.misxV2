@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/button/option_btn_mymenu.dart';
 import 'package:misxV2/components/common/button/option_btn_search.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_customer.dart';
+import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manage.dart';
-import 'package:misxV2/components/common/combobox/option_cb_node.dart';
-import 'package:misxV2/components/common/combobox/option_cb_sale.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../components/datatable/exam_table.dart';
@@ -23,13 +21,15 @@ class MenuExample extends StatelessWidget {
             iconTheme: context.theme.iconTheme,
             actions: [
               IconButton(
-                icon: OptionBtnVisible(),
-                onPressed: () => null,
+                icon: OptionBtnVisible(visible: Get.find<MenuExampleController>().visible.value,),
+                onPressed: () {
+                  Get.find<MenuExampleController>().setVisible();
+                },
               ),
-              IconButton(
-                icon: OptionBtnMyMenu(),
-                onPressed: () => null,
-              ),
+              // IconButton(
+              //   icon: OptionBtnMyMenu(),
+              //   onPressed: () => null,
+              // ),
             ],
           ),
           body: Container(
@@ -42,8 +42,8 @@ class MenuExample extends StatelessWidget {
                     children: [
                       OptionPeriodPicker(),
                       OptionDialogCustomer(),
-                      OptionCbNode(),
-                      OptionCbSale(),
+                      //OptionCbNode(),
+                      OptionCbEmployee(),
                       OptionCbManage(),
                       OptionBtnSearch(),
                     ],

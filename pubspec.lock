@@ -69,10 +69,10 @@ packages:
     dependency: transitive
     description:
       name: build_resolvers
-      sha256: a7417cc44d9edb3f2c8760000270c99dba8c72ff66d0146772b8326565780745
+      sha256: d912852cce27c9e80a93603db721c267716894462e7033165178b91138587972
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   build_runner:
     dependency: "direct dev"
     description:
@@ -308,10 +308,10 @@ packages:
     dependency: "direct main"
     description:
       name: get
-      sha256: "2ba20a47c8f1f233bed775ba2dd0d3ac97b4cf32fc17731b3dfc672b06b0e92a"
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
       url: "https://pub.dev"
     source: hosted
-    version: "4.6.5"
+    version: "4.6.6"
   glob:
     dependency: transitive
     description:
@@ -605,6 +605,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sn_progress_dialog:
+    dependency: "direct main"
+    description:
+      name: sn_progress_dialog
+      sha256: b739d4b91c0bf575bfe1116b0a12ec2f3345d90c4ec3e7bc88b486daed6dd3e6
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.3"
   source_gen:
     dependency: transitive
     description:
@@ -745,10 +753,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_platform_interface
-      sha256: "9d32a63a5ee111b37482cb3eac3379b9f0992afd27a52ee30279dbf06f41918b"
+      sha256: "6d9213c65f1060116757a7c473247c60f3f7f332cac33dc417c9e362a9a13e4f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.1"
+    version: "2.6.0"
   webview_flutter_wkwebview:
     dependency: transitive
     description:
@@ -783,4 +791,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.1.0-185.0.dev <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"

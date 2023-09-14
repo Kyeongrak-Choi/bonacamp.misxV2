@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
-import '../../models/localDB/userinfo.dart';
+import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
 import '../../utils/theme/color_manager.dart';
@@ -60,10 +60,6 @@ class Config extends StatelessWidget {
             padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
             child: CardIconMenu(iconMenuList: menuMaster),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: menuMaster),
-          ),
         ],
       ),
     );
@@ -91,12 +87,12 @@ class OptionController extends GetxController {
     await Hive.openBox(
       LOCAL_DB,
     );
-    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO).elementAt(0);
+    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
 
-    clientNm.value = user.getClientNm;
+    clientNm.value = user.getClientName;
     businessNo.value = convertBusinessNo(user.getBusinessNo.toString());
     userId.value = user.getUserId.toString();
-    userNm.value = user.getUserNm.toString();
+    userNm.value = user.getUserName.toString();
   }
 
   Future<void> changeTheme(bool val) async {
