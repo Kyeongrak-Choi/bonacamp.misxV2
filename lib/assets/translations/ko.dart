@@ -86,7 +86,8 @@ const Map<String, String> koKR = {
 
   // Progress Bar
   'progress_loading': '로딩중입니다...',
-  'progress_login': '로그인중입니다...',
+  'progress_login' : '로그인중입니다...',
+  'progress_search' : '서버 조회중 입니다...',
 
   // menu
   'menu_main_managemnent': '경영분석',
@@ -135,8 +136,38 @@ const Map<String, String> koKR = {
   'msg_api_401': '유효한 인증 자격 증명이 없습니다.',
   'msg_api_500': '서버 에러입니다.',
 
-  'msg_conn_api_server': '서버에 접속할 수 없습니다.',
-  'msg_conn_auth_server': '인증서버에 접속할 수 없습니다.',
+  'msg_conn_api_server' : '서버에 접속할 수 없습니다.',
+  'msg_conn_auth_server' : '인증서버에 접속할 수 없습니다.',
+
+  // OverAll Item Title
+  'appbar_title_overall_status' : '종합 현황',
+  'sales_title_totAmt' : '매출액',
+  'sales_title_suppAmt' : '공급가',
+  'sales_title_vatAmt' : '부가세',
+  'sales_title_grntAmt' : '보증금',
+  'deposit_title_retrvAmt' : '회수액',
+  'deposit_title_ipTot' : '입금액',
+  'deposit_title_amt' : '채권잔액',
+
+  'purchase_title_boTotAmt' : '매입액',
+  'purchase_title_suppAmt' : '공급가',
+  'purchase_title_vatAmt' : '부가세',
+  'purchase_title_grntAmt' : '보증금',
+  'return_title_oTot' : '반납액',
+  'withdraw_title_outTot' : '출금액',
+  'withdraw_title_amt' : '채무잔액',
+
+  'rental_title_lendAmt' : '대여금액',
+  'rental_title_inspayLendAmt' : '회수예정금액',
+  'rental_title_retrvAmt' : '회수금액',
+  'rental_title_remAmt' : '미회수잔액',
+  'rental_title_totAmt' : '대여금잔액',
+
+  'asset_title_totQty' : '신규대여수량',
+  'asset_title_totAmt' : '신규대여금액',
+
+
+
 };
 
 //const Map<String,String> enUs = {};
