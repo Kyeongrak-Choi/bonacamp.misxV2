@@ -171,7 +171,7 @@ class DashBoardController extends GetxController {
       controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
       parsedData = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
       controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
-      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RANTAL];
+      parsedData = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
       controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
       parsedData = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
       controllerAssetModel = OverAllAssetModel.fromJson(parsedData);

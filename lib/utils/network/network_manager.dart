@@ -170,7 +170,7 @@ Future<dynamic> reqApiThrow(api, params, method) async {
     return handler.next(e);
   }));
 
-  Response response;
+  Res.Response response;
   try {
     if (method == API_REQ_GET) {
       response = await dio.get(api, data: params);
