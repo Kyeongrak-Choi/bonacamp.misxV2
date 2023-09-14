@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -123,8 +124,6 @@ class DashBoardController extends GetxController {
       if (resEmployee.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resEmployee.data))[TAG_DATA] as List;
         await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
-      } else {
-        log('employee error : ' + resEmployee.data);
       }
 
       // get Branches
@@ -132,8 +131,6 @@ class DashBoardController extends GetxController {
       if (resBranches.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resBranches.data))[TAG_DATA] as List;
         await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
-      } else {
-        log('branches error : ' + resBranches.data);
       }
 
       // get Teams
@@ -141,8 +138,6 @@ class DashBoardController extends GetxController {
       if (resTeams.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resTeams.data))[TAG_DATA] as List;
         await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
-      } else {
-        log('teams error : ' + resTeams.data);
       }
 
       // get Warehouses
@@ -150,8 +145,6 @@ class DashBoardController extends GetxController {
       if (resWarehouses.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resWarehouses.data))[TAG_DATA] as List;
         await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
-      } else {
-        log('warehouses error : ' + resWarehouses.data);
       }
 
       // get System Common
@@ -159,12 +152,13 @@ class DashBoardController extends GetxController {
       if (resSystem.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resSystem.data))[TAG_DATA] as List;
         await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
-      } else {
-        log('System Common error : ' + resSystem.data);
       }
-    } catch (e) {
-      log(e.toString());
+    } on DioException catch (e) {
+      if (e.response != null) {
+        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+      }
     }
+
 
     //get overall - dashboard
     sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
@@ -192,13 +186,13 @@ class DashBoardController extends GetxController {
         controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
 
         update();
-      } else {
-        log('over all error : ' + resOverall.data);
       }
       pd.close();
-    } catch (e) {
-      log(e.toString());
+    } on DioException catch (e) {
       pd.close();
+      if (e.response != null) {
+        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+      }
     }
   }
 }
