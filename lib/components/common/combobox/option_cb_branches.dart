@@ -60,9 +60,7 @@ class OptionCbBranch extends StatelessWidget {
 
 class CbBranchController extends GetxController {
   var selectedValue;
-  List<BranchModel> data = [
-    BranchModel('', '', '', '', '', ''),
-  ].obs;
+  List<BranchModel> data = <BranchModel>[].obs;
 
   // param sample
   String paramClientCode = '';
@@ -73,10 +71,13 @@ class CbBranchController extends GetxController {
   String paramRepresentative = '';
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    setBranch();
-    selectedValue = data.first;
+    await setBranch();
+    if(data != null) {
+      chooseItem(data.first);
+      //selectedValue = data.first;
+    }
   }
 
   chooseItem(BranchModel value) async {
