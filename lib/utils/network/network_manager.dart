@@ -6,6 +6,7 @@ import 'package:dio/src/response.dart' as Res;
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
+import 'package:misxV2/utils/utility.dart';
 
 import '../../models/token/req_token.dart';
 import '../constants.dart';
@@ -122,7 +123,38 @@ Future<Dio> reqApi(header) async {
   }, onError: (DioError dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
     if (dioError.response?.statusCode == 200) {
     } else if (dioError.response?.statusCode == 401) {
-      print("인증 토큰 만료"); // 추후 처리
+      // 1차 토큰 만료
+      final accessToken = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
+
+      // 토큰 갱신 요청을 담당할 dio 객체 구현 후 그에 따른 interceptor 정의
+      var refreshDio = Dio(options);
+      refreshDio.interceptors.clear();
+      refreshDio.interceptors.add(InterceptorsWrapper(onError: (rError, rHandler) async {
+        if (rError.response?.statusCode != 200) {
+          // 토큰 초기화
+          initToken();
+          ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr,Get.context);
+          Get.toNamed(ROUTE_LOGIN);
+        }
+        return rHandler.next(rError);
+      }));
+
+      // 토큰 갱신 API 요청
+      if (await reqToken(true)) {
+        // 수행하지 못했던 API 요청 복사본 생성
+        final clonedRequest = await dio.request(dioError.requestOptions.path,
+            options: Options(
+              method: dioError.requestOptions.method,
+              headers: dioError.requestOptions.headers,
+              contentType: Headers.jsonContentType,
+            ),
+            data: dioError.requestOptions.data,
+            queryParameters: dioError.requestOptions.queryParameters);
+
+        // API 복사본으로 재요청
+        return errorInterceptorHandler.resolve(clonedRequest);
+      }
+
     } else {
       return errorInterceptorHandler.next(dioError);
     }

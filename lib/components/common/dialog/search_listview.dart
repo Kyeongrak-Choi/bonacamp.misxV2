@@ -63,8 +63,8 @@ class SearchList extends StatelessWidget {
         return SearchListItem(
               Get.find<SearchListController>().datas[index].getCustCd
             , Get.find<SearchListController>().datas[index].getCustNm
-            , Get.find<SearchListController>().datas[index].getBizCnd != null ? Get.find<SearchListController>().datas[index].getBizCnd : ''
-            , Get.find<SearchListController>().datas[index].getIndstyp != null ? Get.find<SearchListController>().datas[index].getIndstyp : '');
+            , Get.find<SearchListController>().datas[index].getCustStatNm != null ? Get.find<SearchListController>().datas[index].getCustStatNm : ''
+            , Get.find<SearchListController>().datas[index].getReprNm != null ? Get.find<SearchListController>().datas[index].getReprNm : '');
       case SEARCH_DIALOG_ITEM:
         return SearchListItem(
               Get.find<SearchListController>().datas[index].getItmCd
