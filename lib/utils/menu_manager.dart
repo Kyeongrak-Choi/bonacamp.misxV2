@@ -50,7 +50,6 @@ final List<IconMenu> menuMaster = [
   IconMenu(title: 'menu_setting'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONFIG),
 ];
 
-
 /* Icon Reference
  1. cupertino * https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
   - example : iconData: CupertinoIcons.airplane

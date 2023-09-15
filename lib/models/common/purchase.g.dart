@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'customer.dart';
+part of 'purchase.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
-    CustomerModel(
+PurchaseModel _$PurchaseModelFromJson(Map<String, dynamic> json) =>
+    PurchaseModel(
       json['custCd'] as String?,
       json['custNm'] as String?,
-      json['custAbbNm'] as String?,
+      json['reprNm'] as String?,
       json['custStat'] as String?,
       json['custStatNm'] as String?,
-      json['bizItm'] as String?,
-      json['bizItmNm'] as String?,
+      json['bizcnd'] as String?,
+      json['indstyp'] as String?,
     );
 
-Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
+Map<String, dynamic> _$PurchaseModelToJson(PurchaseModel instance) =>
     <String, dynamic>{
       'custCd': instance.custCd,
       'custNm': instance.custNm,
-      'custAbbNm': instance.custAbbNm,
+      'reprNm': instance.reprNm,
       'custStat': instance.custStat,
       'custStatNm': instance.custStatNm,
-      'bizItm': instance.bizItm,
-      'bizItmNm': instance.bizItmNm,
+      'bizcnd': instance.bizcnd,
+      'indstyp': instance.indstyp,
     };

@@ -6,6 +6,7 @@ import 'package:dio/src/response.dart' as Res;
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/userinfo.dart';
+import 'package:misxV2/utils/utility.dart';
 
 import '../../models/token/req_token.dart';
 import '../constants.dart';
@@ -102,12 +103,10 @@ Future<String> reqLogin(params) async {
   }
 }
 
-Future<dynamic> reqApi(api, params, method) async {
-  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-
+Future<Dio> reqApi(header) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
     // 15s
@@ -121,32 +120,48 @@ Future<dynamic> reqApi(api, params, method) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e);
+  }, onError: (DioError dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+    if (dioError.response?.statusCode == 200) {
+    } else if (dioError.response?.statusCode == 401) {
+      // 1차 토큰 만료
+      final accessToken = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
+
+      // 토큰 갱신 요청을 담당할 dio 객체 구현 후 그에 따른 interceptor 정의
+      var refreshDio = Dio(options);
+      refreshDio.interceptors.clear();
+      refreshDio.interceptors.add(InterceptorsWrapper(onError: (rError, rHandler) async {
+        if (rError.response?.statusCode != 200) {
+          // 토큰 초기화
+          initToken();
+          ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr,Get.context);
+          Get.toNamed(ROUTE_LOGIN);
+        }
+        return rHandler.next(rError);
+      }));
+
+      // 토큰 갱신 API 요청
+      if (await reqToken(true)) {
+        // 수행하지 못했던 API 요청 복사본 생성
+        final clonedRequest = await dio.request(dioError.requestOptions.path,
+            options: Options(
+              method: dioError.requestOptions.method,
+              headers: dioError.requestOptions.headers,
+              contentType: Headers.jsonContentType,
+            ),
+            data: dioError.requestOptions.data,
+            queryParameters: dioError.requestOptions.queryParameters);
+
+        // API 복사본으로 재요청
+        return errorInterceptorHandler.resolve(clonedRequest);
+      }
+
+    } else {
+      return errorInterceptorHandler.next(dioError);
+    }
+    return errorInterceptorHandler.next(dioError);
   }));
 
-  Res.Response response;
-  try {
-    if (method == API_REQ_GET) {
-      response = await dio.get(api, data: params);
-    } else {
-      response = await dio.post(api, data: params);
-    }
-
-    switch (response.statusCode) {
-      case 200:
-        return jsonEncode(response.data);
-      case 400:
-        return 'msg_api_400'.tr;
-      case 401:
-        return 'msg_api_401'.tr;
-      case 500:
-        return 'msg_api_500'.tr;
-    }
-  } catch (e) {
-    Exception(e);
-    return e.toString();
-  }
+  return dio;
 }
 
 Future<dynamic> reqApiThrow(api, params, method) async {
@@ -154,10 +169,10 @@ Future<dynamic> reqApiThrow(api, params, method) async {
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-      'Client-Code' : params},
+    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
+    // 5s
     receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
   );
 

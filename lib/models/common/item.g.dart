@@ -7,14 +7,14 @@ part of 'item.dart';
 // **************************************************************************
 
 ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => ItemModel(
-      json['itmCd'] as String,
-      json['itmNm'] as String,
-      json['itmAbbNm'] as String,
-      json['stnd'] as String,
-      json['uzFg'] as String,
-      json['uzFgNm'] as String,
-      json['ut'] as String,
-      json['utNm'] as String,
+      json['itmCd'] as String?,
+      json['itmNm'] as String?,
+      json['itmAbbNm'] as String?,
+      json['stnd'] as String?,
+      json['uzFg'] as String?,
+      json['uzFgNm'] as String?,
+      json['ut'] as String?,
+      json['utNm'] as String?,
     );
 
 Map<String, dynamic> _$ItemModelToJson(ItemModel instance) => <String, dynamic>{

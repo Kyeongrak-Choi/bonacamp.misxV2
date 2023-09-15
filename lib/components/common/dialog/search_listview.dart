@@ -1,18 +1,30 @@
 import 'dart:convert';
-import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
+import 'package:misxV2/models/common/item.dart';
+import 'package:misxV2/models/common/lenditem.dart';
+import 'package:misxV2/models/common/purchase.dart';
 import 'package:misxV2/utils/network/network_manager.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
+import 'package:misxV2/utils/utility.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 
 class SearchList extends StatelessWidget {
+
+  var flag;
+
+  SearchList(String flag) {
+    this.flag = flag;
+  }
+
   @override
   Widget build(BuildContext context) {
     Get.put(SearchListController());
@@ -39,29 +51,42 @@ class SearchList extends StatelessWidget {
   }
 
   Widget selectSearchListItem(int index) {
-    // if (Get.find<SearchListController>().flag == SEARCH_DIALOG_CUST) {
-    //   return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
-    //       Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
-    // } else if (Get.find<SearchListController>().flag == SEARCH_DIALOG_PRCH) {
-    //   return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
-    //       Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
-    // }
-    // else if (Get.find<SearchListController>().flag == SEARCH_DIALOG_ITEM) {
-    //   return SearchListItem(Get.find<SearchListController>().datas[index].getItmCd, Get.find<SearchListController>().datas[index].getItmNm,
-    //       Get.find<SearchListController>().datas[index].getItmAbbNm, Get.find<SearchListController>().datas[index].getUzFgNm);
-    // } else {
-    //   return SearchListItem(Get.find<SearchListController>().datas[index].getLendItmCd, Get.find<SearchListController>().datas[index].getLendItmNm,
-    //       Get.find<SearchListController>().datas[index].getVesFgNm, Get.find<SearchListController>().datas[index].getEmptyBotlNm);
-    // }
-    return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
-        Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
+
+    switch (flag) {
+      case SEARCH_DIALOG_CUST:
+        return SearchListItem(
+              Get.find<SearchListController>().datas[index].getCustCd
+            , Get.find<SearchListController>().datas[index].getCustNm
+            , Get.find<SearchListController>().datas[index].getCustAbbNm
+            , Get.find<SearchListController>().datas[index].getCustStatNm);
+      case SEARCH_DIALOG_PRCH:
+        return SearchListItem(
+              Get.find<SearchListController>().datas[index].getCustCd
+            , Get.find<SearchListController>().datas[index].getCustNm
+            , Get.find<SearchListController>().datas[index].getCustStatNm != null ? Get.find<SearchListController>().datas[index].getCustStatNm : ''
+            , Get.find<SearchListController>().datas[index].getReprNm != null ? Get.find<SearchListController>().datas[index].getReprNm : '');
+      case SEARCH_DIALOG_ITEM:
+        return SearchListItem(
+              Get.find<SearchListController>().datas[index].getItmCd
+            , Get.find<SearchListController>().datas[index].getItmNm
+            , Get.find<SearchListController>().datas[index].getItmAbbNm
+            , Get.find<SearchListController>().datas[index].getUzFgNm);
+      case SEARCH_DIALOG_LEND:
+        return SearchListItem(
+              Get.find<SearchListController>().datas[index].getLendItmCd
+            , Get.find<SearchListController>().datas[index].getLendItmNm
+            , Get.find<SearchListController>().datas[index].getVesFgNm != null ? Get.find<SearchListController>().datas[index].getVesFgNm : ''
+            , Get.find<SearchListController>().datas[index].getEmptyBotlNm != null ? Get.find<SearchListController>().datas[index].getEmptyBotlNm : '');
+      default :
+        return SearchListItem('','','','');
+    }
   }
 }
 
 class SearchListController extends GetxController {
   RxList datas = [].obs;
-  var parsedResponse = [];
-  var flag;
+  var searchFlag;
+  var searchTxt = '';
 
   @override
   void onInit() {
@@ -73,29 +98,100 @@ class SearchListController extends GetxController {
     super.onClose();
   }
 
+  void setSearchTxt(text) {
+    searchTxt = text;
+  }
+
+  void setFlag(flag){
+    searchFlag = flag;
+  }
+
   void search(String flag) async {
+    ProgressDialog pd = ProgressDialog(context: Get.context);
+    pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
-    var response;
     var dataObjsJson;
+    var dio;
+    var parsedResponse = [];
 
+    dio = await reqApi(param);
     switch (flag) {
       case SEARCH_DIALOG_CUST:
         // 거래처(매출처) 검색
-        response = await reqApi(API_COMMON + API_COMMON_CUSTOMER + '?q=custCode%3D%26custName%3D%26is%3D', param, API_REQ_GET);
-        log(response.toString());
-        dataObjsJson = jsonDecode(response)[TAG_DATA][TAG_COMMON_CUSTOMER] as List;
-        parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+        try {
+          String queryParam =
+              Uri.encodeComponent('=' + searchTxt + '&is=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
+          final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
+
+          if (response.statusCode == 200) {
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_CUSTOMER] as List;
+            parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+          }
+          pd.close();
+        } on DioException catch (e) {
+          pd.close();
+          if (e.response != null) {
+            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+          }
+        }
         break;
       case SEARCH_DIALOG_PRCH:
         //  매입처 검색
+        try {
+          String queryParam =
+          Uri.encodeComponent('=' + searchTxt + '&is=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
+          final response = await dio.get(API_COMMON + API_COMMON_PURCHASE + '?q=search' + queryParam);
 
+          if (response.statusCode == 200) {
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_PURCHASE] as List;
+            parsedResponse = dataObjsJson.map((dataJson) => PurchaseModel.fromJson(dataJson)).toList();
+          }
+          pd.close();
+        } on DioException catch (e) {
+          pd.close();
+          if (e.response != null) {
+            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+          }
+        }
         break;
       case SEARCH_DIALOG_ITEM:
         // 품목 검색
+        try {
+          String queryParam =
+          Uri.encodeComponent('=' + searchTxt);
+          final response = await dio.get(API_COMMON + API_COMMON_ITEM + '?q=search' + queryParam);
+
+          if (response.statusCode == 200) {
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_ITEM] as List;
+            parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
+          }
+          pd.close();
+        } on DioException catch (e) {
+          pd.close();
+          if (e.response != null) {
+            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+          }
+        }
         break;
       case SEARCH_DIALOG_LEND:
         // 용기공병 검색
+        try {
+          String queryParam =
+          Uri.encodeComponent('=' + searchTxt);
+          final response = await dio.get(API_COMMON + API_COMMON_LENDITEM + '?q=search' + queryParam);
+
+          if (response.statusCode == 200) {
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_LENDITEM] as List;
+            parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
+          }
+          pd.close();
+        } on DioException catch (e) {
+          pd.close();
+          if (e.response != null) {
+            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+          }
+        }
         break;
     }
 

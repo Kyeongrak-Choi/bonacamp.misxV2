@@ -63,8 +63,8 @@ class LoginBtnController extends GetxController {
 
   Future<bool> LoginCheck() async {
     // test login
-    inputId = 'bonabank';
-    inputPw = 'bona1234';
+    inputId = 'misxdev';
+    inputPw = 'misxdev';
 
     if (inputId == '' || inputPw == '') {
       return false;
