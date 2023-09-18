@@ -68,7 +68,7 @@ final List<IconMenu> commonModulesMaster = [
 final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
   IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: Icons.leaderboard, path: ''),
-  IconMenu(title: 'title_3'.tr, iconData: CupertinoIcons.person_2_fill, path: ''),
+  IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE),
   IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'title_5'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'title_6'.tr, iconData: Icons.copy_outlined, path: ''),

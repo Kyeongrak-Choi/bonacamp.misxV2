@@ -27,8 +27,10 @@ const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 const ROUTE_MENU_EXAMPLE = '/menuExample';
 const ROUTE_API_EXAMPLE = '/apiExample';
 
-// Route 경영 분석
-const ROUTE_MENU_OVERALL_STATUS = '/overallStatus';
+// Route
+// 경영 분석
+const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
+const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사원별 기여현황
 
 /*
   Util
@@ -87,10 +89,13 @@ const API_COMMON = '/v1/common';
 const API_COMMON_CUSTOMER = '/customer';
 const API_COMMON_PURCHASE = '/purchase';
 const API_COMMON_ITEM = '/item';
-const API_COMMON_LENDITEM = '/lendItem';
+const API_COMMON_LENDITEM = '/lend-item';
 
 // management
-const API_SALES_OVERALL = '/v1/management/overall';
+const API_MANAGEMENT = '/v1/management'; // 경영관리
+const API_MANAGEMENT_OVERALL = '/overall'; // 종합현황
+const API_MANAGEMENT_SALESDAILY = '/sales-daily'; // 영업일보
+const API_MANAGEMENT_SALESPERSONCONTRIBUTE = '/sales-person-contribute'; // 영원사원별 기여현황
 
 /*
   Json
@@ -101,6 +106,7 @@ const TAG_DATA = 'payload'; // response data tag
 const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
 const TAG_ERROR = 'errors'; // response error tag
+const TAG_RETURN_OBJECT = 'data'; // response data object tag
 
 // Authorization
 const TAG_TOKEN = 'token'; // response token tag

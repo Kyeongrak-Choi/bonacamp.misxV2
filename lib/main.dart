@@ -6,10 +6,12 @@ import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
+import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
 import 'package:misxV2/utils/utility.dart';
+import 'package:month_year_picker/month_year_picker.dart';
 
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
@@ -52,6 +54,7 @@ class Misx extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        MonthYearPickerLocalizations.delegate,
       ],
       // Route manage
       getPages: [
@@ -73,7 +76,10 @@ class Misx extends StatelessWidget {
         // example
         GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
 
-        GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()),
+        // 경영분석
+        GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
+        GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
+
       ],
       home: Login(),
     );
