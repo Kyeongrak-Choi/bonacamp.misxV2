@@ -71,11 +71,12 @@ const Map<String, String> koKR = {
   // option
   'opt_period': '기간',
   'opt_date': '일자',
-  'opt_month': '연월',
+  'opt_month': '조회월',
   'opt_workspace': '사업장',
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
+  'opt_customer_status':'거래처 상태',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -95,7 +96,7 @@ const Map<String, String> koKR = {
   'menu_main_managemnent': '경영분석',
   'menu_sub_overall': '종합현황',
   'menu_sub_salesdaily': '영업일보',
-  'title_3': '영업사원별 기여현황',
+  'menu_sub_salesperson_contribute': '영업사원별 기여현황',
   'title_4': '매출처별 기여현황',
   'title_5': '판매분류별 현황',
   'title_6': '매출순위현황',

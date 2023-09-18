@@ -1,10 +1,19 @@
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../layouts/example/menu_example.dart';
+import '../../../layouts/menu/management/overall_status.dart';
+import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 
 class OptionBtnSearch extends StatelessWidget {
+  var menu;
+
+  OptionBtnSearch(String menu){
+    this.menu = menu;
+  }
   @override
   Widget build(BuildContext context) {
     Get.put(MenuExampleController());
@@ -17,10 +26,26 @@ class OptionBtnSearch extends StatelessWidget {
           child: Container(
             color: context.theme.backgroundColor,
             child: ElevatedButton(
-                onPressed: () {
-                  //ShowProgress(context);
-                  Get.find<MenuExampleController>().setVisible();
-                  //HideProgess(context);
+                onPressed: () async {
+                  ProgressDialog pd = ProgressDialog(context: context);
+                  pd.show(max: 1000, msg: 'progress_search'.tr, backgroundColor: CommonColors.bluesky);
+
+                  switch(menu) {
+                    // 경영관리 - 종합현황
+                    case ROUTE_MENU_OVERALL_STATUS :
+                      await Get.find<OverAllController>().showResult();
+                      Get.find<OverAllController>().setVisible();
+                      break;
+                  // 경영관리 - 영업사원별 기여현황
+                    case ROUTE_MENU_OVERALL_STATUS :
+                      await Get.find<SalesPersonContributeController>().showResult();
+                      Get.find<SalesPersonContributeController>().setVisible();
+                      break;
+
+                  }
+
+                  pd.close();
+
                 },
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(

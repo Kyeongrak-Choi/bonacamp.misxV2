@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/components/common/button/option_btn_search_overall.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
+import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/datatable/overall_table.dart';
 import '../../../models/management/overall/overallasset.dart';
@@ -50,7 +50,7 @@ class OverallStatus extends StatelessWidget {
                     children: [
                       OptionPeriodPicker(),
                       OptionCbBranch(),
-                      OptionBtnSearchOverAll(),
+                      OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
                     ],
                   ),
                 ),
