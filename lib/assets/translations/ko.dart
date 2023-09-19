@@ -18,8 +18,8 @@ const Map<String, String> koKR = {
   'admob_banner': '광고배너',
   'check_login_header': 'ID/PW 확인',
   'check_login_content': 'ID/PW를 확인해 주세요.',
-  'login_expiration' : '인증만료',
-  'expiration_content' : '인증이 만료되어 로그인페이지로 이동합니다.',
+  'login_expiration': '인증만료',
+  'expiration_content': '인증이 만료되어 로그인페이지로 이동합니다.',
 
   // config
   'notice': '공지 사항',
@@ -76,7 +76,7 @@ const Map<String, String> koKR = {
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
-  'opt_customer_status':'거래처 상태',
+  'opt_customer_status': '거래처 상태',
 
   // Drawer Menu Label
   'logout': '로그아웃',

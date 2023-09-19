@@ -19,7 +19,7 @@ class ReqLoginModel {
     return {
       'id': id,
       'password': password,
-      'appId': appId,
+      'app-id': appId,
     };
   }
 

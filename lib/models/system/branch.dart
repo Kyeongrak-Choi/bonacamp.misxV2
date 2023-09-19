@@ -24,11 +24,11 @@ class BranchModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'clientCode': clientCode,
-      'clientName': clientName,
-      'branchCode': branchCode,
-      'branchName': branchName,
-      'businessNo': businessNo,
+      'client-code': clientCode,
+      'client-name': clientName,
+      'branch-code': branchCode,
+      'branch-name': branchName,
+      'business-no': businessNo,
       'representative': representative
     };
   }

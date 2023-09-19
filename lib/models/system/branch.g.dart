@@ -60,20 +60,20 @@ class BranchModelAdapter extends TypeAdapter<BranchModel> {
 // **************************************************************************
 
 BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
-      json['clientCode'] as String?,
-      json['clientName'] as String?,
-      json['branchCode'] as String?,
-      json['branchName'] as String?,
-      json['businessNo'] as String?,
+      json['client-code'] as String?,
+      json['client-name'] as String?,
+      json['branch-code'] as String?,
+      json['branch-name'] as String?,
+      json['business-no'] as String?,
       json['representative'] as String?,
     );
 
 Map<String, dynamic> _$BranchModelToJson(BranchModel instance) =>
     <String, dynamic>{
-      'clientCode': instance.clientCode,
-      'clientName': instance.clientName,
-      'branchCode': instance.branchCode,
-      'branchName': instance.branchName,
-      'businessNo': instance.businessNo,
+      'client-code': instance.clientCode,
+      'client-name': instance.clientName,
+      'branch-code': instance.branchCode,
+      'branch-name': instance.branchName,
+      'business-no': instance.businessNo,
       'representative': instance.representative,
     };

@@ -17,7 +17,7 @@ class ItemModel {
   ItemModel(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg, this.uzFgNm, this.ut, this.utNm);
 
   Map<String, dynamic> toMap() {
-    return {'itmCd': itmCd, 'itmNm': itmNm, 'itmAbbNm': itmAbbNm, 'stnd': stnd, 'uzFg': uzFg, 'uzFgNm': uzFgNm, 'ut': ut, 'utNm': utNm};
+    return {'item-code': itmCd, 'item-name': itmNm, 'item-nick-name': itmAbbNm, 'standard': stnd, 'usage-code': uzFg, 'usage-name': uzFgNm, 'unit-code': ut, 'unit-name': utNm};
   }
 
   factory ItemModel.fromJson(Map<String, dynamic> json) => _$ItemModelFromJson(json);

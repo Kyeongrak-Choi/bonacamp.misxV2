@@ -49,12 +49,12 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
 
 WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) =>
     WarehouseModel(
-      json['warehouseCode'] as String?,
-      json['warehouseName'] as String?,
+      json['warehouse-code'] as String?,
+      json['warehouse-name'] as String?,
     );
 
 Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) =>
     <String, dynamic>{
-      'warehouseCode': instance.warehouseCode,
-      'warehouseName': instance.warehouseName,
+      'warehouse-code': instance.warehouseCode,
+      'warehouse-name': instance.warehouseName,
     };
