@@ -13,9 +13,9 @@ class OverAllDepositModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'retrvAmt': retrvAmt,
-      'ipTot': ipTot,
-      'amt': amt,
+      'recall-amount': retrvAmt,
+      'deposit-amount': ipTot,
+      'bond-balance': amt,
     };
   }
 

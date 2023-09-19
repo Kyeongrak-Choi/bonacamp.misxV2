@@ -103,7 +103,7 @@ class SalesPersonContributeController extends GetxController {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
-      print("other error");
+      print("other error1");
     }
   }
 }

@@ -14,10 +14,10 @@ class OverAllPurchaseModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'boTotAmt': boTotAmt,
-      'suppAmt': suppAmt,
-      'vatAmt': vatAmt,
-      'grntAmt': grntAmt,
+      'purchase-amount': boTotAmt,
+      'supplement-amount': suppAmt,
+      'vat-amount': vatAmt,
+      'guarantee-amount': grntAmt,
     };
   }
 
