@@ -77,6 +77,7 @@ const Map<String, String> koKR = {
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
   'opt_customer_status':'거래처 상태',
+  'opt_team': '팀',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -169,6 +170,17 @@ const Map<String, String> koKR = {
 
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
+
+  //Sales Daily
+
+  'employee_name': '담당자',
+  'division_name': '구분명',
+  'supplement_amount': '공급가',
+  'vat_amount': '부가세',
+  'guarantee_amount': '보증금합계',
+  'total-amount': '',
+
+
 };
 
 //const Map<String,String> enUs = {};

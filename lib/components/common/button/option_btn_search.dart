@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/overall_status.dart';
+import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
@@ -36,12 +37,15 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<OverAllController>().showResult();
                       Get.find<OverAllController>().setVisible();
                       break;
+                    case ROUTE_MENU_SALES_DAILY :
+                      await Get.find<SalesDailyController>().showResult();
+                      Get.find<SalesDailyController>().setVisible();
+                      break;
                   // 경영관리 - 영업사원별 기여현황
                     case ROUTE_MENU_OVERALL_STATUS :
                       await Get.find<SalesPersonContributeController>().showResult();
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
-
                   }
 
                   pd.close();

@@ -30,6 +30,7 @@ const ROUTE_API_EXAMPLE = '/apiExample';
 // Route
 // 경영 분석
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
+const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
 const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사원별 기여현황
 
 /*
@@ -136,6 +137,8 @@ const TAG_WITHDRAW = 'withdraw';
 const TAG_RETURN = 'return';
 const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
+
+const TAG_SALESDAILY_LIST = 'data-list';
 
 /*
   HIVE DB

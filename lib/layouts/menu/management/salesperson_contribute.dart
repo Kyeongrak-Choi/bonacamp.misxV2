@@ -89,7 +89,7 @@ class SalesPersonContributeController extends GetxController {
 
     try {
       dio = await reqApi(paramClientCd);
-      final response = await dio.get(API_SALES_SALESPERSONCONTRIBUTE
+      final response = await dio.get(API_MANAGEMENT_SALESPERSONCONTRIBUTE
           + '?nodeCd=' + paramNodeCd
           + '&month=' + paramYM
           + '&salChrgCd=' + paramSalChrgCd
