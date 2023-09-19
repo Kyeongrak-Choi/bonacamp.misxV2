@@ -17,13 +17,13 @@ class CustomerModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'custCd': custCd,
-      'custNm': custNm,
-      'custAbbNm': custAbbNm,
-      'custStat': custStat,
-      'custStatNm': custStatNm,
-      'bizItm': bizItm,
-      'bizItmNm': bizItmNm
+      'customer-code': custCd,
+      'customer-name': custNm,
+      'customer-nick-name': custAbbNm,
+      'customer-status-code': custStat,
+      'customer-status-name': custStatNm,
+      'business-type-code': bizItm,
+      'business-type-name': bizItmNm
     };
   }
 

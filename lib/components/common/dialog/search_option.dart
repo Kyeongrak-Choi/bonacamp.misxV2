@@ -13,7 +13,6 @@ class SearchOption extends StatelessWidget {
   SearchOption(String flag) {
     this.flag = flag;
     initVar(flag);
-
   }
 
   @override
@@ -58,7 +57,6 @@ class SearchOption extends StatelessWidget {
   }
 
   void initVar(flag) {
-
     switch (flag) {
       case SEARCH_DIALOG_CUST:
         hint = 'hint_search_customer'.tr;

@@ -48,11 +48,11 @@ class TeamModelAdapter extends TypeAdapter<TeamModel> {
 // **************************************************************************
 
 TeamModel _$TeamModelFromJson(Map<String, dynamic> json) => TeamModel(
-      json['teamCode'] as String?,
-      json['teamName'] as String?,
+      json['team-code'] as String?,
+      json['team-name'] as String?,
     );
 
 Map<String, dynamic> _$TeamModelToJson(TeamModel instance) => <String, dynamic>{
-      'teamCode': instance.teamCode,
-      'teamName': instance.teamName,
+      'team-code': instance.teamCode,
+      'team-name': instance.teamName,
     };

@@ -69,7 +69,7 @@ class CommonModelAdapter extends TypeAdapter<CommonModel> {
 // **************************************************************************
 
 CommonModel _$CommonModelFromJson(Map<String, dynamic> json) => CommonModel(
-      json['mainCode'] as String?,
+      json['main-code'] as String?,
       json['no'] as int?,
       json['code'] as String?,
       json['name'] as String?,
@@ -82,7 +82,7 @@ CommonModel _$CommonModelFromJson(Map<String, dynamic> json) => CommonModel(
 
 Map<String, dynamic> _$CommonModelToJson(CommonModel instance) =>
     <String, dynamic>{
-      'mainCode': instance.mainCode,
+      'main-code': instance.mainCode,
       'no': instance.no,
       'code': instance.code,
       'name': instance.name,

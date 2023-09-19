@@ -30,7 +30,7 @@ class CommonModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'mainCode': mainCode,
+      'main-code': mainCode,
       'no': no,
       'code': code,
       'name': name,

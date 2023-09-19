@@ -23,25 +23,8 @@ class SalesPersonContributeModel {
   String? cstrbtAmt; // 기여금액
   String? totCstrbtAmt; // 기여금액 총합계
 
-  SalesPersonContributeModel(
-      this.custCnt,
-      this.suppAmt,
-      this.prmcAmt,
-      this.marginRate,
-      this.marginAmt,
-      this.mngmtAmt,
-      this.fncAmt,
-      this.assAsAmt,
-      this.costSum,
-      this.perddBal,
-      this.balAmt,
-      this.assCnt,
-      this.assQty3,
-      this.cstrbtPct,
-      this.assQty4,
-      this.cstrbtAmt,
-      this.totCstrbtAmt);
-
+  SalesPersonContributeModel(this.custCnt, this.suppAmt, this.prmcAmt, this.marginRate, this.marginAmt, this.mngmtAmt, this.fncAmt, this.assAsAmt,
+      this.costSum, this.perddBal, this.balAmt, this.assCnt, this.assQty3, this.cstrbtPct, this.assQty4, this.cstrbtAmt, this.totCstrbtAmt);
 
   Map<String, dynamic> toMap() {
     return {

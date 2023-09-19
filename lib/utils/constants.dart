@@ -91,11 +91,18 @@ const API_COMMON_PURCHASE = '/purchase';
 const API_COMMON_ITEM = '/item';
 const API_COMMON_LENDITEM = '/lend-item';
 
-// management
-const API_MANAGEMENT = '/v1/management'; // 경영관리
+// management (경영분석)
+const API_MANAGEMENT = '/v1/management';
 const API_MANAGEMENT_OVERALL = '/overall'; // 종합현황
-const API_MANAGEMENT_SALESDAILY = '/sales-daily'; // 영업일보
-const API_MANAGEMENT_SALESPERSONCONTRIBUTE = '/sales-person-contribute'; // 영원사원별 기여현황
+const API_MANAGEMENT_DAILYSTATUS = '/daily-status'; // 영업일보
+const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 영원사원별 기여현황
+const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
+const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
+const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const API_MANAGEMENT_GRAPH = '/anaylsis-graph'; // 분석 그래프
+const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+
+// (영업분석)
 
 /*
   Json
@@ -123,10 +130,10 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
-const TAG_COMMON_CUSTOMER = 'customerList';
-const TAG_COMMON_PURCHASE = 'purchaseList';
-const TAG_COMMON_ITEM = 'itemList';
-const TAG_COMMON_LENDITEM = 'lendItemList';
+const TAG_COMMON_CUSTOMER = 'customer-list';
+const TAG_COMMON_PURCHASE = 'purchase-list';
+const TAG_COMMON_ITEM = 'item-list';
+const TAG_COMMON_LENDITEM = 'lend-item-list';
 
 // sales
 const TAG_SALES = 'sales';
@@ -145,7 +152,7 @@ const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
-const KEY_AUTH_URL = 'baseUr;'; // auth api url
+const KEY_AUTH_URL = 'baseUrl'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key

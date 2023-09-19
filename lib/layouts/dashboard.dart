@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -159,40 +158,39 @@ class DashBoardController extends GetxController {
       }
     }
 
-
-    //get overall - dashboard
-    sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
-    try {
-      pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
-      BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
-      var branchCode = branch.getBranchCode;
-      final resOverall =
-          await dio.get(API_SALES_OVERALL + '?nodeCd=' + branchCode! + '&fromDt=' + getFirstDay() + '&toDt=' + getToday(), data: param);
-
-      if (resOverall.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
-        controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_PURCHASE];
-        controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_DEPOSIT];
-        controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_WITHDRAW];
-        controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RETURN];
-        controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RENTAL];
-        controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_ASSET];
-        controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
-
-        update();
-      }
-      pd.close();
-    } on DioException catch (e) {
-      pd.close();
-      if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
-      }
-    }
+    // //get overall - dashboard
+    // sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
+    // try {
+    //   pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
+    //   BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
+    //   var branchCode = branch.getBranchCode;
+    //   final resOverall = await dio
+    //       .get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?nodeCd=' + branchCode! + '&fromDt=' + getFirstDay() + '&toDt=' + getToday(), data: param);
+    //
+    //   if (resOverall.statusCode == 200) {
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
+    //     controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_PURCHASE];
+    //     controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_DEPOSIT];
+    //     controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_WITHDRAW];
+    //     controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RETURN];
+    //     controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RENTAL];
+    //     controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
+    //     parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_ASSET];
+    //     controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
+    //
+    //     update();
+    //   }
+    //   pd.close();
+    // } on DioException catch (e) {
+    //   pd.close();
+    //   if (e.response != null) {
+    //     ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+    //   }
+    // }
   }
 }

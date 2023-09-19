@@ -15,7 +15,7 @@ class TeamModel {
   TeamModel(this.teamCode, this.teamName);
 
   Map<String, dynamic> toMap() {
-    return {'teamCode': teamCode, 'teamName': teamName};
+    return {'team-code': teamCode, 'team-name': teamName};
   }
 
   factory TeamModel.fromJson(Map<String, dynamic> json) => _$TeamModelFromJson(json);

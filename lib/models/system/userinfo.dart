@@ -26,13 +26,13 @@ class UserinfoModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'clientCode': clientCode,
-      'clientName': clientName,
-      'businessNo': businessNo,
-      'userId': userId,
-      'userName': userName,
-      'roleCode': roleCode,
-      'schemaCode': schemaCode
+      'client-code': clientCode,
+      'client-name': clientName,
+      'business-no': businessNo,
+      'user-id': userId,
+      'user-name': userName,
+      'role-code': roleCode,
+      'schema-code': schemaCode
     };
   }
 

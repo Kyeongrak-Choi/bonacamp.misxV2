@@ -79,6 +79,7 @@ Future<String> reqLogin(params) async {
 
   Dio dio = Dio(options);
 
+
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
@@ -89,6 +90,7 @@ Future<String> reqLogin(params) async {
 
   try {
     Res.Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
+
 
     if (response.statusCode == 200) {
       BoxInit(); // local DB Set
@@ -133,7 +135,7 @@ Future<Dio> reqApi(header) async {
         if (rError.response?.statusCode != 200) {
           // 토큰 초기화
           initToken();
-          ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr,Get.context);
+          ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr, Get.context);
           Get.toNamed(ROUTE_LOGIN);
         }
         return rHandler.next(rError);
@@ -154,7 +156,6 @@ Future<Dio> reqApi(header) async {
         // API 복사본으로 재요청
         return errorInterceptorHandler.resolve(clonedRequest);
       }
-
     } else {
       return errorInterceptorHandler.next(dioError);
     }
