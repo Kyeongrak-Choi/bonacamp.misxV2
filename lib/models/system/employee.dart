@@ -17,7 +17,7 @@ class EmployeeModel {
   EmployeeModel(this.employeeCode, this.employeeName, this.manager);
 
   Map<String, dynamic> toMap() {
-    return {'employeeCode': employeeCode, 'employeeName': employeeName, 'manager': manager};
+    return {'employee-code': employeeCode, 'employee-name': employeeName, 'is-manager': manager};
   }
 
   factory EmployeeModel.fromJson(Map<String, dynamic> json) => _$EmployeeModelFromJson(json);

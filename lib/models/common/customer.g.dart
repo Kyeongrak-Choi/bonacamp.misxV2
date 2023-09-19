@@ -6,24 +6,22 @@ part of 'customer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
-    CustomerModel(
-      json['custCd'] as String?,
-      json['custNm'] as String?,
-      json['custAbbNm'] as String?,
-      json['custStat'] as String?,
-      json['custStatNm'] as String?,
-      json['bizItm'] as String?,
-      json['bizItmNm'] as String?,
+CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) => CustomerModel(
+      json['customer-code'] as String?,
+      json['customer-name'] as String?,
+      json['customer-nick-name'] as String?,
+      json['customer-status-code'] as String?,
+      json['customer-status-name'] as String?,
+      json['business-type-code'] as String?,
+      json['business-type-name'] as String?,
     );
 
-Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
-    <String, dynamic>{
-      'custCd': instance.custCd,
-      'custNm': instance.custNm,
-      'custAbbNm': instance.custAbbNm,
-      'custStat': instance.custStat,
-      'custStatNm': instance.custStatNm,
-      'bizItm': instance.bizItm,
-      'bizItmNm': instance.bizItmNm,
+Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) => <String, dynamic>{
+      'customer-code': instance.custCd,
+      'customer-name': instance.custNm,
+      'customer-nick-name': instance.custAbbNm,
+      'customer-status-code': instance.custStat,
+      'customer-status-name': instance.custStatNm,
+      'business-type-code': instance.bizItm,
+      'business-type-name': instance.bizItmNm,
     };

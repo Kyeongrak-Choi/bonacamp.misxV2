@@ -12,7 +12,6 @@ class SearchDialog extends StatelessWidget {
   SearchDialog(String flag) {
     this.flag = flag;
     initVar(flag);
-
   }
 
   @override

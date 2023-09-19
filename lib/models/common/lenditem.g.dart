@@ -8,26 +8,26 @@ part of 'lenditem.dart';
 
 LendItemModel _$LendItemModelFromJson(Map<String, dynamic> json) =>
     LendItemModel(
-      json['lendItmCd'] as String?,
-      json['lendItmNm'] as String?,
-      json['stnd'] as String?,
-      json['ut'] as String?,
-      json['utNm'] as String?,
-      json['vesFg'] as String?,
-      json['vesFgNm'] as String?,
-      json['emptyBotlCd'] as String?,
-      json['emptyBotlNm'] as String?,
+      json['lend-item-code'] as String?,
+      json['lend-item-name'] as String?,
+      json['standard'] as String?,
+      json['unit-code'] as String?,
+      json['unit-name'] as String?,
+      json['empty-case-bottle-type-code'] as String?,
+      json['empty-case-bottle-type-name'] as String?,
+      json['empty-bottle-code'] as String?,
+      json['empty-bottle-node'] as String?,
     );
 
 Map<String, dynamic> _$LendItemModelToJson(LendItemModel instance) =>
     <String, dynamic>{
-      'lendItmCd': instance.lendItmCd,
-      'lendItmNm': instance.lendItmNm,
-      'stnd': instance.stnd,
-      'ut': instance.ut,
-      'utNm': instance.utNm,
-      'vesFg': instance.vesFg,
-      'vesFgNm': instance.vesFgNm,
-      'emptyBotlCd': instance.emptyBotlCd,
-      'emptyBotlNm': instance.emptyBotlNm,
+      'lend-item-code': instance.lendItmCd,
+      'lend-item-name': instance.lendItmNm,
+      'standard': instance.stnd,
+      'unit-code': instance.ut,
+      'unit-name': instance.utNm,
+      'empty-case-bottle-type-code': instance.vesFg,
+      'empty-case-bottle-type-name': instance.vesFgNm,
+      'empty-bottle-code': instance.emptyBotlCd,
+      'empty-bottle-node': instance.emptyBotlNm,
     };

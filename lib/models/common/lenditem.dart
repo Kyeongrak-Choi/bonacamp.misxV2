@@ -14,20 +14,19 @@ class LendItemModel {
   String? emptyBotlCd;
   String? emptyBotlNm;
 
-  LendItemModel(
-      this.lendItmCd, this.lendItmNm, this.stnd, this.ut, this.utNm, this.vesFg, this.vesFgNm, this.emptyBotlCd, this.emptyBotlNm);
+  LendItemModel(this.lendItmCd, this.lendItmNm, this.stnd, this.ut, this.utNm, this.vesFg, this.vesFgNm, this.emptyBotlCd, this.emptyBotlNm);
 
   Map<String, dynamic> toMap() {
     return {
-      'lendItmCd': lendItmCd,
-      'lendItmNm': lendItmNm,
-      'stnd': stnd,
-      'ut': ut,
-      'utNm': utNm,
-      'vesFg': vesFg,
-      'vesFgNm': vesFgNm,
-      'emptyBotlCd': emptyBotlCd,
-      'emptyBotlNm': emptyBotlNm
+      'lend-item-code': lendItmCd,
+      'lend-item-name': lendItmNm,
+      'standard': stnd,
+      'unit-code': ut,
+      'unit-name': utNm,
+      'empty-case-bottle-type-code': vesFg,
+      'empty-case-bottle-type-name': vesFgNm,
+      'empty-bottle-code': emptyBotlCd,
+      'empty-bottle-node': emptyBotlNm
     };
   }
 

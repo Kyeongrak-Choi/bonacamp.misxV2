@@ -6,8 +6,7 @@ part of 'overallrental.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OverAllRentalModel _$OverAllRentalModelFromJson(Map<String, dynamic> json) =>
-    OverAllRentalModel(
+OverAllRentalModel _$OverAllRentalModelFromJson(Map<String, dynamic> json) => OverAllRentalModel(
       json['lendAmt'] as String?,
       json['inspayLendAmt'] as String?,
       json['retrvAmt'] as String?,
@@ -15,8 +14,7 @@ OverAllRentalModel _$OverAllRentalModelFromJson(Map<String, dynamic> json) =>
       json['totAmt'] as String?,
     );
 
-Map<String, dynamic> _$OverAllRentalModelToJson(OverAllRentalModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OverAllRentalModelToJson(OverAllRentalModel instance) => <String, dynamic>{
       'lendAmt': instance.lendAmt,
       'inspayLendAmt': instance.inspayLendAmt,
       'retrvAmt': instance.retrvAmt,

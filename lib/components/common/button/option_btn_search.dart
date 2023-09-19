@@ -1,6 +1,6 @@
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/overall_status.dart';
@@ -12,9 +12,10 @@ import '../../../utils/theme/color_manager.dart';
 class OptionBtnSearch extends StatelessWidget {
   var menu;
 
-  OptionBtnSearch(String menu){
+  OptionBtnSearch(String menu) {
     this.menu = menu;
   }
+
   @override
   Widget build(BuildContext context) {
     Get.put(MenuExampleController());
@@ -31,9 +32,9 @@ class OptionBtnSearch extends StatelessWidget {
                   ProgressDialog pd = ProgressDialog(context: context);
                   pd.show(max: 1000, msg: 'progress_search'.tr, backgroundColor: CommonColors.bluesky);
 
-                  switch(menu) {
+                  switch (menu) {
                     // 경영관리 - 종합현황
-                    case ROUTE_MENU_OVERALL_STATUS :
+                    case ROUTE_MENU_OVERALL_STATUS:
                       await Get.find<OverAllController>().showResult();
                       Get.find<OverAllController>().setVisible();
                       break;
@@ -49,7 +50,6 @@ class OptionBtnSearch extends StatelessWidget {
                   }
 
                   pd.close();
-
                 },
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
