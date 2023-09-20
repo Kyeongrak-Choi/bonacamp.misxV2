@@ -77,6 +77,7 @@ const Map<String, String> koKR = {
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
   'opt_customer_status': '거래처 상태',
+  'opt_team': '팀',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -171,11 +172,26 @@ const Map<String, String> koKR = {
   'asset_title_totAmt': '신규대여금액',
 
 
+  //Sales Daily
+
+  'employee_name': '담당자',
+  'division_name': '구분',
+  'supplement_amount': '공급가',
+  'vat_amount': '부가세',
+  'guarantee_amount': '보증금합계',
+  'purchase_cost': '매입원가',
+  'profit_amount': '매출이익',
+  'deposit_cash': '입금소계',
+  'deposit_empty_case_bottle': '용공입금',
+  'deposit_amount': '입금합계',
+  'bond_balance': '채권잔액',
+
   'sales_amount' : '매출액',
   'supplement_amount' : '공급가',
   'vat_amount' : '부가세',
   'guarantee_amount' : '보증금',
   'rental_amount' : '대여금액',
+
 
 };
 

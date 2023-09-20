@@ -85,6 +85,7 @@ class SalesPersonContributeController extends GetxController {
 
     try {
       dio = await reqApi(paramClientCd);
+
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_CONTRIBUTIONEMPLOYEE +
           '?branch-code=' +
