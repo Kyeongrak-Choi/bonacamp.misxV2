@@ -173,7 +173,6 @@ const Map<String, String> koKR = {
 
 
   //Sales Daily
-
   'employee_name': '담당자',
   'division_name': '구분',
   'supplement_amount': '공급가',
@@ -186,11 +185,7 @@ const Map<String, String> koKR = {
   'deposit_amount': '입금합계',
   'bond_balance': '채권잔액',
 
-  'sales_amount' : '매출액',
-  'supplement_amount' : '공급가',
-  'vat_amount' : '부가세',
-  'guarantee_amount' : '보증금',
-  'rental_amount' : '대여금액',
+
 
 
 };
