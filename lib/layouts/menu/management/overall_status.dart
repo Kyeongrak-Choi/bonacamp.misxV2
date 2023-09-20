@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/datatable/overall_table.dart';
+import '../../../components/datatable/management/overall_table.dart';
 import '../../../models/management/overall/overallasset.dart';
 import '../../../models/management/overall/overalldeposit.dart';
 import '../../../models/management/overall/overallpurchase.dart';
@@ -84,9 +85,9 @@ class OverAllController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String tempNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    String tempFromDt = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String tempToDt = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
+    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
+    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
 
     var param = user.getClientCode;
     var parsedDataSales;
@@ -99,20 +100,21 @@ class OverAllController extends GetxController {
 
     try {
       dio = await reqApi(param);
+
       final response =
-          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?nodeCd=' + tempNodeCd + '&fromDt=' + tempFromDt + '&toDt=' + tempToDt);
+          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + paramBranchCode + '&from-date=' + paramFromDate + '&to-date=' + paramToDate);
+
 
       if (response.statusCode == 200) {
-        parsedDataSales = await jsonDecode(response)[TAG_DATA][TAG_SALES];
-        parsedDataPurchase = await jsonDecode(response)[TAG_DATA][TAG_PURCHASE];
-        parsedDataDeposit = await jsonDecode(response)[TAG_DATA][TAG_DEPOSIT];
-        parsedDataWithdraw = await jsonDecode(response)[TAG_DATA][TAG_WITHDRAW];
-        parsedDataReturn = await jsonDecode(response)[TAG_DATA][TAG_RETURN];
-        parsedDataRental = await jsonDecode(response)[TAG_DATA][TAG_RENTAL];
-        parsedDataAsset = await jsonDecode(response)[TAG_DATA][TAG_ASSET];
+        parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];
+        parsedDataPurchase = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE];
+        parsedDataDeposit = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_DEPOSIT];
+        parsedDataWithdraw = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_WITHDRAW];
+        parsedDataReturn = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN];
+        parsedDataRental = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL];
+        parsedDataAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET];
 
         controllerSalesModel = OverAllSalesModel.fromJson(parsedDataSales);
-
         controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedDataPurchase);
         controllerDepositModel = OverAllDepositModel.fromJson(parsedDataDeposit);
         controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedDataWithdraw);
@@ -127,6 +129,7 @@ class OverAllController extends GetxController {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
+      print(e.toString());
       print("other error");
     }
   }

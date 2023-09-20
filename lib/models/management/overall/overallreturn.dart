@@ -11,7 +11,7 @@ class OverAllReturnModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'oTot': oTot,
+      'return-amount': oTot,
     };
   }
 

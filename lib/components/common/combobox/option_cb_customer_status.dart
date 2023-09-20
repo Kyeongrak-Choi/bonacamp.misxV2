@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/models/system/warehouse.dart';
+
+import '../../../utils/constants.dart';
 
 class OptionCbCustomerStatus extends StatelessWidget {
   @override
@@ -29,24 +32,21 @@ class OptionCbCustomerStatus extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                  () => DropdownButtonFormField(
+                      () => DropdownButtonFormField<WarehouseModel>(
                     isExpanded: true,
                     value: Get.find<CbCustomerStatusController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbCustomerStatusController>().data.map((selectedValue) {
-                      return DropdownMenuItem(
+                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
+                      return DropdownMenuItem<WarehouseModel>(
                         alignment: Alignment.center,
-                        value: selectedValue,
-                        child: Text(
-                          selectedValue,
-                          style: context.textTheme.bodyText1,
-                        ),
+                        value: value,
+                        child: Text(value.getWarehouseName ?? ''),
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value);
+                      Get.find<CbCustomerStatusController>().chooseItem(value!);
                     },
                   ),
                 ))),
@@ -56,19 +56,39 @@ class OptionCbCustomerStatus extends StatelessWidget {
 }
 
 class CbCustomerStatusController extends GetxController {
-  final List<String> data = ['전체', '정상', '영업정지', '휴업', '폐업', '단절'].obs;
+
+ // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
+
+  List<WarehouseModel> data = <WarehouseModel>[].obs;
+
   var selectedValue;
 
   // param sample
   String paramCustStat = '';
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    selectedValue = data.first;
+    setCustomerStatus();
+    //selectedValue = data.first;
+    if (data != null) {
+      chooseItem(data.first);
+      //selectedValue = data.first;
+    }
   }
 
-  chooseItem(value) async {
-    paramCustStat = value;
+  chooseItem(WarehouseModel value) async {
+    paramCustStat = value.getWarehouseCode ?? '';
+    selectedValue = value;
+  }
+
+  void setCustomerStatus() {
+    data.add(WarehouseModel("ALL", "전체"));
+    data.add(WarehouseModel("USE", "정상"));
+    data.add(WarehouseModel("STOP", "영업정지"));
+    data.add(WarehouseModel("CLOSE", "휴업"));
+    data.add(WarehouseModel("UNUSE", "폐업"));
+    data.add(WarehouseModel("CUT", "단절"));
+
   }
 }
