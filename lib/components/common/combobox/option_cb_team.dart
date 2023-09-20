@@ -43,7 +43,7 @@ class OptionCbTeam extends StatelessWidget {
                       return DropdownMenuItem<TeamModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(((value.getTeamCode ?? '') + ' : ' + (value.getTeamName ?? ''))),
+                        child: Text(value.getTeamName ?? ''),
                       );
                     }).toList(),
                     onChanged: (value) {

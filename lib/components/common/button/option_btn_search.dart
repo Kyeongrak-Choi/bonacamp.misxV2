@@ -50,7 +50,6 @@ class OptionBtnSearch extends StatelessWidget {
 
                     // 경영관리 - 영업사원별 기여현황
                     case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
-
                       await Get.find<SalesPersonContributeController>().showResult();
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
