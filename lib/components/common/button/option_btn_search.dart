@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
@@ -39,18 +41,22 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<OverAllController>().showResult();
                       Get.find<OverAllController>().setVisible();
                       break;
+
                   // 경영관리 - 영업일보
                     case ROUTE_MENU_SALES_DAILY :
                       await Get.find<SalesDailyController>().showResult();
                       Get.find<SalesDailyController>().setVisible();
                       break;
-                  // 경영관리 - 영업사원별 기여현황
-                    case ROUTE_MENU_OVERALL_STATUS :
+
+                    // 경영관리 - 영업사원별 기여현황
+                    case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
+
                       await Get.find<SalesPersonContributeController>().showResult();
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
+
                   // 경영관리 - 매출처별 기여현황
-                    case ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER :
+                    case ROUTE_MENU_CUSTOMER_CONTRIBUTE :
                       await Get.find<CustomerContributeController>().showResult();
                       Get.find<CustomerContributeController>().setVisible();
                       break;

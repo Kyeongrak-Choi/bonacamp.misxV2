@@ -15,11 +15,11 @@ class OverAllRentalModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'lendAmt': lendAmt,
-      'inspayLendAmt': inspayLendAmt,
-      'retrvAmt': retrvAmt,
-      'remAmt': remAmt,
-      'totAmt': totAmt,
+      'rental-amount': lendAmt,
+      'expected-rental-amount': inspayLendAmt,
+      'recall-amount': retrvAmt,
+      'unrecall-amount': remAmt,
+      'rental-balance': totAmt,
     };
   }
 

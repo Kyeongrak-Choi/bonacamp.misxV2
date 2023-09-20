@@ -31,8 +31,13 @@ const ROUTE_API_EXAMPLE = '/apiExample';
 // 경영 분석
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
 const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
+const ROUTE_MENU_OVERALL_DAILYSTATUS = '/daily-status'; // 영업일보
 const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사원별 기여현황
-const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/customerContribute'; // 매출처별 기여현황
+const ROUTE_MENU_CUSTOMER_CONTRIBUTE = '/contribution-status-customer'; // 매출처별 기여현황
+const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
+const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const ROUTE_MENU_GRAPH = '/anaylsis-graph'; // 분석 그래프
+const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 /*
   Util
@@ -169,6 +174,7 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
+
 
 /*
   # Project Plan #

@@ -47,7 +47,7 @@ class CustomerContribute extends StatelessWidget {
                   OptionYearMonthPicker(),
                   OptionCbBranch(),
                   OptionDialogCustomer(),
-                  OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
+                  OptionBtnSearch(ROUTE_MENU_CUSTOMER_CONTRIBUTE),
                 ],
               ),
             ),

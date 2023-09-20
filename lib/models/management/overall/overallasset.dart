@@ -12,8 +12,8 @@ class OverAllAssetModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'totQty': totQty,
-      'totAmt': totAmt,
+      'new-rental-quantity': totQty,
+      'new-rental-amount': totAmt,
     };
   }
 
