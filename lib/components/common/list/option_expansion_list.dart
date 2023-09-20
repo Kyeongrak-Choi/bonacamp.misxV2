@@ -15,7 +15,9 @@ class  OptionExpansionList extends StatelessWidget {
   List itemNameList = [];
   List itemValueList = [];
 
-  OptionExpansionList({required this.menu,});
+  OptionExpansionList(String menu){
+    this.menu = menu;
+  }
 
 
 
@@ -36,11 +38,15 @@ class  OptionExpansionList extends StatelessWidget {
           children: expansionObjectList.map<ExpansionPanelRadio>((var expansionModel) {
             itemValueList = objectToList(expansionModel);
             return ExpansionPanelRadio(
-              value: expansionTitleList[0],
+              value: itemValueList[0],
               backgroundColor: context.theme.backgroundColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
                 return OptionExpansionTitle(context, expansionTitleList[0], expansionTitleList[1], expansionTitleList[2]);
               },
+              // body:Text(
+              //   '[test ] ' + itemValueList[0],
+              //   style: context.textTheme.bodyText2,
+              // ),
               body: OptionExpansionListItem(itemTilteList : itemNameList, itemValueList : itemValueList)
             );
           }).toList(),
@@ -78,7 +84,23 @@ class  OptionExpansionList extends StatelessWidget {
     List valueList = [];
 
     if(menu == ROUTE_MENU_SALES_DAILY){
-      valueList.add(object.employee_name);
+      valueList.add(object.teamCode);
+      valueList.add(object.teamName);
+      valueList.add(object.employeeCode);
+      valueList.add(object.employeeName);
+      valueList.add(object.divisionCode);
+      valueList.add(object.divisionName);
+      valueList.add(object.supplementAmount);
+      valueList.add(object.vatAmount);
+      valueList.add(object.guaranteeAmount);
+      valueList.add(object.totalAmount);
+      valueList.add(object.purchaseCost);
+      valueList.add(object.profitAmount);
+      valueList.add(object.profitRate);
+      valueList.add(object.depositCash);
+      valueList.add(object.depositEmptyCaseBottle);
+      valueList.add(object.depositAmount);
+      valueList.add(object.bondBalance);
     }
 
 

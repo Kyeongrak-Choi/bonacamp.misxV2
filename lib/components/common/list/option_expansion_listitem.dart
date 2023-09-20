@@ -13,8 +13,9 @@ class  OptionExpansionListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
+    extraindex = -2;
+    return ListView.builder(
+      shrinkWrap: true,
             itemCount: itemTilteList.length % 2 == 0 ? itemTilteList.length ~/ 2 : itemTilteList.length ~/ 2 + 1,
             itemBuilder: (BuildContext ctx, int idx) {
               extraindex += 2;
@@ -35,7 +36,6 @@ class  OptionExpansionListItem extends StatelessWidget {
                   ]
                 );
               }
-          )
-    );
+          );
   }
 }

@@ -174,13 +174,16 @@ const Map<String, String> koKR = {
   //Sales Daily
 
   'employee_name': '담당자',
-  'division_name': '구분명',
+  'division_name': '구분',
   'supplement_amount': '공급가',
   'vat_amount': '부가세',
   'guarantee_amount': '보증금합계',
-  'total-amount': '',
-
-
+  'purchase_cost': '매입원가',
+  'profit_amount': '매출이익',
+  'deposit_cash': '입금소계',
+  'deposit_empty_case_bottle': '용공입금',
+  'deposit_amount': '입금합계',
+  'bond_balance': '채권잔액',
 };
 
 //const Map<String,String> enUs = {};
