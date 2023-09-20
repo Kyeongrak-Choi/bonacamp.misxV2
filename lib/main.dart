@@ -18,6 +18,7 @@ import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/navigation.dart';
 
@@ -81,6 +82,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
         GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 종합현황
         GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
+        GetPage(name: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER, page: () => CustomerContribute()), // 매출처별 기여현황
       ],
       home: Login(),
     );

@@ -32,6 +32,7 @@ const ROUTE_API_EXAMPLE = '/apiExample';
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
 const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
 const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사원별 기여현황
+const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/customerContribute'; // 매출처별 기여현황
 
 /*
   Util

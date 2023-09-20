@@ -69,7 +69,7 @@ final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
   IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: Icons.leaderboard, path: ROUTE_MENU_SALES_DAILY),
   IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE),
-  IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
+  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
   IconMenu(title: 'title_5'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'title_6'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ''),
