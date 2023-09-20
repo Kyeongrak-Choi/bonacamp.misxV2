@@ -7,11 +7,11 @@ part of 'overallwithdraw.dart';
 // **************************************************************************
 
 OverAllWithdrawModel _$OverAllWithdrawModelFromJson(Map<String, dynamic> json) => OverAllWithdrawModel(
-      json['outTot'] as String?,
-      json['amt'] as String?,
+      json['withdraw-amount'] as String?,
+      json['finance-balance'] as String?,
     );
 
 Map<String, dynamic> _$OverAllWithdrawModelToJson(OverAllWithdrawModel instance) => <String, dynamic>{
-      'outTot': instance.outTot,
-      'amt': instance.amt,
+      'withdraw-amount': instance.outTot,
+      'finance-balance': instance.amt,
     };

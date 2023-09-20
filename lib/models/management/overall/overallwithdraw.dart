@@ -12,8 +12,8 @@ class OverAllWithdrawModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'outTot': outTot,
-      'amt': amt,
+      'withdraw-amount': outTot,
+      'finance-balance': amt,
     };
   }
 

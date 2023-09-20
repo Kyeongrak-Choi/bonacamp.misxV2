@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../layouts/menu/management/overall_status.dart';
-import '../common/field/show_long_title_field.dart';
-import '../common/field/show_short_title_field.dart';
+import '../../../layouts/menu/management/overall_status.dart';
+import '../../common/field/show_long_title_field.dart';
+import '../../common/field/show_short_title_field.dart';
 
 class OverAllTable extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
