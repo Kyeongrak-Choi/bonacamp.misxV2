@@ -11,7 +11,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/datatable/overall_table.dart';
+import '../../../components/datatable/management/overall_table.dart';
 import '../../../models/management/overall/overallasset.dart';
 import '../../../models/management/overall/overalldeposit.dart';
 import '../../../models/management/overall/overallpurchase.dart';

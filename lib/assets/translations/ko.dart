@@ -169,6 +169,14 @@ const Map<String, String> koKR = {
 
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
+
+
+  'sales_amount' : '매출액',
+  'supplement_amount' : '공급가',
+  'vat_amount' : '부가세',
+  'guarantee_amount' : '보증금',
+  'rental_amount' : '대여금액',
+
 };
 
 //const Map<String,String> enUs = {};

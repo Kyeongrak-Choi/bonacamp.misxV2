@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,12 @@ import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
+import 'package:misxV2/components/datatable/management/salesperson_contribute_table.dart';
 import 'package:misxV2/models/management/salesperson_contribute.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/datatable/overall_table.dart';
+import '../../../components/datatable/management/overall_table.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -48,12 +50,12 @@ class SalesPersonContribute extends StatelessWidget {
                       OptionCbBranch(),
                       OptionCbEmployee(),
                       OptionCbCustomerStatus(),
-                      OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                      OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                     ],
                   ),
                 ),
                 Expanded(
-                  child: OverAllTable(),
+                  child: SalesPersonContributeTable(),
                 ),
               ],
             ),
@@ -64,6 +66,7 @@ class SalesPersonContribute extends StatelessWidget {
 
 class SalesPersonContributeController extends GetxController {
   var visible = true.obs;
+  var controllerModel;
 
   setVisible() async {
     visible.value = !visible.value;
@@ -72,6 +75,7 @@ class SalesPersonContributeController extends GetxController {
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
+    var parsedData;
 
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
@@ -79,23 +83,25 @@ class SalesPersonContributeController extends GetxController {
     var paramSalChrgCd = Get.find<CbSaleController>().paramEmployeeCode;
     var paramCustStat = Get.find<CbCustomerStatusController>().paramCustStat;
 
-    var controllerModel;
-
     try {
       dio = await reqApi(paramClientCd);
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_CONTRIBUTIONEMPLOYEE +
-          '?nodeCd=' +
+          '?branch-code=' +
           paramNodeCd +
-          '&month=' +
+          '&search-month=' +
           paramYM +
-          '&salChrgCd=' +
+          '&employee-code=' +
           paramSalChrgCd +
-          '&custStat=' +
+          '&customer-status=' +
           paramCustStat);
 
       if (response.statusCode == 200) {
-        controllerModel = SalesPersonContributeModel.fromJson(await jsonDecode(response)[TAG_DATA][TAG_DATA]);
+        log('response : ' + response.data.toString());
+        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT];
+        log('parsedData : ' + parsedData.toString());
+        controllerModel = SalesPersonContributeModel.fromJson(parsedData);
+
         update();
       }
     } on DioException catch (e) {
@@ -103,7 +109,7 @@ class SalesPersonContributeController extends GetxController {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
-      print("other error1");
+      print("other error");
     }
   }
 }
