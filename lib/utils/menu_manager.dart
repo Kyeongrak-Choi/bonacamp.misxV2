@@ -72,7 +72,7 @@ final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'title_4'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
   IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS),
   IconMenu(title: 'title_6'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH),
   IconMenu(title: 'title_8'.tr, iconData: Icons.copy_outlined, path: ''),
 ];
 

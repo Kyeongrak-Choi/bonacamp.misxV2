@@ -114,9 +114,34 @@ String getFirstDay() {
   return formatter.format(firstDayOfMonth);
 }
 
+// 선택월 1일
+String setFirstDay(date) {
+  DateTime firstDayOfMonth = DateTime(date.year, date.month, 1);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(firstDayOfMonth);
+}
+
 // 오늘
 String getToday() {
   DateTime now = DateTime.now();
   DateFormat formatter = DateFormat('yyyyMMdd');
   return formatter.format(now);
+}
+
+// 당월 마지막날
+String getLastDay() {
+  DateTime currentDate = DateTime.now();
+  DateTime LastDayOfMonth = DateTime(currentDate.year, currentDate.month+1, 0);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(LastDayOfMonth);
+}
+
+// 선택월 마지막날
+String setLastDay(date) {
+  DateTime LastDayOfMonth = DateTime(date.year, date.month+1, 0);
+  DateFormat formatter = DateFormat('yyyyMMdd');
+
+  return formatter.format(LastDayOfMonth);
 }

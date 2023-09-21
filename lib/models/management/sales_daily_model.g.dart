@@ -6,7 +6,8 @@ part of 'sales_daily_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesDailyModel _$SalesDailyModelFromJson(Map<String, dynamic> json) => SalesDailyModel(
+SalesDailyModel _$SalesDailyModelFromJson(Map<String, dynamic> json) =>
+    SalesDailyModel(
       json['teamCode'] as String?,
       json['teamName'] as String?,
       json['employeeCode'] as String?,
@@ -26,7 +27,8 @@ SalesDailyModel _$SalesDailyModelFromJson(Map<String, dynamic> json) => SalesDai
       json['bondBalance'] as String?,
     );
 
-Map<String, dynamic> _$SalesDailyModelToJson(SalesDailyModel instance) => <String, dynamic>{
+Map<String, dynamic> _$SalesDailyModelToJson(SalesDailyModel instance) =>
+    <String, dynamic>{
       'teamCode': instance.teamCode,
       'teamName': instance.teamName,
       'employeeCode': instance.employeeCode,

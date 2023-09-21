@@ -4,6 +4,7 @@ import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/example/menu_example.dart';
+import '../../../layouts/menu/management/analysis_graph.dart';
 import '../../../layouts/menu/management/overall_status.dart';
 import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
@@ -54,6 +55,11 @@ class OptionBtnSearch extends StatelessWidget {
                     case ROUTE_MENU_CLASSSTATUS:
                       await Get.find<SalesClassStatusController>().showResult();
                       Get.find<SalesClassStatusController>().setVisible();
+                      break;
+                    // 경영관리 - 분석 그래프
+                    case ROUTE_MENU_GRAPH:
+                      await Get.find<AnalysisGraphController>().showResult();
+                      Get.find<AnalysisGraphController>().setVisible();
                       break;
                   }
 

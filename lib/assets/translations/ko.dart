@@ -77,6 +77,7 @@ const Map<String, String> koKR = {
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
   'opt_customer_status': '거래처 상태',
+  'opt_graph_type': '종류',
   'opt_team': '팀',
 
   // Drawer Menu Label
@@ -101,7 +102,7 @@ const Map<String, String> koKR = {
   'title_4': '매출처별 기여현황',
   'menu_sub_sales_class_status': '판매분류별 현황',
   'title_6': '매출순위현황',
-  'title_7': '분석 그래프',
+  'menu_sub_analysis_graph': '분석 그래프',
   'title_8': '영업일보(용도별)',
 
   'menu_main_sales': '영업분석',

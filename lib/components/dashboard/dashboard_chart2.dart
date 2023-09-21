@@ -11,17 +11,6 @@ class DashBoardChart2 extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        // decoration: const BoxDecoration(
-        //   borderRadius: BorderRadius.all(Radius.circular(18)),
-        //   gradient: LinearGradient(
-        //     colors: [
-        //       Color(0xff2c274c),
-        //       Color(0xff46426c),
-        //     ],
-        //     begin: Alignment.bottomCenter,
-        //     end: Alignment.topCenter,
-        //   ),
-        // ),
         decoration: BoxDecoration(
           color: context.theme.canvasColor,
           borderRadius: BorderRadius.circular(20),
