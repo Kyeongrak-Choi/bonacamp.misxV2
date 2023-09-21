@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/example/menu_example.dart';
@@ -66,8 +67,6 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<SalesRankController>().showResult();
                       Get.find<SalesRankController>().setVisible();
                       break;
-
-
                   }
 
                   pd.close();

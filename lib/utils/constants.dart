@@ -121,6 +121,7 @@ const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
 const TAG_ERROR = 'errors'; // response error tag
 const TAG_RETURN_OBJECT = 'data'; // response data object tag
+const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 
 // Authorization
 const TAG_TOKEN = 'token'; // response token tag

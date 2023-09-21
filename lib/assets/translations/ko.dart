@@ -99,7 +99,7 @@ const Map<String, String> koKR = {
   'menu_sub_salesdaily': '영업일보',
   'menu_sub_salesperson_contribute': '영업사원별 기여현황',
   'menu_sub_customer_contribute': '매출처별 기여현황',
-  'title_5': '판매분류별 현황',
+  'menu_sub_sales_class_status': '판매분류별 현황',
   'menu_sub_sales_rank': '매출순위현황',
   'title_7': '분석 그래프',
   'title_8': '영업일보(용도별)',
