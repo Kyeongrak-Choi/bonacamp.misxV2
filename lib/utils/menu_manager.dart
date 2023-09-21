@@ -72,7 +72,7 @@ final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CUSTOMER_CONTRIBUTE),
   IconMenu(title: 'title_5'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_RANKSTATUS),
-  IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_EXAMPLE),
+  IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ''),
   IconMenu(title: 'title_8'.tr, iconData: Icons.copy_outlined, path: ''),
 ];
 
