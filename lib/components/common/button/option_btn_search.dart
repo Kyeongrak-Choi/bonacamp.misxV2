@@ -8,6 +8,7 @@ import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
 import '../../../layouts/menu/management/overall_status.dart';
 import '../../../layouts/menu/management/sales_daily.dart';
+import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
@@ -58,6 +59,12 @@ class OptionBtnSearch extends StatelessWidget {
                     case ROUTE_MENU_CUSTOMER_CONTRIBUTE :
                       await Get.find<CustomerContributeController>().showResult();
                       Get.find<CustomerContributeController>().setVisible();
+                      break;
+
+                  // 경영관리 - 매출순위현황
+                    case ROUTE_MENU_RANKSTATUS :
+                      await Get.find<SalesRankController>().showResult();
+                      Get.find<SalesRankController>().setVisible();
                       break;
 
 

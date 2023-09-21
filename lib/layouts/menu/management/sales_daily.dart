@@ -97,7 +97,7 @@ class SalesDailyController extends GetxController {
       final response = await dio.get(API_MANAGEMENT + API_MANAGEMENT_DAILYSTATUS + '?branch-code=' + tempNodeCd + '&search-date=' + tempDt + '&employee-code=' + tempEmployeeCode + '&team-code=' + tempTeamCode);
 
       if (response.statusCode == 200) {
-        parsedDataSalesDaily = await jsonDecode(response)[TAG_DATA][TAG_SALESDAILY_LIST];
+        parsedDataSalesDaily = await jsonDecode(response)[TAG_DATA][TAG_DATA_LIST];
 
 
         //salesDailyList.add(SalesDailyModel.fromJson(parsedDataSalesDaily));

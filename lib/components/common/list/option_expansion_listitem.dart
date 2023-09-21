@@ -19,23 +19,26 @@ class  OptionExpansionListItem extends StatelessWidget {
             itemCount: itemTilteList.length % 2 == 0 ? itemTilteList.length ~/ 2 : itemTilteList.length ~/ 2 + 1,
             itemBuilder: (BuildContext ctx, int idx) {
               extraindex += 2;
-              return Row(
-                children: [
-                    Text(
-                      '[' + itemTilteList[idx * TEXT_WIDGET_COUNT] + ' ] ' + itemValueList[idx * TEXT_WIDGET_COUNT],
-                      style: context.textTheme.bodyText2,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    if (extraindex + 1 < itemTilteList.length)
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: Row(
+                  children: [
                       Text(
-                        '[' + itemTilteList[idx * TEXT_WIDGET_COUNT + 1] + ' ] ' + itemValueList[idx * TEXT_WIDGET_COUNT + 1],
+                        '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex],
                         style: context.textTheme.bodyText2,
                       ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      if (extraindex + 1 < itemTilteList.length)
+                        Text(
+                          '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex + 1],
+                          style: context.textTheme.bodyText2,
+                        ),
                   ]
-                );
-              }
+                )
+              );
+            }
           );
   }
 }

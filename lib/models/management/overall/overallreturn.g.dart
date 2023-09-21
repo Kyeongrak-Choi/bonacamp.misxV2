@@ -6,10 +6,12 @@ part of 'overallreturn.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OverAllReturnModel _$OverAllReturnModelFromJson(Map<String, dynamic> json) => OverAllReturnModel(
-      json['return-amount'] as String?,
+OverAllReturnModel _$OverAllReturnModelFromJson(Map<String, dynamic> json) =>
+    OverAllReturnModel(
+      json['oTot'] as String?,
     );
 
-Map<String, dynamic> _$OverAllReturnModelToJson(OverAllReturnModel instance) => <String, dynamic>{
-      'return-amount': instance.oTot,
+Map<String, dynamic> _$OverAllReturnModelToJson(OverAllReturnModel instance) =>
+    <String, dynamic>{
+      'oTot': instance.oTot,
     };
