@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../combobox/option_cb_customer.dart';
+import 'option_dialog.dart';
 
 class SearchListItem extends StatelessWidget {
   var code;
@@ -19,10 +19,10 @@ class SearchListItem extends StatelessWidget {
 
   @override
   Widget build(context) {
-    Get.put(CbCustomerController());
+    Get.put(OptionDialogController());
     return GestureDetector(
       onTap: () {
-        Get.find<CbCustomerController>().chooseItem(code, name);
+        Get.find<OptionDialogController>().chooseItem(code, name);
         Get.back();
       },
       child: Column(
@@ -48,7 +48,7 @@ class SearchListItem extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 5,
                 child: Text(
                   stat,
                   textAlign: TextAlign.right,

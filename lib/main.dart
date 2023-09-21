@@ -6,6 +6,7 @@ import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
+import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
@@ -81,6 +82,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
         GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 종합현황
         GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
+        GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
       ],
       home: Login(),
     );
