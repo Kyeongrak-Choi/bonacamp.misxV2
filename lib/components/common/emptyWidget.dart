@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'dialog/option_dialog.dart';
 
 class EmptyWidget extends StatelessWidget {
-
   @override
   Widget build(context) {
     Get.put(OptionDialogController());
@@ -15,12 +14,10 @@ class EmptyWidget extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Text(''
-                ),
+                child: Text(''),
               ),
             ],
           ),
-
         ],
       ),
     );

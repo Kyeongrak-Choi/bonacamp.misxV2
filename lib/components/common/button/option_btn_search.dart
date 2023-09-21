@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
@@ -41,8 +39,8 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<OverAllController>().showResult();
                       Get.find<OverAllController>().setVisible();
                       break;
-                      // 경영관리 - 영업일보
-                    case ROUTE_MENU_SALES_DAILY :
+                    // 경영관리 - 영업일보
+                    case ROUTE_MENU_SALES_DAILY:
                       await Get.find<SalesDailyController>().showResult();
                       Get.find<SalesDailyController>().setVisible();
                       break;
@@ -52,7 +50,7 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<SalesPersonContributeController>().showResult();
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
-                  // 경영관리 - 영업사원별 기여현황
+                    // 경영관리 - 영업사원별 기여현황
                     case ROUTE_MENU_CLASSSTATUS:
                       await Get.find<SalesClassStatusController>().showResult();
                       Get.find<SalesClassStatusController>().setVisible();

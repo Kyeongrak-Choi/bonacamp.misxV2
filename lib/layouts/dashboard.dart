@@ -164,8 +164,9 @@ class DashBoardController extends GetxController {
       pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
-      final resOverall = await dio
-          .get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + branchCode! + '&from-date=' + getFirstDay() + '&to-date=' + getToday(), data: param);
+      final resOverall = await dio.get(
+          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + branchCode! + '&from-date=' + getFirstDay() + '&to-date=' + getToday(),
+          data: param);
 
       if (resOverall.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];

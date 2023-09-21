@@ -33,7 +33,7 @@ class OptionCbTeam extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                      () => DropdownButtonFormField<TeamModel>(
+                  () => DropdownButtonFormField<TeamModel>(
                     isExpanded: true,
                     value: Get.find<CbTeamController>().selectedValue,
                     style: context.textTheme.bodyText1,

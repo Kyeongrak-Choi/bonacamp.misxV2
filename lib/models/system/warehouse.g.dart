@@ -37,24 +37,19 @@ class WarehouseModelAdapter extends TypeAdapter<WarehouseModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is WarehouseModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is WarehouseModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) =>
-    WarehouseModel(
+WarehouseModel _$WarehouseModelFromJson(Map<String, dynamic> json) => WarehouseModel(
       json['warehouse-code'] as String?,
       json['warehouse-name'] as String?,
     );
 
-Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$WarehouseModelToJson(WarehouseModel instance) => <String, dynamic>{
       'warehouse-code': instance.warehouseCode,
       'warehouse-name': instance.warehouseName,
     };
