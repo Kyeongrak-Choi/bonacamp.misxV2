@@ -171,7 +171,6 @@ const Map<String, String> koKR = {
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
 
-
   //Sales Daily
   'employee_name': '담당자',
   'division_name': '구분',
@@ -184,10 +183,6 @@ const Map<String, String> koKR = {
   'deposit_empty_case_bottle': '용공입금',
   'deposit_amount': '입금합계',
   'bond_balance': '채권잔액',
-
-
-
-
 };
 
 //const Map<String,String> enUs = {};

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../common/field/show_long_title_field.dart';
-import '../../common/field/show_short_title_field.dart';
 
 class SalesPersonContributeTable extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
@@ -51,8 +49,7 @@ class SalesPersonContributeTable extends StatelessWidget {
                   titleName: '관리비용',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.mngmtAmt ?? '0')) : '0'),
               ShowLongTitleField(
-                  titleName: '금융비용',
-                  value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.fncAmt ?? '0')) : '0'),
+                  titleName: '금융비용', value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.fncAmt ?? '0')) : '0'),
               ShowLongTitleField(
                   titleName: '자산수리비',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assAsAmt ?? '0')) : '0'),
@@ -70,8 +67,7 @@ class SalesPersonContributeTable extends StatelessWidget {
                   titleName: '대여금잔액',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.balAmt ?? '0')) : '0'),
               ShowLongTitleField(
-                  titleName: '대여자산',
-                  value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assCnt ?? '0')) : '0'),
+                  titleName: '대여자산', value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assCnt ?? '0')) : '0'),
               ShowLongTitleField(
                   titleName: '대여수량',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assQty3 ?? '0')) : '0'),
