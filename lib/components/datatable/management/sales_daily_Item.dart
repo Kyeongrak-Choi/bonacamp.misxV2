@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/models/management/sales_class_status.dart';
 
 import '../../../models/management/sales_daily_model.dart';
 
