@@ -132,7 +132,7 @@ String getToday() {
 // 당월 마지막날
 String getLastDay() {
   DateTime currentDate = DateTime.now();
-  DateTime LastDayOfMonth = DateTime(currentDate.year, currentDate.month+1, 0);
+  DateTime LastDayOfMonth = DateTime(currentDate.year, currentDate.month + 1, 0);
   DateFormat formatter = DateFormat('yyyyMMdd');
 
   return formatter.format(LastDayOfMonth);
@@ -140,8 +140,28 @@ String getLastDay() {
 
 // 선택월 마지막날
 String setLastDay(date) {
-  DateTime LastDayOfMonth = DateTime(date.year, date.month+1, 0);
+  DateTime LastDayOfMonth = DateTime(date.year, date.month + 1, 0);
   DateFormat formatter = DateFormat('yyyyMMdd');
 
   return formatter.format(LastDayOfMonth);
+}
+
+// 월차이 계산
+int calculateMonthDifference(DateTime startDate, DateTime endDate) {
+  int startYear = startDate.year;
+  int startMonth = startDate.month;
+  int endYear = endDate.year;
+  int endMonth = endDate.month;
+
+  // 시작 날짜와 종료 날짜 간의 연도와 월 차이 계산
+  int yearDifference = endYear - startYear;
+  int monthDifference = endMonth - startMonth;
+
+  // 월 차이가 음수인 경우, 연도 차이를 감소시키고 월 차이를 보정
+  if (monthDifference < 0) {
+    yearDifference--;
+    monthDifference += 12;
+  }
+
+  return yearDifference * 12 + monthDifference; // 총 월 차이
 }

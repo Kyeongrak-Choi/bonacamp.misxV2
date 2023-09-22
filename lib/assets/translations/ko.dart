@@ -50,6 +50,7 @@ const Map<String, String> koKR = {
   // Period Picker
   'period_error_header': '기간오류',
   'period_error_content': '기간을 확인해주세요.',
+  'period_error_limit': '최대 6개월간 조회 가능합니다.',
 
   // DashBoard
   'title_sales': '당월 매출',

@@ -140,6 +140,9 @@ class PeriodYearmonthPickerController extends GetxController {
     if (pickedFromYearMonth.compareTo(pickedToYearMonth) > 0) {
       ShowSnackBar(SNACK_TYPE.ERROR, 'period_error_content'.tr);
       return false;
+    } else if (calculateMonthDifference(pickedFromYearMonth, pickedToYearMonth) > 5) {
+      ShowSnackBar(SNACK_TYPE.ERROR, 'period_error_limit'.tr);
+      return false;
     } else {
       return true;
     }

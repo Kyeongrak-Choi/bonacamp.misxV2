@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 
 import '../chart/line/chart_manager.dart';
 
-class DashBoardChart2 extends StatelessWidget {
-  // dummy
+class AnalysisGraphComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -25,7 +24,7 @@ class DashBoardChart2 extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'bonacamp',
+                  '',
                   style: context.textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),

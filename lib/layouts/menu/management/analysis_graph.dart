@@ -2,23 +2,18 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
+import 'package:misxV2/components/chart/analysis_graph.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_graph_type.dart';
-import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
-import 'package:misxV2/components/dashboard/dashboard_chart.dart';
-import 'package:misxV2/components/datatable/management/salesperson_contribute_table.dart';
-import 'package:misxV2/models/management/salesperson_contribute.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/datepicker/option_period_yearmonth_picker.dart';
-import '../../../components/dashboard/dashboard_chart2.dart';
+import '../../../components/common/emptyWidget.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -53,10 +48,12 @@ class AnalysisGraph extends StatelessWidget {
                       OptionCbBranch(),
                       OptionCbGraphType(),
                       OptionBtnSearch(ROUTE_MENU_GRAPH),
-                      DashBoardChart2(),
                     ],
                   ),
                 ),
+                Expanded(
+                  child: setChild(),
+                )
                 // Expanded(
                 //   child: SalesPersonContributeTable(),
                 // ),
@@ -65,11 +62,20 @@ class AnalysisGraph extends StatelessWidget {
           ),
         ));
   }
+
+  Widget setChild() {
+    if (Get.find<AnalysisGraphController>().spotList.length > 0) {
+      return AnalysisGraphComponent();
+    } else {
+      return EmptyWidget();
+    }
+  }
 }
 
 class AnalysisGraphController extends GetxController {
   var visible = true.obs;
   var controllerModel;
+  List<FlSpot> spotList = [];
 
   setVisible() async {
     visible.value = !visible.value;
@@ -78,14 +84,13 @@ class AnalysisGraphController extends GetxController {
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
-    var parsedData;
 
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
     var paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
 
-    getFirstDay();
+    var graphType = Get.find<CbGraphTypeController>().paramGraphType;
 
     try {
       dio = await reqApi(paramClientCd);
@@ -100,11 +105,52 @@ class AnalysisGraphController extends GetxController {
           paramToYearmonth);
 
       if (response.statusCode == 200) {
-        log('response : ' + response.data.toString());
-        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT];
-        log('parsedData : ' + parsedData.toString());
-        controllerModel = SalesPersonContributeModel.fromJson(parsedData);
-
+        int index = 1;
+        spotList.clear();
+        switch (graphType) {
+          case "SALES":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+          case "BOND":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+          case "PURCHASE":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+          case "DEBT":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+          case "RENTAL":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+          case "ASSET":
+            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
+              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              index++;
+            }
+            log('result : ' + spotList.toString());
+            break;
+        }
         update();
       }
     } on DioException catch (e) {

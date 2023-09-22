@@ -6,9 +6,7 @@ part of 'analysis_purchase.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AnalysisPurchaseModel _$AnalysisPurchaseModelFromJson(
-        Map<String, dynamic> json) =>
-    AnalysisPurchaseModel(
+AnalysisPurchaseModel _$AnalysisPurchaseModelFromJson(Map<String, dynamic> json) => AnalysisPurchaseModel(
       json['search-date'] as String?,
       json['date-name'] as String?,
       json['amount'] as String?,
@@ -16,9 +14,7 @@ AnalysisPurchaseModel _$AnalysisPurchaseModelFromJson(
       json['total-supplement-amount'] as String?,
     );
 
-Map<String, dynamic> _$AnalysisPurchaseModelToJson(
-        AnalysisPurchaseModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$AnalysisPurchaseModelToJson(AnalysisPurchaseModel instance) => <String, dynamic>{
       'search-date': instance.searchDate,
       'date-name': instance.dateName,
       'amount': instance.amount,
