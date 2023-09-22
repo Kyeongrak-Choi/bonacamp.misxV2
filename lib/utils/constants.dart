@@ -153,7 +153,7 @@ const TAG_RETURN = 'return';
 const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
 
-const TAG_SALESDAILY_LIST = 'data-list';
+const TAG_DATA_LIST = 'data-list';
 
 const TAG_GRAPH_BOND = 'bond';
 const TAG_GRAPH_DEBT = 'debt';

@@ -29,6 +29,7 @@ SalesDailyModel _$SalesDailyModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$SalesDailyModelToJson(SalesDailyModel instance) =>
     <String, dynamic>{
+
           'team-code': instance.teamCode,
           'team-name': instance.teamName,
           'employee-code': instance.employeeCode,

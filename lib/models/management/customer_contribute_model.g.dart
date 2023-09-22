@@ -50,5 +50,4 @@ Map<String, dynamic> _$CustomerContributeModelToJson(
       'consumption-asset-quantity': instance.consumptionAssetQuantity,
       'transaction-start-date': instance.transactionStartDate,
       'transaction-last-date': instance.transactionLastDate,
-
     };

@@ -180,3 +180,5 @@ class CustomerContributeModel {
   set setTransactionLastDate(String value) {
     transactionLastDate = value;
   }
+}
+

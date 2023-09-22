@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../models/system/manage.dart';
+
 class OptionCbManage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class OptionCbManage extends StatelessWidget {
                         alignment: Alignment.center,
                         value: selectedValue,
                         child: Text(
-                          selectedValue,
+                          selectedValue.getManageName ?? "",
                           style: context.textTheme.bodyText1,
                         ),
                       );
@@ -56,7 +58,13 @@ class OptionCbManage extends StatelessWidget {
 }
 
 class CbManageController extends GetxController {
-  final List<String> data = ['관리담당A', '관리담당B', '관리담당C', '관리담당D', '관리담당E'].obs;
+  final List<ManageModel> data = [
+    ManageModel('', '전체'),
+  ].obs;
+
+  String paramManageCode = '';
+  String paramManageName = '';
+
   var selectedValue;
 
   @override
@@ -66,6 +74,8 @@ class CbManageController extends GetxController {
   }
 
   chooseItem(value) async {
+    paramManageCode = value.getManageCode();
+    paramManageName = value.getManageName();
     selectedValue = value;
   }
 }

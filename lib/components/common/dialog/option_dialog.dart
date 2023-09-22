@@ -70,10 +70,15 @@ class OptionDialog extends StatelessWidget {
         break;
     }
   }
+
 }
 
 class OptionDialogController extends GetxController {
   RxString selectedValue = 'all'.tr.obs;
+
+  RxString paramCustomerName = ''.tr.obs;
+  RxString paramCustomerCode = ''.tr.obs;
+
 
   String paramCode = '';
 
@@ -84,6 +89,8 @@ class OptionDialogController extends GetxController {
 
   chooseItem(code, name) async {
     selectedValue.value = name;
+    paramCustomerName.value = name;
+    paramCustomerCode.value = code;
     paramCode = code;
   }
 }

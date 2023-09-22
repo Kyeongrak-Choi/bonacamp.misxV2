@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/management/sales_class_status.dart';
 
+
+
+class SalesClassStatusItem extends StatelessWidget {
+  var dataList;
+
+  SalesClassStatusItem(var model){
+    dataList = generateList(model,model.length);
+
 class SalesClassStatusItem extends StatelessWidget {
   var dataList;
 
   SalesClassStatusItem(var model) {
     dataList = generateList(model, model.length);
+
   }
 
   @override

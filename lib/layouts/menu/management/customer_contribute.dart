@@ -89,6 +89,7 @@ class CustomerContributeController extends GetxController {
           parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
           controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
           update();
+
         }
         else{
           controllerCustomerContribute = null;
