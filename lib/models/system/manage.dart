@@ -5,7 +5,6 @@ part 'manage.g.dart'; // *.g.dart : in same directory
 
 // 영업 담당 Model
 @JsonSerializable(explicitToJson: true)
-
 class ManageModel {
   @HiveField(0)
   String? manageCode; // 영업담당 코드:DA104T0

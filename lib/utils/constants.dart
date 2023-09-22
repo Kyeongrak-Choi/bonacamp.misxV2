@@ -39,7 +39,6 @@ const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
 const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
 const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
-
 /*
   Util
  */

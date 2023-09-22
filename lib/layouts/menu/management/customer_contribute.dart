@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +23,7 @@ class CustomerContribute extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerContributeController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('매출처별 기여현황'),
-          backgroundColor: context.theme.backgroundColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
+          appBar: AppBar(title: Text('매출처별 기여현황'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
             IconButton(
               icon: OptionBtnVisible(visible: Get.find<CustomerContributeController>().visible.value),
               onPressed: () {
@@ -36,28 +31,28 @@ class CustomerContribute extends StatelessWidget {
               },
             ),
           ]),
-      body: Container(
-        color: context.theme.backgroundColor,
-        child: Column(
-          children: [
-            Visibility(
-              visible: Get.find<CustomerContributeController>().visible.value,
-              child: Column(
-                children: [
-                  OptionYearMonthPicker(),
-                  OptionCbBranch(),
-                  OptionDialog(SEARCH_DIALOG_CUST),
-                  OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
-                ],
-              ),
+          body: Container(
+            color: context.theme.backgroundColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<CustomerContributeController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionYearMonthPicker(),
+                      OptionCbBranch(),
+                      OptionDialog(SEARCH_DIALOG_CUST),
+                      OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: CustomerContributeTable(),
+                ),
+              ],
             ),
-            Expanded(
-              child: CustomerContributeTable(),
-            ),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }
 
@@ -82,16 +77,21 @@ class CustomerContributeController extends GetxController {
 
     try {
       dio = await reqApi(param);
-      final response = await dio.get(API_MANAGEMENT + API_MANAGEMENT_CONTRIBUTIONCUSTOMER + '?branch-code=' + tempNodeCd + '&search-month=' + tempYM + '&customer-code=' + tempCustomerCode);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_CONTRIBUTIONCUSTOMER +
+          '?branch-code=' +
+          tempNodeCd +
+          '&search-month=' +
+          tempYM +
+          '&customer-code=' +
+          tempCustomerCode);
 
       if (response.statusCode == 200) {
-        if(jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] != null){
+        if (jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] != null) {
           parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
           controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
           update();
-
-        }
-        else{
+        } else {
           controllerCustomerContribute = null;
         }
       }

@@ -6,7 +6,7 @@ class ShowDoubleValueField extends StatelessWidget {
   var firstValue;
   var secondValue;
 
-  ShowDoubleValueField(titleName, firstValue, secondValue){
+  ShowDoubleValueField(titleName, firstValue, secondValue) {
     this.titleName = titleName;
     this.firstValue = firstValue;
     this.secondValue = secondValue;

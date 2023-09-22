@@ -41,9 +41,7 @@ class SalesDailyDivisionModel {
       this.boxTotalQuantity,
       this.bottleTotalQuantity,
       this.totalAmount,
-      {this.id}
-      );
-
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -167,25 +165,26 @@ class SalesDailyDivisionModel {
   }
 }
 
-List<SalesDailyDivisionModel> generateSalesDailyDivisionList(dataList,count) {
+List<SalesDailyDivisionModel> generateSalesDailyDivisionList(dataList, count) {
   var f = NumberFormat('###,###,###,###');
-  return List.generate(count~/2,
-          (index) => SalesDailyDivisionModel(
-              dataList[index].itemCode
-              , dataList[index].itemName
-              , dataList[index].usageCode
-              , dataList[index].usageName
-              , dataList[index].boxQuantity
-              , dataList[index].bottleQuantity
-              , dataList[index].amount
-              , dataList[index].pleasureBoxTotalQuantity
-              , dataList[index].pleasureBottleTotalQuantity
-              , dataList[index].pleasureTotalAmount
-              , dataList[index].normalBoxTotalQuantity
-              , dataList[index].normalBottleTotalQuantity
-              , dataList[index].normalTotalAmount
-              , dataList[index].boxTotalQuantity
-              , dataList[index].bottleTotalQuantity
-              , dataList[index].totalAmount
-              , id:index));
+  return List.generate(
+      count ~/ 2,
+      (index) => SalesDailyDivisionModel(
+          dataList[index].itemCode,
+          dataList[index].itemName,
+          dataList[index].usageCode,
+          dataList[index].usageName,
+          dataList[index].boxQuantity,
+          dataList[index].bottleQuantity,
+          dataList[index].amount,
+          dataList[index].pleasureBoxTotalQuantity,
+          dataList[index].pleasureBottleTotalQuantity,
+          dataList[index].pleasureTotalAmount,
+          dataList[index].normalBoxTotalQuantity,
+          dataList[index].normalBottleTotalQuantity,
+          dataList[index].normalTotalAmount,
+          dataList[index].boxTotalQuantity,
+          dataList[index].bottleTotalQuantity,
+          dataList[index].totalAmount,
+          id: index));
 }

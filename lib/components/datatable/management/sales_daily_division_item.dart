@@ -4,13 +4,12 @@ import 'package:intl/intl.dart';
 
 import '../../../models/management/sales_daily_division_model.dart';
 
-
 class SalesDailyDivisionItem extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
   var dataList;
 
-  SalesDailyDivisionItem(var model){
-    dataList = generateSalesDailyDivisionList(model,model.length);
+  SalesDailyDivisionItem(var model) {
+    dataList = generateSalesDailyDivisionList(model, model.length);
   }
 
   @override

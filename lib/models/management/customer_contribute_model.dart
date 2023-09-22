@@ -5,46 +5,45 @@ part 'customer_contribute_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class CustomerContributeModel {
-  String? supplementAmount;         // 팀코드
-  String? purchaseAmount;           // 팀명
-  String? profitRate;               // 영업사원코드
-  String? profitAmount;             // 영업사원명
-  String? managementTotalAmount;    // 구분값 (1:일 / 2:월)
-  String? financeAmount;            // 구분명
-  String? assetFixAmount;           // 공급가
-  String? costTotalAmount;          // 부가세
-  String? bondBalance;              // 공병보증금
-  String? rentalBalance;            // 총합계
-  String? rentalAmount;             // 매출원가
-  String? rentalAssetQuantity;      // 이익금
-  String? contributeAmount;         // 마진율 시스템 기준설정 A900 : 1.(마진액/매출원가)*100,  2.(마진액/공급가액)*100)
-  String? customerCount;            // 현금입금
-  String? managementAmount;         // 용기,공병입금
-  String? consumptionAssetQuantity;  // 입금합계
-  String? transactionStartDate;     // 전월/금일채권잔액
-  String? transactionLastDate;      // 전월/금일채권잔액
+  String? supplementAmount; // 팀코드
+  String? purchaseAmount; // 팀명
+  String? profitRate; // 영업사원코드
+  String? profitAmount; // 영업사원명
+  String? managementTotalAmount; // 구분값 (1:일 / 2:월)
+  String? financeAmount; // 구분명
+  String? assetFixAmount; // 공급가
+  String? costTotalAmount; // 부가세
+  String? bondBalance; // 공병보증금
+  String? rentalBalance; // 총합계
+  String? rentalAmount; // 매출원가
+  String? rentalAssetQuantity; // 이익금
+  String? contributeAmount; // 마진율 시스템 기준설정 A900 : 1.(마진액/매출원가)*100,  2.(마진액/공급가액)*100)
+  String? customerCount; // 현금입금
+  String? managementAmount; // 용기,공병입금
+  String? consumptionAssetQuantity; // 입금합계
+  String? transactionStartDate; // 전월/금일채권잔액
+  String? transactionLastDate; // 전월/금일채권잔액
 
   CustomerContributeModel(
-      this.supplementAmount,
-      this.purchaseAmount,
-      this.profitRate,
-      this.profitAmount,
-      this.managementTotalAmount,
-      this.financeAmount,
-      this.assetFixAmount,
-      this.costTotalAmount,
-      this.bondBalance,
-      this.rentalBalance,
-      this.rentalAmount,
-      this.rentalAssetQuantity,
-      this.contributeAmount,
-      this.customerCount,
-      this.managementAmount,
-      this.consumptionAssetQuantity,
-      this.transactionStartDate,
-      this.transactionLastDate,
-      );
-
+    this.supplementAmount,
+    this.purchaseAmount,
+    this.profitRate,
+    this.profitAmount,
+    this.managementTotalAmount,
+    this.financeAmount,
+    this.assetFixAmount,
+    this.costTotalAmount,
+    this.bondBalance,
+    this.rentalBalance,
+    this.rentalAmount,
+    this.rentalAssetQuantity,
+    this.contributeAmount,
+    this.customerCount,
+    this.managementAmount,
+    this.consumptionAssetQuantity,
+    this.transactionStartDate,
+    this.transactionLastDate,
+  );
 
   Map<String, dynamic> toMap() {
     return {
@@ -181,4 +180,3 @@ class CustomerContributeModel {
     transactionLastDate = value;
   }
 }
-

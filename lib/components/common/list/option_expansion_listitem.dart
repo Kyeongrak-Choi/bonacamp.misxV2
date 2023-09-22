@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class  OptionExpansionListItem extends StatelessWidget {
-
+class OptionExpansionListItem extends StatelessWidget {
   List itemTilteList;
   List itemValueList;
 
   final int TEXT_WIDGET_COUNT = 2;
   int extraindex = -2;
 
-  OptionExpansionListItem({required this.itemTilteList, required this.itemValueList,});
+  OptionExpansionListItem({
+    required this.itemTilteList,
+    required this.itemValueList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +23,20 @@ class  OptionExpansionListItem extends StatelessWidget {
           extraindex += 2;
           return Container(
               margin: EdgeInsets.symmetric(vertical: 10.0),
-              child: Row(
-                  children: [
-                    Text(
-                      '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex],
-                      style: context.textTheme.bodyText2,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    if (extraindex + 1 < itemTilteList.length)
-                      Text(
-                        '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex + 1],
-                        style: context.textTheme.bodyText2,
-                      ),
-                  ]
-              )
-          );
-        }
-    );
+              child: Row(children: [
+                Text(
+                  '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex],
+                  style: context.textTheme.bodyText2,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                if (extraindex + 1 < itemTilteList.length)
+                  Text(
+                    '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex + 1],
+                    style: context.textTheme.bodyText2,
+                  ),
+              ]));
+        });
   }
 }

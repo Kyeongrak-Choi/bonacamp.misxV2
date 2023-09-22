@@ -18,7 +18,8 @@ class SalesClassStatusModel {
   int? id;
 
   SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.totalAmount,
-      this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,{this.id});
+      this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -38,7 +39,6 @@ class SalesClassStatusModel {
   factory SalesClassStatusModel.fromJson(Map<String, dynamic> json) => _$SalesClassStatusModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesClassStatusModelToJson(this);
-
 }
 
 List<SalesClassStatusModel> generateList(dataList, count) {
@@ -56,5 +56,4 @@ List<SalesClassStatusModel> generateList(dataList, count) {
           dataList[index].profitRate,
           dataList[index].profitStandard,
           id: index));
-
 }

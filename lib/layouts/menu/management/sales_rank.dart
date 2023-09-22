@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +24,7 @@ class SalesRank extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('매출순위현황'),
-          backgroundColor: context.theme.backgroundColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
+          appBar: AppBar(title: Text('매출순위현황'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
             IconButton(
               icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
               onPressed: () {
@@ -37,29 +32,29 @@ class SalesRank extends StatelessWidget {
               },
             ),
           ]),
-      body: Container(
-        color: context.theme.backgroundColor,
-        child: Column(
-          children: [
-            Visibility(
-              visible: Get.find<SalesRankController>().visible.value,
-              child: Column(
-                children: [
-                  OptionPeriodPicker(),
-                  OptionCbBranch(),
-                  OptionCbEmployee(),
-                  OptionCbManage(),
-                  OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
-                ],
-              ),
+          body: Container(
+            color: context.theme.backgroundColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<SalesRankController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionPeriodPicker(),
+                      OptionCbBranch(),
+                      OptionCbEmployee(),
+                      OptionCbManage(),
+                      OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: OptionExpansionList(ROUTE_MENU_RANKSTATUS),
+                ),
+              ],
             ),
-            Expanded(
-              child: OptionExpansionList(ROUTE_MENU_RANKSTATUS),
-            ),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }
 
@@ -86,14 +81,13 @@ class SalesRankController extends GetxController {
     var param = user.getClientCode;
     List parsedDataSalesRank;
 
-
     try {
       dio = await reqApi(param);
 
-      final response =
-      await dio.get(API_MANAGEMENT +
-          API_MANAGEMENT_RANKSTATUS + ''
-          '?branch-code=' +
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_RANKSTATUS +
+          ''
+              '?branch-code=' +
           paramBranchCode +
           '&from-date=' +
           paramFromDate +
@@ -102,15 +96,12 @@ class SalesRankController extends GetxController {
           '&employee-code=' +
           paramEmployeeCode +
           '&management-code=' +
-          paramManagementCode
-      );
-
+          paramManagementCode);
 
       if (response.statusCode == 200) {
         parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT];
 
         salesRankList = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
-
 
         update();
       }

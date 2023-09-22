@@ -6,10 +6,8 @@ class OptionDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DatePickerController());
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Expanded(
           flex: 1,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
@@ -25,30 +23,28 @@ class OptionDatePicker extends StatelessWidget {
                 ),
               ),
             ),
-          )
-        ),
-        Expanded(
-          flex: 3,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                child: Obx(
-                  () => TextButton(
-                    onPressed: () => Get.find<DatePickerController>().chooseDate(),
-                    child: Text(
-                      DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                      style: context.textTheme.bodyLarge,
-                    ),
+          )),
+      Expanded(
+        flex: 3,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              child: Obx(
+                () => TextButton(
+                  onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                  child: Text(
+                    DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                    style: context.textTheme.bodyLarge,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ]
-    );
+      ),
+    ]);
 
     // return Row(
     //   mainAxisAlignment: MainAxisAlignment.center,

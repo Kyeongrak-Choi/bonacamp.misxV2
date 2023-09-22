@@ -14,9 +14,7 @@ import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/common/list/option_expansion_list.dart';
 import '../../../components/datatable/management/sales_daily_Item.dart';
-import '../../../models/exam_model.dart';
 import '../../../models/management/sales_daily_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -28,11 +26,7 @@ class SalesDaily extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('영업일보'),
-          backgroundColor: context.theme.backgroundColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
+          appBar: AppBar(title: Text('영업일보'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
             IconButton(
               icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
               onPressed: () {
@@ -40,43 +34,40 @@ class SalesDaily extends StatelessWidget {
               },
             ),
           ]),
-      body: Container(
-        color: context.theme.backgroundColor,
-        child: Column(
-          children: [
-            Visibility(
-              visible: Get.find<SalesDailyController>().visible.value,
-              child: Column(
-                children: [
-                  OptionDatePicker(),
-                  OptionCbBranch(),
-                  OptionCbEmployee(),
-                  OptionCbTeam(),
-                  OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
-                ],
-              ),
+          body: Container(
+            color: context.theme.backgroundColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<SalesDailyController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionDatePicker(),
+                      OptionCbBranch(),
+                      OptionCbEmployee(),
+                      OptionCbTeam(),
+                      OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView(
+                    children: <Widget>[setChild()],
+                  ),
+                )
+              ],
             ),
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  setChild()
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 
-  Widget setChild(){
-    if(Get.find<SalesDailyController>().salesDailyList != null){
-      log('check : ' + Get.find<SalesDailyController>().salesDailyList.toString() );
+  Widget setChild() {
+    if (Get.find<SalesDailyController>().salesDailyList != null) {
+      log('check : ' + Get.find<SalesDailyController>().salesDailyList.toString());
       return SalesDailyItem(Get.find<SalesDailyController>().salesDailyList);
-    }else {
+    } else {
       return EmptyWidget();
     }
-
   }
 }
 
@@ -114,15 +105,13 @@ class SalesDailyController extends GetxController {
           '&employee-code=' +
           paramEmployeeCode +
           '&team-code=' +
-          paramTeamCode
-      );
+          paramTeamCode);
 
       if (response.statusCode == 200) {
         dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
         salesDailyList = dataObjsJson.map((dataJson) => SalesDailyModel.fromJson(dataJson)).toList();
         //controllerModel = parsedData;
         update();
-
       }
     } on DioException catch (e) {
       if (e.response != null) {

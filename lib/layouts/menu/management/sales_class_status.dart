@@ -7,23 +7,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-
-import 'package:misxV2/components/common/dialog/option_dialog.dart';
-import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
-import 'package:misxV2/components/common/emptyWidget.dart';
-import 'package:misxV2/components/datatable/management/sales_class_status_item.dart';
-import 'package:misxV2/components/datatable/management/salesperson_contribute_table.dart';
-import 'package:misxV2/models/management/sales_class_status.dart';
-import 'package:misxV2/models/management/salesperson_contribute.dart';
-
-import '../../../components/common/button/option_btn_search.dart';
-import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/dialog/search_listitem.dart';
-import '../../../components/datatable/management/overall_table.dart';
-
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import 'package:misxV2/components/common/dialog/option_dialog.dart';
 import 'package:misxV2/components/common/emptyWidget.dart';
@@ -32,14 +15,10 @@ import 'package:misxV2/models/management/sales_class_status.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
-
-import '../../common/dialog/search_dialog.dart';
-
 
 class SalesClassStatus extends StatelessWidget {
   @override
@@ -75,10 +54,7 @@ class SalesClassStatus extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView(
-
-                    children: <Widget>[
-                      setChild()
-                    ],
+                    children: <Widget>[setChild()],
                   ),
                 )
               ],
@@ -86,7 +62,6 @@ class SalesClassStatus extends StatelessWidget {
           ),
         ));
   }
-
 
   Widget setChild() {
     if (Get.find<SalesClassStatusController>().controllerModel != null) {
@@ -97,7 +72,6 @@ class SalesClassStatus extends StatelessWidget {
     }
   }
 }
-
 
 class SalesClassStatusController extends GetxController {
   var visible = true.obs;

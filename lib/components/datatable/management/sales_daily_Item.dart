@@ -3,12 +3,11 @@ import 'package:get/get.dart';
 
 import '../../../models/management/sales_daily_model.dart';
 
-
 class SalesDailyItem extends StatelessWidget {
   var dataList;
 
-  SalesDailyItem(var model){
-    dataList = generateSalesDailyList(model,model.length);
+  SalesDailyItem(var model) {
+    dataList = generateSalesDailyList(model, model.length);
   }
 
   @override
@@ -105,11 +104,9 @@ class SalesDailyItem extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-
                     ],
                   ),
-                  Row(
-                  children: [
+                  Row(children: [
                     Text(
                       '입금합계\n(일/월)\n' + model.depositAmount_D.toString() + '  ' + model.depositAmount_D.toString(),
                       style: context.textTheme.bodyLarge,
@@ -123,8 +120,7 @@ class SalesDailyItem extends StatelessWidget {
                       style: context.textTheme.bodyLarge,
                       textAlign: TextAlign.center,
                     ),
-                    ]
-                  )
+                  ])
                 ],
               ),
             );

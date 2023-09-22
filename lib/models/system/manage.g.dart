@@ -11,8 +11,7 @@ ManageModel _$ManageModelFromJson(Map<String, dynamic> json) => ManageModel(
       json['manage-name'] as String?,
     );
 
-Map<String, dynamic> _$ManageModelToJson(ManageModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ManageModelToJson(ManageModel instance) => <String, dynamic>{
       'manage-code': instance.manageCode,
       'manage-name': instance.manageName,
     };

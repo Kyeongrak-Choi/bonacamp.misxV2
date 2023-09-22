@@ -16,17 +16,16 @@ class SalesRankModel {
   String? totalAmount;
 
   SalesRankModel(
-      this.ranking,
-      this.customerCode,
-      this.customerName,
-      this.salesAmount,
-      this.supplementAmount,
-      this.profitAmount,
-      this.profitRate,
-      this.bondBalance,
-      this.totalAmount,
-      );
-
+    this.ranking,
+    this.customerCode,
+    this.customerName,
+    this.salesAmount,
+    this.supplementAmount,
+    this.profitAmount,
+    this.profitRate,
+    this.bondBalance,
+    this.totalAmount,
+  );
 
   Map<String, dynamic> toMap() {
     return {

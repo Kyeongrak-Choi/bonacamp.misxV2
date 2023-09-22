@@ -6,9 +6,7 @@ part of 'customer_contribute_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerContributeModel _$CustomerContributeModelFromJson(
-        Map<String, dynamic> json) =>
-    CustomerContributeModel(
+CustomerContributeModel _$CustomerContributeModelFromJson(Map<String, dynamic> json) => CustomerContributeModel(
       json['supplement-amount'] as String?,
       json['purchase-amount'] as String?,
       json['profit-rate'] as String?,
@@ -29,9 +27,7 @@ CustomerContributeModel _$CustomerContributeModelFromJson(
       json['transaction-last-date'] as String?,
     );
 
-Map<String, dynamic> _$CustomerContributeModelToJson(
-        CustomerContributeModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$CustomerContributeModelToJson(CustomerContributeModel instance) => <String, dynamic>{
       'supplement-amount': instance.supplementAmount,
       'purchase-amount': instance.purchaseAmount,
       'profit-rate': instance.profitRate,

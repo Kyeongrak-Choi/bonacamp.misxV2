@@ -70,7 +70,6 @@ class OptionDialog extends StatelessWidget {
         break;
     }
   }
-
 }
 
 class OptionDialogController extends GetxController {
@@ -78,7 +77,6 @@ class OptionDialogController extends GetxController {
 
   RxString paramCustomerName = ''.tr.obs;
   RxString paramCustomerCode = ''.tr.obs;
-
 
   String paramCode = '';
 
