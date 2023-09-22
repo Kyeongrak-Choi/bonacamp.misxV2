@@ -9,6 +9,7 @@ import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
 import '../../../layouts/menu/management/overall_status.dart';
 import '../../../layouts/menu/management/sales_daily.dart';
+import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../utils/constants.dart';
@@ -68,6 +69,13 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<SalesRankController>().showResult();
                       Get.find<SalesRankController>().setVisible();
                       break;
+
+                      // 경영관리 - 영업일보 (용도별)
+                      case ROUTE_MENU_DIVISIONSTATUS :
+                        await Get.find<SalesDailyDivisionController>().showResult();
+                        await Get.find<SalesDailyDivisionController>().calBoxBottleSum();
+                        Get.find<SalesDailyDivisionController>().setVisible();
+                        break;
                     }
                   }
                   catch (e){

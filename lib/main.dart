@@ -23,6 +23,7 @@ import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
+import 'layouts/menu/management/sales_daily_division.dart';
 import 'layouts/navigation.dart';
 
 void main() async {
@@ -83,12 +84,13 @@ class Misx extends StatelessWidget {
 
         // 경영분석
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
-        GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 영업일보
+        GetPage(name: ROUTE_MENU_OVERALL_DAILYSTATUS, page: () => SalesDaily()), // 영업일보
         GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
 
         GetPage(name: ROUTE_MENU_CUSTOMER_CONTRIBUTE, page: () => CustomerContribute()), // 매출처별 기여현황
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
         GetPage(name: ROUTE_MENU_RANKSTATUS, page: () => SalesRank()), // 매출순위현황
+        GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
       ],
       home: Login(),
     );

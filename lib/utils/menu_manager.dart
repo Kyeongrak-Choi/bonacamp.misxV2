@@ -73,7 +73,7 @@ final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS),
   IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_RANKSTATUS),
   IconMenu(title: 'title_7'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_8'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_DIVISIONSTATUS),
 ];
 
 final List<IconMenu> salesAnalysisMaster = [
