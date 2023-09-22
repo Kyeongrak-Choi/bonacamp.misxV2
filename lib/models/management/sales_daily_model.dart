@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sales_daily_model.g.dart'; // *.g.dart : in same directory
@@ -171,4 +172,89 @@ class SalesDailyModel {
   set setBondBalance(String value) {
     bondBalance = value;
   }
+}
+
+class SalesDailyDayMonthModel {
+  String? employeeName; // 영업사원명
+  String? divisionName_D; // 구분명
+  String? supplementAmount_D; // 공급가
+  String? vatAmount_D; // 부가세
+  String? guaranteeAmount_D; // 공병보증금
+  String? totalAmount_D; // 총합계
+  String? purchaseCost_D; // 매출원가
+  String? profitAmount_D; // 이익금
+  String? depositCash_D; // 현금입금
+  String? depositEmptyCaseBottle_D; // 용기,공병입금
+  String? depositAmount_D; // 입금합계
+  String? bondBalance_D; // 전월/금일채권잔액
+
+  String? divisionName_M; // 구분명
+  String? supplementAmount_M; // 공급가
+  String? vatAmount_M; // 부가세
+  String? guaranteeAmount_M; // 공병보증금
+  String? totalAmount_M; // 총합계
+  String? purchaseCost_M; // 매출원가
+  String? profitAmount_M; // 이익금
+  String? depositCash_M; // 현금입금
+  String? depositEmptyCaseBottle_M; // 용기,공병입금
+  String? depositAmount_M; // 입금합계
+  String? bondBalance_M; // 전월/금일채권잔액
+  int? id;
+
+  SalesDailyDayMonthModel(
+      this.employeeName,
+      this.divisionName_D,
+      this.supplementAmount_D,
+      this.vatAmount_D,
+      this.guaranteeAmount_D,
+      this.totalAmount_D,
+      this.purchaseCost_D,
+      this.profitAmount_D,
+      this.depositCash_D,
+      this.depositEmptyCaseBottle_D,
+      this.depositAmount_D,
+      this.bondBalance_D,
+      this.divisionName_M,
+      this.supplementAmount_M,
+      this.vatAmount_M,
+      this.guaranteeAmount_M,
+      this.totalAmount_M,
+      this.purchaseCost_M,
+      this.profitAmount_M,
+      this.depositCash_M,
+      this.depositEmptyCaseBottle_M,
+      this.depositAmount_M,
+      this.bondBalance_M,
+      {this.id}
+      );
+}
+
+List<SalesDailyDayMonthModel> generateSalesDailyList(dataList,count) {
+  var f = NumberFormat('###,###,###,###');
+  return List.generate(count~/2,
+          (index) => SalesDailyDayMonthModel(
+          dataList[index*2].employeeName
+          , dataList[index*2].divisionName
+          , f.format(int.parse(dataList[index*2].supplementAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].vatAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].guaranteeAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].totalAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].purchaseCost ?? 0))
+          , f.format(int.parse(dataList[index*2].profitAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].depositCash ?? 0))
+          , f.format(int.parse(dataList[index*2].depositEmptyCaseBottle ?? 0))
+          , f.format(int.parse(dataList[index*2].depositAmount ?? 0))
+          , f.format(int.parse(dataList[index*2].bondBalance ?? 0))
+          , dataList[(index*2)+1].divisionName
+          , f.format(int.parse(dataList[(index*2)+1].supplementAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].vatAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].guaranteeAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].totalAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].purchaseCost ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].profitAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].depositCash ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].depositEmptyCaseBottle ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].depositAmount ?? 0))
+          , f.format(int.parse(dataList[(index*2)+1].bondBalance ?? 0))
+          , id:index));
 }

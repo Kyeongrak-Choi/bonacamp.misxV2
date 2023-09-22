@@ -37,45 +37,50 @@ class OptionBtnSearch extends StatelessWidget {
                   ProgressDialog pd = ProgressDialog(context: context);
                   pd.show(max: 1000, msg: 'progress_search'.tr, backgroundColor: CommonColors.bluesky);
 
-                  switch (menu) {
-                    // 경영관리 - 종합현황
-                    case ROUTE_MENU_OVERALL_STATUS:
+                  try {
+                    switch (menu) {
+                      // 경영관리 - 종합현황
+                      case ROUTE_MENU_OVERALL_STATUS:
                       await Get.find<OverAllController>().showResult();
                       Get.find<OverAllController>().setVisible();
                       break;
 
-                  // 경영관리 - 영업일보
-                    case ROUTE_MENU_SALES_DAILY :
+                      // 경영관리 - 영업일보
+                      case ROUTE_MENU_SALES_DAILY :
                       await Get.find<SalesDailyController>().showResult();
                       Get.find<SalesDailyController>().setVisible();
                       break;
 
-                    // 경영관리 - 영업사원별 기여현황
-                    case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
+                      // 경영관리 - 영업사원별 기여현황
+                      case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
                       await Get.find<SalesPersonContributeController>().showResult();
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
 
-                  // 경영관리 - 매출처별 기여현황
-                    case ROUTE_MENU_CUSTOMER_CONTRIBUTE :
+                      // 경영관리 - 매출처별 기여현황
+                      case ROUTE_MENU_CUSTOMER_CONTRIBUTE :
                       await Get.find<CustomerContributeController>().showResult();
                       Get.find<CustomerContributeController>().setVisible();
                       break;
 
-                  // 경영관리 - 매출순위현황
-                    case ROUTE_MENU_RANKSTATUS :
+                      // 경영관리 - 매출순위현황
+                      case ROUTE_MENU_RANKSTATUS :
                       await Get.find<SalesRankController>().showResult();
                       Get.find<SalesRankController>().setVisible();
                       break;
+                    }
+                  }
+                  catch (e){
+                    pd.close();
                   }
 
                   pd.close();
-                },
-                child: Icon(Icons.search, color: context.theme.primaryColor),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: CommonColors.white,
-                  backgroundColor: context.theme.canvasColor,
-                )),
+              },
+              child: Icon(Icons.search, color: context.theme.primaryColor),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: CommonColors.white,
+                backgroundColor: context.theme.canvasColor,
+              )),
           ),
         )),
       ],

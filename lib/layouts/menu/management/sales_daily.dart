@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,9 @@ import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
+import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/list/option_expansion_list.dart';
+import '../../../components/datatable/management/sales_daily_Item.dart';
 import '../../../models/exam_model.dart';
 import '../../../models/management/sales_daily_model.dart';
 import '../../../models/system/userinfo.dart';
@@ -26,7 +29,7 @@ class SalesDaily extends StatelessWidget {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
       appBar: AppBar(
-          title: Text('appbar_title_overall_status'.tr),
+          title: Text('영업일보'),
           backgroundColor: context.theme.backgroundColor,
           iconTheme: context.theme.iconTheme,
           actions: [
@@ -54,27 +57,33 @@ class SalesDaily extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: OptionExpansionList(ROUTE_MENU_SALES_DAILY),
-            ),
+              child: ListView(
+                children: <Widget>[
+                  setChild()
+                ],
+              ),
+            )
           ],
         ),
       ),
     ));
   }
+
+  Widget setChild(){
+    if(Get.find<SalesDailyController>().salesDailyList != null){
+      log('check : ' + Get.find<SalesDailyController>().salesDailyList.toString() );
+      return SalesDailyItem(Get.find<SalesDailyController>().salesDailyList);
+    }else {
+      return EmptyWidget();
+    }
+
+  }
 }
 
 class SalesDailyController extends GetxController {
-
   var visible = true.obs;
-  List<SalesDailyModel> salesDailyList = <SalesDailyModel>[
-    SalesDailyModel('2022-09-01', '[15001]참이슬 361ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-02', '[15001]참이슬 362ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-03', '[15001]참이슬 363ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-04', '[15001]참이슬 364ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-05', '[15001]참이슬 365ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-06', '[15001]참이슬 366ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-    SalesDailyModel('2022-09-07', '[15001]참이슬 367ml', '매출', '1', '2', '7000', '3000', '2000', '12000', '80000', '2000','2000','2000','2000','2000','2000','2000'),
-  ];
+  var salesDailyList;
+  var controllerModel;
 
   setVisible() async {
     visible.value = !visible.value;
@@ -83,28 +92,37 @@ class SalesDailyController extends GetxController {
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
+    var parsedData;
+    List dataObjsJson;
 
-    String tempNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    String tempDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String tempEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
-    String tempTeamCode = Get.find<CbTeamController>().paramTeamCode;
+    String paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
+    String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
+    String paramEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
+    String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;
     var parsedDataSalesDaily;
 
     try {
       dio = await reqApi(param);
-      final response = await dio.get(API_MANAGEMENT + API_MANAGEMENT_DAILYSTATUS + '?branch-code=' + tempNodeCd + '&search-date=' + tempDt + '&employee-code=' + tempEmployeeCode + '&team-code=' + tempTeamCode);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_DAILYSTATUS +
+          '?branch-code=' +
+          paramNodeCd +
+          '&search-date=' +
+          paramDt +
+          '&employee-code=' +
+          paramEmployeeCode +
+          '&team-code=' +
+          paramTeamCode
+      );
 
       if (response.statusCode == 200) {
-        parsedDataSalesDaily = await jsonDecode(response)[TAG_DATA][TAG_DATA_LIST];
-
-
-        //salesDailyList.add(SalesDailyModel.fromJson(parsedDataSalesDaily));
-
-
-
+        dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
+        salesDailyList = dataObjsJson.map((dataJson) => SalesDailyModel.fromJson(dataJson)).toList();
+        //controllerModel = parsedData;
         update();
+
       }
     } on DioException catch (e) {
       if (e.response != null) {

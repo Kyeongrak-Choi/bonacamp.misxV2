@@ -31,7 +31,7 @@ class  OptionExpansionList extends StatelessWidget {
   Widget build(BuildContext context) {
     switch(menu) {
       case ROUTE_MENU_SALES_DAILY :
-        expansionObjectList = Get.find<SalesDailyController>().salesDailyList;
+        //expansionObjectList = Get.find<SalesDailyController>().salesRankList;
         itemNameList = salesDailyItemList;
         expansionTitleList = salesDailyTitleList;
         break;

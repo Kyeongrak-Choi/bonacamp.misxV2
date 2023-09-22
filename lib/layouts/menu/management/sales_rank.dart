@@ -107,8 +107,7 @@ class SalesRankController extends GetxController {
 
 
       if (response.statusCode == 200) {
-        var test = jsonEncode(response.data);
-        parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_DATA_LIST];
+        parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT];
 
         salesRankList = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
 
