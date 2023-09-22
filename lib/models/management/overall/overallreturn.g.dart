@@ -8,10 +8,10 @@ part of 'overallreturn.dart';
 
 OverAllReturnModel _$OverAllReturnModelFromJson(Map<String, dynamic> json) =>
     OverAllReturnModel(
-      json['oTot'] as String?,
+      json['return-amount'] as String?,
     );
 
 Map<String, dynamic> _$OverAllReturnModelToJson(OverAllReturnModel instance) =>
     <String, dynamic>{
-      'oTot': instance.oTot,
+      'return-amount': instance.oTot,
     };

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 
-import '../../../utils/constants.dart';
-
 class OptionCbCustomerStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -56,8 +54,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
 }
 
 class CbCustomerStatusController extends GetxController {
-
- // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
+  // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
 
   List<WarehouseModel> data = <WarehouseModel>[].obs;
 
@@ -89,6 +86,5 @@ class CbCustomerStatusController extends GetxController {
     data.add(WarehouseModel("CLOSE", "휴업"));
     data.add(WarehouseModel("UNUSE", "폐업"));
     data.add(WarehouseModel("CUT", "단절"));
-
   }
 }

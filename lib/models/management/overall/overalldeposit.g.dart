@@ -8,15 +8,15 @@ part of 'overalldeposit.dart';
 
 OverAllDepositModel _$OverAllDepositModelFromJson(Map<String, dynamic> json) =>
     OverAllDepositModel(
-      json['retrvAmt'] as String?,
-      json['ipTot'] as String?,
-      json['amt'] as String?,
+      json['recall-amount'] as String?,
+      json['deposit-amount'] as String?,
+      json['bond-balance'] as String?,
     );
 
 Map<String, dynamic> _$OverAllDepositModelToJson(
         OverAllDepositModel instance) =>
     <String, dynamic>{
-      'retrvAmt': instance.retrvAmt,
-      'ipTot': instance.ipTot,
-      'amt': instance.amt,
+      'recall-amount': instance.retrvAmt,
+      'deposit-amount': instance.ipTot,
+      'bond-balance': instance.amt,
     };

@@ -31,7 +31,7 @@ class  OptionExpansionList extends StatelessWidget {
   Widget build(BuildContext context) {
     switch(menu) {
       case ROUTE_MENU_SALES_DAILY :
-        //expansionObjectList = Get.find<SalesDailyController>().salesRankList;
+      //expansionObjectList = Get.find<SalesDailyController>().salesRankList;
         itemNameList = salesDailyItemList;
         expansionTitleList = salesDailyTitleList;
         break;
@@ -52,20 +52,20 @@ class  OptionExpansionList extends StatelessWidget {
             expansionTitleValueList.add(objectItemTitleValueToList(expansionModel));
             //itemCount = -1;
             return ExpansionPanelRadio(
-              value: expansionModel,
-              backgroundColor: context.theme.backgroundColor,
-              headerBuilder: (BuildContext context, bool isExpanded) {
-                if(itemCount == expansionTitleValueList.length)
-                  itemCount = 0;
-                return OptionExpansionTitle(context, expansionTitleList[0], expansionTitleValueList[itemCount][0],
-                    expansionTitleList[1], expansionTitleValueList[itemCount][1],
-                    expansionTitleList[2], expansionTitleValueList[itemCount++][2]);
-              },
-              // body:Text(
-              //   '[test ] ' + itemValueList[0],
-              //   style: context.textTheme.bodyText2,
-              // ),
-              body: OptionExpansionListItem(itemTilteList : itemNameList, itemValueList : itemValueList[itemCount])
+                value: expansionModel,
+                backgroundColor: context.theme.backgroundColor,
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  if(itemCount == expansionTitleValueList.length)
+                    itemCount = 0;
+                  return OptionExpansionTitle(context, expansionTitleList[0], expansionTitleValueList[itemCount][0],
+                      expansionTitleList[1], expansionTitleValueList[itemCount][1],
+                      expansionTitleList[2], expansionTitleValueList[itemCount++][2]);
+                },
+                // body:Text(
+                //   '[test ] ' + itemValueList[0],
+                //   style: context.textTheme.bodyText2,
+                // ),
+                body: OptionExpansionListItem(itemTilteList : itemNameList, itemValueList : itemValueList[itemCount])
             );
           }).toList(),
         ),
@@ -76,11 +76,11 @@ class  OptionExpansionList extends StatelessWidget {
   Widget OptionExpansionTitle(BuildContext context, String title1, String value1, String title2, String value2, String title3, String value3){
     return Row(
       children: [
-          Text(
-            '[' + (title1 ?? '') + '] ' + value1 ?? '',
-            style: context.textTheme.bodyText1,
-            overflow: TextOverflow.ellipsis,
-          ),
+        Text(
+          '[' + (title1 ?? '') + '] ' + value1 ?? '',
+          style: context.textTheme.bodyText1,
+          overflow: TextOverflow.ellipsis,
+        ),
         SizedBox(
           width: 10,
         ),
@@ -96,7 +96,7 @@ class  OptionExpansionList extends StatelessWidget {
           width: 10,
         ),
         Expanded(
-        flex: 1,
+            flex: 1,
             child: Text(
               '[' + (title3 ?? '') + '] ' + value3 ?? '',
               style: context.textTheme.bodyText1,

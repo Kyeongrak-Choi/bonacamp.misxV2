@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -101,9 +100,8 @@ class OverAllController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response =
-          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + paramBranchCode + '&from-date=' + paramFromDate + '&to-date=' + paramToDate);
-
+      final response = await dio.get(
+          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + paramBranchCode + '&from-date=' + paramFromDate + '&to-date=' + paramToDate);
 
       if (response.statusCode == 200) {
         parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];

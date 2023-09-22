@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
+import 'package:misxV2/models/system/warehouse.dart';
 
-import '../../../models/system/team.dart';
-import '../../../utils/constants.dart';
-
-class OptionCbTeam extends StatelessWidget {
+class OptionCbGraphType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbTeamController());
+    Get.put(CbGraphTypeController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -23,7 +20,7 @@ class OptionCbTeam extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'opt_team'.tr,
+                      'opt_graph_type'.tr,
                       style: context.textTheme.bodyText1,
                     )),
               ),
@@ -33,21 +30,21 @@ class OptionCbTeam extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                  () => DropdownButtonFormField<TeamModel>(
+                  () => DropdownButtonFormField<WarehouseModel>(
                     isExpanded: true,
-                    value: Get.find<CbTeamController>().selectedValue,
+                    value: Get.find<CbGraphTypeController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {
-                      return DropdownMenuItem<TeamModel>(
+                    items: Get.find<CbGraphTypeController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
+                      return DropdownMenuItem<WarehouseModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.getTeamName ?? ''),
+                        child: Text(value.getWarehouseName ?? ''),
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbTeamController>().chooseItem(value!);
+                      Get.find<CbGraphTypeController>().chooseItem(value!);
                     },
                   ),
                 ))),
@@ -56,37 +53,34 @@ class OptionCbTeam extends StatelessWidget {
   }
 }
 
-class CbTeamController extends GetxController {
+class CbGraphTypeController extends GetxController {
+  List<WarehouseModel> data = <WarehouseModel>[].obs;
+
   var selectedValue;
-  List<TeamModel> data = [
-    TeamModel('', '전체'),
-  ].obs;
 
   // param sample
-  String paramTeamCode = '';
-  String paramTeamName = '';
+  String paramGraphType = '';
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    setTeam();
-    selectedValue = data.first;
+    setCustomerStatus();
+    if (data != null) {
+      chooseItem(data.first);
+    }
   }
 
-  chooseItem(TeamModel value) async {
-    paramTeamCode = value.getTeamCode ?? '';
-    paramTeamName = value.getTeamName ?? '';
-
+  chooseItem(WarehouseModel value) async {
+    paramGraphType = value.getWarehouseCode ?? '';
     selectedValue = value;
   }
 
-  Future<void> setTeam() async {
-    await Hive.openBox(
-      LOCAL_DB,
-    );
-
-    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_TEAM).length; i++) {
-      data.add(Hive.box(LOCAL_DB).get(KEY_TEAM).elementAt(i));
-    }
+  void setCustomerStatus() {
+    data.add(WarehouseModel("SALES", "매출"));
+    data.add(WarehouseModel("BOND", "채권"));
+    data.add(WarehouseModel("PURCHASE", "매입"));
+    data.add(WarehouseModel("DEBT", "채무"));
+    data.add(WarehouseModel("RENTAL", "대여금액"));
+    data.add(WarehouseModel("ASSET", "대여자산"));
   }
 }

@@ -20,20 +20,18 @@ class SalesClassStatusModel {
   SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.totalAmount,
       this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,{this.id});
 
-
-
   Map<String, dynamic> toMap() {
     return {
-      'sales-class-code' : salesClassCode,
-      'sales-class-name' : salesClassName,
-      'box-quantity' : boxQuantity,
-      'bottle-quantity' : bottleQuantity ,
-      'supplement-amount' : supplementAmount,
-      'total-amount' : totalAmount,
-      'purchase-amount' : purchaseAmount,
-      'profit-amount' : profitAmount,
-      'profit-rate' : profitRate,
-      'profit-standard' : profitStandard,
+      'sales-class-code': salesClassCode,
+      'sales-class-name': salesClassName,
+      'box-quantity': boxQuantity,
+      'bottle-quantity': bottleQuantity,
+      'supplement-amount': supplementAmount,
+      'total-amount': totalAmount,
+      'purchase-amount': purchaseAmount,
+      'profit-amount': profitAmount,
+      'profit-rate': profitRate,
+      'profit-standard': profitStandard,
     };
   }
 
@@ -43,18 +41,20 @@ class SalesClassStatusModel {
 
 }
 
-List<SalesClassStatusModel> generateList(dataList,count) {
-  return List.generate(count,
-          (index) => SalesClassStatusModel(
-          dataList[index].salesClassCode
-          , dataList[index].salesClassName
-          , dataList[index].boxQuantity
-          , dataList[index].bottleQuantity
-          , dataList[index].supplementAmount
-          , dataList[index].totalAmount
-          , dataList[index].purchaseAmount
-          , dataList[index].profitAmount
-          , dataList[index].profitRate
-          , dataList[index].profitStandard
-          , id:index));
+List<SalesClassStatusModel> generateList(dataList, count) {
+  return List.generate(
+      count,
+      (index) => SalesClassStatusModel(
+          dataList[index].salesClassCode,
+          dataList[index].salesClassName,
+          dataList[index].boxQuantity,
+          dataList[index].bottleQuantity,
+          dataList[index].supplementAmount,
+          dataList[index].totalAmount,
+          dataList[index].purchaseAmount,
+          dataList[index].profitAmount,
+          dataList[index].profitRate,
+          dataList[index].profitStandard,
+          id: index));
+
 }
