@@ -12,37 +12,36 @@ class SalesDailyModel {
   String? divisionCode; // 구분값 (1:일 / 2:월)
   String? divisionName; // 구분명
   String? supplementAmount; // 공급가
-  String? vatAmount;  // 부가세
-  String? guaranteeAmount;  // 공병보증금
-  String? totalAmount;  // 총합계
+  String? vatAmount; // 부가세
+  String? guaranteeAmount; // 공병보증금
+  String? totalAmount; // 총합계
   String? purchaseCost; // 매출원가
   String? profitAmount; // 이익금
   String? profitRate; // 마진율 시스템 기준설정 A900 : 1.(마진액/매출원가)*100,  2.(마진액/공급가액)*100)
-  String? depositCash;  // 현금입금
+  String? depositCash; // 현금입금
   String? depositEmptyCaseBottle; // 용기,공병입금
-  String? depositAmount;  // 입금합계
-  String? bondBalance;  // 전월/금일채권잔액
+  String? depositAmount; // 입금합계
+  String? bondBalance; // 전월/금일채권잔액
 
   SalesDailyModel(
-      this.teamCode,
-      this.teamName,
-      this.employeeCode,
-      this.employeeName,
-      this.divisionCode,
-      this.divisionName,
-      this.supplementAmount,
-      this.vatAmount,
-      this.guaranteeAmount,
-      this.totalAmount,
-      this.purchaseCost,
-      this.profitAmount,
-      this.profitRate,
-      this.depositCash,
-      this.depositEmptyCaseBottle,
-      this.depositAmount,
-      this.bondBalance,
-      );
-
+    this.teamCode,
+    this.teamName,
+    this.employeeCode,
+    this.employeeName,
+    this.divisionCode,
+    this.divisionName,
+    this.supplementAmount,
+    this.vatAmount,
+    this.guaranteeAmount,
+    this.totalAmount,
+    this.purchaseCost,
+    this.profitAmount,
+    this.profitRate,
+    this.depositCash,
+    this.depositEmptyCaseBottle,
+    this.depositAmount,
+    this.bondBalance,
+  );
 
   Map<String, dynamic> toMap() {
     return {

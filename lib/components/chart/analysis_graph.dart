@@ -4,24 +4,12 @@ import 'package:get/get.dart';
 
 import '../chart/line/chart_manager.dart';
 
-class DashBoardChart2 extends StatelessWidget {
-  // dummy
+class AnalysisGraphComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        // decoration: const BoxDecoration(
-        //   borderRadius: BorderRadius.all(Radius.circular(18)),
-        //   gradient: LinearGradient(
-        //     colors: [
-        //       Color(0xff2c274c),
-        //       Color(0xff46426c),
-        //     ],
-        //     begin: Alignment.bottomCenter,
-        //     end: Alignment.topCenter,
-        //   ),
-        // ),
         decoration: BoxDecoration(
           color: context.theme.canvasColor,
           borderRadius: BorderRadius.circular(20),
@@ -36,7 +24,8 @@ class DashBoardChart2 extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'bonacamp',
+                  //'단위 : 1,000',
+                  '',
                   style: context.textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),

@@ -31,8 +31,14 @@ const ROUTE_API_EXAMPLE = '/apiExample';
 // 경영 분석
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
 const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
+const ROUTE_MENU_OVERALL_DAILYSTATUS = '/daily-status'; // 영업일보
 const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사원별 기여현황
-const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/customerContribute'; // 매출처별 기여현황
+const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
+const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
+const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
+const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+
 
 /*
   Util
@@ -101,7 +107,7 @@ const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 
 const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
 const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
-const API_MANAGEMENT_GRAPH = '/anaylsis-graph'; // 분석 그래프
+const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
 const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 // (영업분석)
@@ -116,6 +122,7 @@ const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
 const TAG_ERROR = 'errors'; // response error tag
 const TAG_RETURN_OBJECT = 'data'; // response data object tag
+const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 
 // Authorization
 const TAG_TOKEN = 'token'; // response token tag
@@ -147,6 +154,11 @@ const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
 
 const TAG_SALESDAILY_LIST = 'data-list';
+
+const TAG_GRAPH_BOND = 'bond';
+const TAG_GRAPH_DEBT = 'debt';
+
+const TAG_TEST = 'search-date';
 
 /*
   HIVE DB

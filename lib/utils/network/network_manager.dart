@@ -68,6 +68,8 @@ Future<bool> reqToken(bool isDev) async {
 }
 
 Future<String> reqLogin(params) async {
+  log('call login url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
+
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
@@ -79,7 +81,6 @@ Future<String> reqLogin(params) async {
 
   Dio dio = Dio(options);
 
-
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
@@ -90,7 +91,6 @@ Future<String> reqLogin(params) async {
 
   try {
     Res.Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
-
 
     if (response.statusCode == 200) {
       BoxInit(); // local DB Set
@@ -106,6 +106,8 @@ Future<String> reqLogin(params) async {
 }
 
 Future<Dio> reqApi(header) async {
+  log('call api url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
+
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
