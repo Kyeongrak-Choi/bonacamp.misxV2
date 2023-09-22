@@ -17,13 +17,13 @@ class PurchaseModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'custCd': custCd,
-      'custNm': custNm,
-      'reprNm': reprNm,
-      'custStat': custStat,
-      'custStatNm': custStatNm,
-      'bizcnd': bizcnd,
-      'indstyp': indstyp
+      'customer-code': custCd,
+      'customer-name': custNm,
+      'representative': reprNm,
+      'customer-status-code': custStat,
+      'customer-status-name': custStatNm,
+      'business-status': bizcnd,
+      'business-type': indstyp
     };
   }
 

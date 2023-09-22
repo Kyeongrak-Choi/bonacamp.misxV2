@@ -10,13 +10,41 @@ class OptionYearMonthPicker extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Obx(
-          () => TextButton(
-            onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
-            child: Text(
-              DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().date.value).toString(),
-              style: TextStyle(fontSize: 20),
-            ),
+        Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              child: Container(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: context.theme.canvasColor,
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'opt_month'.tr,
+                    style: context.textTheme.bodyText1,
+                  ),
+                ),
+              ),
+            )),
+        Expanded(
+          flex: 3,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
+                    child: Text(
+                      DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
+                      style: context.textTheme.bodyLarge,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -25,7 +53,7 @@ class OptionYearMonthPicker extends StatelessWidget {
 }
 
 class MonthPickerController extends GetxController {
-  var date = DateTime.now().obs;
+  var yearMonth = DateTime.now().obs;
 
   @override
   void onInit() {
@@ -43,17 +71,20 @@ class MonthPickerController extends GetxController {
   }
 
   chooseYearMonth() async {
+    String? locale;
+    final localeObj = locale != null ? Locale(locale) : null;
+
     DateTime? pickedDate = await showMonthYearPicker(
       context: Get.context!,
-      initialDate: date.value,
+      initialDate: yearMonth.value,
       firstDate: DateTime(DateTime.now().year - 2),
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
-      locale: const Locale('en', 'US'),
+      locale: localeObj,
     );
 
-    if (pickedDate != null && pickedDate != date.value) {
-      date.value = pickedDate;
+    if (pickedDate != null && pickedDate != yearMonth.value) {
+      yearMonth.value = pickedDate;
     }
   }
 }

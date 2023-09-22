@@ -3,10 +3,19 @@ import 'package:get/get.dart';
 
 import '../../../utils/constants.dart';
 
-class OptionDialogCustomer extends StatelessWidget {
+class OptionDialog extends StatelessWidget {
+  var flag;
+  var title;
+  var route;
+
+  OptionDialog(String flag) {
+    this.flag = flag;
+    initVar(flag);
+  }
+
   @override
   Widget build(BuildContext context) {
-    Get.put(CbCustomerController());
+    Get.put(OptionDialogController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -21,7 +30,7 @@ class OptionDialogCustomer extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'opt_customer'.tr,
+                      title,
                       style: context.textTheme.bodyLarge,
                     )),
               ),
@@ -31,19 +40,45 @@ class OptionDialogCustomer extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: TextButton(
-                  onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
+                  onPressed: () => Get.toNamed(route),
                   child: Obx(() => Text(
-                        Get.find<CbCustomerController>().selectedValue.value,
+                        Get.find<OptionDialogController>().selectedValue.value,
                         style: context.textTheme.bodyText1,
                       )),
                 ))),
       ],
     );
   }
+
+  void initVar(flag) {
+    switch (flag) {
+      case SEARCH_DIALOG_CUST:
+        title = 'title_search_customer'.tr;
+        route = ROUTE_DIALOG_CUSTOMER;
+        break;
+      case SEARCH_DIALOG_PRCH:
+        title = 'title_search_purchase'.tr;
+        route = ROUTE_DIALOG_PURCHASE;
+        break;
+      case SEARCH_DIALOG_ITEM:
+        title = 'title_search_item'.tr;
+        route = ROUTE_DIALOG_ITEM;
+        break;
+      case SEARCH_DIALOG_LEND:
+        title = 'title_search_lenditem'.tr;
+        route = ROUTE_DIALOG_LENDITM;
+        break;
+    }
+  }
 }
 
-class CbCustomerController extends GetxController {
+class OptionDialogController extends GetxController {
   RxString selectedValue = 'all'.tr.obs;
+
+  RxString paramCustomerName = ''.tr.obs;
+  RxString paramCustomerCode = ''.tr.obs;
+
+  String paramCode = '';
 
   @override
   void onInit() {
@@ -52,5 +87,8 @@ class CbCustomerController extends GetxController {
 
   chooseItem(code, name) async {
     selectedValue.value = name;
+    paramCustomerName.value = name;
+    paramCustomerCode.value = code;
+    paramCode = code;
   }
 }

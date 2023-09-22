@@ -73,7 +73,6 @@ class LoginBtnController extends GetxController {
       if (await reqToken(true)) {
         // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
         var res = await reqLogin(ReqLoginModel(inputId, inputPw, APP_ID).toMap());
-
         if (res == '200') {
           await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
           inputPw = ''; // pw 초기화

@@ -18,8 +18,8 @@ const Map<String, String> koKR = {
   'admob_banner': '광고배너',
   'check_login_header': 'ID/PW 확인',
   'check_login_content': 'ID/PW를 확인해 주세요.',
-  'login_expiration' : '인증만료',
-  'expiration_content' : '인증이 만료되어 로그인페이지로 이동합니다.',
+  'login_expiration': '인증만료',
+  'expiration_content': '인증이 만료되어 로그인페이지로 이동합니다.',
 
   // config
   'notice': '공지 사항',
@@ -50,6 +50,7 @@ const Map<String, String> koKR = {
   // Period Picker
   'period_error_header': '기간오류',
   'period_error_content': '기간을 확인해주세요.',
+  'period_error_limit': '최대 6개월간 조회 가능합니다.',
 
   // DashBoard
   'title_sales': '당월 매출',
@@ -71,11 +72,14 @@ const Map<String, String> koKR = {
   // option
   'opt_period': '기간',
   'opt_date': '일자',
-  'opt_month': '연월',
+  'opt_month': '조회월',
   'opt_workspace': '사업장',
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
+  'opt_customer_status': '거래처 상태',
+  'opt_graph_type': '종류',
+  'opt_team': '팀',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -95,12 +99,12 @@ const Map<String, String> koKR = {
   'menu_main_managemnent': '경영분석',
   'menu_sub_overall': '종합현황',
   'menu_sub_salesdaily': '영업일보',
-  'title_3': '영업사원별 기여현황',
-  'title_4': '매출처별 기여현황',
-  'title_5': '판매분류별 현황',
-  'title_6': '매출순위현황',
-  'title_7': '분석 그래프',
-  'title_8': '영업일보(용도별)',
+  'menu_sub_salesperson_contribute': '영업사원별 기여현황',
+  'menu_sub_customer_contribute': '매출처별 기여현황',
+  'menu_sub_sales_class_status': '판매분류별 현황',
+  'menu_sub_sales_rank': '매출순위현황',
+  'menu_sub_analysis_graph': '분석 그래프',
+  'menu_sub_salesdaily_division': '영업일보(용도별)',
 
   'menu_main_sales': '영업분석',
   'title_9': '거래처 현황',
@@ -168,6 +172,19 @@ const Map<String, String> koKR = {
 
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
+
+  //Sales Daily
+  'employee_name': '담당자',
+  'division_name': '구분',
+  'supplement_amount': '공급가',
+  'vat_amount': '부가세',
+  'guarantee_amount': '보증금합계',
+  'purchase_cost': '매입원가',
+  'profit_amount': '매출이익',
+  'deposit_cash': '입금소계',
+  'deposit_empty_case_bottle': '용공입금',
+  'deposit_amount': '입금합계',
+  'bond_balance': '채권잔액',
 };
 
 //const Map<String,String> enUs = {};

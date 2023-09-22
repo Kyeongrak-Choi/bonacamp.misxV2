@@ -6,20 +6,60 @@ class OptionDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DatePickerController());
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Obx(
-          () => TextButton(
-            onPressed: () => Get.find<DatePickerController>().chooseDate(),
-            child: Text(
-              DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-              style: TextStyle(fontSize: 20),
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Expanded(
+          flex: 1,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+            child: Container(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: context.theme.canvasColor,
+                ),
+                onPressed: () {},
+                child: Text(
+                  'opt_date'.tr,
+                  style: context.textTheme.bodyText1,
+                ),
+              ),
             ),
-          ),
+          )),
+      Expanded(
+        flex: 3,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              child: Obx(
+                () => TextButton(
+                  onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                  child: Text(
+                    DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                    style: context.textTheme.bodyLarge,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
-    );
+      ),
+    ]);
+
+    // return Row(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [
+    //     Obx(
+    //       () => TextButton(
+    //         onPressed: () => Get.find<DatePickerController>().chooseDate(),
+    //         child: Text(
+    //           DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+    //           style: TextStyle(fontSize: 20),
+    //         ),
+    //       ),
+    //     ),
+    //   ],
+    // );
   }
 }
 

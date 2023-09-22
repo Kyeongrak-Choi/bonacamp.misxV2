@@ -27,8 +27,17 @@ const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 const ROUTE_MENU_EXAMPLE = '/menuExample';
 const ROUTE_API_EXAMPLE = '/apiExample';
 
-// Route 경영 분석
-const ROUTE_MENU_OVERALL_STATUS = '/overallStatus';
+// Route
+// 경영 분석
+const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
+const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
+const ROUTE_MENU_OVERALL_DAILYSTATUS = '/daily-status'; // 영업일보
+const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/contribution-status-employee'; // 영업사원별 기여현황
+const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
+const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
+const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
+const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 /*
   Util
@@ -87,10 +96,20 @@ const API_COMMON = '/v1/common';
 const API_COMMON_CUSTOMER = '/customer';
 const API_COMMON_PURCHASE = '/purchase';
 const API_COMMON_ITEM = '/item';
-const API_COMMON_LENDITEM = '/lendItem';
+const API_COMMON_LENDITEM = '/lend-item';
 
-// management
-const API_SALES_OVERALL = '/v1/management/overall';
+// management (경영분석)
+const API_MANAGEMENT = '/v1/management';
+const API_MANAGEMENT_OVERALL = '/overall'; // 종합현황
+const API_MANAGEMENT_DAILYSTATUS = '/daily-status'; // 영업일보
+const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 영원사원별 기여현황
+const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
+const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
+const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
+const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+
+// (영업분석)
 
 /*
   Json
@@ -101,6 +120,8 @@ const TAG_DATA = 'payload'; // response data tag
 const TAG_TIME = 'timestamp'; // response timestamp tag
 const TAG_MSG = 'message'; // response message tag
 const TAG_ERROR = 'errors'; // response error tag
+const TAG_RETURN_OBJECT = 'data'; // response data object tag
+const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 
 // Authorization
 const TAG_TOKEN = 'token'; // response token tag
@@ -117,10 +138,10 @@ const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
 
-const TAG_COMMON_CUSTOMER = 'customerList';
-const TAG_COMMON_PURCHASE = 'purchaseList';
-const TAG_COMMON_ITEM = 'itemList';
-const TAG_COMMON_LENDITEM = 'lendItemList';
+const TAG_COMMON_CUSTOMER = 'customer-list';
+const TAG_COMMON_PURCHASE = 'purchase-list';
+const TAG_COMMON_ITEM = 'item-list';
+const TAG_COMMON_LENDITEM = 'lend-item-list';
 
 // sales
 const TAG_SALES = 'sales';
@@ -131,6 +152,13 @@ const TAG_RETURN = 'return';
 const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
 
+const TAG_DATA_LIST = 'data-list';
+
+const TAG_GRAPH_BOND = 'bond';
+const TAG_GRAPH_DEBT = 'debt';
+
+const TAG_TEST = 'search-date';
+
 /*
   HIVE DB
  */
@@ -139,7 +167,7 @@ const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_THEME_MODE = 'isDark'; // ThemeMode Key
 const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
-const KEY_AUTH_URL = 'baseUr;'; // auth api url
+const KEY_AUTH_URL = 'baseUrl'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key

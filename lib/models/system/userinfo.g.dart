@@ -52,34 +52,29 @@ class UserinfoModelAdapter extends TypeAdapter<UserinfoModel> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserinfoModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is UserinfoModelAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) =>
-    UserinfoModel(
-      json['clientCode'] as String,
-      json['clientName'] as String,
-      json['businessNo'] as String,
-      json['userId'] as String,
-      json['userName'] as String,
-      json['roleCode'] as String,
-      json['schemaCode'] as String,
+UserinfoModel _$UserinfoModelFromJson(Map<String, dynamic> json) => UserinfoModel(
+      json['client-code'] as String,
+      json['client-name'] as String,
+      json['business-no'] as String,
+      json['user-id'] as String,
+      json['user-name'] as String,
+      json['role-code'] as String,
+      json['schema-code'] as String,
     );
 
-Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) =>
-    <String, dynamic>{
-      'clientCode': instance.clientCode,
-      'clientName': instance.clientName,
-      'businessNo': instance.businessNo,
-      'userId': instance.userId,
-      'userName': instance.userName,
-      'roleCode': instance.roleCode,
-      'schemaCode': instance.schemaCode,
+Map<String, dynamic> _$UserinfoModelToJson(UserinfoModel instance) => <String, dynamic>{
+      'client-node': instance.clientCode,
+      'client-name': instance.clientName,
+      'business-no': instance.businessNo,
+      'user-dd': instance.userId,
+      'user-name': instance.userName,
+      'role-code': instance.roleCode,
+      'schema-code': instance.schemaCode,
     };

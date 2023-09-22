@@ -6,17 +6,14 @@ part of 'overalldeposit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OverAllDepositModel _$OverAllDepositModelFromJson(Map<String, dynamic> json) =>
-    OverAllDepositModel(
-      json['retrvAmt'] as String?,
-      json['ipTot'] as String?,
-      json['amt'] as String?,
+OverAllDepositModel _$OverAllDepositModelFromJson(Map<String, dynamic> json) => OverAllDepositModel(
+      json['recall-amount'] as String?,
+      json['deposit-amount'] as String?,
+      json['bond-balance'] as String?,
     );
 
-Map<String, dynamic> _$OverAllDepositModelToJson(
-        OverAllDepositModel instance) =>
-    <String, dynamic>{
-      'retrvAmt': instance.retrvAmt,
-      'ipTot': instance.ipTot,
-      'amt': instance.amt,
+Map<String, dynamic> _$OverAllDepositModelToJson(OverAllDepositModel instance) => <String, dynamic>{
+      'recall-amount': instance.retrvAmt,
+      'deposit-amount': instance.ipTot,
+      'bond-balance': instance.amt,
     };
