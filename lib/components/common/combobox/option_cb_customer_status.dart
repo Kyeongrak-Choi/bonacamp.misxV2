@@ -30,7 +30,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                  () => DropdownButtonFormField<WarehouseModel>(
+                      () => DropdownButtonFormField<WarehouseModel>(
                     isExpanded: true,
                     value: Get.find<CbCustomerStatusController>().selectedValue,
                     style: context.textTheme.bodyText1,
@@ -44,7 +44,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value,value);
+                      Get.find<CbCustomerStatusController>().chooseItem(value!);
                     },
                   ),
                 ))),
@@ -57,8 +57,6 @@ class CbCustomerStatusController extends GetxController {
   // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
 
   List<WarehouseModel> data = <WarehouseModel>[].obs;
-  RxString paramCustomerName = ''.tr.obs;
-  RxString paramCustomerCode = ''.tr.obs;
 
   var selectedValue;
 
@@ -71,17 +69,15 @@ class CbCustomerStatusController extends GetxController {
     setCustomerStatus();
     //selectedValue = data.first;
     if (data != null) {
-      //chooseItem(data.first);
-      selectedValue = data.first;
+      chooseItem(data.first);
+      //selectedValue = data.first;
     }
   }
 
-  chooseItem(code, name) async {
-    selectedValue.value = name;
-    paramCustomerName.value = name;
-    paramCustomerCode.value = code;
+  chooseItem(WarehouseModel value) async {
+    paramCustStat = value.getWarehouseCode ?? '';
+    selectedValue = value;
   }
-
 
   void setCustomerStatus() {
     data.add(WarehouseModel("ALL", "전체"));

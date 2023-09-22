@@ -35,11 +35,11 @@ class  OptionExpansionList extends StatelessWidget {
         itemNameList = salesDailyItemList;
         expansionTitleList = salesDailyTitleList;
         break;
-      // case ROUTE_MENU_RANKSTATUS :
-      //   expansionObjectList = Get.find<SalesRankController>().salesRankList;
-      //   itemNameList = salesRankItemList;
-      //   expansionTitleList = salesRankTitleList;
-      //   break;
+      case ROUTE_MENU_RANKSTATUS :
+        expansionObjectList = Get.find<SalesRankController>().salesRankList;
+        itemNameList = salesRankItemList;
+        expansionTitleList = salesRankTitleList;
+        break;
     }
     itemCount = 0;
     return SingleChildScrollView(

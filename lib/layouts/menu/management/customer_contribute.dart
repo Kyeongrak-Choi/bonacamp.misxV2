@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,8 @@ import 'package:misxV2/models/management/customer_contribute_model.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_cb_customer.dart';
-import '../../../components/common/combobox/option_cb_customer_status.dart';
 import '../../../components/common/datepicker/option_year_month_picker.dart';
+import '../../../components/common/dialog/option_dialog.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -46,7 +46,7 @@ class CustomerContribute extends StatelessWidget {
                 children: [
                   OptionYearMonthPicker(),
                   OptionCbBranch(),
-                  OptionDialogCustomer(),
+                  OptionDialog(SEARCH_DIALOG_CUST),
                   OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                 ],
               ),
@@ -75,7 +75,7 @@ class CustomerContributeController extends GetxController {
 
     String tempNodeCd = Get.find<CbBranchController>().paramBranchCode;
     String tempYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
-    String tempCustomerCode = Get.find<CbCustomerController>().paramCustomerCode.value;
+    String tempCustomerCode = Get.find<OptionDialogController>().paramCustomerCode.value;
 
     var param = user.getClientCode;
     var parseCustomerContribute;

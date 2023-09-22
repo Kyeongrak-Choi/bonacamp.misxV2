@@ -56,11 +56,17 @@ class OptionBtnSearch extends StatelessWidget {
                       Get.find<SalesPersonContributeController>().setVisible();
                       break;
 
-                      // 경영관리 - 매출처별 기여현황
-                      // case ROUTE_MENU_CUSTOMER_CONTRIBUTE :
-                      //   await Get.find<CustomerContributeController>().showResult();
-                      //   Get.find<CustomerContributeController>().setVisible();
-                      //   break;
+                      //경영관리 - 매출처별 기여현황
+                      case ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER :
+                        await Get.find<CustomerContributeController>().showResult();
+                        Get.find<CustomerContributeController>().setVisible();
+                        break;
+
+                      // 경영관리 - 판매분류별 현황
+                      case ROUTE_MENU_CLASSSTATUS:
+                        await Get.find<SalesClassStatusController>().showResult();
+                        Get.find<SalesClassStatusController>().setVisible();
+                        break;
 
                       // 경영관리 - 매출순위현황
                       case ROUTE_MENU_RANKSTATUS :
