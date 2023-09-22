@@ -6,14 +6,16 @@ part of 'analysis_debt.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AnalysisDebtModel _$AnalysisDebtModelFromJson(Map<String, dynamic> json) => AnalysisDebtModel(
-      json['search-date'] as String?,
-      json['date-name'] as String?,
+AnalysisDebtModel _$AnalysisDebtModelFromJson(Map<String, dynamic> json) =>
+    AnalysisDebtModel(
+      json['searchDate'] as String?,
+      json['dateName'] as String?,
       json['amount'] as String?,
     );
 
-Map<String, dynamic> _$AnalysisDebtModelToJson(AnalysisDebtModel instance) => <String, dynamic>{
-      'search-date': instance.searchDate,
-      'date-name': instance.dateName,
+Map<String, dynamic> _$AnalysisDebtModelToJson(AnalysisDebtModel instance) =>
+    <String, dynamic>{
+      'searchDate': instance.searchDate,
+      'dateName': instance.dateName,
       'amount': instance.amount,
     };

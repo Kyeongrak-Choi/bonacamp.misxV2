@@ -5,6 +5,7 @@ import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/analysis_graph.dart';
+import '../../../layouts/menu/management/customer_contribute.dart';
 import '../../../layouts/menu/management/overall_status.dart';
 import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';

@@ -6,14 +6,17 @@ part of 'analysis_rental.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AnalysisRentalModel _$AnalysisRentalModelFromJson(Map<String, dynamic> json) => AnalysisRentalModel(
-      json['search-date'] as String?,
-      json['date-name'] as String?,
+AnalysisRentalModel _$AnalysisRentalModelFromJson(Map<String, dynamic> json) =>
+    AnalysisRentalModel(
+      json['searchDate'] as String?,
+      json['dateName'] as String?,
       json['amount'] as String?,
     );
 
-Map<String, dynamic> _$AnalysisRentalModelToJson(AnalysisRentalModel instance) => <String, dynamic>{
-      'search-date': instance.searchDate,
-      'date-name': instance.dateName,
+Map<String, dynamic> _$AnalysisRentalModelToJson(
+        AnalysisRentalModel instance) =>
+    <String, dynamic>{
+      'searchDate': instance.searchDate,
+      'dateName': instance.dateName,
       'amount': instance.amount,
     };

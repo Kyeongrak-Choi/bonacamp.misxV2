@@ -44,7 +44,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value!);
+                      Get.find<CbCustomerStatusController>().chooseItem(value,value);
                     },
                   ),
                 ))),
@@ -81,6 +81,7 @@ class CbCustomerStatusController extends GetxController {
     paramCustomerName.value = name;
     paramCustomerCode.value = code;
   }
+
 
   void setCustomerStatus() {
     data.add(WarehouseModel("ALL", "전체"));

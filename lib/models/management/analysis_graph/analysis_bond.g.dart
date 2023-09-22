@@ -6,14 +6,16 @@ part of 'analysis_bond.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AnalysisBondModel _$AnalysisBondModelFromJson(Map<String, dynamic> json) => AnalysisBondModel(
-      json['search-date'] as String?,
-      json['date-name'] as String?,
+AnalysisBondModel _$AnalysisBondModelFromJson(Map<String, dynamic> json) =>
+    AnalysisBondModel(
+      json['searchDate'] as String?,
+      json['dateName'] as String?,
       json['amount'] as String?,
     );
 
-Map<String, dynamic> _$AnalysisBondModelToJson(AnalysisBondModel instance) => <String, dynamic>{
-      'search-date': instance.searchDate,
-      'date-name': instance.dateName,
+Map<String, dynamic> _$AnalysisBondModelToJson(AnalysisBondModel instance) =>
+    <String, dynamic>{
+      'searchDate': instance.searchDate,
+      'dateName': instance.dateName,
       'amount': instance.amount,
     };

@@ -20,6 +20,7 @@ import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
 import 'layouts/menu/management/analysis_graph.dart';
+import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/navigation.dart';
 
