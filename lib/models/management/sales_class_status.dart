@@ -19,22 +19,20 @@ class SalesClassStatusModel {
 
   SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.totalAmount,
       this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,{this.id});
+
   Map<String, dynamic> toMap() {
     return {
-      'sales-class-code' : salesClassCode,
-      'sales-class-name' : salesClassName,
-      'box-quantity' : boxQuantity,
-      'bottle-quantity' : bottleQuantity ,
-      'supplement-amount' : supplementAmount,
-      'total-amount' : totalAmount,
-      'purchase-amount' : purchaseAmount,
-      'profit-amount' : profitAmount,
-      'profit-rate' : profitRate,
-      'profit-standard' : profitStandard,
-
-      this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,
-      {this.id});
-
+      'sales-class-code': salesClassCode,
+      'sales-class-name': salesClassName,
+      'box-quantity': boxQuantity,
+      'bottle-quantity': bottleQuantity,
+      'supplement-amount': supplementAmount,
+      'total-amount': totalAmount,
+      'purchase-amount': purchaseAmount,
+      'profit-amount': profitAmount,
+      'profit-rate': profitRate,
+      'profit-standard': profitStandard,
+    };
   }
 
   factory SalesClassStatusModel.fromJson(Map<String, dynamic> json) => _$SalesClassStatusModelFromJson(json);

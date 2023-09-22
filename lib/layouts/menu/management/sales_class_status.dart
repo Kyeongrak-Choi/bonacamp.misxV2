@@ -79,8 +79,6 @@ class SalesClassStatus extends StatelessWidget {
                     children: <Widget>[
                       setChild()
                     ],
-                    children: <Widget>[setChild()],
-
                   ),
                 )
               ],
