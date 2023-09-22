@@ -90,6 +90,7 @@ class Misx extends StatelessWidget {
         //GetPage(name: ROUTE_MENU_RANKSTATUS, page: () => ), // 매출순위현황
         GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석그래프
         //GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => ), // 영업일보(용도별)
+
       ],
       home: Login(),
     );

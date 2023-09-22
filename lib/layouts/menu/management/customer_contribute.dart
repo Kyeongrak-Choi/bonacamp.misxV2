@@ -23,7 +23,6 @@ class CustomerContribute extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(CustomerContributeController());
-
     return Obx(() => Scaffold(
       appBar: AppBar(
           title: Text('매출처별 기여현황'),
@@ -47,7 +46,7 @@ class CustomerContribute extends StatelessWidget {
                 children: [
                   OptionYearMonthPicker(),
                   OptionCbBranch(),
-                  //OptionDialogCustomer(),
+                  OptionDialogCustomer(),
                   OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                 ],
               ),
@@ -89,7 +88,6 @@ class CustomerContributeController extends GetxController {
         if(jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] != null){
           parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
           controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
-
           update();
         }
         else{
