@@ -45,7 +45,6 @@ class OptionBtnSearch extends StatelessWidget {
                       await Get.find<SalesDailyController>().showResult();
                       Get.find<SalesDailyController>().setVisible();
                       break;
-
                     // 경영관리 - 영업사원별 기여현황
                     case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
                       await Get.find<SalesPersonContributeController>().showResult();
@@ -55,6 +54,11 @@ class OptionBtnSearch extends StatelessWidget {
                     case ROUTE_MENU_CLASSSTATUS:
                       await Get.find<SalesClassStatusController>().showResult();
                       Get.find<SalesClassStatusController>().setVisible();
+                      break;
+                   // 경영관리 - 매출처별 기여현황
+                    case ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER :
+                      await Get.find<CustomerContributeController>().showResult();
+                      Get.find<CustomerContributeController>().setVisible();
                       break;
                     // 경영관리 - 분석 그래프
                     case ROUTE_MENU_GRAPH:
