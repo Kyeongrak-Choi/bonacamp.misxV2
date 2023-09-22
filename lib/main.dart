@@ -84,7 +84,7 @@ class Misx extends StatelessWidget {
 
         // 경영분석
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
-        GetPage(name: ROUTE_MENU_OVERALL_DAILYSTATUS, page: () => SalesDaily()), // 영업일보
+        GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 영업일보
         GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
 
         GetPage(name: ROUTE_MENU_CUSTOMER_CONTRIBUTE, page: () => CustomerContribute()), // 매출처별 기여현황
