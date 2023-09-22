@@ -24,6 +24,7 @@ class AnalysisGraphComponent extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
+                  //'단위 : 1,000',
                   '',
                   style: context.textTheme.headline3,
                   textAlign: TextAlign.center,

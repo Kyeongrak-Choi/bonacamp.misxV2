@@ -17,5 +17,6 @@ FlTitlesData get titlesData => FlTitlesData(
       // 왼쪽 범례
       leftTitles: AxisTitles(
         sideTitles: leftTitles(),
+        //sideTitles: SideTitles(showTitles: true),
       ),
     );

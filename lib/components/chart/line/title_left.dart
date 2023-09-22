@@ -16,6 +16,6 @@ Widget leftTitleWidgets(double value, TitleMeta meta) {
 SideTitles leftTitles() => SideTitles(
       getTitlesWidget: leftTitleWidgets,
       showTitles: true,
-      interval: 10000000,
+      interval: 100000,
       reservedSize: 50,
     );

@@ -13,7 +13,7 @@ List<LineChartBarData> get lineBarsData => [
 LineChartBarData get lineChartBarData => LineChartBarData(
       isCurved: true,
       color: const Color(0xff4af699),
-      barWidth: 8,
+      barWidth: 5,
       isStrokeCapRound: true,
       dotData: FlDotData(show: true),
       belowBarData: BarAreaData(show: true),
