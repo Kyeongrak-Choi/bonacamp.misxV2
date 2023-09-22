@@ -36,7 +36,7 @@ const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/salesPersonContribute'; // 영업사
 const ROUTE_MENU_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
 const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
-const ROUTE_MENU_GRAPH = '/anaylsis-graph'; // 분석 그래프
+const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
 const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 /*
@@ -106,7 +106,7 @@ const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 
 const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
 const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
-const API_MANAGEMENT_GRAPH = '/anaylsis-graph'; // 분석 그래프
+const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
 const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 // (영업분석)
@@ -154,6 +154,11 @@ const TAG_ASSET = 'asset';
 
 const TAG_SALESDAILY_LIST = 'data-list';
 
+const TAG_GRAPH_BOND = 'bond';
+const TAG_GRAPH_DEBT = 'debt';
+
+const TAG_TEST = 'search-date';
+
 /*
   HIVE DB
  */
@@ -175,7 +180,6 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
-
 
 /*
   # Project Plan #

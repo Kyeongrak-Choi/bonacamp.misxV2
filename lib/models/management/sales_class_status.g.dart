@@ -6,9 +6,7 @@ part of 'sales_class_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesClassStatusModel _$SalesClassStatusModelFromJson(
-        Map<String, dynamic> json) =>
-    SalesClassStatusModel(
+SalesClassStatusModel _$SalesClassStatusModelFromJson(Map<String, dynamic> json) => SalesClassStatusModel(
       json['sales-class-code'] as String?,
       json['sales-class-name'] as String?,
       json['box-quantity'] as String?,
@@ -21,9 +19,7 @@ SalesClassStatusModel _$SalesClassStatusModelFromJson(
       json['profit-standard'] as String?,
     );
 
-Map<String, dynamic> _$SalesClassStatusModelToJson(
-        SalesClassStatusModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SalesClassStatusModelToJson(SalesClassStatusModel instance) => <String, dynamic>{
       'sales-class-code': instance.salesClassCode,
       'sales-class-name': instance.salesClassName,
       'box-quantity': instance.boxQuantity,

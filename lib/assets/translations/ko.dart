@@ -50,6 +50,7 @@ const Map<String, String> koKR = {
   // Period Picker
   'period_error_header': '기간오류',
   'period_error_content': '기간을 확인해주세요.',
+  'period_error_limit': '최대 6개월간 조회 가능합니다.',
 
   // DashBoard
   'title_sales': '당월 매출',
@@ -77,6 +78,7 @@ const Map<String, String> koKR = {
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
   'opt_customer_status': '거래처 상태',
+  'opt_graph_type': '종류',
   'opt_team': '팀',
 
   // Drawer Menu Label
@@ -101,7 +103,7 @@ const Map<String, String> koKR = {
   'title_4': '매출처별 기여현황',
   'menu_sub_sales_class_status': '판매분류별 현황',
   'title_6': '매출순위현황',
-  'title_7': '분석 그래프',
+  'menu_sub_analysis_graph': '분석 그래프',
   'title_8': '영업일보(용도별)',
 
   'menu_main_sales': '영업분석',
@@ -171,7 +173,6 @@ const Map<String, String> koKR = {
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
 
-
   //Sales Daily
   'employee_name': '담당자',
   'division_name': '구분',
@@ -184,10 +185,6 @@ const Map<String, String> koKR = {
   'deposit_empty_case_bottle': '용공입금',
   'deposit_amount': '입금합계',
   'bond_balance': '채권잔액',
-
-
-
-
 };
 
 //const Map<String,String> enUs = {};

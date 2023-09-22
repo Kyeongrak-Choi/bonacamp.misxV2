@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 
-class OptionCbCustomerStatus extends StatelessWidget {
+class OptionCbGraphType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbCustomerStatusController());
+    Get.put(CbGraphTypeController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -20,7 +20,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'opt_customer_status'.tr,
+                      'opt_graph_type'.tr,
                       style: context.textTheme.bodyText1,
                     )),
               ),
@@ -32,11 +32,11 @@ class OptionCbCustomerStatus extends StatelessWidget {
                 child: Obx(
                   () => DropdownButtonFormField<WarehouseModel>(
                     isExpanded: true,
-                    value: Get.find<CbCustomerStatusController>().selectedValue,
+                    value: Get.find<CbGraphTypeController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.backgroundColor,
-                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
+                    items: Get.find<CbGraphTypeController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
                       return DropdownMenuItem<WarehouseModel>(
                         alignment: Alignment.center,
                         value: value,
@@ -44,7 +44,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value!);
+                      Get.find<CbGraphTypeController>().chooseItem(value!);
                     },
                   ),
                 ))),
@@ -53,38 +53,34 @@ class OptionCbCustomerStatus extends StatelessWidget {
   }
 }
 
-class CbCustomerStatusController extends GetxController {
-  // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
-
+class CbGraphTypeController extends GetxController {
   List<WarehouseModel> data = <WarehouseModel>[].obs;
 
   var selectedValue;
 
   // param sample
-  String paramCustStat = '';
+  String paramGraphType = '';
 
   @override
   void onInit() async {
     super.onInit();
     setCustomerStatus();
-    //selectedValue = data.first;
     if (data != null) {
       chooseItem(data.first);
-      //selectedValue = data.first;
     }
   }
 
   chooseItem(WarehouseModel value) async {
-    paramCustStat = value.getWarehouseCode ?? '';
+    paramGraphType = value.getWarehouseCode ?? '';
     selectedValue = value;
   }
 
   void setCustomerStatus() {
-    data.add(WarehouseModel("ALL", "전체"));
-    data.add(WarehouseModel("USE", "정상"));
-    data.add(WarehouseModel("STOP", "영업정지"));
-    data.add(WarehouseModel("CLOSE", "휴업"));
-    data.add(WarehouseModel("UNUSE", "폐업"));
-    data.add(WarehouseModel("CUT", "단절"));
+    data.add(WarehouseModel("SALES", "매출"));
+    data.add(WarehouseModel("BOND", "채권"));
+    data.add(WarehouseModel("PURCHASE", "매입"));
+    data.add(WarehouseModel("DEBT", "채무"));
+    data.add(WarehouseModel("RENTAL", "대여금액"));
+    data.add(WarehouseModel("ASSET", "대여자산"));
   }
 }

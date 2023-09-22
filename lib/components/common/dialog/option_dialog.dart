@@ -12,6 +12,7 @@ class OptionDialog extends StatelessWidget {
     this.flag = flag;
     initVar(flag);
   }
+
   @override
   Widget build(BuildContext context) {
     Get.put(OptionDialogController());
@@ -69,7 +70,6 @@ class OptionDialog extends StatelessWidget {
         break;
     }
   }
-
 }
 
 class OptionDialogController extends GetxController {
