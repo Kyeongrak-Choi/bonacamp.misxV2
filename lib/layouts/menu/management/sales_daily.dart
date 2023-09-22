@@ -28,45 +28,42 @@ class SalesDaily extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('영업일보'),
-          backgroundColor: context.theme.backgroundColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
-              onPressed: () {
-                Get.find<SalesDailyController>().setVisible();
-              },
+     
+          appBar: AppBar(
+              title: Text('appbar_title_overall_status'.tr),
+              backgroundColor: context.theme.backgroundColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
+                  onPressed: () {
+                    Get.find<SalesDailyController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.backgroundColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<SalesDailyController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionDatePicker(),
+                      OptionCbBranch(),
+                      OptionCbEmployee(),
+                      OptionCbTeam(),
+                      OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: OptionExpansionList(ROUTE_MENU_SALES_DAILY),
+                ),
+              ],
             ),
-          ]),
-      body: Container(
-        color: context.theme.backgroundColor,
-        child: Column(
-          children: [
-            Visibility(
-              visible: Get.find<SalesDailyController>().visible.value,
-              child: Column(
-                children: [
-                  OptionDatePicker(),
-                  OptionCbBranch(),
-                  OptionCbEmployee(),
-                  OptionCbTeam(),
-                  OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  setChild()
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 
   Widget setChild(){
@@ -82,6 +79,7 @@ class SalesDaily extends StatelessWidget {
 
 class SalesDailyController extends GetxController {
   var visible = true.obs;
+
   var salesDailyList;
   var controllerModel;
 
@@ -105,6 +103,7 @@ class SalesDailyController extends GetxController {
 
     try {
       dio = await reqApi(param);
+
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_DAILYSTATUS +
           '?branch-code=' +

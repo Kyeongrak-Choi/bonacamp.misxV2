@@ -19,9 +19,6 @@ class SalesClassStatusModel {
 
   SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.totalAmount,
       this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,{this.id});
-
-
-
   Map<String, dynamic> toMap() {
     return {
       'sales-class-code' : salesClassCode,
@@ -34,7 +31,10 @@ class SalesClassStatusModel {
       'profit-amount' : profitAmount,
       'profit-rate' : profitRate,
       'profit-standard' : profitStandard,
-    };
+
+      this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,
+      {this.id});
+
   }
 
   factory SalesClassStatusModel.fromJson(Map<String, dynamic> json) => _$SalesClassStatusModelFromJson(json);
@@ -43,18 +43,20 @@ class SalesClassStatusModel {
 
 }
 
-List<SalesClassStatusModel> generateList(dataList,count) {
-  return List.generate(count,
-          (index) => SalesClassStatusModel(
-          dataList[index].salesClassCode
-          , dataList[index].salesClassName
-          , dataList[index].boxQuantity
-          , dataList[index].bottleQuantity
-          , dataList[index].supplementAmount
-          , dataList[index].totalAmount
-          , dataList[index].purchaseAmount
-          , dataList[index].profitAmount
-          , dataList[index].profitRate
-          , dataList[index].profitStandard
-          , id:index));
+List<SalesClassStatusModel> generateList(dataList, count) {
+  return List.generate(
+      count,
+      (index) => SalesClassStatusModel(
+          dataList[index].salesClassCode,
+          dataList[index].salesClassName,
+          dataList[index].boxQuantity,
+          dataList[index].bottleQuantity,
+          dataList[index].supplementAmount,
+          dataList[index].totalAmount,
+          dataList[index].purchaseAmount,
+          dataList[index].profitAmount,
+          dataList[index].profitRate,
+          dataList[index].profitStandard,
+          id: index));
+
 }

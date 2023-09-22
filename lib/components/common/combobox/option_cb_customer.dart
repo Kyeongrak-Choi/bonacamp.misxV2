@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../utils/constants.dart';
-
 class OptionDialogCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,9 +31,9 @@ class OptionDialogCustomer extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
                   child: Obx(() => Text(
-                        Get.find<CbCustomerController>().selectedValue.value,
-                        style: context.textTheme.bodyText1,
-                      )),
+                    Get.find<CbCustomerController>().selectedValue.value,
+                    style: context.textTheme.bodyText1,
+                  )),
                 ))),
       ],
     );

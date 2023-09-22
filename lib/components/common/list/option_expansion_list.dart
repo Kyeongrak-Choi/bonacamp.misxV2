@@ -9,8 +9,7 @@ import '../../../utils/constants.dart';
 import '../../../utils/expansion_title_list.dart';
 import 'option_expansion_listitem.dart';
 
-class  OptionExpansionList extends StatelessWidget {
-
+class OptionExpansionList extends StatelessWidget {
   var menu;
   var expansionObjectList;
   List expansionTitleList = [];
@@ -21,17 +20,16 @@ class  OptionExpansionList extends StatelessWidget {
   int itemCount = 0;
   int buildCount = 0;
 
-  OptionExpansionList(String menu){
+  OptionExpansionList(String menu) {
     this.menu = menu;
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    switch(menu) {
-      case ROUTE_MENU_SALES_DAILY :
-        //expansionObjectList = Get.find<SalesDailyController>().salesRankList;
+
+    switch (menu) {
+      case ROUTE_MENU_SALES_DAILY:
+        expansionObjectList = Get.find<SalesDailyController>().salesDailyList;
         itemNameList = salesDailyItemList;
         expansionTitleList = salesDailyTitleList;
         break;
@@ -67,6 +65,18 @@ class  OptionExpansionList extends StatelessWidget {
               // ),
               body: OptionExpansionListItem(itemTilteList : itemNameList, itemValueList : itemValueList[itemCount])
             );
+
+                value: itemValueList[0],
+                backgroundColor: context.theme.backgroundColor,
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  return OptionExpansionTitle(context, expansionTitleList[0], expansionTitleList[1], expansionTitleList[2]);
+                },
+                // body:Text(
+                //   '[test ] ' + itemValueList[0],
+                //   style: context.textTheme.bodyText2,
+                // ),
+                body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList));
+
           }).toList(),
         ),
       ): null,
@@ -74,6 +84,7 @@ class  OptionExpansionList extends StatelessWidget {
   }
 
   Widget OptionExpansionTitle(BuildContext context, String title1, String value1, String title2, String value2, String title3, String value3){
+
     return Row(
       children: [
           Text(
@@ -107,11 +118,11 @@ class  OptionExpansionList extends StatelessWidget {
     );
   }
 
-  List objectItemTitleValueToList(var object){
     List valueList = [];
     var f = NumberFormat('###,###,###,###');
 
-    if(menu == ROUTE_MENU_SALES_DAILY) {
+
+    if (menu == ROUTE_MENU_SALES_DAILY) {
       valueList.add(object.teamCode);
       valueList.add(object.teamName);
       valueList.add(object.employeeCode);
@@ -144,7 +155,7 @@ class  OptionExpansionList extends StatelessWidget {
       valueList.add(object.depositAmount);
       valueList.add(object.bondBalance);
     }
-    else if(menu == ROUTE_MENU_RANKSTATUS){
+   else if(menu == ROUTE_MENU_RANKSTATUS){
       valueList.add(object.ranking);
       valueList.add(object.customerName);
       valueList.add(f.format(int.parse(object.salesAmount ?? 0)));
@@ -153,7 +164,7 @@ class  OptionExpansionList extends StatelessWidget {
       valueList.add(object.profitRate);
       valueList.add(f.format(int.parse(object.bondBalance ?? 0)));
     }
-    return valueList;
 
+    return valueList;
   }
 }

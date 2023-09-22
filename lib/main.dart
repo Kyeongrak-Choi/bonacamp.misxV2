@@ -6,7 +6,6 @@ import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
 import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
-
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
@@ -21,6 +20,7 @@ import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/navigation.dart';
@@ -85,10 +85,16 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
         GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 영업일보
         GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
-
         GetPage(name: ROUTE_MENU_CUSTOMER_CONTRIBUTE, page: () => CustomerContribute()), // 매출처별 기여현황
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
         GetPage(name: ROUTE_MENU_RANKSTATUS, page: () => SalesRank()), // 매출순위현황
+        GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 종합현황
+        GetPage(name: ROUTE_MENU_SALESPERSON_CONTRIBUTE, page: () => SalesPersonContribute()), // 영업사원별 기여현황
+        GetPage(name: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER, page: () => CustomerContribute()), // 매출처별 기여현황
+        GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
+        GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석그래프
+        //GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => ), // 영업일보(용도별)
+
       ],
       home: Login(),
     );

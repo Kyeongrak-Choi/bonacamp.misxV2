@@ -23,19 +23,3 @@ final List<String> salesDailyTitleList = [
   'division_name'.tr,
   'supplement_amount'.tr,
 ];
-
-final List<String> salesRankItemList = [
-  'No',
-  '거래처',
-  '매출액',
-  '공급가',
-  '매출이익',
-  '마진율',
-  '채권잔액',
-];
-
-final List<String> salesRankTitleList = [
-  'No',
-  '거래처',
-  '매출액',
-];

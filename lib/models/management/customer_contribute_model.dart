@@ -181,3 +181,4 @@ class CustomerContributeModel {
     transactionLastDate = value;
   }
 }
+

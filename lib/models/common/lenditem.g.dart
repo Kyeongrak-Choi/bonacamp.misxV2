@@ -6,8 +6,7 @@ part of 'lenditem.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LendItemModel _$LendItemModelFromJson(Map<String, dynamic> json) =>
-    LendItemModel(
+LendItemModel _$LendItemModelFromJson(Map<String, dynamic> json) => LendItemModel(
       json['lend-item-code'] as String?,
       json['lend-item-name'] as String?,
       json['standard'] as String?,
@@ -19,8 +18,7 @@ LendItemModel _$LendItemModelFromJson(Map<String, dynamic> json) =>
       json['empty-bottle-node'] as String?,
     );
 
-Map<String, dynamic> _$LendItemModelToJson(LendItemModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LendItemModelToJson(LendItemModel instance) => <String, dynamic>{
       'lend-item-code': instance.lendItmCd,
       'lend-item-name': instance.lendItmNm,
       'standard': instance.stnd,

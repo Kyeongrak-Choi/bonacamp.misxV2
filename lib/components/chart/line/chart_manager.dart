@@ -8,25 +8,25 @@ import 'line_bar.dart';
 import 'line_touch.dart';
 
 class ChartManager extends StatelessWidget {
-  const ChartManager();
+  ChartManager();
 
   @override
   Widget build(BuildContext context) {
     return LineChart(
-      chartDummy,
+      chart,
       swapAnimationDuration: const Duration(milliseconds: 250),
     );
   }
 }
 
-LineChartData get chartDummy => LineChartData(
+LineChartData get chart => LineChartData(
       lineTouchData: lineTouchData,
       gridData: gridData,
       titlesData: titlesData,
       borderData: borderData,
       lineBarsData: lineBarsData,
-      minX: 0,
-      maxX: 14,
-      maxY: 4,
-      minY: 0,
+      //minX: 0,
+      //maxX: 5,
+      //maxY: 14,
+      //minY: 0,
     );

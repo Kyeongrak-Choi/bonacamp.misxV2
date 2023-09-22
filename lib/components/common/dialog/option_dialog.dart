@@ -12,6 +12,7 @@ class OptionDialog extends StatelessWidget {
     this.flag = flag;
     initVar(flag);
   }
+
   @override
   Widget build(BuildContext context) {
     Get.put(OptionDialogController());
@@ -74,8 +75,10 @@ class OptionDialog extends StatelessWidget {
 
 class OptionDialogController extends GetxController {
   RxString selectedValue = 'all'.tr.obs;
+
   RxString paramCustomerName = ''.tr.obs;
   RxString paramCustomerCode = ''.tr.obs;
+
 
   String paramCode = '';
 
@@ -88,5 +91,6 @@ class OptionDialogController extends GetxController {
     selectedValue.value = name;
     paramCustomerName.value = name;
     paramCustomerCode.value = code;
+    paramCode = code;
   }
 }

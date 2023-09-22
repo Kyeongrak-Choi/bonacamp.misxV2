@@ -47,7 +47,7 @@ class CustomerContribute extends StatelessWidget {
                   OptionYearMonthPicker(),
                   OptionCbBranch(),
                   OptionDialogCustomer(),
-                  OptionBtnSearch(ROUTE_MENU_CUSTOMER_CONTRIBUTE),
+                  OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                 ],
               ),
             ),
@@ -86,10 +86,10 @@ class CustomerContributeController extends GetxController {
 
       if (response.statusCode == 200) {
         if(jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] != null){
-            parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
-            controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
+          parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
+          controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
+          update();
 
-            update();
         }
         else{
           controllerCustomerContribute = null;
