@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/components/datatable/customer_contribute_table.dart';
+import 'package:misxV2/components/datatable/management/customer_contribute_table.dart';
 import 'package:misxV2/models/management/customer_contribute_model.dart';
 
 import '../../../components/common/button/option_btn_search.dart';

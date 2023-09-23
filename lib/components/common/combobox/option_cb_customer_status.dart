@@ -54,7 +54,6 @@ class OptionCbCustomerStatus extends StatelessWidget {
 }
 
 class CbCustomerStatusController extends GetxController {
-  // List<String> data = CUSTOMER_STATUS.entries.map((entry) => entry.value).toList().obs;
 
   List<WarehouseModel> data = <WarehouseModel>[].obs;
 
@@ -67,10 +66,8 @@ class CbCustomerStatusController extends GetxController {
   void onInit() async {
     super.onInit();
     setCustomerStatus();
-    //selectedValue = data.first;
     if (data != null) {
       chooseItem(data.first);
-      //selectedValue = data.first;
     }
   }
 

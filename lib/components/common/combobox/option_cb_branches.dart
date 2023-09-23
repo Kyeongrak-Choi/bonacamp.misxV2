@@ -74,7 +74,6 @@ class CbBranchController extends GetxController {
     await setBranch();
     if (data != null) {
       chooseItem(data.first);
-      //selectedValue = data.first;
     }
   }
 

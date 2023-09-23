@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/field/show_list_detail.dart';
+import 'package:misxV2/components/common/field/show_list_header.dart';
 import 'package:misxV2/models/management/sales_class_status.dart';
 
 class SalesClassStatusItem extends StatelessWidget {
@@ -23,35 +25,9 @@ class SalesClassStatusItem extends StatelessWidget {
               headerBuilder: (BuildContext context, bool isExpanded) {
                 return Row(
                   children: [
-                    Text(
-                      '판매유형\n\n' + model.salesClassName.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'BOX\n\n' + model.boxQuantity.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'EA\n\n' + model.bottleQuantity.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '매출액\n\n' + model.totalAmount.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
+                    ShowListHeader(
+                        titleName: '판매유형',
+                        value:  model.salesClassName.toString()),
                   ],
                 );
               },
@@ -59,35 +35,30 @@ class SalesClassStatusItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        '매출공급가\n\n' + model.supplementAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '매출원가\n\n' + model.purchaseAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '마진액\n\n' + model.profitAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '마진률\n\n' + model.profitRate.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
+                      ShowListDetail(
+                          titleName: 'BOX',
+                          value:  model.boxQuantity.toString()),
+                      ShowListDetail(
+                          titleName: 'EA',
+                          value:  model.bottleQuantity.toString()),
+                      ShowListDetail(
+                          titleName: '매출액',
+                          value:  model.totalAmount.toString()),
+                  ]),
+                  Row(
+                    children: [
+                      ShowListDetail(
+                          titleName: '매출공급가',
+                          value:  model.supplementAmount.toString()),
+                      ShowListDetail(
+                          titleName: '매출원가',
+                          value:  model.purchaseAmount.toString()),
+                      ShowListDetail(
+                          titleName: '마진액',
+                          value:  model.profitAmount.toString()),
+                      ShowListDetail(
+                          titleName: '마진율',
+                          value:  model.profitRate.toString()),
                     ],
                   ),
                 ],
