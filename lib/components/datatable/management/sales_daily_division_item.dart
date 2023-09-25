@@ -41,28 +41,34 @@ class SalesDailyDivisionItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        '용도\n\n' + model.usageName.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          '용도\n\n' + model.usageName.toString(),
+                          style: context.textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      SizedBox(
-                        width: 10,
+                      Expanded(
+                        flex: 4,
+                        child: Text(
+                          '수량\n(BOX/EA)\n' + model.boxQuantity.toString() + ' / ' + model.bottleQuantity.toString(),
+                          style: context.textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      Text(
-                        '수량\n(BOX/EA)\n' + model.boxQuantity.toString() + ' / ' + model.bottleQuantity.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '총계\n(공+부+보증금)\n' + f.format(int.parse(model.amount.toString())),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      Expanded(
+                        flex: 4,
+                        child: Text(
+                          '총계\n(공+부+보증금)\n' + f.format(int.parse(model.amount.toString())),
+                          style: context.textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                 ],
               ),

@@ -37,7 +37,7 @@ class SalesPersonContributeTable extends StatelessWidget {
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.prmcAmt ?? '0')) : '0'),
               ShowLongTitleField(
                   titleName: '마진율',
-                  value: controller.controllerModel != null ? f.format(double.parse(controller.controllerModel.marginRate ?? '0')) : '0'),
+                  value: controller.controllerModel != null ? controller.controllerModel.marginRate ?? '0' : '0'),
               ShowLongTitleField(
                   titleName: '매출이익',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.marginAmt ?? '0')) : '0'),
@@ -67,13 +67,14 @@ class SalesPersonContributeTable extends StatelessWidget {
                   titleName: '대여금잔액',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.balAmt ?? '0')) : '0'),
               ShowLongTitleField(
-                  titleName: '대여자산', value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assCnt ?? '0')) : '0'),
+                  titleName: '대여자산',
+                  value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assCnt ?? '0')) : '0'),
               ShowLongTitleField(
                   titleName: '대여수량',
                   value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.assQty3 ?? '0')) : '0'),
               ShowLongTitleField(
                   titleName: '기여비중',
-                  value: controller.controllerModel != null ? f.format(int.parse(controller.controllerModel.cstrbtPct ?? '0')) : '0'),
+                  value: controller.controllerModel != null ? controller.controllerModel.cstrbtPct ?? '0' : '0'),
             ],
           ),
         ),

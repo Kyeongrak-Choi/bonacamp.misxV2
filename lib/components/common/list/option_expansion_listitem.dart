@@ -33,7 +33,7 @@ class OptionExpansionListItem extends StatelessWidget {
                 ),
                 if (extraindex + 1 < itemTilteList.length)
                   Text(
-                    '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex + 1],
+                    '[' + itemTilteList[extraindex + 1] + ' ] ' + itemValueList[extraindex + 1],
                     style: context.textTheme.bodyText2,
                   ),
               ]));

@@ -168,7 +168,7 @@ class SalesDailyDivisionModel {
 List<SalesDailyDivisionModel> generateSalesDailyDivisionList(dataList, count) {
   var f = NumberFormat('###,###,###,###');
   return List.generate(
-      count ~/ 2,
+      count,
       (index) => SalesDailyDivisionModel(
           dataList[index].itemCode,
           dataList[index].itemName,
