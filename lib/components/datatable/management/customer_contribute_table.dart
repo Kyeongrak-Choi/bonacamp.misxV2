@@ -101,13 +101,11 @@ class CustomerContributeTable extends StatelessWidget {
               ShowLongTitleField(
                   titleName: '거래시작일',
                   value: controller.controllerCustomerContribute != null
-                      ? f.format(int.parse(controller.controllerCustomerContribute.transactionStartDate ?? '0'))
-                      : '0'),
+                      ? controller.controllerCustomerContribute.transactionStartDate : '0'),
               ShowLongTitleField(
                   titleName: '최종거래일',
                   value: controller.controllerCustomerContribute != null
-                      ? f.format(int.parse(controller.controllerCustomerContribute.transactionLastDate ?? '0'))
-                      : '0'),
+                      ? controller.controllerCustomerContribute.transactionLastDate : '0'),
               Container(
                   width: 500,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
