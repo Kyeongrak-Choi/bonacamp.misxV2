@@ -10,6 +10,12 @@ class SalesDailyDivisionItem extends StatelessWidget {
 
   SalesDailyDivisionItem(var model) {
     dataList = generateSalesDailyDivisionList(model, model.length);
+    for(int i = 0; i < dataList.length; i++){
+      if(dataList[i].itemCode == null){
+        dataList.removeAt(i);
+        i--;
+      }
+    }
   }
 
   @override
