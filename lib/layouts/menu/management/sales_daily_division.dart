@@ -140,6 +140,27 @@ class SalesDailyDivisionController extends GetxController {
 
   Future calBoxBottleSum() async {
     var f = NumberFormat('###,###,###,###');
+    if(salesDailyDivisionList == null){
+      pleasureBoxSum = '0';
+      pleasureBottleSum = '0';
+      pleasureAmountSum = '0';
+      normalBoxSum = '0';
+      normalBottleSum = '0';
+      normalAmountSum = '0';
+      totBoxSum = '0';
+      totBottleSum = '0';
+      totAmountSum = '0';
+      pleasureBoxQuantity = '0';
+      pleasureBottleQuantity = '0';
+      pleasureAmountQuantity = '0';
+      normalBoxQuantity = '0';
+      normalBottleQuantity = '0';
+      normalAmountQuantity = '0';
+      totBoxQuantity = '0';
+      totBottleQuantity = '0';
+      totAmountQuantity = '0';
+      return;
+    }
 
     int tmpPleasureBoxSum = 0;
     int tmpPleasureBottleSum = 0;
@@ -149,6 +170,9 @@ class SalesDailyDivisionController extends GetxController {
     int tmpNormalAmountSum = 0;
 
     for (SalesDailyDivisionModel tmpObject in salesDailyDivisionList) {
+      if(tmpObject.itemCode == null){
+        continue;
+      }
       if (tmpObject.usageCode == '1') {
         tmpNormalBoxSum += int.parse(tmpObject.boxQuantity ?? '0');
         tmpNormalBottleSum += int.parse(tmpObject.bottleQuantity ?? '0');
@@ -171,14 +195,14 @@ class SalesDailyDivisionController extends GetxController {
     totBottleSum = (tmpPleasureBottleSum + tmpNormalBottleSum).toString();
     totAmountSum = f.format((tmpPleasureAmountSum + tmpNormalAmountSum));
 
-    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity;
-    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity;
+    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity ?? '0';
+    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity ?? '0';
     pleasureAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].pleasureTotalAmount ?? '0'));
-    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity;
-    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity;
+    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity ?? '0';
+    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity ?? '0';
     normalAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].normalTotalAmount ?? '0'));
-    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity;
-    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity;
+    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity ?? '0';
+    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity ?? '0';
     totAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].totalAmount ?? '0'));
 
     update();

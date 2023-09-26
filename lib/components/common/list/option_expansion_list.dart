@@ -59,7 +59,7 @@ class OptionExpansionList extends StatelessWidget {
                       //   '[test ] ' + itemValueList[0],
                       //   style: context.textTheme.bodyText2,
                       // ),
-                      body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList[itemCount]));
+                      body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList[itemCount++]));
                 }).toList(),
               ),
             )

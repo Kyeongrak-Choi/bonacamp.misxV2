@@ -78,6 +78,7 @@ class CbSaleController extends GetxController {
     paramEmployeeCode = value.getEmployeeCode ?? '';
     paramEmployeeName = value.getEmployeeName ?? '';
     paramManager = value.getManager ?? false;
+    selectedValue = value;
   }
 
   Future<void> setEmployee() async {
