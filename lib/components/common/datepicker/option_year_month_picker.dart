@@ -22,7 +22,7 @@ class OptionYearMonthPicker extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'opt_month'.tr,
-                    style: context.textTheme.bodyText1,
+                    style: context.textTheme.displayMedium,
                   ),
                 ),
               ),

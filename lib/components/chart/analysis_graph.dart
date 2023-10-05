@@ -26,7 +26,7 @@ class AnalysisGraphComponent extends StatelessWidget {
                 Text(
                   //'단위 : 1,000',
                   '',
-                  style: context.textTheme.headline3,
+                  style: context.textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(

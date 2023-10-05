@@ -57,7 +57,7 @@ class CardRadioMenu extends StatelessWidget {
         children: [
           Text(
             title,
-            style: context.textTheme.subtitle2,
+            style: context.textTheme.displaySmall,
           ),
           SizedBox(width: 20),
           Obx(() => Switch(

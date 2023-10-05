@@ -42,7 +42,7 @@ class CardIconMenu extends StatelessWidget {
             SizedBox(width: 20),
             Text(
               title,
-              style: context.textTheme.titleMedium,
+              style: context.textTheme.displaySmall,
             ),
             Spacer(),
             Icon(

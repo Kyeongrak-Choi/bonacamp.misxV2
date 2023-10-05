@@ -57,7 +57,7 @@ class OptionExpansionList extends StatelessWidget {
                       },
                       // body:Text(
                       //   '[test ] ' + itemValueList[0],
-                      //   style: context.textTheme.bodyText2,
+                      //   style: context.textTheme.displaySmall,
                       // ),
                       body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList[itemCount++]));
                 }).toList(),
@@ -72,7 +72,7 @@ class OptionExpansionList extends StatelessWidget {
       children: [
         Text(
           '[' + (title1 ?? '') + '] ' + value1 ?? '',
-          style: context.textTheme.bodyText1,
+          style: context.textTheme.displayMedium,
           overflow: TextOverflow.ellipsis,
         ),
         SizedBox(
@@ -82,7 +82,7 @@ class OptionExpansionList extends StatelessWidget {
           flex: 1,
           child: Text(
             '[' + (title2 ?? '') + '] ' + value2 ?? '',
-            style: context.textTheme.bodyText1,
+            style: context.textTheme.displayMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -93,7 +93,7 @@ class OptionExpansionList extends StatelessWidget {
             flex: 1,
             child: Text(
               '[' + (title3 ?? '') + '] ' + value3 ?? '',
-              style: context.textTheme.bodyText1,
+              style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,
             )),
       ],

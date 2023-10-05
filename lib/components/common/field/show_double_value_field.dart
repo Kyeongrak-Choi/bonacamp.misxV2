@@ -28,7 +28,7 @@ class ShowDoubleValueField extends StatelessWidget {
                       onPressed: () {},
                       child: Text(
                         titleName!,
-                        style: context.textTheme.bodyText1,
+                        style: context.textTheme.displayMedium,
                       ))
                   : null,
             ),
@@ -40,7 +40,7 @@ class ShowDoubleValueField extends StatelessWidget {
           child: firstValue != null
               ? Text(
                   firstValue,
-                  style: context.textTheme.bodyText1,
+                  style: context.textTheme.displayMedium,
                   textAlign: TextAlign.center,
                 )
               : null,
@@ -53,7 +53,7 @@ class ShowDoubleValueField extends StatelessWidget {
           child: secondValue != null
               ? Text(
                   secondValue,
-                  style: context.textTheme.bodyText1,
+                  style: context.textTheme.displayMedium,
                   textAlign: TextAlign.right,
                 )
               : null,
