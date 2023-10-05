@@ -35,7 +35,7 @@ class OptionCbGraphType extends StatelessWidget {
                     value: Get.find<CbGraphTypeController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbGraphTypeController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
                       return DropdownMenuItem<WarehouseModel>(
                         alignment: Alignment.center,

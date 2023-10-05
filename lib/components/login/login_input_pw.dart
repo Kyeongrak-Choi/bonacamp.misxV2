@@ -19,9 +19,9 @@ class LoginInputPw extends StatelessWidget {
           child: TextFormField(
             obscureText: true,
             maxLength: 16,
-            style: textThemeCommon().headline3,
+            style: textThemeCommon().displayMedium,
             decoration: InputDecoration(
-              labelStyle: textThemeCommon().headline3,
+              labelStyle: textThemeCommon().displayMedium,
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,
               hintStyle: TextStyle(color: CommonColors.dark),
@@ -40,7 +40,7 @@ class LoginInputPw extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               filled: true,
-              fillColor: CommonColors.bluesky,
+              fillColor: CommonColors.white,
               contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
               counterText: '',
             ),

@@ -11,7 +11,7 @@ class AnalysisGraphComponent extends StatelessWidget {
       aspectRatio: 1.23,
       child: Container(
         decoration: BoxDecoration(
-          color: context.theme.canvasColor,
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.circular(20),
           shape: BoxShape.rectangle,
         ),

@@ -38,7 +38,7 @@ class OptionCbEmployee extends StatelessWidget {
                     value: Get.find<CbSaleController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbSaleController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
                       return DropdownMenuItem<EmployeeModel>(
                         alignment: Alignment.center,

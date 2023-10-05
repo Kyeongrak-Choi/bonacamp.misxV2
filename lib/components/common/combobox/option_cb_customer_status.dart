@@ -35,7 +35,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                     value: Get.find<CbCustomerStatusController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
                       return DropdownMenuItem<WarehouseModel>(
                         alignment: Alignment.center,

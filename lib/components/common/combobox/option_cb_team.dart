@@ -38,7 +38,7 @@ class OptionCbTeam extends StatelessWidget {
                     value: Get.find<CbTeamController>().selectedValue,
                     style: context.textTheme.bodyText1,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {
                       return DropdownMenuItem<TeamModel>(
                         alignment: Alignment.center,

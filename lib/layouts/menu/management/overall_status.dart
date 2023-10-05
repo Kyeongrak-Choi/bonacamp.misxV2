@@ -30,7 +30,7 @@ class OverallStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('appbar_title_overall_status'.tr),
-              backgroundColor: context.theme.backgroundColor,
+              backgroundColor: context.theme.cardColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -41,7 +41,7 @@ class OverallStatus extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: Column(
               children: [
                 Visibility(

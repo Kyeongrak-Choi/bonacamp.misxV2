@@ -5,37 +5,37 @@ import 'color_manager.dart';
 
 TextTheme textThemeLight() {
   return TextTheme(
-    headline1: GoogleFonts.nanumGothic(
+    displayLarge: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    headline2: GoogleFonts.nanumGothic(
-      fontSize: 22.0,
+    displayMedium: GoogleFonts.nanumGothic(
+      fontSize: 21.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    headline3: GoogleFonts.nanumGothic(
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
-    ),
-    subtitle1: GoogleFonts.nanumGothic(
+    displaySmall: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    subtitle2: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+    titleMedium: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    bodyText1: GoogleFonts.nanumGothic(
+    titleSmall: GoogleFonts.nanumGothic(
+      fontSize: 15.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.dark,
+    ),
+    bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    bodyText2: GoogleFonts.nanumGothic(
+    bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
@@ -45,37 +45,37 @@ TextTheme textThemeLight() {
 
 TextTheme textThemeDark() {
   return TextTheme(
-    headline1: GoogleFonts.nanumGothic(
+    displayLarge: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    headline2: GoogleFonts.nanumGothic(
-      fontSize: 22.0,
+    displayMedium: GoogleFonts.nanumGothic(
+      fontSize: 21.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    headline3: GoogleFonts.nanumGothic(
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.white,
-    ),
-    subtitle1: GoogleFonts.nanumGothic(
+    displaySmall: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    subtitle2: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+    titleMedium: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    bodyText1: GoogleFonts.nanumGothic(
+    titleSmall: GoogleFonts.nanumGothic(
+      fontSize: 15.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.white,
+    ),
+    bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    bodyText2: GoogleFonts.nanumGothic(
+    bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
@@ -85,22 +85,22 @@ TextTheme textThemeDark() {
 
 TextTheme textThemeCommon() {
   return TextTheme(
-    headline1: GoogleFonts.nanumGothic(
+    displayLarge: GoogleFonts.nanumGothic(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    headline2: GoogleFonts.nanumGothic(
+    displayMedium: GoogleFonts.nanumGothic(
+      fontSize: 21.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.dark,
+    ),
+    displaySmall: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    headline3: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
-    ),
-    bodyText1: GoogleFonts.nanumGothic(
+    bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,

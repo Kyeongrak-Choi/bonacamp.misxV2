@@ -29,7 +29,7 @@ class OptionBtnSearch extends StatelessWidget {
             child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
           child: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);

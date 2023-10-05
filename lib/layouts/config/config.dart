@@ -17,7 +17,7 @@ class Config extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OptionController());
     return Scaffold(
-      backgroundColor: context.theme.backgroundColor,
+      backgroundColor: context.theme.cardColor,
       body: ListView(
         children: <Widget>[
           Padding(
@@ -25,8 +25,8 @@ class Config extends StatelessWidget {
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(
-                    color: CommonColors.bluesky,
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40.0), bottomRight: Radius.circular(40.0))),
+                    color: context.theme.canvasColor,
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20.0), bottomRight: Radius.circular(20.0),topLeft: Radius.circular(20.0),topRight: Radius.circular(20.0))),
                 child: Obx(
                   () => Column(children: [
                     Padding(
@@ -34,7 +34,7 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
                         textAlign: TextAlign.start,
-                        style: TextStyle(color: CommonColors.dark, fontSize: 18),
+                        style: TextStyle(color: context.theme.primaryColor, fontSize: 18),
                       ),
                     ),
                     Padding(
@@ -42,7 +42,7 @@ class Config extends StatelessWidget {
                       child: Text(
                         '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
                         textAlign: TextAlign.left,
-                        style: TextStyle(color: CommonColors.dark, fontSize: 14),
+                        style: TextStyle(color: context.theme.primaryColor, fontSize: 14),
                       ),
                     ),
                   ]),

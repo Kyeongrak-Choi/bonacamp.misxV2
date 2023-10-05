@@ -19,7 +19,7 @@ class CardRadioMenu extends StatelessWidget {
       elevation: 0.5,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.backgroundColor,
+      color: context.theme.cardColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -51,7 +51,7 @@ class CardRadioMenu extends StatelessWidget {
 
     return Container(
       height: 50,
-      color: context.theme.backgroundColor,
+      color: context.theme.cardColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
