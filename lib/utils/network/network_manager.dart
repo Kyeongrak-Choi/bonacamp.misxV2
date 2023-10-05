@@ -111,6 +111,7 @@ Future<Dio> reqApi(header) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
     headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
+    //headers: {'Authorization': 'Bearer asdasd', 'Client-Code': header},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
     // 15s
@@ -124,9 +125,10 @@ Future<Dio> reqApi(header) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioError dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+  }, onError: (DioException dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
     if (dioError.response?.statusCode == 200) {
     } else if (dioError.response?.statusCode == 401) {
+      log('토큰 갱신 call');
       // 1차 토큰 만료
       final accessToken = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
 
@@ -149,11 +151,12 @@ Future<Dio> reqApi(header) async {
         final clonedRequest = await dio.request(dioError.requestOptions.path,
             options: Options(
               method: dioError.requestOptions.method,
-              headers: dioError.requestOptions.headers,
+              headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
               contentType: Headers.jsonContentType,
             ),
             data: dioError.requestOptions.data,
             queryParameters: dioError.requestOptions.queryParameters);
+
 
         // API 복사본으로 재요청
         return errorInterceptorHandler.resolve(clonedRequest);
