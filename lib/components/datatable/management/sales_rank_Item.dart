@@ -5,10 +5,10 @@ import '../../../models/management/sales_daily_model.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
-class SalesDailyItem extends StatelessWidget {
+class SalesRankItem extends StatelessWidget {
   var dataList;
 
-  SalesDailyItem(var model) {
+  SalesRankItem(var model) {
     dataList = generateSalesDailyList(model, model.length);
   }
 

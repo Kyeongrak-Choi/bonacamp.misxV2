@@ -31,7 +31,7 @@ class OptionDialog extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       title,
-                      style: context.textTheme.bodyLarge,
+                      style: context.textTheme.displayMedium,
                     )),
               ),
             )),

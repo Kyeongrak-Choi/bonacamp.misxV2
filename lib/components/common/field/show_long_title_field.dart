@@ -22,7 +22,7 @@ class ShowLongTitleField extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     titleName,
-                    style: context.textTheme.displaySmall,
+                    style: context.textTheme.displayMedium,
                   )),
             ),
           )),
@@ -32,7 +32,7 @@ class ShowLongTitleField extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
           child: Text(
             value,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.displayMedium,
             textAlign: TextAlign.right,
           ),
         ),

@@ -5,7 +5,6 @@ import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
 
 import '../utils/constants.dart';
-import '../utils/theme/color_manager.dart';
 import '../utils/utility.dart';
 import 'config/config.dart';
 

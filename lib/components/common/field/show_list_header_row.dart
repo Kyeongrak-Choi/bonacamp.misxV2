@@ -9,30 +9,27 @@ class ShowListHeaderRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-          child: Text(
-            titleName,
-            style: context.textTheme.bodyLarge,
-            textAlign: TextAlign.left,
-          ),
+    return Row(children: [
+      Container(
+        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+        child: Text(
+          titleName,
+          style: context.textTheme.displayMedium,
+          textAlign: TextAlign.left,
         ),
-        Expanded(
-          child: ElevatedButton(
+      ),
+      Expanded(
+        child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: context.theme.cardColor,
             ),
             onPressed: () {},
             child: Text(
               value,
-              style: context.textTheme.titleSmall,
+              style: context.textTheme.displayMedium,
               textAlign: TextAlign.center,
-            )
-          ),
-        ),
-      ]
-    );
+            )),
+      ),
+    ]);
   }
 }

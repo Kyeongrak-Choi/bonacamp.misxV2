@@ -39,7 +39,7 @@ class OptionYearMonthPicker extends StatelessWidget {
                     onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
                     child: Text(
                       DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
-                      style: context.textTheme.bodyLarge,
+                      style: context.textTheme.displayMedium,
                     ),
                   ),
                 ),

@@ -10,16 +10,15 @@ class ShowListDetailRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 10, 15),
-      child: Column(
-        children: [
+        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 10, 15),
+        child: Column(children: [
           Row(
             children: [
               Expanded(
                 flex: 4,
                 child: Text(
                   titleName,
-                  style: context.textTheme.titleSmall,
+                  style: context.textTheme.displaySmall,
                   textAlign: TextAlign.left,
                 ),
               ),
@@ -27,14 +26,12 @@ class ShowListDetailRow extends StatelessWidget {
                 flex: 6,
                 child: Text(
                   value,
-                  style: context.textTheme.bodyLarge,
+                  style: context.textTheme.displaySmall,
                   textAlign: TextAlign.right,
                 ),
               ),
             ],
           ),
-        ]
-      )
-    );
+        ]));
   }
 }

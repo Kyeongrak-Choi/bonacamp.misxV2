@@ -16,12 +16,12 @@ class ShowListHeader extends StatelessWidget {
           child: Container(
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: context.theme.canvasColor,
+                  backgroundColor: context.theme.cardColor,
                 ),
                 onPressed: () {},
                 child: Text(
-                  titleName + '\n' + value,
-                  style: context.textTheme.bodyLarge,
+                  titleName + '' + value,
+                  style: context.textTheme.displayMedium,
                   textAlign: TextAlign.center,
                 )),
           ),

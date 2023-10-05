@@ -7,7 +7,6 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
-import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 import '../navigation.dart';
 
@@ -26,7 +25,11 @@ class Config extends StatelessWidget {
                 height: 100,
                 decoration: BoxDecoration(
                     color: context.theme.canvasColor,
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20.0), bottomRight: Radius.circular(20.0),topLeft: Radius.circular(20.0),topRight: Radius.circular(20.0))),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20.0),
+                        bottomRight: Radius.circular(20.0),
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0))),
                 child: Obx(
                   () => Column(children: [
                     Padding(

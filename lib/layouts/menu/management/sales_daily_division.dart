@@ -28,16 +28,19 @@ class SalesDailyDivision extends StatelessWidget {
     Get.put(SalesDailyDivisionController());
     var divisionController = Get.find<SalesDailyDivisionController>();
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('영업일보-용도별'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: divisionController.visible.value),
-              onPressed: () {
-                divisionController.setVisible();
-              },
-            ),
-          ]),
+          appBar: AppBar(title: Text('menu_sub_salesdaily_division'.tr)
+              , backgroundColor: context.theme.cardColor
+              , iconTheme: context.theme.iconTheme
+              , actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: divisionController.visible.value),
+                  onPressed: () {
+                    divisionController.setVisible();
+                  },
+                ),
+              ]),
           body: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: Column(
               children: [
                 Visibility(
@@ -140,7 +143,7 @@ class SalesDailyDivisionController extends GetxController {
 
   Future calBoxBottleSum() async {
     var f = NumberFormat('###,###,###,###');
-    if(salesDailyDivisionList == null){
+    if (salesDailyDivisionList == null) {
       pleasureBoxSum = '0';
       pleasureBottleSum = '0';
       pleasureAmountSum = '0';
@@ -170,7 +173,7 @@ class SalesDailyDivisionController extends GetxController {
     int tmpNormalAmountSum = 0;
 
     for (SalesDailyDivisionModel tmpObject in salesDailyDivisionList) {
-      if(tmpObject.itemCode == null){
+      if (tmpObject.itemCode == null) {
         continue;
       }
       if (tmpObject.usageCode == '1') {

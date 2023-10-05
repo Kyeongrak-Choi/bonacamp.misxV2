@@ -54,7 +54,6 @@ class OptionCbCustomerStatus extends StatelessWidget {
 }
 
 class CbCustomerStatusController extends GetxController {
-
   List<WarehouseModel> data = <WarehouseModel>[].obs;
 
   var selectedValue;

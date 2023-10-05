@@ -11,7 +11,8 @@ class Themes {
     primaryColor: LightColors.important,
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
-    canvasColor: LightColors.background, // backgorund
+    canvasColor: LightColors.background,
+    // backgorund
     cardColor: LightColors.basic,
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
@@ -30,7 +31,8 @@ class Themes {
     primaryColor: DarkColors.important,
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
-    canvasColor: DarkColors.background, // backgorund
+    canvasColor: DarkColors.background,
+    // backgorund
     cardColor: DarkColors.basic,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(

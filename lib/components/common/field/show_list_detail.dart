@@ -16,7 +16,7 @@ class ShowListDetail extends StatelessWidget {
           child: Container(
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: context.theme.backgroundColor,
+                  backgroundColor: context.theme.cardColor,
                 ),
                 onPressed: () {},
                 child: Text(
