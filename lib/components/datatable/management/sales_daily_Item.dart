@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/management/sales_daily_model.dart';
+import '../../common/field/show_list_detail_row.dart';
+import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyItem extends StatelessWidget {
   var dataList;
@@ -22,120 +24,21 @@ class SalesDailyItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.backgroundColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return Row(
-                  children: [
-                    Text(
-                      '[담당자] ' + model.employeeName.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                );
+                return ShowListHeaderRow(titleName: '[담당자]',value: model.employeeName.toString());
               },
               body: Column(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '공급가\n(일/월)\n' + model.supplementAmount_D.toString() + ' / ' + model.supplementAmount_M.toString(),
-                          style: context.textTheme.bodyLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          '부가세\n(일/월)\n' + model.vatAmount_D.toString() + ' / ' + model.vatAmount_M.toString(),
-                          style: context.textTheme.bodyLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '보증금합계\n(일/월)\n' + model.guaranteeAmount_D.toString() + ' / ' + model.guaranteeAmount_M.toString(),
-                          style: context.textTheme.bodyLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          '총계\n(일/월)\n' + model.totalAmount_D.toString() + ' / ' + model.totalAmount_M.toString(),
-                          style: context.textTheme.bodyLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(children: [
-                    Expanded(
-                      child: Text(
-                        '매출원가\n(일/월)\n' + model.purchaseCost_D.toString() + ' / ' + model.purchaseCost_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        '매출이익\n(일/월)\n' + model.profitAmount_D.toString() + ' / ' + model.profitAmount_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ]),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(children: [
-                    Expanded(
-                      child: Text(
-                        '입금소계\n(일/월)\n' + model.depositCash_D.toString() + ' / ' + model.depositCash_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        '용공입금\n(일/월)\n' + model.depositEmptyCaseBottle_D.toString() + ' / ' + model.depositEmptyCaseBottle_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ]),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(children: [
-                    Expanded(
-                      child: Text(
-                        '입금합계\n(일/월)\n' + model.depositAmount_D.toString() + ' / ' + model.depositAmount_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        '채권잔액\n(일/월)\n' + model.bondBalance_D.toString() + ' / ' + model.bondBalance_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ]),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  ShowListDetailRow(titleName : '', value: '( 일 / 월 )',),
+                  ShowListDetailRow(titleName : '공급가', value: model.supplementAmount_D.toString() + ' / ' + model.supplementAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '부가세', value: model.vatAmount_D.toString() + ' / ' + model.vatAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '보증금합계', value: model.guaranteeAmount_D.toString() + ' / ' + model.guaranteeAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '총계', value: model.totalAmount_D.toString() + ' / ' + model.totalAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '매출원가', value: model.purchaseCost_D.toString() + ' / ' + model.purchaseCost_M.toString(),),
+                  ShowListDetailRow(titleName : '매출이익', value: model.profitAmount_D.toString() + ' / ' + model.profitAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '입금소계', value: model.depositCash_D.toString() + ' / ' + model.depositCash_M.toString(),),
+                  ShowListDetailRow(titleName : '용공입금', value: model.depositEmptyCaseBottle_D.toString() + ' / ' + model.depositEmptyCaseBottle_M.toString(),),
+                  ShowListDetailRow(titleName : '입금합계', value: model.depositAmount_D.toString() + ' / ' + model.depositAmount_M.toString(),),
+                  ShowListDetailRow(titleName : '채권잔액', value: model.bondBalance_D.toString() + ' / ' + model.bondBalance_M.toString(),),
                 ],
               ),
             );
