@@ -24,7 +24,7 @@ class OptionCbBranch extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_workspace'.tr,
-                      style: context.textTheme.bodyText1,
+                      style: context.textTheme.displaySmall,
                     )),
               ),
             )),
@@ -36,9 +36,9 @@ class OptionCbBranch extends StatelessWidget {
                   () => DropdownButtonFormField<BranchModel>(
                     isExpanded: true,
                     value: Get.find<CbBranchController>().selectedValue,
-                    style: context.textTheme.bodyText1,
+                    style: context.textTheme.displaySmall,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
                       return DropdownMenuItem<BranchModel>(
                         alignment: Alignment.center,

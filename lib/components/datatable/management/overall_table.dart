@@ -14,7 +14,7 @@ class OverAllTable extends StatelessWidget {
     Get.put(OverAllController());
     return GetBuilder<OverAllController>(builder: (OverAllController controller) {
       return Container(
-        color: context.theme.backgroundColor,
+        color: context.theme.cardColor,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
           child: ListView(

@@ -8,19 +8,18 @@ class Themes {
   static final light = ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: appBarThemeLight(),
-    backgroundColor: LightColors.basic,
-    bottomAppBarColor: LightColors.basic,
-    primaryColor: DarkColors.basic,
+    primaryColor: LightColors.important,
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
-    canvasColor: LightColors.canvas,
+    canvasColor: LightColors.background, // backgorund
+    cardColor: LightColors.basic,
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
       buttonColor: LightColors.basic,
       textTheme: ButtonTextTheme.primary,
     ),
     navigationBarTheme: const NavigationBarThemeData(
-      indicatorColor: LightColors.canvas,
+      indicatorColor: LightColors.important,
       backgroundColor: LightColors.basic,
     ),
   );
@@ -28,19 +27,18 @@ class Themes {
   static final dark = ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: appBarThemeDark(),
-    backgroundColor: DarkColors.basic,
-    bottomAppBarColor: DarkColors.basic,
-    primaryColor: LightColors.basic,
-    primaryColorLight: DarkColors.important,
-    primaryColorDark: CommonColors.dark,
-    canvasColor: DarkColors.canvas,
+    primaryColor: DarkColors.important,
+    primaryColorLight: LightColors.basic,
+    primaryColorDark: DarkColors.basic,
+    canvasColor: DarkColors.background, // backgorund
+    cardColor: DarkColors.basic,
     textTheme: textThemeDark(),
     buttonTheme: const ButtonThemeData(
       buttonColor: DarkColors.basic,
       textTheme: ButtonTextTheme.primary,
     ),
     navigationBarTheme: const NavigationBarThemeData(
-      indicatorColor: DarkColors.canvas,
+      indicatorColor: DarkColors.important,
       backgroundColor: DarkColors.basic,
     ),
   );

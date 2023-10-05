@@ -19,7 +19,7 @@ class OptionDatePicker extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'opt_date'.tr,
-                  style: context.textTheme.bodyText1,
+                  style: context.textTheme.displayMedium,
                 ),
               ),
             ),

@@ -11,10 +11,10 @@ class SystemConfig extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('system_setting'.tr),
-        backgroundColor: context.theme.backgroundColor,
+        backgroundColor: context.theme.cardColor,
         iconTheme: context.theme.iconTheme,
       ),
-      backgroundColor: context.theme.backgroundColor,
+      backgroundColor: context.theme.cardColor,
       body: ListView(
         children: <Widget>[
           Padding(

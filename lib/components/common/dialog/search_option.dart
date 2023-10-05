@@ -29,12 +29,12 @@ class SearchOption extends StatelessWidget {
                   border: InputBorder.none,
                   filled: true,
                   hintText: hint,
-                  hintStyle: context.textTheme.bodyText1,
+                  hintStyle: context.textTheme.displayMedium,
                 ),
                 onChanged: (text) {
                   Get.find<SearchListController>().setSearchTxt(text);
                 },
-                style: context.textTheme.bodyText1),
+                style: context.textTheme.displayMedium),
           ),
           Flexible(
               flex: 1,
