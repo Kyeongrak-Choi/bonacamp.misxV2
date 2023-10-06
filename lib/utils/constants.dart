@@ -100,7 +100,7 @@ const API_COMMON_LENDITEM = '/lend-item';
 
 // management (경영분석)
 const API_MANAGEMENT = '/v1/views/management';
-const API_MANAGEMENT_OVERALL = '/overall'; // 종합현황
+const API_MANAGEMENT_OVERALL = '/total'; // 종합현황
 const API_MANAGEMENT_DAILYSTATUS = '/daily-status'; // 영업일보
 const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 영원사원별 기여현황
 const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황

@@ -39,17 +39,17 @@ class DashBoardDeposit extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '회수계', controller.controllerDepositModel != null ? f.format(int.parse(controller.controllerDepositModel.retrvAmt)) : '0'),
+                        '회수계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.retrvAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '입금계', controller.controllerDepositModel != null ? f.format(int.parse(controller.controllerDepositModel.ipTot)) : '0'),
+                        '입금계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.ipTot) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '채권계', controller.controllerDepositModel != null ? f.format(int.parse(controller.controllerDepositModel.amt)) : '0'),
+                        '채권계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.amt) : '0'),
                   ),
                 ],
               )),

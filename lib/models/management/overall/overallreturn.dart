@@ -5,13 +5,13 @@ part 'overallreturn.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class OverAllReturnModel {
-  String? oTot; // 반납액
+  var oTot; // 반납액
 
   OverAllReturnModel(this.oTot);
 
   Map<String, dynamic> toMap() {
     return {
-      'return-amount': oTot,
+      'amount': oTot,
     };
   }
 
