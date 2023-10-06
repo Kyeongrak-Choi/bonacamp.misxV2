@@ -7,15 +7,15 @@ part of 'overallsales.dart';
 // **************************************************************************
 
 OverAllSalesModel _$OverAllSalesModelFromJson(Map<String, dynamic> json) => OverAllSalesModel(
-      json['rental-balance'] as String?,
-      json['supplement-amount'] as String?,
-      json['vat-amount'] as String?,
-      json['guarantee-amount'] as String?,
+      json['amount'] as dynamic,
+      json['price'] as dynamic,
+      json['vat'] as dynamic,
+      json['guarantee'] as dynamic,
     );
 
 Map<String, dynamic> _$OverAllSalesModelToJson(OverAllSalesModel instance) => <String, dynamic>{
-      'rental-balance': instance.totAmt,
-      'supplement-amount': instance.suppAmt,
-      'vat-amount': instance.vatAmt,
-      'guarantee-amount': instance.grntAmt,
+      'amount': instance.totAmt,
+      'price': instance.suppAmt,
+      'vat': instance.vatAmt,
+      'guarantee': instance.grntAmt,
     };

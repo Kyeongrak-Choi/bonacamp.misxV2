@@ -41,7 +41,7 @@ class SearchList extends StatelessWidget {
             return GestureDetector(
                 child: Container(
               height: 50,
-              color: context.theme.backgroundColor,
+              color: context.theme.cardColor,
               padding: const EdgeInsets.all(5),
               child: selectSearchListItem(index),
             ));

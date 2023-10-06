@@ -22,6 +22,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                     child: Text(
                       'opt_customer_status'.tr,
                       style: context.textTheme.displaySmall,
+                      textAlign: TextAlign.center,
                     )),
               ),
             )),

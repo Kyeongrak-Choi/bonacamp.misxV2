@@ -23,4 +23,7 @@ class CommonColors {
   static const Color dark = Color(0xFF262D34);
   static const Color bluesky = Color(0xFFCDECFA);
   static const Color navigation = Color(0xFF78909C);
+  static const Color chartbar = Color(0xFF1DE9B6);
+  static const Color chartborder = Color(0xFF005E46);
+  static const Color charttextcolor = Color(0xFF0A936F);
 }
