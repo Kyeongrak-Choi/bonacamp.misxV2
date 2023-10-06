@@ -24,7 +24,7 @@ class OptionCbEmployee extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_sales'.tr,
-                      style: context.textTheme.displayMedium,
+                      style: context.textTheme.displaySmall,
                     )),
               ),
             )),
@@ -36,7 +36,7 @@ class OptionCbEmployee extends StatelessWidget {
                   () => DropdownButtonFormField<EmployeeModel>(
                     isExpanded: true,
                     value: Get.find<CbSaleController>().selectedValue,
-                    style: context.textTheme.displayMedium,
+                    style: context.textTheme.displaySmall,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
                     items: Get.find<CbSaleController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {

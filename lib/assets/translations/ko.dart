@@ -36,15 +36,15 @@ const Map<String, String> koKR = {
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
 
   // Dialog search purchase
-  'title_search_purchase': '매입처 검색',
+  'title_search_purchase': '매입처',
   'hint_search_purchase': '매입처 코드/명을 입력해주세요.',
 
   // Dialog search item
-  'title_search_item': '품목 검색',
+  'title_search_item': '품목',
   'hint_search_item': '품목 코드/명을 입력해주세요.',
 
   // Dialog search lendItem
-  'title_search_lenditem': '용공 검색',
+  'title_search_lenditem': '용공',
   'hint_search_lenditem': '용공 코드/명을 입력해주세요.',
 
   // Period Picker
@@ -77,7 +77,7 @@ const Map<String, String> koKR = {
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
-  'opt_customer_status': '거래처 상태',
+  'opt_customer_status': '거래처\n상태',
   'opt_graph_type': '종류',
   'opt_team': '팀',
 
@@ -100,7 +100,7 @@ const Map<String, String> koKR = {
   'menu_sub_overall': '종합현황',
   'menu_sub_salesdaily': '영업일보',
   'menu_sub_salesperson_contribute': '영업사원별 기여현황',
-  '`menu_sub_customer_contribute`': '매출처별 기여현황',
+  'menu_sub_customer_contribute': '매출처별 기여현황',
   'menu_sub_sales_class_status': '판매분류별 현황',
   'menu_sub_sales_rank': '매출순위현황',
   'menu_sub_analysis_graph': '분석 그래프',

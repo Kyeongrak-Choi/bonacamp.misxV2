@@ -24,7 +24,7 @@ class OptionPeriodPicker extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'opt_period'.tr,
-                    style: context.textTheme.displayMedium,
+                    style: context.textTheme.displaySmall,
                   ),
                 ),
               ),
@@ -41,7 +41,7 @@ class OptionPeriodPicker extends StatelessWidget {
                     onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
                     child: Text(
                       DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                      style: context.textTheme.displayMedium,
+                      style: context.textTheme.displaySmall,
                     ),
                   ),
                 ),
@@ -50,7 +50,7 @@ class OptionPeriodPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Text(
                   '~',
-                  style: context.textTheme.displayMedium,
+                  style: context.textTheme.displaySmall,
                 ),
               ),
               Padding(
@@ -59,7 +59,7 @@ class OptionPeriodPicker extends StatelessWidget {
                   () => TextButton(
                     onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
                     child: Text(DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                        style: context.textTheme.displayMedium),
+                        style: context.textTheme.displaySmall),
                   ),
                 ),
               )

@@ -24,7 +24,7 @@ class OptionCbTeam extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_team'.tr,
-                      style: context.textTheme.displayMedium,
+                      style: context.textTheme.displaySmall,
                     )),
               ),
             )),
@@ -36,7 +36,7 @@ class OptionCbTeam extends StatelessWidget {
                   () => DropdownButtonFormField<TeamModel>(
                     isExpanded: true,
                     value: Get.find<CbTeamController>().selectedValue,
-                    style: context.textTheme.displayMedium,
+                    style: context.textTheme.displaySmall,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
                     items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {

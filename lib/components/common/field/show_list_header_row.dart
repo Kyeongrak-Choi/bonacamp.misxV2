@@ -14,7 +14,7 @@ class ShowListHeaderRow extends StatelessWidget {
         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
         child: Text(
           titleName,
-          style: context.textTheme.displayMedium,
+          style: context.textTheme.displaySmall,
           textAlign: TextAlign.left,
         ),
       ),
@@ -26,7 +26,7 @@ class ShowListHeaderRow extends StatelessWidget {
             onPressed: () {},
             child: Text(
               value,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.displaySmall,
               textAlign: TextAlign.center,
             )),
       ),

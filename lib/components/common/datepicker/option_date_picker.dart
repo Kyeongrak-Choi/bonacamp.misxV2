@@ -19,7 +19,7 @@ class OptionDatePicker extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'opt_date'.tr,
-                  style: context.textTheme.displayMedium,
+                  style: context.textTheme.displaySmall,
                 ),
               ),
             ),
@@ -36,7 +36,7 @@ class OptionDatePicker extends StatelessWidget {
                   onPressed: () => Get.find<DatePickerController>().chooseDate(),
                   child: Text(
                     DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                    style: context.textTheme.displayMedium,
+                    style: context.textTheme.displaySmall,
                   ),
                 ),
               ),

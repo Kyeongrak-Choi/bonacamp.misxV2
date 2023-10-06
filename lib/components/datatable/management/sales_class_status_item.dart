@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/field/show_list_detail.dart';
-import 'package:misxV2/components/common/field/show_list_header.dart';
 import 'package:misxV2/models/management/sales_class_status.dart';
 
 import '../../common/field/show_list_detail_row.dart';

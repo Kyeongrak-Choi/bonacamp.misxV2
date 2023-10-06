@@ -159,6 +159,8 @@ Future<Dio> reqApi(header) async {
 
         // API 복사본으로 재요청
         return errorInterceptorHandler.resolve(clonedRequest);
+      }else{
+
       }
     } else {
       return errorInterceptorHandler.next(dioError);
@@ -167,41 +169,4 @@ Future<Dio> reqApi(header) async {
   }));
 
   return dio;
-}
-
-Future<dynamic> reqApiThrow(api, params, method) async {
-  log('call url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail') + api);
-
-  var options = BaseOptions(
-    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': params},
-    contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
-    // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
-  );
-
-  Dio dio = Dio(options);
-
-  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
-    return handler.next(options); //continue
-  }, onResponse: (response, handler) {
-    return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e);
-  }));
-
-  Res.Response response;
-  try {
-    if (method == API_REQ_GET) {
-      response = await dio.get(api, data: params);
-    } else {
-      response = await dio.post(api, data: params);
-    }
-    return jsonEncode(response.data);
-  } catch (e) {
-    Exception(e);
-    //return e.toString();
-    throw e;
-  }
 }
