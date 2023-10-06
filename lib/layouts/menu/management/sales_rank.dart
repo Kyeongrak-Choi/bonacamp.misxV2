@@ -68,7 +68,7 @@ class SalesRank extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesRankController>().salesRankList != null) {
-      return SalesRankItem(Get.find<SalesDailyController>().salesDailyList);
+      return SalesRankItem(Get.find<SalesRankController>().salesRankList);
     } else {
       return EmptyWidget();
     }
