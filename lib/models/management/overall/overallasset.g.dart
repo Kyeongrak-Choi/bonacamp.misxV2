@@ -7,8 +7,8 @@ part of 'overallasset.dart';
 // **************************************************************************
 
 OverAllAssetModel _$OverAllAssetModelFromJson(Map<String, dynamic> json) => OverAllAssetModel(
-      json['new-rental-quantity'] as String?,
-      json['new-rental-amount'] as String?,
+      json['new-rental-quantity'] as dynamic,
+      json['new-rental-amount'] as dynamic,
     );
 
 Map<String, dynamic> _$OverAllAssetModelToJson(OverAllAssetModel instance) => <String, dynamic>{

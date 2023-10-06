@@ -38,27 +38,27 @@ class DashBoardRental extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '대여금계', controller.controllerRentalModel != null ? f.format(int.parse(controller.controllerRentalModel.lendAmt)) : '0'),
+                        '대여금계', controller.controllerRentalModel != null ? f.format(controller.controllerRentalModel.lendAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem('회수예정금계',
-                        controller.controllerRentalModel != null ? f.format(int.parse(controller.controllerRentalModel.inspayLendAmt)) : '0'),
+                        controller.controllerRentalModel != null ? f.format(controller.controllerRentalModel.inspayLendAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '회수금계', controller.controllerRentalModel != null ? f.format(int.parse(controller.controllerRentalModel.retrvAmt)) : '0'),
+                        '회수금계', controller.controllerRentalModel != null ? f.format(controller.controllerRentalModel.retrvAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '미회수금계', controller.controllerRentalModel != null ? f.format(int.parse(controller.controllerRentalModel.remAmt)) : '0'),
+                        '미회수금계', controller.controllerRentalModel != null ? f.format(controller.controllerRentalModel.remAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '대여금잔액계', controller.controllerRentalModel != null ? f.format(int.parse(controller.controllerRentalModel.totAmt)) : '0'),
+                        '대여금잔액계', controller.controllerRentalModel != null ? f.format(controller.controllerRentalModel.totAmt) : '0'),
                   ),
                 ],
               )),

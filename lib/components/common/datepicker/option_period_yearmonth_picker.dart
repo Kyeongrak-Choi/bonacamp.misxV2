@@ -51,7 +51,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Text(
                   '~',
-                  style: context.textTheme.displayMedium,
+                  style: context.textTheme.displaySmall,
                 ),
               ),
               Padding(
@@ -60,7 +60,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   () => TextButton(
                     onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
                     child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
-                        style: context.textTheme.displayMedium),
+                        style: context.textTheme.displaySmall),
                   ),
                 ),
               )

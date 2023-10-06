@@ -38,12 +38,12 @@ class DashBoardAsset extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '출금계', controller.controllerWithdrawModel != null ? f.format(int.parse(controller.controllerWithdrawModel.outTot)) : '0'),
+                        '출금계', controller.controllerWithdrawModel != null ? f.format(controller.controllerWithdrawModel.outTot) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '채무계', controller.controllerWithdrawModel != null ? f.format(int.parse(controller.controllerWithdrawModel.amt)) : '0'),
+                        '채무계', controller.controllerWithdrawModel != null ? f.format(controller.controllerWithdrawModel.amt) : '0'),
                   ),
                 ],
               )),

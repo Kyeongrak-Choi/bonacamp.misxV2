@@ -32,7 +32,7 @@ const Map<String, String> koKR = {
   'isCompareFirst': '초성검색시 첫글자부터 비교',
 
   // Dialog search customer
-  'title_search_customer': '거래처 검색',
+  'title_search_customer': '거래처',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
 
   // Dialog search purchase
