@@ -33,8 +33,8 @@ class SalesClassStatusItem extends StatelessWidget {
                       value: model.boxQuantity.toString(),
                     ),
                     ShowListDetailRow(
-                      titleName: 'BOX',
-                      value: model.boxQuantity.toString(),
+                      titleName: 'EA',
+                      value: model.bottleQuantity.toString(),
                     ),
                     ShowListDetailRow(
                       titleName: '매출액',

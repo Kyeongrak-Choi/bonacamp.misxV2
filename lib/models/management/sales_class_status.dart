@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sales_class_status.g.dart'; // *.g.dart : in same directory
@@ -42,6 +43,7 @@ class SalesClassStatusModel {
 }
 
 List<SalesClassStatusModel> generateList(dataList, count) {
+  var f = NumberFormat('###,###,###,###');
   return List.generate(
       count,
       (index) => SalesClassStatusModel(
@@ -49,10 +51,10 @@ List<SalesClassStatusModel> generateList(dataList, count) {
           dataList[index].salesClassName,
           dataList[index].boxQuantity,
           dataList[index].bottleQuantity,
-          dataList[index].supplementAmount,
-          dataList[index].totalAmount,
-          dataList[index].purchaseAmount,
-          dataList[index].profitAmount,
+          f.format(int.parse(dataList[index].supplementAmount ?? 0)),
+          f.format(int.parse(dataList[index].totalAmount ?? 0)),
+          f.format(int.parse(dataList[index].purchaseAmount ?? 0)),
+          f.format(int.parse(dataList[index].profitAmount ?? 0)),
           dataList[index].profitRate,
           dataList[index].profitStandard,
           id: index));
