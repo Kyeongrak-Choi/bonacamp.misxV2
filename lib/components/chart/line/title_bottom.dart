@@ -1,14 +1,18 @@
+import 'dart:developer';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
+import 'package:misxV2/utils/theme/text_theme.dart';
 
 Widget bottomTitleWidgets(double value, TitleMeta meta) {
   const style = TextStyle(
-    color: Colors.white,
+    color: CommonColors.charttextcolor,
     fontWeight: FontWeight.bold,
-    fontSize: 13,
+    fontSize: 15,
   );
   Widget text;
-  var title = value.toInt().toString().substring(2, 4) + '년' + value.toInt().toString().substring(5, 6) + '월';
+  var title = value.toInt().toString().substring(4, 6) + '월';
 
   text = Text(title.toString(), style: style);
 

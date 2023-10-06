@@ -11,7 +11,7 @@ class AnalysisGraphComponent extends StatelessWidget {
       aspectRatio: 1.23,
       child: Container(
         decoration: BoxDecoration(
-          color: context.theme.canvasColor,
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.circular(20),
           shape: BoxShape.rectangle,
         ),
@@ -24,9 +24,8 @@ class AnalysisGraphComponent extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  //'단위 : 1,000',
-                  '',
-                  style: context.textTheme.bodyMedium,
+                  '단위(원)',
+                  style: context.textTheme.displayMedium,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
