@@ -109,7 +109,9 @@ const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
 const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
 const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
-// (영업분석)
+// 위치 조회
+const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
+
 
 /*
   Json

@@ -102,7 +102,7 @@ final List<IconMenu> supportStatusMaster = [
 ];
 
 final List<IconMenu> locationSearchMaster = [
-  IconMenu(title: 'title_24'.tr, iconData: Icons.copy_outlined, path: ''),
+  IconMenu(title: 'menu_sub_vendor_location'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_VENDORLOCATION),
 ];
 
 final List<IconMenu> inventoryAnalysisMaster = [

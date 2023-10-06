@@ -23,6 +23,7 @@ import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/menu/management/sales_daily_division.dart';
+import 'layouts/menu/vendor_location.dart';
 import 'layouts/navigation.dart';
 
 void main() async {
@@ -87,6 +88,9 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
         GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석 그래프
         GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
+
+        // 위치조회
+        GetPage(name: ROUTE_MENU_VENDORLOCATION, page: () => VendorLocation()), // 영업일보-용도별
       ],
       home: Login(),
     );

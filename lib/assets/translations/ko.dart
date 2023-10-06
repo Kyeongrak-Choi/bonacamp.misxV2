@@ -128,7 +128,7 @@ const Map<String, String> koKR = {
   'title_23': '대여자산 현황(이력)',
 
   'menu_main_location': '위치조회',
-  'title_24': '매출처 위치조회',
+  'menu_sub_vendor_location': '매출처 위치조회',
 
   'menu_main_asset': '재고분석',
   'title_25': '재고현황',
