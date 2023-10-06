@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/management/sales_daily_model.dart';
+import '../../../models/management/sales_rank_model.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
@@ -9,7 +10,7 @@ class SalesRankItem extends StatelessWidget {
   var dataList;
 
   SalesRankItem(var model) {
-    dataList = generateSalesDailyList(model, model.length);
+    dataList = generateSalesRankList(model, model.length);
   }
 
   @override
@@ -19,58 +20,34 @@ class SalesRankItem extends StatelessWidget {
         color: context.theme.cardColor,
         child: ExpansionPanelList.radio(
           animationDuration: Duration(milliseconds: 1000),
-          children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
+          children: dataList.map<ExpansionPanelRadio>((SalesRankModel model) {
             return ExpansionPanelRadio(
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.employeeName.toString());
+                return ShowListHeaderRow(titleName: model.ranking.toString() + '.', value: model.customerName.toString());
               },
               body: Column(
                 children: [
                   ShowListDetailRow(
-                    titleName: '',
-                    value: '( 일 / 월 )',
+                    titleName: '매출액',
+                    value: model.salesAmount.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '공급가',
-                    value: model.supplementAmount_D.toString() + '\n'  + model.supplementAmount_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '부가세',
-                    value: model.vatAmount_D.toString() + '\n' + model.vatAmount_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '보증금합계',
-                    value: model.guaranteeAmount_D.toString() + '\n' + model.guaranteeAmount_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '총계',
-                    value: model.totalAmount_D.toString() + '\n'  + model.totalAmount_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '매출원가',
-                    value: model.purchaseCost_D.toString() + '\n'  + model.purchaseCost_M.toString(),
+                    value: model.supplementAmount.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '매출이익',
-                    value: model.profitAmount_D.toString() + '\n'  + model.profitAmount_M.toString(),
+                    value: model.profitAmount.toString(),
                   ),
                   ShowListDetailRow(
-                    titleName: '입금소계',
-                    value: model.depositCash_D.toString() + '\n' + model.depositCash_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '용공입금',
-                    value: model.depositEmptyCaseBottle_D.toString() + '\n'  + model.depositEmptyCaseBottle_M.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '입금합계',
-                    value: model.depositAmount_D.toString() + '\n'  + model.depositAmount_M.toString(),
+                    titleName: '마진율',
+                    value: model.profitRate.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '채권잔액',
-                    value: model.bondBalance_D.toString() + '\n'  + model.bondBalance_M.toString(),
+                    value: model.bondBalance.toString(),
                   ),
                 ],
               ),

@@ -69,16 +69,22 @@ class SalesDailyDivision extends StatelessWidget {
                   child: Column(
                     children: [
                       Expanded(
-                        child: ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
+                        child: ShowDoubleValueField(
+                            '유흥합계',
+                            divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
                             divisionController.pleasureAmountSum),
                       ),
                       Expanded(
                         child: ShowDoubleValueField(
-                            '일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum, divisionController.normalAmountSum),
+                            '일반합계',
+                            divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum,
+                            divisionController.normalAmountSum),
                       ),
                       Expanded(
                         child: ShowDoubleValueField(
-                            '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
+                            '합 계',
+                            divisionController.totBoxSum + ' / ' + divisionController.totBottleSum,
+                            divisionController.totAmountSum),
                       ),
                       Expanded(
                         child: ShowDoubleValueField(
@@ -87,11 +93,13 @@ class SalesDailyDivision extends StatelessWidget {
                             divisionController.pleasureAmountQuantity),
                       ),
                       Expanded(
-                        child: ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
+                        child: ShowDoubleValueField('일반누계',
+                            divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
                             divisionController.normalAmountQuantity),
                       ),
                       Expanded(
-                        child: ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
+                        child: ShowDoubleValueField('누계',
+                            divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
                             divisionController.totAmountQuantity),
                       ),
                     ],

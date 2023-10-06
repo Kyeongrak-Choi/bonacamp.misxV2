@@ -111,7 +111,7 @@ class OptionExpansionList extends StatelessWidget {
     } else if (menu == ROUTE_MENU_RANKSTATUS) {
       valueList.add(object.ranking); // Title
       valueList.add(object.customerName);
-      valueList.add(f.format(int.parse(object.salesAmount ?? 0)));
+      valueList.add(f.format(int.parse(object.salesAmount ?? '0')));
     }
     return valueList;
   }
@@ -138,11 +138,11 @@ class OptionExpansionList extends StatelessWidget {
     } else if (menu == ROUTE_MENU_RANKSTATUS) {
       valueList.add(object.ranking);
       valueList.add(object.customerName);
-      valueList.add(f.format(int.parse(object.salesAmount ?? 0)));
-      valueList.add(f.format(int.parse(object.supplementAmount ?? 0)));
-      valueList.add(f.format(int.parse(object.profitAmount ?? 0)));
+      valueList.add(f.format(int.parse(object.salesAmount ?? '0')));
+      valueList.add(f.format(int.parse(object.supplementAmount ?? '0')));
+      valueList.add(f.format(int.parse(object.profitAmount ?? '0')));
       valueList.add(object.profitRate);
-      valueList.add(f.format(int.parse(object.bondBalance ?? 0)));
+      valueList.add(f.format(int.parse(object.bondBalance ?? '0')));
     }
     return valueList;
   }
