@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/management/sales_class_status.dart';
 
+import '../../common/field/show_list_detail_row.dart';
+import '../../common/field/show_list_header_row.dart';
+
 class SalesClassStatusItem extends StatelessWidget {
   var dataList;
 
@@ -13,88 +16,56 @@ class SalesClassStatusItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: context.theme.backgroundColor,
-        child: ExpansionPanelList.radio(
-          animationDuration: Duration(milliseconds: 1000),
-          children: dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
-            return ExpansionPanelRadio(
-              value: model.salesClassCode.toString(),
-              backgroundColor: context.theme.backgroundColor,
-              headerBuilder: (BuildContext context, bool isExpanded) {
-                return Row(
-                  children: [
-                    Text(
-                      '판매유형\n\n' + model.salesClassName.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'BOX\n\n' + model.boxQuantity.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'EA\n\n' + model.bottleQuantity.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '매출액\n\n' + model.totalAmount.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                );
-              },
-              body: Column(
-                children: [
-                  Row(
+        color: context.theme.cardColor,
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: context.theme.cardColor,
+            ),
+            onPressed: () {},
+            child: ExpansionPanelList.radio(
+              animationDuration: Duration(milliseconds: 500),
+              children: dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
+                return ExpansionPanelRadio(
+                  value: model.salesClassCode.toString(),
+                  backgroundColor: context.theme.cardColor,
+                  headerBuilder: (BuildContext context, bool isExpanded) {
+                    return ShowListHeaderRow(titleName: '', value: model.salesClassName.toString());
+                  },
+                  body: Column(
                     children: [
-                      Text(
-                        '매출공급가\n\n' + model.supplementAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      ShowListDetailRow(
+                        titleName: 'BOX',
+                        value: model.boxQuantity.toString(),
                       ),
-                      SizedBox(
-                        width: 10,
+                      ShowListDetailRow(
+                        titleName: 'EA',
+                        value: model.bottleQuantity.toString(),
                       ),
-                      Text(
-                        '매출원가\n\n' + model.purchaseAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      ShowListDetailRow(
+                        titleName: '매출액',
+                        value: model.totalAmount.toString(),
                       ),
-                      SizedBox(
-                        width: 10,
+                      ShowListDetailRow(
+                        titleName: '매출공급가',
+                        value: model.supplementAmount.toString(),
                       ),
-                      Text(
-                        '마진액\n\n' + model.profitAmount.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      ShowListDetailRow(
+                        titleName: '매출원가',
+                        value: model.purchaseAmount.toString(),
                       ),
-                      SizedBox(
-                        width: 10,
+                      ShowListDetailRow(
+                        titleName: '마진액',
+                        value: model.profitAmount.toString(),
                       ),
-                      Text(
-                        '마진률\n\n' + model.profitRate.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
+                      ShowListDetailRow(
+                        titleName: '마진율',
+                        value: model.profitRate.toString(),
                       ),
                     ],
                   ),
-                ],
-              ),
-            );
-          }).toList(),
-        ),
+                );
+              }).toList(),
+            )),
       ),
     );
   }

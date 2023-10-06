@@ -5,8 +5,8 @@ part 'overallasset.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class OverAllAssetModel {
-  String? totQty; // 신규대여수량
-  String? totAmt; // 신규대여금액
+  var totQty; // 신규대여수량
+  var totAmt; // 신규대여금액
 
   OverAllAssetModel(this.totQty, this.totAmt);
 

@@ -5,7 +5,6 @@ import 'package:misxV2/layouts/dashboard.dart';
 import 'package:misxV2/layouts/menu/menu_list.dart';
 
 import '../utils/constants.dart';
-import '../utils/theme/color_manager.dart';
 import '../utils/utility.dart';
 import 'config/config.dart';
 
@@ -60,18 +59,18 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
-          color: CommonColors.bluesky,
-          backgroundColor: context.theme.backgroundColor,
-          buttonBackgroundColor: context.theme.backgroundColor,
+          color: context.theme.cardColor,
+          backgroundColor: context.theme.cardColor,
+          buttonBackgroundColor: context.theme.cardColor,
           items: [
             Container(
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.home, color: CommonColors.navigation),
+                  Icon(Icons.home, color: context.theme.primaryColor),
                   Text(
                     'nav_home'.tr,
-                    style: TextStyle(color: CommonColors.navigation),
+                    style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
               ),
@@ -92,10 +91,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.menu, color: CommonColors.navigation),
+                  Icon(Icons.menu, color: context.theme.primaryColor),
                   Text(
                     'nav_menu'.tr,
-                    style: TextStyle(color: CommonColors.navigation),
+                    style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
               ),
@@ -116,10 +115,10 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.more_horiz_sharp, color: CommonColors.navigation),
+                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
                   Text(
                     'nav_more'.tr,
-                    style: TextStyle(color: CommonColors.navigation),
+                    style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
               ),

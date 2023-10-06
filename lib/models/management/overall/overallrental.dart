@@ -5,21 +5,21 @@ part 'overallrental.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class OverAllRentalModel {
-  String? lendAmt; // 대여금액
-  String? inspayLendAmt; // 회수예정금액
-  String? retrvAmt; // 회수금액
-  String? remAmt; // 미회수잔액
-  String? totAmt; // 대여금잔액
+  var lendAmt; // 대여금액
+  var inspayLendAmt; // 회수예정금액
+  var retrvAmt; // 회수금액
+  var remAmt; // 미회수잔액
+  var totAmt; // 대여금잔액
 
   OverAllRentalModel(this.lendAmt, this.inspayLendAmt, this.retrvAmt, this.remAmt, this.totAmt);
 
   Map<String, dynamic> toMap() {
     return {
-      'rental-amount': lendAmt,
-      'expected-rental-amount': inspayLendAmt,
-      'recall-amount': retrvAmt,
-      'unrecall-amount': remAmt,
-      'rental-balance': totAmt,
+      'amount': lendAmt,
+      'collect': inspayLendAmt,
+      'collect-target': retrvAmt,
+      'collect-balance': remAmt,
+      'balance': totAmt,
     };
   }
 

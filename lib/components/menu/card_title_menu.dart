@@ -17,7 +17,7 @@ class CardTitleMenuList extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             menuTitleName,
-            style: context.textTheme.headline1,
+            style: context.textTheme.displayLarge,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -25,7 +25,7 @@ class CardTitleMenuList extends StatelessWidget {
           elevation: 0.5,
           margin: EdgeInsets.zero,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-          color: context.theme.backgroundColor,
+          color: context.theme.cardColor,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
@@ -44,7 +44,7 @@ class CardTitleMenuList extends StatelessWidget {
       child: Container(
         height: 50,
         //color: Color(AppColor),
-        color: context.theme.backgroundColor,
+        color: context.theme.cardColor,
         child: Row(
           children: [
             Icon(
@@ -55,7 +55,7 @@ class CardTitleMenuList extends StatelessWidget {
             SizedBox(width: 20),
             Text(
               title,
-              style: context.textTheme.subtitle1,
+              style: context.textTheme.displaySmall,
             ),
           ],
         ),

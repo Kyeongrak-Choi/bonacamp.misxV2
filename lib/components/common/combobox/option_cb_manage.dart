@@ -22,7 +22,7 @@ class OptionCbManage extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_manage'.tr,
-                      style: context.textTheme.bodyText1,
+                      style: context.textTheme.displaySmall,
                     )),
               ),
             )),
@@ -34,16 +34,16 @@ class OptionCbManage extends StatelessWidget {
                   () => DropdownButtonFormField(
                     isExpanded: true,
                     value: Get.find<CbManageController>().selectedValue,
-                    style: context.textTheme.bodyText1,
+                    style: context.textTheme.displaySmall,
                     decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.backgroundColor,
+                    dropdownColor: context.theme.cardColor,
                     items: Get.find<CbManageController>().data.map((selectedValue) {
                       return DropdownMenuItem(
                         alignment: Alignment.center,
                         value: selectedValue,
                         child: Text(
                           selectedValue.getManageName ?? "",
-                          style: context.textTheme.bodyText1,
+                          style: context.textTheme.displaySmall,
                         ),
                       );
                     }).toList(),

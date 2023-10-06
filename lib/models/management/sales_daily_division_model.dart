@@ -168,15 +168,15 @@ class SalesDailyDivisionModel {
 List<SalesDailyDivisionModel> generateSalesDailyDivisionList(dataList, count) {
   var f = NumberFormat('###,###,###,###');
   return List.generate(
-      count ~/ 2,
+      count,
       (index) => SalesDailyDivisionModel(
           dataList[index].itemCode,
           dataList[index].itemName,
           dataList[index].usageCode,
           dataList[index].usageName,
-          dataList[index].boxQuantity,
-          dataList[index].bottleQuantity,
-          dataList[index].amount,
+          f.format(int.parse(dataList[index].boxQuantity ?? '0')),
+          f.format(int.parse(dataList[index].bottleQuantity ?? '0')),
+          f.format(int.parse(dataList[index].amount ?? '0')),
           dataList[index].pleasureBoxTotalQuantity,
           dataList[index].pleasureBottleTotalQuantity,
           dataList[index].pleasureTotalAmount,

@@ -26,15 +26,15 @@ class OptionExpansionListItem extends StatelessWidget {
               child: Row(children: [
                 Text(
                   '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex],
-                  style: context.textTheme.bodyText2,
+                  style: context.textTheme.displaySmall,
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 if (extraindex + 1 < itemTilteList.length)
                   Text(
-                    '[' + itemTilteList[extraindex] + ' ] ' + itemValueList[extraindex + 1],
-                    style: context.textTheme.bodyText2,
+                    '[' + itemTilteList[extraindex + 1] + ' ] ' + itemValueList[extraindex + 1],
+                    style: context.textTheme.displaySmall,
                   ),
               ]));
         });

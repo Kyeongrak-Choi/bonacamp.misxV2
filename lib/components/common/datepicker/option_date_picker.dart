@@ -19,7 +19,7 @@ class OptionDatePicker extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'opt_date'.tr,
-                  style: context.textTheme.bodyText1,
+                  style: context.textTheme.displaySmall,
                 ),
               ),
             ),
@@ -36,7 +36,7 @@ class OptionDatePicker extends StatelessWidget {
                   onPressed: () => Get.find<DatePickerController>().chooseDate(),
                   child: Text(
                     DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                    style: context.textTheme.bodyLarge,
+                    style: context.textTheme.displaySmall,
                   ),
                 ),
               ),
@@ -45,21 +45,6 @@ class OptionDatePicker extends StatelessWidget {
         ),
       ),
     ]);
-
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   children: [
-    //     Obx(
-    //       () => TextButton(
-    //         onPressed: () => Get.find<DatePickerController>().chooseDate(),
-    //         child: Text(
-    //           DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-    //           style: TextStyle(fontSize: 20),
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }
 

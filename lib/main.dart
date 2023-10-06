@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
-import 'package:misxV2/layouts/example/menu_example.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
@@ -69,7 +68,6 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_NATIGATION, page: () => Navigation()), // Main
         GetPage(name: ROUTE_POLICY, page: () => PrivacyPolicy()), // Policy
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
-        //GetPage(name: ROUTE_NOTICE, page: () => ), // Config
         GetPage(name: ROUTE_SYSTEM_CONFIG, page: () => SystemConfig()), // Config - SystemConfig
         GetPage(name: ROUTE_MENU_CONFIG, page: () => MenuConfig()), // Config - MenuConfig
 
@@ -79,9 +77,6 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_DIALOG_ITEM, page: () => SearchDialog(SEARCH_DIALOG_ITEM)), // Search item Dialog
         GetPage(name: ROUTE_DIALOG_LENDITM, page: () => SearchDialog(SEARCH_DIALOG_LEND)), // Search lendItem Dialog
 
-        // example
-        GetPage(name: ROUTE_MENU_EXAMPLE, page: () => MenuExample()),
-
         // 경영분석
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황
         GetPage(name: ROUTE_MENU_SALES_DAILY, page: () => SalesDaily()), // 영업일보
@@ -89,9 +84,9 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER, page: () => CustomerContribute()), // 매출처별 기여현황
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
         GetPage(name: ROUTE_MENU_RANKSTATUS, page: () => SalesRank()), // 매출순위현황
-        GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
-        GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석그래프
+        GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석 그래프
+        GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
       ],
       home: Login(),
     );

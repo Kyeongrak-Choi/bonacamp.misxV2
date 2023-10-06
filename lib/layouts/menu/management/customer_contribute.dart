@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/components/datatable/customer_contribute_table.dart';
+import 'package:misxV2/components/datatable/management/customer_contribute_table.dart';
 import 'package:misxV2/models/management/customer_contribute_model.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -23,16 +23,20 @@ class CustomerContribute extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerContributeController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('매출처별 기여현황'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<CustomerContributeController>().visible.value),
-              onPressed: () {
-                Get.find<CustomerContributeController>().setVisible();
-              },
-            ),
-          ]),
+          appBar: AppBar(
+              title: Text('menu_sub_customer_contribute'.tr),
+              backgroundColor: context.theme.cardColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<CustomerContributeController>().visible.value),
+                  onPressed: () {
+                    Get.find<CustomerContributeController>().setVisible();
+                  },
+                ),
+              ]),
           body: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: Column(
               children: [
                 Visibility(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/management/sales_daily_model.dart';
+import '../../common/field/show_list_detail_row.dart';
+import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyItem extends StatelessWidget {
   var dataList;
@@ -14,113 +16,62 @@ class SalesDailyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: context.theme.backgroundColor,
+        color: context.theme.cardColor,
         child: ExpansionPanelList.radio(
-          animationDuration: Duration(milliseconds: 1000),
+          animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
               value: model.id.toString(),
-              backgroundColor: context.theme.backgroundColor,
+              backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return Row(
-                  children: [
-                    Text(
-                      '[담당자] ' + model.employeeName.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                );
+                return ShowListHeaderRow(titleName: '', value: model.employeeName.toString());
               },
               body: Column(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        '공급가\n(일/월)\n' + model.supplementAmount_D.toString() + '  ' + model.supplementAmount_M.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '부가세\n(일/월)\n' + model.vatAmount_D.toString() + '  ' + model.vatAmount_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '보증금합계\n(일/월)\n' + model.guaranteeAmount_D.toString() + '  ' + model.guaranteeAmount_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '총계\n(일/월)\n' + model.totalAmount_D.toString() + '  ' + model.totalAmount_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                  ShowListDetailRow(
+                    titleName: '',
+                    value: '( 일 / 월 )',
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        '매출원가\n(일/월)\n' + model.purchaseCost_D.toString() + '  ' + model.purchaseCost_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '매출이익\n(일/월)\n' + model.profitAmount_D.toString() + '  ' + model.profitAmount_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '입금소계\n(일/월)\n' + model.depositCash_D.toString() + '  ' + model.depositCash_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '용공입금\n(일/월)\n' + model.depositEmptyCaseBottle_D.toString() + '  ' + model.depositEmptyCaseBottle_D.toString(),
-                        style: context.textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
+                  ShowListDetailRow(
+                    titleName: '공급가',
+                    value: model.supplementAmount_D.toString() + '\n' + model.supplementAmount_M.toString(),
                   ),
-                  Row(children: [
-                    Text(
-                      '입금합계\n(일/월)\n' + model.depositAmount_D.toString() + '  ' + model.depositAmount_D.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '채권잔액\n(일/월)\n' + model.bondBalance_D.toString() + '  ' + model.bondBalance_D.toString(),
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                  ])
+                  ShowListDetailRow(
+                    titleName: '부가세',
+                    value: model.vatAmount_D.toString() + '\n' + model.vatAmount_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '보증금합계',
+                    value: model.guaranteeAmount_D.toString() + '\n' + model.guaranteeAmount_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '총계',
+                    value: model.totalAmount_D.toString() + '\n' + model.totalAmount_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '매출원가',
+                    value: model.purchaseCost_D.toString() + '\n' + model.purchaseCost_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '매출이익',
+                    value: model.profitAmount_D.toString() + '\n' + model.profitAmount_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '입금소계',
+                    value: model.depositCash_D.toString() + '\n' + model.depositCash_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '용공입금',
+                    value: model.depositEmptyCaseBottle_D.toString() + '\n' + model.depositEmptyCaseBottle_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '입금합계',
+                    value: model.depositAmount_D.toString() + '\n' + model.depositAmount_M.toString(),
+                  ),
+                  ShowListDetailRow(
+                    titleName: '채권잔액',
+                    value: model.bondBalance_D.toString() + '\n' + model.bondBalance_M.toString(),
+                  ),
                 ],
               ),
             );

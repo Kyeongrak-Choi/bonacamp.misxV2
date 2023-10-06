@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../layouts/menu/management/customer_contribute.dart';
-import '../common/field/show_long_title_field.dart';
-import '../common/field/show_short_title_field.dart';
+import '../../../layouts/menu/management/customer_contribute.dart';
+import '../../common/field/show_long_title_field.dart';
 
 class CustomerContributeTable extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
@@ -14,7 +13,7 @@ class CustomerContributeTable extends StatelessWidget {
     Get.put(CustomerContributeController());
     return GetBuilder<CustomerContributeController>(builder: (CustomerContributeController controller) {
       return Container(
-        color: context.theme.backgroundColor,
+        color: context.theme.cardColor,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
           child: ListView(
@@ -69,27 +68,27 @@ class CustomerContributeTable extends StatelessWidget {
                   width: 500,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
-              ShowShortTitleField(
+              ShowLongTitleField(
                   titleName: '채권잔액',
                   value: controller.controllerCustomerContribute != null
                       ? f.format(int.parse(controller.controllerCustomerContribute.bondBalance ?? '0'))
                       : '0'),
-              ShowShortTitleField(
+              ShowLongTitleField(
                   titleName: '대여금액',
                   value: controller.controllerCustomerContribute != null
                       ? f.format(int.parse(controller.controllerCustomerContribute.rentalBalance ?? '0'))
                       : '0'),
-              ShowShortTitleField(
+              ShowLongTitleField(
                   titleName: '대여자산',
                   value: controller.controllerCustomerContribute != null
                       ? f.format(int.parse(controller.controllerCustomerContribute.rentalAmount ?? '0'))
                       : '0'),
-              ShowShortTitleField(
+              ShowLongTitleField(
                   titleName: '대여수량',
                   value: controller.controllerCustomerContribute != null
                       ? f.format(int.parse(controller.controllerCustomerContribute.rentalAssetQuantity ?? '0'))
                       : '0'),
-              ShowShortTitleField(
+              ShowLongTitleField(
                   titleName: '기여금액',
                   value: controller.controllerCustomerContribute != null
                       ? f.format(int.parse(controller.controllerCustomerContribute.contributeAmount ?? '0'))
@@ -100,14 +99,12 @@ class CustomerContributeTable extends StatelessWidget {
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               ShowLongTitleField(
                   titleName: '거래시작일',
-                  value: controller.controllerCustomerContribute != null
-                      ? f.format(int.parse(controller.controllerCustomerContribute.transactionStartDate ?? '0'))
-                      : '0'),
+                  value:
+                      controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionStartDate ?? '0') : '0'),
               ShowLongTitleField(
                   titleName: '최종거래일',
-                  value: controller.controllerCustomerContribute != null
-                      ? f.format(int.parse(controller.controllerCustomerContribute.transactionLastDate ?? '0'))
-                      : '0'),
+                  value:
+                      controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionLastDate ?? '0') : '0'),
               Container(
                   width: 500,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),

@@ -4,6 +4,6 @@ import 'package:misxV2/utils/theme/color_manager.dart';
 LineTouchData get lineTouchData => LineTouchData(
       handleBuiltInTouches: true,
       touchTooltipData: LineTouchTooltipData(
-        tooltipBgColor: CommonColors.navigation.withOpacity(0.5),
+        tooltipBgColor: CommonColors.chartborder,
       ),
     );

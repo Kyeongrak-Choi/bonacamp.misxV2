@@ -32,7 +32,7 @@ class SearchListItem extends StatelessWidget {
               Expanded(
                 child: Text(
                   '[' + code + '] ' + name,
-                  style: context.textTheme.bodyText2,
+                  style: context.textTheme.displaySmall,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -44,7 +44,7 @@ class SearchListItem extends StatelessWidget {
                 flex: 5,
                 child: Text(
                   sub,
-                  style: context.textTheme.bodyText2,
+                  style: context.textTheme.displaySmall,
                 ),
               ),
               Expanded(
@@ -52,7 +52,7 @@ class SearchListItem extends StatelessWidget {
                 child: Text(
                   stat,
                   textAlign: TextAlign.right,
-                  style: context.textTheme.bodyText2,
+                  style: context.textTheme.displaySmall,
                 ),
               )
             ],

@@ -20,14 +20,14 @@ class DashBoardItem extends StatelessWidget {
             Container(
               child: Text(
                 code,
-                style: context.textTheme.bodyText1,
+                style: context.textTheme.displaySmall,
               ),
             ),
             Expanded(
               child: Text(
                 name,
                 textAlign: TextAlign.right,
-                style: context.textTheme.bodyText1,
+                style: context.textTheme.displaySmall,
               ),
             )
           ],

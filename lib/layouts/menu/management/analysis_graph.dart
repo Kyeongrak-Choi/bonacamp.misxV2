@@ -26,7 +26,7 @@ class AnalysisGraph extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_analysis_graph'.tr),
-              backgroundColor: context.theme.backgroundColor,
+              backgroundColor: context.theme.cardColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -37,7 +37,7 @@ class AnalysisGraph extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: Column(
               children: [
                 Visibility(

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
-import '../../../layouts/example/menu_example.dart';
 import '../../../layouts/menu/management/analysis_graph.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
 import '../../../layouts/menu/management/overall_status.dart';
@@ -23,7 +22,6 @@ class OptionBtnSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(MenuExampleController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -31,7 +29,7 @@ class OptionBtnSearch extends StatelessWidget {
             child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
           child: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);

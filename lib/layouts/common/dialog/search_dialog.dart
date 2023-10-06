@@ -20,12 +20,12 @@ class SearchDialog extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
-          backgroundColor: context.theme.backgroundColor,
+          backgroundColor: context.theme.cardColor,
           iconTheme: context.theme.iconTheme,
         ),
-        backgroundColor: context.theme.backgroundColor,
+        backgroundColor: context.theme.cardColor,
         body: Container(
-          color: context.theme.backgroundColor,
+          color: context.theme.cardColor,
           child: Center(
             child: Column(
               children: <Widget>[

@@ -26,13 +26,13 @@ class OverAllModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'overAllSales': overAllSales,
-      'overAllPuchase': overAllPurchase,
-      'overAllDeposit': overAllDeposit,
-      'overAllWithdraw': overAllWithdraw,
-      'overAllReturn': overAllReturn,
-      'overAllRental': overAllRental,
-      'overAllAsset': overAllAsset,
+      'sales': overAllSales,
+      'purchase': overAllPurchase,
+      'deposit': overAllDeposit,
+      'withdraw': overAllWithdraw,
+      'rental': overAllReturn,
+      'asset': overAllRental,
+      'return': overAllAsset,
     };
   }
 

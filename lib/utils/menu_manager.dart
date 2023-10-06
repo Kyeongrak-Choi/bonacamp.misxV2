@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
@@ -67,13 +68,13 @@ final List<IconMenu> commonModulesMaster = [
 
 final List<IconMenu> managementAnalysisMaster = [
   IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
-  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: Icons.leaderboard, path: ROUTE_MENU_SALES_DAILY),
+  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY),
   IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE),
-  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
+  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: FontAwesomeIcons.buildingCircleCheck, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
   IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS),
-  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_RANKSTATUS),
+  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: FontAwesomeIcons.medal, path: ROUTE_MENU_RANKSTATUS),
   IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH),
-  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_DIVISIONSTATUS),
+  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: FontAwesomeIcons.calendar, path: ROUTE_MENU_DIVISIONSTATUS),
 ];
 
 final List<IconMenu> salesAnalysisMaster = [

@@ -32,19 +32,19 @@ const Map<String, String> koKR = {
   'isCompareFirst': '초성검색시 첫글자부터 비교',
 
   // Dialog search customer
-  'title_search_customer': '거래처 검색',
+  'title_search_customer': '거래처',
   'hint_search_customer': '거래처 코드/명을 입력해주세요.',
 
   // Dialog search purchase
-  'title_search_purchase': '매입처 검색',
+  'title_search_purchase': '매입처',
   'hint_search_purchase': '매입처 코드/명을 입력해주세요.',
 
   // Dialog search item
-  'title_search_item': '품목 검색',
+  'title_search_item': '품목',
   'hint_search_item': '품목 코드/명을 입력해주세요.',
 
   // Dialog search lendItem
-  'title_search_lenditem': '용공 검색',
+  'title_search_lenditem': '용공',
   'hint_search_lenditem': '용공 코드/명을 입력해주세요.',
 
   // Period Picker
@@ -77,7 +77,7 @@ const Map<String, String> koKR = {
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
-  'opt_customer_status': '거래처 상태',
+  'opt_customer_status': '거래처\n상태',
   'opt_graph_type': '종류',
   'opt_team': '팀',
 

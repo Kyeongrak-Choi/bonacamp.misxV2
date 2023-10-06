@@ -5,17 +5,17 @@ part 'overalldeposit.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class OverAllDepositModel {
-  String? retrvAmt; // 회수액
-  String? ipTot; // 입금액
-  String? amt; // 채권잔액
+  var retrvAmt; // 회수액
+  var ipTot; // 입금액
+  var amt; // 채권잔액
 
   OverAllDepositModel(this.retrvAmt, this.ipTot, this.amt);
 
   Map<String, dynamic> toMap() {
     return {
-      'recall-amount': retrvAmt,
-      'deposit-amount': ipTot,
-      'bond-balance': amt,
+      'collect': retrvAmt,
+      'amount': ipTot,
+      'balance': amt,
     };
   }
 

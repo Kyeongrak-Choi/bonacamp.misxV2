@@ -9,10 +9,11 @@ import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manage.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/components/common/list/option_expansion_list.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/emptyWidget.dart';
+import '../../../components/datatable/management/sales_rank_Item.dart';
 import '../../../models/management/sales_rank_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -24,7 +25,8 @@ class SalesRank extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('매출순위현황'), backgroundColor: context.theme.backgroundColor, iconTheme: context.theme.iconTheme, actions: [
+          appBar:
+              AppBar(title: Text('menu_sub_sales_rank'.tr), backgroundColor: context.theme.cardColor, iconTheme: context.theme.iconTheme, actions: [
             IconButton(
               icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
               onPressed: () {
@@ -33,7 +35,7 @@ class SalesRank extends StatelessWidget {
             ),
           ]),
           body: Container(
-            color: context.theme.backgroundColor,
+            color: context.theme.cardColor,
             child: Column(
               children: [
                 Visibility(
@@ -49,12 +51,22 @@ class SalesRank extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: OptionExpansionList(ROUTE_MENU_RANKSTATUS),
+                  child: ListView(
+                    children: <Widget>[setChild()],
+                  ),
                 ),
               ],
             ),
           ),
         ));
+  }
+
+  Widget setChild() {
+    if (Get.find<SalesRankController>().salesRankList != null) {
+      return SalesRankItem(Get.find<SalesRankController>().salesRankList);
+    } else {
+      return EmptyWidget();
+    }
   }
 }
 
@@ -86,8 +98,7 @@ class SalesRankController extends GetxController {
 
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_RANKSTATUS +
-          ''
-              '?branch-code=' +
+          '?branch-code=' +
           paramBranchCode +
           '&from-date=' +
           paramFromDate +

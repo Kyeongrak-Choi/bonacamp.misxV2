@@ -42,7 +42,7 @@ class OptionExpansionList extends StatelessWidget {
           ? Container(
               color: context.theme.backgroundColor,
               child: ExpansionPanelList.radio(
-                animationDuration: Duration(milliseconds: 1000),
+                animationDuration: Duration(milliseconds: 500),
                 children: expansionObjectList.map<ExpansionPanelRadio>((var expansionModel) {
                   itemValueList.add(objectItemValueToList(expansionModel));
                   expansionTitleValueList.add(objectItemTitleValueToList(expansionModel));
@@ -57,9 +57,9 @@ class OptionExpansionList extends StatelessWidget {
                       },
                       // body:Text(
                       //   '[test ] ' + itemValueList[0],
-                      //   style: context.textTheme.bodyText2,
+                      //   style: context.textTheme.displaySmall,
                       // ),
-                      body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList[itemCount]));
+                      body: OptionExpansionListItem(itemTilteList: itemNameList, itemValueList: itemValueList[itemCount++]));
                 }).toList(),
               ),
             )
@@ -72,7 +72,7 @@ class OptionExpansionList extends StatelessWidget {
       children: [
         Text(
           '[' + (title1 ?? '') + '] ' + value1 ?? '',
-          style: context.textTheme.bodyText1,
+          style: context.textTheme.displayMedium,
           overflow: TextOverflow.ellipsis,
         ),
         SizedBox(
@@ -82,7 +82,7 @@ class OptionExpansionList extends StatelessWidget {
           flex: 1,
           child: Text(
             '[' + (title2 ?? '') + '] ' + value2 ?? '',
-            style: context.textTheme.bodyText1,
+            style: context.textTheme.displayMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -93,7 +93,7 @@ class OptionExpansionList extends StatelessWidget {
             flex: 1,
             child: Text(
               '[' + (title3 ?? '') + '] ' + value3 ?? '',
-              style: context.textTheme.bodyText1,
+              style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,
             )),
       ],
@@ -111,7 +111,7 @@ class OptionExpansionList extends StatelessWidget {
     } else if (menu == ROUTE_MENU_RANKSTATUS) {
       valueList.add(object.ranking); // Title
       valueList.add(object.customerName);
-      valueList.add(f.format(int.parse(object.salesAmount ?? 0)));
+      valueList.add(f.format(int.parse(object.salesAmount ?? '0')));
     }
     return valueList;
   }
@@ -138,11 +138,11 @@ class OptionExpansionList extends StatelessWidget {
     } else if (menu == ROUTE_MENU_RANKSTATUS) {
       valueList.add(object.ranking);
       valueList.add(object.customerName);
-      valueList.add(f.format(int.parse(object.salesAmount ?? 0)));
-      valueList.add(f.format(int.parse(object.supplementAmount ?? 0)));
-      valueList.add(f.format(int.parse(object.profitAmount ?? 0)));
+      valueList.add(f.format(int.parse(object.salesAmount ?? '0')));
+      valueList.add(f.format(int.parse(object.supplementAmount ?? '0')));
+      valueList.add(f.format(int.parse(object.profitAmount ?? '0')));
       valueList.add(object.profitRate);
-      valueList.add(f.format(int.parse(object.bondBalance ?? 0)));
+      valueList.add(f.format(int.parse(object.bondBalance ?? '0')));
     }
     return valueList;
   }
