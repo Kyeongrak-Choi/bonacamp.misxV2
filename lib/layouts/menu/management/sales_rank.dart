@@ -9,8 +9,6 @@ import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manage.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/components/common/list/option_expansion_list.dart';
-import 'package:misxV2/layouts/menu/management/sales_daily.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -27,17 +25,15 @@ class SalesRank extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_sales_rank'.tr),
-              backgroundColor: context.theme.cardColor,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesRankController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar:
+              AppBar(title: Text('menu_sub_sales_rank'.tr), backgroundColor: context.theme.cardColor, iconTheme: context.theme.iconTheme, actions: [
+            IconButton(
+              icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
+              onPressed: () {
+                Get.find<SalesRankController>().setVisible();
+              },
+            ),
+          ]),
           body: Container(
             color: context.theme.cardColor,
             child: Column(
@@ -72,7 +68,6 @@ class SalesRank extends StatelessWidget {
       return EmptyWidget();
     }
   }
-
 }
 
 class SalesRankController extends GetxController {
@@ -101,12 +96,18 @@ class SalesRankController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_MANAGEMENT + API_MANAGEMENT_RANKSTATUS
-          + '?branch-code=' + paramBranchCode
-          + '&from-date=' + paramFromDate
-          + '&to-date=' + paramToDate
-          + '&employee-code=' + paramEmployeeCode
-          + '&management-code=' + paramManagementCode);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_RANKSTATUS +
+          '?branch-code=' +
+          paramBranchCode +
+          '&from-date=' +
+          paramFromDate +
+          '&to-date=' +
+          paramToDate +
+          '&employee-code=' +
+          paramEmployeeCode +
+          '&management-code=' +
+          paramManagementCode);
 
       if (response.statusCode == 200) {
         parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT];

@@ -6,29 +6,20 @@ part 'sales_rank_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class SalesRankModel {
-  String? ranking;          //랭크
-  String? customerCode;     //거래처코드
-  String? customerName;     //거래처명
-  String? salesAmount;      //매출액
+  String? ranking; //랭크
+  String? customerCode; //거래처코드
+  String? customerName; //거래처명
+  String? salesAmount; //매출액
   String? supplementAmount; //매출공급가
-  String? profitAmount;     //매출이익
-  String? profitRate;       //마진율
-  String? bondBalance;      //채권잔액
-  String? totalAmount;      //총금액
+  String? profitAmount; //매출이익
+  String? profitRate; //마진율
+  String? bondBalance; //채권잔액
+  String? totalAmount; //총금액
   int? id;
 
-  SalesRankModel(
-    this.ranking,
-    this.customerCode,
-    this.customerName,
-    this.salesAmount,
-    this.supplementAmount,
-    this.profitAmount,
-    this.profitRate,
-    this.bondBalance,
-    this.totalAmount,
-    {this.id}
-  );
+  SalesRankModel(this.ranking, this.customerCode, this.customerName, this.salesAmount, this.supplementAmount, this.profitAmount, this.profitRate,
+      this.bondBalance, this.totalAmount,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {

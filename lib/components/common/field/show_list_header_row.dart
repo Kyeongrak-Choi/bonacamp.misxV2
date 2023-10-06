@@ -11,7 +11,7 @@ class ShowListHeaderRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       Container(
-        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
         child: Text(
           titleName,
           style: context.textTheme.displaySmall,
@@ -19,16 +19,21 @@ class ShowListHeaderRow extends StatelessWidget {
         ),
       ),
       Expanded(
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: context.theme.cardColor,
-            ),
-            onPressed: () {},
-            child: Text(
-              value,
-              style: context.textTheme.displaySmall,
-              textAlign: TextAlign.center,
-            )),
+        // child: ElevatedButton(
+        //     style: ElevatedButton.styleFrom(
+        //       backgroundColor: context.theme.cardColor,
+        //     ),
+        //     onPressed: () {},
+        //     child: Text(
+        //       value,
+        //       style: context.textTheme.displaySmall,
+        //       textAlign: TextAlign.center,
+        //     )),
+        child: Text(
+          value,
+          style: context.textTheme.displaySmall,
+          textAlign: TextAlign.center,
+        ),
       ),
     ]);
   }

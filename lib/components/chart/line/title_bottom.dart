@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
-import 'package:misxV2/utils/theme/text_theme.dart';
 
 Widget bottomTitleWidgets(double value, TitleMeta meta) {
   const style = TextStyle(

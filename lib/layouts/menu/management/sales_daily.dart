@@ -27,17 +27,14 @@ class SalesDaily extends StatelessWidget {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
           appBar:
-              AppBar(title: Text('menu_sub_salesdaily'.tr),
-                  backgroundColor: context.theme.cardColor,
-                  iconTheme: context.theme.iconTheme,
-                  actions: [
-                    IconButton(
-                      icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
-                      onPressed: () {
-                        Get.find<SalesDailyController>().setVisible();
-                      },
-                    ),
-                  ]),
+              AppBar(title: Text('menu_sub_salesdaily'.tr), backgroundColor: context.theme.cardColor, iconTheme: context.theme.iconTheme, actions: [
+            IconButton(
+              icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
+              onPressed: () {
+                Get.find<SalesDailyController>().setVisible();
+              },
+            ),
+          ]),
           body: Container(
             color: context.theme.cardColor,
             child: Column(

@@ -25,34 +25,39 @@ class SalesDailyDivisionItem extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: context.theme.cardColor,
-        child: ExpansionPanelList.radio(
-          animationDuration: Duration(milliseconds: 1000),
-          children: dataList.map<ExpansionPanelRadio>((SalesDailyDivisionModel model) {
-            return ExpansionPanelRadio(
-              value: model.id.toString(),
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
               backgroundColor: context.theme.cardColor,
-              headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.itemName.toString());
-              },
-              body: Column(
-                children: [
-                  ShowListDetailRow(
-                    titleName: '용도',
-                    value: model.usageName.toString(),
+            ),
+            onPressed: () {},
+            child: ExpansionPanelList.radio(
+              animationDuration: Duration(milliseconds: 500),
+              children: dataList.map<ExpansionPanelRadio>((SalesDailyDivisionModel model) {
+                return ExpansionPanelRadio(
+                  value: model.id.toString(),
+                  backgroundColor: context.theme.cardColor,
+                  headerBuilder: (BuildContext context, bool isExpanded) {
+                    return ShowListHeaderRow(titleName: '', value: model.itemName.toString());
+                  },
+                  body: Column(
+                    children: [
+                      ShowListDetailRow(
+                        titleName: '용도',
+                        value: model.usageName.toString(),
+                      ),
+                      ShowListDetailRow(
+                        titleName: '수량\n( BOX / EA )',
+                        value: model.boxQuantity.toString() + ' / ' + model.bottleQuantity.toString(),
+                      ),
+                      ShowListDetailRow(
+                        titleName: '총계\n(공 + 부 + 보증금)',
+                        value: model.amount.toString(),
+                      ),
+                    ],
                   ),
-                  ShowListDetailRow(
-                    titleName: '수량\n( BOX / EA )',
-                    value: model.boxQuantity.toString() + ' / ' + model.bottleQuantity.toString(),
-                  ),
-                  ShowListDetailRow(
-                    titleName: '총계\n(공 + 부 + 보증금)',
-                    value: model.amount.toString(),
-                  ),
-                ],
-              ),
-            );
-          }).toList(),
-        ),
+                );
+              }).toList(),
+            )),
       ),
     );
   }

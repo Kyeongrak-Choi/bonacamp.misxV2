@@ -159,9 +159,7 @@ Future<Dio> reqApi(header) async {
 
         // API 복사본으로 재요청
         return errorInterceptorHandler.resolve(clonedRequest);
-      }else{
-
-      }
+      } else {}
     } else {
       return errorInterceptorHandler.next(dioError);
     }

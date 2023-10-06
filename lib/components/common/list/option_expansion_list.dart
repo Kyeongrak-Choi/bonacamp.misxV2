@@ -42,7 +42,7 @@ class OptionExpansionList extends StatelessWidget {
           ? Container(
               color: context.theme.backgroundColor,
               child: ExpansionPanelList.radio(
-                animationDuration: Duration(milliseconds: 1000),
+                animationDuration: Duration(milliseconds: 500),
                 children: expansionObjectList.map<ExpansionPanelRadio>((var expansionModel) {
                   itemValueList.add(objectItemValueToList(expansionModel));
                   expansionTitleValueList.add(objectItemTitleValueToList(expansionModel));

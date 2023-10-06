@@ -18,7 +18,7 @@ class SalesDailyItem extends StatelessWidget {
       child: Container(
         color: context.theme.cardColor,
         child: ExpansionPanelList.radio(
-          animationDuration: Duration(milliseconds: 1000),
+          animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
               value: model.id.toString(),
@@ -34,7 +34,7 @@ class SalesDailyItem extends StatelessWidget {
                   ),
                   ShowListDetailRow(
                     titleName: '공급가',
-                    value: model.supplementAmount_D.toString() + '\n'  + model.supplementAmount_M.toString(),
+                    value: model.supplementAmount_D.toString() + '\n' + model.supplementAmount_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '부가세',
@@ -46,15 +46,15 @@ class SalesDailyItem extends StatelessWidget {
                   ),
                   ShowListDetailRow(
                     titleName: '총계',
-                    value: model.totalAmount_D.toString() + '\n'  + model.totalAmount_M.toString(),
+                    value: model.totalAmount_D.toString() + '\n' + model.totalAmount_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '매출원가',
-                    value: model.purchaseCost_D.toString() + '\n'  + model.purchaseCost_M.toString(),
+                    value: model.purchaseCost_D.toString() + '\n' + model.purchaseCost_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '매출이익',
-                    value: model.profitAmount_D.toString() + '\n'  + model.profitAmount_M.toString(),
+                    value: model.profitAmount_D.toString() + '\n' + model.profitAmount_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '입금소계',
@@ -62,15 +62,15 @@ class SalesDailyItem extends StatelessWidget {
                   ),
                   ShowListDetailRow(
                     titleName: '용공입금',
-                    value: model.depositEmptyCaseBottle_D.toString() + '\n'  + model.depositEmptyCaseBottle_M.toString(),
+                    value: model.depositEmptyCaseBottle_D.toString() + '\n' + model.depositEmptyCaseBottle_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '입금합계',
-                    value: model.depositAmount_D.toString() + '\n'  + model.depositAmount_M.toString(),
+                    value: model.depositAmount_D.toString() + '\n' + model.depositAmount_M.toString(),
                   ),
                   ShowListDetailRow(
                     titleName: '채권잔액',
-                    value: model.bondBalance_D.toString() + '\n'  + model.bondBalance_M.toString(),
+                    value: model.bondBalance_D.toString() + '\n' + model.bondBalance_M.toString(),
                   ),
                 ],
               ),

@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 
 import '../../../layouts/menu/management/customer_contribute.dart';
 import '../../common/field/show_long_title_field.dart';
-import '../../common/field/show_short_title_field.dart';
 
 class CustomerContributeTable extends StatelessWidget {
   var f = NumberFormat('###,###,###,###');
