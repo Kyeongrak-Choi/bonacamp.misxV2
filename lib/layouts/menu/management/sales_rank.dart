@@ -55,7 +55,6 @@ class SalesRank extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                   //child: OptionExpansionList(ROUTE_MENU_RANKSTATUS),
                   child: ListView(
                     children: <Widget>[setChild()],
                   ),
