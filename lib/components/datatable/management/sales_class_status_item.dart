@@ -15,58 +15,59 @@ class SalesClassStatusItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        color: context.theme.cardColor,
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: context.theme.cardColor,
-            ),
-            onPressed: () {},
-            child: ExpansionPanelList.radio(
-              animationDuration: Duration(milliseconds: 500),
-              children: dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
-                return ExpansionPanelRadio(
-                  value: model.salesClassCode.toString(),
+          child: Container(
+            color: context.theme.cardColor,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: context.theme.cardColor,
-                  headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.salesClassName.toString());
-                  },
-                  body: Column(
-                    children: [
-                      ShowListDetailRow(
-                        titleName: 'BOX',
-                        value: model.boxQuantity.toString(),
+                  padding: EdgeInsetsDirectional.fromSTEB(3, 3, 3, 3),
+                ),
+                onPressed: () {},
+                child: ExpansionPanelList.radio(
+                  animationDuration: Duration(milliseconds: 500),
+                  children: dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
+                    return ExpansionPanelRadio(
+                      value: model.salesClassCode.toString(),
+                      backgroundColor: context.theme.cardColor,
+                      headerBuilder: (BuildContext context, bool isExpanded) {
+                        return ShowListHeaderRow(titleName: '', value: model.salesClassName.toString());
+                      },
+                      body: Column(
+                        children: [
+                          ShowListDetailRow(
+                            titleName: 'BOX',
+                            value: model.boxQuantity.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: 'EA',
+                            value: model.bottleQuantity.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: '매출액',
+                            value: model.totalAmount.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: '매출공급가',
+                            value: model.supplementAmount.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: '매출원가',
+                            value: model.purchaseAmount.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: '마진액',
+                            value: model.profitAmount.toString(),
+                          ),
+                          ShowListDetailRow(
+                            titleName: '마진율',
+                            value: model.profitRate.toString(),
+                          ),
+                        ],
                       ),
-                      ShowListDetailRow(
-                        titleName: 'EA',
-                        value: model.bottleQuantity.toString(),
-                      ),
-                      ShowListDetailRow(
-                        titleName: '매출액',
-                        value: model.totalAmount.toString(),
-                      ),
-                      ShowListDetailRow(
-                        titleName: '매출공급가',
-                        value: model.supplementAmount.toString(),
-                      ),
-                      ShowListDetailRow(
-                        titleName: '매출원가',
-                        value: model.purchaseAmount.toString(),
-                      ),
-                      ShowListDetailRow(
-                        titleName: '마진액',
-                        value: model.profitAmount.toString(),
-                      ),
-                      ShowListDetailRow(
-                        titleName: '마진율',
-                        value: model.profitRate.toString(),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            )),
-      ),
-    );
+                    );
+                  }).toList(),
+                )),
+          ),
+        );
   }
 }

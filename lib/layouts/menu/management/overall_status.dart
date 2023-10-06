@@ -30,7 +30,7 @@ class OverallStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('appbar_title_overall_status'.tr),
-              backgroundColor: context.theme.cardColor,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -41,24 +41,42 @@ class OverallStatus extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<OverAllController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodPicker(),
-                      OptionCbBranch(),
-                      OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: OverAllTable(),
-                ),
-              ],
-            ),
+            color: context.theme.canvasColor,
+            child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                child: Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<OverAllController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Column(
+                            children: [
+                              OptionPeriodPicker(),
+                              OptionCbBranch(),
+                              OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                            ],
+                          ),
+                        )),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                         child: OverAllTable()
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
           ),
         ));
   }

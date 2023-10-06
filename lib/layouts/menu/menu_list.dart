@@ -15,10 +15,6 @@ class MenuList extends StatelessWidget {
             child: ListView(
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               children: <Widget>[
-                // Padding(
-                //   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                //   child: CardTitleMenuList(menuTitleName: "공통 팝업(추후 삭제)", iconMenuList: commonModulesMaster),
-                // ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                   child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),

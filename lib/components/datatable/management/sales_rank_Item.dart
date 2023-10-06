@@ -20,6 +20,7 @@ class SalesRankItem extends StatelessWidget {
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: context.theme.cardColor,
+              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 0),
             ),
             onPressed: () {},
             child: ExpansionPanelList.radio(

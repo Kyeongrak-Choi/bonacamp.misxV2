@@ -61,7 +61,7 @@ class Navigation extends GetView<NavigationController> {
           height: 50,
           color: context.theme.cardColor,
           backgroundColor: context.theme.cardColor,
-          buttonBackgroundColor: context.theme.cardColor,
+          buttonBackgroundColor: context.theme.canvasColor,
           items: [
             Container(
               height: 50,

@@ -19,16 +19,6 @@ class ShowListHeaderRow extends StatelessWidget {
         ),
       ),
       Expanded(
-        // child: ElevatedButton(
-        //     style: ElevatedButton.styleFrom(
-        //       backgroundColor: context.theme.cardColor,
-        //     ),
-        //     onPressed: () {},
-        //     child: Text(
-        //       value,
-        //       style: context.textTheme.displaySmall,
-        //       textAlign: TextAlign.center,
-        //     )),
         child: Text(
           value,
           style: context.textTheme.displaySmall,
