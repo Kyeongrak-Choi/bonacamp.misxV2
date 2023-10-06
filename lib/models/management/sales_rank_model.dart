@@ -111,11 +111,11 @@ List<SalesRankModel> generateSalesRankList(dataList, count) {
           dataList[index].ranking,
           dataList[index].customerCode,
           dataList[index].customerName,
-          f.format(int.parse(dataList[index].salesAmount ?? 0)),
-          f.format(int.parse(dataList[index].supplementAmount ?? 0)),
-          f.format(int.parse(dataList[index].profitAmount ?? 0)),
+          f.format(int.parse(dataList[index].salesAmount ?? '0')),
+          f.format(int.parse(dataList[index].supplementAmount ?? '0')),
+          f.format(int.parse(dataList[index].profitAmount ?? '0')),
           dataList[index].profitRate,
-          f.format(int.parse(dataList[index].bondBalance ?? 0)),
-          f.format(int.parse(dataList[index].totalAmount ?? 0)),
+          f.format(int.parse(dataList[index].bondBalance ?? '0')),
+          f.format(int.parse(dataList[index].totalAmount ?? '0')),
           id: index));
 }
