@@ -16,7 +16,7 @@ class Config extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OptionController());
     return Scaffold(
-      backgroundColor: context.theme.cardColor,
+      backgroundColor: context.theme.canvasColor,
       body: ListView(
         children: <Widget>[
           Padding(
@@ -24,7 +24,7 @@ class Config extends StatelessWidget {
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(
-                    color: context.theme.canvasColor,
+                    color: context.theme.cardColor,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20.0),
                         bottomRight: Radius.circular(20.0),
@@ -56,12 +56,23 @@ class Config extends StatelessWidget {
           //   child: CardIconMenu(iconMenuList: noticeMaster),
           // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: systemMaster),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: menuMaster),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.theme.cardColor,
+                borderRadius: BorderRadius.circular(20),
+                shape: BoxShape.rectangle,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                child: Column(
+                  children: [
+                    CardIconMenu(iconMenuList: systemMaster),
+                    CardIconMenu(iconMenuList: menuMaster),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),

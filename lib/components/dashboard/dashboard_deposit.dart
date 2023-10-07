@@ -7,7 +7,6 @@ import '../../utils/utility.dart';
 import 'dashboard_item.dart';
 
 class DashBoardDeposit extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardController());
@@ -37,16 +36,18 @@ class DashBoardDeposit extends StatelessWidget {
                   // dummy
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child:
-                        DashBoardItem('회수계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.retrvAmt) : '0'),
+                    child: DashBoardItem(
+                        '회수계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.retrvAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem('입금계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.ipTot) : '0'),
+                    child: DashBoardItem(
+                        '입금계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.ipTot) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem('채권계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.amt) : '0'),
+                    child: DashBoardItem(
+                        '채권계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.amt) : '0'),
                   ),
                 ],
               )),

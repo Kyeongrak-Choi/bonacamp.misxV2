@@ -7,7 +7,6 @@ import '../../common/field/show_long_title_field.dart';
 import '../../common/field/show_short_title_field.dart';
 
 class OverAllTable extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(OverAllController());

@@ -70,7 +70,6 @@ final List<RadioMenu> menuDetail = [
   ),
 ];
 
-
 /* Icon Reference
  1. cupertino * https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
   - example : iconData: CupertinoIcons.airplane
@@ -80,14 +79,22 @@ final List<RadioMenu> menuDetail = [
 
 // 경영분석
 final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS), // 종합현황
-  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY), // 영업일보
-  IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE), // 영업사원별 기여현황
-  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: FontAwesomeIcons.buildingCircleCheck, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER), // 매출처별 기여현황
-  IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS), // 판매분류별 현황
-  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: FontAwesomeIcons.medal, path: ROUTE_MENU_RANKSTATUS), // 매출순위현황
-  IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH), // 분석 그래프
-  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: FontAwesomeIcons.calendar, path: ROUTE_MENU_DIVISIONSTATUS), // 영업일보(용도별)
+  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
+  // 종합현황
+  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY),
+  // 영업일보
+  IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE),
+  // 영업사원별 기여현황
+  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: FontAwesomeIcons.buildingCircleCheck, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
+  // 매출처별 기여현황
+  IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS),
+  // 판매분류별 현황
+  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: FontAwesomeIcons.medal, path: ROUTE_MENU_RANKSTATUS),
+  // 매출순위현황
+  IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH),
+  // 분석 그래프
+  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: FontAwesomeIcons.calendar, path: ROUTE_MENU_DIVISIONSTATUS),
+  // 영업일보(용도별)
 ];
 
 // 영업분석
@@ -130,4 +137,3 @@ final List<IconMenu> inventoryAnalysisMaster = [
   IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(거래처)
   IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(영업담당)
 ];
-

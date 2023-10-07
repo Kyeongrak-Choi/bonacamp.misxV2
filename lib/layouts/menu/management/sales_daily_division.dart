@@ -72,30 +72,7 @@ class SalesDailyDivision extends StatelessWidget {
                     height: 20,
                   ),
                   Expanded(
-                    flex: divisionController.visible.value == true ? 1 : 2,
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  Expanded(
+                    flex: 1,
                     child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -104,42 +81,41 @@ class SalesDailyDivision extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: Expanded(
-                          flex: 1,
-                          child: Column(
-                            children: [
-                              Container(
-                                child: ShowDoubleValueField(null, '수량\n(BOX/EA)', '금액'),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
-                                    divisionController.pleasureAmountSum),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField(
-                                    '일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum, divisionController.normalAmountSum),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField(
-                                    '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField(
-                                    '유흥누계',
-                                    divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
-                                    divisionController.pleasureAmountQuantity),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
-                                    divisionController.normalAmountQuantity),
-                              ),
-                              Expanded(
-                                child: ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
-                                    divisionController.totAmountQuantity),
-                              ),
-                            ],
-                          ),
+                        child: ListView(
+                          children: <Widget>[setChild()],
                         ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: context.theme.cardColor,
+                      borderRadius: BorderRadius.circular(20),
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: ShowDoubleValueField(null, '수량\n(BOX/EA)', '금액'),
+                          ),
+                          ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
+                              divisionController.pleasureAmountSum),
+                          ShowDoubleValueField('일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum,
+                              divisionController.normalAmountSum),
+                          ShowDoubleValueField(
+                              '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
+                          ShowDoubleValueField('유흥누계', divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
+                              divisionController.pleasureAmountQuantity),
+                          ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
+                              divisionController.normalAmountQuantity),
+                          ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
+                              divisionController.totAmountQuantity),
+                        ],
                       ),
                     ),
                   )
@@ -189,7 +165,6 @@ class SalesDailyDivisionController extends GetxController {
   }
 
   Future calBoxBottleSum() async {
-    var f = NumberFormat('###,###,###,###');
     if (salesDailyDivisionList == null) {
       pleasureBoxSum = '0';
       pleasureBottleSum = '0';
@@ -236,24 +211,24 @@ class SalesDailyDivisionController extends GetxController {
 
     pleasureBoxSum = tmpPleasureBoxSum.toString();
     pleasureBottleSum = tmpPleasureBottleSum.toString();
-    pleasureAmountSum = f.format(tmpPleasureAmountSum);
+    pleasureAmountSum = numberFormat.format(tmpPleasureAmountSum);
     normalBoxSum = tmpNormalBoxSum.toString();
     normalBottleSum = tmpNormalBottleSum.toString();
-    normalAmountSum = f.format(tmpNormalAmountSum);
+    normalAmountSum = numberFormat.format(tmpNormalAmountSum);
 
     totBoxSum = (tmpPleasureBoxSum + tmpNormalBoxSum).toString();
     totBottleSum = (tmpPleasureBottleSum + tmpNormalBottleSum).toString();
-    totAmountSum = f.format((tmpPleasureAmountSum + tmpNormalAmountSum));
+    totAmountSum = numberFormat.format((tmpPleasureAmountSum + tmpNormalAmountSum));
 
     pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity ?? '0';
     pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity ?? '0';
-    pleasureAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].pleasureTotalAmount ?? '0'));
+    pleasureAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].pleasureTotalAmount ?? '0'));
     normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity ?? '0';
     normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity ?? '0';
-    normalAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].normalTotalAmount ?? '0'));
+    normalAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].normalTotalAmount ?? '0'));
     totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity ?? '0';
     totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity ?? '0';
-    totAmountQuantity = f.format(int.parse(salesDailyDivisionList[0].totalAmount ?? '0'));
+    totAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].totalAmount ?? '0'));
 
     update();
   }
@@ -261,7 +236,6 @@ class SalesDailyDivisionController extends GetxController {
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
-    var parsedData;
     List dataObjsJson;
 
     String paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
@@ -270,7 +244,6 @@ class SalesDailyDivisionController extends GetxController {
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;
-    var parsedDataSalesDaily;
 
     try {
       dio = await reqApi(param);

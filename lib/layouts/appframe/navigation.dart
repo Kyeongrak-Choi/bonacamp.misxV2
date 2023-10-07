@@ -32,6 +32,7 @@ class Navigation extends GetView<NavigationController> {
           //     //controller.openDrawer();
           //   },
           // ),
+          backgroundColor: context.theme.canvasColor,
           actions: [
             IconButton(
                 icon: Icon(Icons.logout),

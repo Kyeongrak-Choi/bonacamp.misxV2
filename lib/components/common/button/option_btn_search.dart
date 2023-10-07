@@ -69,15 +69,15 @@ class OptionBtnSearch extends StatelessWidget {
                         await Get.find<SalesRankController>().showResult();
                         break;
 
+                      // 경영분석 - 분석 그래프
+                      case ROUTE_MENU_GRAPH:
+                        await Get.find<AnalysisGraphController>().showResult();
+                        break;
+
                       // 경영분석 - 영업일보 (용도별)
                       case ROUTE_MENU_DIVISIONSTATUS:
                         await Get.find<SalesDailyDivisionController>().showResult();
                         await Get.find<SalesDailyDivisionController>().calBoxBottleSum();
-                        break;
-
-                      // 경영분석 - 분석 그래프
-                      case ROUTE_MENU_GRAPH:
-                        await Get.find<AnalysisGraphController>().showResult();
                         break;
 
                       // 위치조회 - 매출처 위치조회

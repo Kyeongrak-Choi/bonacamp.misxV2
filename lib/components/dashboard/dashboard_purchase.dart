@@ -7,7 +7,6 @@ import '../../utils/utility.dart';
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardController());
@@ -42,13 +41,13 @@ class DashBoardPurchase extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child:
-                        DashBoardItem('공급계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : '0'),
+                    child: DashBoardItem(
+                        '공급계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child:
-                        DashBoardItem('채무계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : '0'),
+                    child: DashBoardItem(
+                        '채무계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : '0'),
                   ),
                 ],
               )),

@@ -42,10 +42,13 @@ class Misx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false, // in emulator hide 'debug'
-      translations: LanguageManager(), // multi language
+      debugShowCheckedModeBanner: false,
+      // in emulator hide 'debug'
+      translations: LanguageManager(),
+      // multi language
       locale: Get.deviceLocale,
-      fallbackLocale: Locale('ko', 'KR'), // default locale set
+      fallbackLocale: Locale('ko', 'KR'),
+      // default locale set
       initialBinding: InitBinding(),
       theme: Themes.light,
       darkTheme: Themes.dark,

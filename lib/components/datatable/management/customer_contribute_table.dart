@@ -6,7 +6,6 @@ import '../../../utils/utility.dart';
 import '../../common/field/show_long_title_field.dart';
 
 class CustomerContributeTable extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Get.put(CustomerContributeController());
