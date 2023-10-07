@@ -8,7 +8,7 @@ import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
 import '../../utils/utility.dart';
-import '../navigation.dart';
+import '../appframe/navigation.dart';
 
 // 더보기 화면
 class Config extends StatelessWidget {
@@ -20,7 +20,7 @@ class Config extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 40),
             child: Container(
                 height: 100,
                 decoration: BoxDecoration(

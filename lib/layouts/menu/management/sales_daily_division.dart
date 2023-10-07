@@ -16,7 +16,7 @@ import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/show_double_value_field.dart';
 import '../../../components/datatable/management/sales_daily_division_item.dart';
-import '../../../models/management/sales_daily_division_model.dart';
+import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -30,7 +30,7 @@ class SalesDailyDivision extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesdaily_division'.tr),
-              backgroundColor: context.theme.cardColor,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -41,64 +41,110 @@ class SalesDailyDivision extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: divisionController.visible.value,
-                  child: Column(
-                    children: [
-                      OptionDatePicker(),
-                      OptionCbBranch(),
-                      OptionCbEmployee(),
-                      OptionCbTeam(),
-                      OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: divisionController.visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionDatePicker(),
+                            OptionCbBranch(),
+                            OptionCbEmployee(),
+                            OptionCbTeam(),
+                            OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: divisionController.visible.value == true ? 1 : 2,
-                  child: ListView(
-                    children: <Widget>[setChild()],
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                Container(
-                  child: ShowDoubleValueField(null, '수량\n(BOX/EA)', '금액'),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
-                            divisionController.pleasureAmountSum),
-                      ),
-                      Expanded(
-                        child: ShowDoubleValueField(
-                            '일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum, divisionController.normalAmountSum),
-                      ),
-                      Expanded(
-                        child: ShowDoubleValueField(
-                            '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
-                      ),
-                      Expanded(
-                        child: ShowDoubleValueField(
-                            '유흥누계',
-                            divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
-                            divisionController.pleasureAmountQuantity),
-                      ),
-                      Expanded(
-                        child: ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
-                            divisionController.normalAmountQuantity),
-                      ),
-                      Expanded(
-                        child: ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
-                            divisionController.totAmountQuantity),
-                      ),
-                    ],
+                  Expanded(
+                    flex: divisionController.visible.value == true ? 1 : 2,
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
                   ),
-                )
-              ],
+
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Expanded(
+                          flex: 1,
+                          child: Column(
+                            children: [
+                              Container(
+                                child: ShowDoubleValueField(null, '수량\n(BOX/EA)', '금액'),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
+                                    divisionController.pleasureAmountSum),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField(
+                                    '일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum, divisionController.normalAmountSum),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField(
+                                    '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField(
+                                    '유흥누계',
+                                    divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
+                                    divisionController.pleasureAmountQuantity),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
+                                    divisionController.normalAmountQuantity),
+                              ),
+                              Expanded(
+                                child: ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
+                                    divisionController.totAmountQuantity),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
@@ -242,6 +288,7 @@ class SalesDailyDivisionController extends GetxController {
       if (response.statusCode == 200) {
         dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
         salesDailyDivisionList = dataObjsJson.map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson)).toList();
+        Get.find<SalesDailyDivisionController>().setVisible();
         update();
       }
     } on DioException catch (e) {

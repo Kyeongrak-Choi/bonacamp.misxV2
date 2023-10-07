@@ -11,13 +11,13 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/datatable/management/overall_table.dart';
-import '../../../models/management/overall/overallasset.dart';
-import '../../../models/management/overall/overalldeposit.dart';
-import '../../../models/management/overall/overallpurchase.dart';
-import '../../../models/management/overall/overallrental.dart';
-import '../../../models/management/overall/overallreturn.dart';
-import '../../../models/management/overall/overallsales.dart';
-import '../../../models/management/overall/overallwithdraw.dart';
+import '../../../models/menu/management/overall/overallasset.dart';
+import '../../../models/menu/management/overall/overalldeposit.dart';
+import '../../../models/menu/management/overall/overallpurchase.dart';
+import '../../../models/menu/management/overall/overallrental.dart';
+import '../../../models/menu/management/overall/overallreturn.dart';
+import '../../../models/menu/management/overall/overallsales.dart';
+import '../../../models/menu/management/overall/overallwithdraw.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -43,7 +43,7 @@ class OverallStatus extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                 child: Column(
                   children: [
                     Visibility(
@@ -54,24 +54,30 @@ class OverallStatus extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                             shape: BoxShape.rectangle,
                           ),
-                          child: Column(
-                            children: [
-                              OptionPeriodPicker(),
-                              OptionCbBranch(),
-                              OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                            ],
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
+                            ),
                           ),
                         )),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                        child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
-                            ),
-                         child: OverAllTable()
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: OverAllTable(),
                         ),
                       ),
                     ),
@@ -138,6 +144,7 @@ class OverAllController extends GetxController {
         controllerRentalModel = OverAllRentalModel.fromJson(parsedDataRental);
         controllerAssetModel = OverAllAssetModel.fromJson(parsedDataAsset);
 
+        Get.find<OverAllController>().setVisible();
         update();
       }
     } on DioException catch (e) {

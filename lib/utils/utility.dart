@@ -165,3 +165,6 @@ int calculateMonthDifference(DateTime startDate, DateTime endDate) {
 
   return yearDifference * 12 + monthDifference; // 총 월 차이
 }
+
+// 숫자 포맷
+var numberFormat = NumberFormat('###,###,###,###');

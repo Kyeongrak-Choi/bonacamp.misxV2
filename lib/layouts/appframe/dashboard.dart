@@ -12,7 +12,6 @@ import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_return.dart';
 import 'package:misxV2/components/dashboard/dashboard_sales.dart';
 import 'package:misxV2/components/dashboard/dashboard_withdraw.dart';
-import 'package:misxV2/models/management/overall/overallsales.dart';
 import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
@@ -20,17 +19,19 @@ import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
-import '../models/management/overall/overallasset.dart';
-import '../models/management/overall/overalldeposit.dart';
-import '../models/management/overall/overallpurchase.dart';
-import '../models/management/overall/overallrental.dart';
-import '../models/management/overall/overallreturn.dart';
-import '../models/management/overall/overallwithdraw.dart';
-import '../models/system/employee.dart';
-import '../models/system/userinfo.dart';
-import '../utils/constants.dart';
-import '../utils/network/network_manager.dart';
-import '../utils/theme/color_manager.dart';
+
+import '../../models/menu/management/overall/overallasset.dart';
+import '../../models/menu/management/overall/overalldeposit.dart';
+import '../../models/menu/management/overall/overallpurchase.dart';
+import '../../models/menu/management/overall/overallrental.dart';
+import '../../models/menu/management/overall/overallreturn.dart';
+import '../../models/menu/management/overall/overallsales.dart';
+import '../../models/menu/management/overall/overallwithdraw.dart';
+import '../../models/system/employee.dart';
+import '../../models/system/userinfo.dart';
+import '../../utils/constants.dart';
+import '../../utils/network/network_manager.dart';
+import '../../utils/theme/color_manager.dart';
 
 class DashBoard extends StatelessWidget {
   @override

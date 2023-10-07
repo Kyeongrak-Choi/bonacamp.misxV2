@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../../models/management/sales_daily_division_model.dart';
+import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyDivisionItem extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
   var dataList;
 
   SalesDailyDivisionItem(var model) {

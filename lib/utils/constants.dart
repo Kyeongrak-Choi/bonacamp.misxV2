@@ -3,14 +3,21 @@
  */
 
 const APP_NAME = 'MISX Ver2';
-const COPY_RIGHT = 'Copyright 2022. BONACAMP All rights reserved.';
+const COPY_RIGHT = 'Copyright 2023. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 const APP_ID = 'MISX';
 
-//enum NAVIGATION_BAR_ITEM { HOME, MY, MENU, PREMIUM, CONFIG } // Navigation Item
 enum NAVIGATION_BAR_ITEM { HOME, MENU, CONFIG } // Navigation Item
 
-// Route
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/*
+  Route
+ */
+
+// System
 const ROUTE_LOGIN = '/login';
 const ROUTE_NATIGATION = '/navigation';
 const ROUTE_POLICY = '/policy';
@@ -24,11 +31,7 @@ const ROUTE_DIALOG_PURCHASE = '/searchPurchase';
 const ROUTE_DIALOG_ITEM = '/searchItem';
 const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 
-const ROUTE_MENU_EXAMPLE = '/menuExample';
-const ROUTE_API_EXAMPLE = '/apiExample';
-
-// Route
-// 경영 분석
+// management (경영분석)
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
 const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
 const ROUTE_MENU_OVERALL_DAILYSTATUS = '/daily-status'; // 영업일보
@@ -38,6 +41,21 @@ const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
 const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
 const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+
+// sales (영업분석)
+
+// purchase (매입분석)
+
+// support (지원현황)
+
+// location (위치조회)
+const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
+
+// stock (재고분석)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /*
   Util
@@ -55,11 +73,18 @@ const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
 const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
 const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 /*
   Netwrok Config
 */
 const CONNECT_TIMEOUT = 15;
 const RECEIVE_TIMEOUT = 10;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
  Authorization
@@ -73,6 +98,10 @@ const CERT_TOKEN = '/token';
 const AUTH_ID = 'diony-xps';
 const AUTH_PW = '!@!diony-xps1234';
 const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ==';
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /*
  APIs
@@ -109,8 +138,18 @@ const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
 const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
 const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
-// 위치 조회
-const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
+// sales (영업분석)
+
+// purchase (매입분석)
+
+// support (지원현황)
+
+// location (위치조회)
+
+// stock (재고분석)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /*
@@ -155,11 +194,12 @@ const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
 
 const TAG_DATA_LIST = 'data-list';
-
 const TAG_GRAPH_BOND = 'bond';
 const TAG_GRAPH_DEBT = 'debt';
 
-const TAG_TEST = 'search-date';
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /*
   HIVE DB
@@ -182,15 +222,3 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
-
-/*
-  # Project Plan #
- 1. Admin Page
-  - Menu Manage
-  - Admob Manage
-
- 2. Package Naming Rule
-  - new Package
-  - use as-is package
-
- */

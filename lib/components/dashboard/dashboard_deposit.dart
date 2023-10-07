@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../layouts/dashboard.dart';
+import '../../layouts/appframe/dashboard.dart';
+import '../../utils/utility.dart';
 import 'dashboard_item.dart';
 
 class DashBoardDeposit extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +38,15 @@ class DashBoardDeposit extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child:
-                        DashBoardItem('회수계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.retrvAmt) : '0'),
+                        DashBoardItem('회수계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.retrvAmt) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem('입금계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.ipTot) : '0'),
+                    child: DashBoardItem('입금계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.ipTot) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem('채권계', controller.controllerDepositModel != null ? f.format(controller.controllerDepositModel.amt) : '0'),
+                    child: DashBoardItem('채권계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.amt) : '0'),
                   ),
                 ],
               )),

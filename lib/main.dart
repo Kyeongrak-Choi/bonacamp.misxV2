@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
-import 'package:misxV2/layouts/common/dialog/search_dialog.dart';
+import 'package:misxV2/layouts/common/search_dialog.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
@@ -14,17 +14,17 @@ import 'package:misxV2/utils/theme/theme_manager.dart';
 import 'package:misxV2/utils/utility.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
+import 'layouts/appframe/navigation.dart';
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/location/vendor_location.dart';
 import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/menu/management/sales_daily_division.dart';
-import 'layouts/menu/vendor_location.dart';
-import 'layouts/navigation.dart';
 
 void main() async {
   // init Hive
@@ -42,13 +42,10 @@ class Misx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      // in emulator hide 'debug'
-      translations: LanguageManager(),
-      // multi language
+      debugShowCheckedModeBanner: false, // in emulator hide 'debug'
+      translations: LanguageManager(), // multi language
       locale: Get.deviceLocale,
-      fallbackLocale: Locale('ko', 'KR'),
-      // default locale set
+      fallbackLocale: Locale('ko', 'KR'), // default locale set
       initialBinding: InitBinding(),
       theme: Themes.light,
       darkTheme: Themes.dark,
@@ -89,8 +86,36 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석 그래프
         GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
 
+        // 영업분석
+        // GetPage(name: , page: () =>), // 거래처 현황
+        // GetPage(name: , page: () =>), // 영업사원별 매출현황
+        // GetPage(name: , page: () =>), // 영업사원별 월별 매출현황
+        // GetPage(name: , page: () =>), // 매출현황
+        // GetPage(name: , page: () =>), // 월별 매출현황
+        // GetPage(name: , page: () =>), // 매출원장
+        // GetPage(name: , page: () =>), // 목표대비 실적현황
+        // GetPage(name: , page: () =>), // 채권현황
+        // GetPage(name: , page: () =>), // 채권 및 대여 현황
+        // GetPage(name: , page: () =>), // 매출 및 대여 원장
+
+        // 매입분석
+        // GetPage(name: , page: () =>), // 매입현황
+        // GetPage(name: , page: () =>), // 매입원장
+
+        // 지원현황
+        // GetPage(name: , page: () =>), // 대여금 현황
+        // GetPage(name: , page: () =>), // 대여자산 현황
+        // GetPage(name: , page: () =>), // 대여자산 현황(이력)
+
         // 위치조회
-        GetPage(name: ROUTE_MENU_VENDORLOCATION, page: () => VendorLocation()), // 영업일보-용도별
+        GetPage(name: ROUTE_MENU_VENDORLOCATION, page: () => VendorLocation()), // 매출처 위치조회
+
+        // 재고분석
+        // GetPage(name: , page: () =>), // 재고현황
+        // GetPage(name: , page: () =>), // 재고수불현황
+        // GetPage(name: , page: () =>), // 용공수불(창고)
+        // GetPage(name: , page: () =>), // 용공수불현황(거래처)
+        // GetPage(name: , page: () =>), // 용공수불현황(영업담당)
       ],
       home: Login(),
     );

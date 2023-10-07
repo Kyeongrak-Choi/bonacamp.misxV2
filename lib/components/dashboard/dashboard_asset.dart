@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../layouts/dashboard.dart';
+import '../../layouts/appframe/dashboard.dart';
+import '../../utils/utility.dart';
 import 'dashboard_item.dart';
 
 class DashBoardAsset extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +38,11 @@ class DashBoardAsset extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child:
-                        DashBoardItem('출금계', controller.controllerWithdrawModel != null ? f.format(controller.controllerWithdrawModel.outTot) : '0'),
+                        DashBoardItem('출금계', controller.controllerWithdrawModel != null ? numberFormat.format(controller.controllerWithdrawModel.outTot) : '0'),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem('채무계', controller.controllerWithdrawModel != null ? f.format(controller.controllerWithdrawModel.amt) : '0'),
+                    child: DashBoardItem('채무계', controller.controllerWithdrawModel != null ? numberFormat.format(controller.controllerWithdrawModel.amt) : '0'),
                   ),
                 ],
               )),

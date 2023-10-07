@@ -14,7 +14,7 @@ import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/management/sales_rank_Item.dart';
-import '../../../models/management/sales_rank_model.dart';
+import '../../../models/menu/management/sales_rank_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -26,7 +26,7 @@ class SalesRank extends StatelessWidget {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
           appBar:
-              AppBar(title: Text('menu_sub_sales_rank'.tr), backgroundColor: context.theme.cardColor, iconTheme: context.theme.iconTheme, actions: [
+              AppBar(title: Text('menu_sub_sales_rank'.tr), backgroundColor: context.theme.canvasColor, iconTheme: context.theme.iconTheme, actions: [
             IconButton(
               icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
               onPressed: () {
@@ -35,35 +35,61 @@ class SalesRank extends StatelessWidget {
             ),
           ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<SalesRankController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodPicker(),
-                      OptionCbBranch(),
-                      OptionCbEmployee(),
-                      OptionCbManage(),
-                      OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<SalesRankController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionCbBranch(),
+                            OptionCbEmployee(),
+                            OptionCbManage(),
+                            OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: ListView(
-                    children: <Widget>[setChild()],
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ));
   }
 
   Widget setChild() {
-    if (Get.find<SalesRankController>().salesRankList != null) {
-      return SalesRankItem(Get.find<SalesRankController>().salesRankList);
+    if (Get.find<SalesRankController>().controllerSalesRank != null) {
+      return SalesRankItem(Get.find<SalesRankController>().controllerSalesRank);
     } else {
       return EmptyWidget();
     }
@@ -111,9 +137,8 @@ class SalesRankController extends GetxController {
 
       if (response.statusCode == 200) {
         parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT];
-
         salesRankList = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
-
+        Get.find<SalesRankController>().setVisible();
         update();
       }
     } on DioException catch (e) {

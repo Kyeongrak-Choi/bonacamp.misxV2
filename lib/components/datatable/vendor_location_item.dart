@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class VendorLocationItem extends StatefulWidget {
@@ -10,7 +9,6 @@ class VendorLocationItem extends StatefulWidget {
 }
 
 class _VendorLoationItemState extends State<VendorLocationItem> {
-
   static final LatLng initLatlng = LatLng(
     // 지도 기본 위치 설정 (대한민국 중간)
     36.34,

@@ -1,68 +1,55 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 
-import '../../../components/common/button/option_btn_search.dart';
-import '../../../components/common/button/option_btn_visible.dart';
-import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_cb_team.dart';
-import '../../../components/common/emptyWidget.dart';
-import '../../../components/datatable/management/sales_daily_item.dart';
-import '../../../models/management/sales_daily_model.dart';
-import '../../../models/system/userinfo.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/network/network_manager.dart';
-import '../../../utils/utility.dart';
-import '../../components/common/combobox/option_cb_customer_status.dart';
-import '../../components/datatable/vendor_location_item.dart';
+import '../../../../components/common/button/option_btn_search.dart';
+import '../../../../components/common/button/option_btn_visible.dart';
+import '../../../../components/common/combobox/option_cb_team.dart';
+import '../../../../utils/constants.dart';
+import '../../../components/common/combobox/option_cb_customer_status.dart';
+import '../../../components/datatable/vendor_location_item.dart';
 
 class VendorLocation extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(VendorLocationController());
     return Obx(() => Scaffold(
-      appBar:
-      AppBar(title: Text('menu_sub_vendor_location'.tr),
-          backgroundColor: context.theme.cardColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<VendorLocationController>().visible.value),
-              onPressed: () {
-                Get.find<VendorLocationController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_vendor_location'.tr),
+              backgroundColor: context.theme.cardColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<VendorLocationController>().visible.value),
+                  onPressed: () {
+                    Get.find<VendorLocationController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.cardColor,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: Get.find<VendorLocationController>().visible.value,
+                  child: Column(
+                    children: [
+                      OptionDatePicker(),
+                      OptionCbEmployee(),
+                      OptionCbCustomerStatus(),
+                      OptionCbTeam(),
+                      OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: VendorLocationItem(),
+                )
+              ],
             ),
-          ]),
-      body: Container(
-        color: context.theme.cardColor,
-        child: Column(
-          children: [
-            Visibility(
-              visible: Get.find<VendorLocationController>().visible.value,
-              child: Column(
-                children: [
-                  OptionDatePicker(),
-                  OptionCbEmployee(),
-                  OptionCbCustomerStatus(),
-                  OptionCbTeam(),
-                  OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
-                ],
-              ),
-            ),
-            Expanded(
-              child: VendorLocationItem(),
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }
 
@@ -104,6 +91,7 @@ class VendorLocationController extends GetxController {
     //     dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
     //     salesDailyList = dataObjsJson.map((dataJson) => SalesDailyModel.fromJson(dataJson)).toList();
     //     //controllerModel = parsedData;
+    //     Get.find<VendorLocationController>().setVisible();
     //     update();
     //   }
     // } on DioException catch (e) {

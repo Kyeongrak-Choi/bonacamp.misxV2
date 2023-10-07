@@ -87,7 +87,13 @@ dependencies:
   # reference - https://pub.dev/packages/sn_progress_dialog
   # descryption - progress dialog
   google_maps_flutter: ^2.5.0
+  # reference - https://pub.dev/packages/google_maps_flutter
+  # descryption - map service
   google_maps_cluster_manager: ^3.0.0+1
+  # reference - https://pub.dev/packages/google_maps_cluster_manager
+  # descryption - map service
+
+
 
 
   # get_storage: ^2.0.3
@@ -102,9 +108,6 @@ dependencies:
   # geolocator: ^9.0.1
   # reference - https://pub.dev/packages/geolocator
   # descryption - gps location service
-  # google_maps_flutter: ^2.1.12
-  # reference - https://pub.dev/packages/google_maps_flutter
-  # descryption - map service
   # logger: ^1.1.0
   # reference - https://pub.dev/packages/logger
   # descryption - log util

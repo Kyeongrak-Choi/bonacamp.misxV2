@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -26,7 +25,7 @@ class AnalysisGraph extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_analysis_graph'.tr),
-              backgroundColor: context.theme.cardColor,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -37,27 +36,50 @@ class AnalysisGraph extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<AnalysisGraphController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodYearmonthPicker(),
-                      OptionCbBranch(),
-                      OptionCbGraphType(),
-                      OptionBtnSearch(ROUTE_MENU_GRAPH),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<AnalysisGraphController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionPeriodYearmonthPicker(),
+                            OptionCbBranch(),
+                            OptionCbGraphType(),
+                            OptionBtnSearch(ROUTE_MENU_GRAPH),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: setChild(),
-                )
-                // Expanded(
-                //   child: SalesPersonContributeTable(),
-                // ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: setChild(),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
@@ -89,7 +111,6 @@ class AnalysisGraphController extends GetxController {
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
     var paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
-
     var graphType = Get.find<CbGraphTypeController>().paramGraphType;
 
     try {
@@ -113,44 +134,39 @@ class AnalysisGraphController extends GetxController {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
           case "BOND":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
           case "PURCHASE":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
           case "DEBT":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
           case "RENTAL":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
           case "ASSET":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
               spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
-            log('result : ' + spotList.toString());
             break;
         }
+        Get.find<AnalysisGraphController>().setVisible();
         update();
       }
     } on DioException catch (e) {

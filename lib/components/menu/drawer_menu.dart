@@ -49,7 +49,7 @@ class DrawerMenu extends StatelessWidget {
             ),
             onTap: () {
               //Navigator.pop(context);
-              Get.toNamed(ROUTE_MENU_EXAMPLE);
+              //Get.toNamed(ROUTE_MENU_EXAMPLE);
             },
           ),
           ListTile(

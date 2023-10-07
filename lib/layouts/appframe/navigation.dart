@@ -1,12 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/layouts/dashboard.dart';
-import 'package:misxV2/layouts/menu/menu_list.dart';
+import 'package:misxV2/layouts/appframe/dashboard.dart';
+import 'package:misxV2/layouts/appframe/menu_list.dart';
 
-import '../utils/constants.dart';
-import '../utils/utility.dart';
-import 'config/config.dart';
+import '../../utils/constants.dart';
+import '../../utils/utility.dart';
+import '../config/config.dart';
 
 class Navigation extends GetView<NavigationController> {
   @override
@@ -60,7 +60,7 @@ class Navigation extends GetView<NavigationController> {
         bottomNavigationBar: CurvedNavigationBar(
           height: 50,
           color: context.theme.cardColor,
-          backgroundColor: context.theme.cardColor,
+          backgroundColor: context.theme.canvasColor,
           buttonBackgroundColor: context.theme.canvasColor,
           items: [
             Container(

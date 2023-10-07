@@ -51,68 +51,6 @@ final List<IconMenu> menuMaster = [
   IconMenu(title: 'menu_setting'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CONFIG),
 ];
 
-/* Icon Reference
- 1. cupertino * https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
-  - example : iconData: CupertinoIcons.airplane
- 2. material * https://fonts.google.com/icons
-  - example : iconData: Icons.copy_outlined
- */
-
-// menu setting master
-final List<IconMenu> commonModulesMaster = [
-  IconMenu(title: 'title_search_customer'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_CUSTOMER),
-  IconMenu(title: 'title_search_purchase'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_PURCHASE),
-  IconMenu(title: 'title_search_item'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_ITEM),
-  IconMenu(title: 'title_search_lenditem'.tr, iconData: Icons.copy_outlined, path: ROUTE_DIALOG_LENDITM),
-];
-
-final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
-  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY),
-  IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE),
-  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: FontAwesomeIcons.buildingCircleCheck, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
-  IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS),
-  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: FontAwesomeIcons.medal, path: ROUTE_MENU_RANKSTATUS),
-  IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH),
-  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: FontAwesomeIcons.calendar, path: ROUTE_MENU_DIVISIONSTATUS),
-];
-
-final List<IconMenu> salesAnalysisMaster = [
-  IconMenu(title: 'title_9'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_10'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_11'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_12'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_13'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_14'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_15'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''),
-];
-
-final List<IconMenu> purchaseAnalysisMaster = [
-  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ''),
-];
-
-final List<IconMenu> supportStatusMaster = [
-  IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''),
-];
-
-final List<IconMenu> locationSearchMaster = [
-  IconMenu(title: 'menu_sub_vendor_location'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_VENDORLOCATION),
-];
-
-final List<IconMenu> inventoryAnalysisMaster = [
-  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''),
-  IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''),
-];
-
 // menu setting detail
 final List<RadioMenu> menuDetail = [
   RadioMenu(
@@ -131,3 +69,65 @@ final List<RadioMenu> menuDetail = [
     val: Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false),
   ),
 ];
+
+
+/* Icon Reference
+ 1. cupertino * https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
+  - example : iconData: CupertinoIcons.airplane
+ 2. material * https://fonts.google.com/icons
+  - example : iconData: Icons.copy_outlined
+ */
+
+// 경영분석
+final List<IconMenu> managementAnalysisMaster = [
+  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS), // 종합현황
+  IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY), // 영업일보
+  IconMenu(title: 'menu_sub_salesperson_contribute'.tr, iconData: CupertinoIcons.person_2_fill, path: ROUTE_MENU_SALESPERSON_CONTRIBUTE), // 영업사원별 기여현황
+  IconMenu(title: 'menu_sub_customer_contribute'.tr, iconData: FontAwesomeIcons.buildingCircleCheck, path: ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER), // 매출처별 기여현황
+  IconMenu(title: 'menu_sub_sales_class_status'.tr, iconData: Icons.inventory_2_outlined, path: ROUTE_MENU_CLASSSTATUS), // 판매분류별 현황
+  IconMenu(title: 'menu_sub_sales_rank'.tr, iconData: FontAwesomeIcons.medal, path: ROUTE_MENU_RANKSTATUS), // 매출순위현황
+  IconMenu(title: 'menu_sub_analysis_graph'.tr, iconData: CupertinoIcons.graph_square, path: ROUTE_MENU_GRAPH), // 분석 그래프
+  IconMenu(title: 'menu_sub_salesdaily_division'.tr, iconData: FontAwesomeIcons.calendar, path: ROUTE_MENU_DIVISIONSTATUS), // 영업일보(용도별)
+];
+
+// 영업분석
+final List<IconMenu> salesAnalysisMaster = [
+  IconMenu(title: 'title_9'.tr, iconData: Icons.copy_outlined, path: ''), // 거래처 현황
+  IconMenu(title: 'title_10'.tr, iconData: Icons.copy_outlined, path: ''), // 영업사원별 매출현황
+  IconMenu(title: 'title_11'.tr, iconData: Icons.copy_outlined, path: ''), // 영업사원별 월별 매출현황
+  IconMenu(title: 'title_12'.tr, iconData: Icons.copy_outlined, path: ''), // 매출현황
+  IconMenu(title: 'title_13'.tr, iconData: Icons.copy_outlined, path: ''), // 월별 매출현황
+  IconMenu(title: 'title_14'.tr, iconData: Icons.copy_outlined, path: ''), // 매출원장
+  IconMenu(title: 'title_15'.tr, iconData: Icons.copy_outlined, path: ''), // 목표대비 실적현황
+  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ''), // 채권현황
+  IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ''), // 채권 및 대여 현황
+  IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''), // 매출 및 대여 원장
+];
+
+// 매입분석
+final List<IconMenu> purchaseAnalysisMaster = [
+  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ''), // 매입현황
+  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ''), // 매입원장
+];
+
+// 지원현황
+final List<IconMenu> supportStatusMaster = [
+  IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ''), // 대여금 현황
+  IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황
+  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황(이력)
+];
+
+// 위치조회
+final List<IconMenu> locationSearchMaster = [
+  IconMenu(title: 'menu_sub_vendor_location'.tr, iconData: Icons.map_rounded, path: ROUTE_MENU_VENDORLOCATION), // 매출처 위치조회
+];
+
+// 재고분석
+final List<IconMenu> inventoryAnalysisMaster = [
+  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ''), // 재고현황
+  IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ''), // 재고수불현황
+  IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불(창고)
+  IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(거래처)
+  IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(영업담당)
+];
+
