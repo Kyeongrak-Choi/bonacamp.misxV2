@@ -11,7 +11,7 @@ class OptionCbManage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Expanded(
-            flex: 1,
+            flex: 2,
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
               child: Container(
@@ -27,7 +27,7 @@ class OptionCbManage extends StatelessWidget {
               ),
             )),
         Expanded(
-            flex: 3,
+            flex: 4,
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(

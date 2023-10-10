@@ -1,11 +1,17 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/models/system/warehouse.dart';
+import 'package:hive/hive.dart';
+import 'package:misxV2/models/system/branch.dart';
+import 'package:misxV2/models/system/common.dart';
 
-class OptionCbGraphType extends StatelessWidget {
+import '../../../utils/constants.dart';
+
+class OptionCbBusinessType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbGraphTypeController());
+    Get.put(CbBusinessTypeController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -20,7 +26,7 @@ class OptionCbGraphType extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'opt_graph_type'.tr,
+                      'opt_business'.tr,
                       style: context.textTheme.displaySmall,
                     )),
               ),
@@ -30,21 +36,21 @@ class OptionCbGraphType extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
                 child: Obx(
-                  () => DropdownButtonFormField<WarehouseModel>(
+                  () => DropdownButtonFormField<CommonModel>(
                     isExpanded: true,
-                    value: Get.find<CbGraphTypeController>().selectedValue,
+                    value: Get.find<CbBusinessTypeController>().selectedValue,
                     style: context.textTheme.displaySmall,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbGraphTypeController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
-                      return DropdownMenuItem<WarehouseModel>(
+                    items: Get.find<CbBusinessTypeController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                      return DropdownMenuItem<CommonModel>(
                         alignment: Alignment.center,
                         value: value,
-                        child: Text(value.getWarehouseName ?? ''),
+                        child: Text(value.getName ?? ''),
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbGraphTypeController>().chooseItem(value!);
+                      Get.find<CbBusinessTypeController>().chooseItem(value!);
                     },
                   ),
                 ))),
@@ -53,34 +59,40 @@ class OptionCbGraphType extends StatelessWidget {
   }
 }
 
-class CbGraphTypeController extends GetxController {
-  List<WarehouseModel> data = <WarehouseModel>[].obs;
-
+class CbBusinessTypeController extends GetxController {
   var selectedValue;
+  List<CommonModel> data = <CommonModel>[].obs;
 
-  // param sample
-  String paramGraphType = '';
+  String paramBusinessTypeCode = '';
+  String paramBusinessTypeName = '';
 
   @override
   void onInit() async {
     super.onInit();
-    setCustomerStatus();
+    await setBusinessType();
     if (data != null) {
       chooseItem(data.first);
     }
   }
 
-  chooseItem(WarehouseModel value) async {
-    paramGraphType = value.getWarehouseCode ?? '';
+  chooseItem(CommonModel value) async {
+    paramBusinessTypeCode = value.getCode ?? '';
+    paramBusinessTypeName = value.getName ?? '';
+
     selectedValue = value;
   }
 
-  void setCustomerStatus() {
-    data.add(WarehouseModel("SALES", "매출"));
-    data.add(WarehouseModel("BOND", "채권"));
-    data.add(WarehouseModel("PURCHASE", "매입"));
-    data.add(WarehouseModel("DEBT", "채무"));
-    data.add(WarehouseModel("RENTAL", "대여금액"));
-    data.add(WarehouseModel("ASSET", "대여자산"));
+  Future<void> setBusinessType() async {
+    await Hive.openBox(
+      LOCAL_DB,
+    );
+
+    List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
+
+    for (int i = 0; i < common.length; i++) {
+      if(common.elementAt(i).getMainCode == 'ABS010') {
+        data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
+      }
+    }
   }
 }

@@ -77,9 +77,10 @@ const Map<String, String> koKR = {
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
-  'opt_customer_status': '거래처\n상태',
+  'opt_customer_status': '거래처상태',
   'opt_graph_type': '종류',
   'opt_team': '팀',
+  'opt_business' : '업종',
 
   // Drawer Menu Label
   'logout': '로그아웃',
