@@ -69,7 +69,7 @@ class SalesDailyDivision extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   Expanded(
                     flex: 1,
@@ -88,7 +88,7 @@ class SalesDailyDivision extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   Container(
                     decoration: BoxDecoration(

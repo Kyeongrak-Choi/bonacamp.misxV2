@@ -16,7 +16,7 @@ class CardRadioMenu extends StatelessWidget {
     Get.put(OptionController());
 
     return Card(
-      elevation: 0.5,
+      elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
       color: context.theme.cardColor,
