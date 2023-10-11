@@ -5,7 +5,7 @@ part 'chart_spot.g.dart'; // *.g.dart : in same directory
 // 차트 Spot 모델
 @JsonSerializable(explicitToJson: true)
 class ChartSpot {
-  var name; // 주제
+  var name; // 범례
   var value; // 값
 
   ChartSpot(this.name, this.value);
@@ -17,7 +17,7 @@ class ChartSpot {
     };
   }
 
-  factory ChartSpot.fromJson(Map<String, dynamic> json) => _$ChartSpotModelFromJson(json);
+  factory ChartSpot.fromJson(Map<String, dynamic> json) => _$ChartSpotFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ChartSpotModelToJson(this);
+  Map<String, dynamic> toJson() => _$ChartSpotToJson(this);
 }
