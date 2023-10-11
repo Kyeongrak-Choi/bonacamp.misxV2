@@ -90,6 +90,7 @@ dependencies:
   # reference - https://pub.dev/packages/google_maps_flutter
   # descryption - map service
   google_maps_cluster_manager: ^3.0.0+1
+  custom_info_window: ^1.0.1
   # reference - https://pub.dev/packages/google_maps_cluster_manager
   # descryption - map service
   syncfusion_flutter_charts: ^23.1.40

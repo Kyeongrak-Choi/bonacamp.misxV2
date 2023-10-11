@@ -7,7 +7,7 @@ class PlaceModel with ClusterItem {
   String? name;
   final LatLng latLng;
 
-  PlaceModel({required this.name, required this.latLng, required this.type, required this.id});
+  PlaceModel({required this.name, required this.latLng, this.type, this.id});
 
   @override
   LatLng get location => latLng;
