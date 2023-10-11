@@ -8,7 +8,6 @@ import '../../../utils/constants.dart';
 class SearchOption extends StatelessWidget {
   var flag;
   var hint;
-  var dummy;
 
   SearchOption(String flag) {
     this.flag = flag;

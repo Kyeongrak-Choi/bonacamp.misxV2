@@ -113,8 +113,7 @@ const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,A
 
 // common
 const API_COMMON = '/v1/common';
-const API_COMMON_CUSTOMER = '/customer';
-const API_COMMON_PURCHASE = '/purchase';
+const API_COMMON_CUSTOMER = '/customers';
 const API_COMMON_ITEM = '/item';
 const API_COMMON_LENDITEM = '/lend-item';
 

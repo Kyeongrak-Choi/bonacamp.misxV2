@@ -16,5 +16,5 @@ LineChartBarData get lineChartBarData => LineChartBarData(
       isStrokeCapRound: true,
       dotData: FlDotData(show: true),
       belowBarData: BarAreaData(show: true),
-      spots: Get.find<AnalysisGraphController>().spotList,
+     // spots: Get.find<AnalysisGraphController>().spotList,
     );

@@ -22,7 +22,6 @@ class Config extends StatelessWidget {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 40),
             child: Container(
-                height: 100,
                 decoration: BoxDecoration(
                     color: context.theme.cardColor,
                     borderRadius: BorderRadius.only(
@@ -56,7 +55,7 @@ class Config extends StatelessWidget {
           //   child: CardIconMenu(iconMenuList: noticeMaster),
           // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
             child: Container(
               decoration: BoxDecoration(
                 color: context.theme.cardColor,

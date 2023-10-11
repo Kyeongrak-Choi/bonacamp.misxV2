@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/components/chart/analysis_graph.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_graph_type.dart';
+import 'package:misxV2/models/common/chart_spot.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -97,7 +98,7 @@ class AnalysisGraph extends StatelessWidget {
 class AnalysisGraphController extends GetxController {
   var visible = true.obs;
   var controllerModel;
-  List<FlSpot> spotList = [];
+  List<ChartSpot> spotList = [];
 
   setVisible() async {
     visible.value = !visible.value;
@@ -131,37 +132,37 @@ class AnalysisGraphController extends GetxController {
         switch (graphType) {
           case "SALES":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
           case "BOND":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
           case "PURCHASE":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
           case "DEBT":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
           case "RENTAL":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
           case "ASSET":
             for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
+              spotList.add(ChartSpot(list['date-name'].toString().substring(3,6),  double.tryParse(list['amount']) ?? 0.0));
               index++;
             }
             break;
