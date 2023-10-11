@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -52,23 +53,29 @@ class SearchList extends StatelessWidget {
   Widget selectSearchListItem(int index) {
     switch (flag) {
       case SEARCH_DIALOG_CUST:
-        return SearchListItem(Get.find<SearchListController>().datas[index].getCustCd, Get.find<SearchListController>().datas[index].getCustNm,
-            Get.find<SearchListController>().datas[index].getCustAbbNm, Get.find<SearchListController>().datas[index].getCustStatNm);
+        return SearchListItem(
+            Get.find<SearchListController>().datas[index].getCode ?? ''
+            , Get.find<SearchListController>().datas[index].getName ?? ''
+            , Get.find<SearchListController>().datas[index].getBusinessItem ?? ''
+            , Get.find<SearchListController>().datas[index].getStatuaName ?? '');
       case SEARCH_DIALOG_PRCH:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getCustCd,
-            Get.find<SearchListController>().datas[index].getCustNm,
-            Get.find<SearchListController>().datas[index].getCustStatNm != null ? Get.find<SearchListController>().datas[index].getCustStatNm : '',
-            Get.find<SearchListController>().datas[index].getReprNm != null ? Get.find<SearchListController>().datas[index].getReprNm : '');
+            Get.find<SearchListController>().datas[index].getCode ?? ''
+            , Get.find<SearchListController>().datas[index].getName ?? ''
+            , Get.find<SearchListController>().datas[index].getBusinessItem?? ''
+            , Get.find<SearchListController>().datas[index].getStatuaName ?? '');
       case SEARCH_DIALOG_ITEM:
-        return SearchListItem(Get.find<SearchListController>().datas[index].getItmCd, Get.find<SearchListController>().datas[index].getItmNm,
-            Get.find<SearchListController>().datas[index].getItmAbbNm, Get.find<SearchListController>().datas[index].getUzFgNm);
+        return SearchListItem(
+            Get.find<SearchListController>().datas[index].getItmCd ?? ''
+            , Get.find<SearchListController>().datas[index].getItmNm ?? ''
+            , Get.find<SearchListController>().datas[index].getItmAbbNm ?? ''
+            , Get.find<SearchListController>().datas[index].getUzFgNm ?? '');
       case SEARCH_DIALOG_LEND:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getLendItmCd,
-            Get.find<SearchListController>().datas[index].getLendItmNm,
-            Get.find<SearchListController>().datas[index].getVesFgNm != null ? Get.find<SearchListController>().datas[index].getVesFgNm : '',
-            Get.find<SearchListController>().datas[index].getEmptyBotlNm != null ? Get.find<SearchListController>().datas[index].getEmptyBotlNm : '');
+            Get.find<SearchListController>().datas[index].getLendItmCd ?? ''
+            , Get.find<SearchListController>().datas[index].getLendItmNm ?? ''
+            , Get.find<SearchListController>().datas[index].getVesFgNm ?? ''
+            , Get.find<SearchListController>().datas[index].getEmptyBotlNm ?? '');
       default:
         return SearchListItem('', '', '', '');
     }
@@ -113,11 +120,11 @@ class SearchListController extends GetxController {
         // 거래처(매출처) 검색
         try {
           String queryParam =
-              Uri.encodeComponent('=' + searchTxt + '&is=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
+              Uri.encodeComponent('=' + searchTxt + '&type=2' + '&like=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
           final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_CUSTOMER] as List;
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
             parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
           }
           pd.close();
@@ -132,12 +139,13 @@ class SearchListController extends GetxController {
         //  매입처 검색
         try {
           String queryParam =
-              Uri.encodeComponent('=' + searchTxt + '&is=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
-          final response = await dio.get(API_COMMON + API_COMMON_PURCHASE + '?q=search' + queryParam);
+              Uri.encodeComponent('=' + searchTxt + '&type=1' + '&like=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
+          final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_PURCHASE] as List;
-            parsedResponse = dataObjsJson.map((dataJson) => PurchaseModel.fromJson(dataJson)).toList();
+            log(queryParam);
+            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+            parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
           }
           pd.close();
         } on DioException catch (e) {

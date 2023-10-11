@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/chart/graph_exam.dart';
 
 import '../chart/line/chart_manager.dart';
 
@@ -20,18 +21,7 @@ class AnalysisGraphComponent extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  '단위(원)',
-                  style: context.textTheme.displayMedium,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(child: Padding(padding: EdgeInsets.only(right: 16.0, left: 6.0), child: ChartManager())),
+                Expanded(child: Padding(padding: EdgeInsets.only(right: 16.0, left: 6.0), child: GraphExam())),
                 SizedBox(
                   height: 10,
                 ),

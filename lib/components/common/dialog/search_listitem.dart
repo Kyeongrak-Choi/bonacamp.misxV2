@@ -45,6 +45,7 @@ class SearchListItem extends StatelessWidget {
                 child: Text(
                   sub,
                   style: context.textTheme.displaySmall,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Expanded(
@@ -53,6 +54,7 @@ class SearchListItem extends StatelessWidget {
                   stat,
                   textAlign: TextAlign.right,
                   style: context.textTheme.displaySmall,
+                  overflow: TextOverflow.ellipsis,
                 ),
               )
             ],

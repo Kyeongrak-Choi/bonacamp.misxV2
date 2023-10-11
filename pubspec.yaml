@@ -92,6 +92,9 @@ dependencies:
   google_maps_cluster_manager: ^3.0.0+1
   # reference - https://pub.dev/packages/google_maps_cluster_manager
   # descryption - map service
+  syncfusion_flutter_charts: ^23.1.40
+  # reference - https://pub.dev/packages/syncfusion_flutter_charts
+  # descryption - chart util
 
 
 
