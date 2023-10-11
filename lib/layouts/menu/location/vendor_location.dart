@@ -9,7 +9,7 @@ import '../../../../components/common/button/option_btn_visible.dart';
 import '../../../../components/common/combobox/option_cb_team.dart';
 import '../../../../utils/constants.dart';
 import '../../../components/common/combobox/option_cb_customer_status.dart';
-import '../../../components/datatable/vendor_location_item.dart';
+import '../../../components/datatable/location/vendor_location_item.dart';
 
 class VendorLocation extends StatelessWidget {
   @override
@@ -41,6 +41,7 @@ class VendorLocation extends StatelessWidget {
                       OptionCbCustomerStatus(),
                       OptionCbBusinessType(),
                       OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
+                      SizedBox(height: 14),
                     ],
                   ),
                 ),
