@@ -143,7 +143,6 @@ class SearchListController extends GetxController {
           final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            log(queryParam);
             dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
             parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
           }

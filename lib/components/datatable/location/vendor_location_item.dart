@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:ui';
 import 'dart:ui' as ui;
@@ -12,6 +11,7 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../models/menu/location/place_model.dart';
+import '../../common/field/show_short_title_field.dart';
 
 class VendorLocationItem extends StatefulWidget {
   const VendorLocationItem({super.key});
@@ -20,8 +20,9 @@ class VendorLocationItem extends StatefulWidget {
   State<VendorLocationItem> createState() => _VendorLoationItemState();
 }
 
-double latitude= 35.1856036;
+double latitude = 35.1856036;
 double longitude = 129.0838361;
+
 class _VendorLoationItemState extends State<VendorLocationItem> {
   ClusterManager? _manager;
 
@@ -48,8 +49,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   //   zoom: 7, //확대 정도
   // );
 
-  final CameraPosition _initialCameraPosition =
-  CameraPosition(target: LatLng(latitude, longitude), zoom: 12.0);
+  final CameraPosition _initialCameraPosition = CameraPosition(target: LatLng(latitude, longitude), zoom: 12.0);
 
   List<PlaceModel> items = [
     for (int i = 0; i < 10; i++)
@@ -57,21 +57,14 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           name: 'Restaurant $i',
           //isClosed: i % 2 == 0,
           latLng: LatLng(latitude - i * 0.001, longitude + i * 0.001)),
-    for (int i = 0; i < 10; i++)
-      PlaceModel(
-          name: 'Bar $i',
-          latLng: LatLng(latitude + i * 0.01, longitude - i * 0.01)),
-    for (int i = 0; i < 10; i++)
-      PlaceModel(
-          name: 'Hotel $i',
-          latLng: LatLng(latitude - i * 0.1, longitude - i * 0.01)),
+    for (int i = 0; i < 10; i++) PlaceModel(name: 'Bar $i', latLng: LatLng(latitude + i * 0.01, longitude - i * 0.01)),
+    for (int i = 0; i < 10; i++) PlaceModel(name: 'Hotel $i', latLng: LatLng(latitude - i * 0.1, longitude - i * 0.01)),
   ];
 
   @override
   void initState() {
     loadMarkerImage();
-    _manager = ClusterManager<PlaceModel>(items, _updateMarkers,
-        markerBuilder: _getMarkerBuilder(Colors.red));
+    _manager = ClusterManager<PlaceModel>(items, _updateMarkers, markerBuilder: _getMarkerBuilder(Colors.red));
 
     super.initState();
   }
@@ -86,8 +79,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
     });
   }
 
-  Future<Marker> Function(Cluster<PlaceModel>) _getMarkerBuilder(Color color) =>
-      (cluster) async {
+  Future<Marker> Function(Cluster<PlaceModel>) _getMarkerBuilder(Color color) => (cluster) async {
         return Marker(
           markerId: MarkerId(cluster.getId()),
           position: cluster.location,
@@ -100,29 +92,23 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                     children: [
                       Text(
                         '[18283] 매출처 이름',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 20, color: Colors.blue, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                       Expanded(
                         child: Container(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                           child: Column(children: [
                             markerInfoWindowText("[사  업  주] :"),
                             markerInfoWindowText("[사업자번호] : "),
                             markerInfoWindowText("[영업 담당] : "),
                             markerInfoWindowText("[매출기준일] : "),
-                            markerInfoWindowText(
-                                "-----------------------------------------"),
+                            markerInfoWindowText("-----------------------------------------"),
                             markerInfoWindowText("[매출 금액] : "),
                             markerInfoWindowText("[결제 금액] : "),
                             markerInfoWindowText("[당일 매출] : "),
                             markerInfoWindowText("[당월 매출] : "),
-                            markerInfoWindowText(
-                                "-----------------------------------------"),
+                            markerInfoWindowText("-----------------------------------------"),
                             markerInfoWindowText("[미수 잔액] : "),
                             markerInfoWindowText("[채권 잔액] : "),
                             markerInfoWindowText("[대여 금액] : "),
@@ -141,29 +127,27 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
               customInfoWindowController.hideInfoWindow!();
             }
           },
-          icon: await _getMarkerBitmap(markerHeight, color, '매출처 이름',
-              text: cluster.count.toString(), clustercount: cluster.count),
+          icon: await _getMarkerBitmap(markerHeight, color, '매출처 이름', text: cluster.count.toString(), clustercount: cluster.count),
         );
       };
 
-  Widget markerInfoWindowText(String str){
+  Widget markerInfoWindowText(String str) {
     return Expanded(
       child: Container(
         child: FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(str,
-            style: TextStyle(
-                color: Colors.grey,
-                height: 1.3),
-            textAlign: TextAlign.left,),
+          child: Text(
+            str,
+            style: TextStyle(color: Colors.grey, height: 1.3),
+            textAlign: TextAlign.left,
+          ),
         ),
         alignment: Alignment.centerLeft,
       ),
     );
   }
 
-  Future<BitmapDescriptor> _getMarkerBitmap(int size, Color color, String markerName,
-      {String? text, @required int? clustercount}) async {
+  Future<BitmapDescriptor> _getMarkerBitmap(int size, Color color, String markerName, {String? text, @required int? clustercount}) async {
     if (kIsWeb) size = (size / 2).floor();
 
     final PictureRecorder pictureRecorder = PictureRecorder();
@@ -171,29 +155,25 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
     final Paint paint1 = Paint()..color = color;
     final Paint paint2 = Paint()..color = Colors.white;
 
-    if(clustercount! > 1){
+    if (clustercount! > 1) {
       canvas.drawCircle(Offset(size / 2, size / 2), size / 3.0, paint1);
       canvas.drawCircle(Offset(size / 2, size / 2), size / 3.3, paint2);
       canvas.drawCircle(Offset(size / 2, size / 2), size / 4.4, paint1);
-    }
-    else{
+    } else {
       canvas.drawImage(markerImage, Offset(size / 2, size / 2), paint1);
     }
 
     if (text != null) {
       TextPainter painter = TextPainter(textDirection: TextDirection.ltr);
-      if(clustercount! > 1){
+      if (clustercount! > 1) {
         painter.text = TextSpan(
           text: text,
-          style: TextStyle(
-              fontSize: size / 4,
-              color: Colors.white,
-              fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: size / 4, color: Colors.white, fontWeight: FontWeight.normal),
         );
         painter.layout();
         painter.paint(
           canvas,
-          Offset(size / 2 - painter.width / 2, size / 2 - painter.height / 2   + 0),
+          Offset(size / 2 - painter.width / 2, size / 2 - painter.height / 2 + 0),
         );
       }
     }
@@ -208,8 +188,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
     final data = await rootBundle.load(imageName);
     final codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
-      targetHeight: (height/2).toInt(),
-      targetWidth: (width/2).toInt(),
+      targetHeight: (height / 2).toInt(),
+      targetWidth: (width / 2).toInt(),
     );
     return (await codec.getNextFrame()).image;
   }
@@ -217,43 +197,40 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _initialCameraPosition,
-            markers: markers,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-              _manager!.setMapId(controller.mapId);
-              customInfoWindowController.googleMapController = controller;
-            },
-            onCameraMove: (position) {
-              _manager!.onCameraMove(position);
-              customInfoWindowController.onCameraMove!();
-            },
-            onCameraIdle: () {
-              _manager!.updateMap();
-            },
-            onTap: (latlng) {
-              customInfoWindowController.hideInfoWindow!();
-            },
-            myLocationEnabled: true,
-            tiltGesturesEnabled: false,
-            rotateGesturesEnabled: false,
-            zoomControlsEnabled: false,
-            mapToolbarEnabled: false,
-            compassEnabled: false,
-            liteModeEnabled: false,
-          ),
-          CustomInfoWindow(
-            controller: customInfoWindowController,
-            height: 400,
-            width: 200,
-            offset: 50,
-          ),
-        ]
-      )
-    );
+        body: Stack(children: <Widget>[
+      GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: _initialCameraPosition,
+        markers: markers,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+          _manager!.setMapId(controller.mapId);
+          customInfoWindowController.googleMapController = controller;
+        },
+        onCameraMove: (position) {
+          _manager!.onCameraMove(position);
+          customInfoWindowController.onCameraMove!();
+        },
+        onCameraIdle: () {
+          _manager!.updateMap();
+        },
+        onTap: (latlng) {
+          customInfoWindowController.hideInfoWindow!();
+        },
+        myLocationEnabled: true,
+        tiltGesturesEnabled: false,
+        rotateGesturesEnabled: false,
+        zoomControlsEnabled: false,
+        mapToolbarEnabled: false,
+        compassEnabled: false,
+        liteModeEnabled: false,
+      ),
+      CustomInfoWindow(
+        controller: customInfoWindowController,
+        height: 400,
+        width: 200,
+        offset: 50,
+      ),
+    ]));
   }
 }
