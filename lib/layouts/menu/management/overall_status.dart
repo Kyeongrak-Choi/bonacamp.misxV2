@@ -43,7 +43,7 @@ class OverallStatus extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                 child: Column(
                   children: [
                     Visibility(
