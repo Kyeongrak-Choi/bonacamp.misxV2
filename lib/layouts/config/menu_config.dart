@@ -20,7 +20,7 @@ class MenuConfig extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             child: CardRadioMenu(radioMenu: menuDetail),
           ),
         ],

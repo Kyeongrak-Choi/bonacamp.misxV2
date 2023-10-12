@@ -15,7 +15,7 @@ class OptionPeriodPicker extends StatelessWidget {
         Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
               child: Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -35,7 +35,7 @@ class OptionPeriodPicker extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Obx(
                   () => TextButton(
                     onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
@@ -47,14 +47,14 @@ class OptionPeriodPicker extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Text(
                   '~',
                   style: context.textTheme.displaySmall,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Obx(
                   () => TextButton(
                     onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),

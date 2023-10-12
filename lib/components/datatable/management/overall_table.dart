@@ -14,7 +14,7 @@ class OverAllTable extends StatelessWidget {
       return Container(
         color: context.theme.cardColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: ListView(
             children: [
               ShowShortTitleField(

@@ -18,7 +18,7 @@ class SearchOption extends StatelessWidget {
   Widget build(context) {
     Get.put(SearchListController());
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Row(
         children: [
           Flexible(

@@ -18,7 +18,7 @@ class AnalysisGraphComponent extends StatelessWidget {
           shape: BoxShape.rectangle,
         ),
         child: SfCartesianChart(
-          title: ChartTitle(text: '단위:원'),
+          title: ChartTitle(text: '단위:천원'),
           primaryXAxis: CategoryAxis(),
           // primaryYAxis: NumericAxis(title: AxisTitle(text: 'Sales')),
           legend: Legend(

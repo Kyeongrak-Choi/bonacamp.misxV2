@@ -13,7 +13,7 @@ class OptionYearMonthPicker extends StatelessWidget {
         Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
               child: Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -33,7 +33,7 @@ class OptionYearMonthPicker extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Obx(
                   () => TextButton(
                     onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),

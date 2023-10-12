@@ -28,7 +28,7 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: Container(
             color: context.theme.cardColor,
             height: 50,
