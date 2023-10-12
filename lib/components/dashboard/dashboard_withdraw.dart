@@ -37,12 +37,12 @@ class DashBoardWithdraw extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '신규대여수량계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totQty) : '0'),
+                        '신규대여수량계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totQty) : ''),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '신규대여금액계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : '0'),
+                        '신규대여금액계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : ''),
                   ),
                 ],
               )),

@@ -20,7 +20,7 @@ class Config extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 40),
+            padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 20),
             child: Container(
                 decoration: BoxDecoration(
                     color: context.theme.cardColor,
@@ -55,7 +55,7 @@ class Config extends StatelessWidget {
           //   child: CardIconMenu(iconMenuList: noticeMaster),
           // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 10),
             child: Container(
               decoration: BoxDecoration(
                 color: context.theme.cardColor,

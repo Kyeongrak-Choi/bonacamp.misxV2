@@ -37,7 +37,7 @@ class DashBoardReturn extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '반납계', controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : '0'),
+                        '반납계', controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : ''),
                   ),
                 ],
               )),

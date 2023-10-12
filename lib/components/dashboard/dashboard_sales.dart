@@ -37,17 +37,17 @@ class DashBoardSales extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '매출계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.totAmt) : '0'),
+                        '매출계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.totAmt) : ''),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                     child: DashBoardItem(
-                        '공급계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.suppAmt) : '0'),
+                        '공급계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.suppAmt) : ''),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                     child: DashBoardItem(
-                        '채권계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.grntAmt) : '0'),
+                        '채권계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.grntAmt) : ''),
                   ),
                 ],
               )),

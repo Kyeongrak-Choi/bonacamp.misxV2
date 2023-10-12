@@ -13,7 +13,6 @@ class MenuList extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
           Expanded(
             child: ListView(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               children: <Widget>[
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),

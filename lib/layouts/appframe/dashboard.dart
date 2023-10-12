@@ -55,35 +55,35 @@ class DashBoard extends StatelessWidget {
                   child: ListView(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardSales(), // 매출
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardPurchase(), // 매입
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardDeposit(), // 회수
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardWithdraw(), // 출금
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardReturn(), // 반납
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: DashBoardRental(), // 대여
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 30),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
                         child: DashBoardAsset(), // 자산
                       ),
                       // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                       //   child: DashBoardChart2(), // 차트
                       // ),
                     ],
