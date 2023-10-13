@@ -63,7 +63,7 @@ class OptionCbTeam extends StatelessWidget {
             child: Text(
               'opt_team'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),

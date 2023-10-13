@@ -64,7 +64,7 @@ class OptionCbManage extends StatelessWidget {
             child: Text(
               'opt_manage'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),

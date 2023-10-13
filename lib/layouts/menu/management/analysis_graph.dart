@@ -24,6 +24,7 @@ class AnalysisGraph extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_analysis_graph'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [

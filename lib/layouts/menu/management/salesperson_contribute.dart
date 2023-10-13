@@ -26,6 +26,7 @@ class SalesPersonContribute extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesperson_contribute'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [

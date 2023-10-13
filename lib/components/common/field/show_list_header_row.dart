@@ -14,14 +14,14 @@ class ShowListHeaderRow extends StatelessWidget {
         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
         child: Text(
           titleName,
-          style: context.textTheme.displaySmall,
+          style: context.textTheme.displayMedium,
           textAlign: TextAlign.left,
         ),
       ),
       Expanded(
         child: Text(
           value,
-          style: context.textTheme.displaySmall,
+          style: context.textTheme.displayMedium,
           textAlign: TextAlign.center,
         ),
       ),

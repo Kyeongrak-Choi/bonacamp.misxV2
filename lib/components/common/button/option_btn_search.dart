@@ -31,7 +31,7 @@ class OptionBtnSearch extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: Container(
             color: context.theme.cardColor,
-            height: 50,
+            height: 30,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);

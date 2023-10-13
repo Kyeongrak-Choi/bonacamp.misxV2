@@ -25,15 +25,19 @@ class SalesRank extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
-          appBar:
-              AppBar(title: Text('menu_sub_sales_rank'.tr), backgroundColor: context.theme.canvasColor, iconTheme: context.theme.iconTheme, actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
-              onPressed: () {
-                Get.find<SalesRankController>().setVisible();
-              },
-            ),
-          ]),
+          appBar: AppBar(
+              title: Text('menu_sub_sales_rank'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
+                  onPressed: () {
+                    Get.find<SalesRankController>().setVisible();
+                  },
+                ),
+              ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(

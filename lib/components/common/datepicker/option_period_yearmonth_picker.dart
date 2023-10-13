@@ -79,7 +79,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),
@@ -92,7 +92,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                     child: Obx(
                       () => TextButton(
                         onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),

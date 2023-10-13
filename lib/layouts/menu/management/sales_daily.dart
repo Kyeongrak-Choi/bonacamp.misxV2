@@ -26,15 +26,19 @@ class SalesDaily extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
-          appBar:
-              AppBar(title: Text('menu_sub_salesdaily'.tr), backgroundColor: context.theme.canvasColor, iconTheme: context.theme.iconTheme, actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
-              onPressed: () {
-                Get.find<SalesDailyController>().setVisible();
-              },
-            ),
-          ]),
+          appBar: AppBar(
+              title: Text('menu_sub_salesdaily'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
+                  onPressed: () {
+                    Get.find<SalesDailyController>().setVisible();
+                  },
+                ),
+              ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
@@ -89,7 +93,6 @@ class SalesDaily extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesDailyController>().salesDailyList != null) {
-      log('check : ' + Get.find<SalesDailyController>().salesDailyList.toString());
       return SalesDailyItem(Get.find<SalesDailyController>().salesDailyList);
     } else {
       return EmptyWidget();

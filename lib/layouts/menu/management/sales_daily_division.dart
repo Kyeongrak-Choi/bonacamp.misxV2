@@ -14,6 +14,7 @@ import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
+import '../../../components/common/field/icon_title_two_field.dart';
 import '../../../components/common/field/show_double_value_field.dart';
 import '../../../components/datatable/management/sales_daily_division_item.dart';
 import '../../../models/menu/management/sales_daily_division_model.dart';
@@ -30,6 +31,7 @@ class SalesDailyDivision extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesdaily_division'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
@@ -100,21 +102,77 @@ class SalesDailyDivision extends StatelessWidget {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                       child: Column(
                         children: [
-                          Container(
-                            child: ShowDoubleValueField(null, '수량\n(BOX/EA)', '금액'),
+                          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                            Expanded(
+                              flex: 2,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                                child: Text(
+                                  '',
+                                  style: context.textTheme.displaySmall,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 4,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                                child: Text(
+                                 '수량(BOX/EA)',
+                                  style: context.textTheme.displaySmall,
+                                  textAlign: TextAlign.end,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 4,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                                child: Text(
+                                  '금액',
+                                  style: context.textTheme.displaySmall,
+                                  textAlign: TextAlign.end,
+                                ),
+                              ),
+                            ),
+                          ]),
+                          IconTitleTwoField(
+                            titleName: '유흥합계',
+                            value1: divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
+                            value2: divisionController.pleasureAmountSum,
+                            iconData: Icons.label_outlined,
                           ),
-                          ShowDoubleValueField('유흥합계', divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
-                              divisionController.pleasureAmountSum),
-                          ShowDoubleValueField('일반합계', divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum,
-                              divisionController.normalAmountSum),
-                          ShowDoubleValueField(
-                              '합 계', divisionController.totBoxSum + ' / ' + divisionController.totBottleSum, divisionController.totAmountSum),
-                          ShowDoubleValueField('유흥누계', divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
-                              divisionController.pleasureAmountQuantity),
-                          ShowDoubleValueField('일반누계', divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
-                              divisionController.normalAmountQuantity),
-                          ShowDoubleValueField('누계', divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
-                              divisionController.totAmountQuantity),
+                          IconTitleTwoField(
+                            titleName: '일반합계',
+                            value1: divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum,
+                            value2: divisionController.normalAmountSum,
+                            iconData: Icons.label_outlined,
+                          ),
+                          IconTitleTwoField(
+                            titleName: '합 계',
+                            value1: divisionController.totBoxSum + ' / ' + divisionController.totBottleSum,
+                            value2: divisionController.totAmountSum,
+                            iconData: Icons.label_outlined,
+                          ),
+                          IconTitleTwoField(
+                            titleName: '유흥누계',
+                            value1: divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
+                            value2: divisionController.pleasureAmountQuantity,
+                            iconData: Icons.label_outlined,
+                          ),
+                          IconTitleTwoField(
+                            titleName: '일반누계',
+                            value1: divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
+                            value2: divisionController.normalAmountQuantity,
+                            iconData: Icons.label_outlined,
+                          ),
+                          IconTitleTwoField(
+                            titleName: '누 계',
+                            value1: divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
+                            value2: divisionController.totAmountQuantity,
+                            iconData: Icons.label_outlined,
+                          ),
                         ],
                       ),
                     ),

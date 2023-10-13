@@ -62,7 +62,7 @@ class OptionCbBusinessType extends StatelessWidget {
             child: Text(
               'opt_business'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),

@@ -30,6 +30,7 @@ class OverallStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('appbar_title_overall_status'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [

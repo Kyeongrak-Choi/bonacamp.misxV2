@@ -27,6 +27,7 @@ class SalesClassStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_sales_class_status'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
@@ -75,7 +76,7 @@ class SalesClassStatus extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
                         child: ListView(
                           children: <Widget>[setChild()],
                         ),
@@ -91,7 +92,6 @@ class SalesClassStatus extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesClassStatusController>().controllerModel != null) {
-      log('check : ' + Get.find<SalesClassStatusController>().controllerModel.toString());
       return SalesClassStatusItem(Get.find<SalesClassStatusController>().controllerModel);
     } else {
       return EmptyWidget();

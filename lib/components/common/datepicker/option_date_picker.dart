@@ -54,7 +54,7 @@ class OptionDatePicker extends StatelessWidget {
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),
@@ -112,12 +112,20 @@ class DatePickerController extends GetxController {
       firstDate: DateTime(DateTime.now().year - 2),
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
+
       cancelText: 'cancel'.tr,
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: context.theme,
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
           child: child!,
+
         );
       },
     );

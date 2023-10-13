@@ -62,7 +62,7 @@ class OptionCbBranch extends StatelessWidget {
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),
