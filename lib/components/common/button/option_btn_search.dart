@@ -11,6 +11,7 @@ import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 
@@ -84,6 +85,13 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_VENDORLOCATION:
                         await Get.find<VendorLocationController>().showResult();
                         break;
+
+                      // 영업분석 - 매출처 현황
+                      case ROUTE_MENU_CUSTOMER_INFO:
+                        await Get.find<CustomerInfoController>().showResult();
+                        break;
+
+
                     }
                   } catch (e) {
                     pd.close();
