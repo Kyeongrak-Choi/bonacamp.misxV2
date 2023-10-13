@@ -20,7 +20,7 @@ class CustomerInfoTable extends StatelessWidget {
               IconTitleField(
                 titleName: '사업자번호',
                 value: controller.controllerCustomerInfoModel != null ?
-                numberFormat.format(controller.controllerCustomerInfoModel.businessNo) : '',
+                controller.controllerCustomerInfoModel.businessNo ?? '' : '',
                 iconData: Icons.label_outlined,
               ),
 
@@ -32,19 +32,19 @@ class CustomerInfoTable extends StatelessWidget {
               IconTitleField(
                 titleName: '대표자',
                 value: controller.controllerCustomerInfoRepresentativeModel != null ?
-                controller.controllerCustomerInfoRepresentativeModel.name : '',
+                controller.controllerCustomerInfoRepresentativeModel.name ?? '' : '',
                 iconData: Icons.person,
               ),
               IconTitleField(
                 titleName: 'C.P.',
                 value: controller.controllerCustomerInfoRepresentativeModel != null ?
-                controller.controllerCustomerInfoRepresentativeModel.phone : '',
+                controller.controllerCustomerInfoRepresentativeModel.phone ?? '' : '',
                 iconData: Icons.phone_android,
               ),
               IconTitleField(
                 titleName: '생년월일',
                 value: controller.controllerCustomerInfoRepresentativeModel != null ?
-                controller.controllerCustomerInfoRepresentativeModel.birthDay : '',
+                controller.controllerCustomerInfoRepresentativeModel.birthDay ?? '' : '',
                 iconData: Icons.label_outlined,
               ),
 
@@ -56,13 +56,13 @@ class CustomerInfoTable extends StatelessWidget {
               IconTitleField(
                 titleName: '영업담당',
                 value: controller.controllerCustomerInfoEmployeeModel != null ?
-                controller.controllerCustomerInfoEmployeeModel.salesRep : '',
+                controller.controllerCustomerInfoEmployeeModel.salesRep ?? '' : '',
                 iconData: Icons.person,
               ),
               IconTitleField(
                 titleName: '관리담당',
                 value: controller.controllerCustomerInfoEmployeeModel != null ?
-                controller.controllerCustomerInfoEmployeeModel.manager : '',
+                controller.controllerCustomerInfoEmployeeModel.manager ?? '' : '',
                 iconData: Icons.person,
               ),
 
@@ -74,31 +74,31 @@ class CustomerInfoTable extends StatelessWidget {
               IconTitleField(
                 titleName: '전화번호1',
                 value: controller.controllerCustomerInfoModel != null ?
-                controller.controllerCustomerInfoModel.tel1 : '',
+                controller.controllerCustomerInfoModel.tel1 ?? '' : '',
                 iconData: Icons.phone,
               ),
               IconTitleField(
                 titleName: '전화번호2',
                 value: controller.controllerCustomerInfoModel != null ?
-                controller.controllerCustomerInfoModel.tel2 : '',
+                controller.controllerCustomerInfoModel.tel2 ?? '' : '',
                 iconData: Icons.phone,
               ),
               IconTitleField(
                 titleName: 'FAX',
                 value: controller.controllerCustomerInfoModel != null ?
-                controller.controllerCustomerInfoModel.fax : '',
+                controller.controllerCustomerInfoModel.fax ?? '' : '',
                 iconData: Icons.fax_rounded,
               ),
               IconTitleField(
                 titleName: 'e-Mail',
-                value: controller.controllerCustomerInfoModel != null ?
-                controller.controllerCustomerInfoModel.email : '',
+                value: controller.controllerCustomerInfoEmployeeModel != null ?
+                controller.controllerCustomerInfoEmployeeModel.email ?? '' : '',
                 iconData: Icons.mail,
               ),
               IconTitleField(
                 titleName: 'Memo',
-                value: controller.controllerCustomerInfoEmployeeModel != null ?
-                controller.controllerCustomerInfoEmployeeModel.note : '',
+                value: controller.controllerCustomerInfoModel != null ?
+                controller.controllerCustomerInfoModel.note ?? '' : '',
                 iconData: Icons.label_outlined,
               ),
 
@@ -110,13 +110,13 @@ class CustomerInfoTable extends StatelessWidget {
               IconTitleField(
                 titleName: '대표자주소',
                 value: controller.controllerCustomerInfoRepresentativeModel != null ?
-                controller.controllerCustomerInfoRepresentativeModel.address : '',
+                controller.controllerCustomerInfoRepresentativeModel.address ?? '' : '',
                 iconData: Icons.home,
               ),
               IconTitleField(
                 titleName: '사업장주소',
                 value: controller.controllerCustomerInfoModel != null ?
-                controller.controllerCustomerInfoModel.address : '',
+                controller.controllerCustomerInfoModel.address ?? '' : '',
                 iconData: Icons.home,
               ),
             ],
