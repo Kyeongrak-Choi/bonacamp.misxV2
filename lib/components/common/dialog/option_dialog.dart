@@ -58,7 +58,7 @@ class OptionDialog extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayLarge,
+              style: context.textTheme.displayMedium,
             ),
           ),
         ),
@@ -73,7 +73,7 @@ class OptionDialog extends StatelessWidget {
                       onPressed: () => Get.toNamed(route),
                       child: Obx(() => Text(
                             Get.find<OptionDialogController>().selectedValue.value,
-                            style: context.textTheme.displayMedium,
+                            style: context.textTheme.displaySmall,
                           )),
                     ))),
             Expanded(

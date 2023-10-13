@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -122,8 +123,13 @@ class SearchListController extends GetxController {
           final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-            parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+            pd.close();
+            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
+              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            }else {
+              dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+              parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+            }
           }
           pd.close();
         } on DioException catch (e) {
@@ -141,8 +147,13 @@ class SearchListController extends GetxController {
           final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-            parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+            pd.close();
+            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
+              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            }else {
+              dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+              parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+            }
           }
           pd.close();
         } on DioException catch (e) {
@@ -159,8 +170,13 @@ class SearchListController extends GetxController {
           final response = await dio.get(API_COMMON + API_COMMON_ITEM + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_ITEM] as List;
-            parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
+            pd.close();
+            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
+              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            }else {
+              dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_ITEM] as List;
+              parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
+            }
           }
           pd.close();
         } on DioException catch (e) {
@@ -177,8 +193,13 @@ class SearchListController extends GetxController {
           final response = await dio.get(API_COMMON + API_COMMON_LENDITEM + '?q=search' + queryParam);
 
           if (response.statusCode == 200) {
-            dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_LENDITEM] as List;
-            parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
+            pd.close();
+            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
+              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            }else {
+              dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_COMMON_LENDITEM] as List;
+              parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
+            }
           }
           pd.close();
         } on DioException catch (e) {
