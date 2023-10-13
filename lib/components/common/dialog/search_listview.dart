@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:misxV2/components/common/dialog/search_listitem.dart';
 import 'package:misxV2/models/common/customer.dart';
 import 'package:misxV2/models/common/item.dart';
 import 'package:misxV2/models/common/lenditem.dart';
-import 'package:misxV2/models/common/purchase.dart';
 import 'package:misxV2/utils/network/network_manager.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/utility.dart';
@@ -54,28 +52,28 @@ class SearchList extends StatelessWidget {
     switch (flag) {
       case SEARCH_DIALOG_CUST:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getCode ?? ''
-            , Get.find<SearchListController>().datas[index].getName ?? ''
-            , Get.find<SearchListController>().datas[index].getBusinessItem ?? ''
-            , Get.find<SearchListController>().datas[index].getStatuaName ?? '');
+            Get.find<SearchListController>().datas[index].getCode ?? '',
+            Get.find<SearchListController>().datas[index].getName ?? '',
+            Get.find<SearchListController>().datas[index].getBusinessItem ?? '',
+            Get.find<SearchListController>().datas[index].getStatuaName ?? '');
       case SEARCH_DIALOG_PRCH:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getCode ?? ''
-            , Get.find<SearchListController>().datas[index].getName ?? ''
-            , Get.find<SearchListController>().datas[index].getBusinessItem?? ''
-            , Get.find<SearchListController>().datas[index].getStatuaName ?? '');
+            Get.find<SearchListController>().datas[index].getCode ?? '',
+            Get.find<SearchListController>().datas[index].getName ?? '',
+            Get.find<SearchListController>().datas[index].getBusinessItem ?? '',
+            Get.find<SearchListController>().datas[index].getStatuaName ?? '');
       case SEARCH_DIALOG_ITEM:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getItmCd ?? ''
-            , Get.find<SearchListController>().datas[index].getItmNm ?? ''
-            , Get.find<SearchListController>().datas[index].getItmAbbNm ?? ''
-            , Get.find<SearchListController>().datas[index].getUzFgNm ?? '');
+            Get.find<SearchListController>().datas[index].getItmCd ?? '',
+            Get.find<SearchListController>().datas[index].getItmNm ?? '',
+            Get.find<SearchListController>().datas[index].getItmAbbNm ?? '',
+            Get.find<SearchListController>().datas[index].getUzFgNm ?? '');
       case SEARCH_DIALOG_LEND:
         return SearchListItem(
-            Get.find<SearchListController>().datas[index].getLendItmCd ?? ''
-            , Get.find<SearchListController>().datas[index].getLendItmNm ?? ''
-            , Get.find<SearchListController>().datas[index].getVesFgNm ?? ''
-            , Get.find<SearchListController>().datas[index].getEmptyBotlNm ?? '');
+            Get.find<SearchListController>().datas[index].getLendItmCd ?? '',
+            Get.find<SearchListController>().datas[index].getLendItmNm ?? '',
+            Get.find<SearchListController>().datas[index].getVesFgNm ?? '',
+            Get.find<SearchListController>().datas[index].getEmptyBotlNm ?? '');
       default:
         return SearchListItem('', '', '', '');
     }

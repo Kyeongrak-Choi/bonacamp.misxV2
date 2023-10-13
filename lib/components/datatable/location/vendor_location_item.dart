@@ -11,7 +11,6 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../models/menu/location/place_model.dart';
-import '../../common/field/show_short_title_field.dart';
 
 class VendorLocationItem extends StatefulWidget {
   const VendorLocationItem({super.key});

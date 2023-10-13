@@ -41,8 +41,12 @@ class CustomerModel {
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);
 
   get getCode => code;
+
   get getName => name;
+
   get getNickName => nickName;
+
   get getStatuaName => statusName;
+
   get getBusinessItem => businessItem;
 }

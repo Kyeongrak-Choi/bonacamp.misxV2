@@ -5,8 +5,8 @@ part 'chart_spot.g.dart'; // *.g.dart : in same directory
 // 차트 Spot 모델
 @JsonSerializable(explicitToJson: true)
 class ChartSpot {
-  String name; // 범례
-  double value; // 값
+  var name; // 범례
+  var value; // 값
 
   ChartSpot(this.name, this.value);
 

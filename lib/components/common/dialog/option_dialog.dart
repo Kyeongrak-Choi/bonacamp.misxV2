@@ -16,36 +16,72 @@ class OptionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OptionDialogController());
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    // return Row(
+    //   mainAxisAlignment: MainAxisAlignment.start,
+    //   children: [
+    //     Expanded(
+    //         flex: 2,
+    //         child: Padding(
+    //           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+    //           child: Container(
+    //             child: ElevatedButton(
+    //                 style: ElevatedButton.styleFrom(
+    //                   backgroundColor: context.theme.canvasColor,
+    //                 ),
+    //                 onPressed: () {},
+    //                 child: Text(
+    //                   title,
+    //                   style: context.textTheme.displaySmall,
+    //                 )),
+    //           ),
+    //         )),
+    //     Expanded(
+    //         flex: 4,
+    //         child: Padding(
+    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+    //             child: TextButton(
+    //               onPressed: () => Get.toNamed(route),
+    //               child: Obx(() => Text(
+    //                     Get.find<OptionDialogController>().selectedValue.value,
+    //                     style: context.textTheme.displaySmall,
+    //                   )),
+    //             ))),
+    //   ],
+    // );
+
+    return Column(
       children: [
-        Expanded(
-            flex: 2,
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-              child: Container(
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: context.theme.canvasColor,
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      title,
-                      style: context.textTheme.displaySmall,
-                    )),
-              ),
-            )),
-        Expanded(
-            flex: 4,
-            child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                child: TextButton(
-                  onPressed: () => Get.toNamed(route),
-                  child: Obx(() => Text(
-                        Get.find<OptionDialogController>().selectedValue.value,
-                        style: context.textTheme.displaySmall,
-                      )),
-                ))),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            child: Text(
+              title,
+              textAlign: TextAlign.start,
+              style: context.textTheme.displayLarge,
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+                flex: 9,
+                child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    child: TextButton(
+                      onPressed: () => Get.toNamed(route),
+                      child: Obx(() => Text(
+                            Get.find<OptionDialogController>().selectedValue.value,
+                            style: context.textTheme.displaySmall,
+                          )),
+                    ))),
+            Expanded(
+              flex: 1,
+              child: Icon(Icons.storefront, color: context.theme.primaryColor),
+            ),
+          ],
+        ),
       ],
     );
   }

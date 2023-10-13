@@ -32,47 +32,41 @@ class AnalysisGraphComponent extends StatelessWidget {
           tooltipBehavior: TooltipBehavior(enable: true),
           series: <ChartSeries<ChartSpot, String>>[
             StackedLineSeries<ChartSpot, String>(
-                name: '매출',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .salesList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '매출',
+              dataSource: Get.find<AnalysisGraphController>().salesList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
             StackedLineSeries<ChartSpot, String>(
-                name: '채권',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .bondList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '채권',
+              dataSource: Get.find<AnalysisGraphController>().bondList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
             StackedLineSeries<ChartSpot, String>(
-                name: '매입',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .purchaseList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '매입',
+              dataSource: Get.find<AnalysisGraphController>().purchaseList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
             StackedLineSeries<ChartSpot, String>(
-                name: '채무',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .debtList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '채무',
+              dataSource: Get.find<AnalysisGraphController>().debtList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
             StackedLineSeries<ChartSpot, String>(
-                name: '대여금액',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .rentalList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '대여금액',
+              dataSource: Get.find<AnalysisGraphController>().rentalList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
             StackedLineSeries<ChartSpot, String>(
-                name: '대여자산',
-                dataSource: Get
-                    .find<AnalysisGraphController>()
-                    .assetList,
-                xValueMapper: (ChartSpot data, _) => data.name,
-                yValueMapper: (ChartSpot data, _) => data.value,),
+              name: '대여자산',
+              dataSource: Get.find<AnalysisGraphController>().assetList,
+              xValueMapper: (ChartSpot data, _) => data.name,
+              yValueMapper: (ChartSpot data, _) => data.value,
+            ),
           ],
         ),
       );
