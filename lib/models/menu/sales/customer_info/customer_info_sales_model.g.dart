@@ -11,8 +11,8 @@ CustomerInfoSalesModel _$CustomerInfoSalesModelFromJson(
     CustomerInfoSalesModel(
       json['title'] as String?,
       json['month'] as String?,
-      json['sales-amount'] as String?,
-      json['balance'] as String?,
+      json['sales-amount'] as int,
+      json['balance'] as int,
     );
 
 Map<String, dynamic> _$CustomerInfoSalesModelToJson(

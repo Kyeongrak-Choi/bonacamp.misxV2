@@ -8,8 +8,8 @@ part 'customer_info_sales_model.g.dart'; // *.g.dart : in same directory
 class CustomerInfoSalesModel {
   String? title;
   String? month;
-  String? salesAmount;
-  String? balance;
+  int salesAmount;
+  int balance;
 
 
   CustomerInfoSalesModel(this.title, this.month, this.salesAmount, this.balance);
@@ -39,15 +39,15 @@ class CustomerInfoSalesModel {
     month = value;
   }
 
-  String? get getSalesAmount => salesAmount;
+  int get getSalesAmount => salesAmount;
 
-  set setSalesAmount(String value) {
+  set setSalesAmount(int value) {
     salesAmount = value;
   }
 
-  String? get getBalance => balance;
+  int get getBalance => balance;
 
-  set setBalance(String value) {
+  set setBalance(int value) {
     balance = value;
   }
 }

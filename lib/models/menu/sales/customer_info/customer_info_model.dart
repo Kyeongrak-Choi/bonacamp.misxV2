@@ -10,9 +10,6 @@ part 'customer_info_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class CustomerInfoModel {
-  CustomerInfoRepresentativeModel customerInfoRepresentativeModel;
-  CustomerInfoEmployeeModel customerInfoEmployeeModel;
-  CustomerInfoSalesModel customerInfoSalesModel;
   String? businessNo;
   String? tel1;
   String? tel2;
@@ -21,14 +18,10 @@ class CustomerInfoModel {
   String? address;
 
 
-  CustomerInfoModel(this.customerInfoRepresentativeModel, this.customerInfoEmployeeModel, this.customerInfoSalesModel,
-                    this.businessNo, this.tel1, this.tel2, this.fax, this.note, this.address);
+  CustomerInfoModel(this.businessNo, this.tel1, this.tel2, this.fax, this.note, this.address);
 
   Map<String, dynamic> toMap() {
     return {
-      'representative' : customerInfoRepresentativeModel,
-      'employee' : customerInfoEmployeeModel,
-      'sales-summaries' : customerInfoSalesModel,
       'business-no': businessNo,
       'tel1': tel1,
       'tel2': tel2,

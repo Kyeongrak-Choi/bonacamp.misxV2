@@ -26,7 +26,10 @@ import '../../../models/menu/management/overall/overallrental.dart';
 import '../../../models/menu/management/overall/overallreturn.dart';
 import '../../../models/menu/management/overall/overallsales.dart';
 import '../../../models/menu/management/overall/overallwithdraw.dart';
+import '../../../models/menu/sales/customer_info/customer_info_employee_model.dart';
 import '../../../models/menu/sales/customer_info/customer_info_model.dart';
+import '../../../models/menu/sales/customer_info/customer_info_representative_model.dart';
+import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -58,28 +61,31 @@ class CustomerInfo extends StatelessWidget {
               children: [
                 Visibility(
                     visible: Get.find<CustomerInfoController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: Column(
-                          children: [
-                            OptionCbBranch(),
-                            OptionDialog(SEARCH_DIALOG_CUST),
-                            OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
-                          ],
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Column(
+                              children: [
+                                OptionCbBranch(),
+                                OptionDialog(SEARCH_DIALOG_CUST),
+                                OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
                     )),
-                SizedBox(
-                  height: 20,
-                ),
                 Expanded(
-
                   flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
                   child: Container(
                     decoration: BoxDecoration(
@@ -118,7 +124,7 @@ class CustomerInfo extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<CustomerInfoController>().spotListSales.length > 0) {
-      return AnalysisGraphComponent();
+      return CustomerInfoGraph();
     } else {
       return EmptyWidget();
     }
@@ -147,7 +153,13 @@ class CustomerInfoController extends GetxController {
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramCustCode = Get.find<OptionDialogController>().paramCustomerCode.value ?? '';
-    var param = user.getClientCode;
+
+    if(paramCustCode == ''){
+      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+      return;
+    }
+    
+    var param = user. getClientCode;
     var parsedDataCustomerInfo;
     var parsedDataCustomerInfoRepre;
     var parsedDataCustomerInfoEmp;
@@ -160,15 +172,18 @@ class CustomerInfoController extends GetxController {
           API_SALES + API_SALES_CUSTOMERINFO + '?branch=' + paramBranchCode + '&code=' + paramCustCode);
 
       if (response.statusCode == 200) {
+        spotListSales.clear();
+        spotListBalance.clear();
+
         parsedDataCustomerInfo = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
         parsedDataCustomerInfoRepre = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_REPRESENTATIVE];
         parsedDataCustomerInfoEmp = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_EMPLOYEE];
-        parsedDataCustomerInfoSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALESSUMMARIES];
+        parsedDataCustomerInfoSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALESSUMMARIES] as List;
 
         controllerCustomerInfoModel = CustomerInfoModel.fromJson(parsedDataCustomerInfo);
-        controllerCustomerInfoRepresentativeModel = CustomerInfoModel.fromJson(parsedDataCustomerInfoRepre);
-        controllerCustomerInfoEmployeeModel = CustomerInfoModel.fromJson(parsedDataCustomerInfoEmp);
-        controllerCustomerInfoSalesModel = CustomerInfoModel.fromJson(parsedDataCustomerInfoSales);
+        controllerCustomerInfoRepresentativeModel = CustomerInfoRepresentativeModel.fromJson(parsedDataCustomerInfoRepre);
+        controllerCustomerInfoEmployeeModel = CustomerInfoEmployeeModel.fromJson(parsedDataCustomerInfoEmp);
+        controllerCustomerInfoSalesModel = parsedDataCustomerInfoSales.map((dataJson)=>CustomerInfoSalesModel.fromJson(dataJson)).toList();
 
         for (var list in parsedDataCustomerInfoSales) {
           spotListSales.add(ChartSpot(list['title'].toString(),  list['sales-amount']));
