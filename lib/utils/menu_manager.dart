@@ -99,7 +99,7 @@ final List<IconMenu> managementAnalysisMaster = [
 
 // 영업분석
 final List<IconMenu> salesAnalysisMaster = [
-  IconMenu(title: 'title_9'.tr, iconData: Icons.copy_outlined, path: ''), // 거래처 현황
+  IconMenu(title: 'menu_sub_customer_info'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_CUSTOMER_INFO), // 거래처 현황
   IconMenu(title: 'title_10'.tr, iconData: Icons.copy_outlined, path: ''), // 영업사원별 매출현황
   IconMenu(title: 'title_11'.tr, iconData: Icons.copy_outlined, path: ''), // 영업사원별 월별 매출현황
   IconMenu(title: 'title_12'.tr, iconData: Icons.copy_outlined, path: ''), // 매출현황

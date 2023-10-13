@@ -41,6 +41,7 @@ const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
 const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 // sales (영업분석)
+const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 영업일보(용도별)
 
 // purchase (매입분석)
 
@@ -129,6 +130,8 @@ const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
 const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
 
 // sales (영업분석)
+const API_SALES = '/v1/views/sales';
+const API_SALES_CUSTOMERINFO = '/customer-info'; // 영업일보(용도별)
 
 // purchase (매입분석)
 
@@ -180,6 +183,9 @@ const TAG_WITHDRAW = 'withdraw';
 const TAG_RETURN = 'return';
 const TAG_RENTAL = 'rental';
 const TAG_ASSET = 'asset';
+const TAG_REPRESENTATIVE = 'representative';
+const TAG_EMPLOYEE = 'employee';
+const TAG_SALESSUMMARIES = 'sales-summaries';
 
 const TAG_DATA_LIST = 'data-list';
 const TAG_GRAPH_BOND = 'bond';
