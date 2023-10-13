@@ -25,6 +25,7 @@ import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/menu/management/sales_daily_division.dart';
+import 'layouts/menu/sales/customer_info.dart';
 
 void main() async {
   // init Hive
@@ -90,7 +91,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
 
         // 영업분석
-        // GetPage(name: , page: () =>), // 거래처 현황
+         GetPage(name: ROUTE_MENU_CUSTOMER_INFO, page: () => CustomerInfo()), // 거래처 현황
         // GetPage(name: , page: () =>), // 영업사원별 매출현황
         // GetPage(name: , page: () =>), // 영업사원별 월별 매출현황
         // GetPage(name: , page: () =>), // 매출현황
