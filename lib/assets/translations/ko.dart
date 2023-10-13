@@ -108,7 +108,7 @@ const Map<String, String> koKR = {
   'menu_sub_salesdaily_division': '영업일보(용도별)',
 
   'menu_main_sales': '영업분석',
-  'title_9': '거래처 현황',
+  'menu_sub_customer_info': '거래처 현황',
   'title_10': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
   'title_12': '매출현황',
