@@ -73,7 +73,7 @@ void ShowDialog(type, title, content, context) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
         dialogBackgroundColor: CommonColors.bluesky,
-        buttonOkColor: CommonColors.red,
+        buttonOkColor: CommonColors.dark,
         title: title,
         titleColor: CommonColors.dark,
         message: content,

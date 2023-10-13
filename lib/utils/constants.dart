@@ -7,7 +7,7 @@ const COPY_RIGHT = 'Copyright 2023. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 const APP_ID = 'MISX';
 
-enum NAVIGATION_BAR_ITEM { HOME, MENU, CONFIG } // Navigation Item
+enum NAVIGATION_BAR_ITEM { CONFIG, HOME, MENU } // Navigation Item
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

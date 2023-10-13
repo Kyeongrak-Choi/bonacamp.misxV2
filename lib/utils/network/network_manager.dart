@@ -129,21 +129,6 @@ Future<Dio> reqApi(header) async {
     if (dioError.response?.statusCode == 200) {
     } else if (dioError.response?.statusCode == 401) {
       log('token renewal call');
-      // // 1차 토큰 만료
-      // final accessToken = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
-      //
-      // // 토큰 갱신 요청을 담당할 dio 객체 구현 후 그에 따른 interceptor 정의
-      // var refreshDio = Dio(options);
-      // refreshDio.interceptors.clear();
-      // refreshDio.interceptors.add(InterceptorsWrapper(onError: (rError, rHandler) async {
-      //   if (rError.response?.statusCode != 200) {
-      //     // 토큰 초기화
-      //     initToken();
-      //     ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr, Get.context);
-      //     Get.toNamed(ROUTE_LOGIN);
-      //   }
-      //   return rHandler.next(rError);
-      // }));
 
       // 토큰 갱신 API 요청
       if (await reqToken(true)) {

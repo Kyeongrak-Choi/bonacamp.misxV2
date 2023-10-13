@@ -34,7 +34,7 @@ void main() async {
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
   // init Theme Setting
-  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()) ? ThemeMode.dark : ThemeMode.light);
+  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: ThemeMode.light));
 
   runApp(Misx());
 }
