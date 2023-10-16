@@ -70,6 +70,10 @@ const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
 const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
 const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
 
+// System Common code  'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021'
+const SYSTEM_COMMON_ABS010 = 'ABS010'; // 업종
+const SYSTEM_COMMON_AMC002 = 'AMC002'; // 매출유형
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
