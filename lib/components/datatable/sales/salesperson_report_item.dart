@@ -31,7 +31,7 @@ class SalesPersonReportItem extends StatelessWidget {
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.name.toString());
+                    return ShowListHeaderRow(titleName: '', value: model.name.toString() ?? '');
                   },
                   body: Column(
                     children: [
@@ -44,7 +44,7 @@ class SalesPersonReportItem extends StatelessWidget {
                         value: model.price.toString(),
                       ),
                       ShowListDetailRow(
-                        titleName: '합계 (공급가 + 부가세)',
+                        titleName: '합계\n(공급가 + 부가세)',
                         value: model.amount.toString(),
                       ),
                       ShowListDetailRow(
