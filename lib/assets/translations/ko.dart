@@ -91,6 +91,10 @@ const Map<String, String> koKR = {
   'snack_error': '에러',
   'snack_information': '정보',
 
+  // System Common code
+  'common_abs010' : '업종',
+  'common_amc002' : '매출유형',
+
   // Progress Bar
   'progress_loading': '로딩중입니다...',
   'progress_login': '로그인중입니다...',
