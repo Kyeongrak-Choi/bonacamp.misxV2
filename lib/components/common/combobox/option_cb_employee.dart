@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -6,53 +8,16 @@ import '../../../models/system/employee.dart';
 import '../../../utils/constants.dart';
 
 class OptionCbEmployee extends StatelessWidget {
+  bool flag = false;
+  var title;
+
+  OptionCbEmployee(bool data) {
+    this.flag = data;
+    initVar(flag);
+  }
   @override
   Widget build(BuildContext context) {
-    Get.put(CbSaleController());
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.start,
-    //   children: [
-    //     Expanded(
-    //         flex: 2,
-    //         child: Padding(
-    //           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //           child: Container(
-    //             child: ElevatedButton(
-    //                 style: ElevatedButton.styleFrom(
-    //                   backgroundColor: context.theme.canvasColor,
-    //                 ),
-    //                 onPressed: () {},
-    //                 child: Text(
-    //                   'opt_sales'.tr,
-    //                   style: context.textTheme.displaySmall,
-    //                 )),
-    //           ),
-    //         )),
-    //     Expanded(
-    //         flex: 4,
-    //         child: Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: Obx(
-    //               () => DropdownButtonFormField<EmployeeModel>(
-    //                 isExpanded: true,
-    //                 value: Get.find<CbSaleController>().selectedValue,
-    //                 style: context.textTheme.displaySmall,
-    //                 decoration: InputDecoration(border: InputBorder.none),
-    //                 dropdownColor: context.theme.cardColor,
-    //                 items: Get.find<CbSaleController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
-    //                   return DropdownMenuItem<EmployeeModel>(
-    //                     alignment: Alignment.center,
-    //                     value: value,
-    //                     child: Text(value.getEmployeeName ?? ''),
-    //                   );
-    //                 }).toList(),
-    //                 onChanged: (value) {
-    //                   Get.find<CbSaleController>().chooseItem(value!);
-    //                 },
-    //               ),
-    //             ))),
-    //   ],
-    // );
+    Get.put(CbEmployeeController(flag));
 
     return Column(
       children: [
@@ -61,7 +26,7 @@ class OptionCbEmployee extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              'opt_sales'.tr,
+              title,
               textAlign: TextAlign.start,
               style: context.textTheme.displayMedium,
             ),
@@ -77,11 +42,11 @@ class OptionCbEmployee extends StatelessWidget {
                     child: Obx(
                       () => DropdownButtonFormField<EmployeeModel>(
                         isExpanded: true,
-                        value: Get.find<CbSaleController>().selectedValue,
+                        value: Get.find<CbEmployeeController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbSaleController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                        items: Get.find<CbEmployeeController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
                           return DropdownMenuItem<EmployeeModel>(
                             alignment: Alignment.center,
                             value: value,
@@ -89,7 +54,7 @@ class OptionCbEmployee extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbSaleController>().chooseItem(value!);
+                          Get.find<CbEmployeeController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -98,18 +63,31 @@ class OptionCbEmployee extends StatelessWidget {
       ],
     );
   }
+
+  void initVar(isManage) {
+    if (isManage) {
+      title = 'opt_manage'.tr;
+    } else {
+      title = 'opt_sales'.tr;
+    }
+  }
 }
 
-class CbSaleController extends GetxController {
+class CbEmployeeController extends GetxController {
   var selectedValue;
   List<EmployeeModel> data = [
     EmployeeModel('', '전체', false),
   ].obs;
 
-  // param sample
+  bool isManage=false;
+
   String paramEmployeeCode = '';
   String paramEmployeeName = '';
   bool paramManager = false;
+
+  CbEmployeeController(flag) {
+    this.isManage = flag;
+  }
 
   @override
   void onInit() {
@@ -130,8 +108,16 @@ class CbSaleController extends GetxController {
       LOCAL_DB,
     );
 
-    for (int i = 0; i < Hive.box(LOCAL_DB).get(KEY_EMPLOYEE).length; i++) {
-      data.add(Hive.box(LOCAL_DB).get(KEY_EMPLOYEE).elementAt(i));
+    List<dynamic> employee = Hive.box(LOCAL_DB).get(KEY_EMPLOYEE);
+
+    for (int i = 0; i < employee.length; i++) {
+      if (isManage) {
+        if (employee.elementAt(i).getManager) {
+          data.add(employee.elementAt(i));
+        }
+      } else {
+        data.add(employee.elementAt(i));
+      }
     }
   }
 }

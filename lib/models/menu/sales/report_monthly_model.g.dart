@@ -8,7 +8,7 @@ part of 'report_monthly_model.dart';
 
 ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) =>
     ReportMonthlyModel(
-      json['branchCode'],
+      json['branch-code'],
       json['code'],
       json['name'],
       ChartSpot.fromJson(json['sales'] as Map<String, dynamic>),
@@ -17,7 +17,7 @@ ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ReportMonthlyModelToJson(ReportMonthlyModel instance) =>
     <String, dynamic>{
-      'branchCode': instance.branchCode,
+      'branch-code': instance.branchCode,
       'code': instance.code,
       'name': instance.name,
       'sales': instance.sales.toJson(),

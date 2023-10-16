@@ -36,7 +36,7 @@ class VendorLocation extends StatelessWidget {
                   child: Column(
                     children: [
                       OptionDatePicker(),
-                      OptionCbEmployee(),
+                      OptionCbEmployee(false),
                       OptionCbCustomerStatus(),
                       OptionCbCommon(SYSTEM_COMMON_ABS010),
                       OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),

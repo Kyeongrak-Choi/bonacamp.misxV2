@@ -7,7 +7,6 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manage.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -58,8 +57,8 @@ class SalesRank extends StatelessWidget {
                           children: [
                             OptionPeriodPicker(),
                             OptionCbBranch(),
-                            OptionCbEmployee(),
-                            OptionCbManage(),
+                            OptionCbEmployee(false),
+                            OptionCbEmployee(true),
                             OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
                           ],
                         ),
@@ -117,8 +116,8 @@ class SalesRankController extends GetxController {
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManageController>().paramManageCode;
+    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode = Get.find<CbEmployeeController>().paramEmployeeCode;
 
     var param = user.getClientCode;
     List parsedDataSalesRank;

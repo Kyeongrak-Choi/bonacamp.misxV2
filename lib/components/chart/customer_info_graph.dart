@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../layouts/menu/management/analysis_graph.dart';
 import '../../layouts/menu/sales/customer_info.dart';
 import '../../models/common/chart_spot.dart';
-import '../chart/line/chart_manager.dart';
 
 class CustomerInfoGraph extends StatelessWidget {
   @override

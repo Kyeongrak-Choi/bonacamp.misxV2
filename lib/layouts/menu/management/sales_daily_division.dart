@@ -15,7 +15,6 @@ import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/icon_title_two_field.dart';
-import '../../../components/common/field/show_double_value_field.dart';
 import '../../../components/datatable/management/sales_daily_division_item.dart';
 import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../../models/system/userinfo.dart';
@@ -62,7 +61,7 @@ class SalesDailyDivision extends StatelessWidget {
                           children: [
                             OptionDatePicker(),
                             OptionCbBranch(),
-                            OptionCbEmployee(),
+                            OptionCbEmployee(false),
                             OptionCbTeam(),
                             OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
                           ],
@@ -298,7 +297,7 @@ class SalesDailyDivisionController extends GetxController {
 
     String paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String paramEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
+    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;

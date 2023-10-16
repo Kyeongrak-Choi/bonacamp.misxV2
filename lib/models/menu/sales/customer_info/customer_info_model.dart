@@ -1,9 +1,4 @@
-import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'customer_info_employee_model.dart';
-import 'customer_info_representative_model.dart';
-import 'customer_info_sales_model.dart';
 
 part 'customer_info_model.g.dart'; // *.g.dart : in same directory
 

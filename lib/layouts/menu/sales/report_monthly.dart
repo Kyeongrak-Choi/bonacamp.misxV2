@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
+import 'package:misxV2/components/common/combobox/option_cb_common.dart';
+import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 
-import '../../../components/chart/customer_info_graph.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/dialog/option_dialog.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/datatable/sales/customer_info_item.dart';
 import '../../../models/common/chart_spot.dart';
 import '../../../models/menu/sales/customer_info/customer_info_employee_model.dart';
 import '../../../models/menu/sales/customer_info/customer_info_model.dart';
@@ -22,20 +23,20 @@ import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
 
-class CustomerInfo extends StatelessWidget {
+class ReportMonthly extends StatelessWidget {
   @override
   Widget build(context) {
-    Get.put(CustomerInfoController());
+    Get.put(ReportMonthlyController());
     return Obx(() => Scaffold(
       appBar: AppBar(
-          title: Text('매출처 현황'),
+          title: Text('menu_sub_report_monthly'.tr),
           backgroundColor: context.theme.canvasColor,
           iconTheme: context.theme.iconTheme,
           actions: [
             IconButton(
-              icon: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
+              icon: OptionBtnVisible(visible: Get.find<ReportMonthlyController>().visible.value),
               onPressed: () {
-                Get.find<CustomerInfoController>().setVisible();
+                Get.find<ReportMonthlyController>().setVisible();
               },
             ),
           ]),
@@ -46,7 +47,7 @@ class CustomerInfo extends StatelessWidget {
             child: Column(
               children: [
                 Visibility(
-                    visible: Get.find<CustomerInfoController>().visible.value,
+                    visible: Get.find<ReportMonthlyController>().visible.value,
                     child: Column(
                       children: [
                         Container(
@@ -59,9 +60,12 @@ class CustomerInfo extends StatelessWidget {
                             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                             child: Column(
                               children: [
+                                OptionYearMonthPicker(),
                                 OptionCbBranch(),
-                                OptionDialog(SEARCH_DIALOG_CUST),
-                                OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
+                                OptionCbEmployee(false),
+                                OptionCbEmployee(true),
+                                OptionCbCommon(SYSTEM_COMMON_AMC002),
+                                OptionBtnSearch(ROUTE_MENU_REPORT_MONTHLY),
                               ],
                             ),
                           ),
@@ -72,7 +76,7 @@ class CustomerInfo extends StatelessWidget {
                       ],
                     )),
                 Expanded(
-                  flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
+                  flex: Get.find<ReportMonthlyController>().visible.value ? 4 : 3,
                   child: Container(
                     decoration: BoxDecoration(
                       color: context.theme.cardColor,
@@ -85,23 +89,6 @@ class CustomerInfo extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Expanded(
-                  flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: context.theme.cardColor,
-                      borderRadius: BorderRadius.circular(20),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                      child: CustomerInfoTable(),
-                    ),
-                  ),
-                ),
               ],
             )),
       ),
@@ -109,8 +96,8 @@ class CustomerInfo extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<CustomerInfoController>().spotListSales.length > 0) {
-      return CustomerInfoGraph();
+    if (Get.find<ReportMonthlyController>().spotListSales.length > 0) {
+      return EmptyWidget();
     } else {
       return EmptyWidget();
     }
@@ -118,7 +105,7 @@ class CustomerInfo extends StatelessWidget {
 
 }
 
-class CustomerInfoController extends GetxController {
+class ReportMonthlyController extends GetxController {
   var controllerCustomerInfoModel;
   var controllerCustomerInfoRepresentativeModel;
   var controllerCustomerInfoEmployeeModel;
@@ -140,11 +127,6 @@ class CustomerInfoController extends GetxController {
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramCustCode = Get.find<OptionDialogController>().paramCustomerCode.value ?? '';
 
-    if(paramCustCode == ''){
-      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
-      return;
-    }
-    
     var param = user. getClientCode;
     var parsedDataCustomerInfo;
     var parsedDataCustomerInfoRepre;
@@ -176,7 +158,7 @@ class CustomerInfoController extends GetxController {
           spotListBalance.add(ChartSpot(list['title'].toString(),  list['balance']));
         }
 
-        Get.find<CustomerInfoController>().setVisible();
+        Get.find<ReportMonthlyController>().setVisible();
         update();
       }
     } on DioException catch (e) {

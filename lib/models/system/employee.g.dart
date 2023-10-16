@@ -50,11 +50,11 @@ class EmployeeModelAdapter extends TypeAdapter<EmployeeModel> {
 EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) => EmployeeModel(
       json['employee-code'] as String?,
       json['employee-name'] as String?,
-      json['is-manager'] as bool?,
+      json['manager'] as bool?,
     );
 
 Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) => <String, dynamic>{
       'employee-code': instance.employeeCode,
       'employee-name': instance.employeeName,
-      'is-manager': instance.manager,
+      'manager': instance.manager,
     };

@@ -57,7 +57,7 @@ class SalesPersonContribute extends StatelessWidget {
                           children: [
                             OptionYearMonthPicker(),
                             OptionCbBranch(),
-                            OptionCbEmployee(),
+                            OptionCbEmployee(false),
                             OptionCbCustomerStatus(),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],
@@ -105,7 +105,7 @@ class SalesPersonContributeController extends GetxController {
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
-    var paramSalChrgCd = Get.find<CbSaleController>().paramEmployeeCode;
+    var paramSalChrgCd = Get.find<CbEmployeeController>().paramEmployeeCode;
     var paramCustStat = Get.find<CbCustomerStatusController>().paramCustStat;
 
     try {
