@@ -109,7 +109,7 @@ const Map<String, String> koKR = {
 
   'menu_main_sales': '영업분석',
   'menu_sub_customer_info': '거래처 현황',
-  'title_10': '영업사원별 매출현황',
+  'menu_sub_salesperson_report': '영업사원별 매출현황',
   'title_11': '영업사원별 월별 매출현황',
   'title_12': '매출현황',
   'title_13': '월별 매출현황',
