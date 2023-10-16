@@ -115,8 +115,8 @@ const API_SYSTEM_COMMON_PARAM = 'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,A
 // common
 const API_COMMON = '/v1/common';
 const API_COMMON_CUSTOMER = '/customers';
-const API_COMMON_ITEM = '/item';
-const API_COMMON_LENDITEM = '/lend-item';
+const API_COMMON_ITEM = '/items';
+const API_COMMON_LENDITEM = '/lend-items';
 
 // management (경영분석)
 const API_MANAGEMENT = '/v1/views/management';
@@ -169,11 +169,6 @@ const TAG_RESOURCE_URL = 'resource-url'; // response server - resource url tag
 const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
-
-const TAG_COMMON_CUSTOMER = 'customer-list';
-const TAG_COMMON_PURCHASE = 'purchase-list';
-const TAG_COMMON_ITEM = 'item-list';
-const TAG_COMMON_LENDITEM = 'lend-item-list';
 
 // sales
 const TAG_SALES = 'sales';
