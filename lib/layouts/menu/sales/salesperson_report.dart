@@ -65,6 +65,7 @@ class SalesPersonReport extends StatelessWidget {
                         OptionCbBranch(),
                         OptionCbEmployee(),
                         OptionCbManage(),
+                        OptionCbCommon(SYSTEM_COMMON_AMC002),
                         OptionBtnSearch(ROUTE_MENU_SALESPERSION_REPORT),
                       ],
                     ),
