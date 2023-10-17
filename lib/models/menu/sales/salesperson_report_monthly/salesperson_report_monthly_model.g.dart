@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'report_monthly_model.dart';
+part of 'salesperson_report_monthly_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) => ReportMonthlyModel(
+SalesPersonReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) => SalesPersonReportMonthlyModel(
       json['branch-code'],
       json['code'],
       json['name'],
@@ -14,7 +14,7 @@ ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) => Re
       json['total'],
     );
 
-Map<String, dynamic> _$ReportMonthlyModelToJson(ReportMonthlyModel instance) => <String, dynamic>{
+Map<String, dynamic> _$ReportMonthlyModelToJson(SalesPersonReportMonthlyModel instance) => <String, dynamic>{
       'branch-code': instance.branchCode,
       'code': instance.code,
       'name': instance.name,
