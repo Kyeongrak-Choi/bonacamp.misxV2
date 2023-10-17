@@ -17,7 +17,7 @@ class SalesListModel {
     };
   }
 
-  factory SalesListModel.fromJson(Map<String, dynamic> json) => _$ChartSpotFromJson(json);
+  factory SalesListModel.fromJson(Map<String, dynamic> json) => _$SalesListModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ChartSpotToJson(this);
+  Map<String, dynamic> toJson() => _$SalesListModelToJson(this);
 }

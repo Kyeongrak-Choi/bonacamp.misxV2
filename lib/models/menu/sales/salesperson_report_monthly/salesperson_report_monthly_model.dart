@@ -24,7 +24,7 @@ class SalesPersonReportMonthlyModel {
     };
   }
 
-  factory SalesPersonReportMonthlyModel.fromJson(Map<String, dynamic> json) => _$ReportMonthlyModelFromJson(json);
+  factory SalesPersonReportMonthlyModel.fromJson(Map<String, dynamic> json) => _$SalesPersonReportMonthlyModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ReportMonthlyModelToJson(this);
+  Map<String, dynamic> toJson() => _$SalesPersonReportMonthlyModelToJson(this);
 }
