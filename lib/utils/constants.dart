@@ -135,6 +135,7 @@ const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(
 const API_SALES = '/v1/views/sales';
 const API_SALES_CUSTOMERINFO = '/customer-info'; // 매출처 현황
 const API_SALES_SALESPERSONREPORT = '/sales-rep'; // 영업사원별 매출현황
+const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사원별 매출현황
 
 // purchase (매입분석)
 

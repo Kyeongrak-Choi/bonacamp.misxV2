@@ -162,7 +162,6 @@ class SalesPersonReportController extends GetxController {
     var param = user.getClientCode;
     List parsedSalesPersonReportSales;
 
-
     try {
       dio = await reqApi(param);
 
