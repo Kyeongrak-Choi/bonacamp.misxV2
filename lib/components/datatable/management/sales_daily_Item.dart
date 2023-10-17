@@ -24,7 +24,7 @@ class SalesDailyItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.employeeName.toString());
+                return ShowListHeaderRow(titleName: '', value: model.salesRepName.toString());
               },
               body: Column(
                 children: [
@@ -41,38 +41,38 @@ class SalesDailyItem extends StatelessWidget {
                   ),
                   IconTitleTwoField(
                     titleName: '공급가',
-                    value1: model.supplementAmount_D,
-                    value2: model.supplementAmount_M,
+                    value1: model.price_D,
+                    value2: model.price_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '부가세',
-                    value1: model.vatAmount_D,
-                    value2: model.vatAmount_M,
+                    value1: model.vat_D,
+                    value2: model.vat_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '보증금합계',
-                    value1: model.guaranteeAmount_D,
-                    value2: model.guaranteeAmount_M,
+                    value1: model.guarantee_D,
+                    value2: model.guarantee_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '총계',
-                    value1: model.totalAmount_D,
-                    value2: model.totalAmount_M,
+                    value1: model.total_D,
+                    value2: model.total_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '매출원가',
-                    value1: model.purchaseCost_D,
-                    value2: model.purchaseCost_M,
+                    value1: model.cost_D,
+                    value2: model.cost_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '매출이익',
-                    value1: model.profitAmount_D,
-                    value2: model.profitAmount_M,
+                    value1: model.margin_D,
+                    value2: model.margin_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
@@ -83,20 +83,20 @@ class SalesDailyItem extends StatelessWidget {
                   ),
                   IconTitleTwoField(
                     titleName: '용공입금',
-                    value1: model.depositEmptyCaseBottle_D,
-                    value2: model.depositEmptyCaseBottle_M,
+                    value1: model.depositEtc_D,
+                    value2: model.depositEtc_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '입금합계',
-                    value1: model.depositAmount_D,
-                    value2: model.depositAmount_M,
+                    value1: model.deposit_D,
+                    value2: model.deposit_M,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleTwoField(
                     titleName: '채권잔액',
-                    value1: model.bondBalance_D,
-                    value2: model.bondBalance_M,
+                    value1: model.balance_D,
+                    value2: model.balance_M,
                     iconData: Icons.label_outlined,
                   ),
                 ],

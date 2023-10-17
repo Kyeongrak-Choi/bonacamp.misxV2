@@ -40,7 +40,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerRight,
                   child: Text(
-                    numberFormat.format(firstValue ?? 0),
+                    firstValue ?? '',
                     style: context.textTheme.titleSmall,
                     textAlign: TextAlign.right,
                   ),
@@ -64,7 +64,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerRight,
                   child: Text(
-                    numberFormat.format(secValue ?? 0),
+                    secValue ?? '',
                     style: context.textTheme.titleSmall,
                     textAlign: TextAlign.right,
                   ),
