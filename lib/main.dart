@@ -26,6 +26,7 @@ import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/menu/management/sales_daily_division.dart';
 import 'layouts/menu/sales/customer_info.dart';
+import 'layouts/menu/sales/salesperson_report.dart';
 
 void main() async {
   // init Hive
@@ -33,6 +34,8 @@ void main() async {
   // Hive Adapter Regist
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
+
+  var test = Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: ThemeMode.light);
   // init Theme Setting
   Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: ThemeMode.light));
 
@@ -92,7 +95,7 @@ class Misx extends StatelessWidget {
 
         // 영업분석
          GetPage(name: ROUTE_MENU_CUSTOMER_INFO, page: () => CustomerInfo()), // 거래처 현황
-        // GetPage(name: , page: () =>), // 영업사원별 매출현황
+         GetPage(name: ROUTE_MENU_SALESPERSION_REPORT, page: () => SalesPersonReport()), // 영업사원별 매출현황
          GetPage(name: ROUTE_MENU_REPORT_MONTHLY, page: () => ReportMonthly()), // 영업사원별 월별 매출현황
         // GetPage(name: , page: () =>), // 매출현황
         // GetPage(name: , page: () =>), // 월별 매출현황

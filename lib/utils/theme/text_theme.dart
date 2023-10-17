@@ -20,13 +20,18 @@ TextTheme textThemeLight() {
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
+    titleLarge: GoogleFonts.nanumGothic(
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.dark,
+    ),
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 13.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 11.0,
+      fontSize: 13.0,
       color: CommonColors.dark,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
@@ -61,13 +66,18 @@ TextTheme textThemeDark() {
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
+    titleLarge: GoogleFonts.nanumGothic(
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.white,
+    ),
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 13.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 11.0,
+      fontSize: 13.0,
       color: CommonColors.white,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
