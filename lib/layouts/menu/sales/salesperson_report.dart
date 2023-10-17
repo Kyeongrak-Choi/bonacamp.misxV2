@@ -89,11 +89,14 @@ class SalesPersonReport extends StatelessWidget {
                           children: [
                             SumTitleTable('기간 합계'),
                             SumItemTable(
-                                '매출액', Get.find<SalesPersonReportController>().sumTotal, '공급가', Get.find<SalesPersonReportController>().sumPrice),
+                                '매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal),
+                                '공급가', numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
                             SumItemTable(
-                                '합계', Get.find<SalesPersonReportController>().sumAmount, '입금합계', Get.find<SalesPersonReportController>().sumDeposit),
-                            SumItemTable('채권잔액', Get.find<SalesPersonReportController>().sumBalance, '매출이익',
-                                Get.find<SalesPersonReportController>().sumMargin),
+                                '합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount),
+                                '입금합계', numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
+                            SumItemTable(
+                                '채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance),
+                                '매출이익', numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
                           ],
                         ),
                       ),
