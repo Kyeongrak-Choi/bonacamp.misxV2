@@ -42,8 +42,8 @@ const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용�
 
 // sales (영업분석)
 const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 거래처 현황
-const ROUTE_MENU_SALESPERSION_REPORT = '/sales-rep'; // 영업사원별 매출현황
-const ROUTE_MENU_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
+const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현황
+const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
 
 // purchase (매입분석)
 
@@ -71,13 +71,6 @@ const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색
 const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
 const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
 const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
-
-// Employee Combo box flag
-enum EMPLOYEE_TYPE {EMPLOYEE,MANAGER}
-
-// System Common code  'ABS014,OBA003, ABS013, ABS022, AMC002, ABS018,ARI003,ABS010,ASS021'
-const SYSTEM_COMMON_ABS010 = 'ABS010'; // 업종
-const SYSTEM_COMMON_AMC002 = 'AMC002'; // 매출유형
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

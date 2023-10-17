@@ -10,15 +10,14 @@ class CustomerInfoRepresentativeModel {
   String? birthDay;
   String? address;
 
-
   CustomerInfoRepresentativeModel(this.name, this.phone, this.birthDay, this.address);
 
   Map<String, dynamic> toMap() {
     return {
-      'name' : name,
-      'phone' : phone,
-      'birth-day' : birthDay,
-      'address' : address,
+      'name': name,
+      'phone': phone,
+      'birth-day': birthDay,
+      'address': address,
     };
   }
 

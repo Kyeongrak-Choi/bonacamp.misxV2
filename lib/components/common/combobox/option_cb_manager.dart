@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -89,7 +87,7 @@ class CbManagerController extends GetxController {
     List<dynamic> manager = Hive.box(LOCAL_DB).get(KEY_EMPLOYEE);
 
     for (int i = 0; i < manager.length; i++) {
-      if(manager.elementAt(i).getManager) {
+      if (manager.elementAt(i).getManager) {
         data.add(manager.elementAt(i));
       }
     }

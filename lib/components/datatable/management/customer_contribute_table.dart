@@ -119,14 +119,12 @@ class CustomerContributeTable extends StatelessWidget {
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               IconTitleField(
                 titleName: '거래시작일',
-                value:
-                controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionStartDate ?? '0') : '0',
+                value: controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionStartDate ?? '0') : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '최종거래일',
-                value:
-                controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionLastDate ?? '0') : '0',
+                value: controller.controllerCustomerContribute != null ? (controller.controllerCustomerContribute.transactionLastDate ?? '0') : '0',
                 iconData: Icons.label_outlined,
               ),
             ],

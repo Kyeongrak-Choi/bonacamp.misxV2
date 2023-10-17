@@ -19,18 +19,17 @@ class AnalysisGraphComponent extends StatelessWidget {
         child: SfCartesianChart(
           title: ChartTitle(text: '단위:천원'),
           primaryXAxis: CategoryAxis(),
-          
+
           // primaryYAxis: NumericAxis(title: AxisTitle(text: 'Sales')),
           legend: Legend(
-            isVisible: true,
-            isResponsive: true,
-            padding: 10.0,
-            iconWidth: 15.0,
-            iconHeight: 15.0,
-            overflowMode: LegendItemOverflowMode.wrap,
-            textStyle: context.textTheme.displaySmall
-          ),
-          tooltipBehavior: TooltipBehavior(enable: true,textStyle: context.textTheme.displaySmall,color: context.theme.canvasColor),
+              isVisible: true,
+              isResponsive: true,
+              padding: 10.0,
+              iconWidth: 15.0,
+              iconHeight: 15.0,
+              overflowMode: LegendItemOverflowMode.wrap,
+              textStyle: context.textTheme.displaySmall),
+          tooltipBehavior: TooltipBehavior(enable: true, textStyle: context.textTheme.displaySmall, color: context.theme.canvasColor),
           series: <ChartSeries<ChartSpot, String>>[
             StackedLineSeries<ChartSpot, String>(
               name: '매출',

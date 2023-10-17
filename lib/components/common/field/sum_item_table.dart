@@ -9,7 +9,7 @@ class SumItemTable extends StatelessWidget {
   var secTitleName;
   var secValue;
 
-  SumItemTable(titleName, value, secTitleName, secValue){
+  SumItemTable(titleName, value, secTitleName, secValue) {
     this.firstTitleName = titleName;
     this.firstValue = value;
     this.secTitleName = secTitleName;
@@ -20,8 +20,7 @@ class SumItemTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-        child: Column(
-            children: [
+        child: Column(children: [
           Row(
             children: [
               Expanded(

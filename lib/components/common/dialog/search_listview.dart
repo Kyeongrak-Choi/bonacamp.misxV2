@@ -123,9 +123,9 @@ class SearchListController extends GetxController {
 
           if (response.statusCode == 200) {
             pd.close();
-            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
-              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
-            }else {
+            if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+              ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            } else {
               dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
               parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
             }
@@ -147,9 +147,9 @@ class SearchListController extends GetxController {
 
           if (response.statusCode == 200) {
             pd.close();
-            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
-              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
-            }else {
+            if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+              ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            } else {
               dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
               parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
             }
@@ -170,9 +170,9 @@ class SearchListController extends GetxController {
 
           if (response.statusCode == 200) {
             pd.close();
-            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
-              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
-            }else {
+            if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+              ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            } else {
               dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
               parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
             }
@@ -193,9 +193,9 @@ class SearchListController extends GetxController {
 
           if (response.statusCode == 200) {
             pd.close();
-            if(dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA]  == null ){
-              ShowSnackBar(SNACK_TYPE.INFO,jsonDecode(jsonEncode(response.data))[TAG_MSG]);
-            }else {
+            if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+              ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+            } else {
               dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
               parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
             }

@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:misxV2/utils/utility.dart';
 
@@ -10,19 +9,18 @@ class SalesPersonReportModel {
   var branchCode; // 사업장코드
   var code; // 영업사원 코드
   var name; // 영업사원 명
-  var total;  // 매출액
-  var price;  // 공급가
+  var total; // 매출액
+  var price; // 공급가
   var amount; // 합계 (공급가 + 부가세)
-  var deposit;  // 입금액
-  var balance;  // 채권 잔액
+  var deposit; // 입금액
+  var balance; // 채권 잔액
   var margin; // 이익금액
   var marginRate; // 이익률
   int? id;
 
-
-
-  SalesPersonReportModel(this.branchCode, this.code, this.name, this.total, this.price,
-                          this.amount, this.deposit, this.balance, this.margin, this.marginRate,{this.id});
+  SalesPersonReportModel(
+      this.branchCode, this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -107,7 +105,7 @@ class SalesPersonReportModel {
 List<SalesPersonReportModel> generateSalesPersonReportList(dataList, count) {
   return List.generate(
       count,
-          (index) => SalesPersonReportModel(
+      (index) => SalesPersonReportModel(
             dataList[index].branchCode,
             dataList[index].code,
             dataList[index].name,
@@ -118,5 +116,6 @@ List<SalesPersonReportModel> generateSalesPersonReportList(dataList, count) {
             numberFormat.format(dataList[index].balance),
             numberFormat.format(dataList[index].margin),
             dataList[index].marginRate,
-            id: index,));
+            id: index,
+          ));
 }

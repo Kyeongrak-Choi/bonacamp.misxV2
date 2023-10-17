@@ -12,7 +12,6 @@ class CustomerInfoModel {
   String? note;
   String? address;
 
-
   CustomerInfoModel(this.businessNo, this.tel1, this.tel2, this.fax, this.note, this.address);
 
   Map<String, dynamic> toMap() {

@@ -27,5 +27,4 @@ class ReportMonthlyModel {
   factory ReportMonthlyModel.fromJson(Map<String, dynamic> json) => _$ReportMonthlyModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReportMonthlyModelToJson(this);
-
 }

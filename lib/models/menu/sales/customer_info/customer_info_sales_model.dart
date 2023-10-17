@@ -10,15 +10,14 @@ class CustomerInfoSalesModel {
   int salesAmount;
   int balance;
 
-
   CustomerInfoSalesModel(this.title, this.month, this.salesAmount, this.balance);
 
   Map<String, dynamic> toMap() {
     return {
-      'title' : title,
-      'month' : month,
-      'sales-amount' : salesAmount,
-      'balance' : balance,
+      'title': title,
+      'month': month,
+      'sales-amount': salesAmount,
+      'balance': balance,
     };
   }
 

@@ -6,8 +6,7 @@ part of 'report_monthly_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) =>
-    ReportMonthlyModel(
+ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) => ReportMonthlyModel(
       json['branch-code'],
       json['code'],
       json['name'],
@@ -15,8 +14,7 @@ ReportMonthlyModel _$ReportMonthlyModelFromJson(Map<String, dynamic> json) =>
       json['total'],
     );
 
-Map<String, dynamic> _$ReportMonthlyModelToJson(ReportMonthlyModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ReportMonthlyModelToJson(ReportMonthlyModel instance) => <String, dynamic>{
       'branch-code': instance.branchCode,
       'code': instance.code,
       'name': instance.name,

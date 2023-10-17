@@ -6,7 +6,7 @@ class IconTitleField extends StatelessWidget {
   var value;
   IconData iconData;
 
-  IconTitleField({required this.titleName, this.value,required this.iconData});
+  IconTitleField({required this.titleName, this.value, required this.iconData});
 
   @override
   Widget build(BuildContext context) {

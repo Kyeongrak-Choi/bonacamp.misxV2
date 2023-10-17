@@ -8,7 +8,7 @@ import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
 import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
-import 'package:misxV2/layouts/menu/sales/report_monthly.dart';
+import 'package:misxV2/layouts/menu/sales/salesperson_report_monthly.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
@@ -94,9 +94,9 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
 
         // 영업분석
-         GetPage(name: ROUTE_MENU_CUSTOMER_INFO, page: () => CustomerInfo()), // 거래처 현황
-         GetPage(name: ROUTE_MENU_SALESPERSION_REPORT, page: () => SalesPersonReport()), // 영업사원별 매출현황
-         GetPage(name: ROUTE_MENU_REPORT_MONTHLY, page: () => ReportMonthly()), // 영업사원별 월별 매출현황
+        GetPage(name: ROUTE_MENU_CUSTOMER_INFO, page: () => CustomerInfo()), // 거래처 현황
+        GetPage(name: ROUTE_MENU_SALESPERSON_REPORT, page: () => SalesPersonReport()), // 영업사원별 매출현황
+        GetPage(name: ROUTE_MENU_SALESPERSON_REPORT_MONTHLY, page: () => SalesPersonReportMonthly()), // 영업사원별 월별 매출현황
         // GetPage(name: , page: () =>), // 매출현황
         // GetPage(name: , page: () =>), // 월별 매출현황
         // GetPage(name: , page: () =>), // 매출원장

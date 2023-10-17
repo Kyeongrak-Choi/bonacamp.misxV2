@@ -9,7 +9,6 @@ class CustomerInfoEmployeeModel {
   String? manager;
   String? email;
 
-
   CustomerInfoEmployeeModel(this.salesRep, this.manager, this.email);
 
   Map<String, dynamic> toMap() {

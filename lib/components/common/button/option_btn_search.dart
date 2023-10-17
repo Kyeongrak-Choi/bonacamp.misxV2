@@ -13,7 +13,7 @@ import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
-import '../../../layouts/menu/sales/report_monthly.dart';
+import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 
@@ -94,15 +94,14 @@ class OptionBtnSearch extends StatelessWidget {
                         break;
 
                       // 영업분석 - 영업사원별 매출현황
-                      case ROUTE_MENU_SALESPERSION_REPORT:
+                      case ROUTE_MENU_SALESPERSON_REPORT:
                         await Get.find<SalesPersonReportController>().showResult();
                         break;
 
-                        // 영업분석 - 영업사원별 월별 매출현황
-                      case ROUTE_MENU_REPORT_MONTHLY:
-                        await Get.find<ReportMonthlyController>().showResult();
+                      // 영업분석 - 영업사원별 월별 매출현황
+                      case ROUTE_MENU_SALESPERSON_REPORT_MONTHLY:
+                        await Get.find<SalesPersonReportMonthlyController>().showResult();
                         break;
-
                     }
                   } catch (e) {
                     pd.close();

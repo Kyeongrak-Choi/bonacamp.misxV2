@@ -125,7 +125,6 @@ class DatePickerController extends GetxController {
             ),
           ),
           child: child!,
-
         );
       },
     );

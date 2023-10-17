@@ -25,7 +25,8 @@ class Navigation extends GetView<NavigationController> {
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
           // ),
-          automaticallyImplyLeading: false, // HW Back Key disenable
+          automaticallyImplyLeading: false,
+          // HW Back Key disenable
           leading: IconButton(
             icon: Icon(Icons.account_circle_sharp),
             color: context.theme.primaryColor,
@@ -35,10 +36,7 @@ class Navigation extends GetView<NavigationController> {
           ),
           backgroundColor: context.theme.canvasColor,
           actions: [
-            IconButton(
-                icon: Icon(Icons.settings),
-                color: context.theme.primaryColor,
-                onPressed: () =>  Get.toNamed(ROUTE_MENU_CONFIG)),
+            IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             IconButton(
                 icon: Icon(Icons.logout),
                 color: context.theme.primaryColor,

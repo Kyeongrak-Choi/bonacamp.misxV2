@@ -8,7 +8,7 @@ import '../../../utils/constants.dart';
 class OptionCbSalesType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbCommonController());
+    Get.put(CbSalesTypeController());
     return Column(
       children: [
         Align(
@@ -32,11 +32,11 @@ class OptionCbSalesType extends StatelessWidget {
                     child: Obx(
                       () => DropdownButtonFormField<CommonModel>(
                         isExpanded: true,
-                        value: Get.find<CbCommonController>().selectedValue,
+                        value: Get.find<CbSalesTypeController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbCommonController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                        items: Get.find<CbSalesTypeController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
                           return DropdownMenuItem<CommonModel>(
                             alignment: Alignment.center,
                             value: value,
@@ -44,7 +44,7 @@ class OptionCbSalesType extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbCommonController>().chooseItem(value!);
+                          Get.find<CbSalesTypeController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -55,7 +55,7 @@ class OptionCbSalesType extends StatelessWidget {
   }
 }
 
-class CbCommonController extends GetxController {
+class CbSalesTypeController extends GetxController {
   var selectedValue;
   List<CommonModel> data = <CommonModel>[].obs;
 

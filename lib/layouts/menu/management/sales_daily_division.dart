@@ -118,7 +118,7 @@ class SalesDailyDivision extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                 child: Text(
-                                 '수량(BOX/EA)',
+                                  '수량(BOX/EA)',
                                   style: context.textTheme.displaySmall,
                                   textAlign: TextAlign.end,
                                 ),
