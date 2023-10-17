@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'customer_info_representative_model.g.dart'; // *.g.dart : in same directory

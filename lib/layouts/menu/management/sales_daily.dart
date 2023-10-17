@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -117,7 +116,7 @@ class SalesDailyController extends GetxController {
 
     String paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String paramEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
+    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;

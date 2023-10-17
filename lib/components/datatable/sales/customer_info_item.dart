@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../layouts/menu/management/overall_status.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
 
 class CustomerInfoTable extends StatelessWidget {

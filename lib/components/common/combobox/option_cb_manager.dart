@@ -1,14 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/common.dart';
 
+import '../../../models/system/employee.dart';
 import '../../../utils/constants.dart';
 
-class OptionCbBusiness extends StatelessWidget {
+class OptionCbManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbBusinessController());
+    Get.put(CbManagerController());
     return Column(
       children: [
         Align(
@@ -16,7 +18,7 @@ class OptionCbBusiness extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              'opt_business'.tr,
+              'opt_manage'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.displayMedium,
             ),
@@ -30,21 +32,21 @@ class OptionCbBusiness extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
+                      () => DropdownButtonFormField<EmployeeModel>(
                         isExpanded: true,
-                        value: Get.find<CbBusinessController>().selectedValue,
+                        value: Get.find<CbManagerController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                          return DropdownMenuItem<CommonModel>(
+                        items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                          return DropdownMenuItem<EmployeeModel>(
                             alignment: Alignment.center,
                             value: value,
-                            child: Text(value.getName ?? ''),
+                            child: Text(value.getEmployeeName ?? ''),
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbBusinessController>().chooseItem(value!);
+                          Get.find<CbManagerController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -55,38 +57,40 @@ class OptionCbBusiness extends StatelessWidget {
   }
 }
 
-class CbBusinessController extends GetxController {
+class CbManagerController extends GetxController {
   var selectedValue;
-  List<CommonModel> data = <CommonModel>[].obs;
+  List<EmployeeModel> data = [
+    EmployeeModel('', '전체', false),
+  ].obs;
 
-  String paramBusinessCode = '';
-  String paramBusinessName = '';
+  String paramManagerCode = '';
+  String paramManagerName = '';
+  bool paramManager = false;
 
   @override
-  void onInit() async {
+  void onInit() {
     super.onInit();
-    await setCommon();
-    if (data != null) {
-      chooseItem(data.first);
-    }
+    setManager();
+    selectedValue = data.first;
   }
 
-  chooseItem(CommonModel value) async {
-    paramBusinessCode = value.getCode ?? '';
-    paramBusinessName = value.getName ?? '';
+  chooseItem(EmployeeModel value) async {
+    paramManagerCode = value.getEmployeeCode ?? '';
+    paramManagerName = value.getEmployeeName ?? '';
+    paramManager = value.getManager ?? false;
     selectedValue = value;
   }
 
-  Future<void> setCommon() async {
+  Future<void> setManager() async {
     await Hive.openBox(
       LOCAL_DB,
     );
 
-    List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
+    List<dynamic> manager = Hive.box(LOCAL_DB).get(KEY_EMPLOYEE);
 
-    for (int i = 0; i < common.length; i++) {
-      if (common.elementAt(i).getMainCode == 'ABS010') {
-        data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
+    for (int i = 0; i < manager.length; i++) {
+      if(manager.elementAt(i).getManager) {
+        data.add(manager.elementAt(i));
       }
     }
   }
