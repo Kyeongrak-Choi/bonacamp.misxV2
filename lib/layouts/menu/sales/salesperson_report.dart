@@ -157,6 +157,7 @@ class SalesPersonReportController extends GetxController {
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramEmployeeCode = Get.find<CbSaleController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManageController>().paramManageCode;
+    String paramTypeCode = Get.find<CbCommonController>().paramBusinessTypeCode;
 
     var param = user.getClientCode;
     List parsedSalesPersonReportSales;
@@ -177,7 +178,7 @@ class SalesPersonReportController extends GetxController {
           '&manager=' +
           paramManagementCode +
           '&type=' +
-          paramManagementCode);
+          paramTypeCode);
 
       if (response.statusCode == 200) {
         sumTotal = 0;
