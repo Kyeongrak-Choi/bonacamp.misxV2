@@ -57,7 +57,7 @@ class SalesPersonContribute extends StatelessWidget {
                           children: [
                             OptionYearMonthPicker(),
                             OptionCbBranch(),
-                            OptionCbEmployee(false),
+                            OptionCbEmployee(),
                             OptionCbCustomerStatus(),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],

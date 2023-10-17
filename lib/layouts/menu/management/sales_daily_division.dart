@@ -61,7 +61,7 @@ class SalesDailyDivision extends StatelessWidget {
                           children: [
                             OptionDatePicker(),
                             OptionCbBranch(),
-                            OptionCbEmployee(false),
+                            OptionCbEmployee(),
                             OptionCbTeam(),
                             OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
                           ],

@@ -81,6 +81,7 @@ const Map<String, String> koKR = {
   'opt_graph_type': '종류',
   'opt_team': '팀',
   'opt_business': '업종',
+  'opt_sales_type' : '매출유형',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -90,10 +91,6 @@ const Map<String, String> koKR = {
   'snack_alram': '알림',
   'snack_error': '에러',
   'snack_information': '정보',
-
-  // System Common code
-  'common_abs010' : '업종',
-  'common_amc002' : '매출유형',
 
   // Progress Bar
   'progress_loading': '로딩중입니다...',

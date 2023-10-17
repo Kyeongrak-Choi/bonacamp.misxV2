@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_common.dart';
+import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -62,9 +63,9 @@ class ReportMonthly extends StatelessWidget {
                               children: [
                                 OptionYearMonthPicker(),
                                 OptionCbBranch(),
-                                OptionCbEmployee(false),
-                                OptionCbEmployee(true),
-                                OptionCbCommon(SYSTEM_COMMON_AMC002),
+                                OptionCbEmployee(),
+                                OptionCbManager(),
+                                OptionCbSalesType(),
                                 OptionBtnSearch(ROUTE_MENU_REPORT_MONTHLY),
                               ],
                             ),
