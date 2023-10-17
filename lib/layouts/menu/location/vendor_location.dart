@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/combobox/option_cb_common.dart';
+import 'package:misxV2/components/common/combobox/option_cb_business.dart';
+import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 
@@ -38,7 +39,7 @@ class VendorLocation extends StatelessWidget {
                       OptionDatePicker(),
                       OptionCbEmployee(),
                       OptionCbCustomerStatus(),
-                      OptionCbCommon(SYSTEM_COMMON_ABS010),
+                      OptionCbBusiness(),
                       OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
                       SizedBox(height: 14),
                     ],

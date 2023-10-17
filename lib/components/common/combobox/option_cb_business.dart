@@ -5,18 +5,10 @@ import 'package:misxV2/models/system/common.dart';
 
 import '../../../utils/constants.dart';
 
-class OptionCbCommon extends StatelessWidget {
-  var code;
-  var title;
-
-  OptionCbCommon(String code) {
-    this.code = code;
-    initVar(code);
-  }
-
+class OptionCbBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbCommonController(code));
+    Get.put(CbBusinessController());
     return Column(
       children: [
         Align(
@@ -24,7 +16,7 @@ class OptionCbCommon extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              title,
+              'opt_business'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.displayMedium,
             ),
@@ -40,11 +32,11 @@ class OptionCbCommon extends StatelessWidget {
                     child: Obx(
                       () => DropdownButtonFormField<CommonModel>(
                         isExpanded: true,
-                        value: Get.find<CbCommonController>().selectedValue,
+                        value: Get.find<CbBusinessController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbCommonController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                        items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
                           return DropdownMenuItem<CommonModel>(
                             alignment: Alignment.center,
                             value: value,
@@ -52,7 +44,7 @@ class OptionCbCommon extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbCommonController>().chooseItem(value!);
+                          Get.find<CbBusinessController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -61,31 +53,14 @@ class OptionCbCommon extends StatelessWidget {
       ],
     );
   }
-
-  void initVar(code) {
-    switch (code) {
-      case SYSTEM_COMMON_ABS010:
-        title = 'common_abs010'.tr;
-        break;
-      case SYSTEM_COMMON_AMC002:
-        title = 'common_amc002'.tr;
-        break;
-    }
-  }
 }
 
-class CbCommonController extends GetxController {
+class CbBusinessController extends GetxController {
   var selectedValue;
   List<CommonModel> data = <CommonModel>[].obs;
 
-  var commonCode;
-
-  String paramBusinessTypeCode = '';
-  String paramBusinessTypeName = '';
-
-  CbCommonController(code){
-    commonCode = code;
-  }
+  String paramBusinessCode = '';
+  String paramBusinessName = '';
 
   @override
   void onInit() async {
@@ -97,9 +72,8 @@ class CbCommonController extends GetxController {
   }
 
   chooseItem(CommonModel value) async {
-    paramBusinessTypeCode = value.getCode ?? '';
-    paramBusinessTypeName = value.getName ?? '';
-
+    paramBusinessCode = value.getCode ?? '';
+    paramBusinessName = value.getName ?? '';
     selectedValue = value;
   }
 
@@ -111,7 +85,7 @@ class CbCommonController extends GetxController {
     List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
 
     for (int i = 0; i < common.length; i++) {
-      if (common.elementAt(i).getMainCode == commonCode) {
+      if (common.elementAt(i).getMainCode == 'ABS010') {
         data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
       }
     }

@@ -7,11 +7,10 @@ import 'package:hive/hive.dart';
 import '../../../models/system/employee.dart';
 import '../../../utils/constants.dart';
 
-class OptionCbEmployee extends StatelessWidget {
+class OptionCbManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbEmployeeController());
-
+    Get.put(CbManagerController());
     return Column(
       children: [
         Align(
@@ -19,7 +18,7 @@ class OptionCbEmployee extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              'opt_sales'.tr,
+              'opt_manage'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.displayMedium,
             ),
@@ -35,11 +34,11 @@ class OptionCbEmployee extends StatelessWidget {
                     child: Obx(
                       () => DropdownButtonFormField<EmployeeModel>(
                         isExpanded: true,
-                        value: Get.find<CbEmployeeController>().selectedValue,
+                        value: Get.find<CbManagerController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbEmployeeController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                        items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
                           return DropdownMenuItem<EmployeeModel>(
                             alignment: Alignment.center,
                             value: value,
@@ -47,7 +46,7 @@ class OptionCbEmployee extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbEmployeeController>().chooseItem(value!);
+                          Get.find<CbManagerController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -56,42 +55,43 @@ class OptionCbEmployee extends StatelessWidget {
       ],
     );
   }
-
 }
 
-class CbEmployeeController extends GetxController {
+class CbManagerController extends GetxController {
   var selectedValue;
   List<EmployeeModel> data = [
     EmployeeModel('', '전체', false),
   ].obs;
 
-  String paramEmployeeCode = '';
-  String paramEmployeeName = '';
+  String paramManagerCode = '';
+  String paramManagerName = '';
   bool paramManager = false;
 
   @override
   void onInit() {
     super.onInit();
-    setEmployee();
+    setManager();
     selectedValue = data.first;
   }
 
   chooseItem(EmployeeModel value) async {
-    paramEmployeeCode = value.getEmployeeCode ?? '';
-    paramEmployeeName = value.getEmployeeName ?? '';
+    paramManagerCode = value.getEmployeeCode ?? '';
+    paramManagerName = value.getEmployeeName ?? '';
     paramManager = value.getManager ?? false;
     selectedValue = value;
   }
 
-  Future<void> setEmployee() async {
+  Future<void> setManager() async {
     await Hive.openBox(
       LOCAL_DB,
     );
 
-    List<dynamic> employee = Hive.box(LOCAL_DB).get(KEY_EMPLOYEE);
+    List<dynamic> manager = Hive.box(LOCAL_DB).get(KEY_EMPLOYEE);
 
-    for (int i = 0; i < employee.length; i++) {
-      data.add(employee.elementAt(i));
+    for (int i = 0; i < manager.length; i++) {
+      if(manager.elementAt(i).getManager) {
+        data.add(manager.elementAt(i));
+      }
     }
   }
 }

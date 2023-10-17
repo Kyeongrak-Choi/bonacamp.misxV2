@@ -81,6 +81,7 @@ const Map<String, String> koKR = {
   'opt_graph_type': '종류',
   'opt_team': '팀',
   'opt_business': '업종',
+  'opt_sales_type' : '매출유형',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -90,10 +91,6 @@ const Map<String, String> koKR = {
   'snack_alram': '알림',
   'snack_error': '에러',
   'snack_information': '정보',
-
-  // System Common code
-  'common_abs010' : '업종',
-  'common_amc002' : '매출유형',
 
   // Progress Bar
   'progress_loading': '로딩중입니다...',
@@ -114,7 +111,7 @@ const Map<String, String> koKR = {
   'menu_main_sales': '영업분석',
   'menu_sub_customer_info': '거래처 현황',
   'menu_sub_salesperson_report': '영업사원별 매출현황',
-  'title_11': '영업사원별 월별 매출현황',
+  'menu_sub_report_monthly': '영업사원별 월별 매출현황',
   'title_12': '매출현황',
   'title_13': '월별 매출현황',
   'title_14': '매출원장',
