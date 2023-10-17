@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -66,7 +68,7 @@ class OptionDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 9,
+                flex: 8,
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: TextButton(
@@ -78,7 +80,18 @@ class OptionDialog extends StatelessWidget {
                     ))),
             Expanded(
               flex: 1,
-              child: Icon(Icons.storefront, color: context.theme.primaryColor),
+              child: IconButton(
+                  onPressed: () {
+                    Get.find<OptionDialogController>().selectedValue.value = 'all'.tr;
+                    Get.find<OptionDialogController>().paramCustomerName.value = ''.tr;
+                    Get.find<OptionDialogController>().paramCustomerCode.value = ''.tr;
+                    Get.find<OptionDialogController>().paramCode ='';
+                  },
+                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
+            ),
+            Expanded(
+              flex: 1,
+              child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
             ),
           ],
         ),
