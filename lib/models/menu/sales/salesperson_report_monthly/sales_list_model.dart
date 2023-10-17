@@ -20,4 +20,7 @@ class SalesListModel {
   factory SalesListModel.fromJson(Map<String, dynamic> json) => _$SalesListModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesListModelToJson(this);
+
+  get getMonth => month;
+  get getAmount => amount;
 }

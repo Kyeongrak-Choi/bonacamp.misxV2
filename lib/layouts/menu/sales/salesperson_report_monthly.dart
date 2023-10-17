@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -114,11 +115,6 @@ class SalesPersonReportMonthlyController extends GetxController {
   var visible = true.obs;
 
   int sumTotal = 0;
-  int sumPrice = 0;
-  int sumAmount = 0;
-  int sumDeposit = 0;
-  int sumBalance = 0;
-  int sumMargin = 0;
 
   setVisible() async {
     visible.value = !visible.value;
@@ -128,8 +124,7 @@ class SalesPersonReportMonthlyController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-
-    String paramYearMonth =  DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
+    String paramYearMonth = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
@@ -156,27 +151,24 @@ class SalesPersonReportMonthlyController extends GetxController {
           paramTypeCode);
 
       if (response.statusCode == 200) {
-        sumTotal = 0;
-        sumPrice = 0;
-        sumAmount = 0;
-        sumDeposit = 0;
-        sumBalance = 0;
-        sumMargin = 0;
+        if (jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        } else {
+          jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          sumTotal = 0;
+          log(response.data.toString());
 
-        parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-        controllerSalesPersonMonthlyReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportMonthlyModel.fromJson(dataJson)).toList();
+          parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          controllerSalesPersonMonthlyReport =
+              parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportMonthlyModel.fromJson(dataJson)).toList();
 
-        for (SalesPersonReportModel calData in controllerSalesPersonMonthlyReport) {
-          sumTotal += calData.total as int;
-          sumPrice += calData.price as int;
-          sumAmount += calData.amount as int;
-          sumDeposit += calData.deposit as int;
-          sumBalance += calData.balance as int;
-          sumMargin += calData.margin as int;
+          for (SalesPersonReportMonthlyModel calData in controllerSalesPersonMonthlyReport) {
+            sumTotal += calData.total as int;
+          }
+
+          Get.find<SalesPersonReportMonthlyController>().setVisible();
+          update();
         }
-
-        Get.find<SalesPersonReportMonthlyController>().setVisible();
-        update();
       }
     } on DioException catch (e) {
       if (e.response != null) {

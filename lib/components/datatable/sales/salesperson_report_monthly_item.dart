@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/field/icon_title_field.dart';
 
 import '../../../models/menu/sales/salesperson_report_model.dart';
+import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report_monthly_model.dart';
+import '../../../utils/utility.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
@@ -9,7 +12,7 @@ class SalesPersonReportMonthlyItem extends StatelessWidget {
   var dataList;
 
   SalesPersonReportMonthlyItem(var model) {
-    dataList = generateSalesPersonReportList(model, model.length);
+    dataList = generateSalesPersonReportMonthlyList(model, model.length);
   }
 
   @override
@@ -20,12 +23,12 @@ class SalesPersonReportMonthlyItem extends StatelessWidget {
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: context.theme.cardColor,
-              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             ),
             onPressed: () {},
             child: ExpansionPanelList.radio(
               animationDuration: Duration(milliseconds: 500),
-              children: dataList.map<ExpansionPanelRadio>((SalesPersonReportModel model) {
+              children: dataList.map<ExpansionPanelRadio>((SalesPersonReportMonthlyModel model) {
                 return ExpansionPanelRadio(
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
@@ -34,33 +37,40 @@ class SalesPersonReportMonthlyItem extends StatelessWidget {
                   },
                   body: Column(
                     children: [
-                      ShowListDetailRow(
-                        titleName: '담당자',
-                        value: model.total.toString(),
+                      IconTitleField(
+                        titleName: '합        계',
+                        value: numberFormat.format(model.total ?? 0),
+                        iconData: Icons.add_box_outlined,
                       ),
-                      ShowListDetailRow(
-                        titleName: '공급가',
-                        value: model.price.toString(),
+                      IconTitleField(
+                        titleName: model.sales[0].getMonth,
+                        value: numberFormat.format(model.sales[0].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
-                      ShowListDetailRow(
-                        titleName: '합계\n(공급가 + 부가세)',
-                        value: model.amount.toString(),
+                      IconTitleField(
+                        titleName: model.sales[1].getMonth,
+                        value: numberFormat.format(model.sales[1].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
-                      ShowListDetailRow(
-                        titleName: '입금합계',
-                        value: model.deposit.toString(),
+                      IconTitleField(
+                        titleName: model.sales[2].getMonth,
+                        value: numberFormat.format(model.sales[2].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
-                      ShowListDetailRow(
-                        titleName: '채권잔액',
-                        value: model.balance.toString(),
+                      IconTitleField(
+                        titleName: model.sales[3].getMonth,
+                        value: numberFormat.format(model.sales[3].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
-                      ShowListDetailRow(
-                        titleName: '매출이익',
-                        value: model.margin.toString(),
+                      IconTitleField(
+                        titleName: model.sales[4].getMonth,
+                        value: numberFormat.format(model.sales[4].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
-                      ShowListDetailRow(
-                        titleName: '마진율',
-                        value: model.marginRate.toString(),
+                      IconTitleField(
+                        titleName: model.sales[5].getMonth,
+                        value: numberFormat.format(model.sales[5].getAmount ?? 0),
+                        iconData: Icons.calendar_month,
                       ),
                     ],
                   ),

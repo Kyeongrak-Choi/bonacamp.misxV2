@@ -12,7 +12,9 @@ SalesPersonReportMonthlyModel _$SalesPersonReportMonthlyModelFromJson(
       json['branchCode'],
       json['code'],
       json['name'],
-      ChartSpot.fromJson(json['sales'] as Map<String, dynamic>),
+      (json['sales'] as List<dynamic>)
+          .map((e) => SalesListModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       json['total'],
     );
 
@@ -22,6 +24,6 @@ Map<String, dynamic> _$SalesPersonReportMonthlyModelToJson(
       'branchCode': instance.branchCode,
       'code': instance.code,
       'name': instance.name,
-      'sales': instance.sales.toJson(),
+      'sales': instance.sales.map((e) => e.toJson()).toList(),
       'total': instance.total,
     };
