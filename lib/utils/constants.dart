@@ -44,6 +44,7 @@ const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용�
 const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 거래처 현황
 const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현황
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
+const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 
 // purchase (매입분석)
@@ -137,6 +138,7 @@ const API_SALES = '/v1/views/sales';
 const API_SALES_CUSTOMERINFO = '/customer-info'; // 매출처 현황
 const API_SALES_SALESPERSONREPORT = '/sales-rep'; // 영업사원별 매출현황
 const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사원별 매출현황
+const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 
 // purchase (매입분석)
