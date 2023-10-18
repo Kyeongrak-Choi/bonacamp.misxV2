@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -14,6 +15,7 @@ class Navigation extends GetView<NavigationController> {
   @override
   Widget build(BuildContext context) {
     Get.put(NavigationController());
+    Get.put(DashBoardController());
     return WillPopScope(
       onWillPop: () {
         return Future(() => false); // HW Back key disenable
@@ -21,7 +23,7 @@ class Navigation extends GetView<NavigationController> {
       child: Scaffold(
         // key: controller.scaffoldKey,
         appBar: AppBar(
-          title: Text('${Get.find<NavigationController>().clientNm.value}' ?? '', style: context.textTheme.displayLarge),
+          title: Text('${Get.find<DashBoardController>().clientNm}' ?? '', style: context.textTheme.displayLarge),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
           // ),
@@ -31,11 +33,17 @@ class Navigation extends GetView<NavigationController> {
             icon: Icon(Icons.account_circle_sharp),
             color: context.theme.primaryColor,
             onPressed: () {
-              ShowDialog(DIALOG_TYPE.MSG, '사용자정보', '아이디:', Get.context);
+              //ShowDialog(DIALOG_TYPE.MSG, '사용자정보', '아이디:', Get.context);
+              ShowUserInfoDialog();
             },
           ),
           backgroundColor: context.theme.canvasColor,
           actions: [
+            IconButton(
+                icon: Icon(Icons.notifications_none_outlined),
+                color: context.theme.primaryColor,
+                onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
+            ),
             IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             IconButton(
                 icon: Icon(Icons.logout),
@@ -52,13 +60,13 @@ class Navigation extends GetView<NavigationController> {
               return MenuList();
             case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
+            case NAVIGATION_BAR_ITEM.CONFIG:
+              return Config();
             // case NAVIGATION_BAR_ITEM.MY:
             //   return MyMenuList();
             // case NAVIGATION_BAR_ITEM.PREMIUM:
             //   //return PremiumList();
             //   return UtilFunction();
-            case NAVIGATION_BAR_ITEM.CONFIG:
-              return Config();
           }
         }),
         bottomNavigationBar: CurvedNavigationBar(
@@ -72,9 +80,9 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
+                  Icon(Icons.menu, color: context.theme.primaryColor),
                   Text(
-                    'nav_more'.tr,
+                    'nav_menu'.tr,
                     style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
@@ -108,9 +116,9 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.menu, color: context.theme.primaryColor),
+                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
                   Text(
-                    'nav_menu'.tr,
+                    'nav_more'.tr,
                     style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
@@ -139,24 +147,14 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxController {
-  RxString clientNm = ''.obs;
   RxInt currentIndex = 1.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    setUserinfo();
     changeIndex();
     currentIndex.value = 1;
-  }
-
-  Future<void> setUserinfo() async {
-    await Hive.openBox(
-      LOCAL_DB,
-    );
-    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
-    clientNm.value = user.getClientName;
   }
 
   changeIndex() {

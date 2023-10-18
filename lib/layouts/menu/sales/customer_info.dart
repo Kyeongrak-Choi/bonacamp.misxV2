@@ -56,7 +56,9 @@ class CustomerInfo extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     OptionCbBranch(),
+                                    SizedBox(height: 5,),
                                     OptionDialog(SEARCH_DIALOG_CUST),
+                                    SizedBox(height: 5,),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
                                   ],
                                 ),

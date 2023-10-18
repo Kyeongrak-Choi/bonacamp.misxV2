@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 import 'package:misxV2/components/datatable/management/salesperson_contribute_table.dart';
 
@@ -55,10 +56,10 @@ class SalesPersonContribute extends StatelessWidget {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: Column(
                           children: [
-                            OptionYearMonthPicker(),
-                            OptionCbBranch(),
-                            OptionCbEmployee(),
-                            OptionCbCustomerStatus(),
+                            OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                            SizedBox(height: 5,),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],
                         ),

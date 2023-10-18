@@ -106,6 +106,8 @@ class DashBoardController extends GetxController {
   var controllerRentalModel;
   var controllerAssetModel;
 
+  var clientNm;
+
   @override
   void onInit() async {
     super.onInit();
@@ -114,6 +116,8 @@ class DashBoardController extends GetxController {
     var param = user.getClientCode;
     var dio;
     var parsedData;
+
+    clientNm = user.getClientName;
 
     try {
       dio = await reqApi(param);

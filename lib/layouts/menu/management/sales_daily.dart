@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -58,10 +59,10 @@ class SalesDaily extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                           child: Column(
                             children: [
-                              OptionDatePicker(),
-                              OptionCbBranch(),
-                              OptionCbEmployee(),
-                              OptionCbTeam(),
+                              OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
+                              SizedBox(height: 5,),
+                              OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
+                              SizedBox(height: 5,),
                               OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
                             ],
                           ),

@@ -10,66 +10,6 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PeriodYearmonthPickerController());
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.start,
-    //   children: [
-    //     Expanded(
-    //         flex: 2,
-    //         child: Padding(
-    //           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //           child: Container(
-    //             child: ElevatedButton(
-    //               style: ElevatedButton.styleFrom(
-    //                 backgroundColor: context.theme.canvasColor,
-    //               ),
-    //               onPressed: () {},
-    //               child: Text(
-    //                 'opt_period'.tr,
-    //                 style: context.textTheme.displaySmall,
-    //               ),
-    //             ),
-    //           ),
-    //         )),
-    //     Expanded(
-    //       flex: 4,
-    //       child: Row(
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: Obx(
-    //               () => TextButton(
-    //                 onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
-    //                 child: Text(
-    //                   DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
-    //                   style: context.textTheme.displaySmall,
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: Text(
-    //               '~',
-    //               style: context.textTheme.displaySmall,
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: Obx(
-    //               () => TextButton(
-    //                 onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
-    //                 child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
-    //                     style: context.textTheme.displaySmall),
-    //               ),
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     ),
-    //   ],
-    // );
-
     return Column(
       children: [
         Align(
@@ -79,7 +19,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -98,7 +38,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                         onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
                         child: Text(
                           DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
-                          style: context.textTheme.displaySmall,
+                          style: context.textTheme.bodyMedium,
                         ),
                       ),
                     ),
@@ -114,7 +54,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
               flex: 1,
               child: Text(
                 '~',
-                style: context.textTheme.displaySmall,
+                style: context.textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -129,7 +69,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                       () => TextButton(
                         onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
                         child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
-                            style: context.textTheme.displaySmall),
+                            style: context.textTheme.bodyMedium),
                       ),
                     ),
                   ),

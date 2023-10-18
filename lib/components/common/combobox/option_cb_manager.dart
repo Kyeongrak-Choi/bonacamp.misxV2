@@ -14,11 +14,11 @@ class OptionCbManager extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_manage'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -27,27 +27,25 @@ class OptionCbManager extends StatelessWidget {
           children: [
             Expanded(
                 flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<EmployeeModel>(
-                        isExpanded: true,
-                        value: Get.find<CbManagerController>().selectedValue,
-                        style: context.textTheme.displaySmall,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
-                          return DropdownMenuItem<EmployeeModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getEmployeeName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbManagerController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+                child: Obx(
+                  () => DropdownButtonFormField<EmployeeModel>(
+                    isExpanded: true,
+                    value: Get.find<CbManagerController>().selectedValue,
+                    style: context.textTheme.bodyMedium,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                      return DropdownMenuItem<EmployeeModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getEmployeeName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbManagerController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],

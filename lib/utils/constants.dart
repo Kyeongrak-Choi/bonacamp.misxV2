@@ -7,7 +7,7 @@ const COPY_RIGHT = 'Copyright 2023. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 const APP_ID = 'MISX';
 
-enum NAVIGATION_BAR_ITEM { CONFIG, HOME, MENU } // Navigation Item
+enum NAVIGATION_BAR_ITEM { MENU, HOME, CONFIG, } // Navigation Item
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +44,11 @@ const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용�
 const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 거래처 현황
 const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현황
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
+<<<<<<< HEAD
 const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
+=======
+const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
+>>>>>>> develop
 
 // purchase (매입분석)
 
@@ -65,7 +69,7 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 enum SNACK_TYPE { INFO, ERROR, ALARM }
 
 // Dialog Type
-enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
+enum DIALOG_TYPE { SELECT, MSG , NOTICE} // SELECT : yes & no select
 
 // Search Dialog Type
 const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색
@@ -138,6 +142,7 @@ const API_SALES_CUSTOMERINFO = '/customer-info'; // 매출처 현황
 const API_SALES_SALESPERSONREPORT = '/sales-rep'; // 영업사원별 매출현황
 const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
+const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 
 // purchase (매입분석)
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/utils/utility.dart';
 
 class SumItemTable extends StatelessWidget {
   var firstTitleName;
@@ -29,7 +28,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     firstTitleName ?? '',
-                    style: context.textTheme.titleLarge,
+                    style: context.textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -53,7 +52,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     secTitleName ?? '',
-                    style: context.textTheme.titleLarge,
+                    style: context.textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),
                 ),

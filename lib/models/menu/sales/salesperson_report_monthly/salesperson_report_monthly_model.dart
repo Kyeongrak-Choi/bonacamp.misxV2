@@ -1,8 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/common/chart_spot.dart';
 import 'package:misxV2/models/menu/sales/salesperson_report_monthly/sales_list_model.dart';
-
-import '../../../../utils/utility.dart';
 
 part 'salesperson_report_monthly_model.g.dart'; // *.g.dart : in same directory
 

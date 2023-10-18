@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +6,10 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_business.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -62,10 +61,11 @@ class SalesPersonReport extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            OptionCbBranch(),
-                            OptionCbEmployee(),
-                            OptionCbManager(),
-                            OptionCbSalesType(),
+                            SizedBox(height: 5,),
+                            OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                            SizedBox(height: 5,),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
                           ],
                         ),
