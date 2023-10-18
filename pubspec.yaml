@@ -96,6 +96,10 @@ dependencies:
   syncfusion_flutter_charts: ^23.1.40
   # reference - https://pub.dev/packages/syncfusion_flutter_charts
   # descryption - chart util
+  flutter_custom_dialog: ^1.3.0
+  # reference - https://pub.dev/packages/flutter_custom_dialog
+  # descryption - dialog
+
 
 
 

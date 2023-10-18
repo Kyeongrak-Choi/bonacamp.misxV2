@@ -2,10 +2,15 @@ import 'package:dialogs/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
+import '../components/common/field/icon_title_field.dart';
+import '../components/menu/card_title_menu.dart';
+import '../models/system/userinfo.dart';
 import 'constants.dart';
+import 'menu_manager.dart';
 
 // System Theme Mode Check
 bool GetSystemMode() {
@@ -84,6 +89,36 @@ void ShowDialog(type, title, content, context) {
         iconButtonOk: Icon(Icons.one_k));
     messageDialog.show(context, barrierColor: CommonColors.bluesky);
   }
+}
+
+void ShowUserInfoDialog() {
+  UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
+  Get.defaultDialog(
+    title: '사용자 정보',
+    content: Column(children: [
+      IconTitleField(
+        titleName: '사용자',
+        value: user.getUserName,
+        iconData: Icons.person,
+      ),
+      IconTitleField(
+        titleName: '아이디',
+        value: user.getUserId,
+        iconData: Icons.label_outlined,
+      ),
+      IconTitleField(
+        titleName: '사업자등록번호',
+        value: user.getBusinessNo,
+        iconData: Icons.label_outlined,
+      ),
+      IconTitleField(
+        titleName: '회사명',
+        value: user.getClientName,
+        iconData: Icons.label_outlined,
+      ),
+    ]),
+    confirmTextColor: Colors.white,
+  );
 }
 
 // Progress Bar

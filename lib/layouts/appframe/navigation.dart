@@ -31,7 +31,8 @@ class Navigation extends GetView<NavigationController> {
             icon: Icon(Icons.account_circle_sharp),
             color: context.theme.primaryColor,
             onPressed: () {
-              ShowDialog(DIALOG_TYPE.MSG, '사용자정보', '아이디:', Get.context);
+              //ShowDialog(DIALOG_TYPE.MSG, '사용자정보', '아이디:', Get.context);
+              ShowUserInfoDialog();
             },
           ),
           backgroundColor: context.theme.canvasColor,
@@ -52,13 +53,13 @@ class Navigation extends GetView<NavigationController> {
               return MenuList();
             case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
-            // case NAVIGATION_BAR_ITEM.MY:
-            //   return MyMenuList();
-            // case NAVIGATION_BAR_ITEM.PREMIUM:
-            //   //return PremiumList();
-            //   return UtilFunction();
             case NAVIGATION_BAR_ITEM.CONFIG:
               return Config();
+          // case NAVIGATION_BAR_ITEM.MY:
+          //   return MyMenuList();
+          // case NAVIGATION_BAR_ITEM.PREMIUM:
+          //   //return PremiumList();
+          //   return UtilFunction();
           }
         }),
         bottomNavigationBar: CurvedNavigationBar(
@@ -72,9 +73,9 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
+                  Icon(Icons.menu, color: context.theme.primaryColor),
                   Text(
-                    'nav_more'.tr,
+                    'nav_menu'.tr,
                     style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
@@ -108,9 +109,9 @@ class Navigation extends GetView<NavigationController> {
               height: 50,
               child: Column(
                 children: [
-                  Icon(Icons.menu, color: context.theme.primaryColor),
+                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
                   Text(
-                    'nav_menu'.tr,
+                    'nav_more'.tr,
                     style: TextStyle(color: context.theme.primaryColor),
                   )
                 ],
