@@ -89,7 +89,7 @@ class CustomerReportMonthly extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
                           child: setChild(),
                         ),
                       ),

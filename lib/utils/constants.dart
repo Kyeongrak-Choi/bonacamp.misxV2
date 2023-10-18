@@ -65,7 +65,7 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 enum SNACK_TYPE { INFO, ERROR, ALARM }
 
 // Dialog Type
-enum DIALOG_TYPE { SELECT, MSG } // SELECT : yes & no select
+enum DIALOG_TYPE { SELECT, MSG , NOTICE} // SELECT : yes & no select
 
 // Search Dialog Type
 const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색

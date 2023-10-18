@@ -18,63 +18,57 @@ class SalesPersonReportMonthlyItem extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: context.theme.cardColor,
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
+        child: ExpansionPanelList.radio(
+          animationDuration: Duration(milliseconds: 500),
+          children: dataList.map<ExpansionPanelRadio>((SalesPersonReportMonthlyModel model) {
+            return ExpansionPanelRadio(
+              value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-            ),
-            onPressed: () {},
-            child: ExpansionPanelList.radio(
-              animationDuration: Duration(milliseconds: 500),
-              children: dataList.map<ExpansionPanelRadio>((SalesPersonReportMonthlyModel model) {
-                return ExpansionPanelRadio(
-                  value: model.id.toString(),
-                  backgroundColor: context.theme.cardColor,
-                  headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.name.toString() ?? '');
-                  },
-                  body: Column(
-                    children: [
-                      IconTitleField(
-                        titleName: '합        계',
-                        value: numberFormat.format(model.total ?? 0),
-                        iconData: Icons.add_box_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[0].getMonth,
-                        value: numberFormat.format(model.sales[0].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[1].getMonth,
-                        value: numberFormat.format(model.sales[1].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[2].getMonth,
-                        value: numberFormat.format(model.sales[2].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[3].getMonth,
-                        value: numberFormat.format(model.sales[3].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[4].getMonth,
-                        value: numberFormat.format(model.sales[4].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                      IconTitleField(
-                        titleName: model.sales[5].getMonth,
-                        value: numberFormat.format(model.sales[5].getAmount ?? 0),
-                        iconData: Icons.calendar_month,
-                      ),
-                    ],
+              headerBuilder: (BuildContext context, bool isExpanded) {
+                return ShowListHeaderRow(titleName: '', value: model.name.toString() ?? '');
+              },
+              body: Column(
+                children: [
+                  IconTitleField(
+                    titleName: '합        계',
+                    value: numberFormat.format(model.total ?? 0),
+                    iconData: Icons.add_box_outlined,
                   ),
-                );
-              }).toList(),
-            )),
+                  IconTitleField(
+                    titleName: model.sales[0].getMonth,
+                    value: numberFormat.format(model.sales[0].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                  IconTitleField(
+                    titleName: model.sales[1].getMonth,
+                    value: numberFormat.format(model.sales[1].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                  IconTitleField(
+                    titleName: model.sales[2].getMonth,
+                    value: numberFormat.format(model.sales[2].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                  IconTitleField(
+                    titleName: model.sales[3].getMonth,
+                    value: numberFormat.format(model.sales[3].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                  IconTitleField(
+                    titleName: model.sales[4].getMonth,
+                    value: numberFormat.format(model.sales[4].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                  IconTitleField(
+                    titleName: model.sales[5].getMonth,
+                    value: numberFormat.format(model.sales[5].getAmount ?? 0),
+                    iconData: Icons.calendar_month,
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

@@ -55,7 +55,7 @@ class Config extends StatelessWidget {
           //   child: CardIconMenu(iconMenuList: noticeMaster),
           // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 40, 0, 10),
             child: Container(
               decoration: BoxDecoration(
                 color: context.theme.cardColor,

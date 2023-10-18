@@ -86,6 +86,19 @@ void ShowDialog(type, title, content, context) {
         buttonRadius: 18.0,
         iconButtonOk: Icon(Icons.one_k));
     messageDialog.show(context, barrierColor: CommonColors.bluesky);
+  } else if (type == DIALOG_TYPE.NOTICE){
+    MessageDialog messageDialog = MessageDialog(
+        dialogBackgroundColor: CommonColors.bluesky,
+        buttonOkColor: CommonColors.dark,
+        title: title,
+        titleColor: CommonColors.dark,
+        message: content,
+        messageColor: CommonColors.dark,
+        buttonOkText: 'confirm'.tr,
+        dialogRadius: 15.0,
+        buttonRadius: 18.0,
+        iconButtonOk: Icon(Icons.one_k));
+    messageDialog.show(context, barrierColor: CommonColors.bluesky);
   }
 }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/combobox/option_cb_business.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 
 import '../../../../components/common/button/option_btn_search.dart';
@@ -29,25 +30,26 @@ class VendorLocation extends StatelessWidget {
               ]),
           body: Container(
             color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<VendorLocationController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionDatePicker(),
-                      OptionCbEmployee(),
-                      OptionCbCustomerStatus(),
-                      OptionCbBusiness(),
-                      OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
-                      SizedBox(height: 14),
-                    ],
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<VendorLocationController>().visible.value,
+                    child: Column(
+                      children: [
+                        OptionTwoContent(OptionDatePicker(), OptionCbEmployee()),
+                        OptionTwoContent(OptionCbCustomerStatus(), OptionCbBusiness()),
+                        OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
+                        SizedBox(height: 14),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: VendorLocationItem(),
-                )
-              ],
+                  Expanded(
+                    child: VendorLocationItem(),
+                  )
+                ],
+              ),
             ),
           ),
         ));

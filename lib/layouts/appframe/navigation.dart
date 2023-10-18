@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -38,6 +39,11 @@ class Navigation extends GetView<NavigationController> {
           ),
           backgroundColor: context.theme.canvasColor,
           actions: [
+            IconButton(
+                icon: Icon(Icons.notifications_none_outlined),
+                color: context.theme.primaryColor,
+                onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
+            ),
             IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             IconButton(
                 icon: Icon(Icons.logout),
@@ -56,11 +62,11 @@ class Navigation extends GetView<NavigationController> {
               return DashBoard();
             case NAVIGATION_BAR_ITEM.CONFIG:
               return Config();
-          // case NAVIGATION_BAR_ITEM.MY:
-          //   return MyMenuList();
-          // case NAVIGATION_BAR_ITEM.PREMIUM:
-          //   //return PremiumList();
-          //   return UtilFunction();
+            // case NAVIGATION_BAR_ITEM.MY:
+            //   return MyMenuList();
+            // case NAVIGATION_BAR_ITEM.PREMIUM:
+            //   //return PremiumList();
+            //   return UtilFunction();
           }
         }),
         bottomNavigationBar: CurvedNavigationBar(
@@ -150,7 +156,6 @@ class NavigationController extends GetxController {
     changeIndex();
     currentIndex.value = 1;
   }
-
 
   changeIndex() {
     currentIndex.value = 1;
