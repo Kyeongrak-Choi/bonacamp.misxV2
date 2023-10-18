@@ -45,7 +45,11 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Icon(Icons.date_range, color: context.theme.primaryColor),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                   ),
                 ],
               ),
@@ -75,7 +79,11 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Icon(Icons.date_range, color: context.theme.primaryColor),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                   ),
                 ],
               ),

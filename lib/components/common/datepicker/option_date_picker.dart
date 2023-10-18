@@ -39,7 +39,11 @@ class OptionDatePicker extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: Icon(Icons.date_range, color: context.theme.primaryColor),
+              child: IconButton(
+                  onPressed: () {
+                    Get.find<DatePickerController>().chooseDate();
+                  },
+                  icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
             ),
           ],
         )
