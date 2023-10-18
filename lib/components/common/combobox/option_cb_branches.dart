@@ -14,11 +14,11 @@ class OptionCbBranch extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -33,7 +33,7 @@ class OptionCbBranch extends StatelessWidget {
                       () => DropdownButtonFormField<BranchModel>(
                         isExpanded: true,
                         value: Get.find<CbBranchController>().selectedValue,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
                         items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {

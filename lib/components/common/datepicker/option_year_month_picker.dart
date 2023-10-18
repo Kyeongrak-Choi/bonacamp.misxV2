@@ -12,11 +12,11 @@ class OptionYearMonthPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
             child: Text(
               'opt_month'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -32,7 +32,7 @@ class OptionYearMonthPicker extends StatelessWidget {
                     onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
                     child: Text(
                       DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
-                      style: context.textTheme.displaySmall,
+                      style: context.textTheme.bodyMedium,
                     ),
                   ),
                 ),

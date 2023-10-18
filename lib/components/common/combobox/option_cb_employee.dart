@@ -14,11 +14,11 @@ class OptionCbEmployee extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_sales'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -31,7 +31,7 @@ class OptionCbEmployee extends StatelessWidget {
                   () => DropdownButtonFormField<EmployeeModel>(
                     isExpanded: true,
                     value: Get.find<CbEmployeeController>().selectedValue,
-                    style: context.textTheme.displaySmall,
+                    style: context.textTheme.bodyMedium,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
                     items: Get.find<CbEmployeeController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {

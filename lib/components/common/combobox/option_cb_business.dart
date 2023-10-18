@@ -14,11 +14,11 @@ class OptionCbBusiness extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_business'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -33,7 +33,7 @@ class OptionCbBusiness extends StatelessWidget {
                       () => DropdownButtonFormField<CommonModel>(
                         isExpanded: true,
                         value: Get.find<CbBusinessController>().selectedValue,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
                         items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {

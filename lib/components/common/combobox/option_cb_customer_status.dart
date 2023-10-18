@@ -11,11 +11,11 @@ class OptionCbCustomerStatus extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_customer_status'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -30,7 +30,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                       () => DropdownButtonFormField<WarehouseModel>(
                         isExpanded: true,
                         value: Get.find<CbCustomerStatusController>().selectedValue,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
                         items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
