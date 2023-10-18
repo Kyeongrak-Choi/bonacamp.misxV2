@@ -66,6 +66,7 @@ class Config extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                 child: Column(
                   children: [
+                    CardIconMenu(iconMenuList: noticeMaster),
                     CardIconMenu(iconMenuList: systemMaster),
                     CardIconMenu(iconMenuList: menuMaster),
                   ],

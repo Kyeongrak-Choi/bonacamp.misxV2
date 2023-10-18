@@ -12,7 +12,7 @@ class OptionCbGraphType extends StatelessWidget {
         Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

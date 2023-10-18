@@ -9,56 +9,12 @@ class OptionCbBranch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(CbBranchController());
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.start,
-    //   children: [
-    //     Expanded(
-    //         flex: 2,
-    //         child: Padding(
-    //           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //           child: Container(
-    //             child: ElevatedButton(
-    //                 style: ElevatedButton.styleFrom(
-    //                   backgroundColor: context.theme.canvasColor,
-    //                 ),
-    //                 onPressed: () {},
-    //                 child: Text(
-    //                   'opt_workspace'.tr,
-    //                   style: context.textTheme.displaySmall,
-    //                 )),
-    //           ),
-    //         )),
-    //     Expanded(
-    //         flex: 4,
-    //         child: Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: Obx(
-    //               () => DropdownButtonFormField<BranchModel>(
-    //                 isExpanded: true,
-    //                 value: Get.find<CbBranchController>().selectedValue,
-    //                 style: context.textTheme.displaySmall,
-    //                 decoration: InputDecoration(border: InputBorder.none),
-    //                 dropdownColor: context.theme.cardColor,
-    //                 items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
-    //                   return DropdownMenuItem<BranchModel>(
-    //                     alignment: Alignment.center,
-    //                     value: value,
-    //                     child: Text(value.getBranchName ?? ''),
-    //                   );
-    //                 }).toList(),
-    //                 onChanged: (value) {
-    //                   Get.find<CbBranchController>().chooseItem(value!);
-    //                 },
-    //               ),
-    //             ))),
-    //   ],
-    // );
     return Column(
       children: [
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,

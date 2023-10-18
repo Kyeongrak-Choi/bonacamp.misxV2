@@ -14,7 +14,7 @@ class OptionCbSalesType extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
             child: Text(
               'opt_sales_type'.tr,
               textAlign: TextAlign.start,
@@ -27,27 +27,25 @@ class OptionCbSalesType extends StatelessWidget {
           children: [
             Expanded(
                 flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
-                        isExpanded: true,
-                        value: Get.find<CbSalesTypeController>().selectedValue,
-                        style: context.textTheme.displaySmall,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbSalesTypeController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                          return DropdownMenuItem<CommonModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbSalesTypeController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+                child: Obx(
+                  () => DropdownButtonFormField<CommonModel>(
+                    isExpanded: true,
+                    value: Get.find<CbSalesTypeController>().selectedValue,
+                    style: context.textTheme.displaySmall,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbSalesTypeController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                      return DropdownMenuItem<CommonModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbSalesTypeController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],

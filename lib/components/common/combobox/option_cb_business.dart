@@ -14,7 +14,7 @@ class OptionCbBusiness extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
             child: Text(
               'opt_business'.tr,
               textAlign: TextAlign.start,
