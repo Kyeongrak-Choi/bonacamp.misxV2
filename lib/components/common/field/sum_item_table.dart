@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/utils/utility.dart';
 
 class SumItemTable extends StatelessWidget {
   var firstTitleName;

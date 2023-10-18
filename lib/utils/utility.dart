@@ -7,10 +7,8 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../components/common/field/icon_title_field.dart';
-import '../components/menu/card_title_menu.dart';
 import '../models/system/userinfo.dart';
 import 'constants.dart';
-import 'menu_manager.dart';
 
 // System Theme Mode Check
 bool GetSystemMode() {
@@ -107,13 +105,13 @@ void ShowUserInfoDialog() {
         iconData: Icons.label_outlined,
       ),
       IconTitleField(
-        titleName: '사업자등록번호',
-        value: user.getBusinessNo,
+        titleName: '회사명',
+        value: user.getClientName,
         iconData: Icons.label_outlined,
       ),
       IconTitleField(
-        titleName: '회사명',
-        value: user.getClientName,
+        titleName: '사업자등록번호',
+        value: convertBusinessNo(user.getBusinessNo),
         iconData: Icons.label_outlined,
       ),
     ]),

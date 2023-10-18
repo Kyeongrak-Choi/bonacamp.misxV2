@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/emptyWidget.dart';
-import 'package:misxV2/models/system/branch.dart';
-
-import '../../../utils/constants.dart';
 
 class OptionTwoContent extends StatelessWidget {
   Widget firstItem = EmptyWidget();
@@ -22,7 +15,7 @@ class OptionTwoContent extends StatelessWidget {
     return Row(
       children: [
         Expanded(flex: 1, child: firstItem),
-        SizedBox(width: 20),
+        SizedBox(width: 50),
         Expanded(flex: 1, child: secondItem),
 
       ],

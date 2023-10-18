@@ -19,12 +19,6 @@ import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/dialog/option_dialog.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/sales/salesperson_report_monthly_item.dart';
-import '../../../models/common/chart_spot.dart';
-import '../../../models/menu/sales/customer_info/customer_info_employee_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_representative_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart';
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report_monthly_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -68,9 +62,14 @@ class CustomerReportMonthly extends StatelessWidget {
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
                                 child: Column(
                                   children: [
-                                    OptionTwoContent(OptionYearMonthPicker(),OptionCbBranch()),
-                                    OptionThreeContent(OptionCbSalesType(), OptionCbManager(), OptionCbEmployee()),
+                                    OptionYearMonthPicker(),
+                                    SizedBox(height: 5,),
                                     OptionDialog(SEARCH_DIALOG_CUST),
+                                    SizedBox(height: 5,),
+                                    OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
+                                    SizedBox(height: 5,),
+                                    OptionTwoContent(OptionCbBranch(),OptionCbSalesType()),
+                                    SizedBox(height: 5,),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
                                   ],
                                 ),

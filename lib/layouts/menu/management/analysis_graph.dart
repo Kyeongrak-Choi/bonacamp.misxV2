@@ -54,8 +54,9 @@ class AnalysisGraph extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodYearmonthPicker(),
+                            SizedBox(height: 5,),
                             OptionCbBranch(),
-                            // OptionCbGraphType(),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_GRAPH),
                           ],
                         ),

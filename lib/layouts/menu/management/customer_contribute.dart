@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/datatable/management/customer_contribute_table.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -54,9 +55,10 @@ class CustomerContribute extends StatelessWidget {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: Column(
                           children: [
-                            OptionYearMonthPicker(),
-                            OptionCbBranch(),
+                            OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                            SizedBox(height: 5,),
                             OptionDialog(SEARCH_DIALOG_CUST),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                           ],
                         ),

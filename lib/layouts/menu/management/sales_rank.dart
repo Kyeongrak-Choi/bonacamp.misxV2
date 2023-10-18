@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -57,9 +58,11 @@ class SalesRank extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
+                            SizedBox(height: 5,),
                             OptionCbBranch(),
-                            OptionCbEmployee(),
-                            OptionCbManager(),
+                            SizedBox(height: 5,),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
                           ],
                         ),

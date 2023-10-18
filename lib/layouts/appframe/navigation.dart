@@ -14,6 +14,7 @@ class Navigation extends GetView<NavigationController> {
   @override
   Widget build(BuildContext context) {
     Get.put(NavigationController());
+    Get.put(DashBoardController());
     return WillPopScope(
       onWillPop: () {
         return Future(() => false); // HW Back key disenable
@@ -21,7 +22,7 @@ class Navigation extends GetView<NavigationController> {
       child: Scaffold(
         // key: controller.scaffoldKey,
         appBar: AppBar(
-          title: Text('${Get.find<NavigationController>().clientNm.value}' ?? '', style: context.textTheme.displayLarge),
+          title: Text('${Get.find<DashBoardController>().clientNm}' ?? '', style: context.textTheme.displayLarge),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
           // ),
@@ -140,25 +141,16 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxController {
-  RxString clientNm = ''.obs;
   RxInt currentIndex = 1.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    setUserinfo();
     changeIndex();
     currentIndex.value = 1;
   }
 
-  Future<void> setUserinfo() async {
-    await Hive.openBox(
-      LOCAL_DB,
-    );
-    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
-    clientNm.value = user.getClientName;
-  }
 
   changeIndex() {
     currentIndex.value = 1;

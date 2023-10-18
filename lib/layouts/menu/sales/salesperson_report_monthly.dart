@@ -10,19 +10,13 @@ import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/dialog/option_dialog.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/sales/salesperson_report_monthly_item.dart';
-import '../../../models/common/chart_spot.dart';
-import '../../../models/menu/sales/customer_info/customer_info_employee_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_representative_model.dart';
-import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart';
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report_monthly_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -67,10 +61,11 @@ class SalesPersonReportMonthly extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     OptionYearMonthPicker(),
-                                    OptionCbBranch(),
-                                    OptionCbEmployee(),
-                                    OptionCbManager(),
-                                    OptionCbSalesType(),
+                                    SizedBox(height: 5,),
+                                    OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                                    SizedBox(height: 5,),
+                                    OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                    SizedBox(height: 5,),
                                     OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
                                   ],
                                 ),

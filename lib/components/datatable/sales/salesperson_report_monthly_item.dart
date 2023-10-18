@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/field/icon_title_field.dart';
 
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report_monthly_model.dart';
 import '../../../utils/utility.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesPersonReportMonthlyItem extends StatelessWidget {

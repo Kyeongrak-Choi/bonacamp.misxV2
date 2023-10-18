@@ -1,14 +1,4 @@
-import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
-import 'package:misxV2/utils/utility.dart';
 import 'package:misxV2/utils/utility.dart';
 
 part 'sales_daily_model.g.dart'; // *.g.dart : in same directory

@@ -35,10 +35,8 @@ void main() async {
   // Hive Adapter Regist
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
-
-  var test = Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: ThemeMode.light);
   // init Theme Setting
-  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: ThemeMode.light));
+  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE ,defaultValue: ThemeMode.light) ? ThemeMode.dark : ThemeMode.light);
 
   runApp(Misx());
 }

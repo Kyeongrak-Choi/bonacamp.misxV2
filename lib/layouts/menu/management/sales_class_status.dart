@@ -56,8 +56,11 @@ class SalesClassStatus extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
+                            SizedBox(height: 5,),
                             OptionCbBranch(),
+                            SizedBox(height: 5,),
                             OptionDialog(SEARCH_DIALOG_PRCH),
+                            SizedBox(height: 5,),
                             OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
                           ],
                         ),
