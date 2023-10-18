@@ -18,6 +18,8 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_three_content.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/option_dialog.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
@@ -68,13 +70,9 @@ class CustomerReport extends StatelessWidget {
                     child: Column(
                       children: [
                         OptionPeriodPicker(),
-                        OptionCbBranch(),
-                        OptionDialog(SEARCH_DIALOG_CUST),
-                        OptionDialog(SEARCH_DIALOG_ITEM),
-                        OptionCbEmployee(),
-                        OptionCbManager(),
-                        OptionCbSalesType(),
-                        OptionCbSearchDivision(),
+                        OptionTwoContent(OptionDialog(SEARCH_DIALOG_CUST),OptionDialog(SEARCH_DIALOG_ITEM),),
+                        OptionTwoContent(OptionCbBranch(),OptionCbSalesType()),
+                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
                         OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
                       ],
                     ),
@@ -172,7 +170,6 @@ class CustomerReportController extends GetxController {
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
-    String paramDivisionCode = Get.find<CbSearchDivisionController>().paramDivisionCode;
 
     var param = user.getClientCode;
     var parsedCustomerReportSales;
@@ -197,12 +194,11 @@ class CustomerReportController extends GetxController {
           '&manager=' +
           paramManagementCode +
           '&type=' +
-          '' +
+          paramTypeCode +
           '&flag=' +
-          paramDivisionCode);
+          '1');
 
       if (response.statusCode == 200) {
-        parsedCustomerReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
         if((parsedCustomerReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();

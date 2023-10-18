@@ -14,11 +14,11 @@ class OptionCbSearchDivision extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Text(
               'opt_search_division'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -33,7 +33,7 @@ class OptionCbSearchDivision extends StatelessWidget {
                           () => DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: Get.find<CbSearchDivisionController>().selectedValue,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
                         items: Get.find<CbSearchDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
@@ -59,7 +59,7 @@ class CbSearchDivisionController extends GetxController {
   var selectedValue;
   List<String> data = <String>[].obs;
 
-  String paramDivisionCode = '';
+  String paramDivisionCode = '1';
   String paramDivisionName = '';
 
   @override
