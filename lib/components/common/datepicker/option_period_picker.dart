@@ -45,7 +45,11 @@ class OptionPeriodPicker extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Icon(Icons.date_range, color: context.theme.primaryColor),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseFromDate();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                   ),
                 ],
               ),
@@ -78,7 +82,11 @@ class OptionPeriodPicker extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Icon(Icons.date_range, color: context.theme.primaryColor),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseToDate();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                   ),
                 ],
               ),
