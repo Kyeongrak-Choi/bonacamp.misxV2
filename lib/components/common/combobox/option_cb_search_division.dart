@@ -5,10 +5,10 @@ import 'package:misxV2/models/system/common.dart';
 
 import '../../../utils/constants.dart';
 
-class OptionCbSalesType extends StatelessWidget {
+class OptionCbSearchDivision extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbSalesTypeController());
+    Get.put(CbSearchDivisionController());
     return Column(
       children: [
         Align(
@@ -16,7 +16,7 @@ class OptionCbSalesType extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              'opt_sales_type'.tr,
+              'opt_search_division'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.displayMedium,
             ),
@@ -30,21 +30,21 @@ class OptionCbSalesType extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
+                          () => DropdownButtonFormField<String>(
                         isExpanded: true,
-                        value: Get.find<CbSalesTypeController>().selectedValue,
+                        value: Get.find<CbSearchDivisionController>().selectedValue,
                         style: context.textTheme.displaySmall,
                         decoration: InputDecoration(border: InputBorder.none),
                         dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbSalesTypeController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                          return DropdownMenuItem<CommonModel>(
+                        items: Get.find<CbSearchDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
                             alignment: Alignment.center,
                             value: value,
-                            child: Text(value.getName ?? ''),
+                            child: Text(value ?? ''),
                           );
                         }).toList(),
                         onChanged: (value) {
-                          Get.find<CbSalesTypeController>().chooseItem(value!);
+                          Get.find<CbSearchDivisionController>().chooseItem(value!);
                         },
                       ),
                     ))),
@@ -55,14 +55,12 @@ class OptionCbSalesType extends StatelessWidget {
   }
 }
 
-class CbSalesTypeController extends GetxController {
+class CbSearchDivisionController extends GetxController {
   var selectedValue;
-  List<CommonModel> data = <CommonModel>[
-    CommonModel('', 0, '', '전체', '', '', '', '', ''),
-  ].obs;
+  List<String> data = <String>[].obs;
 
-  String paramSalesTypeCode = '';
-  String paramSalesTypeName = '';
+  String paramDivisionCode = '';
+  String paramDivisionName = '';
 
   @override
   void onInit() async {
@@ -73,9 +71,19 @@ class CbSalesTypeController extends GetxController {
     }
   }
 
-  chooseItem(CommonModel value) async {
-    paramSalesTypeCode = value.getCode ?? '';
-    paramSalesTypeName = value.getName ?? '';
+  chooseItem(String value) async {
+    paramDivisionName = value ?? '';
+    switch(paramDivisionName){
+      case '전체':
+        paramDivisionCode = '1';
+        break;
+      case '매출':
+        paramDivisionCode = '0';
+        break;
+      case '매출/입금':
+        paramDivisionCode = '1';
+        break;
+    }
 
     selectedValue = value;
   }
@@ -85,12 +93,10 @@ class CbSalesTypeController extends GetxController {
       LOCAL_DB,
     );
 
-    List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
+    List<String> common = ['전체', '매출', '매출/입금'];
 
     for (int i = 0; i < common.length; i++) {
-      if (common.elementAt(i).getMainCode == 'AMC002') {
-        data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
-      }
+      data.add(common[i]);
     }
   }
 }
