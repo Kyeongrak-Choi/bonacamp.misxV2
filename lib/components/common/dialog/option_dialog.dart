@@ -33,7 +33,7 @@ class OptionDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 8,
+                flex: 9,
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: TextButton(
@@ -54,10 +54,10 @@ class OptionDialog extends StatelessWidget {
                   },
                   icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
             ),
-            Expanded(
-              flex: 1,
-              child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
-            ),
+            // Expanded(
+            //   flex: 1,
+            //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
+            // ),
           ],
         ),
       ],

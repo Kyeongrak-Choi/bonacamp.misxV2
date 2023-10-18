@@ -17,6 +17,7 @@ import 'package:month_year_picker/month_year_picker.dart';
 import 'layouts/appframe/navigation.dart';
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
+import 'layouts/config/notice.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
@@ -36,7 +37,7 @@ void main() async {
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
   // init Theme Setting
-  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE ,defaultValue: ThemeMode.light) ? ThemeMode.dark : ThemeMode.light);
+  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE ,defaultValue: false) ? ThemeMode.dark : ThemeMode.light);
 
   runApp(Misx());
 }
@@ -74,6 +75,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
         GetPage(name: ROUTE_SYSTEM_CONFIG, page: () => SystemConfig()), // Config - SystemConfig
         GetPage(name: ROUTE_MENU_CONFIG, page: () => MenuConfig()), // Config - MenuConfig
+        GetPage(name: ROUTE_MENU_CONFIG, page: () => Notice()), // Notice - MenuConfig
 
         // Dialog
         GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog

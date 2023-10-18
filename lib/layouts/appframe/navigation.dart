@@ -33,17 +33,16 @@ class Navigation extends GetView<NavigationController> {
             icon: Icon(Icons.account_circle_sharp),
             color: context.theme.primaryColor,
             onPressed: () {
-              //ShowDialog(DIALOG_TYPE.MSG, '사용자정보', '아이디:', Get.context);
               ShowUserInfoDialog();
             },
           ),
           backgroundColor: context.theme.canvasColor,
           actions: [
-            IconButton(
-                icon: Icon(Icons.notifications_none_outlined),
-                color: context.theme.primaryColor,
-                onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
-            ),
+            // IconButton(
+            //     icon: Icon(Icons.notifications_none_outlined),
+            //     color: context.theme.primaryColor,
+            //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
+            // ),
             IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             IconButton(
                 icon: Icon(Icons.logout),
