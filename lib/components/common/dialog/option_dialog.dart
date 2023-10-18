@@ -18,39 +18,6 @@ class OptionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OptionDialogController());
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.start,
-    //   children: [
-    //     Expanded(
-    //         flex: 2,
-    //         child: Padding(
-    //           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //           child: Container(
-    //             child: ElevatedButton(
-    //                 style: ElevatedButton.styleFrom(
-    //                   backgroundColor: context.theme.canvasColor,
-    //                 ),
-    //                 onPressed: () {},
-    //                 child: Text(
-    //                   title,
-    //                   style: context.textTheme.displaySmall,
-    //                 )),
-    //           ),
-    //         )),
-    //     Expanded(
-    //         flex: 4,
-    //         child: Padding(
-    //             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-    //             child: TextButton(
-    //               onPressed: () => Get.toNamed(route),
-    //               child: Obx(() => Text(
-    //                     Get.find<OptionDialogController>().selectedValue.value,
-    //                     style: context.textTheme.displaySmall,
-    //                   )),
-    //             ))),
-    //   ],
-    // );
-
     return Column(
       children: [
         Align(
@@ -60,7 +27,7 @@ class OptionDialog extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.start,
-              style: context.textTheme.displayMedium,
+              style: context.textTheme.titleMedium,
             ),
           ),
         ),
@@ -75,7 +42,7 @@ class OptionDialog extends StatelessWidget {
                       onPressed: () => Get.toNamed(route),
                       child: Obx(() => Text(
                             Get.find<OptionDialogController>().selectedValue.value,
-                            style: context.textTheme.displaySmall,
+                            style: context.textTheme.bodyMedium,
                           )),
                     ))),
             Expanded(

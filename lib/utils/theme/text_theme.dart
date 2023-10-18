@@ -16,34 +16,35 @@ TextTheme textThemeLight() {
       color: CommonColors.dark,
     ),
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
-    ),
-    titleLarge: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
-    titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
+    titleLarge: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: CommonColors.navigation,
+    ),
+    titleMedium: GoogleFonts.nanumGothic(
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.navigation,
     ),
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
-      color: CommonColors.dark,
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.navigation,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 10.0,
+      fontSize: 16.0,
       color: CommonColors.dark,
     ),
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 8.0,
+      fontSize: 14.0,
       color: CommonColors.dark,
     ),
     bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 6.0,
+      fontSize: 12.0,
       color: CommonColors.dark,
     ),
   );
@@ -62,34 +63,35 @@ TextTheme textThemeDark() {
       color: CommonColors.white,
     ),
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.white,
-    ),
-    titleLarge: GoogleFonts.nanumGothic(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
     ),
-    titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
+    titleLarge: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: CommonColors.navigation,
+    ),
+    titleMedium: GoogleFonts.nanumGothic(
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.navigation,
     ),
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
-      color: CommonColors.white,
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.navigation,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 10.0,
+      fontSize: 16.0,
       color: CommonColors.white,
     ),
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 8.0,
+      fontSize: 14.0,
       color: CommonColors.white,
     ),
     bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 6.0,
+      fontSize: 12.0,
       color: CommonColors.white,
     ),
   );
