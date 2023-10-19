@@ -61,9 +61,13 @@ class SalesDailyDivision extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
                           ],
                         ),

@@ -57,9 +57,13 @@ class SalesPersonContribute extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],
                         ),

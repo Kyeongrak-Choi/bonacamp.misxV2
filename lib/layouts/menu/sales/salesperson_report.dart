@@ -61,11 +61,17 @@ class SalesPersonReport extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
                           ],
                         ),
@@ -88,15 +94,12 @@ class SalesPersonReport extends StatelessWidget {
                         child: Column(
                           children: [
                             SumTitleTable('기간 합계'),
-                            SumItemTable(
-                                '매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal),
-                                '공급가', numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
-                            SumItemTable(
-                                '합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount),
-                                '입금합계', numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
-                            SumItemTable(
-                                '채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance),
-                                '매출이익', numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
+                            SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
+                                numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
+                            SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
+                                numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
+                            SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
+                                numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
                           ],
                         ),
                       ),

@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/dialog/search_listview.dart';
+import 'package:misxV2/components/common/dialog/lenditem/search_lenditem_listview.dart';
 
-import '../../../utils/constants.dart';
-
-class SearchOption extends StatelessWidget {
-  var flag;
-  var hint;
-
-  SearchOption(String flag) {
-    this.flag = flag;
-    initVar(flag);
-  }
-
+class SearchLendItemOption extends StatelessWidget {
   @override
   Widget build(context) {
-    Get.put(SearchListController());
+    Get.put(SearchLendItemListController());
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Row(
@@ -27,11 +17,11 @@ class SearchOption extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
-                  hintText: hint,
+                  hintText: 'hint_search_lenditem'.tr,
                   hintStyle: context.textTheme.displaySmall,
                 ),
                 onChanged: (text) {
-                  Get.find<SearchListController>().setSearchTxt(text);
+                  Get.find<SearchLendItemListController>().setSearchTxt(text);
                 },
                 style: context.textTheme.displaySmall),
           ),
@@ -41,7 +31,7 @@ class SearchOption extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.find<SearchListController>().search(flag);
+                      Get.find<SearchLendItemListController>().search();
                     },
                     child: Icon(
                       Icons.search,
@@ -54,26 +44,9 @@ class SearchOption extends StatelessWidget {
       ),
     );
   }
-
-  void initVar(flag) {
-    switch (flag) {
-      case SEARCH_DIALOG_CUST:
-        hint = 'hint_search_customer'.tr;
-        break;
-      case SEARCH_DIALOG_PRCH:
-        hint = 'hint_search_purchase'.tr;
-        break;
-      case SEARCH_DIALOG_ITEM:
-        hint = 'hint_search_item'.tr;
-        break;
-      case SEARCH_DIALOG_LEND:
-        hint = 'hint_search_lenditem'.tr;
-        break;
-    }
-  }
 }
 
-class SearchOptionController extends GetxController {
+class SearchLendItemOptionController extends GetxController {
   @override
   void onInit() async {
     super.onInit();

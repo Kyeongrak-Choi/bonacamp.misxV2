@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -7,27 +6,21 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_business.dart';
-import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
-import 'package:misxV2/components/common/combobox/option_cb_search_division.dart';
-import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_three_content.dart';
 import '../../../components/common/combobox/option_two_content.dart';
-import '../../../components/common/dialog/option_dialog.dart';
+import '../../../components/common/dialog/customer/option_dialog_customer.dart';
+import '../../../components/common/dialog/item/option_dialog_item.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/customer_report_item.dart';
-import '../../../components/datatable/sales/salesperson_report_item.dart';
 import '../../../models/menu/sales/customer_report_model.dart';
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -38,100 +31,97 @@ class CustomerReport extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerReportController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_sales_status'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<CustomerReportController>().visible.value),
-              onPressed: () {
-                Get.find<CustomerReportController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_sales_status'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<CustomerReportController>().visible.value),
+                  onPressed: () {
+                    Get.find<CustomerReportController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<CustomerReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                            OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
+                  ),
+                  Visibility(
+                    visible: !Get.find<CustomerReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 합계'),
+                            SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
+                                numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
+                            SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
+                                numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
+                            SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
+                                numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: !Get.find<CustomerReportController>().visible.value ? 20 : 0,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<CustomerReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                    child: Column(
-                      children: [
-                        OptionPeriodPicker(),
-                        OptionTwoContent(OptionDialog(SEARCH_DIALOG_CUST),OptionDialog(SEARCH_DIALOG_ITEM),),
-                        OptionTwoContent(OptionCbBranch(),OptionCbSalesType()),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
-              ),
-              Visibility(
-                visible: !Get.find<CustomerReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 합계'),
-                        SumItemTable(
-                            '매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal),
-                            '공급가', numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
-                        SumItemTable(
-                            '합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount),
-                            '입금합계', numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
-                        SumItemTable(
-                            '채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance),
-                            '매출이익', numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: !Get.find<CustomerReportController>().visible.value ? 20 : 0,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -165,8 +155,8 @@ class CustomerReportController extends GetxController {
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogController>().paramCustomerCode.value;
-    String paramItemCode = Get.find<OptionDialogController>().paramCustomerCode.value;
+    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramItemCode = Get.find<OptionDialogItemController>().paramItemCode.value;
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
@@ -199,11 +189,10 @@ class CustomerReportController extends GetxController {
           '1');
 
       if (response.statusCode == 200) {
-        if((parsedCustomerReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+        if ((parsedCustomerReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
-        }
-        else {
+        } else {
           clearValue();
           controllerCustomerReport = parsedCustomerReportSales.map((dataJson) => CustomerReportModel.fromJson(dataJson)).toList();
 
@@ -216,7 +205,6 @@ class CustomerReportController extends GetxController {
             sumMargin += calData.margin as int;
           }
         }
-
 
         Get.find<CustomerReportController>().setVisible();
         update();
@@ -231,7 +219,7 @@ class CustomerReportController extends GetxController {
     }
   }
 
-  void clearValue(){
+  void clearValue() {
     sumTotal = 0;
     sumPrice = 0;
     sumAmount = 0;
@@ -241,5 +229,4 @@ class CustomerReportController extends GetxController {
 
     controllerCustomerReport = null;
   }
-
 }

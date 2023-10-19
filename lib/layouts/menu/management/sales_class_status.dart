@@ -7,12 +7,12 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/components/common/dialog/option_dialog.dart';
 import 'package:misxV2/components/common/emptyWidget.dart';
 import 'package:misxV2/components/datatable/management/sales_class_status_item.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../models/menu/management/sales_class_status.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -56,11 +56,17 @@ class SalesClassStatus extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionCbBranch(),
-                            SizedBox(height: 5,),
-                            OptionDialog(SEARCH_DIALOG_PRCH),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionDialogPurchase(),
+                            SizedBox(
+                              height: 5,
+                            ),
                             OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
                           ],
                         ),
@@ -124,7 +130,7 @@ class SalesClassStatusController extends GetxController {
     var paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     var paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     var paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    var paramCode = Get.find<OptionDialogController>().paramCode;
+    var paramCode = Get.find<OptionDialogPurchaseController>().paramCode;
 
     try {
       dio = await reqApi(paramClientCd);

@@ -5,7 +5,7 @@ class OptionTwoContent extends StatelessWidget {
   Widget firstItem = EmptyWidget();
   Widget secondItem = EmptyWidget();
 
-  OptionTwoContent(Widget first, Widget second){
+  OptionTwoContent(Widget first, Widget second) {
     this.firstItem = first;
     this.secondItem = second;
   }
@@ -17,10 +17,7 @@ class OptionTwoContent extends StatelessWidget {
         Expanded(flex: 1, child: firstItem),
         SizedBox(width: 50),
         Expanded(flex: 1, child: secondItem),
-
       ],
     );
   }
-
-
 }

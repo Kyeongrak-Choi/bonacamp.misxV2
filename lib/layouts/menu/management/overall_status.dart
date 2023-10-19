@@ -60,9 +60,13 @@ class OverallStatus extends StatelessWidget {
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                SizedBox(height: 5,),
+                                SizedBox(
+                                  height: 5,
+                                ),
                                 OptionCbBranch(),
-                                SizedBox(height: 5,),
+                                SizedBox(
+                                  height: 5,
+                                ),
                                 OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
                               ],
                             ),

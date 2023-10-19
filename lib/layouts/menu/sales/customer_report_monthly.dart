@@ -10,13 +10,12 @@ import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
-import 'package:misxV2/components/common/combobox/option_three_content.dart';
 import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/dialog/option_dialog.dart';
+import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/sales/salesperson_report_monthly_item.dart';
 import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report_monthly_model.dart';
@@ -63,13 +62,21 @@ class CustomerReportMonthly extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     OptionYearMonthPicker(),
-                                    SizedBox(height: 5,),
-                                    OptionDialog(SEARCH_DIALOG_CUST),
-                                    SizedBox(height: 5,),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    OptionDialogCustomer(),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
                                     OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
-                                    SizedBox(height: 5,),
-                                    OptionTwoContent(OptionCbBranch(),OptionCbSalesType()),
-                                    SizedBox(height: 5,),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
                                   ],
                                 ),
@@ -125,7 +132,7 @@ class CustomerReportMonthlyController extends GetxController {
 
     String paramYearMonth = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramCustomerCode = Get.find<OptionDialogController>().paramCustomerCode.value;
+    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;

@@ -12,17 +12,17 @@ class SalesDailyModel {
   var salesRepName; //영업사원명
   var dateType; //구분값 (1:일 / 2:월)
   var dateName; //구분명
-  var price;  //공급가
-  var vat;  //부가세
-  var guarantee;  //공병보증금
-  var total;  //총합계
+  var price; //공급가
+  var vat; //부가세
+  var guarantee; //공병보증금
+  var total; //총합계
   var cost; //매입원가
   var margin; //이익금
   var marginRate; //마진율 시스템 기준설정 A900 : 1.(마진액/매출원가)*100, 2.(마진액/공급가액)*100)
-  var depositCash;  //현금입금
+  var depositCash; //현금입금
   var depositEtc; //용기,공병입금
-  var deposit;  //입금합계
-  var balance;  //전월/금일채권잔액
+  var deposit; //입금합계
+  var balance; //전월/금일채권잔액
 
   SalesDailyModel(
     this.teamCode,

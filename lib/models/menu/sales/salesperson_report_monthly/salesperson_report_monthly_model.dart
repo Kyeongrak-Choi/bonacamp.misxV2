@@ -28,18 +28,17 @@ class SalesPersonReportMonthlyModel {
   factory SalesPersonReportMonthlyModel.fromJson(Map<String, dynamic> json) => _$SalesPersonReportMonthlyModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesPersonReportMonthlyModelToJson(this);
-
 }
 
 List<SalesPersonReportMonthlyModel> generateSalesPersonReportMonthlyList(dataList, count) {
   return List.generate(
       count,
-          (index) => SalesPersonReportMonthlyModel(
-        dataList[index].branchCode,
-        dataList[index].code,
-        dataList[index].name,
-        dataList[index].sales,
-        dataList[index].total,
-        id: index,
-      ));
+      (index) => SalesPersonReportMonthlyModel(
+            dataList[index].branchCode,
+            dataList[index].code,
+            dataList[index].name,
+            dataList[index].sales,
+            dataList[index].total,
+            id: index,
+          ));
 }

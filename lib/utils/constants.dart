@@ -7,7 +7,11 @@ const COPY_RIGHT = 'Copyright 2023. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 const APP_ID = 'MISX';
 
-enum NAVIGATION_BAR_ITEM { MENU, HOME, CONFIG, } // Navigation Item
+enum NAVIGATION_BAR_ITEM {
+  MENU,
+  HOME,
+  CONFIG,
+} // Navigation Item
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,13 +70,7 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 enum SNACK_TYPE { INFO, ERROR, ALARM }
 
 // Dialog Type
-enum DIALOG_TYPE { SELECT, MSG , NOTICE} // SELECT : yes & no select
-
-// Search Dialog Type
-const SEARCH_DIALOG_CUST = 'CUST'; // 거래처(매출처) 검색
-const SEARCH_DIALOG_PRCH = 'PRCH'; // 거래처(매입처) 검색
-const SEARCH_DIALOG_ITEM = 'ITEM'; // 품목 검색
-const SEARCH_DIALOG_LEND = 'LEND'; // 품목(용기공병) 검색
+enum DIALOG_TYPE { SELECT, MSG, NOTICE } // SELECT : yes & no select
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

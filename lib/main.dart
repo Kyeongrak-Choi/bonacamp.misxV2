@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
-import 'package:misxV2/layouts/common/search_dialog.dart';
+import 'package:misxV2/layouts/common/search_customer_dialog.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
@@ -16,6 +16,9 @@ import 'package:misxV2/utils/theme/theme_manager.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
 import 'layouts/appframe/navigation.dart';
+import 'layouts/common/search_item_dialog.dart';
+import 'layouts/common/search_lenditem_dialog.dart';
+import 'layouts/common/search_purchase_dialog.dart';
 import 'layouts/config/config.dart';
 import 'layouts/config/menu_config.dart';
 import 'layouts/config/notice.dart';
@@ -38,7 +41,7 @@ void main() async {
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
   // init Theme Setting
-  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE ,defaultValue: false) ? ThemeMode.dark : ThemeMode.light);
+  Get.changeThemeMode(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false) ? ThemeMode.dark : ThemeMode.light);
 
   runApp(Misx());
 }
@@ -79,10 +82,10 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_CONFIG, page: () => Notice()), // Notice - MenuConfig
 
         // Dialog
-        GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchDialog(SEARCH_DIALOG_CUST)), // Search Customer Dialog
-        GetPage(name: ROUTE_DIALOG_PURCHASE, page: () => SearchDialog(SEARCH_DIALOG_PRCH)), // Search Purchase Dialog
-        GetPage(name: ROUTE_DIALOG_ITEM, page: () => SearchDialog(SEARCH_DIALOG_ITEM)), // Search item Dialog
-        GetPage(name: ROUTE_DIALOG_LENDITM, page: () => SearchDialog(SEARCH_DIALOG_LEND)), // Search lendItem Dialog
+        GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchCustomerDialog()), // Search Customer Dialog
+        GetPage(name: ROUTE_DIALOG_PURCHASE, page: () => SearchPurchaseDialog()), // Search Purchase Dialog
+        GetPage(name: ROUTE_DIALOG_ITEM, page: () => SearchItemDialog()), // Search item Dialog
+        GetPage(name: ROUTE_DIALOG_LENDITM, page: () => SearchLendItemDialog()), // Search lendItem Dialog
 
         // 경영분석
         GetPage(name: ROUTE_MENU_OVERALL_STATUS, page: () => OverallStatus()), // 종합현황

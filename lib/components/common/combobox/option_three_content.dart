@@ -6,7 +6,7 @@ class OptionThreeContent extends StatelessWidget {
   Widget secondItem = EmptyWidget();
   Widget thirdItem = EmptyWidget();
 
-  OptionThreeContent(Widget first, Widget second, Widget third){
+  OptionThreeContent(Widget first, Widget second, Widget third) {
     this.firstItem = first;
     this.secondItem = second;
     this.thirdItem = third;
@@ -24,6 +24,4 @@ class OptionThreeContent extends StatelessWidget {
       ],
     );
   }
-
-
 }

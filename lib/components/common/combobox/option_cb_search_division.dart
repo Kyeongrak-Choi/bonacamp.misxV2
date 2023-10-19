@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/common.dart';
 
 import '../../../utils/constants.dart';
 
@@ -30,7 +29,7 @@ class OptionCbSearchDivision extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: Obx(
-                          () => DropdownButtonFormField<String>(
+                      () => DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: Get.find<CbSearchDivisionController>().selectedValue,
                         style: context.textTheme.bodyMedium,
@@ -73,7 +72,7 @@ class CbSearchDivisionController extends GetxController {
 
   chooseItem(String value) async {
     paramDivisionName = value ?? '';
-    switch(paramDivisionName){
+    switch (paramDivisionName) {
       case '전체':
         paramDivisionCode = '1';
         break;

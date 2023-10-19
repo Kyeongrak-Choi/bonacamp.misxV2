@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/dialog/lenditem/option_dialog_lenditem.dart';
 
-import 'option_dialog.dart';
-
-class SearchListItem extends StatelessWidget {
+class SearchLendItemListItem extends StatelessWidget {
   var code;
   var name;
   var sub;
   var stat;
 
-  SearchListItem(String code, String name, String sub, String stat) {
+  SearchLendItemListItem(String code, String name, String sub, String stat) {
     this.code = code;
     this.name = name;
     this.sub = sub;
@@ -19,10 +18,10 @@ class SearchListItem extends StatelessWidget {
 
   @override
   Widget build(context) {
-    Get.put(OptionDialogController());
+    Get.put(OptionDialogLendItemController());
     return GestureDetector(
       onTap: () {
-        Get.find<OptionDialogController>().chooseItem(code, name);
+        Get.find<OptionDialogLendItemController>().chooseItem(code, name);
         Get.back();
       },
       child: Column(

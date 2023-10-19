@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/constants.dart';
+import '../../../../utils/constants.dart';
 
-class OptionDialog extends StatelessWidget {
-  var flag;
-  var title;
-  var route;
-
-  OptionDialog(String flag) {
-    this.flag = flag;
-    initVar(flag);
-  }
-
+class OptionDialogLendItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(OptionDialogController());
+    Get.put(OptionDialogLendItemController());
     return Column(
       children: [
         Align(
@@ -23,7 +14,7 @@ class OptionDialog extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
             child: Text(
-              title,
+              'title_search_lenditem'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.titleMedium,
             ),
@@ -37,9 +28,9 @@ class OptionDialog extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     child: TextButton(
-                      onPressed: () => Get.toNamed(route),
+                      onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
                       child: Obx(() => Text(
-                            Get.find<OptionDialogController>().selectedValue.value,
+                            Get.find<OptionDialogLendItemController>().selectedValue.value,
                             style: context.textTheme.bodyMedium,
                           )),
                     ))),
@@ -47,10 +38,10 @@ class OptionDialog extends StatelessWidget {
               flex: 1,
               child: IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogController>().paramCustomerName.value = ''.tr;
-                    Get.find<OptionDialogController>().paramCustomerCode.value = ''.tr;
-                    Get.find<OptionDialogController>().paramCode ='';
+                    Get.find<OptionDialogLendItemController>().selectedValue.value = 'all'.tr;
+                    Get.find<OptionDialogLendItemController>().paramLendItemName.value = ''.tr;
+                    Get.find<OptionDialogLendItemController>().paramLendItemCode.value = ''.tr;
+                    Get.find<OptionDialogLendItemController>().paramCode = '';
                   },
                   icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
             ),
@@ -63,34 +54,13 @@ class OptionDialog extends StatelessWidget {
       ],
     );
   }
-
-  void initVar(flag) {
-    switch (flag) {
-      case SEARCH_DIALOG_CUST:
-        title = 'title_search_customer'.tr;
-        route = ROUTE_DIALOG_CUSTOMER;
-        break;
-      case SEARCH_DIALOG_PRCH:
-        title = 'title_search_purchase'.tr;
-        route = ROUTE_DIALOG_PURCHASE;
-        break;
-      case SEARCH_DIALOG_ITEM:
-        title = 'title_search_item'.tr;
-        route = ROUTE_DIALOG_ITEM;
-        break;
-      case SEARCH_DIALOG_LEND:
-        title = 'title_search_lenditem'.tr;
-        route = ROUTE_DIALOG_LENDITM;
-        break;
-    }
-  }
 }
 
-class OptionDialogController extends GetxController {
+class OptionDialogLendItemController extends GetxController {
   RxString selectedValue = 'all'.tr.obs;
 
-  RxString paramCustomerName = ''.tr.obs;
-  RxString paramCustomerCode = ''.tr.obs;
+  RxString paramLendItemName = ''.tr.obs;
+  RxString paramLendItemCode = ''.tr.obs;
 
   String paramCode = '';
 
@@ -101,8 +71,8 @@ class OptionDialogController extends GetxController {
 
   chooseItem(code, name) async {
     selectedValue.value = name;
-    paramCustomerName.value = name;
-    paramCustomerCode.value = code;
+    paramLendItemName.value = name;
+    paramLendItemCode.value = code;
     paramCode = code;
   }
 }

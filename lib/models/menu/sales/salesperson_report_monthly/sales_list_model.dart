@@ -22,5 +22,6 @@ class SalesListModel {
   Map<String, dynamic> toJson() => _$SalesListModelToJson(this);
 
   get getMonth => month;
+
   get getAmount => amount;
 }

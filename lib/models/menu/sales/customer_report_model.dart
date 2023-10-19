@@ -18,8 +18,8 @@ class CustomerReportModel {
   var marginRate; // 이익률
   int? id;
 
-  CustomerReportModel(
-      this.branchCode, this.customerCode, this.customerName, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate,
+  CustomerReportModel(this.branchCode, this.customerCode, this.customerName, this.total, this.price, this.amount, this.deposit, this.balance,
+      this.margin, this.marginRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -105,17 +105,17 @@ class CustomerReportModel {
 List<CustomerReportModel> generateCustomerReportList(dataList, count) {
   return List.generate(
       count,
-          (index) => CustomerReportModel(
-        dataList[index].branchCode,
-        dataList[index].customerCode,
-        dataList[index].customerName,
-        numberFormat.format(dataList[index].total),
-        numberFormat.format(dataList[index].price),
-        numberFormat.format(dataList[index].amount),
-        numberFormat.format(dataList[index].deposit),
-        numberFormat.format(dataList[index].balance),
-        numberFormat.format(dataList[index].margin),
-        dataList[index].marginRate,
-        id: index,
-      ));
+      (index) => CustomerReportModel(
+            dataList[index].branchCode,
+            dataList[index].customerCode,
+            dataList[index].customerName,
+            numberFormat.format(dataList[index].total),
+            numberFormat.format(dataList[index].price),
+            numberFormat.format(dataList[index].amount),
+            numberFormat.format(dataList[index].deposit),
+            numberFormat.format(dataList[index].balance),
+            numberFormat.format(dataList[index].margin),
+            dataList[index].marginRate,
+            id: index,
+          ));
 }

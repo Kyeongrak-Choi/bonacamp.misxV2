@@ -60,9 +60,13 @@ class SalesDaily extends StatelessWidget {
                           child: Column(
                             children: [
                               OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
                             ],
                           ),
@@ -85,30 +89,50 @@ class SalesDaily extends StatelessWidget {
                           children: [
                             SumTitleTable('일자 합계 (일/월)'),
                             SumItemTable(
-                                '공급가', numberFormat.format(Get.find<SalesDailyController>().sumPrice_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumPrice_M),
-                                '부가세', numberFormat.format(Get.find<SalesDailyController>().sumVat_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumVat_M)),
+                                '공급가',
+                                numberFormat.format(Get.find<SalesDailyController>().sumPrice_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumPrice_M),
+                                '부가세',
+                                numberFormat.format(Get.find<SalesDailyController>().sumVat_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumVat_M)),
                             SumItemTable(
-                                '보증금\n합계', numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_M),
-                                '총합계', numberFormat.format(Get.find<SalesDailyController>().sumTotal_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumTotal_M)),
+                                '보증금\n합계',
+                                numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_M),
+                                '총합계',
+                                numberFormat.format(Get.find<SalesDailyController>().sumTotal_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumTotal_M)),
                             SumItemTable(
-                                '매출원가', numberFormat.format(Get.find<SalesDailyController>().sumCost_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumCost_M),
-                                '매출이익', numberFormat.format(Get.find<SalesDailyController>().sumMargin_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumMargin_M)),
+                                '매출원가',
+                                numberFormat.format(Get.find<SalesDailyController>().sumCost_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumCost_M),
+                                '매출이익',
+                                numberFormat.format(Get.find<SalesDailyController>().sumMargin_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumMargin_M)),
                             SumItemTable(
-                                '입금소계', numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_M),
-                                '용공입금', numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_M)),
+                                '입금소계',
+                                numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_M),
+                                '용공입금',
+                                numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_M)),
                             SumItemTable(
-                                '입금합계', numberFormat.format(Get.find<SalesDailyController>().sumDeposit_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumDeposit_M),
-                                '채권잔액', numberFormat.format(Get.find<SalesDailyController>().sumBalance_D) +
-                                '\n' + numberFormat.format(Get.find<SalesDailyController>().sumBalance_M)),
+                                '입금합계',
+                                numberFormat.format(Get.find<SalesDailyController>().sumDeposit_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumDeposit_M),
+                                '채권잔액',
+                                numberFormat.format(Get.find<SalesDailyController>().sumBalance_D) +
+                                    '\n' +
+                                    numberFormat.format(Get.find<SalesDailyController>().sumBalance_M)),
                           ],
                         ),
                       ),
@@ -205,16 +229,16 @@ class SalesDailyController extends GetxController {
           paramTeamCode);
 
       if (response.statusCode == 200) {
-        if((parsedSalesDaily = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+        if ((parsedSalesDaily = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
-        }
-        else {
+        } else {
           clearValue();
           salesDailyList = parsedSalesDaily.map((dataJson) => SalesDailyModel.fromJson(dataJson)).toList();
 
-          for(int i = 0; i < salesDailyList.length; i++) {
-            if(salesDailyList[i].dateType == '1') {           // 일
+          for (int i = 0; i < salesDailyList.length; i++) {
+            if (salesDailyList[i].dateType == '1') {
+              // 일
               sumPrice_D += salesDailyList[i].price as int;
               sumVat_D += salesDailyList[i].vat as int;
               sumGuarantee_D += salesDailyList[i].guarantee as int;
@@ -225,8 +249,8 @@ class SalesDailyController extends GetxController {
               sumDepositEtc_D += salesDailyList[i].depositEtc as int;
               sumDeposit_D += salesDailyList[i].deposit as int;
               sumBalance_D += salesDailyList[i].balance as int;
-            }
-            else if(salesDailyList[i].dateType == '2') {      // 월
+            } else if (salesDailyList[i].dateType == '2') {
+              // 월
               sumPrice_M += salesDailyList[i].price as int;
               sumVat_M += salesDailyList[i].vat as int;
               sumGuarantee_M += salesDailyList[i].guarantee as int;
@@ -253,7 +277,7 @@ class SalesDailyController extends GetxController {
     }
   }
 
-  void clearValue(){
+  void clearValue() {
     sumPrice_D = 0;
     sumVat_D = 0;
     sumGuarantee_D = 0;

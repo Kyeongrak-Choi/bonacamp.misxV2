@@ -1,4 +1,3 @@
-import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'notice.g.dart'; // *.g.dart : in same directory
@@ -18,5 +17,4 @@ class NoticeModel {
   factory NoticeModel.fromJson(Map<String, dynamic> json) => _$NoticeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$NoticeModelToJson(this);
-
 }
