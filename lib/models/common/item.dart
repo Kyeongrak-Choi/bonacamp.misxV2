@@ -5,27 +5,27 @@ part 'item.g.dart'; // *.g.dart : in same directory
 // 품목 검색 Model
 @JsonSerializable(explicitToJson: true)
 class ItemModel {
-  String? itmCd; // 품목코드:DA121T0
-  String? itmNm; // 품목명
-  String? itmAbbNm; // 품목 별칭
-  String? stnd; // 규격/용량
-  String? uzFg; // 용도
-  String? uzFgNm; // 용도명
-  String? ut; // 단위
-  String? utNm; // 단위명
+  var code; // 품목코드:DA121T0
+  var name; // 품목명
+  var nickName; // 품목 별칭
+  var standard; // 규격/용량
+  var useType; // 용도
+  var useTypeName; // 용도명
+  var unit; // 단위
+  var unitName; // 단위명
 
-  ItemModel(this.itmCd, this.itmNm, this.itmAbbNm, this.stnd, this.uzFg, this.uzFgNm, this.ut, this.utNm);
+  ItemModel(this.code, this.name, this.nickName, this.standard, this.useType, this.useTypeName, this.unit, this.unitName);
 
   Map<String, dynamic> toMap() {
     return {
-      'item-code': itmCd,
-      'item-name': itmNm,
-      'item-nick-name': itmAbbNm,
-      'standard': stnd,
-      'usage-code': uzFg,
-      'usage-name': uzFgNm,
-      'unit-code': ut,
-      'unit-name': utNm
+      'code': code,
+      'name': name,
+      'nick-name': nickName,
+      'standard': standard,
+      'use-type': useType,
+      'use-type-name': useTypeName,
+      'unit': unit,
+      'unit-name': unitName
     };
   }
 
@@ -33,51 +33,12 @@ class ItemModel {
 
   Map<String, dynamic> toJson() => _$ItemModelToJson(this);
 
-  String? get getItmCd => itmCd;
+  get getCode => code;
 
-  set setItmCd(String value) {
-    itmCd = value;
-  }
+  get getName => name;
 
-  String? get getItmNm => itmNm;
+  get getNickName => nickName;
 
-  set setItmNm(String value) {
-    itmNm = value;
-  }
+  get getUseTypeName => useTypeName;
 
-  String? get getItmAbbNm => itmAbbNm;
-
-  set setItmAbbNm(String value) {
-    itmAbbNm = value;
-  }
-
-  String? get getstnd => stnd;
-
-  set setstnd(String value) {
-    stnd = value;
-  }
-
-  String? get getUzFg => uzFg;
-
-  set setUzFg(String value) {
-    uzFg = value;
-  }
-
-  String? get getUzFgNm => uzFgNm;
-
-  set setUzFgNm(String value) {
-    uzFgNm = value;
-  }
-
-  String? get getut => ut;
-
-  set setut(String value) {
-    ut = value;
-  }
-
-  String? get getutNm => utNm;
-
-  set setutNm(String value) {
-    utNm = value;
-  }
 }

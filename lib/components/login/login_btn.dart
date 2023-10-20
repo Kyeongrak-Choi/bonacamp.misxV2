@@ -22,21 +22,24 @@ class LoginBtn extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-            child: ElevatedButton(
-                onPressed: () async {
-                  ProgressDialog pd = ProgressDialog(context: context);
-                  pd.show(max: 100, msg: 'progress_login'.tr, backgroundColor: CommonColors.bluesky);
-                  if (await Get.find<LoginBtnController>().LoginCheck()) {
-                    pd.close();
-                    Get.toNamed(ROUTE_NATIGATION);
-                  }
+            child: Container(
+          height: 50,
+          child: ElevatedButton(
+              onPressed: () async {
+                ProgressDialog pd = ProgressDialog(context: context);
+                pd.show(max: 100, msg: 'progress_login'.tr, backgroundColor: CommonColors.bluesky);
+                if (await Get.find<LoginBtnController>().LoginCheck()) {
                   pd.close();
-                },
-                child: Text('text_login'.tr),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: CommonColors.white,
-                  backgroundColor: CommonColors.dark,
-                )))
+                  Get.toNamed(ROUTE_NATIGATION);
+                }
+                pd.close();
+              },
+              child: Text('text_login'.tr),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: CommonColors.white,
+                backgroundColor: CommonColors.dark,
+              )),
+        ))
       ],
     );
   }

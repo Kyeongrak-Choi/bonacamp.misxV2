@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../../models/management/sales_daily_division_model.dart';
+import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyDivisionItem extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
   var dataList;
 
   SalesDailyDivisionItem(var model) {
@@ -28,12 +26,15 @@ class SalesDailyDivisionItem extends StatelessWidget {
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: context.theme.cardColor,
+              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 0),
             ),
             onPressed: () {},
             child: ExpansionPanelList.radio(
+              elevation: 0.0,
               animationDuration: Duration(milliseconds: 500),
               children: dataList.map<ExpansionPanelRadio>((SalesDailyDivisionModel model) {
                 return ExpansionPanelRadio(
+                  canTapOnHeader: true,
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {

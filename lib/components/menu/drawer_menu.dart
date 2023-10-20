@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//import 'package:misxV2/components/common/dialog/logout_check.dart';
-
-import '../../utils/constants.dart';
-
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);
 
@@ -49,7 +45,7 @@ class DrawerMenu extends StatelessWidget {
             ),
             onTap: () {
               //Navigator.pop(context);
-              Get.toNamed(ROUTE_MENU_EXAMPLE);
+              //Get.toNamed(ROUTE_MENU_EXAMPLE);
             },
           ),
           ListTile(

@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../layouts/dashboard.dart';
+import '../../layouts/appframe/dashboard.dart';
+import '../../utils/utility.dart';
 import 'dashboard_item.dart';
 
 class DashBoardReturn extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
-
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardController());
@@ -38,7 +36,8 @@ class DashBoardReturn extends StatelessWidget {
                   // dummy
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem('반납계', controller.controllerReturnModel != null ? f.format(controller.controllerReturnModel.oTot) : '0'),
+                    child: DashBoardItem(
+                        '반납계', controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : ''),
                   ),
                 ],
               )),

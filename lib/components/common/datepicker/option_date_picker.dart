@@ -6,45 +6,49 @@ class OptionDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DatePickerController());
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Expanded(
-          flex: 1,
+    return Column(
+      children: [
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: Container(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: context.theme.canvasColor,
-                ),
-                onPressed: () {},
-                child: Text(
-                  'opt_date'.tr,
-                  style: context.textTheme.displaySmall,
-                ),
-              ),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            child: Text(
+              'opt_date'.tr,
+              textAlign: TextAlign.start,
+              style: context.textTheme.titleMedium,
             ),
-          )),
-      Expanded(
-        flex: 3,
-        child: Row(
+          ),
+        ),
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-              child: Obx(
-                () => TextButton(
-                  onPressed: () => Get.find<DatePickerController>().chooseDate(),
-                  child: Text(
-                    DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                    style: context.textTheme.displaySmall,
+            Expanded(
+              flex: 9,
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                    child: Text(
+                      DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                      style: context.textTheme.bodyMedium,
+                    ),
                   ),
                 ),
               ),
             ),
+            Expanded(
+              flex: 1,
+              child: IconButton(
+                  onPressed: () {
+                    Get.find<DatePickerController>().chooseDate();
+                  },
+                  icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+            ),
           ],
-        ),
-      ),
-    ]);
+        )
+      ],
+    );
   }
 }
 
@@ -73,11 +77,18 @@ class DatePickerController extends GetxController {
       firstDate: DateTime(DateTime.now().year - 2),
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
+
       cancelText: 'cancel'.tr,
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: context.theme,
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
           child: child!,
         );
       },

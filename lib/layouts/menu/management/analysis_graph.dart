@@ -1,14 +1,12 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/chart/analysis_graph.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_graph_type.dart';
+import 'package:misxV2/models/common/chart_spot.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -26,7 +24,8 @@ class AnalysisGraph extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_analysis_graph'.tr),
-              backgroundColor: context.theme.cardColor,
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -37,34 +36,62 @@ class AnalysisGraph extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<AnalysisGraphController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodYearmonthPicker(),
-                      OptionCbBranch(),
-                      OptionCbGraphType(),
-                      OptionBtnSearch(ROUTE_MENU_GRAPH),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<AnalysisGraphController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionPeriodYearmonthPicker(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionCbBranch(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionBtnSearch(ROUTE_MENU_GRAPH),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: setChild(),
-                )
-                // Expanded(
-                //   child: SalesPersonContributeTable(),
-                // ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: setChild(),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
   }
 
   Widget setChild() {
-    if (Get.find<AnalysisGraphController>().spotList.length > 0) {
+    if (Get.find<AnalysisGraphController>().salesList.length > 0) {
       return AnalysisGraphComponent();
     } else {
       return EmptyWidget();
@@ -75,7 +102,13 @@ class AnalysisGraph extends StatelessWidget {
 class AnalysisGraphController extends GetxController {
   var visible = true.obs;
   var controllerModel;
-  List<FlSpot> spotList = [];
+
+  List<ChartSpot> salesList = [];
+  List<ChartSpot> bondList = [];
+  List<ChartSpot> purchaseList = [];
+  List<ChartSpot> debtList = [];
+  List<ChartSpot> rentalList = [];
+  List<ChartSpot> assetList = [];
 
   setVisible() async {
     visible.value = !visible.value;
@@ -89,8 +122,7 @@ class AnalysisGraphController extends GetxController {
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
     var paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
-
-    var graphType = Get.find<CbGraphTypeController>().paramGraphType;
+    //var graphType = Get.find<CbGraphTypeController>().paramGraphType;
 
     try {
       dio = await reqApi(paramClientCd);
@@ -105,52 +137,38 @@ class AnalysisGraphController extends GetxController {
           paramToYearmonth);
 
       if (response.statusCode == 200) {
-        int index = 1;
-        spotList.clear();
-        switch (graphType) {
-          case "SALES":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
-          case "BOND":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
-          case "PURCHASE":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
-          case "DEBT":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
-          case "RENTAL":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
-          case "ASSET":
-            for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
-              spotList.add(FlSpot(double.tryParse(list['search-date']) ?? 0.0, double.tryParse(list['amount']) ?? 0.0));
-              index++;
-            }
-            log('result : ' + spotList.toString());
-            break;
+        salesList.clear();
+        bondList.clear();
+        purchaseList.clear();
+        debtList.clear();
+        rentalList.clear();
+        assetList.clear();
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
+          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
         }
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
+          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+        }
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
+          purchaseList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+        }
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
+          debtList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+        }
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
+          rentalList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+        }
+
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
+          assetList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+        }
+
+        Get.find<AnalysisGraphController>().setVisible();
         update();
       }
     } on DioException catch (e) {

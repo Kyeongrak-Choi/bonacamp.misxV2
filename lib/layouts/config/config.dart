@@ -8,7 +8,7 @@ import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
 import '../../utils/utility.dart';
-import '../navigation.dart';
+import '../appframe/navigation.dart';
 
 // 더보기 화면
 class Config extends StatelessWidget {
@@ -16,52 +16,63 @@ class Config extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OptionController());
     return Scaffold(
-      backgroundColor: context.theme.cardColor,
+      backgroundColor: context.theme.canvasColor,
       body: ListView(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-            child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                    color: context.theme.canvasColor,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0),
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0))),
-                child: Obx(
-                  () => Column(children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      child: Text(
-                        '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(color: context.theme.primaryColor, fontSize: 18),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      child: Text(
-                        '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: context.theme.primaryColor, fontSize: 14),
-                      ),
-                    ),
-                  ]),
-                )),
-          ),
           // Padding(
-          //   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+          //   padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 20),
+          //   child: Container(
+          //       decoration: BoxDecoration(
+          //           color: context.theme.cardColor,
+          //           borderRadius: BorderRadius.only(
+          //               bottomLeft: Radius.circular(20.0),
+          //               bottomRight: Radius.circular(20.0),
+          //               topLeft: Radius.circular(20.0),
+          //               topRight: Radius.circular(20.0))),
+          //       child: Obx(
+          //         () => Column(children: [
+          //           Padding(
+          //             padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+          //             child: Text(
+          //               '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
+          //               textAlign: TextAlign.start,
+          //               style: TextStyle(color: context.theme.primaryColor, fontSize: 18),
+          //             ),
+          //           ),
+          //           Padding(
+          //             padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+          //             child: Text(
+          //               '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
+          //               textAlign: TextAlign.left,
+          //               style: TextStyle(color: context.theme.primaryColor, fontSize: 14),
+          //             ),
+          //           ),
+          //         ]),
+          //       )),
+          // ),
+          // Padding(
+          //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           //   child: CardIconMenu(iconMenuList: noticeMaster),
           // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: systemMaster),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardIconMenu(iconMenuList: menuMaster),
+            padding: EdgeInsetsDirectional.fromSTEB(10, 40, 0, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.theme.cardColor,
+                borderRadius: BorderRadius.circular(20),
+                shape: BoxShape.rectangle,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                child: Column(
+                  children: [
+                    CardIconMenu(iconMenuList: noticeMaster),
+                    CardIconMenu(iconMenuList: systemMaster),
+                    CardIconMenu(iconMenuList: menuMaster),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),

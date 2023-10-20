@@ -9,62 +9,89 @@ class OptionPeriodPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PeriodPickerController());
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Column(
       children: [
-        Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-              child: Container(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: context.theme.canvasColor,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'opt_period'.tr,
-                    style: context.textTheme.displaySmall,
-                  ),
-                ),
-              ),
-            )),
-        Expanded(
-          flex: 3,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                child: Obx(
-                  () => TextButton(
-                    onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                    child: Text(
-                      DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                      style: context.textTheme.displaySmall,
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            child: Text(
+              'opt_period'.tr,
+              textAlign: TextAlign.start,
+              style: context.textTheme.titleMedium,
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 4,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                    child: Obx(
+                      () => TextButton(
+                        onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
+                        child: Text(
+                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                child: Text(
-                  '~',
-                  style: context.textTheme.displaySmall,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                child: Obx(
-                  () => TextButton(
-                    onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-                    child: Text(DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                        style: context.textTheme.displaySmall),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseFromDate();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                   ),
-                ),
-              )
-            ],
-          ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
+                '~',
+                style: context.textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Expanded(
+              flex: 4,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                    child: Obx(
+                      () => TextButton(
+                        onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                        child: Text(
+                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseToDate();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -105,7 +132,13 @@ class PeriodPickerController extends GetxController {
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: context.theme,
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
           child: child!,
         );
       },
@@ -129,7 +162,13 @@ class PeriodPickerController extends GetxController {
       helpText: '',
       builder: (context, child) {
         return Theme(
-          data: context.theme,
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
           child: child!,
         );
       },

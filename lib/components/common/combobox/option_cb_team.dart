@@ -9,34 +9,29 @@ class OptionCbTeam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(CbTeamController());
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Column(
       children: [
-        Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-              child: Container(
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: context.theme.canvasColor,
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      'opt_team'.tr,
-                      style: context.textTheme.displaySmall,
-                    )),
-              ),
-            )),
-        Expanded(
-            flex: 3,
-            child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            child: Text(
+              'opt_team'.tr,
+              textAlign: TextAlign.start,
+              style: context.textTheme.titleMedium,
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+                flex: 4,
                 child: Obx(
                   () => DropdownButtonFormField<TeamModel>(
                     isExpanded: true,
                     value: Get.find<CbTeamController>().selectedValue,
-                    style: context.textTheme.displaySmall,
+                    style: context.textTheme.bodyMedium,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
                     items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {
@@ -50,7 +45,9 @@ class OptionCbTeam extends StatelessWidget {
                       Get.find<CbTeamController>().chooseItem(value!);
                     },
                   ),
-                ))),
+                )),
+          ],
+        ),
       ],
     );
   }

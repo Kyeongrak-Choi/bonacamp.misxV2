@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/management/sales_daily_model.dart';
-import '../../common/field/show_list_detail_row.dart';
+import '../../../models/menu/management/sales_daily_model.dart';
+import '../../common/field/icon_title_two_field.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyItem extends StatelessWidget {
@@ -18,59 +18,88 @@ class SalesDailyItem extends StatelessWidget {
       child: Container(
         color: context.theme.cardColor,
         child: ExpansionPanelList.radio(
+          elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
+              canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.employeeName.toString());
+                return ShowListHeaderRow(titleName: '', value: model.salesRepName.toString());
               },
               body: Column(
                 children: [
-                  ShowListDetailRow(
-                    titleName: '',
-                    value: '( 일 / 월 )',
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                      child: Text(
+                        '(일 금액 / 월 금액)',
+                        textAlign: TextAlign.right,
+                        style: context.textTheme.bodyLarge,
+                      ),
+                    ),
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '공급가',
-                    value: model.supplementAmount_D.toString() + '\n' + model.supplementAmount_M.toString(),
+                    value1: model.price_D,
+                    value2: model.price_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '부가세',
-                    value: model.vatAmount_D.toString() + '\n' + model.vatAmount_M.toString(),
+                    value1: model.vat_D,
+                    value2: model.vat_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '보증금합계',
-                    value: model.guaranteeAmount_D.toString() + '\n' + model.guaranteeAmount_M.toString(),
+                    value1: model.guarantee_D,
+                    value2: model.guarantee_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '총계',
-                    value: model.totalAmount_D.toString() + '\n' + model.totalAmount_M.toString(),
+                    value1: model.total_D,
+                    value2: model.total_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '매출원가',
-                    value: model.purchaseCost_D.toString() + '\n' + model.purchaseCost_M.toString(),
+                    value1: model.cost_D,
+                    value2: model.cost_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '매출이익',
-                    value: model.profitAmount_D.toString() + '\n' + model.profitAmount_M.toString(),
+                    value1: model.margin_D,
+                    value2: model.margin_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '입금소계',
-                    value: model.depositCash_D.toString() + '\n' + model.depositCash_M.toString(),
+                    value1: model.depositCash_D,
+                    value2: model.depositCash_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '용공입금',
-                    value: model.depositEmptyCaseBottle_D.toString() + '\n' + model.depositEmptyCaseBottle_M.toString(),
+                    value1: model.depositEtc_D,
+                    value2: model.depositEtc_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '입금합계',
-                    value: model.depositAmount_D.toString() + '\n' + model.depositAmount_M.toString(),
+                    value1: model.deposit_D,
+                    value2: model.deposit_M,
+                    iconData: Icons.label_outlined,
                   ),
-                  ShowListDetailRow(
+                  IconTitleTwoField(
                     titleName: '채권잔액',
-                    value: model.bondBalance_D.toString() + '\n' + model.bondBalance_M.toString(),
+                    value1: model.balance_D,
+                    value2: model.balance_M,
+                    iconData: Icons.label_outlined,
                   ),
                 ],
               ),

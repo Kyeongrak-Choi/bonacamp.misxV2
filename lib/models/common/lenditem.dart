@@ -4,87 +4,33 @@ part 'lenditem.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class LendItemModel {
-  String? lendItmCd;
-  String? lendItmNm;
-  String? stnd;
-  String? ut;
-  String? utNm;
-  String? vesFg;
-  String? vesFgNm;
-  String? emptyBotlCd;
-  String? emptyBotlNm;
+  var code; // 용공코드
+  var name; // 용공명
+  var standard; // 규격/용량
+  var unit; // 단위
+  var unitName; // 단위명
+  var caseCode; // 용기구분
+  var caseName; // 용기구분명
+  var bottleCode; // 공병코드
+  var bottleName; // 공병명
 
-  LendItemModel(this.lendItmCd, this.lendItmNm, this.stnd, this.ut, this.utNm, this.vesFg, this.vesFgNm, this.emptyBotlCd, this.emptyBotlNm);
+  LendItemModel(this.code, this.name, this.standard, this.unit, this.unitName, this.caseCode, this.caseName, this.bottleCode, this.bottleName);
 
   Map<String, dynamic> toMap() {
     return {
-      'lend-item-code': lendItmCd,
-      'lend-item-name': lendItmNm,
-      'standard': stnd,
-      'unit-code': ut,
-      'unit-name': utNm,
-      'empty-case-bottle-type-code': vesFg,
-      'empty-case-bottle-type-name': vesFgNm,
-      'empty-bottle-code': emptyBotlCd,
-      'empty-bottle-node': emptyBotlNm
+      'code': code,
+      'name': name,
+      'standard': standard,
+      'unit': unit,
+      'unit-name': unitName,
+      'case-code': caseCode,
+      'case-name': caseName,
+      'bottle-code': bottleCode,
+      'bottle-name': bottleName,
     };
   }
 
   factory LendItemModel.fromJson(Map<String, dynamic> json) => _$LendItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendItemModelToJson(this);
-
-  String? get getLendItmCd => lendItmCd;
-
-  set setLendItmCd(String value) {
-    lendItmCd = value;
-  }
-
-  String? get getLendItmNm => lendItmNm;
-
-  set setLendItmNm(String value) {
-    lendItmNm = value;
-  }
-
-  String? get getstnd => stnd;
-
-  set setStnd(String value) {
-    stnd = value;
-  }
-
-  String? get getUt => ut;
-
-  set setUt(String value) {
-    ut = value;
-  }
-
-  String? get getUtNm => utNm;
-
-  set setUtNm(String value) {
-    utNm = value;
-  }
-
-  String? get getVesFg => vesFg;
-
-  set setVesFg(String value) {
-    vesFg = value;
-  }
-
-  String? get getVesFgNm => vesFgNm;
-
-  set setVesFgNm(String value) {
-    vesFgNm = value;
-  }
-
-  String? get getEmptyBotlCd => emptyBotlCd;
-
-  set setEmptyBotlCd(String value) {
-    emptyBotlCd = value;
-  }
-
-  String? get getEmptyBotlNm => emptyBotlNm;
-
-  set setEmptyBotlNm(String value) {
-    emptyBotlNm = value;
-  }
 }

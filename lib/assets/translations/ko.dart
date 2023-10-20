@@ -77,9 +77,12 @@ const Map<String, String> koKR = {
   'opt_customer': '거래처',
   'opt_sales': '영업담당',
   'opt_manage': '관리담당',
-  'opt_customer_status': '거래처\n상태',
+  'opt_customer_status': '거래처상태',
   'opt_graph_type': '종류',
   'opt_team': '팀',
+  'opt_business': '업종',
+  'opt_sales_type': '매출유형',
+  'opt_search_division': '조회구분',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -107,11 +110,13 @@ const Map<String, String> koKR = {
   'menu_sub_salesdaily_division': '영업일보(용도별)',
 
   'menu_main_sales': '영업분석',
-  'title_9': '거래처 현황',
-  'title_10': '영업사원별 매출현황',
-  'title_11': '영업사원별 월별 매출현황',
-  'title_12': '매출현황',
-  'title_13': '월별 매출현황',
+  'menu_sub_customer_info': '거래처 현황',
+  'menu_sub_salesperson_report': '영업사원별 매출현황',
+  'menu_sub_report_monthly': '영업사원별 월별 매출현황',
+
+  'menu_sub_sales_status': '매출현황',
+  'menu_sub_customer_monthly': '월별 매출현황',
+
   'title_14': '매출원장',
   'title_15': '목표대비 실적현황',
   'title_16': '채권현황',
@@ -128,7 +133,7 @@ const Map<String, String> koKR = {
   'title_23': '대여자산 현황(이력)',
 
   'menu_main_location': '위치조회',
-  'title_24': '매출처 위치조회',
+  'menu_sub_vendor_location': '매출처 위치조회',
 
   'menu_main_asset': '재고분석',
   'title_25': '재고현황',

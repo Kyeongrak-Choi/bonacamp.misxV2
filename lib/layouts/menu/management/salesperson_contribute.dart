@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +8,13 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
+import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_year_month_picker.dart';
 import 'package:misxV2/components/datatable/management/salesperson_contribute_table.dart';
-import 'package:misxV2/models/management/salesperson_contribute.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../models/menu/management/salesperson_contribute.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -27,7 +27,8 @@ class SalesPersonContribute extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesperson_contribute'.tr),
-              backgroundColor: context.theme.cardColor,
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -38,25 +39,55 @@ class SalesPersonContribute extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<SalesPersonContributeController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionYearMonthPicker(),
-                      OptionCbBranch(),
-                      OptionCbEmployee(),
-                      OptionCbCustomerStatus(),
-                      OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<SalesPersonContributeController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: SalesPersonContributeTable(),
-                ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: SalesPersonContributeTable(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ));
@@ -79,7 +110,7 @@ class SalesPersonContributeController extends GetxController {
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
-    var paramSalChrgCd = Get.find<CbSaleController>().paramEmployeeCode;
+    var paramSalChrgCd = Get.find<CbEmployeeController>().paramEmployeeCode;
     var paramCustStat = Get.find<CbCustomerStatusController>().paramCustStat;
 
     try {
@@ -97,11 +128,9 @@ class SalesPersonContributeController extends GetxController {
           paramCustStat);
 
       if (response.statusCode == 200) {
-        log('response : ' + response.data.toString());
         parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT];
-        log('parsedData : ' + parsedData.toString());
         controllerModel = SalesPersonContributeModel.fromJson(parsedData);
-
+        Get.find<SalesPersonContributeController>().setVisible();
         update();
       }
     } on DioException catch (e) {

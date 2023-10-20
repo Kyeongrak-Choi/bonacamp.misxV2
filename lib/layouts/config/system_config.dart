@@ -11,17 +11,33 @@ class SystemConfig extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('system_setting'.tr),
-        backgroundColor: context.theme.cardColor,
+        titleTextStyle: context.textTheme.displayLarge,
+        backgroundColor: context.theme.canvasColor,
         iconTheme: context.theme.iconTheme,
       ),
-      backgroundColor: context.theme.cardColor,
-      body: ListView(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-            child: CardRadioMenu(radioMenu: systemDetail),
+      body: Container(
+        color: context.theme.canvasColor,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: context.theme.cardColor,
+              borderRadius: BorderRadius.circular(20),
+              shape: BoxShape.rectangle,
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              child: ListView(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    child: CardRadioMenu(radioMenu: systemDetail),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ],
+        ),
       ),
     );
   }

@@ -5,25 +5,34 @@ part 'customer.g.dart'; // *.g.dart : in same directory
 // 거래처(매출처) 검색 Model
 @JsonSerializable(explicitToJson: true)
 class CustomerModel {
-  String? custCd; // 거래처코드:DA150T0
-  String? custNm; // 거래처 명
-  String? custAbbNm; // 거래처 약어 명
-  String? custStat; // 거래처 상태:ABS018
-  String? custStatNm; // 거래처 상태명
-  String? bizItm; // 사업 종목:ABS010 - 품목의 용도와 관계(DA107T0:용도 종목)
-  String? bizItmNm; // 사업종목 명
+  var code; // 거래처코드
+  var name; // 거래처 명
+  var nickName; // 거래처 약칭
+  var representative; // 대표자
+  var businessNo; // 사업자번호
+  var businessType; // 업태
+  var businessItem; //종목
+  var useType; // 용도구분
+  var useTypeName; // 용도구분명
+  var status; // 상태코드
+  var statusName; // 상태명
 
-  CustomerModel(this.custCd, this.custNm, this.custAbbNm, this.custStat, this.custStatNm, this.bizItm, this.bizItmNm);
+  CustomerModel(this.code, this.name, this.nickName, this.representative, this.businessNo, this.businessType, this.businessItem, this.useType,
+      this.useTypeName, this.status, this.statusName);
 
   Map<String, dynamic> toMap() {
     return {
-      'customer-code': custCd,
-      'customer-name': custNm,
-      'customer-nick-name': custAbbNm,
-      'customer-status-code': custStat,
-      'customer-status-name': custStatNm,
-      'business-type-code': bizItm,
-      'business-type-name': bizItmNm
+      'code': code,
+      'name': name,
+      'nick-name': nickName,
+      'representative': representative,
+      'business-no': businessNo,
+      'business-type': businessType,
+      'business-item': businessItem,
+      'use-type': useType,
+      'use-type-name': useTypeName,
+      'status': status,
+      'status-name': statusName,
     };
   }
 
@@ -31,45 +40,13 @@ class CustomerModel {
 
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);
 
-  String? get getCustCd => custCd;
+  get getCode => code;
 
-  set setCustCd(String value) {
-    custCd = value;
-  }
+  get getName => name;
 
-  String? get getCustNm => custNm;
+  get getNickName => nickName;
 
-  set setCustNm(String value) {
-    custNm = value;
-  }
+  get getStatuaName => statusName;
 
-  String? get getCustAbbNm => custAbbNm;
-
-  set setCustAbbNm(String value) {
-    custAbbNm = value;
-  }
-
-  String? get getCustStat => custStat;
-
-  set setCustStat(String value) {
-    custStat = value;
-  }
-
-  String? get getCustStatNm => custStatNm;
-
-  set setCustStatNm(String value) {
-    custStatNm = value;
-  }
-
-  String? get getBizItm => bizItm;
-
-  set setBizItm(String value) {
-    bizItm = value;
-  }
-
-  String? get getBizItmNm => bizItmNm;
-
-  set setBizItmNm(String value) {
-    bizItmNm = value;
-  }
+  get getBusinessItem => businessItem;
 }

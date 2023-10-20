@@ -11,13 +11,13 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/datatable/management/overall_table.dart';
-import '../../../models/management/overall/overallasset.dart';
-import '../../../models/management/overall/overalldeposit.dart';
-import '../../../models/management/overall/overallpurchase.dart';
-import '../../../models/management/overall/overallrental.dart';
-import '../../../models/management/overall/overallreturn.dart';
-import '../../../models/management/overall/overallsales.dart';
-import '../../../models/management/overall/overallwithdraw.dart';
+import '../../../models/menu/management/overall/overallasset.dart';
+import '../../../models/menu/management/overall/overalldeposit.dart';
+import '../../../models/menu/management/overall/overallpurchase.dart';
+import '../../../models/menu/management/overall/overallrental.dart';
+import '../../../models/menu/management/overall/overallreturn.dart';
+import '../../../models/menu/management/overall/overallsales.dart';
+import '../../../models/menu/management/overall/overallwithdraw.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -30,7 +30,8 @@ class OverallStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('appbar_title_overall_status'.tr),
-              backgroundColor: context.theme.cardColor,
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -41,24 +42,54 @@ class OverallStatus extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<OverAllController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodPicker(),
-                      OptionCbBranch(),
-                      OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: OverAllTable(),
-                ),
-              ],
-            ),
+            color: context.theme.canvasColor,
+            child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                child: Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<OverAllController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                OptionCbBranch(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
+                            ),
+                          ),
+                        )),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: OverAllTable(),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
           ),
         ));
   }
@@ -120,6 +151,7 @@ class OverAllController extends GetxController {
         controllerRentalModel = OverAllRentalModel.fromJson(parsedDataRental);
         controllerAssetModel = OverAllAssetModel.fromJson(parsedDataAsset);
 
+        Get.find<OverAllController>().setVisible();
         update();
       }
     } on DioException catch (e) {

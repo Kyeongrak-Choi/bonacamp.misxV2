@@ -10,9 +10,9 @@ class OptionCbGraphType extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Expanded(
-            flex: 1,
+            flex: 2,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               child: Container(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -21,19 +21,19 @@ class OptionCbGraphType extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'opt_graph_type'.tr,
-                      style: context.textTheme.displaySmall,
+                      style: context.textTheme.titleMedium,
                     )),
               ),
             )),
         Expanded(
-            flex: 3,
+            flex: 4,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Obx(
                   () => DropdownButtonFormField<WarehouseModel>(
                     isExpanded: true,
                     value: Get.find<CbGraphTypeController>().selectedValue,
-                    style: context.textTheme.displaySmall,
+                    style: context.textTheme.bodyMedium,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
                     items: Get.find<CbGraphTypeController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {

@@ -22,12 +22,12 @@ class CardTitleMenuList extends StatelessWidget {
           ),
         ),
         Card(
-          elevation: 0.5,
+          elevation: 0,
           margin: EdgeInsets.zero,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
           color: context.theme.cardColor,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5),
             child: Column(
               children: List.generate(iconMenuList.length,
                   (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
@@ -43,19 +43,24 @@ class CardTitleMenuList extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed(path),
       child: Container(
         height: 50,
-        //color: Color(AppColor),
         color: context.theme.cardColor,
         child: Row(
           children: [
             Icon(
               iconData,
-              size: 17,
+              size: 20,
               color: context.theme.primaryColor,
             ),
             SizedBox(width: 20),
             Text(
               title,
-              style: context.textTheme.displaySmall,
+              style: context.textTheme.displayMedium,
+            ),
+            Spacer(),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 17,
+              color: context.theme.primaryColor,
             ),
           ],
         ),

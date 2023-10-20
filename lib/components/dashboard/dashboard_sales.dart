@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:misxV2/components/dashboard/dashboard_item.dart';
 
-import '../../layouts/dashboard.dart';
+import '../../layouts/appframe/dashboard.dart';
+import '../../utils/utility.dart';
 
 class DashBoardSales extends StatelessWidget {
-  var f = NumberFormat('###,###,###,###');
-
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardController());
@@ -38,15 +36,18 @@ class DashBoardSales extends StatelessWidget {
                   // dummy
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem('매출계', controller.controllerSalesModel != null ? f.format(controller.controllerSalesModel.totAmt) : '0'),
+                    child: DashBoardItem(
+                        '매출계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.totAmt) : ''),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem('공급계', controller.controllerSalesModel != null ? f.format(controller.controllerSalesModel.suppAmt) : '0'),
+                    child: DashBoardItem(
+                        '공급계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.suppAmt) : ''),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem('채권계', controller.controllerSalesModel != null ? f.format(controller.controllerSalesModel.grntAmt) : '0'),
+                    child: DashBoardItem(
+                        '채권계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.grntAmt) : ''),
                   ),
                 ],
               )),

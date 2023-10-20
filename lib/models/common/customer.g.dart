@@ -7,21 +7,29 @@ part of 'customer.dart';
 // **************************************************************************
 
 CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) => CustomerModel(
-      json['customer-code'] as String?,
-      json['customer-name'] as String?,
-      json['customer-nick-name'] as String?,
-      json['customer-status-code'] as String?,
-      json['customer-status-name'] as String?,
-      json['business-type-code'] as String?,
-      json['business-type-name'] as String?,
+      json['code'],
+      json['name'],
+      json['nick-name'],
+      json['representative'],
+      json['business-no'],
+      json['business-type'],
+      json['business-item'],
+      json['use-type'],
+      json['use-type-name'],
+      json['status'],
+      json['status-name'],
     );
 
 Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) => <String, dynamic>{
-      'customer-code': instance.custCd,
-      'customer-name': instance.custNm,
-      'customer-nick-name': instance.custAbbNm,
-      'customer-status-code': instance.custStat,
-      'customer-status-name': instance.custStatNm,
-      'business-type-code': instance.bizItm,
-      'business-type-name': instance.bizItmNm,
+      'code': instance.code,
+      'name': instance.name,
+      'nick-name': instance.nickName,
+      'representative': instance.representative,
+      'business-no': instance.businessNo,
+      'business-type': instance.businessType,
+      'business-item': instance.businessItem,
+      'useType': instance.useType,
+      'use-type-name': instance.useTypeName,
+      'status': instance.status,
+      'status-name': instance.statusName,
     };

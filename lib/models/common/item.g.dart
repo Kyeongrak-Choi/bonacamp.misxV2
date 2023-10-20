@@ -7,23 +7,23 @@ part of 'item.dart';
 // **************************************************************************
 
 ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => ItemModel(
-      json['item-code'] as String?,
-      json['item-name'] as String?,
-      json['item-nick-name'] as String?,
-      json['standard'] as String?,
-      json['usage-code'] as String?,
-      json['usage-name'] as String?,
-      json['unit-code'] as String?,
-      json['unit-name'] as String?,
+      json['code'] as dynamic,
+      json['name'] as dynamic,
+      json['nick-name'] as dynamic,
+      json['standard'] as dynamic,
+      json['use-type'] as dynamic,
+      json['use-type-name'] as dynamic,
+      json['unit'] as dynamic,
+      json['unit-name'] as dynamic,
     );
 
 Map<String, dynamic> _$ItemModelToJson(ItemModel instance) => <String, dynamic>{
-      'item-code': instance.itmCd,
-      'item-name': instance.itmNm,
-      'item-nick-name': instance.itmAbbNm,
-      'standard': instance.stnd,
-      'usage-code': instance.uzFg,
-      'usage-name': instance.uzFgNm,
-      'unit-code': instance.ut,
-      'unit-name': instance.utNm,
+      'code': instance.code,
+      'name': instance.name,
+      'nick-name': instance.nickName,
+      'standard': instance.standard,
+      'use-type': instance.useType,
+      'use-type-name': instance.useTypeName,
+      'unit': instance.unit,
+      'unit-name': instance.unitName,
     };

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +7,13 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/components/common/dialog/option_dialog.dart';
 import 'package:misxV2/components/common/emptyWidget.dart';
 import 'package:misxV2/components/datatable/management/sales_class_status_item.dart';
-import 'package:misxV2/models/management/sales_class_status.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
+import '../../../models/menu/management/sales_class_status.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -27,7 +26,8 @@ class SalesClassStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_sales_class_status'.tr),
-              backgroundColor: context.theme.cardColor,
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
@@ -38,26 +38,61 @@ class SalesClassStatus extends StatelessWidget {
                 ),
               ]),
           body: Container(
-            color: context.theme.cardColor,
-            child: Column(
-              children: [
-                Visibility(
-                  visible: Get.find<SalesClassStatusController>().visible.value,
-                  child: Column(
-                    children: [
-                      OptionPeriodPicker(),
-                      OptionCbBranch(),
-                      OptionDialog(SEARCH_DIALOG_PRCH),
-                      OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
-                    ],
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<SalesClassStatusController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionCbBranch(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionDialogPurchase(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: ListView(
-                    children: <Widget>[setChild()],
+                  SizedBox(
+                    height: 20,
                   ),
-                )
-              ],
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
@@ -65,7 +100,6 @@ class SalesClassStatus extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesClassStatusController>().controllerModel != null) {
-      log('check : ' + Get.find<SalesClassStatusController>().controllerModel.toString());
       return SalesClassStatusItem(Get.find<SalesClassStatusController>().controllerModel);
     } else {
       return EmptyWidget();
@@ -96,7 +130,7 @@ class SalesClassStatusController extends GetxController {
     var paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     var paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     var paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    var paramCode = Get.find<OptionDialogController>().paramCode;
+    var paramCode = Get.find<OptionDialogPurchaseController>().paramCode;
 
     try {
       dio = await reqApi(paramClientCd);
@@ -116,6 +150,7 @@ class SalesClassStatusController extends GetxController {
         dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
         parsedData = dataObjsJson.map((dataJson) => SalesClassStatusModel.fromJson(dataJson)).toList();
         controllerModel = parsedData;
+        Get.find<SalesClassStatusController>().setVisible();
         update();
       }
     } on DioException catch (e) {
