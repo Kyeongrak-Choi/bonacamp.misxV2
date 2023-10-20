@@ -190,7 +190,7 @@ class DashBoardController extends GetxController {
         update();
       }
       pd.close();
-      ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', Get.context);
+      ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
       pd.close();
       if (e.response != null) {

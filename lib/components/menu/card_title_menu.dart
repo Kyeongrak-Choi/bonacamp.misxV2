@@ -56,6 +56,12 @@ class CardTitleMenuList extends StatelessWidget {
               title,
               style: context.textTheme.displayMedium,
             ),
+            Spacer(),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 17,
+              color: context.theme.primaryColor,
+            ),
           ],
         ),
       ),

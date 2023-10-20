@@ -19,9 +19,11 @@ class SalesPersonReportMonthlyItem extends StatelessWidget {
       child: Container(
         color: context.theme.cardColor,
         child: ExpansionPanelList.radio(
+          elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((SalesPersonReportMonthlyModel model) {
             return ExpansionPanelRadio(
+              canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {

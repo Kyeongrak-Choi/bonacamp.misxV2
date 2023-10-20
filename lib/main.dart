@@ -79,7 +79,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_CONFIG, page: () => Config()), // Config
         GetPage(name: ROUTE_SYSTEM_CONFIG, page: () => SystemConfig()), // Config - SystemConfig
         GetPage(name: ROUTE_MENU_CONFIG, page: () => MenuConfig()), // Config - MenuConfig
-        GetPage(name: ROUTE_MENU_CONFIG, page: () => Notice()), // Notice - MenuConfig
+        GetPage(name: ROUTE_NOTICE, page: () => Notice()), // Notice - MenuConfig
 
         // Dialog
         GetPage(name: ROUTE_DIALOG_CUSTOMER, page: () => SearchCustomerDialog()), // Search Customer Dialog
