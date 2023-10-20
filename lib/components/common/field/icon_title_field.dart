@@ -13,7 +13,7 @@ class IconTitleField extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       Icon(iconData, color: context.theme.primaryColor),
       Expanded(
-        flex: 2,
+        flex: 4,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
           child: Text(
@@ -24,7 +24,7 @@ class IconTitleField extends StatelessWidget {
         ),
       ),
       Expanded(
-        flex: 8,
+        flex: 6,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
           child: Text(

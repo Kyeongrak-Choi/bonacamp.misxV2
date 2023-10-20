@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/system/notice.dart';
 
-import '../../components/common/field/icon_title_field.dart';
 import '../../components/common/field/show_list_header_row.dart';
 
 // System Config Setting
