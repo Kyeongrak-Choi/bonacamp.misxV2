@@ -8,20 +8,14 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
-import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
-import '../../../components/common/dialog/item/option_dialog_item.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/common/field/sum_item_table.dart';
-import '../../../components/common/field/sum_title_table.dart';
-import '../../../components/datatable/sales/customer_report_item.dart';
 import '../../../components/datatable/sales/sales_ledger_item.dart';
-import '../../../models/menu/sales/customer_report_model.dart';
 import '../../../models/menu/sales/sales_ledger/sales_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -109,12 +103,6 @@ class SalesLedger extends StatelessWidget {
 
 class SalesLedgerController extends GetxController {
   var controllerSalesLedger;
-  int sumTotal = 0;
-  int sumPrice = 0;
-  int sumAmount = 0;
-  int sumDeposit = 0;
-  int sumBalance = 0;
-  int sumMargin = 0;
 
   var visible = true.obs;
 
@@ -163,15 +151,6 @@ class SalesLedgerController extends GetxController {
           clearValue();
 
           controllerSalesLedger = SalesLedgerModel.fromJson(parsedSalesLedger);
-
-          for (CustomerReportModel calData in controllerSalesLedger) {
-            sumTotal += calData.total as int;
-            sumPrice += calData.price as int;
-            sumAmount += calData.amount as int;
-            sumDeposit += calData.deposit as int;
-            sumBalance += calData.balance as int;
-            sumMargin += calData.margin as int;
-          }
         }
 
         Get.find<SalesLedgerController>().setVisible();
@@ -188,13 +167,6 @@ class SalesLedgerController extends GetxController {
   }
 
   void clearValue() {
-    sumTotal = 0;
-    sumPrice = 0;
-    sumAmount = 0;
-    sumDeposit = 0;
-    sumBalance = 0;
-    sumMargin = 0;
-
     controllerSalesLedger = null;
   }
 }

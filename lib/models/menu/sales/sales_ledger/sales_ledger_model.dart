@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:misxV2/models/menu/sales/sales_ledger/sales_ledger_list_model.dart';
-import 'package:misxV2/utils/utility.dart';
 
 part 'sales_ledger_model.g.dart'; // *.g.dart : in same directory
 
