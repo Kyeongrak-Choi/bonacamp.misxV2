@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
+import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/location/vendor_location.dart';
@@ -113,6 +114,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 월별 매출현황
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
+                        break;
+
+                    // 영업분석 - 목표대비 실적현황
+                      case ROUTE_MENU_ACHIEVEMENT:
+                        await Get.find<AchievementController>().showResult();
                         break;
                     }
                   } catch (e) {

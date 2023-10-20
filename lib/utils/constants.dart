@@ -50,6 +50,7 @@ const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
+const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 
 // purchase (매입분석)
 
