@@ -14,6 +14,7 @@ import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
+import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
 import '../../../utils/constants.dart';
@@ -113,6 +114,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 월별 매출현황
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
+                        break;
+
+                      // 영업분석 - 매출원장
+                      case ROUTE_MENU_SALES_LEDGER:
+                        await Get.find<SalesLedgerController>().showResult();
                         break;
                     }
                   } catch (e) {
