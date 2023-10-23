@@ -53,7 +53,7 @@ class OptionCbBranch2 extends StatelessWidget {
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: 100,
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 10+10,
+                        mainAxisSpacing: 10,
                         childAspectRatio: 1 / 2,
                       ),
                         delegate: SliverChildListDelegate(
