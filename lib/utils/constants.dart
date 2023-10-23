@@ -140,6 +140,8 @@ const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사�
 const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 
+const API_SALES_ACHIEVEMENT = '/achievement'; // 월별 매출현황
+
 // purchase (매입분석)
 
 // support (지원현황)

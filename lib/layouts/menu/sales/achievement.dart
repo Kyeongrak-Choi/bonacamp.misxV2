@@ -18,7 +18,9 @@ import '../../../components/common/datepicker/option_period_yearmonth_picker.dar
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
+import '../../../components/datatable/sales/achievement_item.dart';
 import '../../../components/datatable/sales/salesperson_report_item.dart';
+import '../../../models/menu/sales/achievement/achievement_model.dart';
 import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -78,33 +80,6 @@ class Achievement extends StatelessWidget {
                   SizedBox(
                     height: Get.find<AchievementController>().visible.value ? 20 : 0,
                   ),
-                  // Visibility(
-                  //   visible: !Get.find<AchievementController>().visible.value,
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       color: context.theme.cardColor,
-                  //       borderRadius: BorderRadius.circular(20),
-                  //       shape: BoxShape.rectangle,
-                  //     ),
-                  //     child: Padding(
-                  //       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                  //       child: Column(
-                  //         children: [
-                  //           SumTitleTable('기간 합계'),
-                  //           SumItemTable('매출액', numberFormat.format(Get.find<AchievementController>().sumTotal), '공급가',
-                  //               numberFormat.format(Get.find<AchievementController>().sumPrice)),
-                  //           SumItemTable('합계', numberFormat.format(Get.find<AchievementController>().sumAmount), '입금합계',
-                  //               numberFormat.format(Get.find<AchievementController>().sumDeposit)),
-                  //           SumItemTable('채권잔액', numberFormat.format(Get.find<AchievementController>().sumBalance), '매출이익',
-                  //               numberFormat.format(Get.find<AchievementController>().sumMargin)),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  SizedBox(
-                    height: !Get.find<AchievementController>().visible.value ? 20 : 0,
-                  ),
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
@@ -128,8 +103,8 @@ class Achievement extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<AchievementController>().controllerSalesPersonReport != null) {
-      return SalesPersonReportItem(Get.find<AchievementController>().controllerSalesPersonReport);
+    if (Get.find<AchievementController>().controllerAchievement != null) {
+      return AchievementItem(Get.find<AchievementController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
@@ -137,13 +112,7 @@ class Achievement extends StatelessWidget {
 }
 
 class AchievementController extends GetxController {
-  var controllerSalesPersonReport;
-  int sumTotal = 0;
-  int sumPrice = 0;
-  int sumAmount = 0;
-  int sumDeposit = 0;
-  int sumBalance = 0;
-  int sumMargin = 0;
+  var controllerAchievement;
 
   var visible = true.obs;
 
@@ -156,53 +125,36 @@ class AchievementController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
+    String paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
-    String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
-    List parsedSalesPersonReportSales;
+    var parsedAchievement;
 
     try {
       dio = await reqApi(param);
 
       final response = await dio.get(API_SALES +
-          API_SALES_SALESPERSONREPORT +
+          API_SALES_ACHIEVEMENT +
           '?branch=' +
           paramBranchCode +
           '&from=' +
-          paramFromDate +
+          paramFromYearmonth +
           '&to=' +
-          paramToDate +
-          '&code=' +
-          paramEmployeeCode +
-          '&manager=' +
-          paramManagementCode +
-          '&type=' +
-          paramTypeCode);
+          paramToYearmonth +
+          '&sales-rep=' +
+          paramEmployeeCode
+          );
 
       if (response.statusCode == 200) {
-        sumTotal = 0;
-        sumPrice = 0;
-        sumAmount = 0;
-        sumDeposit = 0;
-        sumBalance = 0;
-        sumMargin = 0;
-
-        parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-        controllerSalesPersonReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportModel.fromJson(dataJson)).toList();
-
-        for (SalesPersonReportModel calData in controllerSalesPersonReport) {
-          sumTotal += calData.total as int;
-          sumPrice += calData.price as int;
-          sumAmount += calData.amount as int;
-          sumDeposit += calData.deposit as int;
-          sumBalance += calData.balance as int;
-          sumMargin += calData.margin as int;
+        if ((parsedAchievement = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        } else {
+          clearValue();
+          controllerAchievement = parsedAchievement.map((dataJson) => AchievementModel.fromJson(dataJson)).toList();
         }
-
         Get.find<AchievementController>().setVisible();
         update();
       }
@@ -214,5 +166,9 @@ class AchievementController extends GetxController {
       print(e.toString());
       print("other error");
     }
+  }
+
+  void clearValue() {
+    controllerAchievement = null;
   }
 }
