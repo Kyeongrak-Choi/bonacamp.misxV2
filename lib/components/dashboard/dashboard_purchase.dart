@@ -25,7 +25,7 @@ class DashBoardPurchase extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_purchase'.tr,
                         textAlign: TextAlign.start,
@@ -35,17 +35,17 @@ class DashBoardPurchase extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '매입계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.boTotAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '공급계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '채무계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : ''),
                   ),

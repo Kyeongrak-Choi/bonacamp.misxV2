@@ -96,7 +96,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                       ),
                       Expanded(
                         child: Container(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: Column(children: [
                             markerInfoWindowText("[사  업  주] :"),
                             markerInfoWindowText("[사업자번호] : "),

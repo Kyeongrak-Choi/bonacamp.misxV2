@@ -25,7 +25,7 @@ class DashBoardReturn extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_return'.tr,
                         textAlign: TextAlign.start,
@@ -35,7 +35,7 @@ class DashBoardReturn extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '반납계', controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : ''),
                   ),

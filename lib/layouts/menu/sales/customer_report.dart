@@ -47,7 +47,7 @@ class CustomerReport extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -59,7 +59,7 @@ class CustomerReport extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
@@ -110,7 +110,7 @@ class CustomerReport extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: ListView(
                           children: <Widget>[setChild()],
                         ),

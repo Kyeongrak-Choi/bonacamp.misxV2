@@ -25,7 +25,7 @@ class DashBoardWithdraw extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_withdraw'.tr,
                         textAlign: TextAlign.start,
@@ -35,12 +35,12 @@ class DashBoardWithdraw extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '신규대여수량계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totQty) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '신규대여금액계', controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : ''),
                   ),

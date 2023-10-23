@@ -12,7 +12,7 @@ class OptionYearMonthPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_month'.tr,
               textAlign: TextAlign.start,
@@ -21,30 +21,28 @@ class OptionYearMonthPicker extends StatelessWidget {
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 9,
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                child: Obx(
-                  () => TextButton(
-                    onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
-                    child: Text(
-                      DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
-                      style: context.textTheme.bodyMedium,
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
+                      child: Text(
+                        DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                      ),
                     ),
                   ),
-                ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<MonthPickerController>().chooseYearMonth();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                ],
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: IconButton(
-                  onPressed: () {
-                    Get.find<MonthPickerController>().chooseYearMonth();
-                  },
-                  icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
             ),
           ],
         )

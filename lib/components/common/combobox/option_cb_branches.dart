@@ -14,7 +14,7 @@ class OptionCbBranch extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,
@@ -26,28 +26,26 @@ class OptionCbBranch extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<BranchModel>(
-                        isExpanded: true,
-                        value: Get.find<CbBranchController>().selectedValue,
-                        style: context.textTheme.bodyMedium,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
-                          return DropdownMenuItem<BranchModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getBranchName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbBranchController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+                flex: 1,
+                child: Obx(
+                  () => DropdownButtonFormField<BranchModel>(
+                    isExpanded: true,
+                    value: Get.find<CbBranchController>().selectedValue,
+                    style: context.textTheme.bodyMedium,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
+                      return DropdownMenuItem<BranchModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getBranchName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbBranchController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],

@@ -11,7 +11,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_customer_status'.tr,
               textAlign: TextAlign.start,
@@ -23,28 +23,26 @@ class OptionCbCustomerStatus extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<WarehouseModel>(
-                        isExpanded: true,
-                        value: Get.find<CbCustomerStatusController>().selectedValue,
-                        style: context.textTheme.bodyMedium,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
-                          return DropdownMenuItem<WarehouseModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getWarehouseName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbCustomerStatusController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+              flex: 1,
+                child: Obx(
+                  () => DropdownButtonFormField<WarehouseModel>(
+                    isExpanded: true,
+                    value: Get.find<CbCustomerStatusController>().selectedValue,
+                    style: context.textTheme.bodyMedium,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
+                      return DropdownMenuItem<WarehouseModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getWarehouseName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbCustomerStatusController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],

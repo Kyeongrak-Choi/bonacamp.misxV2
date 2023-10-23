@@ -25,7 +25,7 @@ class DashBoardRental extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_rental'.tr,
                         textAlign: TextAlign.start,
@@ -34,27 +34,27 @@ class DashBoardRental extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '대여금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.lendAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem('회수예정금계',
                         controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.inspayLendAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '회수금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.retrvAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '미회수금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.remAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '대여금잔액계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.totAmt) : ''),
                   ),

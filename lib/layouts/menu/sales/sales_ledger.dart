@@ -43,7 +43,7 @@ class SalesLedger extends StatelessWidget {
       body: Container(
         color: context.theme.canvasColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+          padding: EdgeInsetsDirectional.all(20),
           child: Column(
             children: [
               Visibility(
@@ -55,7 +55,7 @@ class SalesLedger extends StatelessWidget {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    padding: EdgeInsetsDirectional.all(20),
                     child: Column(
                       children: [
                         OptionPeriodPicker(),
@@ -78,7 +78,7 @@ class SalesLedger extends StatelessWidget {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    padding: EdgeInsetsDirectional.all(20),
                     child: ListView(
                       children: <Widget>[setChild()],
                     ),
@@ -120,6 +120,11 @@ class SalesLedgerController extends GetxController {
     String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+
+    if (paramCustomerCode == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+      return;
+    }
 
     var param = user.getClientCode;
     var parsedSalesLedger;

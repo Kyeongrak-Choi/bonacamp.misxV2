@@ -34,10 +34,10 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
           child: Container(
-            color: context.theme.cardColor,
-            height: 30,
+            color: CommonColors.bluesky,
+            height: 40,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);
@@ -130,7 +130,7 @@ class OptionBtnSearch extends StatelessWidget {
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: CommonColors.white,
-                  backgroundColor: context.theme.canvasColor,
+                  backgroundColor: CommonColors.bluesky,
                 )),
           ),
         )),

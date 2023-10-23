@@ -25,7 +25,7 @@ class DashBoardSales extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_sales'.tr,
                         textAlign: TextAlign.start,
@@ -35,17 +35,17 @@ class DashBoardSales extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '매출계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.totAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '공급계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.suppAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '채권계', controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.grntAmt) : ''),
                   ),

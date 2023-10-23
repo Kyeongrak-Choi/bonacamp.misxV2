@@ -14,7 +14,7 @@ class OptionCbTeam extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_team'.tr,
               textAlign: TextAlign.start,
@@ -26,7 +26,6 @@ class OptionCbTeam extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
                 child: Obx(
                   () => DropdownButtonFormField<TeamModel>(
                     isExpanded: true,
