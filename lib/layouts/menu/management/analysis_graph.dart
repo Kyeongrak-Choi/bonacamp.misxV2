@@ -53,7 +53,7 @@ class AnalysisGraph extends StatelessWidget {
                         padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
-                            OptionPeriodYearmonthPicker(),
+                            OptionPeriodYearmonthPicker(true),
                             OptionCbBranch(),
                             OptionBtnSearch(ROUTE_MENU_GRAPH),
                           ],

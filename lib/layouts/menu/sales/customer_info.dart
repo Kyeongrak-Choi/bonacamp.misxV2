@@ -62,11 +62,11 @@ class CustomerInfo extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
                           ],
                         )),
+                    SizedBox(
+                      height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
+                    ),
                     Expanded(
                       flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
                       child: Container(
@@ -82,7 +82,7 @@ class CustomerInfo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
+                      height: 20,
                     ),
                     Expanded(
                       flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,

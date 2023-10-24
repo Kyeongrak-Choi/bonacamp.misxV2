@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -7,9 +9,14 @@ import '../../../utils/constants.dart';
 import '../../../utils/utility.dart';
 
 class OptionPeriodYearmonthPicker extends StatelessWidget {
+  bool checkLimit = false;
+  OptionPeriodYearmonthPicker(bool flag){
+    this.checkLimit = flag;
+
+  }
   @override
   Widget build(BuildContext context) {
-    Get.put(PeriodYearmonthPickerController());
+    Get.put(PeriodYearmonthPickerController(checkLimit));
     return Column(
       children: [
         Align(
@@ -88,6 +95,11 @@ class PeriodYearmonthPickerController extends GetxController {
   var toYearMonth = DateTime.now().obs;
   var pickedFromYearMonth;
   var pickedToYearMonth;
+  bool checkLimit = false;
+
+  PeriodYearmonthPickerController(bool flag){
+    this.checkLimit = flag;
+  }
 
   @override
   void onInit() {
@@ -120,7 +132,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedFromYearMonth != null && pickedFromYearMonth != fromYearMonth.value) {
-      if (Validate()) {
+      if(checkLimit) {
+        if (Validate()) {
+          fromYearMonth.value = pickedFromYearMonth;
+        }
+      }else{
         fromYearMonth.value = pickedFromYearMonth;
       }
     }
@@ -140,7 +156,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedToYearMonth != null && pickedToYearMonth != toYearMonth.value) {
-      if (Validate()) {
+      if(checkLimit) {
+        if (Validate()) {
+          toYearMonth.value = pickedToYearMonth;
+        }
+      }else{
         toYearMonth.value = pickedToYearMonth;
       }
     }

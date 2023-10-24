@@ -63,7 +63,7 @@ class Achievement extends StatelessWidget {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: Column(
                           children: [
-                            OptionPeriodYearmonthPicker(),
+                            OptionPeriodYearmonthPicker(false),
                             OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
                             OptionBtnSearch(ROUTE_MENU_ACHIEVEMENT),
                           ],
