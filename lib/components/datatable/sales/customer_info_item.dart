@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../layouts/menu/sales/customer_info.dart';
+import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
 
 class CustomerInfoTable extends StatelessWidget {
@@ -17,7 +18,7 @@ class CustomerInfoTable extends StatelessWidget {
             children: [
               IconTitleField(
                 titleName: '사업자번호',
-                value: controller.controllerCustomerInfoModel != null ? controller.controllerCustomerInfoModel.businessNo ?? '' : '',
+                value: controller.controllerCustomerInfoModel != null ? convertBusinessNo(controller.controllerCustomerInfoModel.businessNo) ?? '' : '',
                 iconData: Icons.label_outlined,
               ),
               Container(

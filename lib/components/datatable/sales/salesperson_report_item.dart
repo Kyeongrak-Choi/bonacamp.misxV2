@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/sales/salesperson_report_model.dart';
+import '../../common/field/icon_title_field.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
@@ -36,33 +37,40 @@ class SalesPersonReportItem extends StatelessWidget {
                   },
                   body: Column(
                     children: [
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '매출액',
-                        value: model.total.toString(),
+                        value: model.total,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '공급가',
-                        value: model.price.toString(),
+                        value: model.price,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '합계\n(공급가 + 부가세)',
-                        value: model.amount.toString(),
+                        value: model.amount,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '입금합계',
-                        value: model.deposit.toString(),
+                        value: model.deposit,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '채권잔액',
-                        value: model.balance.toString(),
+                        value: model.balance,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '매출이익',
-                        value: model.margin.toString(),
+                        value: model.margin,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '마진율',
-                        value: model.marginRate.toString(),
+                        value: model.marginRate.toString()+'%',
+                        iconData: Icons.label_outlined,
                       ),
                     ],
                   ),

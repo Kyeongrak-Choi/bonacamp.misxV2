@@ -78,7 +78,7 @@ class SalesLedger extends StatelessWidget {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
                     child: ListView(
                       children: <Widget>[setChild()],
                     ),
