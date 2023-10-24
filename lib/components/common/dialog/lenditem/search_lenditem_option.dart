@@ -8,7 +8,7 @@ class SearchLendItemOption extends StatelessWidget {
   Widget build(context) {
     Get.put(SearchLendItemListController());
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      padding: EdgeInsets.zero,
       child: Row(
         children: [
           Flexible(

@@ -102,6 +102,7 @@ void ShowDialog(type, title, content, context) {
   }
 }
 
+
 void ShowAchievementDetailDialog(var detailList) {
   Get.defaultDialog(
       title:  "목표대비 실적현황 상세보기",
@@ -154,6 +155,54 @@ void ShowAchievementDetailDialog(var detailList) {
           ),
         ],
       )
+
+void ShowLedgerDetailDialog(var detailList) {
+  Get.defaultDialog(
+      title:  "매출 상세보기",
+      content: Column(
+          children: [
+            IconTitleField(
+              titleName: '품목',
+              value: detailList.itemName ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매출유형',
+              value: detailList.salesTypeName ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: 'BOX / EA',
+              value: detailList.boxQuantity.toString() + ' / ' + detailList.bottleQuantity.toString(),
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매출액',
+              value: numberFormat.format(detailList.total),
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '공급가',
+              value: numberFormat.format(detailList.price),
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '공급가 + 부가세',
+              value: numberFormat.format(detailList.amount),
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '보증금',
+              value: numberFormat.format(detailList.guarantee),
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '채권잔액',
+              value: numberFormat.format(detailList.balance),
+              iconData: Icons.label_outlined,
+            ),
+          ],
+        )
   );
 }
 
@@ -270,6 +319,7 @@ int calculateMonthDifference(DateTime startDate, DateTime endDate) {
 // 숫자 포맷
 var numberFormat = NumberFormat('###,###,###,###');
 
+
 String changeStringYYYYMMToDateFormat(String dateString) {
   if(dateString == ''){
     return '';
@@ -277,4 +327,14 @@ String changeStringYYYYMMToDateFormat(String dateString) {
   DateTime tmpDate = DateTime.parse(dateString + '01');
   //ex 20220708
   return DateFormat('yyyy-MM').format(tmpDate).toString();
+}
+
+String changeStringToDateFormat(String dateString) {
+  if(dateString == ''){
+    return '';
+  }
+
+  DateTime tmpDate = DateTime.parse(dateString);
+  //ex 20220708
+  return DateFormat('yyyy-MM-dd').format(tmpDate).toString();
 }

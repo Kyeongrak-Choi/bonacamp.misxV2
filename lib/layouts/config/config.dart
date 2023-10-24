@@ -19,43 +19,8 @@ class Config extends StatelessWidget {
       backgroundColor: context.theme.canvasColor,
       body: ListView(
         children: <Widget>[
-          // Padding(
-          //   padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 20),
-          //   child: Container(
-          //       decoration: BoxDecoration(
-          //           color: context.theme.cardColor,
-          //           borderRadius: BorderRadius.only(
-          //               bottomLeft: Radius.circular(20.0),
-          //               bottomRight: Radius.circular(20.0),
-          //               topLeft: Radius.circular(20.0),
-          //               topRight: Radius.circular(20.0))),
-          //       child: Obx(
-          //         () => Column(children: [
-          //           Padding(
-          //             padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-          //             child: Text(
-          //               '${Get.find<OptionController>().clientNm.value} ${Get.find<OptionController>().businessNo.value}',
-          //               textAlign: TextAlign.start,
-          //               style: TextStyle(color: context.theme.primaryColor, fontSize: 18),
-          //             ),
-          //           ),
-          //           Padding(
-          //             padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-          //             child: Text(
-          //               '${Get.find<OptionController>().userId.value} (${Get.find<OptionController>().userNm.value})',
-          //               textAlign: TextAlign.left,
-          //               style: TextStyle(color: context.theme.primaryColor, fontSize: 14),
-          //             ),
-          //           ),
-          //         ]),
-          //       )),
-          // ),
-          // Padding(
-          //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          //   child: CardIconMenu(iconMenuList: noticeMaster),
-          // ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 40, 0, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 40, 20, 20),
             child: Container(
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
@@ -63,7 +28,7 @@ class Config extends StatelessWidget {
                 shape: BoxShape.rectangle,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 10, 20),
                 child: Column(
                   children: [
                     CardIconMenu(iconMenuList: noticeMaster),

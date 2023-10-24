@@ -27,7 +27,7 @@ class CardTitleMenuList extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
           color: context.theme.cardColor,
           child: Padding(
-            padding: const EdgeInsets.all(5),
+            padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
             child: Column(
               children: List.generate(iconMenuList.length,
                   (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),

@@ -11,7 +11,7 @@ class OptionDatePicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,
@@ -23,27 +23,25 @@ class OptionDatePicker extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 9,
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                child: Obx(
-                  () => TextButton(
-                    onPressed: () => Get.find<DatePickerController>().chooseDate(),
-                    child: Text(
-                      DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                      style: context.textTheme.bodyMedium,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                      child: Text(
+                        DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                      ),
                     ),
                   ),
-                ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<DatePickerController>().chooseDate();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
+                ],
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: IconButton(
-                  onPressed: () {
-                    Get.find<DatePickerController>().chooseDate();
-                  },
-                  icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
             ),
           ],
         )

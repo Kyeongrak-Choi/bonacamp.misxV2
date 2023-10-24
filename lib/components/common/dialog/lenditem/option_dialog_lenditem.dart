@@ -25,15 +25,13 @@ class OptionDialogLendItem extends StatelessWidget {
           children: [
             Expanded(
                 flex: 9,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: TextButton(
-                      onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                      child: Obx(() => Text(
-                            Get.find<OptionDialogLendItemController>().selectedValue.value,
-                            style: context.textTheme.bodyMedium,
-                          )),
-                    ))),
+                child: TextButton(
+                  onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
+                  child: Obx(() => Text(
+                        Get.find<OptionDialogLendItemController>().selectedValue.value,
+                        style: context.textTheme.bodyMedium,
+                      )),
+                )),
             Expanded(
               flex: 1,
               child: IconButton(

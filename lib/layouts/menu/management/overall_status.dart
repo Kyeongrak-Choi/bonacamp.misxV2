@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_cb_branches2.dart';
 import '../../../components/datatable/management/overall_table.dart';
 import '../../../models/menu/management/overall/overallasset.dart';
 import '../../../models/menu/management/overall/overalldeposit.dart';
@@ -44,7 +45,7 @@ class OverallStatus extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                padding: EdgeInsetsDirectional.all(20),
                 child: Column(
                   children: [
                     Visibility(
@@ -56,17 +57,11 @@ class OverallStatus extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            padding: EdgeInsetsDirectional.all(20),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                SizedBox(
-                                  height: 5,
-                                ),
                                 OptionCbBranch(),
-                                SizedBox(
-                                  height: 5,
-                                ),
                                 OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
                               ],
                             ),
@@ -83,7 +78,7 @@ class OverallStatus extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: OverAllTable(),
                         ),
                       ),

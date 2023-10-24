@@ -15,7 +15,7 @@ class ShowListDetailRow extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                flex: 4,
+                flex: 5,
                 child: Text(
                   titleName,
                   style: context.textTheme.displaySmall,
@@ -23,7 +23,7 @@ class ShowListDetailRow extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 6,
+                flex: 5,
                 child: Text(
                   value,
                   style: context.textTheme.displaySmall,

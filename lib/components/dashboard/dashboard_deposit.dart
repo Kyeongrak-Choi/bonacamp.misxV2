@@ -25,7 +25,7 @@ class DashBoardDeposit extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_deposit'.tr,
                         textAlign: TextAlign.start,
@@ -35,17 +35,17 @@ class DashBoardDeposit extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '회수계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.retrvAmt) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '입금계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.ipTot) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '채권계', controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.amt) : ''),
                   ),

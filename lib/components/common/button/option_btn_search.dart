@@ -15,6 +15,7 @@ import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
+import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
 import '../../../utils/constants.dart';
@@ -34,10 +35,10 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
           child: Container(
-            color: context.theme.cardColor,
-            height: 30,
+            color: CommonColors.bluesky,
+            height: 40,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);
@@ -115,8 +116,13 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
                         break;
-
-                    // 영업분석 - 목표대비 실적현황
+                        
+                      // 영업분석 - 매출원장
+                      case ROUTE_MENU_SALES_LEDGER:
+                        await Get.find<SalesLedgerController>().showResult();
+                        break;
+                       
+                      // 영업분석 - 목표대비 실적현황
                       case ROUTE_MENU_ACHIEVEMENT:
                         await Get.find<AchievementController>().showResult();
                         break;
@@ -130,7 +136,7 @@ class OptionBtnSearch extends StatelessWidget {
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: CommonColors.white,
-                  backgroundColor: context.theme.canvasColor,
+                  backgroundColor: CommonColors.bluesky,
                 )),
           ),
         )),

@@ -15,7 +15,7 @@ class MenuList extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -23,12 +23,12 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -36,12 +36,12 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_sales'.tr, iconMenuList: salesAnalysisMaster),
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -49,12 +49,12 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_purchase'.tr, iconMenuList: purchaseAnalysisMaster),
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -62,12 +62,12 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_rental'.tr, iconMenuList: supportStatusMaster),
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -75,12 +75,12 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_location'.tr, iconMenuList: locationSearchMaster),
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
                   child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -88,7 +88,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster),
                       )),
                 ),

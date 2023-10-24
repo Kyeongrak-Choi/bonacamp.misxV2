@@ -20,7 +20,7 @@ class MenuConfig extends StatelessWidget {
       body: Container(
         color: context.theme.canvasColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+          padding: EdgeInsetsDirectional.all(20),
           child: Container(
             decoration: BoxDecoration(
               color: context.theme.cardColor,
@@ -28,11 +28,11 @@ class MenuConfig extends StatelessWidget {
               shape: BoxShape.rectangle,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
               child: ListView(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                     child: CardRadioMenu(radioMenu: menuDetail),
                   ),
                 ],

@@ -25,7 +25,7 @@ class DashBoardAsset extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_asset'.tr,
                         textAlign: TextAlign.start,
@@ -34,12 +34,12 @@ class DashBoardAsset extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
                     child: DashBoardItem(
                         '출금계', controller.controllerWithdrawModel != null ? numberFormat.format(controller.controllerWithdrawModel.outTot) : ''),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
                     child: DashBoardItem(
                         '채무계', controller.controllerWithdrawModel != null ? numberFormat.format(controller.controllerWithdrawModel.amt) : ''),
                   ),

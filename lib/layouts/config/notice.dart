@@ -20,7 +20,7 @@ class Notice extends StatelessWidget {
           color: context.theme.canvasColor,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
               child: Container(
                 decoration: BoxDecoration(
                   color: context.theme.cardColor,
@@ -28,7 +28,7 @@ class Notice extends StatelessWidget {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(20.0),
                   child: ExpansionPanelList.radio(
                     elevation: 0.0,
                     animationDuration: Duration(milliseconds: 500),

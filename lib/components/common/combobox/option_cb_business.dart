@@ -14,7 +14,7 @@ class OptionCbBusiness extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'opt_business'.tr,
               textAlign: TextAlign.start,
@@ -26,28 +26,25 @@ class OptionCbBusiness extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
-                        isExpanded: true,
-                        value: Get.find<CbBusinessController>().selectedValue,
-                        style: context.textTheme.bodyMedium,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                          return DropdownMenuItem<CommonModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbBusinessController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+                child: Obx(
+                  () => DropdownButtonFormField<CommonModel>(
+                    isExpanded: true,
+                    value: Get.find<CbBusinessController>().selectedValue,
+                    style: context.textTheme.bodyMedium,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                      return DropdownMenuItem<CommonModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbBusinessController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],

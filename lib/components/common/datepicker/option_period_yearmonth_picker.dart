@@ -15,7 +15,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
@@ -31,26 +31,20 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
-                        child: Text(
-                          DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
-                          style: context.textTheme.bodyMedium,
-                        ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
+                      child: Text(
+                        DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
+                        style: context.textTheme.bodyMedium,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                 ],
               ),
             ),
@@ -67,24 +61,18 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
-                        child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
-                            style: context.textTheme.bodyMedium),
-                      ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
+                      child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
+                          style: context.textTheme.bodyMedium),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                 ],
               ),
             ),

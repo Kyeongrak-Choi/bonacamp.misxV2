@@ -14,7 +14,7 @@ class OptionPeriodPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
@@ -30,27 +30,21 @@ class OptionPeriodPicker extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                          style: context.textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
+                      child: Text(
+                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodPickerController>().chooseFromDate();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodPickerController>().chooseFromDate();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
                 ],
               ),
             ),
@@ -67,27 +61,21 @@ class OptionPeriodPicker extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                          style: context.textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                      child: Text(
+                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodPickerController>().chooseToDate();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodPickerController>().chooseToDate();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
                 ],
               ),
             ),

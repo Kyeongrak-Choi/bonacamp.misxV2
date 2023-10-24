@@ -11,14 +11,14 @@ class SumTitleTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        padding: EdgeInsets.zero,
         child: Column(children: [
           Text(
             titleName ?? '',
             style: context.textTheme.displayMedium,
             textAlign: TextAlign.center,
           ),
-          Container(padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0), child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+          Container(padding: EdgeInsets.zero, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
         ]));
   }
 }

@@ -41,7 +41,7 @@ class SalesPersonContribute extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -53,17 +53,11 @@ class SalesPersonContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],
                         ),
@@ -81,7 +75,7 @@ class SalesPersonContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: SalesPersonContributeTable(),
                       ),
                     ),

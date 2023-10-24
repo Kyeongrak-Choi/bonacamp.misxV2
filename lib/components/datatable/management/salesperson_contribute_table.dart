@@ -13,7 +13,7 @@ class SalesPersonContributeTable extends StatelessWidget {
       return Container(
         color: context.theme.cardColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          padding: EdgeInsets.zero,
           child: ListView(
             children: [
               IconTitleField(

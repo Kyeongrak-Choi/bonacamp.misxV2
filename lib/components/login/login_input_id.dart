@@ -42,7 +42,7 @@ class LoginInputId extends StatelessWidget {
             ),
             filled: true,
             fillColor: CommonColors.white,
-            contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
+            contentPadding: EdgeInsets.all(20),
             counterText: '',
           ),
           initialValue: Hive.box(LOCAL_DB).get(KEY_SAVED_ID),
