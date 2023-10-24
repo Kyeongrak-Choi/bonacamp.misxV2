@@ -102,6 +102,60 @@ void ShowDialog(type, title, content, context) {
   }
 }
 
+
+void ShowAchievementDetailDialog(var detailList) {
+  Get.defaultDialog(
+      title:  "목표대비 실적현황 상세보기",
+      content: Column(
+        children: [
+          IconTitleField(
+            titleName: '구분',
+            value: changeStringYYYYMMToDateFormat(detailList.month ?? ''),
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '매출목표',
+            value: detailList.salesGoal ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '매출실적',
+            value: detailList.salesAmount ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '달성률(%)',
+            value: detailList.salesRate.toString(),
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '채권목표',
+            value: detailList.balanceGoal ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '전월채권',
+            value: detailList.lastBalance ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '전월증감',
+            value: detailList.variationBalance ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '채권증감',
+            value: detailList.changeBalance ?? '',
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '달성률(%)',
+            value: detailList.balanceRate.toString(),
+            iconData: Icons.label_outlined,
+          ),
+        ],
+      )
+
 void ShowLedgerDetailDialog(var detailList) {
   Get.defaultDialog(
       title:  "매출 상세보기",
@@ -264,6 +318,16 @@ int calculateMonthDifference(DateTime startDate, DateTime endDate) {
 
 // 숫자 포맷
 var numberFormat = NumberFormat('###,###,###,###');
+
+
+String changeStringYYYYMMToDateFormat(String dateString) {
+  if(dateString == ''){
+    return '';
+  }
+  DateTime tmpDate = DateTime.parse(dateString + '01');
+  //ex 20220708
+  return DateFormat('yyyy-MM').format(tmpDate).toString();
+}
 
 String changeStringToDateFormat(String dateString) {
   if(dateString == ''){

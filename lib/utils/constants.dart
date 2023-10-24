@@ -50,7 +50,8 @@ const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
-const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 월별 매출현황
+const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
+const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 
 // purchase (매입분석)
 
@@ -140,6 +141,8 @@ const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사�
 const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 const API_SALES_SALESLEDGER = '/ledger'; // 매출원장
+
+const API_SALES_ACHIEVEMENT = '/achievement'; // 월별 매출현황
 
 // purchase (매입분석)
 
