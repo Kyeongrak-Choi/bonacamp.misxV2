@@ -62,7 +62,7 @@ class AnalysisGraph extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<AnalysisGraphController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(

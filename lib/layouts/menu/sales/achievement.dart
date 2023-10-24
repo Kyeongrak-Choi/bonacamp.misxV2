@@ -64,13 +64,7 @@ class Achievement extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodYearmonthPicker(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_ACHIEVEMENT),
                           ],
                         ),

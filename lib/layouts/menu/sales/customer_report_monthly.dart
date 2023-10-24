@@ -62,31 +62,19 @@ class CustomerReportMonthly extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     OptionYearMonthPicker(),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionDialogCustomer(),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
                                   ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
                           ],
                         )),
+                    SizedBox(
+                      height: Get.find<CustomerReportMonthlyController>().visible.value ? 20 : 0,
+                    ),
                     Expanded(
                       flex: Get.find<CustomerReportMonthlyController>().visible.value ? 4 : 3,
                       child: Container(

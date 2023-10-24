@@ -69,7 +69,7 @@ class SalesDailyDivision extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     flex: 1,

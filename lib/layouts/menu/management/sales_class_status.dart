@@ -65,7 +65,7 @@ class SalesClassStatus extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<SalesClassStatusController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(

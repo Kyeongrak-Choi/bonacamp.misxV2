@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/warehouse.dart';
+import 'package:misxV2/models/system/common.dart';
 
-import '../../../models/system/common.dart';
 import '../../../utils/constants.dart';
 
-class OptionCbCustomerStatus extends StatelessWidget {
+class OptionCbCustomerClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(CbCustomerStatusController());
+    Get.put(CbCustomerClassController());
     return Column(
       children: [
         Align(
@@ -17,7 +16,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsDirectional.all(20),
             child: Text(
-              'opt_customer_status'.tr,
+              'opt_customer_class'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.titleMedium,
             ),
@@ -28,13 +27,13 @@ class OptionCbCustomerStatus extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
+                  () => DropdownButtonFormField<CommonModel>(
                     isExpanded: true,
-                    value: Get.find<CbCustomerStatusController>().selectedValue,
+                    value: Get.find<CbCustomerClassController>().selectedValue,
                     style: context.textTheme.bodyMedium,
                     decoration: InputDecoration(border: InputBorder.none),
                     dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                    items: Get.find<CbCustomerClassController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
                       return DropdownMenuItem<CommonModel>(
                         alignment: Alignment.center,
                         value: value,
@@ -42,7 +41,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
                       );
                     }).toList(),
                     onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value!);
+                      Get.find<CbCustomerClassController>().chooseItem(value!);
                     },
                   ),
                 )),
@@ -53,14 +52,14 @@ class OptionCbCustomerStatus extends StatelessWidget {
   }
 }
 
-class CbCustomerStatusController extends GetxController {
+class CbCustomerClassController extends GetxController {
   var selectedValue;
   List<CommonModel> data = <CommonModel>[
     CommonModel('', 0, '', '전체', '', '', '', '', ''),
   ].obs;
 
-  String paramCustomerStatusCode = '';
-  String paramCustomerStatusName = '';
+  String paramBusinessCode = '';
+  String paramBusinessName = '';
 
   @override
   void onInit() async {
@@ -72,32 +71,9 @@ class CbCustomerStatusController extends GetxController {
   }
 
   chooseItem(CommonModel value) async {
-
-    // paramCustomerStatusCode = value.getCode ?? '';
-    paramCustomerStatusName = value.getName ?? '';
+    paramBusinessCode = value.getCode ?? '';
+    paramBusinessName = value.getName ?? '';
     selectedValue = value;
-
-    switch (value.getCode) {
-      case '':
-        paramCustomerStatusCode = 'ALL';
-        break;
-      case '1' :
-        paramCustomerStatusCode = 'USE';
-        break;
-      case '2':
-        paramCustomerStatusCode = 'STOP';
-        break;
-      case '3':
-        paramCustomerStatusCode = 'CLOSE';
-        break;
-      case '4':
-        paramCustomerStatusCode = 'UNUSE';
-        break;
-      case '5':
-        paramCustomerStatusCode = 'CUT';
-        break;
-    }
-
   }
 
   Future<void> setCommon() async {
@@ -108,7 +84,7 @@ class CbCustomerStatusController extends GetxController {
     List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
 
     for (int i = 0; i < common.length; i++) {
-      if (common.elementAt(i).getMainCode == 'ABS018') {
+      if (common.elementAt(i).getMainCode == 'ABS014') {
         data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
       }
     }

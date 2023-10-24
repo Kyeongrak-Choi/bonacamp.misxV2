@@ -114,7 +114,7 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018'; // 시스템 코드
 
 // common
 const API_COMMON = '/v1/common';

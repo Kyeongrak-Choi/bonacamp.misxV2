@@ -64,7 +64,7 @@ class CustomerContribute extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<CustomerContributeController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(

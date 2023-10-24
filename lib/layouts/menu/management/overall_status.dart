@@ -10,7 +10,6 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_cb_branches2.dart';
 import '../../../components/datatable/management/overall_table.dart';
 import '../../../models/menu/management/overall/overallasset.dart';
 import '../../../models/menu/management/overall/overalldeposit.dart';
@@ -68,7 +67,7 @@ class OverallStatus extends StatelessWidget {
                           ),
                         )),
                     SizedBox(
-                      height: 20,
+                      height: Get.find<OverAllController>().visible.value ? 20 : 0,
                     ),
                     Expanded(
                       child: Container(

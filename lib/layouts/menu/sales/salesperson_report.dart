@@ -61,17 +61,8 @@ class SalesPersonReport extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
                           ],
                         ),

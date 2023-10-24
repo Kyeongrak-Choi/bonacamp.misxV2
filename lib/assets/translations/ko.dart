@@ -83,6 +83,8 @@ const Map<String, String> koKR = {
   'opt_business': '업종',
   'opt_sales_type': '매출유형',
   'opt_search_division': '조회구분',
+  'opt_customer_class': '등급',
+
 
   // Drawer Menu Label
   'logout': '로그아웃',
