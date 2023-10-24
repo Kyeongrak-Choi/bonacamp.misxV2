@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../layouts/appframe/dashboard.dart';
 import '../../utils/utility.dart';
+import '../common/field/icon_title_field.dart';
 import 'dashboard_item.dart';
 
 class DashBoardPurchase extends StatelessWidget {
@@ -35,19 +36,28 @@ class DashBoardPurchase extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
-                    child: DashBoardItem(
-                        '매입계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.boTotAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '매입계'.tr,
+                      value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.boTotAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 5),
-                    child: DashBoardItem(
-                        '공급계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '공급계'.tr,
+                      value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
-                    child: DashBoardItem(
-                        '채무계', controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
+                    child: IconTitleField(
+                      titleName: '채무계'.tr,
+                      value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                 ],
               )),

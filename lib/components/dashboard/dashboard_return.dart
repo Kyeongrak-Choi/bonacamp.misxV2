@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../layouts/appframe/dashboard.dart';
 import '../../utils/utility.dart';
+import '../common/field/icon_title_field.dart';
 import 'dashboard_item.dart';
 
 class DashBoardReturn extends StatelessWidget {
@@ -35,9 +36,12 @@ class DashBoardReturn extends StatelessWidget {
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(40, 15, 20, 15),
-                    child: DashBoardItem(
-                        '반납계', controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
+                    child: IconTitleField(
+                      titleName: '반납계'.tr,
+                      value: controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                 ],
               )),
