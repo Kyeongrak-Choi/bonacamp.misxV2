@@ -86,6 +86,7 @@ const Map<String, String> koKR = {
   'opt_customer_class': '등급',
 
 
+
   // Drawer Menu Label
   'logout': '로그아웃',
   'logout_content': '로그아웃 하시겠습니까?',
@@ -151,6 +152,16 @@ const Map<String, String> koKR = {
   'msg_conn_api_server': '서버에 접속할 수 없습니다.',
   'msg_conn_auth_server': '인증서버에 접속할 수 없습니다.',
 
+  // common
+  'amount' : '금액',
+  'balance' : '잔액',
+  'sales_amount' : '매출액',
+  'purchase_amount' : '매입액',
+  'supplement_amount' : '공급가',
+  'vat_amount' : '부가세',
+  'guarantee_amount' : '보증금',
+  'total_amount' : '합계',
+
   // OverAll Item Title
   'appbar_title_overall_status': '종합 현황',
   'sales_title_totAmt': '매출액',
@@ -181,9 +192,6 @@ const Map<String, String> koKR = {
   //Sales Daily
   'employee_name': '담당자',
   'division_name': '구분',
-  'supplement_amount': '공급가',
-  'vat_amount': '부가세',
-  'guarantee_amount': '보증금합계',
   'purchase_cost': '매입원가',
   'profit_amount': '매출이익',
   'deposit_cash': '입금소계',

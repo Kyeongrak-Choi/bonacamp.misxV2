@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -111,18 +112,20 @@ class SalesPersonContributeController extends GetxController {
       dio = await reqApi(paramClientCd);
 
       final response = await dio.get(API_MANAGEMENT +
-          API_MANAGEMENT_CONTRIBUTIONEMPLOYEE +
-          '?branch-code=' +
+          API_MANAGEMENT_SERVE +
+          '?branch=' +
           paramNodeCd +
-          '&search-month=' +
+          '&month=' +
           paramYM +
-          '&employee-code=' +
+          '&sales-rep=' +
           paramSalChrgCd +
-          '&customer-status=' +
+          '&status=' +
           paramCustStat);
 
+      log('paramNodeCd :' + paramNodeCd);
+
       if (response.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT];
+        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
         controllerModel = SalesPersonContributeModel.fromJson(parsedData);
         Get.find<SalesPersonContributeController>().setVisible();
         update();
@@ -132,6 +135,7 @@ class SalesPersonContributeController extends GetxController {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
+      print(e.toString());
       print("other error");
     }
   }
