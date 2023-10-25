@@ -79,7 +79,7 @@ final List<RadioMenu> menuDetail = [
 
 // 경영분석
 final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
+  IconMenu(title: 'menu_sub_total'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
   // 종합현황
   IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY),
   // 영업일보

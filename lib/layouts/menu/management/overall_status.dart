@@ -29,7 +29,7 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('appbar_title_overall_status'.tr),
+              title: Text('menu_sub_total'.tr),
               titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
@@ -126,7 +126,7 @@ class OverAllController extends GetxController {
       dio = await reqApi(param);
 
       final response = await dio.get(
-          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + paramBranchCode + '&from-date=' + paramFromDate + '&to-date=' + paramToDate);
+          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
 
       if (response.statusCode == 200) {
         parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];

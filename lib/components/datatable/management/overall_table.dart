@@ -17,32 +17,32 @@ class OverAllTable extends StatelessWidget {
           child: ListView(
             children: [
               IconTitleField(
-                titleName: 'sales_title_totAmt'.tr,
+                titleName: 'sales_amount'.tr,
                 value: controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.totAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'sales_title_suppAmt'.tr,
+                titleName: 'supplement_amount'.tr,
                 value: controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.suppAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'sales_title_vatAmt'.tr,
+                titleName: 'vat_amount'.tr,
                 value: controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.vatAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'sales_title_grntAmt'.tr,
+                titleName: 'guarantee_amount'.tr,
                 value: controller.controllerSalesModel != null ? numberFormat.format(controller.controllerSalesModel.grntAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'deposit_title_retrvAmt'.tr,
+                titleName: 'collect_amount'.tr,
                 value: controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.retrvAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'deposit_title_ipTot'.tr,
+                titleName: 'deposit_amount'.tr,
                 value: controller.controllerDepositModel != null ? numberFormat.format(controller.controllerDepositModel.ipTot) : '0',
                 iconData: Icons.label_outlined,
               ),
@@ -58,27 +58,27 @@ class OverAllTable extends StatelessWidget {
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
 
               IconTitleField(
-                titleName: 'purchase_title_boTotAmt'.tr,
+                titleName: 'purchase_amount'.tr,
                 value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.boTotAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'purchase_title_suppAmt'.tr,
+                titleName: 'supplement_amount'.tr,
                 value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.suppAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'purchase_title_vatAmt'.tr,
+                titleName: 'vat_amount'.tr,
                 value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.vatAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'purchase_title_grntAmt'.tr,
+                titleName: 'guarantee_amount'.tr,
                 value: controller.controllerPurchaseModel != null ? numberFormat.format(controller.controllerPurchaseModel.grntAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'return_title_oTot'.tr,
+                titleName: 'return_amount'.tr,
                 value: controller.controllerReturnModel != null ? numberFormat.format(controller.controllerReturnModel.oTot) : '0',
                 iconData: Icons.label_outlined,
               ),
@@ -99,7 +99,7 @@ class OverAllTable extends StatelessWidget {
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
 
               IconTitleField(
-                titleName: 'rental_title_lendAmt'.tr,
+                titleName: 'rental_amount'.tr,
                 value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.lendAmt) : '0',
                 iconData: Icons.label_outlined,
               ),
@@ -109,7 +109,7 @@ class OverAllTable extends StatelessWidget {
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
-                titleName: 'rental_title_retrvAmt'.tr,
+                titleName: 'collect_amount'.tr,
                 value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.retrvAmt) : '0',
                 iconData: Icons.label_outlined,
               ),

@@ -7,6 +7,12 @@ const Map<String, String> koKR = {
   'all': '전체',
   'search': '검색',
   'config': '설정',
+  'user_info' : '사용자 정보',
+  'user_name' : '사용자',
+  'user_id' : '아이디',
+  'business_name' : '회사명',
+  'business_no' : '사업자등록번호',
+
 
   // Login
   'text_id': 'ID',
@@ -86,6 +92,7 @@ const Map<String, String> koKR = {
   'opt_customer_class': '등급',
 
 
+
   // Drawer Menu Label
   'logout': '로그아웃',
   'logout_content': '로그아웃 하시겠습니까?',
@@ -102,7 +109,7 @@ const Map<String, String> koKR = {
 
   // menu
   'menu_main_managemnent': '경영분석',
-  'menu_sub_overall': '종합현황',
+  'menu_sub_total': '종합현황',
   'menu_sub_salesdaily': '영업일보',
   'menu_sub_salesperson_contribute': '영업사원별 기여현황',
   'menu_sub_customer_contribute': '매출처별 기여현황',
@@ -151,44 +158,39 @@ const Map<String, String> koKR = {
   'msg_conn_api_server': '서버에 접속할 수 없습니다.',
   'msg_conn_auth_server': '인증서버에 접속할 수 없습니다.',
 
-  // OverAll Item Title
-  'appbar_title_overall_status': '종합 현황',
-  'sales_title_totAmt': '매출액',
-  'sales_title_suppAmt': '공급가',
-  'sales_title_vatAmt': '부가세',
-  'sales_title_grntAmt': '보증금',
-  'deposit_title_retrvAmt': '회수액',
-  'deposit_title_ipTot': '입금액',
-  'deposit_title_amt': '채권잔액',
+  // Common Item
+  'amount' : '금액',
+  'balance' : '잔액',
+  'sales' : '매출',
+  'item' : '품목',
+  'sales_amount' : '매출액',
+  'purchase_amount' : '매입액',
+  'supplement_amount' : '공급가',
+  'vat_amount' : '부가세',
+  'guarantee_amount' : '보증금',
+  'collect_amount': '회수액',
+  'deposit_amount': '입금액',
+  'return_amount': '반납액',
+  'rental_amount': '대여액',
+  'total_amount' : '합계',
 
-  'purchase_title_boTotAmt': '매입액',
-  'purchase_title_suppAmt': '공급가',
-  'purchase_title_vatAmt': '부가세',
-  'purchase_title_grntAmt': '보증금',
-  'return_title_oTot': '반납액',
+  // 종합현황 Item
+  'deposit_title_amt': '채권잔액',
   'withdraw_title_outTot': '출금액',
   'withdraw_title_amt': '채무잔액',
-
-  'rental_title_lendAmt': '대여금액',
   'rental_title_inspayLendAmt': '회수예정금액',
-  'rental_title_retrvAmt': '회수금액',
   'rental_title_remAmt': '미회수잔액',
   'rental_title_totAmt': '대여금잔액',
-
   'asset_title_totQty': '신규대여수량',
   'asset_title_totAmt': '신규대여금액',
 
-  //Sales Daily
+  // 영업일보 Item
   'employee_name': '담당자',
   'division_name': '구분',
-  'supplement_amount': '공급가',
-  'vat_amount': '부가세',
-  'guarantee_amount': '보증금합계',
   'purchase_cost': '매입원가',
   'profit_amount': '매출이익',
   'deposit_cash': '입금소계',
   'deposit_empty_case_bottle': '용공입금',
-  'deposit_amount': '입금합계',
   'bond_balance': '채권잔액',
 };
 

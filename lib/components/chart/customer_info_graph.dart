@@ -34,7 +34,7 @@ class CustomerInfoGraph extends StatelessWidget {
               xValueMapper: (ChartSpot spots, _) => spots.name,
               yValueMapper: (ChartSpot spots, _) => spots.value,
               markerSettings: MarkerSettings(isVisible: true, height: 4, width: 4, borderWidth: 3, borderColor: Colors.red),
-              name: '매출',
+              name: 'sales'.tr,
             ),
             StackedLineSeries<ChartSpot, String>(
               dataSource: Get.find<CustomerInfoController>().spotListBalance,
