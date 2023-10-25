@@ -25,41 +25,49 @@ class OptionPeriodPicker extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(
-              () => TextButton(
-                onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                child: Text(
-                  DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                  style: context.textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
+            Expanded(
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
+                      child: Text(
+                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodPickerController>().chooseFromDate();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                  Text(
+                    ' ~ ',
+                    style: context.textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                      child: Text(
+                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodPickerController>().chooseToDate();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
+                ],
               ),
             ),
-            IconButton(
-                onPressed: () {
-                  Get.find<PeriodPickerController>().chooseFromDate();
-                },
-                icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-            Text(
-              '~',
-              style: context.textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            Obx(
-              () => TextButton(
-                onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-                child: Text(
-                  DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                  style: context.textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            IconButton(
-                onPressed: () {
-                  Get.find<PeriodPickerController>().chooseToDate();
-                },
-                icon: Icon(Icons.date_range, color: context.theme.primaryColor))
           ],
         ),
       ],

@@ -10,9 +10,8 @@ import '../../../utils/utility.dart';
 
 class OptionPeriodYearmonthPicker extends StatelessWidget {
   bool checkLimit = false;
-  OptionPeriodYearmonthPicker(bool flag){
+  OptionPeriodYearmonthPicker(bool flag) {
     this.checkLimit = flag;
-
   }
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 4,
+              flex: 1,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -52,22 +51,11 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                         Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
                       },
                       icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Text(
-                '~',
-                style: context.textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              flex: 4,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                  Text(
+                    ' ~ ',
+                    style: context.textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
                   Obx(
                     () => TextButton(
                       onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
@@ -97,7 +85,7 @@ class PeriodYearmonthPickerController extends GetxController {
   var pickedToYearMonth;
   bool checkLimit = false;
 
-  PeriodYearmonthPickerController(bool flag){
+  PeriodYearmonthPickerController(bool flag) {
     this.checkLimit = flag;
   }
 
@@ -132,11 +120,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedFromYearMonth != null && pickedFromYearMonth != fromYearMonth.value) {
-      if(checkLimit) {
+      if (checkLimit) {
         if (Validate()) {
           fromYearMonth.value = pickedFromYearMonth;
         }
-      }else{
+      } else {
         fromYearMonth.value = pickedFromYearMonth;
       }
     }
@@ -156,11 +144,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedToYearMonth != null && pickedToYearMonth != toYearMonth.value) {
-      if(checkLimit) {
+      if (checkLimit) {
         if (Validate()) {
           toYearMonth.value = pickedToYearMonth;
         }
-      }else{
+      } else {
         toYearMonth.value = pickedToYearMonth;
       }
     }
