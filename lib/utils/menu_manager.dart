@@ -106,7 +106,7 @@ final List<IconMenu> salesAnalysisMaster = [
   IconMenu(title: 'menu_sub_customer_monthly'.tr, iconData: Icons.calendar_month, path: ROUTE_MENU_CUSTOMER_REPORT_MONTHLY), // 월별 매출현황
   IconMenu(title: 'menu_sub_sales_ledger'.tr, iconData: CupertinoIcons.flowchart, path: ROUTE_MENU_SALES_LEDGER), // 매출원장
   IconMenu(title: 'menu_sub_achievement'.tr, iconData: Icons.flag_outlined, path: ROUTE_MENU_ACHIEVEMENT), // 목표대비 실적현황
-  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ''), // 채권현황
+  IconMenu(title: 'menu_sub_balance_report'.tr, iconData: CupertinoIcons.doc_text, path: ROUTE_MENU_BALANCE_REPORT), // 채권현황
   IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ''), // 채권 및 대여 현황
   IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''), // 매출 및 대여 원장
 ];

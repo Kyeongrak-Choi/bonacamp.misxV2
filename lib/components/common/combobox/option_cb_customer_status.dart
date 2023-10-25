@@ -73,30 +73,30 @@ class CbCustomerStatusController extends GetxController {
 
   chooseItem(CommonModel value) async {
 
-    // paramCustomerStatusCode = value.getCode ?? '';
+    paramCustomerStatusCode = value.getCode ?? '';
     paramCustomerStatusName = value.getName ?? '';
     selectedValue = value;
 
-    switch (value.getCode) {
-      case '':
-        paramCustomerStatusCode = 'ALL';
-        break;
-      case '1' :
-        paramCustomerStatusCode = 'USE';
-        break;
-      case '2':
-        paramCustomerStatusCode = 'STOP';
-        break;
-      case '3':
-        paramCustomerStatusCode = 'CLOSE';
-        break;
-      case '4':
-        paramCustomerStatusCode = 'UNUSE';
-        break;
-      case '5':
-        paramCustomerStatusCode = 'CUT';
-        break;
-    }
+    // switch (value.getCode) {
+    //   case '':
+    //     paramCustomerStatusCode = 'ALL';
+    //     break;
+    //   case '1' :
+    //     paramCustomerStatusCode = 'USE';
+    //     break;
+    //   case '2':
+    //     paramCustomerStatusCode = 'STOP';
+    //     break;
+    //   case '3':
+    //     paramCustomerStatusCode = 'CLOSE';
+    //     break;
+    //   case '4':
+    //     paramCustomerStatusCode = 'UNUSE';
+    //     break;
+    //   case '5':
+    //     paramCustomerStatusCode = 'CUT';
+    //     break;
+    // }
 
   }
 

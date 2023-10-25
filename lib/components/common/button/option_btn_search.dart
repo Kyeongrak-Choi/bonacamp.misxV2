@@ -12,6 +12,7 @@ import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../layouts/menu/sales/balance_report.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
@@ -125,6 +126,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 목표대비 실적현황
                       case ROUTE_MENU_ACHIEVEMENT:
                         await Get.find<AchievementController>().showResult();
+                        break;
+
+                      // 영업분석 - 채권현황
+                      case ROUTE_MENU_BALANCE_REPORT:
+                        await Get.find<BalanceReportController>().showResult();
                         break;
                     }
                   } catch (e) {
