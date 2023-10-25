@@ -32,7 +32,7 @@ class AnalysisGraphComponent extends StatelessWidget {
           tooltipBehavior: TooltipBehavior(enable: true, textStyle: context.textTheme.displaySmall, color: context.theme.canvasColor),
           series: <ChartSeries<ChartSpot, String>>[
             StackedLineSeries<ChartSpot, String>(
-              name: '매출',
+              name: 'sales'.tr,
               dataSource: Get.find<AnalysisGraphController>().salesList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,

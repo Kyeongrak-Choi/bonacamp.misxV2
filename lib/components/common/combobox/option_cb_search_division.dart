@@ -73,7 +73,7 @@ class CbSearchDivisionController extends GetxController {
       case '전체':
         paramDivisionCode = '1';
         break;
-      case '매출':
+      case 'sales'.tr:
         paramDivisionCode = '0';
         break;
       case '매출/입금':
@@ -89,7 +89,7 @@ class CbSearchDivisionController extends GetxController {
       LOCAL_DB,
     );
 
-    List<String> common = ['전체', '매출', '매출/입금'];
+    List<String> common = ['전체', 'sales'.tr, '매출/입금'];
 
     for (int i = 0; i < common.length; i++) {
       data.add(common[i]);

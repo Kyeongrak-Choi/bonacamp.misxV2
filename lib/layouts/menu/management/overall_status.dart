@@ -29,7 +29,7 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('appbar_title_overall_status'.tr),
+              title: Text('menu_sub_total'.tr),
               titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
