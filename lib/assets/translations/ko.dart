@@ -17,7 +17,7 @@ const Map<String, String> koKR = {
   // Login
   'text_id': 'ID',
   'text_pw': 'PW',
-  'text_login': 'LOGIN',
+  'text_login': 'SIGN IN',
   'hint_id_input': 'ID를 입력해 주세요.',
   'hint_pw_input': 'PW를 입력해 주세요.',
   'privacy_policy': '개인정보 처리방침',
