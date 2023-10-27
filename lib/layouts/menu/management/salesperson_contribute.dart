@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class SalesPersonContribute extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -53,17 +54,11 @@ class SalesPersonContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                           ],
                         ),
@@ -71,7 +66,7 @@ class SalesPersonContribute extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<SalesPersonContributeController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(
@@ -81,7 +76,7 @@ class SalesPersonContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: SalesPersonContributeTable(),
                       ),
                     ),
@@ -111,24 +106,26 @@ class SalesPersonContributeController extends GetxController {
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
     var paramYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
     var paramSalChrgCd = Get.find<CbEmployeeController>().paramEmployeeCode;
-    var paramCustStat = Get.find<CbCustomerStatusController>().paramCustStat;
+    var paramCustStat = Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
 
     try {
       dio = await reqApi(paramClientCd);
 
       final response = await dio.get(API_MANAGEMENT +
-          API_MANAGEMENT_CONTRIBUTIONEMPLOYEE +
-          '?branch-code=' +
+          API_MANAGEMENT_SERVE +
+          '?branch=' +
           paramNodeCd +
-          '&search-month=' +
+          '&month=' +
           paramYM +
-          '&employee-code=' +
+          '&sales-rep=' +
           paramSalChrgCd +
-          '&customer-status=' +
+          '&status=' +
           paramCustStat);
 
+      log('paramNodeCd :' + paramNodeCd);
+
       if (response.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT];
+        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
         controllerModel = SalesPersonContributeModel.fromJson(parsedData);
         Get.find<SalesPersonContributeController>().setVisible();
         update();
@@ -138,6 +135,7 @@ class SalesPersonContributeController extends GetxController {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
+      print(e.toString());
       print("other error");
     }
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/system/notice.dart';
 
-import '../../components/common/field/icon_title_field.dart';
 import '../../components/common/field/show_list_header_row.dart';
 
 // System Config Setting
@@ -11,6 +10,7 @@ class Notice extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(NoticeController());
     return Scaffold(
+        backgroundColor: context.theme.canvasColor,
         appBar: AppBar(
           title: Text('notice'.tr),
           titleTextStyle: context.textTheme.displayLarge,
@@ -21,7 +21,7 @@ class Notice extends StatelessWidget {
           color: context.theme.canvasColor,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
               child: Container(
                 decoration: BoxDecoration(
                   color: context.theme.cardColor,
@@ -29,7 +29,7 @@ class Notice extends StatelessWidget {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(20.0),
                   child: ExpansionPanelList.radio(
                     elevation: 0.0,
                     animationDuration: Duration(milliseconds: 500),

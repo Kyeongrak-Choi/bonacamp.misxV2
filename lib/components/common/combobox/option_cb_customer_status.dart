@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/warehouse.dart';
+
+import '../../../models/system/common.dart';
+import '../../../utils/constants.dart';
 
 class OptionCbCustomerStatus extends StatelessWidget {
   @override
@@ -11,7 +15,7 @@ class OptionCbCustomerStatus extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'opt_customer_status'.tr,
               textAlign: TextAlign.start,
@@ -23,28 +27,25 @@ class OptionCbCustomerStatus extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: Obx(
-                      () => DropdownButtonFormField<WarehouseModel>(
-                        isExpanded: true,
-                        value: Get.find<CbCustomerStatusController>().selectedValue,
-                        style: context.textTheme.bodyMedium,
-                        decoration: InputDecoration(border: InputBorder.none),
-                        dropdownColor: context.theme.cardColor,
-                        items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
-                          return DropdownMenuItem<WarehouseModel>(
-                            alignment: Alignment.center,
-                            value: value,
-                            child: Text(value.getWarehouseName ?? ''),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          Get.find<CbCustomerStatusController>().chooseItem(value!);
-                        },
-                      ),
-                    ))),
+                child: Obx(
+                      () => DropdownButtonFormField<CommonModel>(
+                    isExpanded: true,
+                    value: Get.find<CbCustomerStatusController>().selectedValue,
+                    style: context.textTheme.bodyMedium,
+                    decoration: InputDecoration(border: InputBorder.none),
+                    dropdownColor: context.theme.cardColor,
+                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                      return DropdownMenuItem<CommonModel>(
+                        alignment: Alignment.center,
+                        value: value,
+                        child: Text(value.getName ?? ''),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      Get.find<CbCustomerStatusController>().chooseItem(value!);
+                    },
+                  ),
+                )),
           ],
         ),
       ],
@@ -53,33 +54,40 @@ class OptionCbCustomerStatus extends StatelessWidget {
 }
 
 class CbCustomerStatusController extends GetxController {
-  List<WarehouseModel> data = <WarehouseModel>[].obs;
-
   var selectedValue;
+  List<CommonModel> data = <CommonModel>[
+    CommonModel('', 0, '', '전체', '', '', '', '', ''),
+  ].obs;
 
-  // param sample
-  String paramCustStat = '';
+  String paramCustomerStatusCode = '';
+  String paramCustomerStatusName = '';
 
   @override
   void onInit() async {
     super.onInit();
-    setCustomerStatus();
+    await setCommon();
     if (data != null) {
       chooseItem(data.first);
     }
   }
 
-  chooseItem(WarehouseModel value) async {
-    paramCustStat = value.getWarehouseCode ?? '';
+  chooseItem(CommonModel value) async {
+    paramCustomerStatusCode = value.getCode ?? '';
+    paramCustomerStatusName = value.getName ?? '';
     selectedValue = value;
   }
 
-  void setCustomerStatus() {
-    data.add(WarehouseModel("ALL", "전체"));
-    data.add(WarehouseModel("USE", "정상"));
-    data.add(WarehouseModel("STOP", "영업정지"));
-    data.add(WarehouseModel("CLOSE", "휴업"));
-    data.add(WarehouseModel("UNUSE", "폐업"));
-    data.add(WarehouseModel("CUT", "단절"));
+  Future<void> setCommon() async {
+    await Hive.openBox(
+      LOCAL_DB,
+    );
+
+    List<dynamic> common = Hive.box(LOCAL_DB).get(KEY_COMMON);
+
+    for (int i = 0; i < common.length; i++) {
+      if (common.elementAt(i).getMainCode == 'ABS018') {
+        data.add(Hive.box(LOCAL_DB).get(KEY_COMMON).elementAt(i));
+      }
+    }
   }
 }

@@ -14,7 +14,7 @@ class OptionCbManager extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'opt_manage'.tr,
               textAlign: TextAlign.start,
@@ -26,7 +26,6 @@ class OptionCbManager extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
                 child: Obx(
                   () => DropdownButtonFormField<EmployeeModel>(
                     isExpanded: true,

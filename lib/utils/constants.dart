@@ -50,6 +50,9 @@ const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
+const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
+const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
+const ROUTE_MENU_BALANCE_REPORT = '/debt'; // 채권현황
 
 // purchase (매입분석)
 
@@ -112,7 +115,7 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018'; // 시스템 코드
 
 // common
 const API_COMMON = '/v1/common';
@@ -124,7 +127,7 @@ const API_COMMON_LENDITEM = '/lend-items';
 const API_MANAGEMENT = '/v1/views/management';
 const API_MANAGEMENT_OVERALL = '/total'; // 종합현황
 const API_MANAGEMENT_DAILYSTATUS = '/daily'; // 영업일보
-const API_MANAGEMENT_CONTRIBUTIONEMPLOYEE = '/contribution-status-employee'; // 영원사원별 기여현황
+const API_MANAGEMENT_SERVE = '/serve/sales-rep'; // 영원사원별 기여현황
 const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
 const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
@@ -138,6 +141,10 @@ const API_SALES_SALESPERSONREPORT = '/sales-rep'; // 영업사원별 매출현�
 const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
+const API_SALES_SALESLEDGER = '/ledger'; // 매출원장
+
+const API_SALES_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
+const API_SALES_BALANCEREPORT = '/debt'; // 채권현황
 
 // purchase (매입분석)
 

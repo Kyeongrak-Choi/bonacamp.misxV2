@@ -42,7 +42,7 @@ class SearchItemList extends StatelessWidget {
 
   Widget selectSearchListItem(int index) {
     return SearchItemListItem(
-        Get.find<SearchItemListController>().datas[index].getCode?? '',
+        Get.find<SearchItemListController>().datas[index].getCode ?? '',
         Get.find<SearchItemListController>().datas[index].getName ?? '',
         Get.find<SearchItemListController>().datas[index].getNickName ?? '',
         Get.find<SearchItemListController>().datas[index].getUseTypeName ?? '');

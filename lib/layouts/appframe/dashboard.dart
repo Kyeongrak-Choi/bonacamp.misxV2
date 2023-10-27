@@ -55,35 +55,35 @@ class DashBoard extends StatelessWidget {
                   child: ListView(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
                         child: DashBoardSales(), // 매출
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                         child: DashBoardPurchase(), // 매입
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                         child: DashBoardDeposit(), // 회수
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                         child: DashBoardWithdraw(), // 출금
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                         child: DashBoardReturn(), // 반납
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                         child: DashBoardRental(), // 대여
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
                         child: DashBoardAsset(), // 자산
                       ),
                       // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      //   padding: EdgeInsetsDirectional.all(20),
                       //   child: DashBoardChart2(), // 차트
                       // ),
                     ],
@@ -169,7 +169,7 @@ class DashBoardController extends GetxController {
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resOverall = await dio.get(
-          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + branchCode! + '&from-date=' + getFirstDay() + '&to-date=' + getToday(),
+          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(),
           data: param);
 
       if (resOverall.statusCode == 200) {

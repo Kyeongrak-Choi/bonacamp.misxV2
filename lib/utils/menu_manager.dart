@@ -79,7 +79,7 @@ final List<RadioMenu> menuDetail = [
 
 // 경영분석
 final List<IconMenu> managementAnalysisMaster = [
-  IconMenu(title: 'menu_sub_overall'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
+  IconMenu(title: 'menu_sub_total'.tr, iconData: Icons.assessment, path: ROUTE_MENU_OVERALL_STATUS),
   // 종합현황
   IconMenu(title: 'menu_sub_salesdaily'.tr, iconData: FontAwesomeIcons.calendarCheck, path: ROUTE_MENU_SALES_DAILY),
   // 영업일보
@@ -104,9 +104,9 @@ final List<IconMenu> salesAnalysisMaster = [
   IconMenu(title: 'menu_sub_report_monthly'.tr, iconData: Icons.calendar_month, path: ROUTE_MENU_SALESPERSON_REPORT_MONTHLY), // 영업사원별 월별 매출현황
   IconMenu(title: 'menu_sub_sales_status'.tr, iconData: Icons.monetization_on_outlined, path: ROUTE_MENU_CUSTOMER_REPORT), // 매출현황
   IconMenu(title: 'menu_sub_customer_monthly'.tr, iconData: Icons.calendar_month, path: ROUTE_MENU_CUSTOMER_REPORT_MONTHLY), // 월별 매출현황
-  IconMenu(title: 'title_14'.tr, iconData: Icons.copy_outlined, path: ''), // 매출원장
-  IconMenu(title: 'title_15'.tr, iconData: Icons.copy_outlined, path: ''), // 목표대비 실적현황
-  IconMenu(title: 'title_16'.tr, iconData: Icons.copy_outlined, path: ''), // 채권현황
+  IconMenu(title: 'menu_sub_sales_ledger'.tr, iconData: CupertinoIcons.flowchart, path: ROUTE_MENU_SALES_LEDGER), // 매출원장
+  IconMenu(title: 'menu_sub_achievement'.tr, iconData: Icons.flag_outlined, path: ROUTE_MENU_ACHIEVEMENT), // 목표대비 실적현황
+  IconMenu(title: 'menu_sub_balance_report'.tr, iconData: CupertinoIcons.doc_text, path: ROUTE_MENU_BALANCE_REPORT), // 채권현황
   IconMenu(title: 'title_17'.tr, iconData: Icons.copy_outlined, path: ''), // 채권 및 대여 현황
   IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''), // 매출 및 대여 원장
 ];

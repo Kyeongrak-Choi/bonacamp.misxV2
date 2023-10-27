@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:misxV2/utils/utility.dart';
 
 import '../../layouts/appframe/dashboard.dart';
+import '../common/field/icon_title_field.dart';
 import 'dashboard_item.dart';
 
 class DashBoardRental extends StatelessWidget {
@@ -25,7 +26,7 @@ class DashBoardRental extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_rental'.tr,
                         textAlign: TextAlign.start,
@@ -34,29 +35,44 @@ class DashBoardRental extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem(
-                        '대여금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.lendAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '대여금계'.tr,
+                      value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.lendAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem('회수예정금계',
-                        controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.inspayLendAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '회수예정금계'.tr,
+                      value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.inspayLendAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem(
-                        '회수금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.retrvAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '회수금계'.tr,
+                      value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.retrvAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                    child: DashBoardItem(
-                        '미회수금계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.remAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child: IconTitleField(
+                      titleName: '미회수금계'.tr,
+                      value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.remAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                    child: DashBoardItem(
-                        '대여금잔액계', controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.totAmt) : ''),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
+                    child: IconTitleField(
+                      titleName: '대여금잔액계'.tr,
+                      value: controller.controllerRentalModel != null ? numberFormat.format(controller.controllerRentalModel.totAmt) : '0',
+                      iconData: Icons.label_outlined,
+                    ),
                   ),
                 ],
               )),

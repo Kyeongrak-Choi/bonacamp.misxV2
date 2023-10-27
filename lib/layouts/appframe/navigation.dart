@@ -1,9 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
 import 'package:misxV2/layouts/appframe/menu_list.dart';
 
+import '../../components/common/field/icon_title_field.dart';
+import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/utility.dart';
 import '../config/config.dart';
@@ -156,6 +159,36 @@ class NavigationController extends GetxController {
   changeIndex() {
     currentIndex.value = 1;
   }
+}
+
+void ShowUserInfoDialog() {
+  UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
+  Get.defaultDialog(
+    title: 'user_info'.tr,
+    content: Column(children: [
+      IconTitleField(
+        titleName: 'user_name'.tr,
+        value: user.getUserName,
+        iconData: Icons.person,
+      ),
+      IconTitleField(
+        titleName: 'user_id'.tr,
+        value: user.getUserId,
+        iconData: Icons.label_outlined,
+      ),
+      IconTitleField(
+        titleName: 'business_name'.tr,
+        value: user.getClientName,
+        iconData: Icons.label_outlined,
+      ),
+      IconTitleField(
+        titleName: 'business_no'.tr,
+        value: convertBusinessNo(user.getBusinessNo),
+        iconData: Icons.label_outlined,
+      ),
+    ]),
+    confirmTextColor: Colors.white,
+  );
 }
 
 // class NavigationController extends GetxService {

@@ -38,7 +38,7 @@ class CustomerInfo extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                padding: EdgeInsetsDirectional.all(20),
                 child: Column(
                   children: [
                     Visibility(
@@ -52,27 +52,21 @@ class CustomerInfo extends StatelessWidget {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                                padding: EdgeInsetsDirectional.all(20),
                                 child: Column(
                                   children: [
                                     OptionCbBranch(),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionDialogCustomer(),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
                                   ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
                           ],
                         )),
+                    SizedBox(
+                      height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
+                    ),
                     Expanded(
                       flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
                       child: Container(
@@ -82,7 +76,7 @@ class CustomerInfo extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: setChild(),
                         ),
                       ),
@@ -99,7 +93,7 @@ class CustomerInfo extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: CustomerInfoTable(),
                         ),
                       ),

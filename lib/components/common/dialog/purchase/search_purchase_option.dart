@@ -8,7 +8,7 @@ class SearchPurchaseOption extends StatelessWidget {
   Widget build(context) {
     Get.put(SearchPurchaseListController());
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      padding: EdgeInsets.zero,
       child: Row(
         children: [
           Flexible(

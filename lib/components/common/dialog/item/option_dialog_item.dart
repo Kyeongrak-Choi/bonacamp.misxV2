@@ -12,7 +12,7 @@ class OptionDialogItem extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'title_search_item'.tr,
               textAlign: TextAlign.start,
@@ -25,15 +25,13 @@ class OptionDialogItem extends StatelessWidget {
           children: [
             Expanded(
                 flex: 9,
-                child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    child: TextButton(
-                      onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                      child: Obx(() => Text(
-                            Get.find<OptionDialogItemController>().selectedValue.value,
-                            style: context.textTheme.bodyMedium,
-                          )),
-                    ))),
+                child: TextButton(
+                  onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
+                  child: Obx(() => Text(
+                        Get.find<OptionDialogItemController>().selectedValue.value,
+                        style: context.textTheme.bodyMedium,
+                      )),
+                )),
             Expanded(
               flex: 1,
               child: IconButton(

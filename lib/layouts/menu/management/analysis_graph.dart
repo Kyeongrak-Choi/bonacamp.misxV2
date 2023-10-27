@@ -38,7 +38,7 @@ class AnalysisGraph extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -50,17 +50,11 @@ class AnalysisGraph extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
-                            OptionPeriodYearmonthPicker(),
-                            SizedBox(
-                              height: 5,
-                            ),
+                            OptionPeriodYearmonthPicker(true),
                             OptionCbBranch(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_GRAPH),
                           ],
                         ),
@@ -68,7 +62,7 @@ class AnalysisGraph extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<AnalysisGraphController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(
@@ -78,7 +72,7 @@ class AnalysisGraph extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: setChild(),
                       ),
                     ),

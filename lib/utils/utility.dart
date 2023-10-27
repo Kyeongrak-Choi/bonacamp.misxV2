@@ -102,36 +102,6 @@ void ShowDialog(type, title, content, context) {
   }
 }
 
-void ShowUserInfoDialog() {
-  UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
-  Get.defaultDialog(
-    title: '사용자 정보',
-    content: Column(children: [
-      IconTitleField(
-        titleName: '사용자',
-        value: user.getUserName,
-        iconData: Icons.person,
-      ),
-      IconTitleField(
-        titleName: '아이디',
-        value: user.getUserId,
-        iconData: Icons.label_outlined,
-      ),
-      IconTitleField(
-        titleName: '회사명',
-        value: user.getClientName,
-        iconData: Icons.label_outlined,
-      ),
-      IconTitleField(
-        titleName: '사업자등록번호',
-        value: convertBusinessNo(user.getBusinessNo),
-        iconData: Icons.label_outlined,
-      ),
-    ]),
-    confirmTextColor: Colors.white,
-  );
-}
-
 // Progress Bar
 void ShowProgress(context, dynamic, bool) {
   ProgressDialog progressDialog = ProgressDialog(
@@ -147,6 +117,7 @@ void ShowProgress(context, dynamic, bool) {
   }
 }
 
+// 사업자번호 포맷변환 ( ex: 111-11-11111 )
 String convertBusinessNo(String businessNo) {
   return '${businessNo.substring(0, 3)}-${businessNo.substring(3, 5)}-${businessNo.substring(5, 10)}';
 }
@@ -214,3 +185,21 @@ int calculateMonthDifference(DateTime startDate, DateTime endDate) {
 
 // 숫자 포맷
 var numberFormat = NumberFormat('###,###,###,###');
+
+String changeStringYYYYMMToDateFormat(String dateString) {
+  if (dateString == '') {
+    return '';
+  }
+  DateTime tmpDate = DateTime.parse(dateString + '01');
+  //ex 20220708
+  return DateFormat('yyyy-MM').format(tmpDate).toString();
+}
+
+String changeStringToDateFormat(String dateString) {
+  if (dateString == '') {
+    return '';
+  }
+  DateTime tmpDate = DateTime.parse(dateString);
+  //ex 20220708
+  return DateFormat('yyyy-MM-dd').format(tmpDate).toString();
+}

@@ -40,5 +40,4 @@ class ItemModel {
   get getNickName => nickName;
 
   get getUseTypeName => useTypeName;
-
 }

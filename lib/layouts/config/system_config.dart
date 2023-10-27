@@ -18,7 +18,7 @@ class SystemConfig extends StatelessWidget {
       body: Container(
         color: context.theme.canvasColor,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Container(
             decoration: BoxDecoration(
               color: context.theme.cardColor,
@@ -26,11 +26,11 @@ class SystemConfig extends StatelessWidget {
               shape: BoxShape.rectangle,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
               child: ListView(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                     child: CardRadioMenu(radioMenu: systemDetail),
                   ),
                 ],

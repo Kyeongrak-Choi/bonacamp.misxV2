@@ -7,8 +7,8 @@ part 'customer_report_model.g.dart'; // *.g.dart : in same directory
 @JsonSerializable(explicitToJson: true)
 class CustomerReportModel {
   var branchCode; // 사업장코드
-  var customerCode; // 영업사원 코드
-  var customerName; // 영업사원 명
+  var customerCode; // 거래처 코드
+  var customerName; // 거래처 명
   var price; // 공급가
   var amount; // 합계 (공급가 + 부가세)
   var total; // 매출액

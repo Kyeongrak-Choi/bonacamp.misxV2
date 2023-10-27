@@ -40,7 +40,7 @@ class CustomerContribute extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -52,17 +52,11 @@ class CustomerContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionDialogCustomer(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                           ],
                         ),
@@ -70,7 +64,7 @@ class CustomerContribute extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<CustomerContributeController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(
@@ -80,7 +74,7 @@ class CustomerContribute extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: CustomerContributeTable(),
                       ),
                     ),

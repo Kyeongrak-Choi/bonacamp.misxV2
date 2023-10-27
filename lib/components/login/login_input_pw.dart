@@ -41,7 +41,7 @@ class LoginInputPw extends StatelessWidget {
               ),
               filled: true,
               fillColor: CommonColors.white,
-              contentPadding: EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
+              contentPadding: EdgeInsets.all(20),
               counterText: '',
             ),
             onChanged: (text) {

@@ -31,7 +31,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                padding: EdgeInsets.all(10.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
@@ -45,15 +45,15 @@ class Login extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: LoginLogo(), // Logo
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
                           child: LoginInputId(), // ID
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
                           child: LoginInputPw(), // PW
                         ),
                         Divider(
@@ -64,15 +64,15 @@ class Login extends StatelessWidget {
                           color: CommonColors.dark,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: LoginBtn(), // Login
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: PolicyView(), // 개인정보 처리방침
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: Text(
                             COPY_RIGHT,
                             style: textThemeCommon().bodyLarge,

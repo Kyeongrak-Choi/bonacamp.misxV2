@@ -14,7 +14,7 @@ class OptionCbEmployee extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_sales'.tr,
               textAlign: TextAlign.start,
@@ -23,29 +23,29 @@ class OptionCbEmployee extends StatelessWidget {
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-                flex: 4,
-                child: Obx(
-                  () => DropdownButtonFormField<EmployeeModel>(
-                    isExpanded: true,
-                    value: Get.find<CbEmployeeController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbEmployeeController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
-                      return DropdownMenuItem<EmployeeModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getEmployeeName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbEmployeeController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              flex: 1,
+              child: Obx(
+                () => DropdownButtonFormField<EmployeeModel>(
+                  isExpanded: true,
+                  value: Get.find<CbEmployeeController>().selectedValue,
+                  style: context.textTheme.bodyMedium,
+                  decoration: InputDecoration(border: InputBorder.none),
+                  dropdownColor: context.theme.cardColor,
+                  items: Get.find<CbEmployeeController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                    return DropdownMenuItem<EmployeeModel>(
+                      alignment: Alignment.center,
+                      value: value,
+                      child: Text(value.getEmployeeName ?? ''),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    Get.find<CbEmployeeController>().chooseItem(value!);
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ],

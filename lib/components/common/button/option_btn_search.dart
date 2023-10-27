@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
+import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/location/vendor_location.dart';
@@ -11,9 +12,11 @@ import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../layouts/menu/sales/balance_report.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
+import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
 import '../../../utils/constants.dart';
@@ -33,10 +36,10 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
           child: Container(
-            color: context.theme.cardColor,
-            height: 30,
+            color: CommonColors.bluesky,
+            height: 40,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);
@@ -114,6 +117,21 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
                         break;
+                        
+                      // 영업분석 - 매출원장
+                      case ROUTE_MENU_SALES_LEDGER:
+                        await Get.find<SalesLedgerController>().showResult();
+                        break;
+                       
+                      // 영업분석 - 목표대비 실적현황
+                      case ROUTE_MENU_ACHIEVEMENT:
+                        await Get.find<AchievementController>().showResult();
+                        break;
+
+                      // 영업분석 - 채권현황
+                      case ROUTE_MENU_BALANCE_REPORT:
+                        await Get.find<BalanceReportController>().showResult();
+                        break;
                     }
                   } catch (e) {
                     pd.close();
@@ -124,7 +142,7 @@ class OptionBtnSearch extends StatelessWidget {
                 child: Icon(Icons.search, color: context.theme.primaryColor),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: CommonColors.white,
-                  backgroundColor: context.theme.canvasColor,
+                  backgroundColor: CommonColors.bluesky,
                 )),
           ),
         )),

@@ -29,7 +29,7 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('appbar_title_overall_status'.tr),
+              title: Text('menu_sub_total'.tr),
               titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
@@ -44,7 +44,7 @@ class OverallStatus extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                padding: EdgeInsetsDirectional.all(20),
                 child: Column(
                   children: [
                     Visibility(
@@ -56,24 +56,18 @@ class OverallStatus extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            padding: EdgeInsetsDirectional.all(20),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                SizedBox(
-                                  height: 5,
-                                ),
                                 OptionCbBranch(),
-                                SizedBox(
-                                  height: 5,
-                                ),
                                 OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
                               ],
                             ),
                           ),
                         )),
                     SizedBox(
-                      height: 20,
+                      height: Get.find<OverAllController>().visible.value ? 20 : 0,
                     ),
                     Expanded(
                       child: Container(
@@ -83,7 +77,7 @@ class OverallStatus extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: OverAllTable(),
                         ),
                       ),
@@ -132,7 +126,7 @@ class OverAllController extends GetxController {
       dio = await reqApi(param);
 
       final response = await dio.get(
-          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch-code=' + paramBranchCode + '&from-date=' + paramFromDate + '&to-date=' + paramToDate);
+          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
 
       if (response.statusCode == 200) {
         parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];

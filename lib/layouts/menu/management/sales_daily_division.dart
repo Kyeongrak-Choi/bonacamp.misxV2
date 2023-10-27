@@ -45,7 +45,7 @@ class SalesDailyDivision extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -57,17 +57,11 @@ class SalesDailyDivision extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
                           ],
                         ),
@@ -75,7 +69,7 @@ class SalesDailyDivision extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     flex: 1,
@@ -86,7 +80,7 @@ class SalesDailyDivision extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: ListView(
                           children: <Widget>[setChild()],
                         ),
@@ -103,7 +97,7 @@ class SalesDailyDivision extends StatelessWidget {
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      padding: EdgeInsetsDirectional.all(20),
                       child: Column(
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.start, children: [

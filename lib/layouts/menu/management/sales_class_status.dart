@@ -40,7 +40,7 @@ class SalesClassStatus extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: EdgeInsetsDirectional.all(20),
               child: Column(
                 children: [
                   Visibility(
@@ -52,21 +52,12 @@ class SalesClassStatus extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionCbBranch(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionDialogPurchase(),
-                            SizedBox(
-                              height: 5,
-                            ),
                             OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
                           ],
                         ),
@@ -74,7 +65,7 @@ class SalesClassStatus extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Get.find<SalesClassStatusController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(

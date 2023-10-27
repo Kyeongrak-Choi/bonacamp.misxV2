@@ -43,7 +43,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                padding: EdgeInsetsDirectional.all(20),
                 child: Column(
                   children: [
                     Visibility(
@@ -57,31 +57,22 @@ class SalesPersonReportMonthly extends StatelessWidget {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                                padding: EdgeInsetsDirectional.all(20),
                                 child: Column(
                                   children: [
                                     OptionYearMonthPicker(),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
                                     OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
                                   ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
                           ],
                         )),
+                    SizedBox(
+                      height: Get.find<SalesPersonReportMonthlyController>().visible.value ? 20 : 0,
+                    ),
                     Expanded(
                       flex: Get.find<SalesPersonReportMonthlyController>().visible.value ? 4 : 3,
                       child: Container(
@@ -91,7 +82,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.all(20),
                           child: setChild(),
                         ),
                       ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -7,15 +9,19 @@ import '../../../utils/constants.dart';
 import '../../../utils/utility.dart';
 
 class OptionPeriodYearmonthPicker extends StatelessWidget {
+  bool checkLimit = false;
+  OptionPeriodYearmonthPicker(bool flag) {
+    this.checkLimit = flag;
+  }
   @override
   Widget build(BuildContext context) {
-    Get.put(PeriodYearmonthPickerController());
+    Get.put(PeriodYearmonthPickerController(checkLimit));
     return Column(
       children: [
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
@@ -27,64 +33,41 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 4,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
-                        child: Text(
-                          DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
-                          style: context.textTheme.bodyMedium,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
               flex: 1,
-              child: Text(
-                '~',
-                style: context.textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              flex: 4,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
-                        child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
-                            style: context.textTheme.bodyMedium),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
+                      child: Text(
+                        DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
+                        style: context.textTheme.bodyMedium,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                  Text(
+                    ' ~ ',
+                    style: context.textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
                   ),
+                  Obx(
+                    () => TextButton(
+                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
+                      child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
+                          style: context.textTheme.bodyMedium),
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
+                      },
+                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                 ],
               ),
             ),
@@ -100,6 +83,11 @@ class PeriodYearmonthPickerController extends GetxController {
   var toYearMonth = DateTime.now().obs;
   var pickedFromYearMonth;
   var pickedToYearMonth;
+  bool checkLimit = false;
+
+  PeriodYearmonthPickerController(bool flag) {
+    this.checkLimit = flag;
+  }
 
   @override
   void onInit() {
@@ -132,7 +120,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedFromYearMonth != null && pickedFromYearMonth != fromYearMonth.value) {
-      if (Validate()) {
+      if (checkLimit) {
+        if (Validate()) {
+          fromYearMonth.value = pickedFromYearMonth;
+        }
+      } else {
         fromYearMonth.value = pickedFromYearMonth;
       }
     }
@@ -152,7 +144,11 @@ class PeriodYearmonthPickerController extends GetxController {
     );
 
     if (pickedToYearMonth != null && pickedToYearMonth != toYearMonth.value) {
-      if (Validate()) {
+      if (checkLimit) {
+        if (Validate()) {
+          toYearMonth.value = pickedToYearMonth;
+        }
+      } else {
         toYearMonth.value = pickedToYearMonth;
       }
     }
