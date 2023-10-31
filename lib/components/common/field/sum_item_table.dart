@@ -28,7 +28,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     firstTitleName ?? '',
-                    style: context.textTheme.titleMedium,
+                    style: context.textTheme.titleSmall,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -52,7 +52,7 @@ class SumItemTable extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     secTitleName ?? '',
-                    style: context.textTheme.titleMedium,
+                    style: context.textTheme.titleSmall,
                     textAlign: TextAlign.center,
                   ),
                 ),

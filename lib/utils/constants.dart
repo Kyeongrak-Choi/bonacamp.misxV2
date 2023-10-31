@@ -53,7 +53,7 @@ const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출
 const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
 const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const ROUTE_MENU_BALANCE_REPORT = '/debt'; // 채권현황
-const ROUTE_MENU_BALANCE_RENTAL_REPORT = '/debt'; // 채권 및 대여 현황
+const ROUTE_MENU_BALANCE_RENTAL_REPORT = '/rent-debt'; // 채권 및 대여 현황
 
 // purchase (매입분석)
 
@@ -146,7 +146,7 @@ const API_SALES_SALESLEDGER = '/ledger'; // 매출원장
 
 const API_SALES_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const API_SALES_BALANCEREPORT = '/debt'; // 채권현황
-const API_SALES_BALANCERENTALREPORT = '/debt'; // 채권 및 대여 현황
+const API_SALES_BALANCERENTALREPORT = '/rent-debt'; // 채권 및 대여 현황
 
 // purchase (매입분석)
 

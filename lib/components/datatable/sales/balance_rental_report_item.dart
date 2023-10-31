@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/menu/sales/balance_report_model.dart';
+import '../../../models/menu/sales/balance_rental_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
 
 class BalanceRentalReportItem extends StatelessWidget {
@@ -32,7 +31,7 @@ class BalanceRentalReportItem extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Text(
-                      '거래처',
+                      '매출처',
                       style: context.textTheme.displayMedium,
                       textAlign: TextAlign.left,
                     ),
@@ -89,7 +88,7 @@ class BalanceRentalReportItem extends StatelessWidget {
                         flex: 1,
                         child: IconButton(
                           onPressed: () {
-                            ShowBalanceDetailDialog(dataList[index]);
+                            ShowBalanceRentalDetailDialog(dataList[index]);
                           },
                           icon: Icon(Icons.search, color: context.theme.primaryColor),
                         ),
@@ -105,29 +104,29 @@ class BalanceRentalReportItem extends StatelessWidget {
   }
 }
 
-void ShowBalanceDetailDialog(var detailList) {
+void ShowBalanceRentalDetailDialog(var detailList) {
   Get.defaultDialog(
-      title: "채권 현황 상세보기",
+      title: "채권 및 대여 현황 상세보기",
       content: Column(
         children: [
           IconTitleField(
-            titleName: '거래처',
+            titleName: '매출처',
             value: detailList.name ?? '',
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '매출액',
-            value: detailList.total ?? '',
+            value: detailList.total,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '공급가',
-            value: detailList.price ?? '',
+            value: detailList.price,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '합계\n(공급가 + 부가세)',
-            value: detailList.amount ?? '',
+            value: detailList.amount,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
@@ -138,6 +137,36 @@ void ShowBalanceDetailDialog(var detailList) {
           IconTitleField(
             titleName: '채권잔액',
             value: detailList.balance,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '대여금(장기)',
+            value: detailList.longRent,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '대여금(단기)',
+            value: detailList.shortRent,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '대여금(합계)',
+            value: detailList.totalRent,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '채권 + 대여금',
+            value: detailList.totalBalance,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '대여자산',
+            value: detailList.rentQuantity,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: '소비자산',
+            value: detailList.consumeQuantity,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(

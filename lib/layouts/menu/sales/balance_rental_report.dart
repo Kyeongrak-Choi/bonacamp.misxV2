@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_customer_status.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/combobox/option_cb_team.dart';
@@ -20,9 +19,7 @@ import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/balance_rental_report_item.dart';
-import '../../../components/datatable/sales/balance_report_item.dart';
 import '../../../models/menu/sales/balance_rental_report_model.dart';
-import '../../../models/menu/sales/balance_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -86,12 +83,18 @@ class BanlanceRentalReport extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                     child: Column(
                       children: [
-                        SumTitleTable('기간 채권 합계'),
-                        SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
-                        SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
-                        SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '매출이익',
+                        SumTitleTable('기간 채권 및 대여 합계'),
+                        // SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
+                        //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
+                        // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
+                        //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
+                        SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
+                            numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
+                        SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
+                            numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
+                        SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
+                            numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
+                        SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
                             numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
                       ],
                     ),
@@ -140,6 +143,12 @@ class BalanceRentalReportController extends GetxController {
   int sumDeposit = 0;
   int sumBalance = 0;
   int sumMargin = 0;
+  int sumLongRent = 0;
+  int sumShortRent = 0;
+  int sumTotalRent = 0;
+  int sumTotalBalance = 0;
+  int sumRentQuantity = 0;
+  int sumConsumeQuantity = 0;
 
   var visible = true.obs;
 
@@ -177,10 +186,10 @@ class BalanceRentalReportController extends GetxController {
           paramEmployeeCode +
           '&manager=' +
           paramManagementCode +
+          '&team=' +
+          paramTeamCode +
           '&grade=' +
-          paramCustGrade +
-          '&status=' +
-          paramTeamCode
+          paramCustGrade
       );
 
       if (response.statusCode == 200) {
@@ -198,6 +207,12 @@ class BalanceRentalReportController extends GetxController {
             sumDeposit += calData.deposit as int;
             sumBalance += calData.balance as int;
             sumMargin += calData.margin as int;
+            sumLongRent += calData.longRent as int;
+            sumShortRent += calData.shortRent as int;
+            sumTotalRent += calData.totalRent as int;
+            sumTotalBalance += calData.totalBalance as int;
+            sumRentQuantity += calData.rentQuantity as int;
+            sumConsumeQuantity += calData.consumeQuantity as int;
           }
         }
 
@@ -221,6 +236,12 @@ class BalanceRentalReportController extends GetxController {
     sumDeposit = 0;
     sumBalance = 0;
     sumMargin = 0;
+    sumLongRent = 0;
+    sumShortRent = 0;
+    sumTotalRent = 0;
+    sumTotalBalance = 0;
+    sumRentQuantity = 0;
+    sumConsumeQuantity = 0;
 
     controllerBalanceRentalReport = null;
   }
