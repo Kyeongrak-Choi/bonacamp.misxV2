@@ -128,7 +128,7 @@ const Map<String, String> koKR = {
   'menu_sub_achievement' : '목표대비 실적현황',
   'menu_sub_balance_report': '채권현황',
   'menu_sub_balance_rental_report': '채권 및 대여 현황',
-  'title_18': '매출 및 대여 원장',
+  'menu_sub_sales_rental_ledger': '매출 및 대여 원장',
 
   'menu_main_purchase': '매입분석',
   'title_19': '매입현황',

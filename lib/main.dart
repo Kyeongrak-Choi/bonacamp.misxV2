@@ -36,6 +36,7 @@ import 'layouts/menu/sales/balance_report.dart';
 import 'layouts/menu/sales/customer_info.dart';
 import 'layouts/menu/sales/customer_report_monthly.dart';
 import 'layouts/menu/sales/sales_ledger.dart';
+import 'layouts/menu/sales/sales_rental_ledger.dart';
 import 'layouts/menu/sales/salesperson_report.dart';
 
 void main() async {
@@ -111,7 +112,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_ACHIEVEMENT, page: () => Achievement()), // 목표대비 실적현황
         GetPage(name: ROUTE_MENU_BALANCE_REPORT, page: () => BanlanceReport()), // 채권현황
         GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BanlanceRentalReport()), // 채권 및 대여 현황
-        // GetPage(name: , page: () =>), // 매출 및 대여 원장
+        GetPage(name: ROUTE_MENU_SALES_RENTAL_LEDGER, page: () => SalesRentalLedger()), // 매출 및 대여 원장
 
         // 매입분석
         // GetPage(name: , page: () =>), // 매입현황

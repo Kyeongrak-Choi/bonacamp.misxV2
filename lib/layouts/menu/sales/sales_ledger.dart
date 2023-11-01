@@ -15,7 +15,11 @@ import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
+import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/sales_ledger_item.dart';
+import '../../../models/menu/sales/sales_ledger/sales_ledger_details_model.dart';
+import '../../../models/menu/sales/sales_ledger/sales_ledger_list_model.dart';
 import '../../../models/menu/sales/sales_ledger/sales_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -67,8 +71,35 @@ class SalesLedger extends StatelessWidget {
                   ),
                 ),
               ),
+              Visibility(
+                visible: !Get.find<SalesLedgerController>().visible.value,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: context.theme.cardColor,
+                    borderRadius: BorderRadius.circular(20),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                    child: Column(
+                      children: [
+                        SumTitleTable('기간 매출 원장 합계'),
+                        SumItemTable('BOX / EA', numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity) + ' / '
+                            + numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
+                            '매출액', numberFormat.format(Get.find<SalesLedgerController>().sumTotal)),
+                        SumItemTable('공급가', numberFormat.format(Get.find<SalesLedgerController>().sumPrice), '합계',
+                            numberFormat.format(Get.find<SalesLedgerController>().sumAmount)),
+                        SumItemTable('보증금', numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee), '입금액',
+                            numberFormat.format(Get.find<SalesLedgerController>().sumDeposit)),
+                        SumItemTable(null,null,
+                            '채권잔액', numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(
-                height: Get.find<SalesLedgerController>().visible.value ? 20 : 0,
+                height: 20,
               ),
               Expanded(
                 child: Container(
@@ -105,6 +136,16 @@ class SalesLedgerController extends GetxController {
   var controllerSalesLedger;
 
   var visible = true.obs;
+
+  int sumBoxQuantity = 0;
+  int sumBottleQuantity = 0;
+  int sumTotal = 0;
+  int sumPrice = 0;
+  int sumAmount = 0;
+  int sumGuarantee = 0;
+  int sumDeposit = 0;
+  int sumBalance = 0;
+
 
   setVisible() async {
     visible.value = !visible.value;
@@ -156,7 +197,21 @@ class SalesLedgerController extends GetxController {
           clearValue();
 
           controllerSalesLedger = SalesLedgerModel.fromJson(parsedSalesLedger);
+
+          for (SalesLedgerListModel listData in controllerSalesLedger.dateList){
+            for (SalesLedgerDetailsModel detailData in listData.details){
+              sumBoxQuantity += detailData.boxQuantity as int;
+              sumBottleQuantity += detailData.bottleQuantity as int;
+              sumTotal += detailData.total as int;
+              sumPrice += detailData.price as int;
+              sumAmount += detailData.amount as int;
+              sumGuarantee += detailData.guarantee as int;
+              sumDeposit += detailData.deposit as int;
+              sumBalance += detailData.balance as int;
+            }
+          }
         }
+
 
         Get.find<SalesLedgerController>().setVisible();
         update();
@@ -172,6 +227,15 @@ class SalesLedgerController extends GetxController {
   }
 
   void clearValue() {
+    sumBoxQuantity = 0;
+    sumBottleQuantity = 0;
+    sumTotal = 0;
+    sumPrice = 0;
+    sumAmount = 0;
+    sumGuarantee = 0;
+    sumDeposit = 0;
+    sumBalance = 0;
+
     controllerSalesLedger = null;
   }
 }
