@@ -131,7 +131,7 @@ const Map<String, String> koKR = {
   'title_18': '매출 및 대여 원장',
 
   'menu_main_purchase': '매입분석',
-  'title_19': '매입현황',
+  'menu_sub_purchase_report': '매입현황',
   'title_20': '매입원장',
 
   'menu_main_rental': '지원현황',

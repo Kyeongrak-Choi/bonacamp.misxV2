@@ -12,6 +12,7 @@ import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../layouts/menu/purchase/purchase_report.dart';
 import '../../../layouts/menu/sales/balance_rental_report.dart';
 import '../../../layouts/menu/sales/balance_report.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
@@ -137,6 +138,16 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 채권 및 대여 현황
                       case ROUTE_MENU_BALANCE_RENTAL_REPORT:
                         await Get.find<BalanceRentalReportController>().showResult();
+                        break;
+
+
+
+
+
+
+                      // 매입분석 - 매입현황
+                      case ROUTE_MENU_PURCHASE_REPORT:
+                        await Get.find<PurchaseReportController>().showResult();
                         break;
                     }
                   } catch (e) {

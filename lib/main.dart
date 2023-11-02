@@ -8,6 +8,7 @@ import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
 import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
+import 'package:misxV2/layouts/menu/purchase/purchase_report.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/sales/customer_report.dart';
 import 'package:misxV2/layouts/menu/sales/salesperson_report_monthly.dart';
@@ -114,7 +115,7 @@ class Misx extends StatelessWidget {
         // GetPage(name: , page: () =>), // 매출 및 대여 원장
 
         // 매입분석
-        // GetPage(name: , page: () =>), // 매입현황
+        GetPage(name: ROUTE_MENU_PURCHASE_REPORT, page: () => PurchaseReport()), // 매입현황
         // GetPage(name: , page: () =>), // 매입원장
 
         // 지원현황
