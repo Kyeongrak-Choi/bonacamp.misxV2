@@ -153,6 +153,11 @@ class PurchaseLedgerController extends GetxController {
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramPurchaseCode = Get.find<OptionDialogPurchaseController>().paramCode;
 
+    if (paramPurchaseCode == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, '매입처를 선택해주세요.');
+      return;
+    }
+
     var param = user.getClientCode;
     var parsedPurchaseLedger;
 
