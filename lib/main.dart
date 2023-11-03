@@ -32,6 +32,7 @@ import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
 import 'layouts/menu/management/sales_daily.dart';
 import 'layouts/menu/management/sales_daily_division.dart';
+import 'layouts/menu/purchase/purchase_ledger.dart';
 import 'layouts/menu/sales/balance_rental_report.dart';
 import 'layouts/menu/sales/balance_report.dart';
 import 'layouts/menu/sales/customer_info.dart';
@@ -116,7 +117,7 @@ class Misx extends StatelessWidget {
 
         // 매입분석
         GetPage(name: ROUTE_MENU_PURCHASE_REPORT, page: () => PurchaseReport()), // 매입현황
-        // GetPage(name: , page: () =>), // 매입원장
+        GetPage(name: ROUTE_MENU_PURCHASE_LEDGER, page: () => PurchaseLedger()), // 매입원장
 
         // 지원현황
         // GetPage(name: , page: () =>), // 대여금 현황
