@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/menu/management/sales_daily_model.dart';
 import '../../../models/menu/sales/sales_rental_ledger_model.dart';
 import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/icon_title_two_field.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesRentalLedgerItem extends StatelessWidget {

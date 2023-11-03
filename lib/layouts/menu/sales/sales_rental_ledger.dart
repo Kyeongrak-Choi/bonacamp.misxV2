@@ -5,22 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_two_content.dart';
-import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
-import '../../../components/datatable/management/sales_daily_Item.dart';
 import '../../../components/datatable/sales/sales_rental_ledger_Item.dart';
-import '../../../models/menu/management/sales_daily_model.dart';
 import '../../../models/menu/sales/sales_rental_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
@@ -71,9 +65,6 @@ class SalesRentalLedger extends StatelessWidget {
                       ),
                     ),
                   )),
-              SizedBox(
-                height: Get.find<SalesRentalLedgerController>().visible.value ? 20 : 0,
-              ),
               Visibility(
                 visible: !Get.find<SalesRentalLedgerController>().visible.value,
                 child: Container(
@@ -101,7 +92,7 @@ class SalesRentalLedger extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: !Get.find<SalesRentalLedgerController>().visible.value ? 20 : 0,
+                height: 20,
               ),
               Expanded(
                 child: Container(
@@ -184,8 +175,6 @@ class SalesRentalLedgerController extends GetxController {
           paramCustomerCode
       );
 
-      int i = 0;
-
       if (response.statusCode == 200) {
         if ((parsedsalesRentalLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
@@ -199,7 +188,7 @@ class SalesRentalLedgerController extends GetxController {
             sumPrice += calData.price as int;
             sumAmount += calData.amount as int;
             sumDeposit += calData.deposit as int;
-            sumBalance = calData.balance as int;
+            //sumBalance = calData.balance as int;
             sumLongRent = calData.longRent as int;
             sumShortRent = calData.shortRent as int;
             sumTotalRent = calData.totalRent as int;
