@@ -128,13 +128,13 @@ class SalesClassStatusController extends GetxController {
 
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_CLASSSTATUS +
-          '?branch-code=' +
+          '?branch=' +
           paramBranchCode +
-          '&from-date=' +
+          '&from=' +
           paramFromDate +
-          '&to-date=' +
+          '&to=' +
           paramToDate +
-          '&customer-code=' +
+          '&customer=' +
           paramCode);
 
       if (response.statusCode == 200) {

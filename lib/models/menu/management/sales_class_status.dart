@@ -11,14 +11,14 @@ class SalesClassStatusModel {
   String? boxQuantity; // 상자수량
   String? bottleQuantity; // 병수량
   String? supplementAmount; // 공급가
-  String? totalAmount; // 총금액
+  String? total; // 총금액
   String? purchaseAmount; // 매출원가
   String? profitAmount; // 마진액
   String? profitRate; // 마진율
   String? profitStandard; // 마진액 기준
   int? id;
 
-  SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.totalAmount,
+  SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.total,
       this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,
       {this.id});
 
@@ -29,7 +29,7 @@ class SalesClassStatusModel {
       'box-quantity': boxQuantity,
       'bottle-quantity': bottleQuantity,
       'supplement-amount': supplementAmount,
-      'total-amount': totalAmount,
+      'total': total,
       'purchase-amount': purchaseAmount,
       'profit-amount': profitAmount,
       'profit-rate': profitRate,
@@ -52,7 +52,7 @@ List<SalesClassStatusModel> generateList(dataList, count) {
           dataList[index].boxQuantity,
           dataList[index].bottleQuantity,
           f.format(int.parse(dataList[index].supplementAmount ?? '0')),
-          f.format(int.parse(dataList[index].totalAmount ?? '0')),
+          f.format(int.parse(dataList[index].total ?? '0')),
           f.format(int.parse(dataList[index].purchaseAmount ?? '0')),
           f.format(int.parse(dataList[index].profitAmount ?? '0')),
           dataList[index].profitRate,

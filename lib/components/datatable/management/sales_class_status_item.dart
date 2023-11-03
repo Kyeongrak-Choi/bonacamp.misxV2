@@ -42,7 +42,7 @@ class SalesClassStatusItem extends StatelessWidget {
                   ),
                   IconTitleField(
                     titleName: '매출액',
-                    value: model.totalAmount,
+                    value: model.total,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleField(
