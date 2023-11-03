@@ -188,7 +188,7 @@ class SalesRentalLedgerController extends GetxController {
             sumPrice += calData.price as int;
             sumAmount += calData.amount as int;
             sumDeposit += calData.deposit as int;
-            //sumBalance = calData.balance as int;
+            sumBalance = calData.balance as int;
             sumLongRent = calData.longRent as int;
             sumShortRent = calData.shortRent as int;
             sumTotalRent = calData.totalRent as int;
