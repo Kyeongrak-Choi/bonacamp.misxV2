@@ -7,16 +7,16 @@ part of 'sales_class_status.dart';
 // **************************************************************************
 
 SalesClassStatusModel _$SalesClassStatusModelFromJson(Map<String, dynamic> json) => SalesClassStatusModel(
-      json['sales-class-code'] as String?,
-      json['sales-class-name'] as String?,
-      json['box-quantity'] as String?,
-      json['bottle-quantity'] as String?,
-      json['supplement-amount'] as String?,
-      json['total'] as String?,
-      json['purchase-amount'] as String?,
-      json['profit-amount'] as String?,
-      json['profit-rate'] as String?,
-      json['profit-standard'] as String?,
+      json['sales-class-code'],
+      json['sales-class-name'],
+      json['box-quantity'],
+      json['bottle-quantity'],
+      json['supplement-amount'],
+      json['total'],
+      json['purchase-amount'],
+      json['profit-amount'],
+      json['profit-rate'],
+      json['profit-standard'],
     );
 
 Map<String, dynamic> _$SalesClassStatusModelToJson(SalesClassStatusModel instance) => <String, dynamic>{
