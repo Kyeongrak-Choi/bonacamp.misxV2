@@ -157,7 +157,7 @@ class SalesPersonReportController extends GetxController {
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
-    List parsedSalesPersonReportSales;
+    var parsedSalesPersonReportSales;
 
     try {
       dio = await reqApi(param);
@@ -178,15 +178,13 @@ class SalesPersonReportController extends GetxController {
           paramTypeCode);
 
       if (response.statusCode == 200) {
-        sumTotal = 0;
-        sumPrice = 0;
-        sumAmount = 0;
-        sumDeposit = 0;
-        sumBalance = 0;
-        sumMargin = 0;
-
-        parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-        controllerSalesPersonReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportModel.fromJson(dataJson)).toList();
+        if ((parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        } else {
+          clearValue();
+          controllerSalesPersonReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportModel.fromJson(dataJson)).toList();
+        }
 
         for (SalesPersonReportModel calData in controllerSalesPersonReport) {
           sumTotal += calData.total as int;
@@ -209,4 +207,16 @@ class SalesPersonReportController extends GetxController {
       print("other error");
     }
   }
+
+  void clearValue() {
+    sumTotal = 0;
+    sumPrice = 0;
+    sumAmount = 0;
+    sumDeposit = 0;
+    sumBalance = 0;
+    sumMargin = 0;
+
+    controllerSalesPersonReport = null;
+  }
+
 }
