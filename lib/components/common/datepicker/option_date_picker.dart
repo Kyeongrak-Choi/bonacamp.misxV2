@@ -26,20 +26,26 @@ class OptionDatePicker extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Obx(
-                    () => TextButton(
-                      onPressed: () => Get.find<DatePickerController>().chooseDate(),
-                      child: Text(
-                        DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                        style: context.textTheme.bodyMedium,
+                  Expanded(
+                    flex: 7,
+                    child: Obx(
+                      () => TextButton(
+                        onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                        child: Text(
+                          DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                          style: context.textTheme.bodyMedium,
+                        ),
                       ),
                     ),
                   ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<DatePickerController>().chooseDate();
-                      },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<DatePickerController>().chooseDate();
+                        },
+                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                  )
                 ],
               ),
             ),
