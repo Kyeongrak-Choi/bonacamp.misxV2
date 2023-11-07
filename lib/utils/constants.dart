@@ -133,7 +133,7 @@ const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/serve/sales-distination'; // 매�
 const API_MANAGEMENT_CLASSSTATUS = '/serve/sales-class'; // 판매분류별 현황
 const API_MANAGEMENT_RANKSTATUS = '/sales-rank-rep'; // 매출순위현황
 const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
-const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division'; // 영업일보(용도별)
 
 // sales (영업분석)
 const API_SALES = '/v1/views/sales';

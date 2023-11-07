@@ -255,13 +255,13 @@ class SalesDailyDivisionController extends GetxController {
         continue;
       }
       if (tmpObject.usageCode == '1') {
-        tmpNormalBoxSum += int.parse(tmpObject.boxQuantity ?? '0');
-        tmpNormalBottleSum += int.parse(tmpObject.bottleQuantity ?? '0');
-        tmpNormalAmountSum += int.parse(tmpObject.amount ?? '0');
+        tmpNormalBoxSum += tmpObject.boxQuantity as int;
+        tmpNormalBottleSum += tmpObject.bottleQuantity as int;
+        tmpNormalAmountSum += tmpObject.amount as int;
       } else if (tmpObject.usageCode == '2') {
-        tmpPleasureBoxSum += int.parse(tmpObject.boxQuantity ?? '0');
-        tmpPleasureBottleSum += int.parse(tmpObject.bottleQuantity ?? '0');
-        tmpPleasureAmountSum += int.parse(tmpObject.amount ?? '0');
+        tmpPleasureBoxSum += tmpObject.boxQuantity as int;
+        tmpPleasureBottleSum += tmpObject.bottleQuantity as int;
+        tmpPleasureAmountSum += tmpObject.amount as int;
       }
     }
 
@@ -276,15 +276,15 @@ class SalesDailyDivisionController extends GetxController {
     totBottleSum = (tmpPleasureBottleSum + tmpNormalBottleSum).toString();
     totAmountSum = numberFormat.format((tmpPleasureAmountSum + tmpNormalAmountSum));
 
-    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity ?? '0';
-    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity ?? '0';
-    pleasureAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].pleasureTotalAmount ?? '0'));
-    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity ?? '0';
-    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity ?? '0';
-    normalAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].normalTotalAmount ?? '0'));
-    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity ?? '0';
-    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity ?? '0';
-    totAmountQuantity = numberFormat.format(int.parse(salesDailyDivisionList[0].totalAmount ?? '0'));
+    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity.toString();
+    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity.toString();
+    pleasureAmountQuantity = numberFormat.format(salesDailyDivisionList[0].pleasureTotalAmount);
+    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity.toString();
+    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity.toString();
+    normalAmountQuantity = numberFormat.format(salesDailyDivisionList[0].normalTotalAmount);
+    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity.toString();
+    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity.toString();
+    totAmountQuantity = numberFormat.format(salesDailyDivisionList[0].totalAmount);
 
     update();
   }
@@ -305,18 +305,25 @@ class SalesDailyDivisionController extends GetxController {
       dio = await reqApi(param);
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_DIVISIONSTATUS +
-          '?branch-code=' +
+          '?branch=' +
           paramNodeCd +
-          '&search-date=' +
+          '&search=' +
           paramDt +
-          '&employee-code=' +
+          '&sales-rep=' +
           paramEmployeeCode +
-          '&team-code=' +
+          '&team=' +
           paramTeamCode);
 
       if (response.statusCode == 200) {
-        dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
-        salesDailyDivisionList = dataObjsJson.map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson)).toList();
+        if((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        }
+        else {
+          clearValue();
+          salesDailyDivisionList = dataObjsJson.map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson)).toList();
+        }
+
         Get.find<SalesDailyDivisionController>().setVisible();
         update();
       }
@@ -328,4 +335,9 @@ class SalesDailyDivisionController extends GetxController {
       print("other error");
     }
   }
+
+  void clearValue() {
+    salesDailyDivisionList = null;
+  }
+
 }
