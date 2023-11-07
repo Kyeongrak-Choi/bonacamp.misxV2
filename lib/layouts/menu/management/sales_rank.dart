@@ -133,9 +133,9 @@ class SalesRankController extends GetxController {
           paramFromDate +
           '&to=' +
           paramToDate +
-          '&employee-code=' +
+          '&employee=' +
           paramEmployeeCode +
-          '&view-code=' +
+          '&view=' +
           paramManagementCode);
 
       if (response.statusCode == 200) {
