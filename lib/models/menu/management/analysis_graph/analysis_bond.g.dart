@@ -7,9 +7,9 @@ part of 'analysis_bond.dart';
 // **************************************************************************
 
 AnalysisBondModel _$AnalysisBondModelFromJson(Map<String, dynamic> json) => AnalysisBondModel(
-      json['searchDate'] as String?,
-      json['dateName'] as String?,
-      json['amount'] as String?,
+      json['searchDate'],
+      json['dateName'],
+      json['amount'],
     );
 
 Map<String, dynamic> _$AnalysisBondModelToJson(AnalysisBondModel instance) => <String, dynamic>{

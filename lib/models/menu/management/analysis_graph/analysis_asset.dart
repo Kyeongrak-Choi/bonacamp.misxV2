@@ -4,9 +4,9 @@ part 'analysis_asset.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class AnalysisAssetModel {
-  String? searchDate; // 연월
-  String? dateName; // 연월명
-  String? amount; // 매입액
+  var searchDate; // 연월
+  var dateName; // 연월명
+  var amount; // 매입액
 
   AnalysisAssetModel(this.searchDate, this.dateName, this.amount);
 

@@ -7,9 +7,9 @@ part of 'analysis_debt.dart';
 // **************************************************************************
 
 AnalysisDebtModel _$AnalysisDebtModelFromJson(Map<String, dynamic> json) => AnalysisDebtModel(
-      json['searchDate'] as String?,
-      json['dateName'] as String?,
-      json['amount'] as String?,
+      json['searchDate'],
+      json['dateName'],
+      json['amount'],
     );
 
 Map<String, dynamic> _$AnalysisDebtModelToJson(AnalysisDebtModel instance) => <String, dynamic>{
