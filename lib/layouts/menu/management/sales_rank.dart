@@ -133,7 +133,7 @@ class SalesRankController extends GetxController {
           paramFromDate +
           '&to=' +
           paramToDate +
-          '&employee=' +
+          '&sales-rep=' +
           paramEmployeeCode +
           '&view=' +
           paramManagementCode);
