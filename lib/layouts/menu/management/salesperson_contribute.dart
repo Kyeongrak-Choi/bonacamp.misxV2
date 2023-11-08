@@ -125,15 +125,13 @@ class SalesPersonContributeController extends GetxController {
       log('paramNodeCd :' + paramNodeCd);
 
       if (response.statusCode == 200) {
-        if((parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+        if ((parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
-        }
-        else {
+        } else {
           clearValue();
           controllerModel = SalesPersonContributeModel.fromJson(parsedData);
         }
-        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
 
         Get.find<SalesPersonContributeController>().setVisible();
         update();

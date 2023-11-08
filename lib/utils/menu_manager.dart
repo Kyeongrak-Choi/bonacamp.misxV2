@@ -113,8 +113,8 @@ final List<IconMenu> salesAnalysisMaster = [
 
 // 매입분석
 final List<IconMenu> purchaseAnalysisMaster = [
-  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ''), // 매입현황
-  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ''), // 매입원장
+  IconMenu(title: 'menu_sub_purchase_report'.tr, iconData: CupertinoIcons.cart, path: ROUTE_MENU_PURCHASE_REPORT), // 매입현황
+  IconMenu(title: 'menu_sub_purchase_ledger'.tr, iconData: FontAwesomeIcons.cartArrowDown, path: ROUTE_MENU_PURCHASE_LEDGER), // 매입원장
 ];
 
 // 지원현황

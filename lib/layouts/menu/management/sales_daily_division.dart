@@ -71,25 +71,6 @@ class SalesDailyDivision extends StatelessWidget {
                   SizedBox(
                     height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: context.theme.cardColor,
@@ -97,7 +78,7 @@ class SalesDailyDivision extends StatelessWidget {
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(20),
+                      padding: EdgeInsetsDirectional.all(10),
                       child: Column(
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -174,7 +155,29 @@ class SalesDailyDivision extends StatelessWidget {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
                 ],
               ),
             ),

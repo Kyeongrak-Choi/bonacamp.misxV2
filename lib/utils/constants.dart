@@ -57,6 +57,8 @@ const ROUTE_MENU_BALANCE_RENTAL_REPORT = '/rent-debt'; // 채권 및 대여 현�
 const ROUTE_MENU_SALES_RENTAL_LEDGER = '/rent-ledger'; // 매출 및 대여 원장
 
 // purchase (매입분석)
+const ROUTE_MENU_PURCHASE_REPORT = '/purchase-report'; // 매입현황
+const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 
 // support (지원현황)
 
@@ -151,6 +153,10 @@ const API_SALES_BALANCERENTALREPORT = '/rent-debt'; // 채권 및 대여 현황
 const API_SALES_SALESRENTALLEDGER = '/rent-ledger'; // 매출 및 대여 원장
 
 // purchase (매입분석)
+const API_PURCHASE = '/v1/views/purchase';
+const API_PURCHASE_REPORT = '/report'; // 매입현황
+const API_PURCHASE_LEDGER = '/ledger'; // 매입원장
+
 
 // support (지원현황)
 
