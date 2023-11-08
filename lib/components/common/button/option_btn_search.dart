@@ -145,6 +145,7 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 매출 및 대여 원장
                       case ROUTE_MENU_SALES_RENTAL_LEDGER:
                         await Get.find<SalesRentalLedgerController>().showResult();
+                        break;
 
                       // 매입분석 - 매입현황
                       case ROUTE_MENU_PURCHASE_REPORT:
