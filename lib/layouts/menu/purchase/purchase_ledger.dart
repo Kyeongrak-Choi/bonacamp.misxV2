@@ -6,41 +6,38 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/combobox/option_two_content.dart';
-import '../../../components/common/dialog/customer/option_dialog_customer.dart';
+import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
-import '../../../components/datatable/sales/sales_ledger_item.dart';
-import '../../../models/menu/sales/sales_ledger/sales_ledger_details_model.dart';
-import '../../../models/menu/sales/sales_ledger/sales_ledger_list_model.dart';
-import '../../../models/menu/sales/sales_ledger/sales_ledger_model.dart';
+import '../../../components/datatable/purchase/purchase_ledger_item.dart';
+import '../../../models/menu/purchase/purchase_ledger/purchase_ledger_details_model.dart';
+import '../../../models/menu/purchase/purchase_ledger/purchase_ledger_list_model.dart';
+import '../../../models/menu/purchase/purchase_ledger/purchase_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
 
-class SalesLedger extends StatelessWidget {
+class PurchaseLedger extends StatelessWidget {
   @override
   Widget build(context) {
-    Get.put(SalesLedgerController());
+    Get.put(PurchaseLedgerController());
     return Obx(() => Scaffold(
       appBar: AppBar(
-          title: Text('menu_sub_sales_ledger'.tr),
+          title: Text('menu_sub_purchase_ledger'.tr),
           titleTextStyle: context.textTheme.displayLarge,
           backgroundColor: context.theme.canvasColor,
           iconTheme: context.theme.iconTheme,
           actions: [
             IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesLedgerController>().visible.value),
+              icon: OptionBtnVisible(visible: Get.find<PurchaseLedgerController>().visible.value),
               onPressed: () {
-                Get.find<SalesLedgerController>().setVisible();
+                Get.find<PurchaseLedgerController>().setVisible();
               },
             ),
           ]),
@@ -51,7 +48,7 @@ class SalesLedger extends StatelessWidget {
           child: Column(
             children: [
               Visibility(
-                visible: Get.find<SalesLedgerController>().visible.value,
+                visible: Get.find<PurchaseLedgerController>().visible.value,
                 child: Container(
                   decoration: BoxDecoration(
                     color: context.theme.cardColor,
@@ -63,16 +60,16 @@ class SalesLedger extends StatelessWidget {
                     child: Column(
                       children: [
                         OptionPeriodPicker(),
-                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                        OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
+                        OptionCbBranch(),
+                        OptionDialogPurchase(),
+                        OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
                       ],
                     ),
                   ),
                 ),
               ),
               Visibility(
-                visible: !Get.find<SalesLedgerController>().visible.value,
+                visible: !Get.find<PurchaseLedgerController>().visible.value,
                 child: Container(
                   decoration: BoxDecoration(
                     color: context.theme.cardColor,
@@ -83,16 +80,15 @@ class SalesLedger extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                     child: Column(
                       children: [
-                        SumTitleTable('기간 매출 원장 합계'),
-                        SumItemTable('BOX / EA', numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity) + ' / '
-                            + numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
-                            '매출액', numberFormat.format(Get.find<SalesLedgerController>().sumTotal)),
-                        SumItemTable('공급가', numberFormat.format(Get.find<SalesLedgerController>().sumPrice), '합계',
-                            numberFormat.format(Get.find<SalesLedgerController>().sumAmount)),
-                        SumItemTable('보증금', numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee), '입금액',
-                            numberFormat.format(Get.find<SalesLedgerController>().sumDeposit)),
-                        SumItemTable(null,null,
-                            '채권잔액', numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
+                        SumTitleTable('기간 매입 합계'),
+                        SumItemTable('BOX/EA',
+                            numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity) + ' / ' +
+                            numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                            '매입액', numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal)),
+                        SumItemTable('공급가', numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                            '출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw)),
+                        SumItemTable(null, null,
+                            '채무잔액', numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
                       ],
                     ),
                   ),
@@ -124,16 +120,16 @@ class SalesLedger extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<SalesLedgerController>().controllerSalesLedger != null) {
-      return SalesLedgerItem(Get.find<SalesLedgerController>().controllerSalesLedger);
+    if (Get.find<PurchaseLedgerController>().controllerPurchaseLedger != null) {
+      return PurchaseLedgerItem(Get.find<PurchaseLedgerController>().controllerPurchaseLedger);
     } else {
       return EmptyWidget();
     }
   }
 }
 
-class SalesLedgerController extends GetxController {
-  var controllerSalesLedger;
+class PurchaseLedgerController extends GetxController {
+  var controllerPurchaseLedger;
 
   var visible = true.obs;
 
@@ -141,11 +137,8 @@ class SalesLedgerController extends GetxController {
   int sumBottleQuantity = 0;
   int sumTotal = 0;
   int sumPrice = 0;
-  int sumAmount = 0;
-  int sumGuarantee = 0;
-  int sumDeposit = 0;
+  int sumWithdraw = 0;
   int sumBalance = 0;
-
 
   setVisible() async {
     visible.value = !visible.value;
@@ -158,62 +151,54 @@ class SalesLedgerController extends GetxController {
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramPurchaseCode = Get.find<OptionDialogPurchaseController>().paramCode;
 
-    if (paramCustomerCode == '') {
-      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+    if (paramPurchaseCode == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, '매입처를 선택해주세요.');
       return;
     }
 
     var param = user.getClientCode;
-    var parsedSalesLedger;
+    var parsedPurchaseLedger;
 
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES +
-          API_SALES_SALESLEDGER +
+      final response = await dio.get(API_PURCHASE +
+          API_PURCHASE_LEDGER +
           '?branch=' +
           paramBranchCode +
           '&from=' +
           paramFromDate +
           '&to=' +
           paramToDate +
-          '&customer=' +
-          paramCustomerCode +
-          '&sales-rep=' +
-          paramEmployeeCode +
-          '&manager=' +
-          paramManagementCode
+          '&code=' +
+          paramPurchaseCode
           );
 
       if (response.statusCode == 200) {
-        if ((parsedSalesLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+        if ((parsedPurchaseLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerSalesLedger = SalesLedgerModel.fromJson(parsedSalesLedger);
+          controllerPurchaseLedger = PurchaseLedgerModel.fromJson(parsedPurchaseLedger);
 
-          for (SalesLedgerListModel listData in controllerSalesLedger.dateList){
-            for (SalesLedgerDetailsModel detailData in listData.details){
-              sumBoxQuantity += detailData.boxQuantity as int;
-              sumBottleQuantity += detailData.bottleQuantity as int;
-              sumTotal += detailData.total as int;
-              sumPrice += detailData.price as int;
-              sumAmount += detailData.amount as int;
-              sumGuarantee += detailData.guarantee as int;
-              sumDeposit += detailData.deposit as int;
-              sumBalance += detailData.balance as int;
+          sumBalance = controllerPurchaseLedger.balance;
+
+          for (PurchaseLedgerListModel calData in controllerPurchaseLedger.dateList) {
+            for (PurchaseLedgerDetailsModel details in calData.details) {
+              sumBoxQuantity += details.boxQuantity as int;
+              sumBottleQuantity += details.bottleQuantity as int;
+              sumTotal += details.total as int;
+              sumPrice += details.price as int;
+              sumWithdraw += details.withdraw as int;
             }
           }
         }
 
-
-        Get.find<SalesLedgerController>().setVisible();
+        Get.find<PurchaseLedgerController>().setVisible();
         update();
       }
     } on DioException catch (e) {
@@ -231,11 +216,9 @@ class SalesLedgerController extends GetxController {
     sumBottleQuantity = 0;
     sumTotal = 0;
     sumPrice = 0;
-    sumAmount = 0;
-    sumGuarantee = 0;
-    sumDeposit = 0;
+    sumWithdraw = 0;
     sumBalance = 0;
 
-    controllerSalesLedger = null;
+    controllerPurchaseLedger = null;
   }
 }

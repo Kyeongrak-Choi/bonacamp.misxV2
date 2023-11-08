@@ -125,8 +125,14 @@ class SalesPersonContributeController extends GetxController {
       log('paramNodeCd :' + paramNodeCd);
 
       if (response.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
-        controllerModel = SalesPersonContributeModel.fromJson(parsedData);
+        if ((parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        } else {
+          clearValue();
+          controllerModel = SalesPersonContributeModel.fromJson(parsedData);
+        }
+
         Get.find<SalesPersonContributeController>().setVisible();
         update();
       }
@@ -138,5 +144,9 @@ class SalesPersonContributeController extends GetxController {
       print(e.toString());
       print("other error");
     }
+  }
+
+  void clearValue() {
+    controllerModel = null;
   }
 }

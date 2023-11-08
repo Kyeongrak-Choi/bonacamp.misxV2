@@ -108,13 +108,13 @@ final List<IconMenu> salesAnalysisMaster = [
   IconMenu(title: 'menu_sub_achievement'.tr, iconData: Icons.flag_outlined, path: ROUTE_MENU_ACHIEVEMENT), // 목표대비 실적현황
   IconMenu(title: 'menu_sub_balance_report'.tr, iconData: CupertinoIcons.doc_text, path: ROUTE_MENU_BALANCE_REPORT), // 채권현황
   IconMenu(title: 'menu_sub_balance_rental_report'.tr, iconData: FontAwesomeIcons.peopleArrows, path: ROUTE_MENU_BALANCE_RENTAL_REPORT), // 채권 및 대여 현황
-  IconMenu(title: 'title_18'.tr, iconData: Icons.copy_outlined, path: ''), // 매출 및 대여 원장
+  IconMenu(title: 'menu_sub_sales_rental_ledger'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_SALES_RENTAL_LEDGER), // 매출 및 대여 원장
 ];
 
 // 매입분석
 final List<IconMenu> purchaseAnalysisMaster = [
-  IconMenu(title: 'title_19'.tr, iconData: Icons.copy_outlined, path: ''), // 매입현황
-  IconMenu(title: 'title_20'.tr, iconData: Icons.copy_outlined, path: ''), // 매입원장
+  IconMenu(title: 'menu_sub_purchase_report'.tr, iconData: CupertinoIcons.cart, path: ROUTE_MENU_PURCHASE_REPORT), // 매입현황
+  IconMenu(title: 'menu_sub_purchase_ledger'.tr, iconData: FontAwesomeIcons.cartArrowDown, path: ROUTE_MENU_PURCHASE_LEDGER), // 매입원장
 ];
 
 // 지원현황

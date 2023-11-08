@@ -32,17 +32,17 @@ class SalesClassStatusItem extends StatelessWidget {
                 children: [
                   IconTitleField(
                     titleName: 'BOX',
-                    value: model.boxQuantity,
+                    value: model.boxQuantity.toString(),
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleField(
                     titleName: 'EA',
-                    value: model.bottleQuantity,
+                    value: model.bottleQuantity.toString(),
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleField(
                     titleName: '매출액',
-                    value: model.totalAmount,
+                    value: model.total,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleField(
@@ -62,7 +62,7 @@ class SalesClassStatusItem extends StatelessWidget {
                   ),
                   IconTitleField(
                     titleName: '마진율',
-                    value: model.profitRate,
+                    value: model.profitRate.toString(),
                     iconData: Icons.label_outlined,
                   ),
                 ],

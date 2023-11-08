@@ -12,7 +12,7 @@ class CustomerContributeModel {
   String? managementTotalAmount; // 구분값 (1:일 / 2:월)
   String? financeAmount; // 구분명
   String? assetFixAmount; // 공급가
-  String? costTotalAmount; // 부가세
+  String? total; // 부가세
   String? bondBalance; // 공병보증금
   String? rentalBalance; // 총합계
   String? rentalAmount; // 매출원가
@@ -21,8 +21,8 @@ class CustomerContributeModel {
   String? customerCount; // 현금입금
   String? managementAmount; // 용기,공병입금
   String? consumptionAssetQuantity; // 입금합계
-  String? transactionStartDate; // 전월/금일채권잔액
-  String? transactionLastDate; // 전월/금일채권잔액
+  String? startDate; // 전월/금일채권잔액
+  String? lastDate; // 전월/금일채권잔액
 
   CustomerContributeModel(
     this.supplementAmount,
@@ -32,7 +32,7 @@ class CustomerContributeModel {
     this.managementTotalAmount,
     this.financeAmount,
     this.assetFixAmount,
-    this.costTotalAmount,
+    this.total,
     this.bondBalance,
     this.rentalBalance,
     this.rentalAmount,
@@ -41,8 +41,8 @@ class CustomerContributeModel {
     this.customerCount,
     this.managementAmount,
     this.consumptionAssetQuantity,
-    this.transactionStartDate,
-    this.transactionLastDate,
+    this.startDate,
+    this.lastDate,
   );
 
   Map<String, dynamic> toMap() {
@@ -54,7 +54,7 @@ class CustomerContributeModel {
       'management-total-amount': managementTotalAmount,
       'finance-amount': financeAmount,
       'asset-fix-amount': assetFixAmount,
-      'cost-total-amount': costTotalAmount,
+      'total': total,
       'bond-balance': bondBalance,
       'rental-balance': rentalBalance,
       'rental-amount': rentalAmount,
@@ -63,8 +63,8 @@ class CustomerContributeModel {
       'customer-count': customerCount,
       'management-amount': managementAmount,
       'consumption-asset-quantity': consumptionAssetQuantity,
-      'transaction-start-date': transactionStartDate,
-      'transaction-last-date': transactionLastDate,
+      'start-date': startDate,
+      'last-date': lastDate,
     };
   }
 
@@ -114,10 +114,10 @@ class CustomerContributeModel {
     assetFixAmount = value;
   }
 
-  String? get getCostTotalAmount => costTotalAmount;
+  String? get getCostTotal => total;
 
-  set setCostTotalAmount(String value) {
-    costTotalAmount = value;
+  set setCostTotal(String value) {
+    total = value;
   }
 
   String? get getBondBalance => bondBalance;
@@ -168,15 +168,15 @@ class CustomerContributeModel {
     consumptionAssetQuantity = value;
   }
 
-  String? get getTransactionStartDate => transactionStartDate;
+  String? get getStartDate => startDate;
 
-  set setTransactionStartDate(String value) {
-    transactionStartDate = value;
+  set setStartDate(String value) {
+    startDate = value;
   }
 
-  String? get getTransactionLastDate => transactionLastDate;
+  String? get getLastDate => lastDate;
 
-  set setTransactionLastDate(String value) {
-    transactionLastDate = value;
+  set setLastDate(String value) {
+    lastDate = value;
   }
 }

@@ -54,8 +54,11 @@ const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
 const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const ROUTE_MENU_BALANCE_REPORT = '/debt'; // 채권현황
 const ROUTE_MENU_BALANCE_RENTAL_REPORT = '/rent-debt'; // 채권 및 대여 현황
+const ROUTE_MENU_SALES_RENTAL_LEDGER = '/rent-ledger'; // 매출 및 대여 원장
 
 // purchase (매입분석)
+const ROUTE_MENU_PURCHASE_REPORT = '/purchase-report'; // 매입현황
+const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 
 // support (지원현황)
 
@@ -129,11 +132,11 @@ const API_MANAGEMENT = '/v1/views/management';
 const API_MANAGEMENT_OVERALL = '/total'; // 종합현황
 const API_MANAGEMENT_DAILYSTATUS = '/daily'; // 영업일보
 const API_MANAGEMENT_SERVE = '/serve/sales-rep'; // 영원사원별 기여현황
-const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
-const API_MANAGEMENT_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
-const API_MANAGEMENT_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
+const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/serve/sales-distination'; // 매출처별 기여현황
+const API_MANAGEMENT_CLASSSTATUS = '/serve/sales-class'; // 판매분류별 현황
+const API_MANAGEMENT_RANKSTATUS = '/sales-rank-rep'; // 매출순위현황
 const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
-const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용도별)
+const API_MANAGEMENT_DIVISIONSTATUS = '/daily-division'; // 영업일보(용도별)
 
 // sales (영업분석)
 const API_SALES = '/v1/views/sales';
@@ -147,8 +150,13 @@ const API_SALES_SALESLEDGER = '/ledger'; // 매출원장
 const API_SALES_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const API_SALES_BALANCEREPORT = '/debt'; // 채권현황
 const API_SALES_BALANCERENTALREPORT = '/rent-debt'; // 채권 및 대여 현황
+const API_SALES_SALESRENTALLEDGER = '/rent-ledger'; // 매출 및 대여 원장
 
 // purchase (매입분석)
+const API_PURCHASE = '/v1/views/purchase';
+const API_PURCHASE_REPORT = '/report'; // 매입현황
+const API_PURCHASE_LEDGER = '/ledger'; // 매입원장
+
 
 // support (지원현황)
 

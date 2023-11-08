@@ -6,15 +6,15 @@ part 'sales_rank_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class SalesRankModel {
-  String? ranking; //랭크
-  String? customerCode; //거래처코드
-  String? customerName; //거래처명
-  String? salesAmount; //매출액
-  String? supplementAmount; //매출공급가
-  String? profitAmount; //매출이익
-  String? profitRate; //마진율
-  String? bondBalance; //채권잔액
-  String? totalAmount; //총금액
+  var ranking; //랭크
+  var customerCode; //거래처코드
+  var customerName; //거래처명
+  var salesAmount; //매출액
+  var supplementAmount; //매출공급가
+  var profitAmount; //매출이익
+  var profitRate; //마진율
+  var bondBalance; //채권잔액
+  var totalAmount; //총금액
   int? id;
 
   SalesRankModel(this.ranking, this.customerCode, this.customerName, this.salesAmount, this.supplementAmount, this.profitAmount, this.profitRate,
@@ -102,11 +102,11 @@ List<SalesRankModel> generateSalesRankList(dataList, count) {
           dataList[index].ranking,
           dataList[index].customerCode,
           dataList[index].customerName,
-          f.format(int.parse(dataList[index].salesAmount ?? '0')),
-          f.format(int.parse(dataList[index].supplementAmount ?? '0')),
-          f.format(int.parse(dataList[index].profitAmount ?? '0')),
+          f.format(dataList[index].salesAmount),
+          f.format(dataList[index].supplementAmount),
+          f.format(dataList[index].profitAmount),
           dataList[index].profitRate,
-          f.format(int.parse(dataList[index].bondBalance ?? '0')),
-          f.format(int.parse(dataList[index].totalAmount ?? '0')),
+          f.format(dataList[index].bondBalance),
+          f.format(dataList[index].totalAmount),
           id: index));
 }

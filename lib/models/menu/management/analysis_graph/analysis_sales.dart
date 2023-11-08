@@ -4,19 +4,19 @@ part 'analysis_sales.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class AnalysisSalesModel {
-  String? searchDate; // 연월
-  String? dateName; // 연월명
-  String? amount; // 매출액
-  String? amount2; // 공급가
+  var searchDate; // 연월
+  var dateName; // 연월명
+  var total; // 매출액
+  var supply; // 공급가
 
-  AnalysisSalesModel(this.searchDate, this.dateName, this.amount, this.amount2);
+  AnalysisSalesModel(this.searchDate, this.dateName, this.total, this.supply);
 
   Map<String, dynamic> toMap() {
     return {
       'search-date': searchDate,
       'date-name': dateName,
-      'amount': amount,
-      'amount2': amount2,
+      'total': total,
+      'supply': supply,
     };
   }
 

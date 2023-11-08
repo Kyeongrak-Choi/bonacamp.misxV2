@@ -14,7 +14,7 @@ CustomerContributeModel _$CustomerContributeModelFromJson(Map<String, dynamic> j
       json['management-total-amount'] as String?,
       json['finance-amount'] as String?,
       json['asset-fix-amount'] as String?,
-      json['cost-total-amount'] as String?,
+      json['total'] as String?,
       json['bond-balance'] as String?,
       json['rental-balance'] as String?,
       json['rental-amount'] as String?,
@@ -23,8 +23,8 @@ CustomerContributeModel _$CustomerContributeModelFromJson(Map<String, dynamic> j
       json['customer-count'] as String?,
       json['management-amount'] as String?,
       json['consumption-asset-quantity'] as String?,
-      json['transaction-start-date'] as String?,
-      json['transaction-last-date'] as String?,
+      json['start-date'] as String?,
+      json['last-date'] as String?,
     );
 
 Map<String, dynamic> _$CustomerContributeModelToJson(CustomerContributeModel instance) => <String, dynamic>{
@@ -35,7 +35,7 @@ Map<String, dynamic> _$CustomerContributeModelToJson(CustomerContributeModel ins
       'management-total-amount': instance.managementTotalAmount,
       'finance-amount': instance.financeAmount,
       'asset-fix-amount': instance.assetFixAmount,
-      'cost-total-amount': instance.costTotalAmount,
+      'total': instance.total,
       'bond-balance': instance.bondBalance,
       'rental-balance': instance.rentalBalance,
       'rental-amount': instance.rentalAmount,
@@ -44,6 +44,6 @@ Map<String, dynamic> _$CustomerContributeModelToJson(CustomerContributeModel ins
       'customer-count': instance.customerCount,
       'management-amount': instance.managementAmount,
       'consumption-asset-quantity': instance.consumptionAssetQuantity,
-      'transaction-start-date': instance.transactionStartDate,
-      'transaction-last-date': instance.transactionLastDate,
+      'start-date': instance.startDate,
+      'last-date': instance.lastDate,
     };
