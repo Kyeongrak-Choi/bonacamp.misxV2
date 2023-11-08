@@ -95,7 +95,7 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '기여비중',
-                value: controller.controllerModel != null ? controller.controllerModel.serveRate ?? '0' : '0',
+                value: controller.controllerModel != null ? controller.controllerModel.serveRate.toString() : '0',
                 iconData: Icons.label_outlined,
               ),
             ],

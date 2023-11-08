@@ -7,9 +7,9 @@ part of 'analysis_asset.dart';
 // **************************************************************************
 
 AnalysisAssetModel _$AnalysisAssetModelFromJson(Map<String, dynamic> json) => AnalysisAssetModel(
-      json['searchDate'] as String?,
-      json['dateName'] as String?,
-      json['amount'] as String?,
+      json['searchDate'],
+      json['dateName'],
+      json['amount'],
     );
 
 Map<String, dynamic> _$AnalysisAssetModelToJson(AnalysisAssetModel instance) => <String, dynamic>{

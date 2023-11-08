@@ -110,16 +110,16 @@ class CustomerContributeController extends GetxController {
       dio = await reqApi(param);
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_CONTRIBUTIONCUSTOMER +
-          '?branch-code=' +
+          '?branch=' +
           tempNodeCd +
-          '&search-month=' +
+          '&month=' +
           tempYM +
-          '&customer-code=' +
+          '&customer=' +
           tempCustomerCode);
 
       if (response.statusCode == 200) {
-        if (jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] != null) {
-          parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_OBJECT] ?? "";
+        if (jsonDecode(jsonEncode(response.data))[TAG_DATA] != null) {
+          parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA] ?? "";
           controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
 
           Get.find<CustomerContributeController>().setVisible();

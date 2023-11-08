@@ -6,22 +6,22 @@ part 'sales_daily_division_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class SalesDailyDivisionModel {
-  String? itemCode; // 품목코드
-  String? itemName; // 품목명
-  String? usageCode; // 용도코드
-  String? usageName; // 용도명
-  String? boxQuantity; // 박스수량
-  String? bottleQuantity; // 병수량
-  String? amount; // 총계(공+부+보증금)
-  String? pleasureBoxTotalQuantity; // 유흥 박스수량 누계
-  String? pleasureBottleTotalQuantity; // 유흥 병수량 누계
-  String? pleasureTotalAmount; // 유흥누계 금액
-  String? normalBoxTotalQuantity; // 일반 수량(박스) 누계
-  String? normalBottleTotalQuantity; // 일반 수량(병) 누계
-  String? normalTotalAmount; // 일반누계 금액
-  String? boxTotalQuantity; // 박스 누계 금액
-  String? bottleTotalQuantity; // 병 누계 금액
-  String? totalAmount; // 전체누계금액
+  var itemCode; // 품목코드
+  var itemName; // 품목명
+  var usageCode; // 용도코드
+  var usageName; // 용도명
+  var boxQuantity; // 박스수량
+  var bottleQuantity; // 병수량
+  var amount; // 총계(공+부+보증금)
+  var pleasureBoxTotalQuantity; // 유흥 박스수량 누계
+  var pleasureBottleTotalQuantity; // 유흥 병수량 누계
+  var pleasureTotalAmount; // 유흥누계 금액
+  var normalBoxTotalQuantity; // 일반 수량(박스) 누계
+  var normalBottleTotalQuantity; // 일반 수량(병) 누계
+  var normalTotalAmount; // 일반누계 금액
+  var boxTotalQuantity; // 박스 누계 금액
+  var bottleTotalQuantity; // 병 누계 금액
+  var totalAmount; // 전체누계금액
   int? id;
 
   SalesDailyDivisionModel(
@@ -174,9 +174,9 @@ List<SalesDailyDivisionModel> generateSalesDailyDivisionList(dataList, count) {
           dataList[index].itemName,
           dataList[index].usageCode,
           dataList[index].usageName,
-          f.format(int.parse(dataList[index].boxQuantity ?? '0')),
-          f.format(int.parse(dataList[index].bottleQuantity ?? '0')),
-          f.format(int.parse(dataList[index].amount ?? '0')),
+          f.format(dataList[index].boxQuantity),
+          f.format(dataList[index].bottleQuantity),
+          f.format(dataList[index].amount),
           dataList[index].pleasureBoxTotalQuantity,
           dataList[index].pleasureBottleTotalQuantity,
           dataList[index].pleasureTotalAmount,

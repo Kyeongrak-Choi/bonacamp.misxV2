@@ -4,9 +4,9 @@ part 'analysis_bond.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class AnalysisBondModel {
-  String? searchDate; // 연월
-  String? dateName; // 연월명
-  String? amount; // 총금액
+  var searchDate; // 연월
+  var dateName; // 연월명
+  var amount; // 총금액
 
   AnalysisBondModel(this.searchDate, this.dateName, this.amount);
 
