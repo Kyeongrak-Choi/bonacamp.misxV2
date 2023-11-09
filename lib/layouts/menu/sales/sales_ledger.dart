@@ -207,7 +207,7 @@ class SalesLedgerController extends GetxController {
               sumAmount += detailData.amount as int;
               sumGuarantee += detailData.guarantee as int;
               sumDeposit += detailData.deposit as int;
-              sumBalance += detailData.balance as int;
+              sumBalance = detailData.balance as int;
             }
           }
         }
