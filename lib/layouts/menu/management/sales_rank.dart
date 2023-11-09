@@ -117,7 +117,7 @@ class SalesRankController extends GetxController {
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
 
     var param = user.getClientCode;
     List parsedDataSalesRank;

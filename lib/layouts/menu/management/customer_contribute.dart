@@ -118,15 +118,17 @@ class CustomerContributeController extends GetxController {
           tempCustomerCode);
 
       if (response.statusCode == 200) {
-        if (jsonDecode(jsonEncode(response.data))[TAG_DATA] != null) {
-          parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA] ?? "";
-          controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
-
-          Get.find<CustomerContributeController>().setVisible();
-          update();
+        if ((parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
         } else {
-          controllerCustomerContribute = null;
+          clearValue();
+
+          controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
         }
+
+        Get.find<CustomerContributeController>().setVisible();
+        update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
@@ -136,4 +138,9 @@ class CustomerContributeController extends GetxController {
       print("other error");
     }
   }
+
+  void clearValue() {
+    controllerCustomerContribute = null;
+  }
+
 }
