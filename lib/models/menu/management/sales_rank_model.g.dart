@@ -7,15 +7,15 @@ part of 'sales_rank_model.dart';
 // **************************************************************************
 
 SalesRankModel _$SalesRankModelFromJson(Map<String, dynamic> json) => SalesRankModel(
-      json['ranking'] as String,
-      json['customer-code'] as String?,
-      json['customer-name'] as String?,
-      json['sales-amount'] as String?,
-      json['supplement-amount'] as String?,
-      json['profit-amount'] as String?,
-      json['profit-rate'] as String?,
-      json['bond-balance'] as String?,
-      json['total-amount'] as String?,
+      json['ranking'],
+      json['customer-code'],
+      json['customer-name'],
+      json['sales-amount'],
+      json['supplement-amount'],
+      json['profit-amount'],
+      json['profit-rate'],
+      json['bond-balance'],
+      json['total-amount'],
     );
 
 Map<String, dynamic> _$SalesRankModelToJson(SalesRankModel instance) => <String, dynamic>{

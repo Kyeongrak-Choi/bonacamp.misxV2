@@ -7,22 +7,22 @@ part of 'sales_daily_division_model.dart';
 // **************************************************************************
 
 SalesDailyDivisionModel _$SalesDailyDivisionModelFromJson(Map<String, dynamic> json) => SalesDailyDivisionModel(
-      json['item-code'] as String?,
-      json['item-name'] as String?,
-      json['usage-code'] as String?,
-      json['usage-name'] as String?,
-      json['box-quantity'] as String?,
-      json['bottle-quantity'] as String?,
-      json['amount'] as String?,
-      json['pleasure-box-total-quantity'] as String?,
-      json['pleasure-bottle-total-quantity'] as String?,
-      json['pleasure-total-amount'] as String?,
-      json['normal-box-total-quantity'] as String?,
-      json['normal-bottle-total-quantity'] as String?,
-      json['normal-total-amount'] as String?,
-      json['box-total-quantity'] as String?,
-      json['bottle-total-quantity'] as String?,
-      json['total-amount'] as String?,
+      json['item-code'],
+      json['item-name'],
+      json['usage-code'],
+      json['usage-name'],
+      json['box-quantity'],
+      json['bottle-quantity'],
+      json['amount'],
+      json['pleasure-box-total-quantity'],
+      json['pleasure-bottle-total-quantity'],
+      json['pleasure-total-amount'],
+      json['normal-box-total-quantity'],
+      json['normal-bottle-total-quantity'],
+      json['normal-total-amount'],
+      json['box-total-quantity'],
+      json['bottle-total-quantity'],
+      json['total-amount'],
     );
 
 Map<String, dynamic> _$SalesDailyDivisionModelToJson(SalesDailyDivisionModel instance) => <String, dynamic>{

@@ -128,19 +128,25 @@ class SalesClassStatusController extends GetxController {
 
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_CLASSSTATUS +
-          '?branch-code=' +
+          '?branch=' +
           paramBranchCode +
-          '&from-date=' +
+          '&from=' +
           paramFromDate +
-          '&to-date=' +
+          '&to=' +
           paramToDate +
-          '&customer-code=' +
+          '&customer=' +
           paramCode);
 
       if (response.statusCode == 200) {
-        dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT] as List;
-        parsedData = dataObjsJson.map((dataJson) => SalesClassStatusModel.fromJson(dataJson)).toList();
-        controllerModel = parsedData;
+        if((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        }
+        else {
+          clearValue();
+          controllerModel = dataObjsJson.map((dataJson) => SalesClassStatusModel.fromJson(dataJson)).toList();
+        }
+
         Get.find<SalesClassStatusController>().setVisible();
         update();
       }
@@ -152,4 +158,9 @@ class SalesClassStatusController extends GetxController {
       print("other error");
     }
   }
+
+  void clearValue() {
+    controllerModel = null;
+  }
+
 }

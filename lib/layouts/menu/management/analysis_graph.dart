@@ -123,11 +123,11 @@ class AnalysisGraphController extends GetxController {
 
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_GRAPH +
-          '?branch-code=' +
+          '?branch=' +
           paramNodeCd +
-          '&from-date=' +
+          '&from=' +
           paramFromYearmonth +
-          '&to-date=' +
+          '&to=' +
           paramToYearmonth);
 
       if (response.statusCode == 200) {
@@ -139,27 +139,27 @@ class AnalysisGraphController extends GetxController {
         assetList.clear();
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
-          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total']));
         }
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
-          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
-          purchaseList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          purchaseList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total-supply']));
         }
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
-          debtList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          debtList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
-          rentalList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          rentalList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
-          assetList.add(ChartSpot(list['date-name'].toString().substring(3, 6), double.tryParse(list['amount']) ?? 0.0));
+          assetList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         Get.find<AnalysisGraphController>().setVisible();

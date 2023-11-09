@@ -22,8 +22,11 @@ class SearchItemListItem extends StatelessWidget {
     Get.put(OptionDialogItemController());
     return GestureDetector(
       onTap: () {
-        Get.find<OptionDialogItemController>().chooseItem(code, name);
-        Get.back();
+        FocusManager.instance.primaryFocus?.unfocus();
+        Future.delayed(const Duration(milliseconds: 100)).then((value) {
+          Get.find<OptionDialogItemController>().chooseItem(code, name);
+          Get.back();
+        });
       },
       child: Column(
         children: [

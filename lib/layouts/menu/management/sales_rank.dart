@@ -102,7 +102,6 @@ class SalesRank extends StatelessWidget {
 
 class SalesRankController extends GetxController {
   var controllerSalesRank;
-  List<SalesRankModel> salesRankList = <SalesRankModel>[].obs;
 
   var visible = true.obs;
 
@@ -118,7 +117,7 @@ class SalesRankController extends GetxController {
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
 
     var param = user.getClientCode;
     List parsedDataSalesRank;
@@ -128,20 +127,27 @@ class SalesRankController extends GetxController {
 
       final response = await dio.get(API_MANAGEMENT +
           API_MANAGEMENT_RANKSTATUS +
-          '?branch-code=' +
+          '?branch=' +
           paramBranchCode +
-          '&from-date=' +
+          '&from=' +
           paramFromDate +
-          '&to-date=' +
+          '&to=' +
           paramToDate +
-          '&employee-code=' +
+          '&sales-rep=' +
           paramEmployeeCode +
-          '&management-code=' +
+          '&view=' +
           paramManagementCode);
 
       if (response.statusCode == 200) {
-        parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN_LIST_OBJECT];
-        salesRankList = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
+        if ((parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          clearValue();
+        } else {
+          clearValue();
+
+          controllerSalesRank = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
+        }
+
         Get.find<SalesRankController>().setVisible();
         update();
       }
@@ -153,5 +159,9 @@ class SalesRankController extends GetxController {
       print(e.toString());
       print("other error");
     }
+  }
+
+  void clearValue() {
+    controllerSalesRank = null;
   }
 }

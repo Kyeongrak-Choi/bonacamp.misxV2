@@ -21,8 +21,11 @@ class SearchLendItemListItem extends StatelessWidget {
     Get.put(OptionDialogLendItemController());
     return GestureDetector(
       onTap: () {
-        Get.find<OptionDialogLendItemController>().chooseItem(code, name);
-        Get.back();
+        FocusManager.instance.primaryFocus?.unfocus();
+        Future.delayed(const Duration(milliseconds: 100)).then((value) {
+          Get.find<OptionDialogLendItemController>().chooseItem(code, name);
+          Get.back();
+        });
       },
       child: Column(
         children: [

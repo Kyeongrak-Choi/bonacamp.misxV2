@@ -12,11 +12,15 @@ import '../../../layouts/menu/management/sales_daily.dart';
 import '../../../layouts/menu/management/sales_daily_division.dart';
 import '../../../layouts/menu/management/sales_rank.dart';
 import '../../../layouts/menu/management/salesperson_contribute.dart';
+import '../../../layouts/menu/purchase/purchase_ledger.dart';
+import '../../../layouts/menu/purchase/purchase_report.dart';
+import '../../../layouts/menu/sales/balance_rental_report.dart';
 import '../../../layouts/menu/sales/balance_report.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
 import '../../../layouts/menu/sales/sales_ledger.dart';
+import '../../../layouts/menu/sales/sales_rental_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
 import '../../../utils/constants.dart';
@@ -131,6 +135,26 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 채권현황
                       case ROUTE_MENU_BALANCE_REPORT:
                         await Get.find<BalanceReportController>().showResult();
+                        break;
+
+                      // 영업분석 - 채권 및 대여 현황
+                      case ROUTE_MENU_BALANCE_RENTAL_REPORT:
+                        await Get.find<BalanceRentalReportController>().showResult();
+                        break;
+
+                      // 영업분석 - 매출 및 대여 원장
+                      case ROUTE_MENU_SALES_RENTAL_LEDGER:
+                        await Get.find<SalesRentalLedgerController>().showResult();
+                        break;
+
+                      // 매입분석 - 매입현황
+                      case ROUTE_MENU_PURCHASE_REPORT:
+                        await Get.find<PurchaseReportController>().showResult();
+                        break;
+
+                      // 매입분석 - 매입원장
+                      case ROUTE_MENU_PURCHASE_LEDGER:
+                        await Get.find<PurchaseLedgerController>().showResult();
                         break;
                     }
                   } catch (e) {

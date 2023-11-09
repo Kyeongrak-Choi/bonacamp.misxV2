@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/field/icon_title_field.dart';
 
 import '../../../models/menu/management/sales_rank_model.dart';
 import '../../common/field/show_list_detail_row.dart';
@@ -36,25 +37,30 @@ class SalesRankItem extends StatelessWidget {
                   },
                   body: Column(
                     children: [
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '매출액',
                         value: model.salesAmount.toString(),
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '공급가',
                         value: model.supplementAmount.toString(),
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '매출이익',
                         value: model.profitAmount.toString(),
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '마진율',
                         value: model.profitRate.toString(),
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '채권잔액',
                         value: model.bondBalance.toString(),
+                        iconData: Icons.label_outlined,
                       ),
                     ],
                   ),

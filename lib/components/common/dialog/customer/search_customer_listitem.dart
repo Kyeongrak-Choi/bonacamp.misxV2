@@ -21,8 +21,11 @@ class SearchCustomerListItem extends StatelessWidget {
     Get.put(OptionDialogCustomerController());
     return GestureDetector(
       onTap: () {
-        Get.find<OptionDialogCustomerController>().chooseItem(code, name);
-        Get.back();
+        FocusManager.instance.primaryFocus?.unfocus();
+        Future.delayed(const Duration(milliseconds: 100)).then((value){
+          Get.find<OptionDialogCustomerController>().chooseItem(code, name);
+          Get.back();
+        });
       },
       child: Column(
         children: [

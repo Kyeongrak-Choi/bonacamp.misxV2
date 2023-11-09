@@ -4,21 +4,21 @@ part 'analysis_purchase.g.dart'; // *.g.dart : in same directory
 
 @JsonSerializable(explicitToJson: true)
 class AnalysisPurchaseModel {
-  String? searchDate; // 연월
-  String? dateName; // 연월명
-  String? amount; // 매입액
-  String? amount2; // 매입공급가
-  String? totalSupplementAmount; // 총계(보충보증)
+  var searchDate; // 연월
+  var dateName; // 연월명
+  var total; // 매입액
+  var supply; // 매입공급가
+  var totalSupply; // 총계(보충보증)
 
-  AnalysisPurchaseModel(this.searchDate, this.dateName, this.amount, this.amount2, this.totalSupplementAmount);
+  AnalysisPurchaseModel(this.searchDate, this.dateName, this.total, this.supply, this.totalSupply);
 
   Map<String, dynamic> toMap() {
     return {
       'search-date': searchDate,
       'date-name': dateName,
-      'amount': amount,
-      'amount2': amount2,
-      'total-supplement-amount': totalSupplementAmount,
+      'amount': total,
+      'amount2': supply,
+      'total-supply': totalSupply,
     };
   }
 

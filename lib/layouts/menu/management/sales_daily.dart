@@ -215,7 +215,7 @@ class SalesDailyController extends GetxController {
           API_MANAGEMENT_DAILYSTATUS +
           '?branch=' +
           paramBranchCd +
-          '&date=' +
+          '&search=' +
           paramDt +
           '&sales-rep=' +
           paramEmployeeCode +
