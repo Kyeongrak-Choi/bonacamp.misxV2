@@ -64,7 +64,7 @@ class SalesLedger extends StatelessWidget {
                       children: [
                         OptionPeriodPicker(),
                         OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                        //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
                         OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
                       ],
                     ),
@@ -159,8 +159,8 @@ class SalesLedgerController extends GetxController {
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    // String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    // String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
 
     if (paramCustomerCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
@@ -182,11 +182,11 @@ class SalesLedgerController extends GetxController {
           '&to=' +
           paramToDate +
           '&customer=' +
-          paramCustomerCode +
-          '&sales-rep=' +
-          paramEmployeeCode +
-          '&manager=' +
-          paramManagementCode
+          paramCustomerCode
+          // '&sales-rep=' +
+          // paramEmployeeCode +
+          // '&manager=' +
+          // paramManagementCode
           );
 
       if (response.statusCode == 200) {
