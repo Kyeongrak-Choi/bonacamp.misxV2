@@ -61,6 +61,7 @@ const ROUTE_MENU_PURCHASE_REPORT = '/purchase-report'; // 매입현황
 const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 
 // support (지원현황)
+const ROUTE_MENU_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산현황
 
 // location (위치조회)
 const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
@@ -119,7 +120,7 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021'; // 시스템 코드
 
 // common
 const API_COMMON = '/v1/common';

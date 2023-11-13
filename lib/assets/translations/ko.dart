@@ -90,6 +90,7 @@ const Map<String, String> koKR = {
   'opt_sales_type': '매출유형',
   'opt_search_division': '조회구분',
   'opt_customer_class': '등급',
+  'opt_asset_status': '자산상태',
 
 
 
@@ -136,7 +137,7 @@ const Map<String, String> koKR = {
 
   'menu_main_rental': '지원현황',
   'title_21': '대여금 현황',
-  'title_22': '대여자산 현황',
+  'menu_sub_support_rent_asset': '대여자산 현황',
   'title_23': '대여자산 현황(이력)',
 
   'menu_main_location': '위치조회',
