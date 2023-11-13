@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
+import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/location/vendor_location.dart';
@@ -155,6 +156,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 매입분석 - 매입원장
                       case ROUTE_MENU_PURCHASE_LEDGER:
                         await Get.find<PurchaseLedgerController>().showResult();
+                        break;
+
+                      // 지원현황 - 대여자산 현황
+                      case ROUTE_MENU_SUPPORT_RENT_ASSET:
+                        await Get.find<RentAssetController>().showResult();
                         break;
                     }
                   } catch (e) {

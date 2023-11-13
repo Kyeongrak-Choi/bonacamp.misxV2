@@ -13,6 +13,8 @@ import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
+import 'package:misxV2/components/datatable/support/rent_asset_Item.dart';
+import 'package:misxV2/models/menu/support/rent_asset_model.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -68,7 +70,7 @@ class RentAsset extends StatelessWidget {
                             OptionPeriodPicker(),
                             OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
                             OptionDialogCustomer(),
-                            OptionBtnSearch(ROUTE_MENU_ACHIEVEMENT),
+                            OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET),
                           ],
                         ),
                       ),
@@ -101,7 +103,7 @@ class RentAsset extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<RentAssetController>().controllerAchievement != null) {
-      return AchievementItem(Get.find<RentAssetController>().controllerAchievement);
+      return RentAssetItem(Get.find<RentAssetController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
@@ -117,40 +119,49 @@ class RentAssetController extends GetxController {
     visible.value = !visible.value;
   }
 
+
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
-    String paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
+    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramAssetStatus = Get.find<CbAssetStatusController>().paramAssetStatusCode;
 
     var param = user.getClientCode;
-    var parsedAchievement;
+    var parsedRentAsset;
+
+    if (paramCustomerCode == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+      return;
+    }
 
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES +
-          API_SALES_ACHIEVEMENT +
+      final response = await dio.get(API_SUPPORT +
+        API_SUPPORT_RENT_ASSET +
           '?branch=' +
           paramBranchCode +
           '&from=' +
-          paramFromYearmonth +
+          paramFromDate +
           '&to=' +
-          paramToYearmonth +
-          '&sales-rep=' +
-          paramEmployeeCode
+          paramToDate +
+          '&code=' +
+          paramCustomerCode +
+          '&type=' +
+          paramAssetStatus
           );
 
       if (response.statusCode == 200) {
-        if ((parsedAchievement = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+        if ((parsedRentAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerAchievement = parsedAchievement.map((dataJson) => AchievementModel.fromJson(dataJson)).toList();
+          controllerAchievement = parsedRentAsset.map((dataJson) => RentAssetModel.fromJson(dataJson)).toList();
         }
         Get.find<RentAssetController>().setVisible();
         update();

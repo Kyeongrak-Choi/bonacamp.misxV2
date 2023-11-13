@@ -13,7 +13,7 @@ RentAssetModel _$RentAssetModelFromJson(Map<String, dynamic> json) =>
       json['name'],
       json['amount'],
       json['type'],
-      json['serialNo'],
+      json['serial-no'],
       json['memo'],
     );
 
@@ -24,6 +24,6 @@ Map<String, dynamic> _$RentAssetModelToJson(RentAssetModel instance) =>
       'name': instance.name,
       'amount': instance.amount,
       'type': instance.type,
-      'serialNo': instance.serialNo,
+      'serial-no': instance.serialNo,
       'memo': instance.memo,
     };
