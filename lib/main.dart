@@ -12,6 +12,7 @@ import 'package:misxV2/layouts/menu/purchase/purchase_report.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/sales/customer_report.dart';
 import 'package:misxV2/layouts/menu/sales/salesperson_report_monthly.dart';
+import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
@@ -123,7 +124,7 @@ class Misx extends StatelessWidget {
 
         // 지원현황
         GetPage(name: ROUTE_MENU_SUPPORT_RENTAL_REPORT, page: () => RentalReport()), // 대여금 현황
-        // GetPage(name: , page: () =>), // 대여자산 현황
+        GetPage(name: ROUTE_MENU_SUPPORT_RENT_ASSET, page: () => RentAsset()), // 대여자산 현황
         // GetPage(name: , page: () =>), // 대여자산 현황(이력)
 
         // 위치조회
