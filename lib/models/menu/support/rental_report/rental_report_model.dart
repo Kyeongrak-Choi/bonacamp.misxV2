@@ -11,8 +11,7 @@ class RentalReportModel {
   List<RentalReportDetailsModel> detailList;
   int? id;
 
-  RentalReportModel(
-      this.code, this.name, this.detailList, {this.id});
+  RentalReportModel(this.code, this.name, this.detailList, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,10 +29,10 @@ class RentalReportModel {
 List<RentalReportModel> generateRentalReportModelList(dataList, count) {
   return List.generate(
       count,
-          (index) => RentalReportModel(
-        dataList[index].code,
-        dataList[index].name,
-        dataList[index].detailList,
-        id: index,
-      ));
+      (index) => RentalReportModel(
+            dataList[index].code,
+            dataList[index].name,
+            dataList[index].detailList,
+            id: index,
+          ));
 }

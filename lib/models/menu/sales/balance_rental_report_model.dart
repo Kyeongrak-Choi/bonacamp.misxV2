@@ -6,26 +6,25 @@ part 'balance_rental_report_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class BalanceRentalReportModel {
-  var code;   // 거래처코드
-  var name;   // 거래처명
-  var total;    // 매출액
-  var price;    // 공급가
-  var amount;   // 소계 금액
-  var deposit;    // 입금액
-  var balance;    // 채권 잔액
-  var longRent;   // 장기 대여금
-  var shortRent;    // 단기 대여금
-  var totalRent;    // 대여금 합계
-  var totalBalance;   // 채권 잔액 + 대여금 합계
-  var rentQuantity;   // 대여 자산 수량
-  var consumeQuantity;    // 소비 자산 수량
-  var margin;   // 이익 금액
-  var marginRate;   // 이익률
+  var code; // 거래처코드
+  var name; // 거래처명
+  var total; // 매출액
+  var price; // 공급가
+  var amount; // 소계 금액
+  var deposit; // 입금액
+  var balance; // 채권 잔액
+  var longRent; // 장기 대여금
+  var shortRent; // 단기 대여금
+  var totalRent; // 대여금 합계
+  var totalBalance; // 채권 잔액 + 대여금 합계
+  var rentQuantity; // 대여 자산 수량
+  var consumeQuantity; // 소비 자산 수량
+  var margin; // 이익 금액
+  var marginRate; // 이익률
   int? id;
 
-  BalanceRentalReportModel(
-      this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance,
-      this.longRent, this.shortRent, this.totalRent, this.totalBalance, this.rentQuantity, this.consumeQuantity, this.margin, this.marginRate,
+  BalanceRentalReportModel(this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.longRent, this.shortRent,
+      this.totalRent, this.totalBalance, this.rentQuantity, this.consumeQuantity, this.margin, this.marginRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -110,22 +109,22 @@ class BalanceRentalReportModel {
 List<BalanceRentalReportModel> generateBalanceRentalReportList(dataList, count) {
   return List.generate(
       count,
-          (index) => BalanceRentalReportModel(
-        dataList[index].code,
-        dataList[index].name,
-        numberFormat.format(dataList[index].total),
-        numberFormat.format(dataList[index].price),
-        numberFormat.format(dataList[index].amount),
-        numberFormat.format(dataList[index].deposit),
-        numberFormat.format(dataList[index].balance),
-        numberFormat.format(dataList[index].longRent),
-        numberFormat.format(dataList[index].shortRent),
-        numberFormat.format(dataList[index].totalRent),
-        numberFormat.format(dataList[index].totalBalance),
-        numberFormat.format(dataList[index].rentQuantity),
-        numberFormat.format(dataList[index].consumeQuantity),
-        numberFormat.format(dataList[index].margin),
-        dataList[index].marginRate,
-        id: index,
-      ));
+      (index) => BalanceRentalReportModel(
+            dataList[index].code,
+            dataList[index].name,
+            numberFormat.format(dataList[index].total),
+            numberFormat.format(dataList[index].price),
+            numberFormat.format(dataList[index].amount),
+            numberFormat.format(dataList[index].deposit),
+            numberFormat.format(dataList[index].balance),
+            numberFormat.format(dataList[index].longRent),
+            numberFormat.format(dataList[index].shortRent),
+            numberFormat.format(dataList[index].totalRent),
+            numberFormat.format(dataList[index].totalBalance),
+            numberFormat.format(dataList[index].rentQuantity),
+            numberFormat.format(dataList[index].consumeQuantity),
+            numberFormat.format(dataList[index].margin),
+            dataList[index].marginRate,
+            id: index,
+          ));
 }

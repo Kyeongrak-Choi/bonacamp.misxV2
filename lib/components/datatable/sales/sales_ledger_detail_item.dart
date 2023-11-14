@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
 import 'package:misxV2/utils/utility.dart';
@@ -26,22 +25,21 @@ class SalesLedgerDetailItem extends StatelessWidget {
               Text(
                 detailList.salesTypeName,
                 textAlign: TextAlign.left,
-                style: context.textTheme.displayMedium!.merge(
-                    TextStyle(
-                  color: detailList.salesTypeName == 'sales'.tr ? Colors.blue : Colors.red)
-                ),
+                style: context.textTheme.displayMedium!.merge(TextStyle(color: detailList.salesTypeName == 'sales'.tr ? Colors.blue : Colors.red)),
                 overflow: TextOverflow.ellipsis,
               ),
               Expanded(
-                child: detailList.salesTypeName == 'sales'.tr ? IconButton(
-                  onPressed: (){
-                    ShowLedgerDetailDialog(detailList);
-                  },
-                  icon: Icon(Icons.search, color: context.theme.primaryColor),
-                ): TextButton(
-                    onPressed: null,
-                    child: Text(''),)
-              ),
+                  child: detailList.salesTypeName == 'sales'.tr
+                      ? IconButton(
+                          onPressed: () {
+                            ShowLedgerDetailDialog(detailList);
+                          },
+                          icon: Icon(Icons.search, color: context.theme.primaryColor),
+                        )
+                      : TextButton(
+                          onPressed: null,
+                          child: Text(''),
+                        )),
             ],
           ),
         ),

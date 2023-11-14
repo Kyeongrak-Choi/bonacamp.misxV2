@@ -27,24 +27,24 @@ class OptionCbCustomerClass extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                  () => DropdownButtonFormField<CommonModel>(
-                    isExpanded: true,
-                    value: Get.find<CbCustomerClassController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbCustomerClassController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                      return DropdownMenuItem<CommonModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbCustomerClassController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<CommonModel>(
+                isExpanded: true,
+                value: Get.find<CbCustomerClassController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbCustomerClassController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                  return DropdownMenuItem<CommonModel>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value.getName ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbCustomerClassController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],

@@ -4,24 +4,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
-import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/combobox/option_two_content.dart';
-import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/datepicker/option_period_yearmonth_picker.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/common/field/sum_item_table.dart';
-import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/achievement_item.dart';
-import '../../../components/datatable/sales/salesperson_report_item.dart';
 import '../../../models/menu/sales/achievement/achievement_model.dart';
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -138,8 +130,7 @@ class AchievementController extends GetxController {
           '&to=' +
           paramToYearmonth +
           '&sales-rep=' +
-          paramEmployeeCode
-          );
+          paramEmployeeCode);
 
       if (response.statusCode == 200) {
         if ((parsedAchievement = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

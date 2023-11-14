@@ -23,38 +23,36 @@ class PurchaseLedgerItem extends StatelessWidget {
           animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((PurchaseLedgerListModel model) {
             return ExpansionPanelRadio(
-              value: model.id.toString(),
-              backgroundColor: context.theme.cardColor,
-              headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: changeStringToDateFormat(model.date ?? ''),
-                    value: '잔액 ( ' + numberFormat.format(model.balance) + ' )');
-              },
-              body: Container(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                child: Column(
-                  children: [
-                    ledgerListHead(context),
-                    SizedBox(height: 14),
-                    ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: model.details.length,
-                      itemBuilder: (BuildContext ctx, int idx){
-                        return Container(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                            child: PurchaseLedgerDetailItem(model.details[idx])
-                        );
-                    }),
-                  ],
-                ),
-              )
-            );
+                value: model.id.toString(),
+                backgroundColor: context.theme.cardColor,
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  return ShowListHeaderRow(
+                      titleName: changeStringToDateFormat(model.date ?? ''), value: '잔액 ( ' + numberFormat.format(model.balance) + ' )');
+                },
+                body: Container(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                  child: Column(
+                    children: [
+                      ledgerListHead(context),
+                      SizedBox(height: 14),
+                      ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: model.details.length,
+                          itemBuilder: (BuildContext ctx, int idx) {
+                            return Container(
+                                padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: PurchaseLedgerDetailItem(model.details[idx]));
+                          }),
+                    ],
+                  ),
+                ));
           }).toList(),
         ),
       ),
     );
   }
-  Widget ledgerListHead(BuildContext context){
+
+  Widget ledgerListHead(BuildContext context) {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
       child: Row(

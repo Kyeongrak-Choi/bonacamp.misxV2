@@ -22,9 +22,9 @@ class RentalReportDetailsModel {
 
   int? id;
 
-  RentalReportDetailsModel(
-      this.sequence, this.status, this.divideMonth, this.interestRate, this.payLastDate, this.totalRentalAmount, this.totalReturnAmount,
-      this.balance, this.salesRepCode, this.salesRepName, this.rentalAmount, this.returnAmount, this.overdueAmount, {this.id});
+  RentalReportDetailsModel(this.sequence, this.status, this.divideMonth, this.interestRate, this.payLastDate, this.totalRentalAmount,
+      this.totalReturnAmount, this.balance, this.salesRepCode, this.salesRepName, this.rentalAmount, this.returnAmount, this.overdueAmount,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -47,26 +47,25 @@ class RentalReportDetailsModel {
   factory RentalReportDetailsModel.fromJson(Map<String, dynamic> json) => _$RentalReportDetailsModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$RentalReportDetailsModelToJson(this);
-
 }
 
 List<RentalReportDetailsModel> generateRentalReportDetailsModellList(dataList, count) {
   return List.generate(
       count,
-          (index) => RentalReportDetailsModel(
-        dataList[index].sequence,
-        dataList[index].status,
-        dataList[index].divideMonth,
-        dataList[index].interestRate,
-        dataList[index].payLastDate,
-        numberFormat.format(dataList[index].totalRentalAmount),
-        numberFormat.format(dataList[index].totalReturnAmount),
-        numberFormat.format(dataList[index].balance),
-        dataList[index].salesRepCode,
-        dataList[index].salesRepName,
-        numberFormat.format(dataList[index].rentalAmount),
-        numberFormat.format(dataList[index].returnAmount),
-        numberFormat.format(dataList[index].overdueAmount),
-        id: index,
-      ));
+      (index) => RentalReportDetailsModel(
+            dataList[index].sequence,
+            dataList[index].status,
+            dataList[index].divideMonth,
+            dataList[index].interestRate,
+            dataList[index].payLastDate,
+            numberFormat.format(dataList[index].totalRentalAmount),
+            numberFormat.format(dataList[index].totalReturnAmount),
+            numberFormat.format(dataList[index].balance),
+            dataList[index].salesRepCode,
+            dataList[index].salesRepName,
+            numberFormat.format(dataList[index].rentalAmount),
+            numberFormat.format(dataList[index].returnAmount),
+            numberFormat.format(dataList[index].overdueAmount),
+            id: index,
+          ));
 }

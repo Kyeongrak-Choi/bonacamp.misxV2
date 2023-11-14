@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../models/menu/sales/balance_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
 
 class BalanceReportItem extends StatelessWidget {
@@ -57,7 +56,7 @@ class BalanceReportItem extends StatelessWidget {
               ),
             ),
             ListView.separated(
-              primary:  false,
+              primary: false,
               shrinkWrap: true,
               //padding: const EdgeInsets.all(10),
               itemCount: dataList.length,
@@ -68,33 +67,33 @@ class BalanceReportItem extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          dataList[index].name ?? '',
-                          style: context.textTheme.displaySmall,
-                          textAlign: TextAlign.left,
-                        ),
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        dataList[index].name ?? '',
+                        style: context.textTheme.displaySmall,
+                        textAlign: TextAlign.left,
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          dataList[index].balance ?? '',
-                          style: context.textTheme.displaySmall,
-                          textAlign: TextAlign.right,
-                        ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        dataList[index].balance ?? '',
+                        style: context.textTheme.displaySmall,
+                        textAlign: TextAlign.right,
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: () {
-                            ShowBalanceDetailDialog(dataList[index]);
-                          },
-                          icon: Icon(Icons.search, color: context.theme.primaryColor),
-                        ),
-                      )
-                    ],
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: IconButton(
+                        onPressed: () {
+                          ShowBalanceDetailDialog(dataList[index]);
+                        },
+                        icon: Icon(Icons.search, color: context.theme.primaryColor),
+                      ),
+                    )
+                  ],
                 );
               },
             ),

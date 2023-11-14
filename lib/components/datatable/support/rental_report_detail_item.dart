@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
 import 'package:misxV2/utils/utility.dart';
@@ -26,20 +25,16 @@ class RentalReportDetailItem extends StatelessWidget {
               Text(
                 detailList.status,
                 textAlign: TextAlign.left,
-                style: context.textTheme.displayMedium!.merge(
-                    TextStyle(
-                  color: detailList.status == '연체' ? Colors.red : Colors.black)
-                ),
+                style: context.textTheme.displayMedium!.merge(TextStyle(color: detailList.status == '연체' ? Colors.red : Colors.black)),
                 overflow: TextOverflow.ellipsis,
               ),
               Expanded(
-                child: IconButton(
-                  onPressed: (){
-                    ShowRentalReportDetailDialog(detailList);
-                  },
-                  icon: Icon(Icons.search, color: context.theme.primaryColor),
-                )
-              ),
+                  child: IconButton(
+                onPressed: () {
+                  ShowRentalReportDetailDialog(detailList);
+                },
+                icon: Icon(Icons.search, color: context.theme.primaryColor),
+              )),
             ],
           ),
         ),

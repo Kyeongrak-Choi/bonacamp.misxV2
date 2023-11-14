@@ -31,11 +31,13 @@ class SalesRentalLedgerItem extends StatelessWidget {
               },
               body: Column(
                 children: [
-                  model.memo != null ? IconTitleField(
-                    titleName: '설명',
-                    value: model.memo,
-                    iconData: Icons.label_outlined,
-                  ) : Text(""),
+                  model.memo != null
+                      ? IconTitleField(
+                          titleName: '설명',
+                          value: model.memo,
+                          iconData: Icons.label_outlined,
+                        )
+                      : Text(""),
                   IconTitleField(
                     titleName: '매출액',
                     value: model.total,

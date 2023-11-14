@@ -28,95 +28,97 @@ class PurchaseLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(PurchaseLedgerController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_purchase_ledger'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<PurchaseLedgerController>().visible.value),
-              onPressed: () {
-                Get.find<PurchaseLedgerController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_purchase_ledger'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<PurchaseLedgerController>().visible.value),
+                  onPressed: () {
+                    Get.find<PurchaseLedgerController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<PurchaseLedgerController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionCbBranch(),
+                            OptionDialogPurchase(),
+                            OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: !Get.find<PurchaseLedgerController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 매입 합계'),
+                            SumItemTable(
+                                'BOX/EA',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity) +
+                                    ' / ' +
+                                    numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                                '매입액',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal)),
+                            SumItemTable('공급가', numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice), '출금액',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw)),
+                            SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<PurchaseLedgerController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        OptionPeriodPicker(),
-                        OptionCbBranch(),
-                        OptionDialogPurchase(),
-                        OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: !Get.find<PurchaseLedgerController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 매입 합계'),
-                        SumItemTable('BOX/EA',
-                            numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity) + ' / ' +
-                            numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
-                            '매입액', numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal)),
-                        SumItemTable('공급가', numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
-                            '출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw)),
-                        SumItemTable(null, null,
-                            '채무잔액', numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -173,8 +175,7 @@ class PurchaseLedgerController extends GetxController {
           '&to=' +
           paramToDate +
           '&code=' +
-          paramPurchaseCode
-          );
+          paramPurchaseCode);
 
       if (response.statusCode == 200) {
         if ((parsedPurchaseLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

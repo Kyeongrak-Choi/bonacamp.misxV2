@@ -7,9 +7,6 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/combobox/option_cb_asset_status.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
-import 'package:misxV2/components/common/combobox/option_cb_sales_type.dart';
 import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
@@ -18,14 +15,7 @@ import 'package:misxV2/models/menu/support/rent_asset_model.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/datepicker/option_period_yearmonth_picker.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/common/field/sum_item_table.dart';
-import '../../../components/common/field/sum_title_table.dart';
-import '../../../components/datatable/sales/achievement_item.dart';
-import '../../../components/datatable/sales/salesperson_report_item.dart';
-import '../../../models/menu/sales/achievement/achievement_model.dart';
-import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
@@ -119,7 +109,6 @@ class RentAssetController extends GetxController {
     visible.value = !visible.value;
   }
 
-
   Future showResult() async {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
@@ -142,7 +131,7 @@ class RentAssetController extends GetxController {
       dio = await reqApi(param);
 
       final response = await dio.get(API_SUPPORT +
-        API_SUPPORT_RENT_ASSET +
+          API_SUPPORT_RENT_ASSET +
           '?branch=' +
           paramBranchCode +
           '&from=' +
@@ -152,8 +141,7 @@ class RentAssetController extends GetxController {
           '&code=' +
           paramCustomerCode +
           '&type=' +
-          paramAssetStatus
-          );
+          paramAssetStatus);
 
       if (response.statusCode == 200) {
         if ((parsedRentAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

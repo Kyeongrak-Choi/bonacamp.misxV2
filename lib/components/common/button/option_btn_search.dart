@@ -124,12 +124,12 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
                         break;
-                        
+
                       // 영업분석 - 매출원장
                       case ROUTE_MENU_SALES_LEDGER:
                         await Get.find<SalesLedgerController>().showResult();
                         break;
-                       
+
                       // 영업분석 - 목표대비 실적현황
                       case ROUTE_MENU_ACHIEVEMENT:
                         await Get.find<AchievementController>().showResult();
@@ -159,8 +159,8 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_PURCHASE_LEDGER:
                         await Get.find<PurchaseLedgerController>().showResult();
                         break;
-                        
-                       // 지원현황 - 대여금 현황
+
+                      // 지원현황 - 대여금 현황
                       case ROUTE_MENU_SUPPORT_RENTAL_REPORT:
                         await Get.find<RentalReportController>().showResult();
                         break;
@@ -174,7 +174,6 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY:
                         await Get.find<RentAssetHistoryController>().showResult();
                         break;
-
                     }
                   } catch (e) {
                     pd.close();

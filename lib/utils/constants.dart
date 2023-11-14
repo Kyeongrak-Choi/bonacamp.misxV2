@@ -160,7 +160,6 @@ const API_PURCHASE = '/v1/views/purchase';
 const API_PURCHASE_REPORT = '/report'; // 매입현황
 const API_PURCHASE_LEDGER = '/ledger'; // 매입원장
 
-
 // support (지원현황)
 const API_SUPPORT = '/v1/views/support';
 const API_SUPPORT_RENTALREPORT = '/rental'; // 대여금 현황

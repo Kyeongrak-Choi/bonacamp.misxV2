@@ -30,94 +30,94 @@ class BanlanceReport extends StatelessWidget {
   Widget build(context) {
     Get.put(BalanceReportController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_balance_report'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<BalanceReportController>().visible.value),
-              onPressed: () {
-                Get.find<BalanceReportController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_balance_report'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<BalanceReportController>().visible.value),
+                  onPressed: () {
+                    Get.find<BalanceReportController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<BalanceReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionCbBranch(),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            OptionTwoContent(OptionCbCustomerClass(), OptionCbCustomerStatus()),
+                            OptionBtnSearch(ROUTE_MENU_BALANCE_REPORT),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: !Get.find<BalanceReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 채권 합계'),
+                            SumItemTable('매출액', numberFormat.format(Get.find<BalanceReportController>().sumTotal), '공급가',
+                                numberFormat.format(Get.find<BalanceReportController>().sumPrice)),
+                            SumItemTable('합계', numberFormat.format(Get.find<BalanceReportController>().sumAmount), '입금합계',
+                                numberFormat.format(Get.find<BalanceReportController>().sumDeposit)),
+                            SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceReportController>().sumBalance), '매출이익',
+                                numberFormat.format(Get.find<BalanceReportController>().sumMargin)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<BalanceReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        OptionPeriodPicker(),
-                        OptionCbBranch(),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                        OptionTwoContent(OptionCbCustomerClass(), OptionCbCustomerStatus()),
-                        OptionBtnSearch(ROUTE_MENU_BALANCE_REPORT),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: !Get.find<BalanceReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 채권 합계'),
-                        SumItemTable('매출액', numberFormat.format(Get.find<BalanceReportController>().sumTotal), '공급가',
-                            numberFormat.format(Get.find<BalanceReportController>().sumPrice)),
-                        SumItemTable('합계', numberFormat.format(Get.find<BalanceReportController>().sumAmount), '입금합계',
-                            numberFormat.format(Get.find<BalanceReportController>().sumDeposit)),
-                        SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceReportController>().sumBalance), '매출이익',
-                            numberFormat.format(Get.find<BalanceReportController>().sumMargin)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -177,8 +177,7 @@ class BalanceReportController extends GetxController {
           '&grade=' +
           paramCustGrade +
           '&status=' +
-          paramCustStat
-          );
+          paramCustStat);
 
       if (response.statusCode == 200) {
         if ((parsedBalanceReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

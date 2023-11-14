@@ -17,9 +17,7 @@ class BalanceReportModel {
   var marginRate; // 이익률
   int? id;
 
-  BalanceReportModel(
-      this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate,
-      {this.id});
+  BalanceReportModel(this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -97,16 +95,16 @@ class BalanceReportModel {
 List<BalanceReportModel> generateBalanceReportList(dataList, count) {
   return List.generate(
       count,
-          (index) => BalanceReportModel(
-        dataList[index].code,
-        dataList[index].name,
-        numberFormat.format(dataList[index].total),
-        numberFormat.format(dataList[index].price),
-        numberFormat.format(dataList[index].amount),
-        numberFormat.format(dataList[index].deposit),
-        numberFormat.format(dataList[index].balance),
-        numberFormat.format(dataList[index].margin),
-        dataList[index].marginRate,
-        id: index,
-      ));
+      (index) => BalanceReportModel(
+            dataList[index].code,
+            dataList[index].name,
+            numberFormat.format(dataList[index].total),
+            numberFormat.format(dataList[index].price),
+            numberFormat.format(dataList[index].amount),
+            numberFormat.format(dataList[index].deposit),
+            numberFormat.format(dataList[index].balance),
+            numberFormat.format(dataList[index].margin),
+            dataList[index].marginRate,
+            id: index,
+          ));
 }

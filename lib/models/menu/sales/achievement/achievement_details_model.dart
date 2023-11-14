@@ -17,9 +17,9 @@ class AchievementDetailsModel {
   var balanceRate;
   int? id;
 
-  AchievementDetailsModel(
-      this.month, this.salesGoal, this.salesAmount, this.salesRate, this.balanceGoal,
-      this.lastBalance, this.variationBalance, this.changeBalance, this.balanceRate, {this.id});
+  AchievementDetailsModel(this.month, this.salesGoal, this.salesAmount, this.salesRate, this.balanceGoal, this.lastBalance, this.variationBalance,
+      this.changeBalance, this.balanceRate,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -43,8 +43,7 @@ class AchievementDetailsModel {
 List<AchievementDetailsModel> generateAchievementDetailsModelList(dataList, count) {
   return List.generate(
       count,
-          (index) =>
-          AchievementDetailsModel(
+      (index) => AchievementDetailsModel(
             dataList[index].month,
             numberFormat.format(dataList[index].salesGoal),
             numberFormat.format(dataList[index].salesAmount),

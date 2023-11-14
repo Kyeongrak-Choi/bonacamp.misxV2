@@ -37,9 +37,8 @@ class CustomerContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '매출이익',
-                value: controller.controllerCustomerContribute != null
-                    ? numberFormat.format(controller.controllerCustomerContribute.profitAmount)
-                    : '0',
+                value:
+                    controller.controllerCustomerContribute != null ? numberFormat.format(controller.controllerCustomerContribute.profitAmount) : '0',
                 iconData: Icons.label_outlined,
               ),
               Container(
@@ -69,9 +68,7 @@ class CustomerContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '비용합계',
-                value: controller.controllerCustomerContribute != null
-                    ? numberFormat.format(controller.controllerCustomerContribute.total)
-                    : '0',
+                value: controller.controllerCustomerContribute != null ? numberFormat.format(controller.controllerCustomerContribute.total) : '0',
                 iconData: Icons.label_outlined,
               ),
               Container(
@@ -80,9 +77,8 @@ class CustomerContributeTable extends StatelessWidget {
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               IconTitleField(
                 titleName: '채권잔액',
-                value: controller.controllerCustomerContribute != null
-                    ? numberFormat.format(controller.controllerCustomerContribute.bondBalance)
-                    : '0',
+                value:
+                    controller.controllerCustomerContribute != null ? numberFormat.format(controller.controllerCustomerContribute.bondBalance) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
@@ -94,9 +90,8 @@ class CustomerContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '대여자산',
-                value: controller.controllerCustomerContribute != null
-                    ? numberFormat.format(controller.controllerCustomerContribute.rentalAmount)
-                    : '0',
+                value:
+                    controller.controllerCustomerContribute != null ? numberFormat.format(controller.controllerCustomerContribute.rentalAmount) : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
