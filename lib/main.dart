@@ -42,6 +42,7 @@ import 'layouts/menu/sales/customer_report_monthly.dart';
 import 'layouts/menu/sales/sales_ledger.dart';
 import 'layouts/menu/sales/sales_rental_ledger.dart';
 import 'layouts/menu/sales/salesperson_report.dart';
+import 'layouts/menu/support/rental_report.dart';
 
 void main() async {
   // init Hive
@@ -123,7 +124,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_PURCHASE_LEDGER, page: () => PurchaseLedger()), // 매입원장
 
         // 지원현황
-        // GetPage(name: , page: () =>), // 대여금 현황
+        GetPage(name: ROUTE_MENU_SUPPORT_RENTAL_REPORT, page: () => RentalReport()), // 대여금 현황
         GetPage(name: ROUTE_MENU_SUPPORT_RENT_ASSET, page: () => RentAsset()), // 대여자산 현황
         GetPage(name: ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY, page: () => RentAssetHistory()), // 대여자산 현황(이력)
 
