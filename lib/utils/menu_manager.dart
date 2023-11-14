@@ -109,6 +109,7 @@ final List<IconMenu> salesAnalysisMaster = [
   IconMenu(title: 'menu_sub_balance_report'.tr, iconData: CupertinoIcons.doc_text, path: ROUTE_MENU_BALANCE_REPORT), // 채권현황
   IconMenu(title: 'menu_sub_balance_rental_report'.tr, iconData: FontAwesomeIcons.peopleArrows, path: ROUTE_MENU_BALANCE_RENTAL_REPORT), // 채권 및 대여 현황
   IconMenu(title: 'menu_sub_sales_rental_ledger'.tr, iconData: FontAwesomeIcons.book, path: ROUTE_MENU_SALES_RENTAL_LEDGER), // 매출 및 대여 원장
+  IconMenu(title: 'menu_sub_item_status'.tr, iconData: CupertinoIcons.square_stack_3d_down_right_fill, path: ''), // 품목 현황
 ];
 
 // 매입분석
