@@ -119,7 +119,7 @@ final List<IconMenu> purchaseAnalysisMaster = [
 
 // 지원현황
 final List<IconMenu> supportStatusMaster = [
-  IconMenu(title: 'menu_sub_support_rental_report'.tr, iconData: Icons.copy_outlined, path: ROUTE_MENU_SUPPORT_RENTAL_REPORT), // 대여금 현황
+  IconMenu(title: 'menu_sub_support_rental_report'.tr, iconData: FontAwesomeIcons.handHoldingDollar, path: ROUTE_MENU_SUPPORT_RENTAL_REPORT), // 대여금 현황
   IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황
   IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황(이력)
 ];

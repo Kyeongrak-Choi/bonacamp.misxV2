@@ -153,11 +153,6 @@ class RentalReportController extends GetxController {
     String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramRentalStatusCode = Get.find<CbRentalDivisionController>().paramDivisionCode;
 
-    if (paramCustomerCode == '') {
-      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
-      return;
-    }
-
     var param = user.getClientCode;
     var parsedRentalReport;
 
@@ -192,8 +187,8 @@ class RentalReportController extends GetxController {
               sumTotalReturnAmount += detailsData.totalReturnAmount as int;
               sumBalance += detailsData.balance as int;
               sumRentalAmount += detailsData.rentalAmount as int;
-              sumReturnAmount = detailsData.returnAmount as int;
-              sumOverdueAmount = detailsData.overdueAmount as int;
+              sumReturnAmount += detailsData.returnAmount as int;
+              sumOverdueAmount += detailsData.overdueAmount as int;
             }
           }
 

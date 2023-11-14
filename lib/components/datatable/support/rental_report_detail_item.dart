@@ -28,7 +28,7 @@ class RentalReportDetailItem extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: context.textTheme.displayMedium!.merge(
                     TextStyle(
-                  color: detailList.salesTypeName == '연체' ? Colors.red : Colors.black)
+                  color: detailList.status == '연체' ? Colors.red : Colors.black)
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

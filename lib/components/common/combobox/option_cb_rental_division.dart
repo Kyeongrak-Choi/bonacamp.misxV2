@@ -74,16 +74,16 @@ class CbRentalDivisionController extends GetxController {
         paramDivisionCode = '';
         break;
       case '완료':
-        paramDivisionCode = '0';
+        paramDivisionCode = '1';
         break;
       case '완납':
-        paramDivisionCode = '1';
+        paramDivisionCode = '2';
         break;
       case '진행':
-        paramDivisionCode = '1';
+        paramDivisionCode = '3';
         break;
       case '연체':
-        paramDivisionCode = '1';
+        paramDivisionCode = '4';
         break;
     }
 
