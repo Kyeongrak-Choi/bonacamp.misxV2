@@ -121,7 +121,7 @@ final List<IconMenu> purchaseAnalysisMaster = [
 final List<IconMenu> supportStatusMaster = [
   IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ''), // 대여금 현황
   IconMenu(title: 'menu_sub_support_rent_asset'.tr, iconData: CupertinoIcons.gift, path: ROUTE_MENU_SUPPORT_RENT_ASSET), // 대여자산 현황
-  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황(이력)
+  IconMenu(title: 'menu_sub_support_rent_asset_history'.tr, iconData: Icons.history, path: ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY), // 대여자산 현황(이력)
 ];
 
 // 위치조회

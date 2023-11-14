@@ -24,28 +24,30 @@ import '../../../components/common/field/sum_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/achievement_item.dart';
 import '../../../components/datatable/sales/salesperson_report_item.dart';
+import '../../../components/datatable/support/rent_asset_history_item.dart';
 import '../../../models/menu/sales/achievement/achievement_model.dart';
 import '../../../models/menu/sales/salesperson_report_model.dart';
+import '../../../models/menu/support/rent_asset_history_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
 
-class RentAsset extends StatelessWidget {
+class RentAssetHistory extends StatelessWidget {
   @override
   Widget build(context) {
-    Get.put(RentAssetController());
+    Get.put(RentAssetHistoryController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('menu_sub_support_rent_asset'.tr),
+              title: Text('menu_sub_support_rent_asset_history'.tr),
               titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<RentAssetController>().visible.value),
+                  icon: OptionBtnVisible(visible: Get.find<RentAssetHistoryController>().visible.value),
                   onPressed: () {
-                    Get.find<RentAssetController>().setVisible();
+                    Get.find<RentAssetHistoryController>().setVisible();
                   },
                 ),
               ]),
@@ -56,7 +58,7 @@ class RentAsset extends StatelessWidget {
               child: Column(
                 children: [
                   Visibility(
-                    visible: Get.find<RentAssetController>().visible.value,
+                    visible: Get.find<RentAssetHistoryController>().visible.value,
                     child: Container(
                       decoration: BoxDecoration(
                         color: context.theme.cardColor,
@@ -70,14 +72,14 @@ class RentAsset extends StatelessWidget {
                             OptionPeriodPicker(),
                             OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
                             OptionDialogCustomer(),
-                            OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET),
+                            OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY),
                           ],
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: Get.find<RentAssetController>().visible.value ? 20 : 0,
+                    height: Get.find<RentAssetHistoryController>().visible.value ? 20 : 0,
                   ),
                   Expanded(
                     child: Container(
@@ -102,15 +104,15 @@ class RentAsset extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<RentAssetController>().controllerAchievement != null) {
-      return RentAssetItem(Get.find<RentAssetController>().controllerAchievement);
+    if (Get.find<RentAssetHistoryController>().controllerAchievement != null) {
+      return RentAssetHistoryItem(Get.find<RentAssetHistoryController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
   }
 }
 
-class RentAssetController extends GetxController {
+class RentAssetHistoryController extends GetxController {
   var controllerAchievement;
 
   var visible = true.obs;
@@ -131,7 +133,7 @@ class RentAssetController extends GetxController {
     String paramAssetStatus = Get.find<CbAssetStatusController>().paramAssetStatusCode;
 
     var param = user.getClientCode;
-    var parsedRentAsset;
+    var parsedRentAssetHistory;
 
     if (paramCustomerCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
@@ -142,7 +144,7 @@ class RentAssetController extends GetxController {
       dio = await reqApi(param);
 
       final response = await dio.get(API_SUPPORT +
-        API_SUPPORT_RENT_ASSET +
+        API_SUPPORT_RENT_ASSET_HISTORY +
           '?branch=' +
           paramBranchCode +
           '&from=' +
@@ -156,14 +158,14 @@ class RentAssetController extends GetxController {
           );
 
       if (response.statusCode == 200) {
-        if ((parsedRentAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+        if ((parsedRentAssetHistory = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerAchievement = parsedRentAsset.map((dataJson) => RentAssetModel.fromJson(dataJson)).toList();
+          controllerAchievement = parsedRentAssetHistory.map((dataJson) => RentAssetHistoryModel.fromJson(dataJson)).toList();
         }
-        Get.find<RentAssetController>().setVisible();
+        Get.find<RentAssetHistoryController>().setVisible();
         update();
       }
     } on DioException catch (e) {
