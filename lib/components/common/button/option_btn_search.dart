@@ -24,6 +24,7 @@ import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/sales_rental_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
+import '../../../layouts/menu/support/rental_report.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 
@@ -157,11 +158,17 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_PURCHASE_LEDGER:
                         await Get.find<PurchaseLedgerController>().showResult();
                         break;
+                        
+                       // 지원현황 - 대여금 현황
+                      case ROUTE_MENU_SUPPORT_RENTAL_REPORT:
+                        await Get.find<RentalReportController>().showResult();
+                        break;
 
                       // 지원현황 - 대여자산 현황
                       case ROUTE_MENU_SUPPORT_RENT_ASSET:
                         await Get.find<RentAssetController>().showResult();
                         break;
+
                     }
                   } catch (e) {
                     pd.close();

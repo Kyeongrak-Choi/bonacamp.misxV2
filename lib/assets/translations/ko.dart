@@ -90,10 +90,9 @@ const Map<String, String> koKR = {
   'opt_sales_type': '매출유형',
   'opt_search_division': '조회구분',
   'opt_customer_class': '등급',
+  'opt_rental_division': '대여구분',
   'opt_asset_status': '자산상태',
-
-
-
+ 
   // Drawer Menu Label
   'logout': '로그아웃',
   'logout_content': '로그아웃 하시겠습니까?',
@@ -136,7 +135,7 @@ const Map<String, String> koKR = {
   'menu_sub_purchase_ledger': '매입원장',
 
   'menu_main_rental': '지원현황',
-  'title_21': '대여금 현황',
+  'menu_sub_support_rental_report': '대여금 현황',
   'menu_sub_support_rent_asset': '대여자산 현황',
   'title_23': '대여자산 현황(이력)',
 
