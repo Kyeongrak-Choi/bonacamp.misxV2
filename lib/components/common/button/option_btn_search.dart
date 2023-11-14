@@ -24,6 +24,7 @@ import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/sales_rental_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
+import '../../../layouts/menu/support/rent_asset_history.dart';
 import '../../../layouts/menu/support/rental_report.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
@@ -167,6 +168,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 지원현황 - 대여자산 현황
                       case ROUTE_MENU_SUPPORT_RENT_ASSET:
                         await Get.find<RentAssetController>().showResult();
+                        break;
+
+                      // 지원현황 - 대여자산 현황(이력)
+                      case ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY:
+                        await Get.find<RentAssetHistoryController>().showResult();
                         break;
 
                     }

@@ -137,7 +137,7 @@ const Map<String, String> koKR = {
   'menu_main_rental': '지원현황',
   'menu_sub_support_rental_report': '대여금 현황',
   'menu_sub_support_rent_asset': '대여자산 현황',
-  'title_23': '대여자산 현황(이력)',
+  'menu_sub_support_rent_asset_history': '대여자산 현황(이력)',
 
   'menu_main_location': '위치조회',
   'menu_sub_vendor_location': '매출처 위치조회',
