@@ -29,6 +29,7 @@ import 'layouts/config/notice.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/inventory/inventory_report.dart';
 import 'layouts/menu/location/vendor_location.dart';
 import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
@@ -116,7 +117,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_SALES_LEDGER, page: () => SalesLedger()), // 매출원장
         GetPage(name: ROUTE_MENU_ACHIEVEMENT, page: () => Achievement()), // 목표대비 실적현황
         GetPage(name: ROUTE_MENU_BALANCE_REPORT, page: () => BanlanceReport()), // 채권현황
-        GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BanlanceRentalReport()), // 채권 및 대여 현황
+        GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BalanceRentalReport()), // 채권 및 대여 현황
         GetPage(name: ROUTE_MENU_SALES_RENTAL_LEDGER, page: () => SalesRentalLedger()), // 매출 및 대여 원장
 
         // 매입분석
@@ -132,7 +133,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_VENDORLOCATION, page: () => VendorLocation()), // 매출처 위치조회
 
         // 재고분석
-        // GetPage(name: , page: () =>), // 재고현황
+        GetPage(name: ROUTE_MENU_INVENTORY_REPORT, page: () => InventoryReport()), // 재고현황
         // GetPage(name: , page: () =>), // 재고수불현황
         // GetPage(name: , page: () =>), // 용공수불(창고)
         // GetPage(name: , page: () =>), // 용공수불현황(거래처)

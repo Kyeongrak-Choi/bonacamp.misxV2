@@ -69,7 +69,7 @@ const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여�
 const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 
 // stock (재고분석)
-
+const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -122,7 +122,7 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013'; // 시스템 코드
 
 // common
 const API_COMMON = '/v1/common';
@@ -171,7 +171,8 @@ const API_LOCATION = '/v1/views/location';
 const API_LOCATION_CUSTOMER = '/customer';
 
 // stock (재고분석)
-
+const API_INVENTORY = '/v1/views/inventory';
+const API_INVENTORY_REPORT = '/report';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*

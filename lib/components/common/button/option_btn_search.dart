@@ -5,6 +5,7 @@ import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
+import '../../../layouts/menu/inventory/inventory_report.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../layouts/menu/management/analysis_graph.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
@@ -173,6 +174,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 지원현황 - 대여자산 현황(이력)
                       case ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY:
                         await Get.find<RentAssetHistoryController>().showResult();
+                        break;
+
+                      // 재고분석 - 재고현황
+                      case ROUTE_MENU_INVENTORY_REPORT:
+                        await Get.find<InventoryReportController>().showResult();
                         break;
                     }
                   } catch (e) {
