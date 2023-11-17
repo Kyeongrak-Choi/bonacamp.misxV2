@@ -167,6 +167,8 @@ const API_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산 현황
 const API_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 현황(이력)
 
 // location (위치조회)
+const API_LOCATION = '/v1/views/location';
+const API_LOCATION_CUSTOMER = '/customer';
 
 // stock (재고분석)
 
