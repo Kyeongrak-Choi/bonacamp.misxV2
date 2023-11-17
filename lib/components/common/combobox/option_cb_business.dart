@@ -54,7 +54,9 @@ class OptionCbBusiness extends StatelessWidget {
 
 class CbBusinessController extends GetxController {
   var selectedValue;
-  List<CommonModel> data = <CommonModel>[].obs;
+  List<CommonModel> data = <CommonModel>[
+    CommonModel('', 0, '', '전체', '', '', '', '', ''),
+  ].obs;
 
   String paramBusinessCode = '';
   String paramBusinessName = '';
