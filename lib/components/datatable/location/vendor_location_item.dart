@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'dart:ui' as ui;
 
 import 'package:custom_info_window/custom_info_window.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,8 @@ import '../../../../models/menu/location/place_model.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../models/menu/location/vendor_location_list_model.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
+import '../../../utils/utility.dart';
+import '../../common/field/icon_title_field.dart';
 
 class VendorLocationItem extends StatefulWidget {
 
@@ -122,31 +125,84 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               cluster.items.first.locationInfo.name,
-              style: TextStyle(fontSize: 20, color: Colors.blue, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 15, color: Colors.blue, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsetsDirectional.all(20),
+              padding: EdgeInsetsDirectional.all(2),
               child: Column(children: [
-                markerInfoWindowText("[상    태] :", cluster.items.first.locationInfo.status ?? ''),
-                markerInfoWindowText("[사  업  주] :", cluster.items.first.locationInfo.representative ?? ''),
-                markerInfoWindowText("[사업자번호] : ", cluster.items.first.locationInfo.salesRepCode ?? ''),
-                markerInfoWindowText("[영업 담당] : ", cluster.items.first.locationInfo.salesRep ?? ''),
-                markerInfoWindowText("[매출기준일] : ", cluster.items.first.locationInfo.salesDate ?? ''),
-                markerInfoWindowLine("-----------------------------------------"),
-                markerInfoWindowText("[매출 금액] : ", cluster.items.first.locationInfo.amount),
-                markerInfoWindowText("[결제 금액] : ", cluster.items.first.locationInfo.deposit),
-                markerInfoWindowText("[당일 매출] : ", cluster.items.first.locationInfo.amount),
-                markerInfoWindowText("[당월 매출] : ", cluster.items.first.locationInfo.monthlyAmount),
-                markerInfoWindowLine("-----------------------------------------"),
-                markerInfoWindowText("[미수 잔액] : ", cluster.items.first.locationInfo.remainDeposit),
-                markerInfoWindowText("[채권 잔액] : ", cluster.items.first.locationInfo.balance),
-                markerInfoWindowText("[대여 금액] : ", cluster.items.first.locationInfo.rentAmount),
-                markerInfoWindowText("[대여 잔액] : ", cluster.items.first.locationInfo.rentBalance),
-                markerInfoWindowText("[방문 횟수] : ", cluster.items.first.locationInfo.visitCount.toString()),
-                markerInfoWindowText("[마  진  율] :", cluster.items.first.locationInfo.marginRate.toString()),
+                IconTitleField(
+                  titleName: '상태'.tr,
+                  value: cluster.items.first.locationInfo.status ?? '',
+                  iconData: Icons.label_outlined,
+                ),
+                IconTitleField(
+                  titleName: '사업주'.tr,
+                  value: cluster.items.first.locationInfo.representative ?? '',
+                  iconData: Icons.person,
+                ),
+                IconTitleField(
+                  titleName: '사업자 번호'.tr,
+                  value: cluster.items.first.locationInfo.businessNo != '' ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
+                  iconData: Icons.numbers,
+                ),
+                IconTitleField(
+                  titleName: '영업 담당'.tr,
+                  value: cluster.items.first.locationInfo.salesRep ?? '',
+                  iconData: Icons.person,
+                ),
+                IconTitleField(
+                  titleName: '매출 기준일'.tr,
+                  value: cluster.items.first.locationInfo.salesDate ?? '',
+                  iconData: Icons.date_range,
+                ),
+                IconTitleField(
+                  titleName: '당일 매출'.tr,
+                  value: cluster.items.first.locationInfo.amount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '당월 매출'.tr,
+                  value:  cluster.items.first.locationInfo.monthlyAmount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '입금 금액'.tr,
+                  value: cluster.items.first.locationInfo.deposit,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '미수 잔액'.tr,
+                  value: cluster.items.first.locationInfo.remainDeposit,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '채권 잔액'.tr,
+                  value: cluster.items.first.locationInfo.balance,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '대여 금액'.tr,
+                  value: cluster.items.first.locationInfo.rentAmount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '대여 잔액'.tr,
+                  value: cluster.items.first.locationInfo.rentBalance,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '방문 횟수'.tr,
+                  value: cluster.items.first.locationInfo.visitCount.toString(),
+                  iconData: Icons.numbers,
+                ),
+                IconTitleField(
+                  titleName: '마진율'.tr,
+                  value: cluster.items.first.locationInfo.marginRate.toString(),
+                  iconData: Icons.percent,
+                ),
               ]),
             ),
           ),
@@ -277,9 +333,9 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           ),
           CustomInfoWindow(
             controller: customInfoWindowController,
-            height: 400,
-            width: 200,
-            offset: 50,
+            height: 500,
+            width: 250,
+            offset: 0,
           ),
         ]
       )
