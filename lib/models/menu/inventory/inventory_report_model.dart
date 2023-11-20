@@ -8,22 +8,22 @@ part 'inventory_report_model.g.dart'; // *.g.dart : in same directory
 // token response model
 @JsonSerializable(explicitToJson: true)
 class InventoryReportModel {
-  var itemCode;
-  var itemName;
-  var boxQuantity;
-  var bottleQuantity;
-  var amount;
-  var customerCode;
-  var customerName;
-  InventoryReportQuantityModel sales;
-  InventoryReportQuantityModel purchase;
-  var packageQuantity;
-  var liquorType;
-  var salesTypeCode;
-  var salesType;
-  var itemType;
-  var useCode;
-  var use;
+  var itemCode; // 품목코드
+  var itemName; // 품목명
+  var boxQuantity;  // 박스 수량
+  var bottleQuantity; // 병 수량
+  var amount; // 금액
+  var customerCode; // 매입처코드
+  var customerName; // 매입처명
+  InventoryReportQuantityModel sales; // 매출최종단가
+  InventoryReportQuantityModel purchase;  // 매입최종단가
+  var packageQuantity;  // 입수량
+  var liquorType; // 주종코드
+  var salesTypeCode;  // 판매분류코드
+  var salesType;  // 판매분류명
+  var itemType; // 품목분류명
+  var useCode;  // 용도코드
+  var use;  // 용도명
 
   int? id;
 
@@ -72,10 +72,10 @@ List<InventoryReportModel> generateInventoryReportModelList(dataList, count) {
             dataList[index].customerName,
             InventoryReportQuantityModel(
               numberFormat.format(dataList[index].sales.box),
-              numberFormat.format(dataList[index].sales.bottle)),
+              numberFormat.format(dataList[index].sales.bottle), ''),
             InventoryReportQuantityModel(
                 numberFormat.format(dataList[index].purchase.box),
-                numberFormat.format(dataList[index].purchase.bottle)),
+                numberFormat.format(dataList[index].purchase.bottle), ''),
             numberFormat.format(dataList[index].packageQuantity),
             dataList[index].liquorType,
             dataList[index].salesTypeCode,

@@ -146,7 +146,7 @@ const Map<String, String> koKR = {
 
   'menu_main_asset': '재고분석',
   'menu_sub_inventory_report': '재고현황',
-  'title_26': '재고수불현황',
+  'menu_sub_inventory_in_out_report': '재고수불현황',
   'title_27': '용공수불(창고)',
   'title_28': '용공수불현황(거래처)',
   'title_29': '용공수불현황(영업담당)',

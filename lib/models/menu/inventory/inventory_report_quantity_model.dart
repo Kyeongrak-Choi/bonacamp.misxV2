@@ -8,13 +8,15 @@ part 'inventory_report_quantity_model.g.dart'; // *.g.dart : in same directory
 class InventoryReportQuantityModel {
   var box;
   var bottle;
+  var total;
 
-  InventoryReportQuantityModel(this.box, this.bottle);
+  InventoryReportQuantityModel(this.box, this.bottle, this.total);
 
   Map<String, dynamic> toMap() {
     return {
       'box': box,
       'bottle': bottle,
+      'total': total,
     };
   }
 

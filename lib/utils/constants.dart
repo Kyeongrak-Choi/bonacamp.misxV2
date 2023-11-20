@@ -70,6 +70,7 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 
 // stock (재고분석)
 const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
+const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고현황
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -173,6 +174,7 @@ const API_LOCATION_CUSTOMER = '/customer';
 // stock (재고분석)
 const API_INVENTORY = '/v1/views/inventory';
 const API_INVENTORY_REPORT = '/report';
+const API_INVENTORY_INOUT_REPORT = '/in-out-report';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
