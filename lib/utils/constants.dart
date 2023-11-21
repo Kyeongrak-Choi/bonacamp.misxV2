@@ -169,12 +169,13 @@ const API_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 �
 
 // location (위치조회)
 const API_LOCATION = '/v1/views/location';
-const API_LOCATION_CUSTOMER = '/customer';
+const API_LOCATION_CUSTOMER = '/customer';  // 매출처 위치조회
 
 // stock (재고분석)
 const API_INVENTORY = '/v1/views/inventory';
-const API_INVENTORY_REPORT = '/report';
-const API_INVENTORY_INOUT_REPORT = '/in-out-report';
+const API_INVENTORY_REPORT = '/report'; // 재고현황
+const API_INVENTORY_INOUT_REPORT = '/in-out-report';  // 재고수불현황
+const API_LEND_REPORT_WAREHOUSE = '/warehouse-report';  // 용공수불현황
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
