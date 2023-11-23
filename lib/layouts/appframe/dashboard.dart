@@ -6,7 +6,10 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
 import 'package:misxV2/components/dashboard/dashboard_asset.dart';
+import 'package:misxV2/components/dashboard/dashboard_daily.dart';
 import 'package:misxV2/components/dashboard/dashboard_deposit.dart';
+import 'package:misxV2/components/dashboard/dashboard_graph.dart';
+import 'package:misxV2/components/dashboard/dashboard_month.dart';
 import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
 import 'package:misxV2/components/dashboard/dashboard_rental.dart';
 import 'package:misxV2/components/dashboard/dashboard_return.dart';
@@ -54,38 +57,50 @@ class DashBoard extends StatelessWidget {
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
-                        child: DashBoardSales(), // 매출
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardPurchase(), // 매입
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardDeposit(), // 회수
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardWithdraw(), // 출금
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardReturn(), // 반납
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                        child: DashBoardRental(), // 대여
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
-                        child: DashBoardAsset(), // 자산
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                      //   child: DashBoardSales(), // 매출
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardPurchase(), // 매입
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardDeposit(), // 회수
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardWithdraw(), // 출금
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardReturn(), // 반납
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                      //   child: DashBoardRental(), // 대여
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
+                      //   child: DashBoardAsset(), // 자산
+                      // ),
                       // Padding(
                       //   padding: EdgeInsetsDirectional.all(20),
                       //   child: DashBoardChart2(), // 차트
                       // ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: DashBoardDaily(), // 당일 현황
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: DashBoardMonth(), // 당원 현황
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: DashboardGraph(), // 차트
+                      ),
                     ],
                   ),
                 )
@@ -168,9 +183,8 @@ class DashBoardController extends GetxController {
       pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
-      final resOverall = await dio.get(
-          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(),
-          data: param);
+      final resOverall = await dio
+          .get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
 
       if (resOverall.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
