@@ -29,6 +29,7 @@ import 'layouts/config/notice.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/inventory/inventory_in_out_report.dart';
 import 'layouts/menu/inventory/inventory_report.dart';
 import 'layouts/menu/location/vendor_location.dart';
 import 'layouts/menu/management/analysis_graph.dart';
@@ -134,7 +135,7 @@ class Misx extends StatelessWidget {
 
         // 재고분석
         GetPage(name: ROUTE_MENU_INVENTORY_REPORT, page: () => InventoryReport()), // 재고현황
-        // GetPage(name: , page: () =>), // 재고수불현황
+        GetPage(name: ROUTE_MENU_INVENTORY_INOUT_REPORT, page: () => InventoryInOutReport()), // 재고수불현황
         // GetPage(name: , page: () =>), // 용공수불(창고)
         // GetPage(name: , page: () =>), // 용공수불현황(거래처)
         // GetPage(name: , page: () =>), // 용공수불현황(영업담당)
