@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/inventory/inventory_in_out_report.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/inventory/inventory_report.dart';
+import '../../../layouts/menu/inventory/lend_report_customer.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../layouts/menu/management/analysis_graph.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
@@ -185,6 +187,16 @@ class OptionBtnSearch extends StatelessWidget {
                       // 재고분석 - 재고수불현황
                       case ROUTE_MENU_INVENTORY_INOUT_REPORT:
                         await Get.find<InventoryInOutReportController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불(창고)
+                      case ROUTE_MENU_LEND_REPORT_WAREHOUSE:
+                        await Get.find<LendReportWarehouseController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불현황(거래처)
+                      case ROUTE_MENU_LEND_REPORT_CUSTOMER:
+                        await Get.find<LendReportCustomerController>().showResult();
                         break;
                     }
                   } catch (e) {
