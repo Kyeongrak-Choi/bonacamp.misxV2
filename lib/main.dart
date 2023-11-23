@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/search_customer_dialog.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_customer.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
@@ -136,8 +138,8 @@ class Misx extends StatelessWidget {
         // 재고분석
         GetPage(name: ROUTE_MENU_INVENTORY_REPORT, page: () => InventoryReport()), // 재고현황
         GetPage(name: ROUTE_MENU_INVENTORY_INOUT_REPORT, page: () => InventoryInOutReport()), // 재고수불현황
-        // GetPage(name: , page: () =>), // 용공수불(창고)
-        // GetPage(name: , page: () =>), // 용공수불현황(거래처)
+        GetPage(name: ROUTE_MENU_LEND_REPORT_WAREHOUSE, page: () => LendReportWarehouse()), // 용공수불(창고)
+        GetPage(name: ROUTE_MENU_LEND_REPORT_CUSTOMER, page: () => LendReportCustomer()), // 용공수불현황(거래처)
         // GetPage(name: , page: () =>), // 용공수불현황(영업담당)
       ],
       home: Login(),

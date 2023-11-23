@@ -70,7 +70,9 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 
 // stock (재고분석)
 const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
-const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고현황
+const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고수불현황
+const ROUTE_MENU_LEND_REPORT_WAREHOUSE = '/lend-report-warehouse'; // 용공수불(창고)
+const ROUTE_MENU_LEND_REPORT_CUSTOMER = '/lend-report-customer'; // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -123,7 +125,7 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
 
 // common
 const API_COMMON = '/v1/common';
@@ -169,12 +171,14 @@ const API_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 �
 
 // location (위치조회)
 const API_LOCATION = '/v1/views/location';
-const API_LOCATION_CUSTOMER = '/customer';
+const API_LOCATION_CUSTOMER = '/customer';  // 매출처 위치조회
 
 // stock (재고분석)
 const API_INVENTORY = '/v1/views/inventory';
-const API_INVENTORY_REPORT = '/report';
-const API_INVENTORY_INOUT_REPORT = '/in-out-report';
+const API_INVENTORY_REPORT = '/report'; // 재고현황
+const API_INVENTORY_INOUT_REPORT = '/in-out-report';  // 재고수불현황
+const API_LEND_REPORT_WAREHOUSE = '/warehouse-report';  // 용공수불현황(창고)
+const API_LEND_REPORT_CUSTOMER = '/package-in-out-report';  // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*

@@ -93,6 +93,7 @@ const Map<String, String> koKR = {
   'opt_asset_status': '자산상태',
   'opt_warehouse': '창고',
   'opt_sales_class': '판매분류',
+  'opt_lend_division': '용기구분',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -147,8 +148,8 @@ const Map<String, String> koKR = {
   'menu_main_asset': '재고분석',
   'menu_sub_inventory_report': '재고현황',
   'menu_sub_inventory_in_out_report': '재고수불현황',
-  'title_27': '용공수불(창고)',
-  'title_28': '용공수불현황(거래처)',
+  'menu_sub_lend_report_warehouse': '용공수불(창고)',
+  'menu_sub_lend_report_customer': '용공수불현황(거래처)',
   'title_29': '용공수불현황(영업담당)',
 
   // API Result Message
