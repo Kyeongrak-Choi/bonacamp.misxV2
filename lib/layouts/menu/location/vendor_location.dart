@@ -30,6 +30,7 @@ class VendorLocation extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_vendor_location'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [

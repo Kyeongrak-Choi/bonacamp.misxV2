@@ -31,15 +31,15 @@ class InventoryInOutReportItem extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: Text(
                       '품목',
                       style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.left,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Text(
                       '전일재고\nBOX / EA',
                       style: context.textTheme.displayMedium,
@@ -71,7 +71,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                 return Row(
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 4,
                       child: Text(
                         dataList[index].itemName ?? '',
                         style: context.textTheme.displaySmall,
@@ -79,7 +79,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      flex: 3,
+                      flex: 2,
                       child: Text(
                         dataList[index].last.box + ' / ' + dataList[index].last.bottle,
                         style: context.textTheme.displaySmall,

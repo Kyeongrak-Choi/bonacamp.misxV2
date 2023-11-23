@@ -30,15 +30,15 @@ class InventoryReportItem extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Text(
                       '품목',
                       style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.left,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Text(
                       'BOX / EA',
                       style: context.textTheme.displayMedium,
@@ -46,7 +46,7 @@ class InventoryReportItem extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Text(
                       '금액',
                       style: context.textTheme.displayMedium,
@@ -78,7 +78,7 @@ class InventoryReportItem extends StatelessWidget {
                 return Row(
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: Text(
                         dataList[index].itemName ?? '',
                         style: context.textTheme.displaySmall,
@@ -86,7 +86,7 @@ class InventoryReportItem extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      flex: 3,
+                      flex: 2,
                       child: Text(
                         dataList[index].boxQuantity + ' / ' + dataList[index].bottleQuantity,
                         style: context.textTheme.displaySmall,
@@ -94,7 +94,7 @@ class InventoryReportItem extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      flex: 3,
+                      flex: 2,
                       child: Text(
                         dataList[index].amount,
                         style: context.textTheme.displaySmall,
