@@ -135,7 +135,7 @@ final List<IconMenu> locationSearchMaster = [
 
 // 재고분석
 final List<IconMenu> inventoryAnalysisMaster = [
-  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ''), // 재고현황
+  IconMenu(title: 'menu_sub_inventory_report'.tr, iconData: Icons.inventory, path: ROUTE_MENU_INVENTORY_REPORT), // 재고현황
   IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ''), // 재고수불현황
   IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불(창고)
   IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(거래처)

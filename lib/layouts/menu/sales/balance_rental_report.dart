@@ -25,7 +25,7 @@ import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
 
-class BanlanceRentalReport extends StatelessWidget {
+class BalanceRentalReport extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(BalanceRentalReportController());
