@@ -67,7 +67,7 @@ Future<bool> reqToken(bool isDev) async {
   }
 }
 
-Future<String> reqLogin(params) async {
+Future<Dio> reqLogin() async {
   log('call login url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
 
   var options = BaseOptions(
@@ -81,28 +81,41 @@ Future<String> reqLogin(params) async {
 
   Dio dio = Dio(options);
 
-  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+  // dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+  //   return handler.next(options); //continue
+  // }, onResponse: (response, handler) {
+  //   return handler.next(response); // continue
+  // }, onError: (DioError e, handler) {
+  //   return handler.next(e); //continue
+  // }));
+
+  dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioError e, handler) {
-    return handler.next(e); //continue
+  }, onError: (DioException dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+    if (dioError.response?.statusCode != 200) {
+      return errorInterceptorHandler.next(dioError);
+    }
+    return errorInterceptorHandler.next(dioError);
   }));
 
-  try {
-    Res.Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
+  return dio;
 
-    if (response.statusCode == 200) {
-      BoxInit(); // local DB Set
-      UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
-      await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
-    }
-    return response.statusCode.toString();
-  } catch (e) {
-    Exception(e);
-    log('error : ' + e.toString());
-    return e.toString();
-  }
+  // try {
+  //   Res.Response response = await dio.post(API_SYSTEM_LOGIN, data: params);
+  //
+  //   if (response.statusCode == 200) {
+  //     BoxInit(); // local DB Set
+  //     UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
+  //     await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
+  //   }
+  //   return response.statusCode.toString();
+  // } catch (e) {
+  //   Exception(e);
+  //   log('error : ' + e.toString());
+  //   return e.toString();
+  // }
 }
 
 Future<Dio> reqApi(header) async {
