@@ -37,4 +37,3 @@ List<LendReportSalespersonModel> generateLendReportCustomerModelList(dataList, c
             id: index,
           ));
 }
-

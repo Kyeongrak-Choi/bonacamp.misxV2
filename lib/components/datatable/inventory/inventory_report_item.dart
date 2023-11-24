@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/inventory/inventory_report_model.dart';
-import '../../../models/menu/sales/balance_rental_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 

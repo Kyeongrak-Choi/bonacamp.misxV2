@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../models/system/req_login.dart';
 import '../../models/system/userinfo.dart';
-import '../../models/token/req_token.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
@@ -55,6 +53,7 @@ class LoginBtnController extends GetxController {
   var inputPw;
 
   var dio;
+
   @override
   void onInit() {
     super.onInit();

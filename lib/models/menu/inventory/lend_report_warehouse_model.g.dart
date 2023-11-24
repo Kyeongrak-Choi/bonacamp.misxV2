@@ -17,7 +17,6 @@ LendReportWarehouseModel _$LendReportWarehouseModelFromJson(Map<String, dynamic>
       LendReportQuantityModel.fromJson(json['current'] as Map<String, dynamic>),
       LendReportQuantityModel.fromJson(json['in'] as Map<String, dynamic>),
       LendReportQuantityModel.fromJson(json['out'] as Map<String, dynamic>),
-
     );
 
 Map<String, dynamic> _$LendReportWarehouseModelToJson(LendReportWarehouseModel instance) => <String, dynamic>{

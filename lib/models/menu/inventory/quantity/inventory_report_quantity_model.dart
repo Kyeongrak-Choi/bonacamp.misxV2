@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/utils/utility.dart';
 
 part 'inventory_report_quantity_model.g.dart'; // *.g.dart : in same directory
 

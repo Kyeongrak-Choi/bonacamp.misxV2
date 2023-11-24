@@ -18,7 +18,6 @@ InventoryInOutReportModel _$InventoryInOutReportModelFromJson(Map<String, dynami
       InventoryReportQuantityModel.fromJson(json['physical'] as Map<String, dynamic>),
       InventoryReportQuantityModel.fromJson(json['in'] as Map<String, dynamic>),
       InventoryReportQuantityModel.fromJson(json['out'] as Map<String, dynamic>),
-
     );
 
 Map<String, dynamic> _$InventoryInOutReportModelToJson(InventoryInOutReportModel instance) => <String, dynamic>{

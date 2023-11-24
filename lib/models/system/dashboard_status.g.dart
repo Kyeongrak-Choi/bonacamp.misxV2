@@ -6,9 +6,7 @@ part of 'dashboard_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DashboardStatusModel _$DashboardStatusModelFromJson(
-        Map<String, dynamic> json) =>
-    DashboardStatusModel(
+DashboardStatusModel _$DashboardStatusModelFromJson(Map<String, dynamic> json) => DashboardStatusModel(
       json['sales-amount'],
       json['purchase-amount'],
       json['deposit-collect'],
@@ -16,9 +14,7 @@ DashboardStatusModel _$DashboardStatusModelFromJson(
       json['deposit-balance'],
     );
 
-Map<String, dynamic> _$DashboardStatusModelToJson(
-        DashboardStatusModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$DashboardStatusModelToJson(DashboardStatusModel instance) => <String, dynamic>{
       'sales-amount': instance.salesAmount,
       'purchase-amount': instance.purchaseAmount,
       'deposit-collect': instance.depositCollect,

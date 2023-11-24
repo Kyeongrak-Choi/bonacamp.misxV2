@@ -14,7 +14,6 @@ LendReportCustomerListModel _$LendReportCustomerListModelFromJson(Map<String, dy
       LendReportCustomerQuantityModel.fromJson(json['full-box'] as Map<String, dynamic>),
       LendReportCustomerQuantityModel.fromJson(json['box'] as Map<String, dynamic>),
       LendReportCustomerQuantityModel.fromJson(json['bottle'] as Map<String, dynamic>),
-
     );
 
 Map<String, dynamic> _$LendReportCustomerListModelToJson(LendReportCustomerListModel instance) => <String, dynamic>{

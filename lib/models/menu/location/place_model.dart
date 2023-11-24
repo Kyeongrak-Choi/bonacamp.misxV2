@@ -8,7 +8,7 @@ class PlaceModel with ClusterItem {
   VendorLocationModel locationInfo;
 
   //PlaceModel(this.locationInfo, this.latLng);
-  PlaceModel(this.locationInfo,{required this.name, required this.latLng});
+  PlaceModel(this.locationInfo, {required this.name, required this.latLng});
 
   @override
   LatLng get location => latLng;

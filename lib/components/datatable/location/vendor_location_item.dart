@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'dart:ui' as ui;
 
 import 'package:custom_info_window/custom_info_window.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,13 +12,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../models/menu/location/place_model.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
-import '../../../models/menu/location/vendor_location_list_model.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
 
 class VendorLocationItem extends StatefulWidget {
-
   const VendorLocationItem({super.key});
 
   @override
@@ -42,7 +39,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   int markerHeight = 200;
   int markerWidth = 200;
 
-    static final LatLng initLatlng = LatLng(
+  static final LatLng initLatlng = LatLng(
     // 지도 기본 위치 설정 (대한민국 중간)
     36.34,
     127.77,
@@ -58,7 +55,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
 
   @override
   void initState() {
-     loadMarkerImage();
+    loadMarkerImage();
     _manager = ClusterManager<PlaceModel>(locationItems, _updateMarkers, markerBuilder: _getMarkerBuilder(Colors.red));
 
     super.initState();
@@ -68,9 +65,9 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   void didUpdateWidget(covariant oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if(Get.find<VendorLocationController>().searchFlag == true) {
-      locationItems = generateVendorLocationModelList(Get.find<VendorLocationController>().controllerVendorLocation,
-          Get.find<VendorLocationController>().controllerVendorLocation.length);
+    if (Get.find<VendorLocationController>().searchFlag == true) {
+      locationItems = generateVendorLocationModelList(
+          Get.find<VendorLocationController>().controllerVendorLocation, Get.find<VendorLocationController>().controllerVendorLocation.length);
       _manager!.setItems(locationItems);
       Get.find<VendorLocationController>().searchFlag = false;
     }
@@ -101,13 +98,12 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 cluster.location,
               );
             } else {
-              if(cluster.items.every((element) => element.location == cluster.items.first.location)){
+              if (cluster.items.every((element) => element.location == cluster.items.first.location)) {
                 customInfoWindowController.addInfoWindow!(
                   markerDetailInfoWindow(cluster),
                   cluster.location,
                 );
-              }
-              else {
+              } else {
                 customInfoWindowController.hideInfoWindow!();
               }
             }
@@ -165,7 +161,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 ),
                 IconTitleField(
                   titleName: '당월 매출'.tr,
-                  value:  cluster.items.first.locationInfo.monthlyAmount,
+                  value: cluster.items.first.locationInfo.monthlyAmount,
                   iconData: Icons.money,
                 ),
                 IconTitleField(
@@ -304,41 +300,39 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: <Widget>[
-          GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _initialCameraPosition,
-            markers: markers,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-              _manager!.setMapId(controller.mapId);
-              customInfoWindowController.googleMapController = controller;
-            },
-            onCameraMove: (position) {
-              _manager!.onCameraMove(position);
-              customInfoWindowController.onCameraMove!();
-            },
-            onCameraIdle: () {
-              _manager!.updateMap();
-            },
-            onTap: (latlng) {
-              customInfoWindowController.hideInfoWindow!();
-            },
-            myLocationEnabled: true,
-            tiltGesturesEnabled: false,
-            rotateGesturesEnabled: false,
-            zoomControlsEnabled: false,
-            mapToolbarEnabled: false,
-            compassEnabled: false,
-            liteModeEnabled: false,
-          ),
-          CustomInfoWindow(
-            controller: customInfoWindowController,
-            height: 500,
-            width: 250,
-            offset: 0,
-          ),
-        ]
-      )
-    );
+      GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: _initialCameraPosition,
+        markers: markers,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+          _manager!.setMapId(controller.mapId);
+          customInfoWindowController.googleMapController = controller;
+        },
+        onCameraMove: (position) {
+          _manager!.onCameraMove(position);
+          customInfoWindowController.onCameraMove!();
+        },
+        onCameraIdle: () {
+          _manager!.updateMap();
+        },
+        onTap: (latlng) {
+          customInfoWindowController.hideInfoWindow!();
+        },
+        myLocationEnabled: true,
+        tiltGesturesEnabled: false,
+        rotateGesturesEnabled: false,
+        zoomControlsEnabled: false,
+        mapToolbarEnabled: false,
+        compassEnabled: false,
+        liteModeEnabled: false,
+      ),
+      CustomInfoWindow(
+        controller: customInfoWindowController,
+        height: 500,
+        width: 250,
+        offset: 0,
+      ),
+    ]));
   }
 }

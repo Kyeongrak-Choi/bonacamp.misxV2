@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/datatable/support/rental_report_detail_item.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_model.dart';
-import '../../../models/menu/support/rental_report/rental_report_model.dart';
 import '../../common/field/show_list_header_row.dart';
 import 'lend_report_customer_detail_item.dart';
 
@@ -38,7 +36,8 @@ class LendReportCustomerItem extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: model.detailList.length,
                         itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: LendReportCustomerDetailItem(model.detailList[idx]));
+                          return Container(
+                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: LendReportCustomerDetailItem(model.detailList[idx]));
                         }),
                   ],
                 ));

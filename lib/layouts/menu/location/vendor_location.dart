@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -12,15 +15,10 @@ import '../../../../components/common/button/option_btn_search.dart';
 import '../../../../components/common/button/option_btn_visible.dart';
 import '../../../../utils/constants.dart';
 import '../../../components/common/combobox/option_cb_customer_status.dart';
-import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/location/vendor_location_item.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/network/network_manager.dart';
-
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import '../../../utils/utility.dart';
 
 class VendorLocation extends StatelessWidget {
@@ -74,16 +72,15 @@ class VendorLocation extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                        child: VendorLocationItem(),
-                      )
-                    ),
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                          child: VendorLocationItem(),
+                        )),
                   ),
                 ],
               ),
@@ -129,8 +126,7 @@ class VendorLocationController extends GetxController {
           '&status=' +
           paramCustomerStatus +
           '&type=' +
-          paramBusinessCode
-      );
+          paramBusinessCode);
 
       if (response.statusCode == 200) {
         if ((parsedVendorLocation = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

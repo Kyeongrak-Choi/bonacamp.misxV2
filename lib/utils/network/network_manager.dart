@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart' as Res;
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/userinfo.dart';
 import 'package:misxV2/utils/utility.dart';
 
 import '../../models/token/req_token.dart';

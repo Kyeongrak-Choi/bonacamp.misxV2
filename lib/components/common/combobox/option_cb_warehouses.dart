@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import '../../../models/system/employee.dart';
 import '../../../models/system/warehouse.dart';
 import '../../../utils/constants.dart';
 

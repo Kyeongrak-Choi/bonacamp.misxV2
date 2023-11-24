@@ -27,18 +27,19 @@ class CustomerInfo extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerInfoController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text( 'menu_sub_customer_info'.tr),
+          appBar: AppBar(
+              title: Text('menu_sub_customer_info'.tr),
               titleTextStyle: context.textTheme.displayLarge,
               backgroundColor: context.theme.canvasColor,
               iconTheme: context.theme.iconTheme,
               actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
-              onPressed: () {
-                Get.find<CustomerInfoController>().setVisible();
-              },
-            ),
-          ]),
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
+                  onPressed: () {
+                    Get.find<CustomerInfoController>().setVisible();
+                  },
+                ),
+              ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Padding(

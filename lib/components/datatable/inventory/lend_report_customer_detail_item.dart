@@ -4,8 +4,6 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_list_model.dart';
-import '../../../models/menu/inventory/quantity/lend_report_customer_quantity_model.dart';
-import '../../../models/menu/support/rental_report/rental_report_details_model.dart';
 import '../../common/field/icon_title_field.dart';
 import '../../common/field/icon_title_three_field.dart';
 
@@ -35,13 +33,13 @@ class LendReportCustomerDetailItem extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 1,
-                child: IconButton(
-                  onPressed: () {
-                    ShowLendReportCustomerDetailDialog(detailList);
-                  },
-                  icon: Icon(Icons.search, color: context.theme.primaryColor),
-              )),
+                  flex: 1,
+                  child: IconButton(
+                    onPressed: () {
+                      ShowLendReportCustomerDetailDialog(detailList);
+                    },
+                    icon: Icon(Icons.search, color: context.theme.primaryColor),
+                  )),
             ],
           ),
         ),
@@ -136,7 +134,6 @@ void ShowLendReportCustomerDetailDialog(var detailList) {
             value3: detailList.bottle.remainRate.toString(),
             iconData: Icons.label_outlined,
           ),
-
         ],
       ));
 }

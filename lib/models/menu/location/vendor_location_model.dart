@@ -18,30 +18,47 @@ class VendorLocationModel {
   var statusCode; // 거래처 상태
   var status; // 거래처 상태명
   var businessNo; // 사업자 번호
-  var salesDate;  // 매출 기준일
+  var salesDate; // 매출 기준일
   var amount; // 당일 매출
-  var monthlyAmount;  // 당월 매출
-  var deposit;  // 입금 금액
-  var remainDeposit;  // 미수잔액
+  var monthlyAmount; // 당월 매출
+  var deposit; // 입금 금액
+  var remainDeposit; // 미수잔액
   var rentAmount; // 대여 금액
-  var rentBalance;  // 대여 잔액
-  var balance;  // 채권잔액
+  var rentBalance; // 대여 잔액
+  var balance; // 채권잔액
   var visitCount; // 방문횟수
   var marginRate; // 마진율
 
   int? id;
 
   VendorLocationModel(
-      this.code, this.name, this.representative, this.location, this.salesRepCode, this.salesRep, this.statusCode,this.status,this.businessNo,
-      this.salesDate, this.amount, this.monthlyAmount, this.deposit, this.remainDeposit, this.rentAmount, this.rentBalance,
-      this.balance, this.visitCount, this.marginRate, {this.id});
+      this.code,
+      this.name,
+      this.representative,
+      this.location,
+      this.salesRepCode,
+      this.salesRep,
+      this.statusCode,
+      this.status,
+      this.businessNo,
+      this.salesDate,
+      this.amount,
+      this.monthlyAmount,
+      this.deposit,
+      this.remainDeposit,
+      this.rentAmount,
+      this.rentBalance,
+      this.balance,
+      this.visitCount,
+      this.marginRate,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
       'code': code,
       'name': name,
       'representative': representative,
-      'location':location,
+      'location': location,
       'sales-rep-code': salesRepCode,
       'sales-rep': salesRep,
       'status-code': statusCode,
@@ -68,7 +85,7 @@ class VendorLocationModel {
 List<PlaceModel> generateVendorLocationModelList(dataList, count) {
   return List.generate(
       count,
-          (index) => PlaceModel(
+      (index) => PlaceModel(
             VendorLocationModel(
               dataList[index].code,
               dataList[index].name,
@@ -92,5 +109,5 @@ List<PlaceModel> generateVendorLocationModelList(dataList, count) {
             ),
             name: index.toString(),
             latLng: LatLng(dataList[index].location.longitude, dataList[index].location.latitude),
-      ));
+          ));
 }

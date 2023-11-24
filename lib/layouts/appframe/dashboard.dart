@@ -5,16 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
-import 'package:misxV2/components/dashboard/dashboard_asset.dart';
 import 'package:misxV2/components/dashboard/dashboard_current.dart';
-import 'package:misxV2/components/dashboard/dashboard_deposit.dart';
-import 'package:misxV2/components/dashboard/dashboard_graph.dart';
 import 'package:misxV2/components/dashboard/dashboard_month.dart';
-import 'package:misxV2/components/dashboard/dashboard_purchase.dart';
-import 'package:misxV2/components/dashboard/dashboard_rental.dart';
-import 'package:misxV2/components/dashboard/dashboard_return.dart';
-import 'package:misxV2/components/dashboard/dashboard_sales.dart';
-import 'package:misxV2/components/dashboard/dashboard_withdraw.dart';
 import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/team.dart';
@@ -22,11 +14,8 @@ import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
-import '../../models/menu/management/overall/overallasset.dart';
 import '../../models/menu/management/overall/overalldeposit.dart';
 import '../../models/menu/management/overall/overallpurchase.dart';
-import '../../models/menu/management/overall/overallrental.dart';
-import '../../models/menu/management/overall/overallreturn.dart';
 import '../../models/menu/management/overall/overallsales.dart';
 import '../../models/menu/management/overall/overallwithdraw.dart';
 import '../../models/system/employee.dart';
@@ -112,13 +101,13 @@ class DashBoard extends StatelessWidget {
 }
 
 class DashBoardController extends GetxController {
- // var controllerSalesModel;
- //  var controllerPurchaseModel;
- //  var controllerDepositModel;
- //  var controllerWithdrawModel;
- //  var controllerReturnModel;
- //  var controllerRentalModel;
- //  var controllerAssetModel;
+  // var controllerSalesModel;
+  //  var controllerPurchaseModel;
+  //  var controllerDepositModel;
+  //  var controllerWithdrawModel;
+  //  var controllerReturnModel;
+  //  var controllerRentalModel;
+  //  var controllerAssetModel;
 
   var controllerCurrentModel;
   var controllerMonthModel;
@@ -189,7 +178,6 @@ class DashBoardController extends GetxController {
       var branchCode = branch.getBranchCode;
       final resOverall = await dio
           .get(API_MANAGEMENT + API_SYSTEM_DASHBOARD + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
-
 
       if (resOverall.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_CURRENT];

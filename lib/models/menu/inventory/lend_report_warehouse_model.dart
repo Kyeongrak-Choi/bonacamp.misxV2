@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:misxV2/utils/utility.dart';
 
-import 'quantity/inventory_report_quantity_model.dart';
 import 'quantity/lend_report_quantity_model.dart';
 
 part 'lend_report_warehouse_model.g.dart'; // *.g.dart : in same directory
@@ -22,9 +21,9 @@ class LendReportWarehouseModel {
 
   int? id;
 
-  LendReportWarehouseModel(this.transItemCode, this.lendItemName, this.obtinQuantity,
-      this.standard, this.container, this.containerName, this.last,
-      this.current, this.inventoryIn, this.inventoryOut, {this.id});
+  LendReportWarehouseModel(this.transItemCode, this.lendItemName, this.obtinQuantity, this.standard, this.container, this.containerName, this.last,
+      this.current, this.inventoryIn, this.inventoryOut,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -56,22 +55,14 @@ List<LendReportWarehouseModel> generateLendReportWarehouseModelList(dataList, co
             dataList[index].standard,
             dataList[index].container,
             dataList[index].containerName,
-            LendReportQuantityModel(
-              numberFormat.format(dataList[index].last.bottleQuantity),
-              numberFormat.format(dataList[index].last.equipQuantity),
-              numberFormat.format(dataList[index].last.quantity)),
-            LendReportQuantityModel(
-              numberFormat.format(dataList[index].physical.bottleQuantity),
-              numberFormat.format(dataList[index].physical.equipQuantity),
-              numberFormat.format(dataList[index].physical.quantity)),
-            LendReportQuantityModel(
-              numberFormat.format(dataList[index].inventoryIn.bottleQuantity),
-              numberFormat.format(dataList[index].inventoryIn.equipQuantity),
-              numberFormat.format(dataList[index].inventoryIn.quantity)),
-            LendReportQuantityModel(
-              numberFormat.format(dataList[index].inventoryOut.bottleQuantity),
-              numberFormat.format(dataList[index].inventoryOut.equipQuantity),
-              numberFormat.format(dataList[index].inventoryOut.quantity)),
+            LendReportQuantityModel(numberFormat.format(dataList[index].last.bottleQuantity), numberFormat.format(dataList[index].last.equipQuantity),
+                numberFormat.format(dataList[index].last.quantity)),
+            LendReportQuantityModel(numberFormat.format(dataList[index].physical.bottleQuantity),
+                numberFormat.format(dataList[index].physical.equipQuantity), numberFormat.format(dataList[index].physical.quantity)),
+            LendReportQuantityModel(numberFormat.format(dataList[index].inventoryIn.bottleQuantity),
+                numberFormat.format(dataList[index].inventoryIn.equipQuantity), numberFormat.format(dataList[index].inventoryIn.quantity)),
+            LendReportQuantityModel(numberFormat.format(dataList[index].inventoryOut.bottleQuantity),
+                numberFormat.format(dataList[index].inventoryOut.equipQuantity), numberFormat.format(dataList[index].inventoryOut.quantity)),
             id: index,
           ));
 }

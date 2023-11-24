@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/menu/support/rental_report/rental_report_details_model.dart';
 
 part 'vendor_location_list_model.g.dart'; // *.g.dart : in same directory
 
@@ -9,8 +8,7 @@ class VendorLocationListModel {
   var latitude; // 경도
   var longitude; // 위도
 
-  VendorLocationListModel(
-      this.latitude, this.longitude);
+  VendorLocationListModel(this.latitude, this.longitude);
 
   Map<String, dynamic> toMap() {
     return {

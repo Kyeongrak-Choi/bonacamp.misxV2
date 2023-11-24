@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:misxV2/models/menu/inventory/quantity/lend_report_customer_quantity_model.dart';
 
-import 'quantity/lend_report_quantity_model.dart';
-
 part 'lend_report_customer_list_model.g.dart'; // *.g.dart : in same directory
 
 // token response model
@@ -16,8 +14,7 @@ class LendReportCustomerListModel {
   LendReportCustomerQuantityModel box;
   LendReportCustomerQuantityModel bottle;
 
-  LendReportCustomerListModel(this.itemCode, this.itemName, this.quantity, this.standard,
-      this.fullBox, this.box, this.bottle);
+  LendReportCustomerListModel(this.itemCode, this.itemName, this.quantity, this.standard, this.fullBox, this.box, this.bottle);
 
   Map<String, dynamic> toMap() {
     return {

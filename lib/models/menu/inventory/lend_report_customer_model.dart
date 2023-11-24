@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/menu/support/rental_report/rental_report_details_model.dart';
 
 import 'lend_report_customer_list_model.dart';
 
@@ -38,4 +37,3 @@ List<LendReportCustomerModel> generateLendReportCustomerModelList(dataList, coun
             id: index,
           ));
 }
-
