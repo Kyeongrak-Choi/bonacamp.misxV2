@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/datatable/sales/sales_ledger_detail_item.dart';
 
 import '../../../models/menu/purchase/purchase_report_model.dart';
-import '../../../models/menu/sales/sales_ledger/sales_ledger_list_model.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class PurchaseReportItem extends StatelessWidget {
@@ -29,8 +25,7 @@ class PurchaseReportItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '',
-                    value: model.name);
+                return ShowListHeaderRow(titleName: '', value: model.name);
               },
               body: Column(
                 children: [

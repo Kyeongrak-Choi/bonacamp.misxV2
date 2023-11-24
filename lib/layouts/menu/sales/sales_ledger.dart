@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
-import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
-import 'package:misxV2/components/common/combobox/option_cb_manager.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
@@ -31,96 +29,99 @@ class SalesLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesLedgerController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_sales_ledger'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesLedgerController>().visible.value),
-              onPressed: () {
-                Get.find<SalesLedgerController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_sales_ledger'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<SalesLedgerController>().visible.value),
+                  onPressed: () {
+                    Get.find<SalesLedgerController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<SalesLedgerController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                            //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: !Get.find<SalesLedgerController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 매출 원장 합계'),
+                            SumItemTable(
+                                'BOX / EA',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity) +
+                                    ' / ' +
+                                    numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
+                                '매출액',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumTotal)),
+                            SumItemTable('공급가', numberFormat.format(Get.find<SalesLedgerController>().sumPrice), '합계',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumAmount)),
+                            SumItemTable('보증금', numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee), '입금액',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumDeposit)),
+                            SumItemTable(null, null, '채권잔액', numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<SalesLedgerController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        OptionPeriodPicker(),
-                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                        OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: !Get.find<SalesLedgerController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 매출 원장 합계'),
-                        SumItemTable('BOX / EA', numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity) + ' / '
-                            + numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
-                            '매출액', numberFormat.format(Get.find<SalesLedgerController>().sumTotal)),
-                        SumItemTable('공급가', numberFormat.format(Get.find<SalesLedgerController>().sumPrice), '합계',
-                            numberFormat.format(Get.find<SalesLedgerController>().sumAmount)),
-                        SumItemTable('보증금', numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee), '입금액',
-                            numberFormat.format(Get.find<SalesLedgerController>().sumDeposit)),
-                        SumItemTable(null,null,
-                            '채권잔액', numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -146,7 +147,6 @@ class SalesLedgerController extends GetxController {
   int sumDeposit = 0;
   int sumBalance = 0;
 
-
   setVisible() async {
     visible.value = !visible.value;
   }
@@ -159,8 +159,8 @@ class SalesLedgerController extends GetxController {
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    // String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    // String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
 
     if (paramCustomerCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
@@ -174,19 +174,19 @@ class SalesLedgerController extends GetxController {
       dio = await reqApi(param);
 
       final response = await dio.get(API_SALES +
-          API_SALES_SALESLEDGER +
-          '?branch=' +
-          paramBranchCode +
-          '&from=' +
-          paramFromDate +
-          '&to=' +
-          paramToDate +
-          '&customer=' +
-          paramCustomerCode +
-          '&sales-rep=' +
-          paramEmployeeCode +
-          '&manager=' +
-          paramManagementCode
+              API_SALES_SALESLEDGER +
+              '?branch=' +
+              paramBranchCode +
+              '&from=' +
+              paramFromDate +
+              '&to=' +
+              paramToDate +
+              '&customer=' +
+              paramCustomerCode
+          // '&sales-rep=' +
+          // paramEmployeeCode +
+          // '&manager=' +
+          // paramManagementCode
           );
 
       if (response.statusCode == 200) {
@@ -198,8 +198,8 @@ class SalesLedgerController extends GetxController {
 
           controllerSalesLedger = SalesLedgerModel.fromJson(parsedSalesLedger);
 
-          for (SalesLedgerListModel listData in controllerSalesLedger.dateList){
-            for (SalesLedgerDetailsModel detailData in listData.details){
+          for (SalesLedgerListModel listData in controllerSalesLedger.dateList) {
+            for (SalesLedgerDetailsModel detailData in listData.details) {
               sumBoxQuantity += detailData.boxQuantity as int;
               sumBottleQuantity += detailData.bottleQuantity as int;
               sumTotal += detailData.total as int;
@@ -211,7 +211,6 @@ class SalesLedgerController extends GetxController {
             }
           }
         }
-
 
         Get.find<SalesLedgerController>().setVisible();
         update();

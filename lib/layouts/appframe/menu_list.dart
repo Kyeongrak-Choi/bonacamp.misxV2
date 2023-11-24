@@ -63,7 +63,7 @@ class MenuList extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.all(20),
-                        child: CardTitleMenuList(menuTitleName: 'menu_main_rental'.tr, iconMenuList: supportStatusMaster),
+                        child: CardTitleMenuList(menuTitleName: 'menu_main_support'.tr, iconMenuList: supportStatusMaster),
                       )),
                 ),
                 Padding(

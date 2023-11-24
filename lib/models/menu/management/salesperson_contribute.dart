@@ -41,8 +41,6 @@ class SalesPersonContributeModel {
       this.serveAmount,
       this.serveTotal);
 
-
-
   Map<String, dynamic> toMap() {
     return {
       'customer-count': customerCount,

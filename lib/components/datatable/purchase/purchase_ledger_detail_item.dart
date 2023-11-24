@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
 import 'package:misxV2/utils/utility.dart';
@@ -28,22 +27,18 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                 child: Text(
                   detailList.itemName,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.displayMedium!.merge(
-                      TextStyle(
-                    color: detailList.itemName == '지급' ? Colors.red : Colors.blue)
-                  ),
+                  style: context.textTheme.displayMedium!.merge(TextStyle(color: detailList.itemName == '지급' ? Colors.red : Colors.blue)),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               Expanded(
-                flex: 1,
-                child: IconButton(
-                  onPressed: (){
-                    ShowPurchaseLedgerDetailDialog(detailList);
-                  },
-                  icon: Icon(Icons.search, color: context.theme.primaryColor),
-                )
-              ),
+                  flex: 1,
+                  child: IconButton(
+                    onPressed: () {
+                      ShowPurchaseLedgerDetailDialog(detailList);
+                    },
+                    icon: Icon(Icons.search, color: context.theme.primaryColor),
+                  )),
             ],
           ),
         ),

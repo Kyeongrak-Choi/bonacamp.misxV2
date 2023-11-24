@@ -108,14 +108,8 @@ class CustomerContributeController extends GetxController {
 
     try {
       dio = await reqApi(param);
-      final response = await dio.get(API_MANAGEMENT +
-          API_MANAGEMENT_CONTRIBUTIONCUSTOMER +
-          '?branch=' +
-          tempNodeCd +
-          '&month=' +
-          tempYM +
-          '&customer=' +
-          tempCustomerCode);
+      final response = await dio
+          .get(API_MANAGEMENT + API_MANAGEMENT_CONTRIBUTIONCUSTOMER + '?branch=' + tempNodeCd + '&month=' + tempYM + '&customer=' + tempCustomerCode);
 
       if (response.statusCode == 200) {
         if ((parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
@@ -142,5 +136,4 @@ class CustomerContributeController extends GetxController {
   void clearValue() {
     controllerCustomerContribute = null;
   }
-
 }

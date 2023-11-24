@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
 import 'package:misxV2/utils/utility.dart';
@@ -31,12 +30,11 @@ class AchievementDetailItem extends StatelessWidget {
               ),
               Expanded(
                   child: IconButton(
-                    onPressed: (){
-                      ShowAchievementDetailDialog(detailList);
-                    },
-                    icon: Icon(Icons.search, color: context.theme.primaryColor),
-                  )
-                )
+                onPressed: () {
+                  ShowAchievementDetailDialog(detailList);
+                },
+                icon: Icon(Icons.search, color: context.theme.primaryColor),
+              ))
             ],
           ),
         ),

@@ -27,24 +27,24 @@ class OptionCbTeam extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                  () => DropdownButtonFormField<TeamModel>(
-                    isExpanded: true,
-                    value: Get.find<CbTeamController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {
-                      return DropdownMenuItem<TeamModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getTeamName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbTeamController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<TeamModel>(
+                isExpanded: true,
+                value: Get.find<CbTeamController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbTeamController>().data.map<DropdownMenuItem<TeamModel>>((TeamModel value) {
+                  return DropdownMenuItem<TeamModel>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value.getTeamName ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbTeamController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],

@@ -218,5 +218,4 @@ class SalesPersonReportController extends GetxController {
 
     controllerSalesPersonReport = null;
   }
-
 }

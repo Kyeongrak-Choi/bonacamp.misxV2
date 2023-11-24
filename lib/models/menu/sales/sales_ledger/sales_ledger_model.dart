@@ -11,8 +11,7 @@ class SalesLedgerModel {
   List<SalesLedgerListModel> dateList;
   int? id;
 
-  SalesLedgerModel(
-      this.code, this.name, this.dateList, {this.id});
+  SalesLedgerModel(this.code, this.name, this.dateList, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,10 +29,10 @@ class SalesLedgerModel {
 List<SalesLedgerModel> generateSalesLedgerModelList(dataList, count) {
   return List.generate(
       count,
-          (index) => SalesLedgerModel(
-        dataList[index].code,
-        dataList[index].name,
-        dataList[index].dateList,
-        id: index,
-      ));
+      (index) => SalesLedgerModel(
+            dataList[index].code,
+            dataList[index].name,
+            dataList[index].dateList,
+            id: index,
+          ));
 }

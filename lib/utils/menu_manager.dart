@@ -109,6 +109,7 @@ final List<IconMenu> salesAnalysisMaster = [
   IconMenu(title: 'menu_sub_balance_report'.tr, iconData: CupertinoIcons.doc_text, path: ROUTE_MENU_BALANCE_REPORT), // 채권현황
   IconMenu(title: 'menu_sub_balance_rental_report'.tr, iconData: FontAwesomeIcons.peopleArrows, path: ROUTE_MENU_BALANCE_RENTAL_REPORT), // 채권 및 대여 현황
   IconMenu(title: 'menu_sub_sales_rental_ledger'.tr, iconData: FontAwesomeIcons.book, path: ROUTE_MENU_SALES_RENTAL_LEDGER), // 매출 및 대여 원장
+  IconMenu(title: 'menu_sub_item_status'.tr, iconData: CupertinoIcons.square_stack_3d_down_right_fill, path: ''), // 품목 현황
 ];
 
 // 매입분석
@@ -119,9 +120,12 @@ final List<IconMenu> purchaseAnalysisMaster = [
 
 // 지원현황
 final List<IconMenu> supportStatusMaster = [
-  IconMenu(title: 'title_21'.tr, iconData: Icons.copy_outlined, path: ''), // 대여금 현황
-  IconMenu(title: 'title_22'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황
-  IconMenu(title: 'title_23'.tr, iconData: Icons.copy_outlined, path: ''), // 대여자산 현황(이력)
+  IconMenu(title: 'menu_sub_support_rental_report'.tr, iconData: FontAwesomeIcons.handHoldingDollar, path: ROUTE_MENU_SUPPORT_RENTAL_REPORT),
+  // 대여금 현황
+  IconMenu(title: 'menu_sub_support_rent_asset'.tr, iconData: CupertinoIcons.gift, path: ROUTE_MENU_SUPPORT_RENT_ASSET),
+  // 대여자산 현황
+  IconMenu(title: 'menu_sub_support_rent_asset_history'.tr, iconData: Icons.history, path: ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY),
+  // 대여자산 현황(이력)
 ];
 
 // 위치조회
@@ -131,9 +135,9 @@ final List<IconMenu> locationSearchMaster = [
 
 // 재고분석
 final List<IconMenu> inventoryAnalysisMaster = [
-  IconMenu(title: 'title_25'.tr, iconData: Icons.copy_outlined, path: ''), // 재고현황
-  IconMenu(title: 'title_26'.tr, iconData: Icons.copy_outlined, path: ''), // 재고수불현황
-  IconMenu(title: 'title_27'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불(창고)
-  IconMenu(title: 'title_28'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(거래처)
-  IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(영업담당)
+  IconMenu(title: 'menu_sub_inventory_report'.tr, iconData: Icons.inventory, path: ROUTE_MENU_INVENTORY_REPORT), // 재고현황
+  IconMenu(title: 'menu_sub_inventory_in_out_report'.tr, iconData: CupertinoIcons.rectangle_arrow_up_right_arrow_down_left, path: ROUTE_MENU_INVENTORY_INOUT_REPORT), // 재고수불현황
+  IconMenu(title: 'menu_sub_lend_report_warehouse'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_WAREHOUSE), // 용공수불(창고)
+  IconMenu(title: 'menu_sub_lend_report_customer'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_CUSTOMER), // 용공수불현황(거래처)
+  IconMenu(title: 'menu_sub_lend_report_salesperson'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_SALESPERSON), // 용공수불현황(영업담당)
 ];

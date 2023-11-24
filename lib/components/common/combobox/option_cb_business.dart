@@ -27,24 +27,24 @@ class OptionCbBusiness extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                  () => DropdownButtonFormField<CommonModel>(
-                    isExpanded: true,
-                    value: Get.find<CbBusinessController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                      return DropdownMenuItem<CommonModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbBusinessController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<CommonModel>(
+                isExpanded: true,
+                value: Get.find<CbBusinessController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbBusinessController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                  return DropdownMenuItem<CommonModel>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value.getName ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbBusinessController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],
@@ -54,7 +54,9 @@ class OptionCbBusiness extends StatelessWidget {
 
 class CbBusinessController extends GetxController {
   var selectedValue;
-  List<CommonModel> data = <CommonModel>[].obs;
+  List<CommonModel> data = <CommonModel>[
+    CommonModel('', 0, '', '전체', '', '', '', '', ''),
+  ].obs;
 
   String paramBusinessCode = '';
   String paramBusinessName = '';

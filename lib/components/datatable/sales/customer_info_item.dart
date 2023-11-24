@@ -18,7 +18,8 @@ class CustomerInfoTable extends StatelessWidget {
             children: [
               IconTitleField(
                 titleName: '사업자번호',
-                value: controller.controllerCustomerInfoModel != null ? convertBusinessNo(controller.controllerCustomerInfoModel.businessNo) ?? '' : '',
+                value:
+                    controller.controllerCustomerInfoModel != null ? convertBusinessNo(controller.controllerCustomerInfoModel.businessNo) ?? '' : '',
                 iconData: Icons.label_outlined,
               ),
               Container(

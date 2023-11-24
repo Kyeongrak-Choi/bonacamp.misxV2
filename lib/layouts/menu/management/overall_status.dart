@@ -125,8 +125,8 @@ class OverAllController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(
-          API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
+      final response =
+          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
 
       if (response.statusCode == 200) {
         parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];
