@@ -26,94 +26,94 @@ class SalesRentalLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRentalLedgerController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_sales_rental_ledger'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<SalesRentalLedgerController>().visible.value),
-              onPressed: () {
-                Get.find<SalesRentalLedgerController>().setVisible();
-              },
-            ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                  visible: Get.find<SalesRentalLedgerController>().visible.value,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: context.theme.cardColor,
-                      borderRadius: BorderRadius.circular(20),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.all(20),
-                      child: Column(
-                        children: [
-                          OptionPeriodPicker(),
-                          OptionCbBranch(),
-                          OptionDialogCustomer(),
-                          OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
-                        ],
+          appBar: AppBar(
+              title: Text('menu_sub_sales_rental_ledger'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<SalesRentalLedgerController>().visible.value),
+                  onPressed: () {
+                    Get.find<SalesRentalLedgerController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                      visible: Get.find<SalesRentalLedgerController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(20),
+                          child: Column(
+                            children: [
+                              OptionPeriodPicker(),
+                              OptionCbBranch(),
+                              OptionDialogCustomer(),
+                              OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
+                            ],
+                          ),
+                        ),
+                      )),
+                  Visibility(
+                    visible: !Get.find<SalesRentalLedgerController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 매출 및 대여 합계'),
+                            SumItemTable('매출액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotal), '공급가\n+부가세',
+                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumAmount)),
+                            SumItemTable('입금액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumDeposit), '채권잔액',
+                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumBalance)),
+                            SumItemTable('대여금\n(장기)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumLongRent), '대여금\n(단기)',
+                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumShortRent)),
+                            SumItemTable('대여금\n(합계)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalRent), '채권\n+대여금',
+                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalBalance)),
+                          ],
+                        ),
                       ),
                     ),
-                  )),
-              Visibility(
-                visible: !Get.find<SalesRentalLedgerController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 매출 및 대여 합계'),
-                        SumItemTable('매출액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotal), '공급가\n+부가세',
-                            numberFormat.format(Get.find<SalesRentalLedgerController>().sumAmount)),
-                        SumItemTable('입금액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumDeposit), '채권잔액',
-                            numberFormat.format(Get.find<SalesRentalLedgerController>().sumBalance)),
-                        SumItemTable('대여금\n(장기)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumLongRent), '대여금\n(단기)',
-                            numberFormat.format(Get.find<SalesRentalLedgerController>().sumShortRent)),
-                        SumItemTable('대여금\n(합계)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalRent), '채권\n+대여금',
-                            numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalBalance)),
-                      ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -172,8 +172,7 @@ class SalesRentalLedgerController extends GetxController {
           '&to=' +
           paramToDate +
           '&code=' +
-          paramCustomerCode
-      );
+          paramCustomerCode);
 
       if (response.statusCode == 200) {
         if ((parsedsalesRentalLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
@@ -194,7 +193,6 @@ class SalesRentalLedgerController extends GetxController {
             sumTotalRent = calData.totalRent as int;
             sumTotalBalance = calData.totalBalance as int;
           }
-
         }
 
         Get.find<SalesRentalLedgerController>().setVisible();

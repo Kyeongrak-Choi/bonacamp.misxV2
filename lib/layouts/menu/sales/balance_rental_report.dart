@@ -25,105 +25,105 @@ import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
 import '../../../utils/utility.dart';
 
-class BanlanceRentalReport extends StatelessWidget {
+class BalanceRentalReport extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(BalanceRentalReportController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_balance_rental_report'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<BalanceRentalReportController>().visible.value),
-              onPressed: () {
-                Get.find<BalanceRentalReportController>().setVisible();
-              },
+          appBar: AppBar(
+              title: Text('menu_sub_balance_rental_report'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<BalanceRentalReportController>().visible.value),
+                  onPressed: () {
+                    Get.find<BalanceRentalReportController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<BalanceRentalReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: Column(
+                          children: [
+                            OptionPeriodPicker(),
+                            OptionCbBranch(),
+                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                            OptionTwoContent(OptionCbTeam(), OptionCbCustomerClass()),
+                            OptionBtnSearch(ROUTE_MENU_BALANCE_RENTAL_REPORT),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: !Get.find<BalanceRentalReportController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Column(
+                          children: [
+                            SumTitleTable('기간 채권 및 대여 합계'),
+                            // SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
+                            //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
+                            // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
+                            //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
+                            SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
+                                numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
+                            SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
+                                numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
+                            SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
+                                numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
+                            SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
+                                numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: ListView(
+                          children: <Widget>[setChild()],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<BalanceRentalReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        OptionPeriodPicker(),
-                        OptionCbBranch(),
-                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                        OptionTwoContent(OptionCbTeam(), OptionCbCustomerClass()),
-                        OptionBtnSearch(ROUTE_MENU_BALANCE_RENTAL_REPORT),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: !Get.find<BalanceRentalReportController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                    child: Column(
-                      children: [
-                        SumTitleTable('기간 채권 및 대여 합계'),
-                        // SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
-                        //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
-                        // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
-                        //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
-                        SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
-                        SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
-                        SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
-                        SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
-                            numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: ListView(
-                      children: <Widget>[setChild()],
-                    ),
-                  ),
-                ),
-              ),
-            ],
           ),
-        ),
-      ),
-    ));
+        ));
   }
 
   Widget setChild() {
@@ -189,8 +189,7 @@ class BalanceRentalReportController extends GetxController {
           '&team=' +
           paramTeamCode +
           '&grade=' +
-          paramCustGrade
-      );
+          paramCustGrade);
 
       if (response.statusCode == 200) {
         if ((parsedBalanceRentalReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

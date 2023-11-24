@@ -26,24 +26,24 @@ class OptionCbSearchDivision extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                  () => DropdownButtonFormField<String>(
-                    isExpanded: true,
-                    value: Get.find<CbSearchDivisionController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbSearchDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbSearchDivisionController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<String>(
+                isExpanded: true,
+                value: Get.find<CbSearchDivisionController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbSearchDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbSearchDivisionController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],

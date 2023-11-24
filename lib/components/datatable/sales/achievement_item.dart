@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/menu/sales/achievement/achievement_details_model.dart';
 import '../../../models/menu/sales/achievement/achievement_model.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/show_list_header_row.dart';
 import 'achievement_detail_item.dart';
 
@@ -26,8 +24,7 @@ class AchievementItem extends StatelessWidget {
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ShowListHeaderRow(titleName: '',
-                      value: model.name ?? '');
+                  return ShowListHeaderRow(titleName: '', value: model.name ?? '');
                 },
                 body: Column(
                   children: [
@@ -37,21 +34,18 @@ class AchievementItem extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: model.detailsList.length,
-                        itemBuilder: (BuildContext ctx, int idx){
-                          return Container(
-                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                              child: AchievementDetailItem(model.detailsList[idx])
-                          );
+                        itemBuilder: (BuildContext ctx, int idx) {
+                          return Container(padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: AchievementDetailItem(model.detailsList[idx]));
                         }),
                   ],
-                )
-            );
+                ));
           }).toList(),
         ),
       ),
     );
   }
-  Widget ledgerListHead(BuildContext context){
+
+  Widget ledgerListHead(BuildContext context) {
     return Row(
       children: [
         Expanded(

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'dart:ui' as ui;
 
 import 'package:custom_info_window/custom_info_window.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,16 +12,19 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../models/menu/location/place_model.dart';
+import '../../../layouts/menu/location/vendor_location.dart';
+import '../../../models/menu/location/vendor_location_list_model.dart';
+import '../../../models/menu/location/vendor_location_model.dart';
+import '../../../utils/utility.dart';
+import '../../common/field/icon_title_field.dart';
 
 class VendorLocationItem extends StatefulWidget {
+
   const VendorLocationItem({super.key});
 
   @override
   State<VendorLocationItem> createState() => _VendorLoationItemState();
 }
-
-double latitude = 35.1856036;
-double longitude = 129.0838361;
 
 class _VendorLoationItemState extends State<VendorLocationItem> {
   ClusterManager? _manager;
@@ -31,41 +35,45 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
 
   Set<Marker> markers = Set();
 
+  List<PlaceModel> locationItems = [];
+
   var markerImage;
 
   int markerHeight = 200;
   int markerWidth = 200;
 
-  //   static final LatLng initLatlng = LatLng(
-  //   // 지도 기본 위치 설정 (대한민국 중간)
-  //   36.34,
-  //   127.77,
-  // );
-  //
-  // static final CameraPosition _initialCameraPosition = CameraPosition(
-  //   //지도를 바라보는 카메라 위치
-  //   target: initLatlng, //카메라 위치(위도, 경도)
-  //   zoom: 7, //확대 정도
-  // );
+    static final LatLng initLatlng = LatLng(
+    // 지도 기본 위치 설정 (대한민국 중간)
+    36.34,
+    127.77,
+  );
 
-  final CameraPosition _initialCameraPosition = CameraPosition(target: LatLng(latitude, longitude), zoom: 12.0);
+  static final CameraPosition _initialCameraPosition = CameraPosition(
+    //지도를 바라보는 카메라 위치
+    target: initLatlng, //카메라 위치(위도, 경도)
+    zoom: 7, //확대 정도
+  );
 
-  List<PlaceModel> items = [
-    for (int i = 0; i < 10; i++)
-      PlaceModel(
-          name: 'Restaurant $i',
-          //isClosed: i % 2 == 0,
-          latLng: LatLng(latitude - i * 0.001, longitude + i * 0.001)),
-    for (int i = 0; i < 10; i++) PlaceModel(name: 'Bar $i', latLng: LatLng(latitude + i * 0.01, longitude - i * 0.01)),
-    for (int i = 0; i < 10; i++) PlaceModel(name: 'Hotel $i', latLng: LatLng(latitude - i * 0.1, longitude - i * 0.01)),
-  ];
+  //final CameraPosition _initialCameraPosition = CameraPosition(target: LatLng(latitude, longitude), zoom: 12.0);
 
   @override
   void initState() {
-    loadMarkerImage();
-    _manager = ClusterManager<PlaceModel>(items, _updateMarkers, markerBuilder: _getMarkerBuilder(Colors.red));
+     loadMarkerImage();
+    _manager = ClusterManager<PlaceModel>(locationItems, _updateMarkers, markerBuilder: _getMarkerBuilder(Colors.red));
 
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if(Get.find<VendorLocationController>().searchFlag == true) {
+      locationItems = generateVendorLocationModelList(Get.find<VendorLocationController>().controllerVendorLocation,
+          Get.find<VendorLocationController>().controllerVendorLocation.length);
+      _manager!.setItems(locationItems);
+      Get.find<VendorLocationController>().searchFlag = false;
+    }
   }
 
   void loadMarkerImage() async {
@@ -83,65 +91,164 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           markerId: MarkerId(cluster.getId()),
           position: cluster.location,
           onTap: () {
+            //if (cluster.items.first.location == cluster.items.last.location){
+            //if(cluster.items.){
+            //
+            // }
             if (!cluster.isMultiple) {
               customInfoWindowController.addInfoWindow!(
-                Container(
-                  color: context.theme.cardColor,
-                  child: Column(
-                    children: [
-                      Text(
-                        '[18283] 매출처 이름',
-                        style: TextStyle(fontSize: 20, color: Colors.blue, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: Column(children: [
-                            markerInfoWindowText("[사  업  주] :"),
-                            markerInfoWindowText("[사업자번호] : "),
-                            markerInfoWindowText("[영업 담당] : "),
-                            markerInfoWindowText("[매출기준일] : "),
-                            markerInfoWindowText("-----------------------------------------"),
-                            markerInfoWindowText("[매출 금액] : "),
-                            markerInfoWindowText("[결제 금액] : "),
-                            markerInfoWindowText("[당일 매출] : "),
-                            markerInfoWindowText("[당월 매출] : "),
-                            markerInfoWindowText("-----------------------------------------"),
-                            markerInfoWindowText("[미수 잔액] : "),
-                            markerInfoWindowText("[채권 잔액] : "),
-                            markerInfoWindowText("[대여 금액] : "),
-                            markerInfoWindowText("[대여 잔액] : "),
-                            markerInfoWindowText("[방문 횟수] : "),
-                            markerInfoWindowText("[마  진  율] :"),
-                          ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                markerDetailInfoWindow(cluster),
                 cluster.location,
               );
             } else {
-              customInfoWindowController.hideInfoWindow!();
+              if(cluster.items.every((element) => element.location == cluster.items.first.location)){
+                customInfoWindowController.addInfoWindow!(
+                  markerDetailInfoWindow(cluster),
+                  cluster.location,
+                );
+              }
+              else {
+                customInfoWindowController.hideInfoWindow!();
+              }
             }
           },
           icon: await _getMarkerBitmap(markerHeight, color, '매출처 이름', text: cluster.count.toString(), clustercount: cluster.count),
         );
       };
 
-  Widget markerInfoWindowText(String str) {
+  Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
+    return Container(
+      color: context.theme.cardColor,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              cluster.items.first.locationInfo.name,
+              style: TextStyle(fontSize: 15, color: Colors.blue, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsetsDirectional.all(2),
+              child: Column(children: [
+                IconTitleField(
+                  titleName: '상태'.tr,
+                  value: cluster.items.first.locationInfo.status ?? '',
+                  iconData: Icons.label_outlined,
+                ),
+                IconTitleField(
+                  titleName: '사업주'.tr,
+                  value: cluster.items.first.locationInfo.representative ?? '',
+                  iconData: Icons.person,
+                ),
+                IconTitleField(
+                  titleName: '사업자 번호'.tr,
+                  value: cluster.items.first.locationInfo.businessNo != '' ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
+                  iconData: Icons.numbers,
+                ),
+                IconTitleField(
+                  titleName: '영업 담당'.tr,
+                  value: cluster.items.first.locationInfo.salesRep ?? '',
+                  iconData: Icons.person,
+                ),
+                IconTitleField(
+                  titleName: '매출 기준일'.tr,
+                  value: cluster.items.first.locationInfo.salesDate ?? '',
+                  iconData: Icons.date_range,
+                ),
+                IconTitleField(
+                  titleName: '당일 매출'.tr,
+                  value: cluster.items.first.locationInfo.amount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '당월 매출'.tr,
+                  value:  cluster.items.first.locationInfo.monthlyAmount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '입금 금액'.tr,
+                  value: cluster.items.first.locationInfo.deposit,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '미수 잔액'.tr,
+                  value: cluster.items.first.locationInfo.remainDeposit,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '채권 잔액'.tr,
+                  value: cluster.items.first.locationInfo.balance,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '대여 금액'.tr,
+                  value: cluster.items.first.locationInfo.rentAmount,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '대여 잔액'.tr,
+                  value: cluster.items.first.locationInfo.rentBalance,
+                  iconData: Icons.money,
+                ),
+                IconTitleField(
+                  titleName: '방문 횟수'.tr,
+                  value: cluster.items.first.locationInfo.visitCount.toString(),
+                  iconData: Icons.numbers,
+                ),
+                IconTitleField(
+                  titleName: '마진율'.tr,
+                  value: cluster.items.first.locationInfo.marginRate.toString(),
+                  iconData: Icons.percent,
+                ),
+              ]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget markerInfoWindowLine(String titleStr) {
     return Expanded(
       child: Container(
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            str,
-            style: TextStyle(color: Colors.grey, height: 1.3),
-            textAlign: TextAlign.left,
-          ),
+        child: Text(
+          titleStr,
+          style: TextStyle(color: Colors.grey, height: 1.3),
+          textAlign: TextAlign.left,
         ),
         alignment: Alignment.centerLeft,
+      ),
+    );
+  }
+
+  Widget markerInfoWindowText(String titleStr, String valueStr) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              child: Text(
+                titleStr,
+                style: TextStyle(color: Colors.grey, height: 1.3),
+                textAlign: TextAlign.left,
+              ),
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: Text(
+                valueStr,
+                style: TextStyle(color: Colors.grey, height: 1.3),
+                textAlign: TextAlign.right,
+              ),
+              alignment: Alignment.centerRight,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -167,7 +274,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       if (clustercount! > 1) {
         painter.text = TextSpan(
           text: text,
-          style: TextStyle(fontSize: size / 4, color: Colors.white, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: size / 5, color: Colors.white, fontWeight: FontWeight.normal),
         );
         painter.layout();
         painter.paint(
@@ -197,39 +304,41 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: <Widget>[
-      GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _initialCameraPosition,
-        markers: markers,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-          _manager!.setMapId(controller.mapId);
-          customInfoWindowController.googleMapController = controller;
-        },
-        onCameraMove: (position) {
-          _manager!.onCameraMove(position);
-          customInfoWindowController.onCameraMove!();
-        },
-        onCameraIdle: () {
-          _manager!.updateMap();
-        },
-        onTap: (latlng) {
-          customInfoWindowController.hideInfoWindow!();
-        },
-        myLocationEnabled: true,
-        tiltGesturesEnabled: false,
-        rotateGesturesEnabled: false,
-        zoomControlsEnabled: false,
-        mapToolbarEnabled: false,
-        compassEnabled: false,
-        liteModeEnabled: false,
-      ),
-      CustomInfoWindow(
-        controller: customInfoWindowController,
-        height: 400,
-        width: 200,
-        offset: 50,
-      ),
-    ]));
+          GoogleMap(
+            mapType: MapType.normal,
+            initialCameraPosition: _initialCameraPosition,
+            markers: markers,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+              _manager!.setMapId(controller.mapId);
+              customInfoWindowController.googleMapController = controller;
+            },
+            onCameraMove: (position) {
+              _manager!.onCameraMove(position);
+              customInfoWindowController.onCameraMove!();
+            },
+            onCameraIdle: () {
+              _manager!.updateMap();
+            },
+            onTap: (latlng) {
+              customInfoWindowController.hideInfoWindow!();
+            },
+            myLocationEnabled: true,
+            tiltGesturesEnabled: false,
+            rotateGesturesEnabled: false,
+            zoomControlsEnabled: false,
+            mapToolbarEnabled: false,
+            compassEnabled: false,
+            liteModeEnabled: false,
+          ),
+          CustomInfoWindow(
+            controller: customInfoWindowController,
+            height: 500,
+            width: 250,
+            offset: 0,
+          ),
+        ]
+      )
+    );
   }
 }

@@ -11,8 +11,7 @@ class PurchaseLedgerListModel {
   List<PurchaseLedgerDetailsModel> details;
   int? id;
 
-  PurchaseLedgerListModel(
-      this.date, this.balance, this.details, {this.id});
+  PurchaseLedgerListModel(this.date, this.balance, this.details, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,10 +29,10 @@ class PurchaseLedgerListModel {
 List<PurchaseLedgerListModel> generatePurchaseLedgerListModelList(dataList, count) {
   return List.generate(
       count,
-          (index) => PurchaseLedgerListModel(
-        dataList[index].date,
-        dataList[index].balance,
-        dataList[index].details,
-        id: index,
-      ));
+      (index) => PurchaseLedgerListModel(
+            dataList[index].date,
+            dataList[index].balance,
+            dataList[index].details,
+            id: index,
+          ));
 }

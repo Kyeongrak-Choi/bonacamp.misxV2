@@ -56,7 +56,7 @@ class BalanceRentalReportItem extends StatelessWidget {
               ),
             ),
             ListView.separated(
-              primary:  false,
+              primary: false,
               shrinkWrap: true,
               //padding: const EdgeInsets.all(10),
               itemCount: dataList.length,
@@ -67,33 +67,33 @@ class BalanceRentalReportItem extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          dataList[index].name ?? '',
-                          style: context.textTheme.displaySmall,
-                          textAlign: TextAlign.left,
-                        ),
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        dataList[index].name ?? '',
+                        style: context.textTheme.displaySmall,
+                        textAlign: TextAlign.left,
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          dataList[index].balance ?? '',
-                          style: context.textTheme.displaySmall,
-                          textAlign: TextAlign.right,
-                        ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        dataList[index].balance ?? '',
+                        style: context.textTheme.displaySmall,
+                        textAlign: TextAlign.right,
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: () {
-                            ShowBalanceRentalDetailDialog(dataList[index]);
-                          },
-                          icon: Icon(Icons.search, color: context.theme.primaryColor),
-                        ),
-                      )
-                    ],
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: IconButton(
+                        onPressed: () {
+                          ShowBalanceRentalDetailDialog(dataList[index]);
+                        },
+                        icon: Icon(Icons.search, color: context.theme.primaryColor),
+                      ),
+                    )
+                  ],
                 );
               },
             ),

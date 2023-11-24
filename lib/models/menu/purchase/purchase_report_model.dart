@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/models/menu/sales/sales_ledger/sales_ledger_list_model.dart';
 
 import '../../../utils/utility.dart';
 
@@ -12,11 +11,10 @@ class PurchaseReportModel {
   var name; // 매입처 명
   var purchase; // 매입금액
   var withdraw; // 출금액
-  var balance;  // 채무잔액
+  var balance; // 채무잔액
   int? id;
 
-  PurchaseReportModel(
-      this.code, this.name, this.purchase, this.withdraw, this.balance, {this.id});
+  PurchaseReportModel(this.code, this.name, this.purchase, this.withdraw, this.balance, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -36,12 +34,12 @@ class PurchaseReportModel {
 List<PurchaseReportModel> generatePurchaseReportModelList(dataList, count) {
   return List.generate(
       count,
-          (index) => PurchaseReportModel(
-        dataList[index].code,
-        dataList[index].name,
-        numberFormat.format(dataList[index].purchase),
-        numberFormat.format(dataList[index].withdraw),
-        numberFormat.format(dataList[index].balance),
-        id: index,
-      ));
+      (index) => PurchaseReportModel(
+            dataList[index].code,
+            dataList[index].name,
+            numberFormat.format(dataList[index].purchase),
+            numberFormat.format(dataList[index].withdraw),
+            numberFormat.format(dataList[index].balance),
+            id: index,
+          ));
 }

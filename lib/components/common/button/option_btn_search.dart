@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/layouts/menu/inventory/inventory_in_out_report.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_salesperson.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
+import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
+import '../../../layouts/menu/inventory/inventory_report.dart';
+import '../../../layouts/menu/inventory/lend_report_customer.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../layouts/menu/management/analysis_graph.dart';
 import '../../../layouts/menu/management/customer_contribute.dart';
@@ -23,6 +29,8 @@ import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/sales_rental_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
 import '../../../layouts/menu/sales/salesperson_report_monthly.dart';
+import '../../../layouts/menu/support/rent_asset_history.dart';
+import '../../../layouts/menu/support/rental_report.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 
@@ -121,12 +129,12 @@ class OptionBtnSearch extends StatelessWidget {
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
                         await Get.find<CustomerReportMonthlyController>().showResult();
                         break;
-                        
+
                       // 영업분석 - 매출원장
                       case ROUTE_MENU_SALES_LEDGER:
                         await Get.find<SalesLedgerController>().showResult();
                         break;
-                       
+
                       // 영업분석 - 목표대비 실적현황
                       case ROUTE_MENU_ACHIEVEMENT:
                         await Get.find<AchievementController>().showResult();
@@ -155,6 +163,46 @@ class OptionBtnSearch extends StatelessWidget {
                       // 매입분석 - 매입원장
                       case ROUTE_MENU_PURCHASE_LEDGER:
                         await Get.find<PurchaseLedgerController>().showResult();
+                        break;
+
+                      // 지원현황 - 대여금 현황
+                      case ROUTE_MENU_SUPPORT_RENTAL_REPORT:
+                        await Get.find<RentalReportController>().showResult();
+                        break;
+
+                      // 지원현황 - 대여자산 현황
+                      case ROUTE_MENU_SUPPORT_RENT_ASSET:
+                        await Get.find<RentAssetController>().showResult();
+                        break;
+
+                      // 지원현황 - 대여자산 현황(이력)
+                      case ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY:
+                        await Get.find<RentAssetHistoryController>().showResult();
+                        break;
+
+                      // 재고분석 - 재고현황
+                      case ROUTE_MENU_INVENTORY_REPORT:
+                        await Get.find<InventoryReportController>().showResult();
+                        break;
+
+                      // 재고분석 - 재고수불현황
+                      case ROUTE_MENU_INVENTORY_INOUT_REPORT:
+                        await Get.find<InventoryInOutReportController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불(창고)
+                      case ROUTE_MENU_LEND_REPORT_WAREHOUSE:
+                        await Get.find<LendReportWarehouseController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불현황(거래처)
+                      case ROUTE_MENU_LEND_REPORT_CUSTOMER:
+                        await Get.find<LendReportCustomerController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불현황(거래처)
+                      case ROUTE_MENU_LEND_REPORT_SALESPERSON:
+                        await Get.find<LendReportSalespersonController>().showResult();
                         break;
                     }
                   } catch (e) {

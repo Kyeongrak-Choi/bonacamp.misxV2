@@ -2,8 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class DashBoardAdmob extends StatelessWidget {
   @override
@@ -11,14 +9,11 @@ class DashBoardAdmob extends StatelessWidget {
     Get.put(DashBoardAdmobController());
     return GetBuilder<DashBoardAdmobController>(builder: (DashBoardAdmobController controller) {
       return CarouselSlider(
-          items:  Get.find<DashBoardAdmobController>().admobItem.map((image) {
+          items: Get.find<DashBoardAdmobController>().admobItem.map((image) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
@@ -49,7 +44,7 @@ class DashBoardAdmob extends StatelessWidget {
 
 class DashBoardAdmobController extends GetxController {
   List<String> admobList = <String>[].obs;
-  var admobItem =[];
+  var admobItem = [];
 
   @override
   void onInit() {
@@ -58,14 +53,13 @@ class DashBoardAdmobController extends GetxController {
     setAdmodList();
   }
 
-  void setAdmodList(){
+  void setAdmodList() {
     admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_main.png');
     admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_1.jpg');
     admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_2.jpg');
 
-    for(int i=0; i< admobList.length; i++){
-     admobItem.add(Image.network(admobList[i],fit: BoxFit.cover));
+    for (int i = 0; i < admobList.length; i++) {
+      admobItem.add(Image.network(admobList[i], fit: BoxFit.cover));
     }
   }
-
 }

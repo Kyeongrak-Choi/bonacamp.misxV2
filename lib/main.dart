@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:misxV2/assets/translations/language_manager.dart';
 import 'package:misxV2/layouts/common/search_customer_dialog.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_customer.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_salesperson.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/overall_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/management/sales_rank.dart';
@@ -12,6 +15,8 @@ import 'package:misxV2/layouts/menu/purchase/purchase_report.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/sales/customer_report.dart';
 import 'package:misxV2/layouts/menu/sales/salesperson_report_monthly.dart';
+import 'package:misxV2/layouts/menu/support/rent_asset.dart';
+import 'package:misxV2/layouts/menu/support/rent_asset_history.dart';
 import 'package:misxV2/utils/constants.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 import 'package:misxV2/utils/theme/theme_manager.dart';
@@ -27,6 +32,8 @@ import 'layouts/config/notice.dart';
 import 'layouts/config/system_config.dart';
 import 'layouts/login/login.dart';
 import 'layouts/login/privacy_policy.dart';
+import 'layouts/menu/inventory/inventory_in_out_report.dart';
+import 'layouts/menu/inventory/inventory_report.dart';
 import 'layouts/menu/location/vendor_location.dart';
 import 'layouts/menu/management/analysis_graph.dart';
 import 'layouts/menu/management/customer_contribute.dart';
@@ -40,6 +47,7 @@ import 'layouts/menu/sales/customer_report_monthly.dart';
 import 'layouts/menu/sales/sales_ledger.dart';
 import 'layouts/menu/sales/sales_rental_ledger.dart';
 import 'layouts/menu/sales/salesperson_report.dart';
+import 'layouts/menu/support/rental_report.dart';
 
 void main() async {
   // init Hive
@@ -113,7 +121,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_SALES_LEDGER, page: () => SalesLedger()), // 매출원장
         GetPage(name: ROUTE_MENU_ACHIEVEMENT, page: () => Achievement()), // 목표대비 실적현황
         GetPage(name: ROUTE_MENU_BALANCE_REPORT, page: () => BanlanceReport()), // 채권현황
-        GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BanlanceRentalReport()), // 채권 및 대여 현황
+        GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BalanceRentalReport()), // 채권 및 대여 현황
         GetPage(name: ROUTE_MENU_SALES_RENTAL_LEDGER, page: () => SalesRentalLedger()), // 매출 및 대여 원장
 
         // 매입분석
@@ -121,19 +129,19 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_PURCHASE_LEDGER, page: () => PurchaseLedger()), // 매입원장
 
         // 지원현황
-        // GetPage(name: , page: () =>), // 대여금 현황
-        // GetPage(name: , page: () =>), // 대여자산 현황
-        // GetPage(name: , page: () =>), // 대여자산 현황(이력)
+        GetPage(name: ROUTE_MENU_SUPPORT_RENTAL_REPORT, page: () => RentalReport()), // 대여금 현황
+        GetPage(name: ROUTE_MENU_SUPPORT_RENT_ASSET, page: () => RentAsset()), // 대여자산 현황
+        GetPage(name: ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY, page: () => RentAssetHistory()), // 대여자산 현황(이력)
 
         // 위치조회
         GetPage(name: ROUTE_MENU_VENDORLOCATION, page: () => VendorLocation()), // 매출처 위치조회
 
         // 재고분석
-        // GetPage(name: , page: () =>), // 재고현황
-        // GetPage(name: , page: () =>), // 재고수불현황
-        // GetPage(name: , page: () =>), // 용공수불(창고)
-        // GetPage(name: , page: () =>), // 용공수불현황(거래처)
-        // GetPage(name: , page: () =>), // 용공수불현황(영업담당)
+        GetPage(name: ROUTE_MENU_INVENTORY_REPORT, page: () => InventoryReport()), // 재고현황
+        GetPage(name: ROUTE_MENU_INVENTORY_INOUT_REPORT, page: () => InventoryInOutReport()), // 재고수불현황
+        GetPage(name: ROUTE_MENU_LEND_REPORT_WAREHOUSE, page: () => LendReportWarehouse()), // 용공수불(창고)
+        GetPage(name: ROUTE_MENU_LEND_REPORT_CUSTOMER, page: () => LendReportCustomer()), // 용공수불현황(거래처)
+        GetPage(name: ROUTE_MENU_LEND_REPORT_SALESPERSON, page: () => LendReportSalesperson()), // 용공수불현황(영업담당)
       ],
       home: Login(),
     );

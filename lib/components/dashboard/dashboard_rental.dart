@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/utils/utility.dart';
 
 import '../../layouts/appframe/dashboard.dart';
 import '../common/field/icon_title_field.dart';
-import 'dashboard_item.dart';
 
 class DashBoardRental extends StatelessWidget {
   @override

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:misxV2/components/common/field/icon_title_field.dart';
 
 import '../../../models/menu/management/sales_rank_model.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesRankItem extends StatelessWidget {

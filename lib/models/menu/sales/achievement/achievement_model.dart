@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:misxV2/utils/utility.dart';
 
 import 'achievement_details_model.dart';
 
@@ -13,8 +12,7 @@ class AchievementModel {
   List<AchievementDetailsModel> detailsList;
   int? id;
 
-  AchievementModel(
-      this.code, this.name, this.detailsList, {this.id});
+  AchievementModel(this.code, this.name, this.detailsList, {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -32,13 +30,10 @@ class AchievementModel {
 List<AchievementModel> generateAchievementModelList(dataList, count) {
   return List.generate(
       count,
-          (index) =>
-          AchievementModel(
+      (index) => AchievementModel(
             dataList[index].code,
             dataList[index].name,
-            generateAchievementDetailsModelList(dataList[index].detailsList,
-                dataList[index].detailsList.length),
+            generateAchievementDetailsModelList(dataList[index].detailsList, dataList[index].detailsList.length),
             id: index,
           ));
 }
-

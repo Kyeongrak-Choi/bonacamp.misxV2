@@ -186,6 +186,7 @@ class DashBoardController extends GetxController {
       final resOverall = await dio
           .get(API_MANAGEMENT + API_SYSTEM_DASHBOARD + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
 
+
       if (resOverall.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_CURRENT];
         controllerSalesModel = OverAllSalesModel.fromJson(parsedData);

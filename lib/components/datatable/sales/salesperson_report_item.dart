@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesPersonReportItem extends StatelessWidget {
@@ -69,7 +68,7 @@ class SalesPersonReportItem extends StatelessWidget {
                       ),
                       IconTitleField(
                         titleName: '마진율',
-                        value: model.marginRate.toString()+'%',
+                        value: model.marginRate.toString() + '%',
                         iconData: Icons.label_outlined,
                       ),
                     ],

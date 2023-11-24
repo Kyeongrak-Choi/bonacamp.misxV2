@@ -318,11 +318,10 @@ class SalesDailyDivisionController extends GetxController {
           paramTeamCode);
 
       if (response.statusCode == 200) {
-        if((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null){
+        if ((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
-        }
-        else {
+        } else {
           clearValue();
           salesDailyDivisionList = dataObjsJson.map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson)).toList();
         }
@@ -342,5 +341,4 @@ class SalesDailyDivisionController extends GetxController {
   void clearValue() {
     salesDailyDivisionList = null;
   }
-
 }

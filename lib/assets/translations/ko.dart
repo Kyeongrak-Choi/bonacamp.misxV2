@@ -7,12 +7,11 @@ const Map<String, String> koKR = {
   'all': '전체',
   'search': '검색',
   'config': '설정',
-  'user_info' : '사용자 정보',
-  'user_name' : '사용자',
-  'user_id' : '아이디',
-  'business_name' : '회사명',
-  'business_no' : '사업자등록번호',
-
+  'user_info': '사용자 정보',
+  'user_name': '사용자',
+  'user_id': '아이디',
+  'business_name': '회사명',
+  'business_no': '사업자등록번호',
 
   // Login
   'text_id': 'ID',
@@ -92,8 +91,11 @@ const Map<String, String> koKR = {
   'opt_sales_type': '매출유형',
   'opt_search_division': '조회구분',
   'opt_customer_class': '등급',
-
-
+  'opt_rental_division': '대여구분',
+  'opt_asset_status': '자산상태',
+  'opt_warehouse': '창고',
+  'opt_sales_class': '판매분류',
+  'opt_lend_division': '용기구분',
 
   // Drawer Menu Label
   'logout': '로그아웃',
@@ -127,29 +129,30 @@ const Map<String, String> koKR = {
   'menu_sub_sales_status': '매출현황',
   'menu_sub_customer_monthly': '월별 매출현황',
   'menu_sub_sales_ledger': '매출원장',
-  'menu_sub_achievement' : '목표대비 실적현황',
+  'menu_sub_achievement': '목표대비 실적현황',
   'menu_sub_balance_report': '채권현황',
   'menu_sub_balance_rental_report': '채권 및 대여 현황',
   'menu_sub_sales_rental_ledger': '매출 및 대여 원장',
+  'menu_sub_item_status': '품목 현황',
 
   'menu_main_purchase': '매입분석',
   'menu_sub_purchase_report': '매입현황',
   'menu_sub_purchase_ledger': '매입원장',
 
-  'menu_main_rental': '지원현황',
-  'title_21': '대여금 현황',
-  'title_22': '대여자산 현황',
-  'title_23': '대여자산 현황(이력)',
+  'menu_main_support': '지원현황',
+  'menu_sub_support_rental_report': '대여금 현황',
+  'menu_sub_support_rent_asset': '대여자산 현황',
+  'menu_sub_support_rent_asset_history': '대여자산 현황(이력)',
 
   'menu_main_location': '위치조회',
   'menu_sub_vendor_location': '매출처 위치조회',
 
   'menu_main_asset': '재고분석',
-  'title_25': '재고현황',
-  'title_26': '재고수불현황',
-  'title_27': '용공수불(창고)',
-  'title_28': '용공수불현황(거래처)',
-  'title_29': '용공수불현황(영업담당)',
+  'menu_sub_inventory_report': '재고현황',
+  'menu_sub_inventory_in_out_report': '재고수불현황',
+  'menu_sub_lend_report_warehouse': '용공수불(창고)',
+  'menu_sub_lend_report_customer': '용공수불현황(거래처)',
+  'menu_sub_lend_report_salesperson': '용공수불현황(영업담당)',
 
   // API Result Message
   'msg_api_success': '성공',
@@ -161,20 +164,20 @@ const Map<String, String> koKR = {
   'msg_conn_auth_server': '인증서버에 접속할 수 없습니다.',
 
   // Common Item
-  'amount' : '금액',
-  'balance' : '잔액',
-  'sales' : '매출',
-  'item' : '품목',
-  'sales_amount' : '매출액',
-  'purchase_amount' : '매입액',
-  'supplement_amount' : '공급가',
-  'vat_amount' : '부가세',
-  'guarantee_amount' : '보증금',
+  'amount': '금액',
+  'balance': '잔액',
+  'sales': '매출',
+  'item': '품목',
+  'sales_amount': '매출액',
+  'purchase_amount': '매입액',
+  'supplement_amount': '공급가',
+  'vat_amount': '부가세',
+  'guarantee_amount': '보증금',
   'collect_amount': '회수액',
   'deposit_amount': '입금액',
   'return_amount': '반납액',
   'rental_amount': '대여액',
-  'total_amount' : '합계',
+  'total_amount': '합계',
 
   // 종합현황 Item
   'deposit_title_amt': '채권잔액',

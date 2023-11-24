@@ -27,24 +27,24 @@ class OptionCbManager extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                  () => DropdownButtonFormField<EmployeeModel>(
-                    isExpanded: true,
-                    value: Get.find<CbManagerController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
-                      return DropdownMenuItem<EmployeeModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getEmployeeName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbManagerController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<EmployeeModel>(
+                isExpanded: true,
+                value: Get.find<CbManagerController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbManagerController>().data.map<DropdownMenuItem<EmployeeModel>>((EmployeeModel value) {
+                  return DropdownMenuItem<EmployeeModel>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value.getEmployeeName ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbManagerController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],

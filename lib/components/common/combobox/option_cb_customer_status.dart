@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:misxV2/models/system/warehouse.dart';
 
 import '../../../models/system/common.dart';
 import '../../../utils/constants.dart';
@@ -28,24 +27,24 @@ class OptionCbCustomerStatus extends StatelessWidget {
           children: [
             Expanded(
                 child: Obx(
-                      () => DropdownButtonFormField<CommonModel>(
-                    isExpanded: true,
-                    value: Get.find<CbCustomerStatusController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
-                      return DropdownMenuItem<CommonModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbCustomerStatusController>().chooseItem(value!);
-                    },
-                  ),
-                )),
+              () => DropdownButtonFormField<CommonModel>(
+                isExpanded: true,
+                value: Get.find<CbCustomerStatusController>().selectedValue,
+                style: context.textTheme.bodyMedium,
+                decoration: InputDecoration(border: InputBorder.none),
+                dropdownColor: context.theme.cardColor,
+                items: Get.find<CbCustomerStatusController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                  return DropdownMenuItem<CommonModel>(
+                    alignment: Alignment.center,
+                    value: value,
+                    child: Text(value.getName ?? ''),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  Get.find<CbCustomerStatusController>().chooseItem(value!);
+                },
+              ),
+            )),
           ],
         ),
       ],

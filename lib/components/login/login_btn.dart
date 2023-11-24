@@ -1,12 +1,17 @@
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../models/system/req_login.dart';
+import '../../models/system/userinfo.dart';
+import '../../models/token/req_token.dart';
 import '../../utils/constants.dart';
+import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
@@ -49,6 +54,7 @@ class LoginBtnController extends GetxController {
   var inputId;
   var inputPw;
 
+  var dio;
   @override
   void onInit() {
     super.onInit();
@@ -65,35 +71,34 @@ class LoginBtnController extends GetxController {
   }
 
   Future<bool> LoginCheck() async {
-    // test login
-    inputId = 'misxdev';
-    inputPw = 'misxdev';
-
     if (inputId == '' || inputPw == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, 'check_login_content'.tr);
       return false;
     } else {
       // Request Token
       if (await reqToken(true)) {
-        // parameter로 prod/dev 분기 Token get -> true : dev / false : prod
-        var res = await reqLogin(ReqLoginModel(inputId, inputPw, APP_ID).toMap());
-        if (res == '200') {
-          await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
-          inputPw = ''; // pw 초기화
-          return true;
-        } else if (res == '401') {
-          ShowSnackBar(SNACK_TYPE.ALARM, 'msg_api_401'.tr);
-          return false;
-        } else if (res == '500') {
-          ShowSnackBar(SNACK_TYPE.ALARM, 'msg_api_500'.tr);
-          return false;
-        } else {
-          ShowSnackBar(SNACK_TYPE.ALARM, 'msg_conn_api_server'.tr);
-          return false;
+        dio = await reqLogin();
+        try {
+          final response = await await dio.post(API_SYSTEM_LOGIN, data: ReqLoginModel(inputId, inputPw, APP_ID).toMap());
+          if (response.statusCode == 200) {
+            BoxInit(); // local DB Set
+            UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
+            await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
+            await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
+            inputPw = ''; // pw 초기화
+            return true;
+          }
+        } on DioException catch (e) {
+          if (e.response != null) {
+            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+            return false;
+          }
         }
       } else {
         ShowSnackBar(SNACK_TYPE.ALARM, 'msg_conn_auth_server'.tr);
         return false;
       }
+      return false;
     }
   }
 }

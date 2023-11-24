@@ -33,4 +33,12 @@ class LendItemModel {
   factory LendItemModel.fromJson(Map<String, dynamic> json) => _$LendItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendItemModelToJson(this);
+
+  get getLendItmCd => code;
+
+  get getLendItmNm => name;
+
+  get getCaseName => caseName;
+
+  get getBottleName => bottleName;
 }

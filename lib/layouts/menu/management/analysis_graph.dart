@@ -121,14 +121,8 @@ class AnalysisGraphController extends GetxController {
     try {
       dio = await reqApi(paramClientCd);
 
-      final response = await dio.get(API_MANAGEMENT +
-          API_MANAGEMENT_GRAPH +
-          '?branch=' +
-          paramNodeCd +
-          '&from=' +
-          paramFromYearmonth +
-          '&to=' +
-          paramToYearmonth);
+      final response =
+          await dio.get(API_MANAGEMENT + API_MANAGEMENT_GRAPH + '?branch=' + paramNodeCd + '&from=' + paramFromYearmonth + '&to=' + paramToYearmonth);
 
       if (response.statusCode == 200) {
         salesList.clear();

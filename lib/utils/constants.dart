@@ -61,12 +61,19 @@ const ROUTE_MENU_PURCHASE_REPORT = '/purchase-report'; // 매입현황
 const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 
 // support (지원현황)
+const ROUTE_MENU_SUPPORT_RENTAL_REPORT = '/rental-report'; // 대여금 현황
+const ROUTE_MENU_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산현황
+const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산현황(이력)
 
 // location (위치조회)
 const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 
 // stock (재고분석)
-
+const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
+const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고수불현황
+const ROUTE_MENU_LEND_REPORT_WAREHOUSE = '/lend-report-warehouse'; // 용공수불(창고)
+const ROUTE_MENU_LEND_REPORT_CUSTOMER = '/lend-report-customer'; // 용공수불현황(거래처)
+const ROUTE_MENU_LEND_REPORT_SALESPERSON = '/lend-report-salesperson'; // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -119,8 +126,9 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
 const API_SYSTEM_DASHBOARD = '/total-v2'; // 대시보드
+
 
 // common
 const API_COMMON = '/v1/common';
@@ -158,13 +166,23 @@ const API_PURCHASE = '/v1/views/purchase';
 const API_PURCHASE_REPORT = '/report'; // 매입현황
 const API_PURCHASE_LEDGER = '/ledger'; // 매입원장
 
-
 // support (지원현황)
+const API_SUPPORT = '/v1/views/support';
+const API_SUPPORT_RENTALREPORT = '/rental'; // 대여금 현황
+const API_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산 현황
+const API_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 현황(이력)
 
 // location (위치조회)
+const API_LOCATION = '/v1/views/location';
+const API_LOCATION_CUSTOMER = '/customer';  // 매출처 위치조회
 
 // stock (재고분석)
-
+const API_INVENTORY = '/v1/views/inventory';
+const API_INVENTORY_REPORT = '/report'; // 재고현황
+const API_INVENTORY_INOUT_REPORT = '/in-out-report';  // 재고수불현황
+const API_LEND_REPORT_WAREHOUSE = '/warehouse-report';  // 용공수불현황(창고)
+const API_LEND_REPORT_CUSTOMER = '/package-in-out-report';  // 용공수불현황(거래처)
+const API_LEND_REPORT_SALESPERSON = '/sales-rep-report';  // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
