@@ -127,6 +127,8 @@ const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
 const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
+const API_SYSTEM_DASHBOARD = '/total-v2'; // 대시보드
+
 
 // common
 const API_COMMON = '/v1/common';
@@ -209,6 +211,10 @@ const TAG_RESOURCE_URL = 'resource-url'; // response server - resource url tag
 const TAG_MEMO = 'memo'; // response server - server memo tag
 const TAG_STATUS = 'status'; // response server - status tag
 const TAG_ROLE_IDS = 'role-ids'; // response server - role-ids tag
+
+// Dashboard
+const TAG_CURRENT = 'current';
+const TAG_MONTH = 'month';
 
 // sales
 const TAG_SALES = 'sales';

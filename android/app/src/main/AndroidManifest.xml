@@ -6,7 +6,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="misxV2"
+        android:label="디오니소스\n경영관리"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
