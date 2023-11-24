@@ -44,8 +44,8 @@ class SearchLendItemList extends StatelessWidget {
     return SearchLendItemListItem(
         Get.find<SearchLendItemListController>().datas[index].getLendItmCd ?? '',
         Get.find<SearchLendItemListController>().datas[index].getLendItmNm ?? '',
-        Get.find<SearchLendItemListController>().datas[index].getVesFgNm ?? '',
-        Get.find<SearchLendItemListController>().datas[index].getEmptyBotlNm ?? '');
+        Get.find<SearchLendItemListController>().datas[index].getCaseName ?? '',
+        Get.find<SearchLendItemListController>().datas[index].getBottleName ?? '');
   }
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/inventory/inventory_in_out_report.dart';
+import 'package:misxV2/layouts/menu/inventory/lend_report_salesperson.dart';
 import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
@@ -197,6 +198,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 재고분석 - 용공수불현황(거래처)
                       case ROUTE_MENU_LEND_REPORT_CUSTOMER:
                         await Get.find<LendReportCustomerController>().showResult();
+                        break;
+
+                      // 재고분석 - 용공수불현황(거래처)
+                      case ROUTE_MENU_LEND_REPORT_SALESPERSON:
+                        await Get.find<LendReportSalespersonController>().showResult();
                         break;
                     }
                   } catch (e) {
