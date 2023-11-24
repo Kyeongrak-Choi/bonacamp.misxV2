@@ -12,7 +12,6 @@ class LendReportCustomerModel {
   var name; // 거래처 명
   List<LendReportCustomerListModel> detailList;
   int? id;
-  bool isExpanded = false;
 
   LendReportCustomerModel(this.code, this.name, this.detailList, {this.id});
 

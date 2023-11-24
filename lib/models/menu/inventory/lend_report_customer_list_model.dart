@@ -10,17 +10,21 @@ part 'lend_report_customer_list_model.g.dart'; // *.g.dart : in same directory
 class LendReportCustomerListModel {
   var itemCode;
   var itemName;
+  var quantity;
+  var standard;
   LendReportCustomerQuantityModel fullBox;
   LendReportCustomerQuantityModel box;
   LendReportCustomerQuantityModel bottle;
 
-  LendReportCustomerListModel(this.itemCode, this.itemName, this.fullBox,
-      this.box, this.bottle);
+  LendReportCustomerListModel(this.itemCode, this.itemName, this.quantity, this.standard,
+      this.fullBox, this.box, this.bottle);
 
   Map<String, dynamic> toMap() {
     return {
       'item-code': itemCode,
       'item-name': itemName,
+      'quantity': quantity,
+      'standard': standard,
       'full-box': fullBox,
       'box': box,
       'bottle': bottle,

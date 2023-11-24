@@ -139,5 +139,5 @@ final List<IconMenu> inventoryAnalysisMaster = [
   IconMenu(title: 'menu_sub_inventory_in_out_report'.tr, iconData: CupertinoIcons.rectangle_arrow_up_right_arrow_down_left, path: ROUTE_MENU_INVENTORY_INOUT_REPORT), // 재고수불현황
   IconMenu(title: 'menu_sub_lend_report_warehouse'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_WAREHOUSE), // 용공수불(창고)
   IconMenu(title: 'menu_sub_lend_report_customer'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_CUSTOMER), // 용공수불현황(거래처)
-  IconMenu(title: 'title_29'.tr, iconData: Icons.copy_outlined, path: ''), // 용공수불현황(영업담당)
+  IconMenu(title: 'menu_sub_lend_report_salesperson'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_SALESPERSON), // 용공수불현황(영업담당)
 ];

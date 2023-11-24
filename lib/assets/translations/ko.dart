@@ -150,7 +150,7 @@ const Map<String, String> koKR = {
   'menu_sub_inventory_in_out_report': '재고수불현황',
   'menu_sub_lend_report_warehouse': '용공수불(창고)',
   'menu_sub_lend_report_customer': '용공수불현황(거래처)',
-  'title_29': '용공수불현황(영업담당)',
+  'menu_sub_lend_report_salesperson': '용공수불현황(영업담당)',
 
   // API Result Message
   'msg_api_success': '성공',
