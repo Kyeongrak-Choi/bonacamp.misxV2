@@ -66,7 +66,7 @@ const Map<String, String> koKR = {
   'title_rental': '당월 대여',
   'title_asset': '당월 자산',
   'title_status': '현황',
-  'title_daily' : '당일 현황',
+  'title_current' : '당일 현황',
   'title_month' : '당월 현황',
 
   // Navigation Label

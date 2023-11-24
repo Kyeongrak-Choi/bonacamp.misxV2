@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
 import 'package:misxV2/components/dashboard/dashboard_asset.dart';
-import 'package:misxV2/components/dashboard/dashboard_daily.dart';
+import 'package:misxV2/components/dashboard/dashboard_current.dart';
 import 'package:misxV2/components/dashboard/dashboard_deposit.dart';
 import 'package:misxV2/components/dashboard/dashboard_graph.dart';
 import 'package:misxV2/components/dashboard/dashboard_month.dart';
@@ -91,16 +91,16 @@ class DashBoard extends StatelessWidget {
                       // ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(20),
-                        child: DashBoardDaily(), // 당일 현황
+                        child: DashBoardCurrent(), // 당일 현황
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(20),
                         child: DashBoardMonth(), // 당원 현황
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: DashboardGraph(), // 차트
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.all(20),
+                      //   child: DashboardGraph(), // 차트
+                      // ),
                     ],
                   ),
                 )
@@ -112,14 +112,18 @@ class DashBoard extends StatelessWidget {
 }
 
 class DashBoardController extends GetxController {
-  var controllerSalesModel;
-  var controllerPurchaseModel;
-  var controllerDepositModel;
-  var controllerWithdrawModel;
-  var controllerReturnModel;
-  var controllerRentalModel;
-  var controllerAssetModel;
+ // var controllerSalesModel;
+ //  var controllerPurchaseModel;
+ //  var controllerDepositModel;
+ //  var controllerWithdrawModel;
+ //  var controllerReturnModel;
+ //  var controllerRentalModel;
+ //  var controllerAssetModel;
 
+  var controllerCurrentModel;
+  var controllerMonthModel;
+  var controllerSalesModel;
+  var controllerBondModel;
 
   var clientNm;
 
@@ -189,13 +193,13 @@ class DashBoardController extends GetxController {
 
       if (resOverall.statusCode == 200) {
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_CURRENT];
-        controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
+        controllerCurrentModel = OverAllSalesModel.fromJson(parsedData);
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_MONTH];
-        controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
+        controllerMonthModel = OverAllPurchaseModel.fromJson(parsedData);
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
-        controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
+        controllerSalesModel = OverAllDepositModel.fromJson(parsedData);
         parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_GRAPH_BOND];
-        controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
+        controllerBondModel = OverAllWithdrawModel.fromJson(parsedData);
         update();
       }
       pd.close();

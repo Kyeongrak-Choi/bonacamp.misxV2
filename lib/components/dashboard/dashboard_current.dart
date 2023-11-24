@@ -7,7 +7,7 @@ import '../../utils/utility.dart';
 import '../common/field/icon_title_field.dart';
 import 'dashboard_item.dart';
 
-class DashBoardDaily extends StatelessWidget {
+class DashBoardCurrent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardController());
@@ -28,7 +28,7 @@ class DashBoardDaily extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsetsDirectional.all(20),
                       child: Text(
-                        'title_daily'.tr,
+                        'title_current'.tr,
                         textAlign: TextAlign.start,
                         style: context.textTheme.displayLarge,
                       ),
@@ -39,7 +39,7 @@ class DashBoardDaily extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 출'.tr,
-                      value: controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totQty) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totQty) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -47,7 +47,7 @@ class DashBoardDaily extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 입'.tr,
-                      value: controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -55,7 +55,7 @@ class DashBoardDaily extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '회 수'.tr,
-                      value: controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -63,7 +63,7 @@ class DashBoardDaily extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '입 금'.tr,
-                      value: controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -71,7 +71,7 @@ class DashBoardDaily extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
                     child: IconTitleField(
                       titleName: '채 권'.tr,
-                      value: controller.controllerAssetModel != null ? numberFormat.format(controller.controllerAssetModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
