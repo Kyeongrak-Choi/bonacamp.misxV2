@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part '../current.g.dart'; // *.g.dart : in same directory
+part 'dashboard_status.g.dart'; // *.g.dart : in same directory
 
 // token response model
 @JsonSerializable(explicitToJson: true)

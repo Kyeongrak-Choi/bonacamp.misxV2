@@ -2,7 +2,7 @@
 // import 'package:get/get.dart';
 // import 'package:misxV2/utils/utility.dart';
 //
-// import '../../layouts/appframe/status.dart';
+// import '../../layouts/appframe/dashboard_status.dart';
 // import '../common/field/icon_title_field.dart';
 //
 // class DashBoardRental extends StatelessWidget {
