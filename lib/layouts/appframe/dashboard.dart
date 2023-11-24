@@ -112,7 +112,6 @@ class DashBoard extends StatelessWidget {
 }
 
 class DashBoardController extends GetxController {
-  var controllerOverAllModel;
   var controllerSalesModel;
   var controllerPurchaseModel;
   var controllerDepositModel;
@@ -120,6 +119,7 @@ class DashBoardController extends GetxController {
   var controllerReturnModel;
   var controllerRentalModel;
   var controllerAssetModel;
+
 
   var clientNm;
 
@@ -177,30 +177,24 @@ class DashBoardController extends GetxController {
       }
     }
 
-    //get overall - dashboard
+    //get dashboard
     sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
       pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resOverall = await dio
-          .get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
+          .get(API_MANAGEMENT + API_SYSTEM_DASHBOARD + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
 
       if (resOverall.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_CURRENT];
         controllerSalesModel = OverAllSalesModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_PURCHASE];
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_MONTH];
         controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_DEPOSIT];
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
         controllerDepositModel = OverAllDepositModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_WITHDRAW];
+        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_GRAPH_BOND];
         controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RETURN];
-        controllerReturnModel = OverAllReturnModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_RENTAL];
-        controllerRentalModel = OverAllRentalModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_ASSET];
-        controllerAssetModel = OverAllAssetModel.fromJson(parsedData);
         update();
       }
       pd.close();
