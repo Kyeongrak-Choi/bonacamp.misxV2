@@ -27,7 +27,7 @@ class DashBoardCurrent extends StatelessWidget {
                       padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_current'.tr,
-                        textAlign: TextAlign.start,
+                        textAlign: TextAlign.center,
                         style: context.textTheme.displayLarge,
                       ),
                     ),
@@ -37,7 +37,7 @@ class DashBoardCurrent extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 출'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totQty) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -45,7 +45,7 @@ class DashBoardCurrent extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 입'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -53,7 +53,7 @@ class DashBoardCurrent extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '회 수'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -61,7 +61,7 @@ class DashBoardCurrent extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '입 금'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -69,7 +69,7 @@ class DashBoardCurrent extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
                     child: IconTitleField(
                       titleName: '채 권'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.totAmt) : '0',
+                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),

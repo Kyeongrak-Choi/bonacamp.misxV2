@@ -9,11 +9,14 @@ import 'package:misxV2/components/dashboard/dashboard_current.dart';
 import 'package:misxV2/components/dashboard/dashboard_month.dart';
 import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
+import 'package:misxV2/models/system/dashboard_status.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
+import '../../components/dashboard/dashboard_graph.dart';
+import '../../models/common/chart_spot.dart';
 import '../../models/menu/management/overall/overalldeposit.dart';
 import '../../models/menu/management/overall/overallpurchase.dart';
 import '../../models/menu/management/overall/overallsales.dart';
@@ -86,10 +89,10 @@ class DashBoard extends StatelessWidget {
                         padding: EdgeInsetsDirectional.all(20),
                         child: DashBoardMonth(), // 당원 현황
                       ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.all(20),
-                      //   child: DashboardGraph(), // 차트
-                      // ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: DashboardGraph(), // 차트
+                      ),
                     ],
                   ),
                 )
@@ -111,8 +114,9 @@ class DashBoardController extends GetxController {
 
   var controllerCurrentModel;
   var controllerMonthModel;
-  var controllerSalesModel;
-  var controllerBondModel;
+
+  List<ChartSpot> salesList = [];
+  List<ChartSpot> bondList = [];
 
   var clientNm;
 
@@ -176,18 +180,26 @@ class DashBoardController extends GetxController {
       pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
-      final resOverall = await dio
+      final resDashboard = await dio
           .get(API_MANAGEMENT + API_SYSTEM_DASHBOARD + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
 
-      if (resOverall.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_CURRENT];
-        controllerCurrentModel = OverAllSalesModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_MONTH];
-        controllerMonthModel = OverAllPurchaseModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_SALES];
-        controllerSalesModel = OverAllDepositModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resOverall.data))[TAG_DATA][TAG_GRAPH_BOND];
-        controllerBondModel = OverAllWithdrawModel.fromJson(parsedData);
+      if (resDashboard.statusCode == 200) {
+        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_CURRENT];
+        controllerCurrentModel = DashboardStatusModel.fromJson(parsedData);
+        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_MONTH];
+        controllerMonthModel = DashboardStatusModel.fromJson(parsedData);
+
+        salesList.clear();
+        bondList.clear();
+
+        for (var list in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_SALES]) {
+          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total']));
+        }
+
+        for (var list in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_GRAPH_BOND]) {
+          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        }
+
         update();
       }
       pd.close();

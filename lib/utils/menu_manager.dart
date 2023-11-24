@@ -130,7 +130,7 @@ final List<IconMenu> supportStatusMaster = [
 
 // 위치조회
 final List<IconMenu> locationSearchMaster = [
-  IconMenu(title: 'menu_sub_vendor_location'.tr, iconData: Icons.map_rounded, path: ROUTE_MENU_VENDORLOCATION), // 매출처 위치조회
+  IconMenu(title: 'menu_sub_vendor_location'.tr, iconData: CupertinoIcons.map, path: ROUTE_MENU_VENDORLOCATION), // 매출처 위치조회
 ];
 
 // 재고분석

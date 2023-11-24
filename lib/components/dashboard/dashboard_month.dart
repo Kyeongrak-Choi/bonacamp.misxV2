@@ -27,7 +27,7 @@ class DashBoardMonth extends StatelessWidget {
                       padding: EdgeInsetsDirectional.all(20),
                       child: Text(
                         'title_month'.tr,
-                        textAlign: TextAlign.start,
+                        textAlign: TextAlign.center,
                         style: context.textTheme.displayLarge,
                       ),
                     ),
@@ -37,7 +37,7 @@ class DashBoardMonth extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 출'.tr,
-                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.totQty) : '0',
+                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -45,7 +45,7 @@ class DashBoardMonth extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '매 입'.tr,
-                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.totAmt) : '0',
+                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -53,7 +53,7 @@ class DashBoardMonth extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '회 수'.tr,
-                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.totAmt) : '0',
+                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -61,7 +61,7 @@ class DashBoardMonth extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                     child: IconTitleField(
                       titleName: '입 금'.tr,
-                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.totAmt) : '0',
+                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
@@ -69,7 +69,7 @@ class DashBoardMonth extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
                     child: IconTitleField(
                       titleName: '채 권'.tr,
-                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.totAmt) : '0',
+                      value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositBalance) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
