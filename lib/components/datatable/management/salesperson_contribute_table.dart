@@ -37,7 +37,7 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '마진율',
-                value: controller.controllerModel != null ? numberFormat.format(controller.controllerModel.marginRate ?? '0') : '0',
+                value: controller.controllerModel != null ? controller.controllerModel.marginRate.toString() : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
