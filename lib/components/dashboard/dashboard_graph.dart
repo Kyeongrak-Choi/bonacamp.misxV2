@@ -18,7 +18,7 @@ class DashboardGraph extends StatelessWidget {
           shape: BoxShape.rectangle,
         ),
         child: SfCartesianChart(
-          title: ChartTitle(text: '최근 3개월 매출 추이', textStyle: context.textTheme.displaySmall),
+          title: ChartTitle(text: '최근 3개월 매출 추이(단위:천원)', textStyle: context.textTheme.displaySmall),
           primaryXAxis: CategoryAxis(),
 
           // primaryYAxis: NumericAxis(title: AxisTitle(text: 'Sales')),

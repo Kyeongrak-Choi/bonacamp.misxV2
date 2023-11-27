@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/management/sales_daily_division_model.dart';
+import '../../../utils/utility.dart';
+import '../../common/field/icon_title_field.dart';
+import '../../common/field/icon_title_two_field.dart';
 import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
@@ -42,17 +45,20 @@ class SalesDailyDivisionItem extends StatelessWidget {
                   },
                   body: Column(
                     children: [
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '용도',
-                        value: model.usageName.toString(),
+                        value: model.usageName,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
+                      IconTitleField(
                         titleName: '수량\n( BOX / EA )',
-                        value: model.boxQuantity.toString() + ' / ' + model.bottleQuantity.toString(),
+                        value: model.boxQuantity + ' / ' + model.bottleQuantity ,
+                        iconData: Icons.label_outlined,
                       ),
-                      ShowListDetailRow(
-                        titleName: '총계\n(공 + 부 + 보증금)',
-                        value: model.amount.toString(),
+                      IconTitleField(
+                        titleName: '총계\n( 공 + 부 + 보증금 )',
+                        value: model.amount,
+                        iconData: Icons.label_outlined,
                       ),
                     ],
                   ),

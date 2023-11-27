@@ -118,38 +118,38 @@ class SalesDailyDivision extends StatelessWidget {
                           ]),
                           IconTitleTwoField(
                             titleName: '유흥합계',
-                            value1: divisionController.pleasureBoxSum + ' / ' + divisionController.pleasureBottleSum,
-                            value2: divisionController.pleasureAmountSum,
+                            value1: numberFormat.format(divisionController.pleasureBoxSum) + ' / ' + numberFormat.format(divisionController.pleasureBottleSum),
+                            value2: numberFormat.format(divisionController.pleasureAmountSum),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '일반합계',
-                            value1: divisionController.normalBoxSum + ' / ' + divisionController.normalBottleSum,
-                            value2: divisionController.normalAmountSum,
+                            value1: numberFormat.format(divisionController.normalBoxSum) + ' / ' + numberFormat.format(divisionController.normalBottleSum),
+                            value2: numberFormat.format(divisionController.normalAmountSum),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '합 계',
-                            value1: divisionController.totBoxSum + ' / ' + divisionController.totBottleSum,
-                            value2: divisionController.totAmountSum,
+                            value1: numberFormat.format(divisionController.totBoxSum) + ' / ' + numberFormat.format(divisionController.totBottleSum),
+                            value2: numberFormat.format(divisionController.totAmountSum),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '유흥누계',
-                            value1: divisionController.pleasureBoxQuantity + ' / ' + divisionController.pleasureBottleQuantity,
-                            value2: divisionController.pleasureAmountQuantity,
+                            value1: numberFormat.format(divisionController.pleasureBoxQuantity) + ' / ' + numberFormat.format(divisionController.pleasureBottleQuantity),
+                            value2: numberFormat.format(divisionController.pleasureAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '일반누계',
-                            value1: divisionController.normalBoxQuantity + ' / ' + divisionController.normalBottleQuantity,
-                            value2: divisionController.normalAmountQuantity,
+                            value1: numberFormat.format(divisionController.normalBoxQuantity) + ' / ' + numberFormat.format(divisionController.normalBottleQuantity),
+                            value2: numberFormat.format(divisionController.normalAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '누 계',
-                            value1: divisionController.totBoxQuantity + ' / ' + divisionController.totBottleQuantity,
-                            value2: divisionController.totAmountQuantity,
+                            value1: numberFormat.format(divisionController.totBoxQuantity) + ' / ' + numberFormat.format(divisionController.totBottleQuantity),
+                            value2: numberFormat.format(divisionController.totAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),
                         ],
@@ -199,25 +199,25 @@ class SalesDailyDivisionController extends GetxController {
   var visible = true.obs;
   var salesDailyDivisionList;
 
-  String pleasureBoxSum = '0';
-  String pleasureBottleSum = '0';
-  String pleasureAmountSum = '0';
-  String normalBoxSum = '0';
-  String normalBottleSum = '0';
-  String normalAmountSum = '0';
-  String totBoxSum = '0';
-  String totBottleSum = '0';
-  String totAmountSum = '0';
+  int pleasureBoxSum = 0;
+  int pleasureBottleSum = 0;
+  int pleasureAmountSum = 0;
+  int normalBoxSum = 0;
+  int normalBottleSum = 0;
+  int normalAmountSum = 0;
+  int totBoxSum = 0;
+  int totBottleSum = 0;
+  int totAmountSum = 0;
 
-  String pleasureBoxQuantity = '0';
-  String pleasureBottleQuantity = '0';
-  String pleasureAmountQuantity = '0';
-  String normalBoxQuantity = '0';
-  String normalBottleQuantity = '0';
-  String normalAmountQuantity = '0';
-  String totBoxQuantity = '0';
-  String totBottleQuantity = '0';
-  String totAmountQuantity = '0';
+  int pleasureBoxQuantity = 0;
+  int pleasureBottleQuantity = 0;
+  int pleasureAmountQuantity = 0;
+  int normalBoxQuantity = 0;
+  int normalBottleQuantity = 0;
+  int normalAmountQuantity = 0;
+  int totBoxQuantity = 0;
+  int totBottleQuantity = 0;
+  int totAmountQuantity = 0;
 
   setVisible() async {
     visible.value = !visible.value;
@@ -225,24 +225,24 @@ class SalesDailyDivisionController extends GetxController {
 
   Future calBoxBottleSum() async {
     if (salesDailyDivisionList == null) {
-      pleasureBoxSum = '0';
-      pleasureBottleSum = '0';
-      pleasureAmountSum = '0';
-      normalBoxSum = '0';
-      normalBottleSum = '0';
-      normalAmountSum = '0';
-      totBoxSum = '0';
-      totBottleSum = '0';
-      totAmountSum = '0';
-      pleasureBoxQuantity = '0';
-      pleasureBottleQuantity = '0';
-      pleasureAmountQuantity = '0';
-      normalBoxQuantity = '0';
-      normalBottleQuantity = '0';
-      normalAmountQuantity = '0';
-      totBoxQuantity = '0';
-      totBottleQuantity = '0';
-      totAmountQuantity = '0';
+      pleasureBoxSum = 0;
+      pleasureBottleSum = 0;
+      pleasureAmountSum = 0;
+      normalBoxSum = 0;
+      normalBottleSum = 0;
+      normalAmountSum = 0;
+      totBoxSum = 0;
+      totBottleSum = 0;
+      totAmountSum = 0;
+      pleasureBoxQuantity = 0;
+      pleasureBottleQuantity = 0;
+      pleasureAmountQuantity = 0;
+      normalBoxQuantity = 0;
+      normalBottleQuantity = 0;
+      normalAmountQuantity = 0;
+      totBoxQuantity = 0;
+      totBottleQuantity = 0;
+      totAmountQuantity = 0;
       return;
     }
 
@@ -268,26 +268,26 @@ class SalesDailyDivisionController extends GetxController {
       }
     }
 
-    pleasureBoxSum = tmpPleasureBoxSum.toString();
-    pleasureBottleSum = tmpPleasureBottleSum.toString();
-    pleasureAmountSum = numberFormat.format(tmpPleasureAmountSum);
-    normalBoxSum = tmpNormalBoxSum.toString();
-    normalBottleSum = tmpNormalBottleSum.toString();
-    normalAmountSum = numberFormat.format(tmpNormalAmountSum);
+    pleasureBoxSum = tmpPleasureBoxSum;
+    pleasureBottleSum = tmpPleasureBottleSum;
+    pleasureAmountSum = tmpPleasureAmountSum;
+    normalBoxSum = tmpNormalBoxSum;
+    normalBottleSum = tmpNormalBottleSum;
+    normalAmountSum = tmpNormalAmountSum;
 
-    totBoxSum = (tmpPleasureBoxSum + tmpNormalBoxSum).toString();
-    totBottleSum = (tmpPleasureBottleSum + tmpNormalBottleSum).toString();
-    totAmountSum = numberFormat.format((tmpPleasureAmountSum + tmpNormalAmountSum));
+    totBoxSum = tmpPleasureBoxSum + tmpNormalBoxSum;
+    totBottleSum = tmpPleasureBottleSum + tmpNormalBottleSum;
+    totAmountSum = tmpPleasureAmountSum + tmpNormalAmountSum;
 
-    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity.toString();
-    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity.toString();
-    pleasureAmountQuantity = numberFormat.format(salesDailyDivisionList[0].pleasureTotalAmount);
-    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity.toString();
-    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity.toString();
-    normalAmountQuantity = numberFormat.format(salesDailyDivisionList[0].normalTotalAmount);
-    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity.toString();
-    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity.toString();
-    totAmountQuantity = numberFormat.format(salesDailyDivisionList[0].totalAmount);
+    pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity;
+    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity;
+    pleasureAmountQuantity = salesDailyDivisionList[0].pleasureTotalAmount;
+    normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity;
+    normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity;
+    normalAmountQuantity = salesDailyDivisionList[0].normalTotalAmount;
+    totBoxQuantity = salesDailyDivisionList[0].boxTotalQuantity;
+    totBottleQuantity = salesDailyDivisionList[0].bottleTotalQuantity;
+    totAmountQuantity = salesDailyDivisionList[0].totalAmount;
 
     update();
   }
