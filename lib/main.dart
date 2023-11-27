@@ -14,6 +14,7 @@ import 'package:misxV2/layouts/menu/management/salesperson_contribute.dart';
 import 'package:misxV2/layouts/menu/purchase/purchase_report.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/sales/customer_report.dart';
+import 'package:misxV2/layouts/menu/sales/item_status.dart';
 import 'package:misxV2/layouts/menu/sales/salesperson_report_monthly.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset_history.dart';
@@ -123,6 +124,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_BALANCE_REPORT, page: () => BanlanceReport()), // 채권현황
         GetPage(name: ROUTE_MENU_BALANCE_RENTAL_REPORT, page: () => BalanceRentalReport()), // 채권 및 대여 현황
         GetPage(name: ROUTE_MENU_SALES_RENTAL_LEDGER, page: () => SalesRentalLedger()), // 매출 및 대여 원장
+        GetPage(name: ROUTE_MENU_ITEM_STATUS, page: () => ItemStatus()), // 품목 현황
 
         // 매입분석
         GetPage(name: ROUTE_MENU_PURCHASE_REPORT, page: () => PurchaseReport()), // 매입현황
