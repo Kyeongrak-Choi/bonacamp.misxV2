@@ -184,15 +184,15 @@ class SalesPersonReportController extends GetxController {
         } else {
           clearValue();
           controllerSalesPersonReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportModel.fromJson(dataJson)).toList();
-        }
 
-        for (SalesPersonReportModel calData in controllerSalesPersonReport) {
-          sumTotal += calData.total as int;
-          sumPrice += calData.price as int;
-          sumAmount += calData.amount as int;
-          sumDeposit += calData.deposit as int;
-          sumBalance += calData.balance as int;
-          sumMargin += calData.margin as int;
+          for (SalesPersonReportModel calData in controllerSalesPersonReport) {
+            sumTotal += calData.total as int;
+            sumPrice += calData.price as int;
+            sumAmount += calData.amount as int;
+            sumDeposit += calData.deposit as int;
+            sumBalance += calData.balance as int;
+            sumMargin += calData.margin as int;
+          }
         }
 
         Get.find<SalesPersonReportController>().setVisible();

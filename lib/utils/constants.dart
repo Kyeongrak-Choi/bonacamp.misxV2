@@ -55,6 +55,7 @@ const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const ROUTE_MENU_BALANCE_REPORT = '/debt'; // 채권현황
 const ROUTE_MENU_BALANCE_RENTAL_REPORT = '/rent-debt'; // 채권 및 대여 현황
 const ROUTE_MENU_SALES_RENTAL_LEDGER = '/rent-ledger'; // 매출 및 대여 원장
+const ROUTE_MENU_ITEM_STATUS = '/item-status'; // 품목 현황
 
 // purchase (매입분석)
 const ROUTE_MENU_PURCHASE_REPORT = '/purchase-report'; // 매입현황
@@ -153,6 +154,7 @@ const API_SALES_SALESPERSONREPORT_MONTHLY = '/sales-rep-monthly'; // 영업사�
 const API_SALES_CUSTOMERREPORT = '/customer'; // 영업사원별 매출현황
 const API_SALES_CUSTOMERREPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 const API_SALES_SALESLEDGER = '/ledger'; // 매출원장
+const API_SALES_ITEMSTATUS = '/item'; // 품목 현황
 
 const API_SALES_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
 const API_SALES_BALANCEREPORT = '/debt'; // 채권현황

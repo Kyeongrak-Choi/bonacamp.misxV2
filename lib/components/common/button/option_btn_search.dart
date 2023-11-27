@@ -25,6 +25,7 @@ import '../../../layouts/menu/sales/balance_report.dart';
 import '../../../layouts/menu/sales/customer_info.dart';
 import '../../../layouts/menu/sales/customer_report.dart';
 import '../../../layouts/menu/sales/customer_report_monthly.dart';
+import '../../../layouts/menu/sales/item_status.dart';
 import '../../../layouts/menu/sales/sales_ledger.dart';
 import '../../../layouts/menu/sales/sales_rental_ledger.dart';
 import '../../../layouts/menu/sales/salesperson_report.dart';
@@ -153,6 +154,11 @@ class OptionBtnSearch extends StatelessWidget {
                       // 영업분석 - 매출 및 대여 원장
                       case ROUTE_MENU_SALES_RENTAL_LEDGER:
                         await Get.find<SalesRentalLedgerController>().showResult();
+                        break;
+
+                      // 영업분석 - 품목 현황
+                      case ROUTE_MENU_ITEM_STATUS:
+                        await Get.find<ItemStatusController>().showResult();
                         break;
 
                       // 매입분석 - 매입현황
