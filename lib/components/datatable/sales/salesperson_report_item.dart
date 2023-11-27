@@ -32,7 +32,7 @@ class SalesPersonReportItem extends StatelessWidget {
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.name.toString() ?? '');
+                    return ShowListHeaderRow(titleName: '', value: model.name ?? '');
                   },
                   body: Column(
                     children: [
