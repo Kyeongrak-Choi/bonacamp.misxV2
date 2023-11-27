@@ -141,7 +141,7 @@ class CustomerInfoController extends GetxController {
     String paramCustCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value ?? '';
 
     if (paramCustCode == '') {
-      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+      ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
       return;
     }
 

@@ -123,7 +123,7 @@ class RentAssetController extends GetxController {
     var parsedRentAsset;
 
     if (paramCustomerCode == '') {
-      ShowSnackBar(SNACK_TYPE.INFO, '거래처를 선택해주세요.');
+      ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
       return;
     }
 

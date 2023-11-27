@@ -104,6 +104,11 @@ class ItemStatusController extends GetxController {
     var param = user.getClientCode;
     var parsedItemStatusSales;
 
+    if (paramItemCode == '') {
+      ShowSnackBar(SNACK_TYPE.INFO, 'must_select_item'.tr);
+      return;
+    }
+
     try {
       dio = await reqApi(param);
 
