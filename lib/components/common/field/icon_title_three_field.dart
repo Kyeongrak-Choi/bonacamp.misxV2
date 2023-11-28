@@ -15,7 +15,7 @@ class IconTitleThreeField extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       Icon(iconData, color: context.theme.primaryColor),
       Expanded(
-        flex: 4,
+        flex: 3,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
           child: Text(
@@ -28,7 +28,7 @@ class IconTitleThreeField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
           child: Text(
             value1,
             style: context.textTheme.displaySmall,
@@ -39,7 +39,7 @@ class IconTitleThreeField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
           child: Text(
             value2,
             style: context.textTheme.displaySmall,
@@ -50,7 +50,7 @@ class IconTitleThreeField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
           child: Text(
             value3,
             style: context.textTheme.displaySmall,
