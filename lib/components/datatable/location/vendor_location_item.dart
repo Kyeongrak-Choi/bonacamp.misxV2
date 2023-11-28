@@ -120,7 +120,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              cluster.items.first.locationInfo.name,
+              cluster.items.first.locationInfo.name ?? '',
               style: TextStyle(fontSize: 15, color: Colors.blue, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -141,7 +141,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 ),
                 IconTitleField(
                   titleName: '사업자 번호'.tr,
-                  value: cluster.items.first.locationInfo.businessNo != '' ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
+                  value: cluster.items.first.locationInfo.businessNo != null ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
                   iconData: Icons.numbers,
                 ),
                 IconTitleField(
@@ -329,7 +329,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       ),
       CustomInfoWindow(
         controller: customInfoWindowController,
-        height: 500,
+        height: 515,
         width: 250,
         offset: 0,
       ),
