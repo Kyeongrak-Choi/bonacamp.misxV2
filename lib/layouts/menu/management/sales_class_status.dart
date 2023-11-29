@@ -57,7 +57,6 @@ class SalesClassStatus extends StatelessWidget {
                           children: [
                             OptionPeriodPicker(),
                             OptionCbBranch(),
-                            OptionDialogPurchase(),
                             OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
                           ],
                         ),
@@ -121,7 +120,6 @@ class SalesClassStatusController extends GetxController {
     var paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
     var paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     var paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    var paramCode = Get.find<OptionDialogPurchaseController>().paramCode;
 
     try {
       dio = await reqApi(paramClientCd);
@@ -135,7 +133,7 @@ class SalesClassStatusController extends GetxController {
           '&to=' +
           paramToDate +
           '&customer=' +
-          paramCode);
+          '');
 
       if (response.statusCode == 200) {
         if ((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {

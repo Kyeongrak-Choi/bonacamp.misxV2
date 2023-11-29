@@ -73,35 +73,6 @@ class CustomerReportItem extends StatelessWidget {
                         value: model.marginRate.toString()  ,
                         iconData: Icons.label_outlined,
                       ),
-
-                      // ShowListDetailRow(
-                      //   titleName: '매출액',
-                      //   value: model.total.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '공급가',
-                      //   value: model.price.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '합계\n(공급가 + 부가세)',
-                      //   value: model.amount.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '입금합계',
-                      //   value: model.deposit.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '채권잔액',
-                      //   value: model.balance.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '매출이익',
-                      //   value: model.margin.toString(),
-                      // ),
-                      // ShowListDetailRow(
-                      //   titleName: '마진율',
-                      //   value: model.marginRate.toString(),
-                      // ),
                     ],
                   ),
                 );
