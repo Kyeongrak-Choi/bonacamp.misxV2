@@ -183,7 +183,7 @@ const API_INVENTORY_REPORT = '/report'; // 재고현황
 const API_INVENTORY_INOUT_REPORT = '/in-out-report'; // 재고수불현황
 const API_LEND_REPORT_WAREHOUSE = '/warehouse-report'; // 용공수불현황(창고)
 const API_LEND_REPORT_CUSTOMER = '/package-in-out-report'; // 용공수불현황(거래처)
-const API_LEND_REPORT_SALESPERSON = '/sales-rep-report'; // 용공수불현황(거래처)
+const API_LEND_REPORT_SALESPERSON = '/sales-rep-report'; // 용공수불현황(영업사원)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
