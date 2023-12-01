@@ -48,7 +48,7 @@ const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용�
 const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 거래처 현황
 const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현황
 const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
-const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 거래처별 매출현황
+const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
 const ROUTE_MENU_ACHIEVEMENT = '/achievement'; // 목표대비 실적현황
@@ -183,7 +183,7 @@ const API_INVENTORY_REPORT = '/report'; // 재고현황
 const API_INVENTORY_INOUT_REPORT = '/in-out-report'; // 재고수불현황
 const API_LEND_REPORT_WAREHOUSE = '/warehouse-report'; // 용공수불현황(창고)
 const API_LEND_REPORT_CUSTOMER = '/package-in-out-report'; // 용공수불현황(거래처)
-const API_LEND_REPORT_SALESPERSON = '/sales-rep-report'; // 용공수불현황(거래처)
+const API_LEND_REPORT_SALESPERSON = '/sales-rep-report'; // 용공수불현황(영업사원)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*

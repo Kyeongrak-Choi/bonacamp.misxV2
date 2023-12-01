@@ -60,8 +60,7 @@ class LendReportCustomer extends StatelessWidget {
                           child: Column(
                             children: [
                               OptionPeriodPicker(),
-                              OptionCbBranch(),
-                              OptionTwoContent(OptionDialogCustomer(), OptionCbEmployee()),
+                              OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
                               OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
                               OptionBtnSearch(ROUTE_MENU_LEND_REPORT_CUSTOMER),
                             ],
@@ -118,7 +117,6 @@ class LendReportCustomerController extends GetxController {
     String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
     String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
     String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramLendItemCode = Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
     String paramLendDivisionCode = Get.find<CbLendDivisionController>().paramLendDivisionCode;
 
@@ -141,7 +139,7 @@ class LendReportCustomerController extends GetxController {
           '&to=' +
           paramToDate +
           '&sales-rep=' +
-          paramEmployeeCode +
+          '' +
           '&customer=' +
           paramCustomerCode +
           '&item=' +
