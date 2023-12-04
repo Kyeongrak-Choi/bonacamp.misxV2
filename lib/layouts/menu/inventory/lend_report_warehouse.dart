@@ -142,7 +142,7 @@ class LendReportWarehouseController extends GetxController {
           paramWarehouseCode +
           '&customer=' +
           paramPurchaseCode +
-          '&lend-item=' +
+          '&item=' +
           paramLendItemCode +
           '&case=' +
           paramLendDivisionCode +
