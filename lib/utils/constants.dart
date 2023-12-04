@@ -92,8 +92,8 @@ enum DIALOG_TYPE { SELECT, MSG, NOTICE } // SELECT : yes & no select
 /*
   Netwrok Config
 */
-const CONNECT_TIMEOUT = 15;
-const RECEIVE_TIMEOUT = 10;
+const CONNECT_TIMEOUT = 120;
+const RECEIVE_TIMEOUT = 120;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

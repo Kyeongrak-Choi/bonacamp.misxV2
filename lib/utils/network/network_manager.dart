@@ -26,8 +26,8 @@ Future<bool> reqToken(bool isDev) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_AUTH_URL, defaultValue: 'fail'),
     contentType: 'application/json',
-    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 5s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 3s
+    connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 2Min
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 2Min
   );
 
   Dio dio = Dio(options);
