@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,7 +40,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Text(
-                      '전일재고\n입용기 / 용기 / 공병',
+                      '입용기 / 용기 / 공병\n(*전일재고*)',
                       style: context.textTheme.displayMedium,
                       textAlign: TextAlign.right,
                     ),
@@ -71,7 +72,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        dataList[index].itemName ?? '',
+                        dataList[index].lendItemName ?? '',
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.left,
                       ),
@@ -79,7 +80,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        dataList[index].last.bottleQuantity + ' / ',
+                        dataList[index].last.quantity + ' / ',
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.right,
                       ),
@@ -95,7 +96,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        dataList[index].last.quantity,
+                        dataList[index].last.bottleQuantity,
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.right,
                       ),
@@ -123,42 +124,42 @@ class LendReportWarehouseItem extends StatelessWidget {
 
 void ShowLendReportWarehouseDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "재고 수불 현황 상세보기",
+      title: "용공 수불 현황 상세보기",
       content: Column(
         children: [
           IconTitleField(
             titleName: '용기공병명',
-            value: detailList.itemName ?? '',
+            value: detailList.lendItemName ?? '',
             iconData: Icons.label_outlined,
           ),
+          // Text(
+          //   '입용기 / 용기 / 공병',
+          //   style: context.textTheme.displayMedium,
+          //   textAlign: TextAlign.right,
+          // ),
           IconTitleField(
-            titleName: '입수량',
-            value: detailList.last.box + ' / ' + detailList.last.bottle,
-            iconData: Icons.label_outlined,
-          ),
-          Text(
-            '입용기 / 용기 / 공병',
-            style: context.textTheme.displayMedium,
-            textAlign: TextAlign.right,
+            titleName: '',
+            value: '입용기 / 용기 / 공병',
+            iconData: CupertinoIcons.line_horizontal_3,
           ),
           IconTitleField(
             titleName: '전일 재고',
-            value: detailList.last.bottleQuantity + ' / ' + detailList.last.equipQuantity + ' / ' + detailList.last.quantity,
+            value: detailList.last.quantity + ' / ' + detailList.last.equipQuantity + ' / ' + detailList.last.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '금일 재고',
-            value: detailList.current.bottleQuantity + ' / ' + detailList.current.equipQuantity + ' / ' + detailList.current.quantity,
+            value: detailList.current.quantity + ' / ' + detailList.current.equipQuantity + ' / ' + detailList.current.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '입고',
-            value: detailList.inventoryIn.bottleQuantity + ' / ' + detailList.inventoryIn.equipQuantity + ' / ' + detailList.inventoryIn.quantity,
+            value: detailList.inventoryIn.quantity + ' / ' + detailList.inventoryIn.equipQuantity + ' / ' + detailList.inventoryIn.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
             titleName: '출고',
-            value: detailList.inventoryOut.bottleQuantity + ' / ' + detailList.inventoryOut.equipQuantity + ' / ' + detailList.inventoryOut.quantity,
+            value: detailList.inventoryOut.quantity + ' / ' + detailList.inventoryOut.equipQuantity + ' / ' + detailList.inventoryOut.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
         ],
