@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/sales/customer_report_model.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class CustomerReportItem extends StatelessWidget {
@@ -70,7 +68,7 @@ class CustomerReportItem extends StatelessWidget {
                       ),
                       IconTitleField(
                         titleName: '마진율',
-                        value: model.marginRate.toString()  ,
+                        value: model.marginRate.toString(),
                         iconData: Icons.label_outlined,
                       ),
                     ],

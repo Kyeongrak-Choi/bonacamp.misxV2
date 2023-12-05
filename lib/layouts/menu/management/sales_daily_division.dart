@@ -118,13 +118,17 @@ class SalesDailyDivision extends StatelessWidget {
                           ]),
                           IconTitleTwoField(
                             titleName: '유흥합계',
-                            value1: numberFormat.format(divisionController.pleasureBoxSum) + ' / ' + numberFormat.format(divisionController.pleasureBottleSum),
+                            value1: numberFormat.format(divisionController.pleasureBoxSum) +
+                                ' / ' +
+                                numberFormat.format(divisionController.pleasureBottleSum),
                             value2: numberFormat.format(divisionController.pleasureAmountSum),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '일반합계',
-                            value1: numberFormat.format(divisionController.normalBoxSum) + ' / ' + numberFormat.format(divisionController.normalBottleSum),
+                            value1: numberFormat.format(divisionController.normalBoxSum) +
+                                ' / ' +
+                                numberFormat.format(divisionController.normalBottleSum),
                             value2: numberFormat.format(divisionController.normalAmountSum),
                             iconData: Icons.label_outlined,
                           ),
@@ -136,19 +140,25 @@ class SalesDailyDivision extends StatelessWidget {
                           ),
                           IconTitleTwoField(
                             titleName: '유흥누계',
-                            value1: numberFormat.format(divisionController.pleasureBoxQuantity) + ' / ' + numberFormat.format(divisionController.pleasureBottleQuantity),
+                            value1: numberFormat.format(divisionController.pleasureBoxQuantity) +
+                                ' / ' +
+                                numberFormat.format(divisionController.pleasureBottleQuantity),
                             value2: numberFormat.format(divisionController.pleasureAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '일반누계',
-                            value1: numberFormat.format(divisionController.normalBoxQuantity) + ' / ' + numberFormat.format(divisionController.normalBottleQuantity),
+                            value1: numberFormat.format(divisionController.normalBoxQuantity) +
+                                ' / ' +
+                                numberFormat.format(divisionController.normalBottleQuantity),
                             value2: numberFormat.format(divisionController.normalAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),
                           IconTitleTwoField(
                             titleName: '누 계',
-                            value1: numberFormat.format(divisionController.totBoxQuantity) + ' / ' + numberFormat.format(divisionController.totBottleQuantity),
+                            value1: numberFormat.format(divisionController.totBoxQuantity) +
+                                ' / ' +
+                                numberFormat.format(divisionController.totBottleQuantity),
                             value2: numberFormat.format(divisionController.totAmountQuantity),
                             iconData: Icons.label_outlined,
                           ),

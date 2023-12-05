@@ -97,8 +97,8 @@ class CustomerContributeTable extends StatelessWidget {
               IconTitleField(
                 titleName: '대여수량',
                 value: controller.controllerCustomerContribute != null
-                    ? numberFormat.format(controller.controllerCustomerContribute.rentalAssetQuantity
-                + controller.controllerCustomerContribute.consumptionAssetQuantity)
+                    ? numberFormat.format(controller.controllerCustomerContribute.rentalAssetQuantity +
+                        controller.controllerCustomerContribute.consumptionAssetQuantity)
                     : '0',
                 iconData: Icons.label_outlined,
               ),

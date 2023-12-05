@@ -90,8 +90,9 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               IconTitleField(
                 titleName: '대여수량',
-                value: controller.controllerModel != null ? numberFormat.format(controller.controllerModel.rentalQuantity
-                                          + controller.controllerModel.expenseQuantity ?? '0') : '0',
+                value: controller.controllerModel != null
+                    ? numberFormat.format(controller.controllerModel.rentalQuantity + controller.controllerModel.expenseQuantity ?? '0')
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(

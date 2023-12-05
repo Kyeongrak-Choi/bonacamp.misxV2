@@ -199,8 +199,8 @@ const Map<String, String> koKR = {
   'bond_balance': '채권잔액',
 
   // 경고성 문구
-  'must_select_customer' : '거래처를 선택해주세요.',
-  'must_select_item' : '품목을 선택해주세요.',
+  'must_select_customer': '거래처를 선택해주세요.',
+  'must_select_item': '품목을 선택해주세요.',
 };
 
 //const Map<String,String> enUs = {};

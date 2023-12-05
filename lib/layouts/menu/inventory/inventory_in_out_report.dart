@@ -83,32 +83,34 @@ class InventoryInOutReport extends StatelessWidget {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Column(
                           children: [
-                            SumTitleTable('기간 채권 및 대여 합계'),
+                            SumTitleTable('기간 채권 및 대여 합계(BOX/EA)'),
                             SumItemTable(
-                                '전일재고\nBOX/EA',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBottleQuantity),
-                                '입고\nBOX/EA',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumInBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumInBottleQuantity)),
+                              '전일재고',
+                              numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBoxQuantity) +
+                                  ' / ' +
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBottleQuantity),
+                              '입고',
+                              numberFormat.format(Get.find<InventoryInOutReportController>().sumInBoxQuantity) +
+                                  ' / ' +
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumInBottleQuantity),
+                            ),
                             SumItemTable(
-                                '출고\nBOX/EA',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBottleQuantity),
-                                '실사\nBOX/EA',
+                              '금일재고',
+                              numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBoxQuantity) +
+                                  ' / ' +
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBottleQuantity),
+                              '출고',
+                              numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBoxQuantity) +
+                                  ' / ' +
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBottleQuantity),
+                            ),
+                            SumItemTable(
+                                null,
+                                null,
+                                '실사',
                                 numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBoxQuantity) +
                                     ' / ' +
                                     numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBottleQuantity)),
-                            SumItemTable(
-                                null,
-                                null,
-                                '금일재고\nBOX/EA',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBottleQuantity)),
                           ],
                         ),
                       ),

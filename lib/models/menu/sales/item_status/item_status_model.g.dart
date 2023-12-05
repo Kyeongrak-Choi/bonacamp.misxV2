@@ -16,7 +16,6 @@ ItemStatusModel _$ItemStatusModelFromJson(Map<String, dynamic> json) => ItemStat
       ItemStatusAmountModel.fromJson(json['normal-bottle'] as Map<String, dynamic>),
       ItemStatusAmountModel.fromJson(json['pleasure-box'] as Map<String, dynamic>),
       ItemStatusAmountModel.fromJson(json['pleasure-bottle'] as Map<String, dynamic>),
-
     );
 
 Map<String, dynamic> _$ItemStatusModelToJson(ItemStatusModel instance) => <String, dynamic>{

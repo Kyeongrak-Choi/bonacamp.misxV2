@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../layouts/menu/management/analysis_graph.dart';
 import '../../models/common/chart_spot.dart';
 
 class DashboardGraph extends StatelessWidget {

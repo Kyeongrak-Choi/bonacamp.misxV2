@@ -12,7 +12,6 @@ import 'package:misxV2/components/datatable/management/sales_class_status_item.d
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
-import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../models/menu/management/sales_class_status.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';

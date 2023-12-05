@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/components/common/field/icon_title_two_field.dart';
 
 import '../../../models/menu/inventory/inventory_in_out_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
@@ -37,21 +38,63 @@ class InventoryInOutReportItem extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 2,
-                    child: Text(
-                      '전일재고\nBOX / EA',
-                      style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '상세',
-                      style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.right,
+                    flex: 6,
+                    child: Column(
+                      children: [
+                        Text(
+                          '전일재고',
+                          textAlign: TextAlign.center,
+                          style: context.textTheme.displayMedium,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 14),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'BOX',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                'EA',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                '상세',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   )
+                  // Expanded(
+                  //   flex: 2,
+                  //   child: Text(
+                  //     '전일재고\nBOX / EA',
+                  //     style: context.textTheme.displayMedium,
+                  //     textAlign: TextAlign.right,
+                  //   ),
+                  // ),
+                  // Expanded(
+                  //   flex: 1,
+                  //   child: Text(
+                  //     '상세',
+                  //     style: context.textTheme.displayMedium,
+                  //     textAlign: TextAlign.right,
+                  //   ),
+                  // )
                 ],
               ),
             ),
@@ -79,13 +122,21 @@ class InventoryInOutReportItem extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        dataList[index].last.box + ' / ' + dataList[index].last.bottle,
+                        dataList[index].last.box,
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.right,
                       ),
                     ),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
+                      child: Text(
+                        dataList[index].last.bottle,
+                        style: context.textTheme.displaySmall,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
                       child: IconButton(
                         onPressed: () {
                           ShowInventoryInOutDetailDialog(dataList[index]);
@@ -115,30 +166,35 @@ void ShowInventoryInOutDetailDialog(var detailList) {
             value: detailList.itemName ?? '',
             iconData: Icons.label_outlined,
           ),
-          IconTitleField(
-            titleName: '전일재고 BOX / EA',
-            value: detailList.last.box + ' / ' + detailList.last.bottle,
-            iconData: Icons.label_outlined,
+          IconTitleTwoField(
+            titleName: '',
+            iconData: Icons.remove,
+            value1: 'BOX',
+            value2: 'EA',
           ),
-          IconTitleField(
-            titleName: '입고 BOX / EA',
-            value: detailList.inventoryIn.box + ' / ' + detailList.inventoryIn.bottle,
+          IconTitleTwoField(
+            titleName: '입고',
             iconData: Icons.label_outlined,
+            value1: detailList.inventoryIn.box,
+            value2: detailList.inventoryIn.bottle,
           ),
-          IconTitleField(
-            titleName: '출고 BOX / EA',
-            value: detailList.inventoryOut.box + ' / ' + detailList.inventoryOut.bottle,
+          IconTitleTwoField(
+            titleName: '출고',
             iconData: Icons.label_outlined,
+            value1: detailList.inventoryOut.box,
+            value2: detailList.inventoryOut.bottle,
           ),
-          IconTitleField(
-            titleName: '실사 BOX / EA',
-            value: detailList.physical.box + ' / ' + detailList.physical.bottle,
+          IconTitleTwoField(
+            titleName: '실사',
             iconData: Icons.label_outlined,
+            value1: detailList.physical.box,
+            value2: detailList.physical.bottle,
           ),
-          IconTitleField(
-            titleName: '금일재고 BOX / EA',
-            value: detailList.current.box + ' / ' + detailList.current.bottle,
+          IconTitleTwoField(
+            titleName: '금일재고',
             iconData: Icons.label_outlined,
+            value1: detailList.current.box,
+            value2: detailList.current.bottle,
           ),
         ],
       ));

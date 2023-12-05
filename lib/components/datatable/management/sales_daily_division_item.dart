@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/management/sales_daily_division_model.dart';
-import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/icon_title_two_field.dart';
-import '../../common/field/show_list_detail_row.dart';
 import '../../common/field/show_list_header_row.dart';
 
 class SalesDailyDivisionItem extends StatelessWidget {
@@ -52,7 +49,7 @@ class SalesDailyDivisionItem extends StatelessWidget {
                       ),
                       IconTitleField(
                         titleName: '수량\n( BOX / EA )',
-                        value: model.boxQuantity + ' / ' + model.bottleQuantity ,
+                        value: model.boxQuantity + ' / ' + model.bottleQuantity,
                         iconData: Icons.label_outlined,
                       ),
                       IconTitleField(

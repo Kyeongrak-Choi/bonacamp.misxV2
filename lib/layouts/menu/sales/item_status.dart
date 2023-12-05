@@ -20,65 +20,65 @@ class ItemStatus extends StatelessWidget {
   Widget build(context) {
     Get.put(ItemStatusController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-          title: Text('menu_sub_item_status'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
-          actions: [
-            IconButton(
-              icon: OptionBtnVisible(visible: Get.find<ItemStatusController>().visible.value),
-              onPressed: () {
-                Get.find<ItemStatusController>().setVisible();
-              },
-            ),
-          ]),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
-          child: Column(
-            children: [
-              Visibility(
-                visible: Get.find<ItemStatusController>().visible.value,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        OptionDialogItem(),
-                        OptionBtnSearch(ROUTE_MENU_ITEM_STATUS),
-                      ],
+          appBar: AppBar(
+              title: Text('menu_sub_item_status'.tr),
+              titleTextStyle: context.textTheme.displayLarge,
+              backgroundColor: context.theme.canvasColor,
+              iconTheme: context.theme.iconTheme,
+              actions: [
+                IconButton(
+                  icon: OptionBtnVisible(visible: Get.find<ItemStatusController>().visible.value),
+                  onPressed: () {
+                    Get.find<ItemStatusController>().setVisible();
+                  },
+                ),
+              ]),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Padding(
+              padding: EdgeInsetsDirectional.all(20),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: Get.find<ItemStatusController>().visible.value,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: Column(
+                          children: [
+                            OptionDialogItem(),
+                            OptionBtnSearch(ROUTE_MENU_ITEM_STATUS),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: Get.find<ItemStatusController>().visible.value ? 20 : 0,
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.theme.cardColor,
-                    borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
+                  SizedBox(
+                    height: Get.find<ItemStatusController>().visible.value ? 20 : 0,
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: ItemStatusTable(),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: ItemStatusTable(),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }
 
@@ -112,10 +112,7 @@ class ItemStatusController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES +
-          API_SALES_ITEMSTATUS +
-          '?code=' +
-          paramItemCode);
+      final response = await dio.get(API_SALES + API_SALES_ITEMSTATUS + '?code=' + paramItemCode);
 
       if (response.statusCode == 200) {
         if ((parsedItemStatusSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
