@@ -82,15 +82,19 @@ class PurchaseLedger extends StatelessWidget {
                           children: [
                             SumTitleTable('기간 매입 합계'),
                             SumItemTable(
-                                'BOX/EA',
-                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
-                                '매입액',
-                                numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal)),
-                            SumItemTable('공급가', numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice), '출금액',
-                                numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw)),
-                            SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
+                              'BOX',
+                              numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity),
+                              'EA',
+                              numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                            ),
+                            SumItemTable(
+                              '매입액',
+                              numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal),
+                              '공급가',
+                              numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                            ),
+                            SumItemTable('출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw), '채무잔액',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
                           ],
                         ),
                       ),

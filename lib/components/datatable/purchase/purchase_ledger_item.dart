@@ -27,7 +27,7 @@ class PurchaseLedgerItem extends StatelessWidget {
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return ShowListHeaderRow(
-                      titleName: changeStringToDateFormat(model.date ?? ''), value: '잔액 ( ' + numberFormat.format(model.balance) + ' )');
+                      titleName: changeStringToDateFormat(model.date ?? ''), value: '채무잔액 ( ' + numberFormat.format(model.balance) + ' )');
                 },
                 body: Container(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
@@ -69,7 +69,7 @@ class PurchaseLedgerItem extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Text(
-              '금액',
+              '매입액',
               textAlign: TextAlign.right,
               style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,
@@ -78,7 +78,7 @@ class PurchaseLedgerItem extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Text(
-              '잔액',
+              '채무잔액',
               textAlign: TextAlign.right,
               style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,

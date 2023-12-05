@@ -76,8 +76,13 @@ void ShowPurchaseLedgerDetailDialog(var detailList) {
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
-            titleName: 'BOX / EA',
-            value: detailList.boxQuantity.toString() + ' / ' + detailList.bottleQuantity.toString(),
+            titleName: 'BOX',
+            value: detailList.boxQuantity.toString(),
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: 'EA',
+            value: detailList.bottleQuantity.toString(),
             iconData: Icons.label_outlined,
           ),
           IconTitleField(
