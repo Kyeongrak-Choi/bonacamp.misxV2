@@ -141,7 +141,7 @@ class Misx extends StatelessWidget {
         // 재고분석
         GetPage(name: ROUTE_MENU_INVENTORY_REPORT, page: () => InventoryReport()), // 재고현황
         GetPage(name: ROUTE_MENU_INVENTORY_INOUT_REPORT, page: () => InventoryInOutReport()), // 재고수불현황
-        GetPage(name: ROUTE_MENU_LEND_REPORT_WAREHOUSE, page: () => LendReportWarehouse()), // 용공수불(창고)
+        GetPage(name: ROUTE_MENU_LEND_REPORT_WAREHOUSE, page: () => LendReportWarehouse()), // 용공수불현황(창고)
         GetPage(name: ROUTE_MENU_LEND_REPORT_CUSTOMER, page: () => LendReportCustomer()), // 용공수불현황(거래처)
         GetPage(name: ROUTE_MENU_LEND_REPORT_SALESPERSON, page: () => LendReportSalesperson()), // 용공수불현황(영업담당)
       ],

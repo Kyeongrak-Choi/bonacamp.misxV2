@@ -72,7 +72,7 @@ const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
 // stock (재고분석)
 const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
 const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고수불현황
-const ROUTE_MENU_LEND_REPORT_WAREHOUSE = '/lend-report-warehouse'; // 용공수불(창고)
+const ROUTE_MENU_LEND_REPORT_WAREHOUSE = '/lend-report-warehouse'; // 용공수불현황(창고)
 const ROUTE_MENU_LEND_REPORT_CUSTOMER = '/lend-report-customer'; // 용공수불현황(거래처)
 const ROUTE_MENU_LEND_REPORT_SALESPERSON = '/lend-report-salesperson'; // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

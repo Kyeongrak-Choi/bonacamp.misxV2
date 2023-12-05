@@ -143,7 +143,7 @@ final List<IconMenu> inventoryAnalysisMaster = [
       path: ROUTE_MENU_INVENTORY_INOUT_REPORT),
   // 재고수불현황
   IconMenu(title: 'menu_sub_lend_report_warehouse'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_WAREHOUSE),
-  // 용공수불(창고)
+  // 용공수불현황(창고)
   IconMenu(title: 'menu_sub_lend_report_customer'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_CUSTOMER),
   // 용공수불현황(거래처)
   IconMenu(title: 'menu_sub_lend_report_salesperson'.tr, iconData: FontAwesomeIcons.bottleDroplet, path: ROUTE_MENU_LEND_REPORT_SALESPERSON),

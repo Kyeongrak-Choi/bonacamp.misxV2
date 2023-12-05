@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../models/menu/inventory/lend_report_warehouse_model.dart';
 import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
+import '../../common/field/icon_title_three_field.dart';
 
 class LendReportWarehouseItem extends StatelessWidget {
   var dataList;
@@ -30,27 +31,62 @@ class LendReportWarehouseItem extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: Text(
-                      '품목',
+                      '용기공병',
+                      textAlign: TextAlign.center,
                       style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.left,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Expanded(
-                    flex: 3,
-                    child: Text(
-                      '입용기 / 용기 / 공병\n(*전일재고*)',
-                      style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '상세',
-                      style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.right,
+                    flex: 6,
+                    child: Column(
+                      children: [
+                        Text(
+                          '전일재고',
+                          textAlign: TextAlign.center,
+                          style: context.textTheme.displayMedium,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 14),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                '입용기',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                '공용기',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                '공병',
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                '상세',
+                                textAlign: TextAlign.right,
+                                style: context.textTheme.displayMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   )
                 ],
@@ -80,7 +116,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        dataList[index].last.quantity + ' / ',
+                        dataList[index].last.quantity ?? '',
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.right,
                       ),
@@ -88,7 +124,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        dataList[index].last.equipQuantity + ' / ',
+                        dataList[index].last.equipQuantity ?? '',
                         style: context.textTheme.displaySmall,
                         textAlign: TextAlign.right,
                       ),
@@ -124,7 +160,7 @@ class LendReportWarehouseItem extends StatelessWidget {
 
 void ShowLendReportWarehouseDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "용공 수불 현황 상세보기",
+      title: "용공수불현황 상세보기",
       content: Column(
         children: [
           IconTitleField(
@@ -132,34 +168,39 @@ void ShowLendReportWarehouseDetailDialog(var detailList, context) {
             value: detailList.lendItemName ?? '',
             iconData: Icons.label_outlined,
           ),
-          // Text(
-          //   '입용기 / 용기 / 공병',
-          //   style: context.textTheme.displayMedium,
-          //   textAlign: TextAlign.right,
-          // ),
-          IconTitleField(
+          IconTitleThreeField(
             titleName: '',
-            value: '입용기 / 용기 / 공병',
-            iconData: CupertinoIcons.line_horizontal_3,
+            value1: '입용기',
+            value2: '공용기',
+            value3: '공병',
+            iconData: Icons.remove,
           ),
-          IconTitleField(
+          IconTitleThreeField(
             titleName: '전일 재고',
-            value: detailList.last.quantity + ' / ' + detailList.last.equipQuantity + ' / ' + detailList.last.bottleQuantity,
+            value1: detailList.last.quantity,
+            value2: detailList.last.equipQuantity,
+            value3: detailList.last.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
-          IconTitleField(
+          IconTitleThreeField(
             titleName: '금일 재고',
-            value: detailList.current.quantity + ' / ' + detailList.current.equipQuantity + ' / ' + detailList.current.bottleQuantity,
+            value1: detailList.current.quantity,
+            value2: detailList.current.equipQuantity,
+            value3: detailList.current.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
-          IconTitleField(
+          IconTitleThreeField(
             titleName: '입고',
-            value: detailList.inventoryIn.quantity + ' / ' + detailList.inventoryIn.equipQuantity + ' / ' + detailList.inventoryIn.bottleQuantity,
+            value1: detailList.inventoryIn.quantity,
+            value2: detailList.inventoryIn.equipQuantity,
+            value3: detailList.inventoryIn.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
-          IconTitleField(
+          IconTitleThreeField(
             titleName: '출고',
-            value: detailList.inventoryOut.quantity + ' / ' + detailList.inventoryOut.equipQuantity + ' / ' + detailList.inventoryOut.bottleQuantity,
+            value1: detailList.inventoryOut.quantity,
+            value2: detailList.inventoryOut.equipQuantity,
+            value3: detailList.inventoryOut.bottleQuantity,
             iconData: Icons.label_outlined,
           ),
         ],
