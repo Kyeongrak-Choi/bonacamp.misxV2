@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/combobox/option_cb_employee.dart';
 import 'package:misxV2/components/common/combobox/option_two_content.dart';
 import 'package:misxV2/components/common/datepicker/option_date_picker.dart';
+import 'package:misxV2/components/common/field/icon_title_three_field.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/button/option_btn_visible.dart';
@@ -83,7 +84,7 @@ class SalesDailyDivision extends StatelessWidget {
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                             Expanded(
-                              flex: 2,
+                              flex: 3,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                 child: Text(
@@ -94,18 +95,29 @@ class SalesDailyDivision extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                              flex: 4,
+                              flex: 2,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                 child: Text(
-                                  '수량(BOX/EA)',
+                                  'BOX',
                                   style: context.textTheme.displaySmall,
                                   textAlign: TextAlign.end,
                                 ),
                               ),
                             ),
                             Expanded(
-                              flex: 4,
+                              flex: 2,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                                child: Text(
+                                  'EA',
+                                  style: context.textTheme.displaySmall,
+                                  textAlign: TextAlign.end,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                 child: Text(
@@ -116,51 +128,47 @@ class SalesDailyDivision extends StatelessWidget {
                               ),
                             ),
                           ]),
-                          IconTitleTwoField(
+                          IconTitleThreeField(
                             titleName: '유흥합계',
-                            value1: numberFormat.format(divisionController.pleasureBoxSum) +
-                                ' / ' +
-                                numberFormat.format(divisionController.pleasureBottleSum),
-                            value2: numberFormat.format(divisionController.pleasureAmountSum),
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.pleasureBoxSum),
+                            value2: numberFormat.format(divisionController.pleasureBottleSum),
+                            value3: numberFormat.format(divisionController.pleasureAmountSum),
                           ),
-                          IconTitleTwoField(
+                          IconTitleThreeField(
                             titleName: '일반합계',
-                            value1: numberFormat.format(divisionController.normalBoxSum) +
-                                ' / ' +
-                                numberFormat.format(divisionController.normalBottleSum),
-                            value2: numberFormat.format(divisionController.normalAmountSum),
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.normalBoxSum),
+                            value2: numberFormat.format(divisionController.normalBottleSum),
+                            value3: numberFormat.format(divisionController.normalAmountSum),
                           ),
-                          IconTitleTwoField(
-                            titleName: '합 계',
-                            value1: numberFormat.format(divisionController.totBoxSum) + ' / ' + numberFormat.format(divisionController.totBottleSum),
-                            value2: numberFormat.format(divisionController.totAmountSum),
+                          IconTitleThreeField(
+                            titleName: '합     계',
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.totBoxSum),
+                            value2: numberFormat.format(divisionController.totBottleSum),
+                            value3: numberFormat.format(divisionController.totAmountSum),
                           ),
-                          IconTitleTwoField(
+                          IconTitleThreeField(
                             titleName: '유흥누계',
-                            value1: numberFormat.format(divisionController.pleasureBoxQuantity) +
-                                ' / ' +
-                                numberFormat.format(divisionController.pleasureBottleQuantity),
-                            value2: numberFormat.format(divisionController.pleasureAmountQuantity),
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.pleasureBoxQuantity),
+                            value2: numberFormat.format(divisionController.pleasureBottleQuantity),
+                            value3: numberFormat.format(divisionController.pleasureAmountQuantity),
                           ),
-                          IconTitleTwoField(
+                          IconTitleThreeField(
                             titleName: '일반누계',
-                            value1: numberFormat.format(divisionController.normalBoxQuantity) +
-                                ' / ' +
-                                numberFormat.format(divisionController.normalBottleQuantity),
-                            value2: numberFormat.format(divisionController.normalAmountQuantity),
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.normalBoxQuantity),
+                            value2: numberFormat.format(divisionController.normalBottleQuantity),
+                            value3: numberFormat.format(divisionController.normalAmountQuantity),
                           ),
-                          IconTitleTwoField(
-                            titleName: '누 계',
-                            value1: numberFormat.format(divisionController.totBoxQuantity) +
-                                ' / ' +
-                                numberFormat.format(divisionController.totBottleQuantity),
-                            value2: numberFormat.format(divisionController.totAmountQuantity),
+                          IconTitleThreeField(
+                            titleName: '누     계',
                             iconData: Icons.label_outlined,
+                            value1: numberFormat.format(divisionController.totBoxQuantity),
+                            value2: numberFormat.format(divisionController.totBottleQuantity),
+                            value3: numberFormat.format(divisionController.totAmountQuantity),
                           ),
                         ],
                       ),

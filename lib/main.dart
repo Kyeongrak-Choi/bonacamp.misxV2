@@ -111,7 +111,7 @@ class Misx extends StatelessWidget {
         GetPage(name: ROUTE_MENU_CLASSSTATUS, page: () => SalesClassStatus()), // 판매분류별 현황
         GetPage(name: ROUTE_MENU_RANKSTATUS, page: () => SalesRank()), // 매출순위현황
         GetPage(name: ROUTE_MENU_GRAPH, page: () => AnalysisGraph()), // 분석 그래프
-        GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보-용도별
+        GetPage(name: ROUTE_MENU_DIVISIONSTATUS, page: () => SalesDailyDivision()), // 영업일보(용도별)
 
         // 영업분석
         GetPage(name: ROUTE_MENU_CUSTOMER_INFO, page: () => CustomerInfo()), // 거래처 현황

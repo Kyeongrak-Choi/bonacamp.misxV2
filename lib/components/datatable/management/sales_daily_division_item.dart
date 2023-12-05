@@ -48,8 +48,13 @@ class SalesDailyDivisionItem extends StatelessWidget {
                         iconData: Icons.label_outlined,
                       ),
                       IconTitleField(
-                        titleName: '수량\n( BOX / EA )',
-                        value: model.boxQuantity + ' / ' + model.bottleQuantity,
+                        titleName: 'BOX',
+                        value: model.boxQuantity ,
+                        iconData: Icons.label_outlined,
+                      ),
+                      IconTitleField(
+                        titleName: 'EA',
+                        value: model.bottleQuantity,
                         iconData: Icons.label_outlined,
                       ),
                       IconTitleField(
