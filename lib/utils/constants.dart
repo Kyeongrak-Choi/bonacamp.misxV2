@@ -63,8 +63,8 @@ const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 
 // support (지원현황)
 const ROUTE_MENU_SUPPORT_RENTAL_REPORT = '/rental-report'; // 대여금 현황
-const ROUTE_MENU_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산현황
-const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산현황(이력)
+const ROUTE_MENU_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산 현황
+const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 현황(이력)
 
 // location (위치조회)
 const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회

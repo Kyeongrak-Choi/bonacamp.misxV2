@@ -27,10 +27,15 @@ class RentAssetItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: changeStringToDateFormat(model.date ?? '') + '\n' + model.name ?? '');
+                return ShowListHeaderRow(titleName: '', value:  model.name);
               },
               body: Column(
                 children: [
+                  IconTitleField(
+                    titleName: '대여일자',
+                    value: changeStringToDateFormat(model.date ?? ''),
+                    iconData: Icons.label_outlined,
+                  ),
                   IconTitleField(
                     titleName: '지원금액',
                     value: model.amount ?? 0,

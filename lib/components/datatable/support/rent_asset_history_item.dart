@@ -28,10 +28,15 @@ class RentAssetHistoryItem extends StatelessWidget {
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
                 return ShowListHeaderRow(
-                    titleName: '', value: changeStringToDateFormat(model.date ?? '') + ' (' + model.status + ')\n' + model.name ?? '');
+                    titleName: '', value:  model.name + ' (' + model.status + ')' );
               },
               body: Column(
                 children: [
+                  IconTitleField(
+                    titleName: '처리일자',
+                    value: changeStringToDateFormat(model.date ?? ''),
+                    iconData: Icons.label_outlined,
+                  ),
                   IconTitleField(
                     titleName: '지원금액',
                     value: model.amount ?? 0,
