@@ -84,12 +84,12 @@ class InventoryReport extends StatelessWidget {
                           children: [
                             SumTitleTable('기간 채권 및 대여 합계'),
                             SumItemTable(
-                                'BOX/EA',
-                                numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity),
-                                '금액',
-                                numberFormat.format(Get.find<InventoryReportController>().sumAmount)),
+                              'BOX',
+                              numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity),
+                              'EA',
+                              numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity),
+                            ),
+                            SumItemTable(null, null, '금액', numberFormat.format(Get.find<InventoryReportController>().sumAmount)),
                           ],
                         ),
                       ),
