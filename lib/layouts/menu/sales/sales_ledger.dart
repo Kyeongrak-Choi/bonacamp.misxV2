@@ -83,17 +83,25 @@ class SalesLedger extends StatelessWidget {
                           children: [
                             SumTitleTable('기간 매출 원장 합계'),
                             SumItemTable(
-                                'BOX / EA',
-                                numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
-                                '매출액',
-                                numberFormat.format(Get.find<SalesLedgerController>().sumTotal)),
-                            SumItemTable('공급가', numberFormat.format(Get.find<SalesLedgerController>().sumPrice), '합계',
-                                numberFormat.format(Get.find<SalesLedgerController>().sumAmount)),
-                            SumItemTable('보증금', numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee), '입금액',
-                                numberFormat.format(Get.find<SalesLedgerController>().sumDeposit)),
-                            SumItemTable(null, null, '채권잔액', numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
+                              'BOX',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity),
+                              'EA',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
+                            ),
+                            SumItemTable(
+                              '매출액',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumTotal),
+                              '공급가',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumPrice),
+                            ),
+                            SumItemTable(
+                              '합계',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumAmount),
+                              '보증금',
+                              numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee),
+                            ),
+                            SumItemTable('입금액', numberFormat.format(Get.find<SalesLedgerController>().sumDeposit), '채권잔액',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
                           ],
                         ),
                       ),
