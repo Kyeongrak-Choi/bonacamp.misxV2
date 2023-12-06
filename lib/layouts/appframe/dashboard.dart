@@ -184,7 +184,13 @@ class DashBoardController extends GetxController {
     //get dashboard
     sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      pd.show(max: 100, msg: ''.tr, backgroundColor: CommonColors.signature);
+      pd.show(
+        max: 1000,
+        msg: '',
+        backgroundColor: CommonColors.signature,
+        progressValueColor: CommonColors.white,
+        msgColor: CommonColors.white,
+      );
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resDashboard = await dio

@@ -69,7 +69,13 @@ class SearchItemListController extends GetxController {
 
   void search() async {
     ProgressDialog pd = ProgressDialog(context: Get.context);
-    pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
+    pd.show(
+      max: 1000,
+      msg: '',
+      backgroundColor: CommonColors.signature,
+      progressValueColor: CommonColors.white,
+      msgColor: CommonColors.white,
+    );
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
     var dataObjsJson;

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,16 +31,11 @@ class SalesDailyItem extends StatelessWidget {
               },
               body: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                      child: Text(
-                        '(일 금액 / 월 금액)',
-                        textAlign: TextAlign.right,
-                        style: context.textTheme.bodyLarge,
-                      ),
-                    ),
+                  IconTitleTwoField(
+                    titleName: '',
+                    value1: '일 금액',
+                    value2: '월 금액',
+                    iconData: CupertinoIcons.minus,
                   ),
                   IconTitleTwoField(
                     titleName: '공급가',
