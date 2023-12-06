@@ -245,6 +245,7 @@ const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
 const KEY_AUTH_URL = 'baseUrl'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
+const KEY_SHOW_ADMOB = 'isShowAdmob'; // 광고 보기 Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key

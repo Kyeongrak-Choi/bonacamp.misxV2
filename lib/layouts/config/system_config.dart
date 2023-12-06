@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
 
+import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
+import '../../utils/theme/color_manager.dart';
+import '../../utils/utility.dart';
 
 // System Config Setting
 class SystemConfig extends StatelessWidget {
@@ -33,6 +36,16 @@ class SystemConfig extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                     child: CardRadioMenu(radioMenu: systemDetail),
                   ),
+                  ElevatedButton(
+                      onPressed: () async {
+                        Get.offAllNamed(ROUTE_LOGIN);
+                      },
+                      child: Text('text_logout'.tr),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: CommonColors.white,
+                        backgroundColor: CommonColors.signature,
+                      ))
+
                 ],
               ),
             ),

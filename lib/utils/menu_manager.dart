@@ -44,6 +44,11 @@ final List<RadioMenu> systemDetail = [
     title: 'dark_mode'.tr,
     val: Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()),
   ),
+  RadioMenu(
+    id: KEY_SHOW_ADMOB,
+    title: 'show_admob'.tr,
+    val: Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: true),
+  ),
 ];
 
 // menu setting master

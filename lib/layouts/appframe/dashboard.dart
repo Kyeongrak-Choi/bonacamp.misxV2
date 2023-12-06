@@ -15,11 +15,13 @@ import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
+import '../../components/common/emptyWidget.dart';
 import '../../components/dashboard/dashboard_graph.dart';
 import '../../models/common/chart_spot.dart';
 import '../../models/system/employee.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
+import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
 
@@ -40,7 +42,8 @@ class DashBoard extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsetsDirectional.all(5),
-                  child: DashBoardAdmob(), // 광고
+                  //child: DashBoardAdmob(), // 광고
+                  child: setChild(),
                 ),
                 Expanded(
                   child: ListView(
@@ -96,6 +99,14 @@ class DashBoard extends StatelessWidget {
             ),
           )),
     );
+  }
+
+  Widget setChild() {
+    if (getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))) {
+      return DashBoardAdmob();
+    } else {
+      return EmptyWidget();
+    }
   }
 }
 
@@ -173,7 +184,7 @@ class DashBoardController extends GetxController {
     //get dashboard
     sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      pd.show(max: 100, msg: 'progress_loading'.tr, backgroundColor: CommonColors.bluesky);
+      pd.show(max: 100, msg: ''.tr, backgroundColor: CommonColors.signature);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resDashboard = await dio

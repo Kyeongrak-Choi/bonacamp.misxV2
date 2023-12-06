@@ -51,12 +51,18 @@ class OptionBtnSearch extends StatelessWidget {
             child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
           child: Container(
-            color: CommonColors.bluesky,
+            color: CommonColors.signature,
             height: 40,
             child: ElevatedButton(
                 onPressed: () async {
                   ProgressDialog pd = ProgressDialog(context: context);
-                  pd.show(max: 1000, msg: 'progress_search'.tr, backgroundColor: CommonColors.bluesky);
+                  pd.show(
+                    max: 1000,
+                    msg: '',
+                    backgroundColor: CommonColors.signature,
+                    progressValueColor: CommonColors.white,
+                    msgColor: CommonColors.white,
+                  );
 
                   try {
                     switch (menu) {
@@ -217,10 +223,10 @@ class OptionBtnSearch extends StatelessWidget {
 
                   pd.close();
                 },
-                child: Icon(Icons.search, color: context.theme.primaryColor),
+                child: Icon(Icons.search, color: CommonColors.white),
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: CommonColors.white,
-                  backgroundColor: CommonColors.bluesky,
+                  foregroundColor: CommonColors.signature,
+                  backgroundColor: CommonColors.signature,
                 )),
           ),
         )),

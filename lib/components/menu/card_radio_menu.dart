@@ -38,6 +38,9 @@ class CardRadioMenu extends StatelessWidget {
       case KEY_THEME_MODE:
         optValue = Get.find<OptionController>().isDark;
         break;
+      case KEY_SHOW_ADMOB:
+        optValue = Get.find<OptionController>().isShowAdmob;
+        break;
       case KEY_CUSTOM_FILTER:
         optValue = Get.find<OptionController>().isCustomFilter;
         break;
@@ -68,6 +71,7 @@ class CardRadioMenu extends StatelessWidget {
                   case KEY_THEME_MODE:
                     Get.find<OptionController>().changeTheme(value);
                     break;
+                  case KEY_SHOW_ADMOB:
                   case KEY_CUSTOM_FILTER:
                   case KEY_INCLUDE_SALCHRG:
                   case KEY_COMPARE_FIRST:

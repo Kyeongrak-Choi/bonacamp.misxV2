@@ -55,7 +55,7 @@ TextTheme textThemeDark() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: CommonColors.signature,
     ),
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 15.0,
@@ -102,7 +102,7 @@ TextTheme textThemeCommon() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: CommonColors.signature,
     ),
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 15.0,
