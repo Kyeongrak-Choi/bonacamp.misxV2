@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_option.dart';
 
 import '../../components/common/dialog/customer/search_customer_listview.dart';
+import '../../utils/constants.dart';
+import '../../utils/theme/color_manager.dart';
 
 class SearchCustomerDialog extends StatelessWidget {
   @override
@@ -18,7 +20,8 @@ class SearchCustomerDialog extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text('title_search_customer'.tr),
-            backgroundColor: context.theme.cardColor,
+            titleTextStyle: context.textTheme.displayLarge,
+            backgroundColor: APPBAR_BACKGROUND_COLOR,
             iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../components/common/dialog/lenditem/search_lenditem_listview.dart';
 import '../../components/common/dialog/lenditem/search_lenditem_option.dart';
 import '../../components/common/dialog/purchase/search_purchase_listview.dart';
+import '../../utils/constants.dart';
 
 class SearchLendItemDialog extends StatelessWidget {
   @override
@@ -19,7 +20,8 @@ class SearchLendItemDialog extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text('title_search_lenditem'.tr),
-            backgroundColor: context.theme.cardColor,
+            titleTextStyle: context.textTheme.displayLarge,
+            backgroundColor: APPBAR_BACKGROUND_COLOR,
             iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,

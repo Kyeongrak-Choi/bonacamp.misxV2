@@ -25,7 +25,7 @@ class LoginInputId extends StatelessWidget {
             labelStyle: textThemeCommon().displayMedium,
             labelText: 'text_id'.tr,
             hintText: 'hint_id_input'.tr,
-            hintStyle: TextStyle(color: CommonColors.dark),
+            //hintStyle: TextStyle(color: CommonColors.gray),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: CommonColors.dark,

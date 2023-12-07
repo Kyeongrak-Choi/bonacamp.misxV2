@@ -33,7 +33,7 @@ class SalesDailyDivision extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_salesdaily_division'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

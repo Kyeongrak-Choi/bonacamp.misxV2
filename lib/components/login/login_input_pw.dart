@@ -24,7 +24,7 @@ class LoginInputPw extends StatelessWidget {
               labelStyle: textThemeCommon().displayMedium,
               labelText: 'text_pw'.tr,
               hintText: 'hint_pw_input'.tr,
-              hintStyle: TextStyle(color: CommonColors.dark),
+              //hintStyle: TextStyle(color: CommonColors.gray),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: CommonColors.dark,

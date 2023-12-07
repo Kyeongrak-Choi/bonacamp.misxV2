@@ -33,7 +33,7 @@ class InventoryInOutReport extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_inventory_in_out_report'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

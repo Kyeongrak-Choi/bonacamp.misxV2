@@ -8,7 +8,7 @@ TextTheme textThemeLight() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: CommonColors.white,
     ),
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 15.0,
@@ -19,6 +19,11 @@ TextTheme textThemeLight() {
       fontSize: 13.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.dark,
+    ),
+    headlineLarge: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.black,
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,
@@ -66,6 +71,11 @@ TextTheme textThemeDark() {
       fontSize: 13.0,
       fontWeight: FontWeight.bold,
       color: CommonColors.white,
+    ),
+    headlineLarge: GoogleFonts.nanumGothic(
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+      color: CommonColors.signature,
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,

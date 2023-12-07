@@ -28,7 +28,7 @@ class DashBoardCurrent extends StatelessWidget {
                       child: Text(
                         'title_current'.tr,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.displayLarge,
+                        style: context.textTheme.headlineLarge,
                       ),
                     ),
                   ),

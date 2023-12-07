@@ -27,7 +27,7 @@ class CustomerContribute extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_customer_contribute'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
