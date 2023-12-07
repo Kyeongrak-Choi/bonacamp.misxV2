@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: LightColors.background,
+          color: CommonColors.signature,
         ),
         child: Center(
           child: Column(
@@ -69,14 +69,14 @@ class Login extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.all(20),
-                          child: PolicyView(), // 개인정보 처리방침
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.all(20),
                           child: Text(
                             COPY_RIGHT,
                             style: textThemeCommon().bodyLarge,
                           ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.all(20),
+                          child: PolicyView(), // 개인정보 처리방침
                         ),
                       ],
                     ),

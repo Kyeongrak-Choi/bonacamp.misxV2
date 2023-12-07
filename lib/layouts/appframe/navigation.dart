@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
 import 'package:misxV2/layouts/appframe/menu_list.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../components/common/field/icon_title_field.dart';
 import '../../models/system/userinfo.dart';
@@ -23,7 +24,7 @@ class Navigation extends GetView<NavigationController> {
       child: Scaffold(
         // key: controller.scaffoldKey,
         appBar: AppBar(
-          title: Text('${Get.find<DashBoardController>().clientNm}' ?? '', style: context.textTheme.displayLarge),
+          title: Text('${Get.find<DashBoardController>().clientNm}' ?? '', style: context.textTheme.displayLarge,),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
           // ),
@@ -44,10 +45,10 @@ class Navigation extends GetView<NavigationController> {
             //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
             // ),
             IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
-            IconButton(
-                icon: Icon(Icons.logout),
-                color: context.theme.primaryColor,
-                onPressed: () => ShowDialog(DIALOG_TYPE.SELECT, 'logout'.tr, 'logout_content'.tr, context)),
+            // IconButton(
+            //     icon: Icon(Icons.logout),
+            //     color: context.theme.primaryColor,
+            //     onPressed: () => ShowDialog(DIALOG_TYPE.SELECT, 'logout'.tr, 'logout_content'.tr, context)),
           ],
         ),
         // drawer: Drawer(

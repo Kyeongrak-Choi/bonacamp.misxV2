@@ -29,8 +29,16 @@ class LoginBtn extends StatelessWidget {
           height: 50,
           child: ElevatedButton(
               onPressed: () async {
-                ProgressDialog pd = ProgressDialog(context: context);
-                pd.show(max: 100, msg: 'progress_login'.tr, backgroundColor: CommonColors.bluesky);
+                ProgressDialog pd = ProgressDialog(
+                  context: context,
+                );
+                pd.show(
+                    max: 1000,
+                    msg: '',
+                    backgroundColor: CommonColors.signature,
+                    progressValueColor: CommonColors.white,
+                    msgColor: CommonColors.white,
+                    );
                 if (await Get.find<LoginBtnController>().LoginCheck()) {
                   pd.close();
                   Get.toNamed(ROUTE_NATIGATION);
@@ -40,7 +48,7 @@ class LoginBtn extends StatelessWidget {
               child: Text('text_login'.tr),
               style: ElevatedButton.styleFrom(
                 foregroundColor: CommonColors.white,
-                backgroundColor: CommonColors.dark,
+                backgroundColor: CommonColors.signature,
               )),
         ))
       ],
