@@ -52,7 +52,7 @@ class SalesLedgerItem extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Text(
             '',
             textAlign: TextAlign.center,

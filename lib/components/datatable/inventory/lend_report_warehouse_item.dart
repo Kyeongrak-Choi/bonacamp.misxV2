@@ -116,7 +116,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                       flex: 1,
                       child: Text(
                         dataList[index].last.quantity ?? '',
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -124,7 +124,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                       flex: 1,
                       child: Text(
                         dataList[index].last.equipQuantity ?? '',
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -132,7 +132,7 @@ class LendReportWarehouseItem extends StatelessWidget {
                       flex: 1,
                       child: Text(
                         dataList[index].last.bottleQuantity,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),

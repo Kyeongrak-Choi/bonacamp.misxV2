@@ -70,7 +70,7 @@ class PurchaseLedgerItem extends StatelessWidget {
             flex: 5,
             child: Text(
               '매입액',
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.center,
               style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,
             ),
@@ -79,7 +79,7 @@ class PurchaseLedgerItem extends StatelessWidget {
             flex: 5,
             child: Text(
               '채무잔액',
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.center,
               style: context.textTheme.displayMedium,
               overflow: TextOverflow.ellipsis,
             ),

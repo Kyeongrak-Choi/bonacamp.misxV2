@@ -123,7 +123,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].last.box,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -131,7 +131,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].last.bottle,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),

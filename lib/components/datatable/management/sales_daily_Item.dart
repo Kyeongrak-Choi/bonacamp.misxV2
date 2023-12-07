@@ -27,7 +27,7 @@ class SalesDailyItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.salesRepName.toString());
+                return ShowListHeaderRow(titleName: '', value: model.salesRepName ?? '');
               },
               body: Column(
                 children: [
