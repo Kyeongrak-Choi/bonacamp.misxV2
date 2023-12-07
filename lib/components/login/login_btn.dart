@@ -34,13 +34,14 @@ class LoginBtn extends StatelessWidget {
                 );
                 pd.show(
                     max: 1000,
-                    msg: '',
-                    backgroundColor: CommonColors.signature,
-                    progressValueColor: CommonColors.white,
-                    msgColor: CommonColors.white,
+                    msg: 'Searching',
+                    cancel: Cancel(),
+                    backgroundColor: CommonColors.white,
+                    progressValueColor: CommonColors.signature,
+                    msgColor: CommonColors.signature,
                     );
                 if (await Get.find<LoginBtnController>().LoginCheck()) {
-                  pd.close();
+                 pd.close();
                   Get.toNamed(ROUTE_NATIGATION);
                 }
                 pd.close();

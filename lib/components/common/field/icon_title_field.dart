@@ -15,7 +15,7 @@ class IconTitleField extends StatelessWidget {
       Expanded(
         flex: 5,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
           child: Text(
             titleName,
             style: context.textTheme.displaySmall,
@@ -26,7 +26,7 @@ class IconTitleField extends StatelessWidget {
       Expanded(
         flex: 5,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
           child: Text(
             value,
             style: context.textTheme.bodyMedium,

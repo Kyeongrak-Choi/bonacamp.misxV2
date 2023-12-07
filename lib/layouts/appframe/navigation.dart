@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
@@ -13,13 +16,25 @@ import '../../utils/utility.dart';
 import '../config/config.dart';
 
 class Navigation extends GetView<NavigationController> {
+  DateTime? currentBackPressTime;
   @override
   Widget build(BuildContext context) {
     Get.put(NavigationController());
     Get.put(DashBoardController());
     return WillPopScope(
       onWillPop: () {
-        return Future(() => false); // HW Back key disenable
+        // return Future(() => true); // HW Back key disenable
+        DateTime now = DateTime.now();
+
+        if(currentBackPressTime == null || now.difference(currentBackPressTime!)
+            > Duration(seconds: 2))
+        {
+          currentBackPressTime = now;
+          ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
+          return Future.value(false);
+        }
+        exit(0);
+
       },
       child: Scaffold(
         // key: controller.scaffoldKey,

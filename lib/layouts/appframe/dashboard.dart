@@ -13,6 +13,7 @@ import 'package:misxV2/models/system/dashboard_status.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
+import 'package:sn_progress_dialog/options/cancel.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
 import '../../components/common/emptyWidget.dart';
@@ -155,10 +156,11 @@ class DashBoardController extends GetxController {
     try {
       pd.show(
         max: 1000,
-        msg: '',
-        backgroundColor: CommonColors.signature,
-        progressValueColor: CommonColors.white,
-        msgColor: CommonColors.white,
+        msg: 'Searching',
+        cancel: Cancel(),
+        backgroundColor: CommonColors.white,
+        progressValueColor: CommonColors.signature,
+        msgColor: CommonColors.signature,
       );
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;

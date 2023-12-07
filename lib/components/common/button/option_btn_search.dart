@@ -58,10 +58,11 @@ class OptionBtnSearch extends StatelessWidget {
                   ProgressDialog pd = ProgressDialog(context: context);
                   pd.show(
                     max: 1000,
-                    msg: '',
-                    backgroundColor: CommonColors.signature,
-                    progressValueColor: CommonColors.white,
-                    msgColor: CommonColors.white,
+                    msg: 'Searching',
+                    cancel: Cancel(),
+                    backgroundColor: CommonColors.white,
+                    progressValueColor: CommonColors.signature,
+                    msgColor: CommonColors.signature,
                   );
 
                   try {
