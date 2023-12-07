@@ -24,6 +24,7 @@ import '../../../models/menu/sales/customer_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerReport extends StatelessWidget {
@@ -34,7 +35,7 @@ class CustomerReport extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_sales_status'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

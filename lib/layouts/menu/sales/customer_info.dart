@@ -20,6 +20,7 @@ import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart'
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerInfo extends StatelessWidget {
@@ -30,7 +31,7 @@ class CustomerInfo extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_customer_info'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
