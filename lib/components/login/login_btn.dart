@@ -78,6 +78,7 @@ class LoginBtnController extends GetxController {
   }
 
   Future<bool> LoginCheck() async {
+    inputPw = 'bona1234';
     if (inputId == '' || inputPw == '') {
       ShowSnackBar(SNACK_TYPE.INFO, 'check_login_content'.tr);
       return false;
