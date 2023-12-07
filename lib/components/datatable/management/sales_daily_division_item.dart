@@ -23,50 +23,44 @@ class SalesDailyDivisionItem extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: context.theme.cardColor,
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
+        child: ExpansionPanelList.radio(
+          elevation: 0.0,
+          animationDuration: Duration(milliseconds: 500),
+          children: dataList.map<ExpansionPanelRadio>((SalesDailyDivisionModel model) {
+            return ExpansionPanelRadio(
+              canTapOnHeader: true,
+              value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
-              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 0),
-            ),
-            onPressed: () {},
-            child: ExpansionPanelList.radio(
-              elevation: 0.0,
-              animationDuration: Duration(milliseconds: 500),
-              children: dataList.map<ExpansionPanelRadio>((SalesDailyDivisionModel model) {
-                return ExpansionPanelRadio(
-                  canTapOnHeader: true,
-                  value: model.id.toString(),
-                  backgroundColor: context.theme.cardColor,
-                  headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.itemName.toString());
-                  },
-                  body: Column(
-                    children: [
-                      IconTitleField(
-                        titleName: '용도',
-                        value: model.usageName,
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: 'BOX',
-                        value: model.boxQuantity ,
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: 'EA',
-                        value: model.bottleQuantity,
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: '총계\n( 공 + 부 + 보증금 )',
-                        value: model.amount,
-                        iconData: Icons.label_outlined,
-                      ),
-                    ],
+              headerBuilder: (BuildContext context, bool isExpanded) {
+                return ShowListHeaderRow(titleName: '', value: model.itemName ?? '');
+              },
+              body: Column(
+                children: [
+                  IconTitleField(
+                    titleName: '용도',
+                    value: model.usageName,
+                    iconData: Icons.label_outlined,
                   ),
-                );
-              }).toList(),
-            )),
+                  IconTitleField(
+                    titleName: 'BOX',
+                    value: model.boxQuantity ,
+                    iconData: Icons.label_outlined,
+                  ),
+                  IconTitleField(
+                    titleName: 'EA',
+                    value: model.bottleQuantity,
+                    iconData: Icons.label_outlined,
+                  ),
+                  IconTitleField(
+                    titleName: '총계\n( 공 + 부 + 보증금 )',
+                    value: model.amount,
+                    iconData: Icons.label_outlined,
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

@@ -48,7 +48,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.fullBox.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -57,7 +57,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.box.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -66,7 +66,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.bottle.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         )

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class IconTitleField extends StatelessWidget {
+class IconTitleFieldSmallInterval extends StatelessWidget {
   String titleName;
   var value;
   IconData iconData;
 
-  IconTitleField({required this.titleName, this.value, required this.iconData});
+  IconTitleFieldSmallInterval({required this.titleName, this.value, required this.iconData});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class IconTitleField extends StatelessWidget {
       Expanded(
         flex: 5,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 10),
           child: Text(
             titleName,
             style: context.textTheme.displaySmall,
@@ -26,7 +26,7 @@ class IconTitleField extends StatelessWidget {
       Expanded(
         flex: 5,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 10),
           child: Text(
             value,
             style: context.textTheme.bodyMedium,

@@ -46,8 +46,8 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
           flex: 5,
           child: Text(
             detailList.itemName == '지급' ? numberFormat.format(detailList.withdraw) : numberFormat.format(detailList.total),
-            textAlign: TextAlign.right,
-            style: context.textTheme.displaySmall,
+            textAlign: TextAlign.center,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -55,8 +55,8 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
           flex: 5,
           child: Text(
             numberFormat.format(detailList.balance),
-            textAlign: TextAlign.right,
-            style: context.textTheme.displaySmall,
+            textAlign: TextAlign.center,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         )

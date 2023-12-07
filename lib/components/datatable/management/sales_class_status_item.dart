@@ -26,7 +26,7 @@ class SalesClassStatusItem extends StatelessWidget {
               value: model.salesClassCode.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.salesClassName.toString());
+                return ShowListHeaderRow(titleName: '', value: model.salesClassName ?? '');
               },
               body: Column(
                 children: [

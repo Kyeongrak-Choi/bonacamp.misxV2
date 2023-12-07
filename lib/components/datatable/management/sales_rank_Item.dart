@@ -17,55 +17,49 @@ class SalesRankItem extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: context.theme.cardColor,
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
+        child: ExpansionPanelList.radio(
+          elevation: 0.0,
+          animationDuration: Duration(milliseconds: 500),
+          children: dataList.map<ExpansionPanelRadio>((SalesRankModel model) {
+            return ExpansionPanelRadio(
+              canTapOnHeader: true,
+              value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
-              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 0),
-            ),
-            onPressed: () {},
-            child: ExpansionPanelList.radio(
-              elevation: 0.0,
-              animationDuration: Duration(milliseconds: 500),
-              children: dataList.map<ExpansionPanelRadio>((SalesRankModel model) {
-                return ExpansionPanelRadio(
-                  canTapOnHeader: true,
-                  value: model.id.toString(),
-                  backgroundColor: context.theme.cardColor,
-                  headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: model.ranking.toString() + '.', value: model.customerName.toString());
-                  },
-                  body: Column(
-                    children: [
-                      IconTitleField(
-                        titleName: '매출액',
-                        value: model.salesAmount.toString(),
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: '공급가',
-                        value: model.supplementAmount.toString(),
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: '매출이익',
-                        value: model.profitAmount.toString(),
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: '마진율',
-                        value: model.profitRate.toString(),
-                        iconData: Icons.label_outlined,
-                      ),
-                      IconTitleField(
-                        titleName: '채권잔액',
-                        value: model.bondBalance.toString(),
-                        iconData: Icons.label_outlined,
-                      ),
-                    ],
+              headerBuilder: (BuildContext context, bool isExpanded) {
+                return ShowListHeaderRow(titleName: model.ranking.toString() + '.', value: model.customerName ?? '');
+              },
+              body: Column(
+                children: [
+                  IconTitleField(
+                    titleName: '매출액',
+                    value: model.salesAmount.toString(),
+                    iconData: Icons.label_outlined,
                   ),
-                );
-              }).toList(),
-            )),
+                  IconTitleField(
+                    titleName: '공급가',
+                    value: model.supplementAmount.toString(),
+                    iconData: Icons.label_outlined,
+                  ),
+                  IconTitleField(
+                    titleName: '매출이익',
+                    value: model.profitAmount.toString(),
+                    iconData: Icons.label_outlined,
+                  ),
+                  IconTitleField(
+                    titleName: '마진율',
+                    value: model.profitRate.toString(),
+                    iconData: Icons.label_outlined,
+                  ),
+                  IconTitleField(
+                    titleName: '채권잔액',
+                    value: model.bondBalance.toString(),
+                    iconData: Icons.label_outlined,
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
