@@ -37,10 +37,12 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.navigation,
+    backgroundColor: CommonColors.white,
     colorText: CommonColors.dark,
   );
 }
+
+
 
 // Dialog
 void ShowDialog(type, title, content, context) {
@@ -81,22 +83,23 @@ void ShowDialog(type, title, content, context) {
         buttonOkText: 'confirm'.tr,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
-        iconButtonOk: Icon(Icons.one_k));
+       // iconButtonOk: Icon(Icons.one_k)
+    );
     messageDialog.show(context, barrierColor: CommonColors.signature);
   } else if (type == DIALOG_TYPE.NOTICE) {
     MessageDialog messageDialog = MessageDialog(
         dialogBackgroundColor: CommonColors.signature,
-        buttonOkColor: CommonColors.dark,
         title: title,
         titleColor: CommonColors.white,
         message: content,
         messageColor: CommonColors.white,
         buttonOkText: 'confirm'.tr,
+        buttonOkColor: CommonColors.white,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
        // iconButtonOk: Icon(Icons.one_k)
     );
-    messageDialog.show(context, barrierColor: CommonColors.signature);
+    messageDialog.show(context, barrierColor: CommonColors.signature );
   }
 }
 

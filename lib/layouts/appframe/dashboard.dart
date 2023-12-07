@@ -13,6 +13,7 @@ import 'package:misxV2/models/system/dashboard_status.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
+import 'package:sn_progress_dialog/options/cancel.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
 import '../../components/common/emptyWidget.dart';
@@ -34,7 +35,7 @@ class DashBoard extends StatelessWidget {
       backgroundColor: context.theme.canvasColor,
       body: RefreshIndicator(
           onRefresh: () async {
-            //await Get.find<NetworkManager>().requestApi(API_URL_DEV, '', context);
+            Get.find<DashBoardController>().getDashBoard();
           },
           child: Center(
             child: Column(
@@ -42,44 +43,11 @@ class DashBoard extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsetsDirectional.all(5),
-                  //child: DashBoardAdmob(), // 광고
                   child: setChild(),
                 ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
-                      //   child: DashBoardSales(), // 매출
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      //   child: DashBoardPurchase(), // 매입
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      //   child: DashBoardDeposit(), // 회수
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      //   child: DashBoardWithdraw(), // 출금
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      //   child: DashBoardReturn(), // 반납
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                      //   child: DashBoardRental(), // 대여
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
-                      //   child: DashBoardAsset(), // 자산
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.all(20),
-                      //   child: DashBoardChart2(), // 차트
-                      // ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(20),
                         child: DashBoardCurrent(), // 당일 현황
@@ -111,14 +79,6 @@ class DashBoard extends StatelessWidget {
 }
 
 class DashBoardController extends GetxController {
-  // var controllerSalesModel;
-  //  var controllerPurchaseModel;
-  //  var controllerDepositModel;
-  //  var controllerWithdrawModel;
-  //  var controllerReturnModel;
-  //  var controllerRentalModel;
-  //  var controllerAssetModel;
-
   var controllerCurrentModel;
   var controllerMonthModel;
 
@@ -181,15 +141,26 @@ class DashBoardController extends GetxController {
       }
     }
 
-    //get dashboard
+    getDashBoard();
+  }
+
+  Future<void> getDashBoard() async {
+    UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
+    var dio;
+    var parsedData;
+    var param = user.getClientCode;
+
+    dio = await reqApi(param);
+
     sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
       pd.show(
         max: 1000,
-        msg: '',
-        backgroundColor: CommonColors.signature,
-        progressValueColor: CommonColors.white,
-        msgColor: CommonColors.white,
+        msg: 'Searching',
+        cancel: Cancel(),
+        backgroundColor: CommonColors.white,
+        progressValueColor: CommonColors.signature,
+        msgColor: CommonColors.signature,
       );
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
@@ -216,7 +187,7 @@ class DashBoardController extends GetxController {
         update();
       }
       pd.close();
-      ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
+      //ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
       pd.close();
       if (e.response != null) {

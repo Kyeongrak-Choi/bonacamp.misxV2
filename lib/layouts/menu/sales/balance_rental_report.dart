@@ -33,7 +33,7 @@ class BalanceRentalReport extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_balance_rental_report'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

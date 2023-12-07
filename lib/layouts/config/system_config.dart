@@ -15,7 +15,7 @@ class SystemConfig extends StatelessWidget {
       appBar: AppBar(
         title: Text('system_setting'.tr),
         titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: context.theme.canvasColor,
+        backgroundColor: APPBAR_BACKGROUND_COLOR,
         iconTheme: context.theme.iconTheme,
       ),
       body: Container(
@@ -35,16 +35,8 @@ class SystemConfig extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                     child: CardRadioMenu(radioMenu: systemDetail),
-                  ),
-                  ElevatedButton(
-                      onPressed: () async {
-                        Get.offAllNamed(ROUTE_LOGIN);
-                      },
-                      child: Text('text_logout'.tr),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: CommonColors.white,
-                        backgroundColor: CommonColors.signature,
-                      ))
+                  )
+
 
                 ],
               ),

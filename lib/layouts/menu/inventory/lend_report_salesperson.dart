@@ -31,7 +31,7 @@ class LendReportSalesperson extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_lend_report_salesperson'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

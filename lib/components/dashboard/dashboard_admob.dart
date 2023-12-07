@@ -36,7 +36,7 @@ class DashBoardAdmob extends StatelessWidget {
             autoPlayCurve: Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             // onPageChanged: callbackFunction,
-            scrollDirection: Axis.vertical,
+            scrollDirection: Axis.horizontal,
           ));
     });
   }

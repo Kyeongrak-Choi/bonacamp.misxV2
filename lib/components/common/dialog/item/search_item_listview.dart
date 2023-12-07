@@ -71,10 +71,11 @@ class SearchItemListController extends GetxController {
     ProgressDialog pd = ProgressDialog(context: Get.context);
     pd.show(
       max: 1000,
-      msg: '',
-      backgroundColor: CommonColors.signature,
-      progressValueColor: CommonColors.white,
-      msgColor: CommonColors.white,
+      msg: 'Searching',
+      cancel: Cancel(),
+      backgroundColor: CommonColors.white,
+      progressValueColor: CommonColors.signature,
+      msgColor: CommonColors.signature,
     );
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;

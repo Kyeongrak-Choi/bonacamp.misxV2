@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
@@ -13,13 +16,25 @@ import '../../utils/utility.dart';
 import '../config/config.dart';
 
 class Navigation extends GetView<NavigationController> {
+  DateTime? currentBackPressTime;
   @override
   Widget build(BuildContext context) {
     Get.put(NavigationController());
     Get.put(DashBoardController());
     return WillPopScope(
       onWillPop: () {
-        return Future(() => false); // HW Back key disenable
+        // return Future(() => true); // HW Back key disenable
+        DateTime now = DateTime.now();
+
+        if(currentBackPressTime == null || now.difference(currentBackPressTime!)
+            > Duration(seconds: 2))
+        {
+          currentBackPressTime = now;
+          ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
+          return Future.value(false);
+        }
+        exit(0);
+
       },
       child: Scaffold(
         // key: controller.scaffoldKey,
@@ -32,19 +47,19 @@ class Navigation extends GetView<NavigationController> {
           // HW Back Key disenable
           leading: IconButton(
             icon: Icon(Icons.account_circle_sharp),
-            color: context.theme.primaryColor,
+            color: context.theme.primaryColorLight,
             onPressed: () {
               ShowUserInfoDialog();
             },
           ),
-          backgroundColor: context.theme.canvasColor,
+          backgroundColor: APPBAR_BACKGROUND_COLOR,
           actions: [
             // IconButton(
             //     icon: Icon(Icons.notifications_none_outlined),
             //     color: context.theme.primaryColor,
             //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
             // ),
-            IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
+            IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColorLight, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             // IconButton(
             //     icon: Icon(Icons.logout),
             //     color: context.theme.primaryColor,
@@ -69,78 +84,89 @@ class Navigation extends GetView<NavigationController> {
             //   return UtilFunction();
           }
         }),
-        bottomNavigationBar: CurvedNavigationBar(
-          index: 1,
-          height: 50,
-          color: context.theme.cardColor,
-          backgroundColor: context.theme.canvasColor,
-          buttonBackgroundColor: context.theme.canvasColor,
-          items: [
-            Container(
-              height: 50,
-              child: Column(
-                children: [
-                  Icon(Icons.menu, color: context.theme.primaryColor),
-                  Text(
-                    'nav_menu'.tr,
-                    style: TextStyle(color: context.theme.primaryColor),
-                  )
-                ],
+        bottomNavigationBar: Obx(() {
+          return CurvedNavigationBar(
+            index: 1,
+            height: 50,
+            color: CommonColors.signature,
+            backgroundColor: context.theme.canvasColor,
+            buttonBackgroundColor: CommonColors.signature,
+            items: [
+              Container(
+                //height: 40,
+                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.MENU
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.menu,
+                            color: context.theme.primaryColorLight),
+                        Text(
+                          'nav_menu'.tr,
+                          style: TextStyle(
+                              color: context.theme.primaryColorLight),
+                        )
+                      ],
+                    ) : Icon(Icons.menu, color: context.theme.primaryColorLight),
               ),
-            ),
-            Container(
-              height: 50,
-              child: Column(
-                children: [
-                  Icon(Icons.home, color: context.theme.primaryColor),
-                  Text(
-                    'nav_home'.tr,
-                    style: TextStyle(color: context.theme.primaryColor),
-                  )
-                ],
+              Container(
+                //height: 40,
+                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.HOME
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.home, color: context.theme.primaryColorLight),
+                        Text(
+                          'nav_home'.tr,
+                          style: TextStyle(color: context.theme.primaryColorLight),
+                        )
+                    ],
+                  ) : Icon(Icons.home, color: context.theme.primaryColorLight),
               ),
-            ),
-            // Container(
-            //   height: 50,
-            //   child: Column(
-            //     children: [
-            //       Icon(Icons.star_border, color: CommonColors.navigation),
-            //       Text(
-            //         'nav_mymenu'.tr,
-            //         style: TextStyle(color: CommonColors.navigation),
-            //       )
-            //     ],
-            //   ),
-            // ),
-            Container(
-              height: 50,
-              child: Column(
-                children: [
-                  Icon(Icons.more_horiz_sharp, color: context.theme.primaryColor),
-                  Text(
-                    'nav_more'.tr,
-                    style: TextStyle(color: context.theme.primaryColor),
-                  )
-                ],
+              // Container(
+              //   height: 50,
+              //   child: Column(
+              //     children: [
+              //       Icon(Icons.star_border, color: CommonColors.navigation),
+              //       Text(
+              //         'nav_mymenu'.tr,
+              //         style: TextStyle(color: CommonColors.navigation),
+              //       )
+              //     ],
+              //   ),
+              // ),
+              Container(
+                //height: 40,
+                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.CONFIG
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.more_horiz_sharp,
+                            color: context.theme.primaryColorLight),
+                        Text(
+                          'nav_more'.tr,
+                          style: TextStyle(color: context.theme.primaryColorLight),
+                        )
+                    ],
+                  ) : Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
               ),
-            ),
-            // Container(
-            //   height: 50,
-            //   child: Column(
-            //     children: [
-            //       Icon(Icons.workspace_premium, color: CommonColors.navigation),
-            //       Text(
-            //         'nav_premium'.tr,
-            //         style: TextStyle(color: CommonColors.navigation),
-            //       )
-            //     ],
-            //   ),
-            // ),
-          ],
-          onTap: (index) {
-            controller.currentIndex.value = index;
-          },
-        ),
+              // Container(
+              //   height: 50,
+              //   child: Column(
+              //     children: [
+              //       Icon(Icons.workspace_premium, color: CommonColors.navigation),
+              //       Text(
+              //         'nav_premium'.tr,
+              //         style: TextStyle(color: CommonColors.navigation),
+              //       )
+              //     ],
+              //   ),
+              // ),
+            ],
+            onTap: (index) {
+              controller.currentIndex.value = index;
+            },
+          );
+        }),
       ),
     );
   }

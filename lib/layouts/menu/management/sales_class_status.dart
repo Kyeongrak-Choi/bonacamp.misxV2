@@ -26,7 +26,7 @@ class SalesClassStatus extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_sales_class_status'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
