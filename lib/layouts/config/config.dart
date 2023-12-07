@@ -7,6 +7,7 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 import '../appframe/navigation.dart';
 
@@ -34,6 +35,16 @@ class Config extends StatelessWidget {
                     CardIconMenu(iconMenuList: noticeMaster),
                     CardIconMenu(iconMenuList: systemMaster),
                     CardIconMenu(iconMenuList: menuMaster),
+                    SizedBox(height: 50),
+                    ElevatedButton(
+                        onPressed: () async {
+                          Get.offAllNamed(ROUTE_LOGIN);
+                        },
+                        child: Text('text_logout'.tr),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CommonColors.white,
+                          backgroundColor: CommonColors.signature,
+                        ))
                   ],
                 ),
               ),

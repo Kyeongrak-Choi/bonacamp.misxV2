@@ -27,8 +27,8 @@ TextTheme textThemeLight() {
     ),
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 14.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      //fontWeight: FontWeight.bold,
+      color: CommonColors.signature,
     ),
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 12.0,
@@ -74,8 +74,8 @@ TextTheme textThemeDark() {
     ),
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 14.0,
-      fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      //fontWeight: FontWeight.bold,
+      color: CommonColors.signature,
     ),
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 12.0,
