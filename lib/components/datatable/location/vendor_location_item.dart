@@ -116,6 +116,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
     return Container(
       color: context.theme.cardColor,
+      height: 300,
+      width: 500,
       child: Column(
         children: [
           Padding(
@@ -129,7 +131,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           Expanded(
             child: Container(
               padding: EdgeInsetsDirectional.all(2),
-              child: Column(children: [
+              child: ListView(children: [
                 IconTitleFieldSmallInterval(
                   titleName: '상태'.tr,
                   value: cluster.items.first.locationInfo.status ?? '',
