@@ -14,7 +14,7 @@ class OptionCbAssetStatus extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(20),
+            padding: EdgeInsetsDirectional.all(15),
             child: Text(
               'opt_asset_status'.tr,
               textAlign: TextAlign.start,
