@@ -4,6 +4,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/support/rental_report/rental_report_details_model.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 
 class RentalReportDetailItem extends StatelessWidget {
@@ -31,7 +32,7 @@ class RentalReportDetailItem extends StatelessWidget {
               Expanded(
                   child: IconButton(
                 onPressed: () {
-                  ShowRentalReportDetailDialog(detailList,context);
+                  ShowRentalReportDetailDialog(detailList, context);
                 },
                 icon: Icon(Icons.search, color: context.theme.primaryColor),
               )),
@@ -61,14 +62,14 @@ class RentalReportDetailItem extends StatelessWidget {
   }
 }
 
-void ShowRentalReportDetailDialog(var detailList,context) {
+void ShowRentalReportDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "대여금 상세보기",
+      title: "\n대여금 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
       content: Container(
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.85,
-          child: Expanded(
-              child: ListView(
+          child: ListView(
             children: [
               IconTitleField(
                 titleName: '차수',
@@ -131,5 +132,5 @@ void ShowRentalReportDetailDialog(var detailList,context) {
                 iconData: Icons.label_outlined,
               ),
             ],
-          ))));
+          )));
 }

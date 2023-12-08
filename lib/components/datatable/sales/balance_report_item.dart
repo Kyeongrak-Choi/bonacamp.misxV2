@@ -88,7 +88,7 @@ class BalanceReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowBalanceDetailDialog(dataList[index],context);
+                          ShowBalanceDetailDialog(dataList[index], context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -104,14 +104,14 @@ class BalanceReportItem extends StatelessWidget {
   }
 }
 
-void ShowBalanceDetailDialog(var detailList,context) {
+void ShowBalanceDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "채권 현황 상세보기",
+      title: "\n채권 현황 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
       content: Container(
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.85,
-          child: Expanded(
-              child: ListView(
+          child: ListView(
             children: [
               IconTitleField(
                 titleName: '거래처',
@@ -154,5 +154,5 @@ void ShowBalanceDetailDialog(var detailList,context) {
                 iconData: Icons.label_outlined,
               ),
             ],
-          ))));
+          )));
 }

@@ -4,6 +4,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/sales/sales_ledger/sales_ledger_details_model.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 
 class SalesLedgerDetailItem extends StatelessWidget {
@@ -32,7 +33,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
                   child: detailList.salesTypeName == 'sales'.tr
                       ? IconButton(
                           onPressed: () {
-                            ShowLedgerDetailDialog(detailList,context);
+                            ShowLedgerDetailDialog(detailList, context);
                           },
                           icon: Icon(Icons.search, color: context.theme.primaryColor),
                         )
@@ -66,14 +67,14 @@ class SalesLedgerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowLedgerDetailDialog(var detailList,context) {
+void ShowLedgerDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "매출 상세보기",
+      title: "\n매출 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
       content: Container(
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.85,
-          child: Expanded(
-              child: ListView(
+          child: ListView(
             children: [
               IconTitleField(
                 titleName: 'item'.tr,
@@ -121,5 +122,5 @@ void ShowLedgerDetailDialog(var detailList,context) {
                 iconData: Icons.label_outlined,
               ),
             ],
-          ))));
+          )));
 }

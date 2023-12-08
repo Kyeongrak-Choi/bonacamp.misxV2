@@ -4,6 +4,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_list_model.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 import '../../common/field/icon_title_three_field.dart';
 
@@ -36,7 +37,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
                   flex: 1,
                   child: IconButton(
                     onPressed: () {
-                      ShowLendReportCustomerDetailDialog(detailList);
+                      ShowLendReportCustomerDetailDialog(detailList,context);
                     },
                     icon: Icon(Icons.search, color: context.theme.primaryColor),
                   )),
@@ -75,13 +76,13 @@ class LendReportCustomerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowLendReportCustomerDetailDialog(var detailList) {
+void ShowLendReportCustomerDetailDialog(var detailList,context) {
   Get.defaultDialog(
-      title: "용공수불현황 거래처별 상세보기",
+      title: "\n용공수불현황 거래처별 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
       content: Container(
-      height: MediaQuery.of(context).size.height * 0.6,,
+      height: MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width * 0.85,
-      child: Expanded(
       child: ListView(
         children: [
           IconTitleField(
@@ -139,5 +140,5 @@ void ShowLendReportCustomerDetailDialog(var detailList) {
             iconData: Icons.label_outlined,
           ),
         ],
-      ))));
+      )));
 }
