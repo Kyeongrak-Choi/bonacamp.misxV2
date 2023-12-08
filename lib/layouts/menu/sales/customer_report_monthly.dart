@@ -32,6 +32,7 @@ class CustomerReportMonthly extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_customer_monthly'.tr),
               backgroundColor: APPBAR_BACKGROUND_COLOR,
+              titleTextStyle: context.textTheme.displayLarge,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(
