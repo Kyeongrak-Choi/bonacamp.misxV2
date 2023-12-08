@@ -49,7 +49,7 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
+              padding: EdgeInsetsDirectional.all(20),
           child: Container(
             color: CommonColors.signature,
             height: 40,
@@ -226,7 +226,7 @@ class OptionBtnSearch extends StatelessWidget {
                 },
                 child: Icon(Icons.search, color: CommonColors.white),
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: CommonColors.signature,
+                  //foregroundColor: CommonColors.signature,
                   backgroundColor: CommonColors.signature,
                 )),
           ),

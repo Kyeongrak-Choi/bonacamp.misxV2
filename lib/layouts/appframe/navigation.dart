@@ -26,20 +26,20 @@ class Navigation extends GetView<NavigationController> {
         // return Future(() => true); // HW Back key disenable
         DateTime now = DateTime.now();
 
-        if(currentBackPressTime == null || now.difference(currentBackPressTime!)
-            > Duration(seconds: 2))
-        {
+        if (currentBackPressTime == null || now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
           currentBackPressTime = now;
           ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
           return Future.value(false);
         }
         exit(0);
-
       },
       child: Scaffold(
         // key: controller.scaffoldKey,
         appBar: AppBar(
-          title: Text('${Get.find<DashBoardController>().clientNm}' ?? '', style: context.textTheme.displayLarge,),
+          title: Text(
+            '${Get.find<DashBoardController>().clientNm}' ?? '',
+            style: context.textTheme.displayLarge,
+          ),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
           // ),
@@ -52,7 +52,7 @@ class Navigation extends GetView<NavigationController> {
               ShowUserInfoDialog();
             },
           ),
-          backgroundColor: APPBAR_BACKGROUND_COLOR,
+          backgroundColor: CommonColors.signature,
           actions: [
             // IconButton(
             //     icon: Icon(Icons.notifications_none_outlined),
@@ -95,32 +95,32 @@ class Navigation extends GetView<NavigationController> {
               Container(
                 //height: 40,
                 child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.MENU
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.menu,
-                            color: context.theme.primaryColorLight),
-                        Text(
-                          'nav_menu'.tr,
-                          style: TextStyle(
-                              color: context.theme.primaryColorLight),
-                        )
-                      ],
-                    ) : Icon(Icons.menu, color: context.theme.primaryColorLight),
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.menu, color: context.theme.primaryColorLight),
+                          Text(
+                            'nav_menu'.tr,
+                            style: TextStyle(color: context.theme.primaryColorLight),
+                          )
+                        ],
+                      )
+                    : Icon(Icons.menu, color: context.theme.primaryColorLight),
               ),
               Container(
                 //height: 40,
                 child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.HOME
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.home, color: context.theme.primaryColorLight),
-                        Text(
-                          'nav_home'.tr,
-                          style: TextStyle(color: context.theme.primaryColorLight),
-                        )
-                    ],
-                  ) : Icon(Icons.home, color: context.theme.primaryColorLight),
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.home, color: context.theme.primaryColorLight),
+                          Text(
+                            'nav_home'.tr,
+                            style: TextStyle(color: context.theme.primaryColorLight),
+                          )
+                        ],
+                      )
+                    : Icon(Icons.home, color: context.theme.primaryColorLight),
               ),
               // Container(
               //   height: 50,
@@ -137,17 +137,17 @@ class Navigation extends GetView<NavigationController> {
               Container(
                 //height: 40,
                 child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.CONFIG
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.more_horiz_sharp,
-                            color: context.theme.primaryColorLight),
-                        Text(
-                          'nav_more'.tr,
-                          style: TextStyle(color: context.theme.primaryColorLight),
-                        )
-                    ],
-                  ) : Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
+                          Text(
+                            'nav_more'.tr,
+                            style: TextStyle(color: context.theme.primaryColorLight),
+                          )
+                        ],
+                      )
+                    : Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
               ),
               // Container(
               //   height: 50,

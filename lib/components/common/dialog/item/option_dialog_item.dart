@@ -12,7 +12,7 @@ class OptionDialogItem extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'title_search_item'.tr,
               textAlign: TextAlign.start,

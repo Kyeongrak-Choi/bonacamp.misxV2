@@ -11,7 +11,7 @@ class OptionDatePicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 15),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,

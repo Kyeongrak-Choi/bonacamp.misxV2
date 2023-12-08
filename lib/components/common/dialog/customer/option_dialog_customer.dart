@@ -12,7 +12,7 @@ class OptionDialogCustomer extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'title_search_customer'.tr,
               textAlign: TextAlign.start,
