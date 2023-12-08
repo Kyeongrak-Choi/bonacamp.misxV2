@@ -55,7 +55,7 @@ class DashBoard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(20),
-                        child: DashBoardMonth(), // 당원 현황
+                        child: DashBoardMonth(), // 당월 현황
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(20),
