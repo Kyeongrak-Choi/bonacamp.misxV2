@@ -159,43 +159,47 @@ class InventoryInOutReportItem extends StatelessWidget {
 void ShowInventoryInOutDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "재고 수불 현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '품목',
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleTwoField(
-            titleName: '',
-            iconData: Icons.remove,
-            value1: 'BOX',
-            value2: 'EA',
-          ),
-          IconTitleTwoField(
-            titleName: '입고',
-            iconData: Icons.label_outlined,
-            value1: detailList.inventoryIn.box,
-            value2: detailList.inventoryIn.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '출고',
-            iconData: Icons.label_outlined,
-            value1: detailList.inventoryOut.box,
-            value2: detailList.inventoryOut.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '실사',
-            iconData: Icons.label_outlined,
-            value1: detailList.physical.box,
-            value2: detailList.physical.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '금일재고',
-            iconData: Icons.label_outlined,
-            value1: detailList.current.box,
-            value2: detailList.current.bottle,
-          ),
-        ],
-      ));
+      content: Container(
+          height: 300,
+          width: 500,
+          child: Expanded(
+              child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '품목',
+                value: detailList.itemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleTwoField(
+                titleName: '',
+                iconData: Icons.remove,
+                value1: 'BOX',
+                value2: 'EA',
+              ),
+              IconTitleTwoField(
+                titleName: '입고',
+                iconData: Icons.label_outlined,
+                value1: detailList.inventoryIn.box,
+                value2: detailList.inventoryIn.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '출고',
+                iconData: Icons.label_outlined,
+                value1: detailList.inventoryOut.box,
+                value2: detailList.inventoryOut.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '실사',
+                iconData: Icons.label_outlined,
+                value1: detailList.physical.box,
+                value2: detailList.physical.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '금일재고',
+                iconData: Icons.label_outlined,
+                value1: detailList.current.box,
+                value2: detailList.current.bottle,
+              ),
+            ],
+          ))));
 }

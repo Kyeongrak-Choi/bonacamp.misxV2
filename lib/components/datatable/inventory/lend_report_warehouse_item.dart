@@ -160,48 +160,52 @@ class LendReportWarehouseItem extends StatelessWidget {
 void ShowLendReportWarehouseDetailDialog(var detailList, context) {
   Get.defaultDialog(
       title: "용공수불현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '용기공병명',
-            value: detailList.lendItemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '',
-            value1: '입용기',
-            value2: '공용기',
-            value3: '공병',
-            iconData: Icons.remove,
-          ),
-          IconTitleThreeField(
-            titleName: '전일 재고',
-            value1: detailList.last.quantity,
-            value2: detailList.last.equipQuantity,
-            value3: detailList.last.bottleQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '금일 재고',
-            value1: detailList.current.quantity,
-            value2: detailList.current.equipQuantity,
-            value3: detailList.current.bottleQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '입고',
-            value1: detailList.inventoryIn.quantity,
-            value2: detailList.inventoryIn.equipQuantity,
-            value3: detailList.inventoryIn.bottleQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '출고',
-            value1: detailList.inventoryOut.quantity,
-            value2: detailList.inventoryOut.equipQuantity,
-            value3: detailList.inventoryOut.bottleQuantity,
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      ));
+      content: Container(
+          height: 300,
+          width: 500,
+          child: Expanded(
+              child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '용기공병명',
+                value: detailList.lendItemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '',
+                value1: '입용기',
+                value2: '공용기',
+                value3: '공병',
+                iconData: Icons.remove,
+              ),
+              IconTitleThreeField(
+                titleName: '전일 재고',
+                value1: detailList.last.quantity,
+                value2: detailList.last.equipQuantity,
+                value3: detailList.last.bottleQuantity,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '금일 재고',
+                value1: detailList.current.quantity,
+                value2: detailList.current.equipQuantity,
+                value3: detailList.current.bottleQuantity,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '입고',
+                value1: detailList.inventoryIn.quantity,
+                value2: detailList.inventoryIn.equipQuantity,
+                value3: detailList.inventoryIn.bottleQuantity,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '출고',
+                value1: detailList.inventoryOut.quantity,
+                value2: detailList.inventoryOut.equipQuantity,
+                value3: detailList.inventoryOut.bottleQuantity,
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          ))));
 }

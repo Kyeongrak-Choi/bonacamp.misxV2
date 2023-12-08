@@ -69,53 +69,57 @@ class SalesLedgerDetailItem extends StatelessWidget {
 void ShowLedgerDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "매출 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: 'item'.tr,
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출유형',
-            value: detailList.salesTypeName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'BOX',
-            value: detailList.boxQuantity.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'EA',
-            value: detailList.bottleQuantity.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출액',
-            value: numberFormat.format(detailList.total),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '공급가',
-            value: numberFormat.format(detailList.price),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '공급가 + 부가세',
-            value: numberFormat.format(detailList.amount),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '보증금',
-            value: numberFormat.format(detailList.guarantee),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '채권잔액',
-            value: numberFormat.format(detailList.balance),
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      ));
+      content: Container(
+          height: 300,
+          width: 500,
+          child: Expanded(
+              child: ListView(
+            children: [
+              IconTitleField(
+                titleName: 'item'.tr,
+                value: detailList.itemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출유형',
+                value: detailList.salesTypeName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: 'BOX',
+                value: detailList.boxQuantity.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: 'EA',
+                value: detailList.bottleQuantity.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출액',
+                value: numberFormat.format(detailList.total),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '공급가',
+                value: numberFormat.format(detailList.price),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '공급가 + 부가세',
+                value: numberFormat.format(detailList.amount),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '보증금',
+                value: numberFormat.format(detailList.guarantee),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '채권잔액',
+                value: numberFormat.format(detailList.balance),
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          ))));
 }

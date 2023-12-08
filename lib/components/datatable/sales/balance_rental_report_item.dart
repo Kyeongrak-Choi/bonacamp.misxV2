@@ -107,78 +107,82 @@ class BalanceRentalReportItem extends StatelessWidget {
 void ShowBalanceRentalDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "채권 및 대여 현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '매출처',
-            value: detailList.name ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출액',
-            value: detailList.total,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '공급가',
-            value: detailList.price,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '합계\n(공급가 + 부가세)',
-            value: detailList.amount,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '입금합계',
-            value: detailList.deposit,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '채권잔액',
-            value: detailList.balance,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '대여금(장기)',
-            value: detailList.longRent,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '대여금(단기)',
-            value: detailList.shortRent,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '대여금(합계)',
-            value: detailList.totalRent,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '채권 + 대여금',
-            value: detailList.totalBalance,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '대여자산',
-            value: detailList.rentQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '소비자산',
-            value: detailList.consumeQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출이익',
-            value: detailList.margin,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '마진율',
-            value: detailList.marginRate.toString(),
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      ));
+      content: Container(
+          height: 300,
+          width: 500,
+          child: Expanded(
+              child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '매출처',
+                value: detailList.name ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출액',
+                value: detailList.total,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '공급가',
+                value: detailList.price,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '합계\n(공급가 + 부가세)',
+                value: detailList.amount,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '입금합계',
+                value: detailList.deposit,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '채권잔액',
+                value: detailList.balance,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '대여금(장기)',
+                value: detailList.longRent,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '대여금(단기)',
+                value: detailList.shortRent,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '대여금(합계)',
+                value: detailList.totalRent,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '채권 + 대여금',
+                value: detailList.totalBalance,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '대여자산',
+                value: detailList.rentQuantity,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '소비자산',
+                value: detailList.consumeQuantity,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출이익',
+                value: detailList.margin,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '마진율',
+                value: detailList.marginRate.toString(),
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          ))));
 }

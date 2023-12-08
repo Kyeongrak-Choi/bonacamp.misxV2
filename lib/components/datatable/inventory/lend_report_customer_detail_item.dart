@@ -78,7 +78,11 @@ class LendReportCustomerDetailItem extends StatelessWidget {
 void ShowLendReportCustomerDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "용공수불현황 거래처별 상세보기",
-      content: Column(
+      content: Container(
+      height: 300,
+      width: 500,
+      child: Expanded(
+      child: ListView(
         children: [
           IconTitleField(
             titleName: '용기공병명',
@@ -135,5 +139,5 @@ void ShowLendReportCustomerDetailDialog(var detailList) {
             iconData: Icons.label_outlined,
           ),
         ],
-      ));
+      ))));
 }

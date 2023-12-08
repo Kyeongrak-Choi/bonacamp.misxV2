@@ -64,68 +64,72 @@ class RentalReportDetailItem extends StatelessWidget {
 void ShowRentalReportDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "대여금 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '차수',
-            value: detailList.sequence.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '구분',
-            value: detailList.status ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '분납',
-            value: detailList.divideMonth.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '이율',
-            value: detailList.interestRate.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '분납완료일',
-            value: detailList.payLastDate ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '총 대여금',
-            value: numberFormat.format(detailList.totalRentalAmount),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '총 회수금',
-            value: numberFormat.format(detailList.totalReturnAmount),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '총 대여잔액',
-            value: numberFormat.format(detailList.balance),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '영업 담당',
-            value: detailList.salesRepName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '당일 예정액',
-            value: numberFormat.format(detailList.rentalAmount),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '당일 회수액',
-            value: numberFormat.format(detailList.returnAmount),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '연체금액',
-            value: numberFormat.format(detailList.overdueAmount),
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      ));
+      content: Container(
+          height: 300,
+          width: 500,
+          child: Expanded(
+              child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '차수',
+                value: detailList.sequence.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '구분',
+                value: detailList.status ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '분납',
+                value: detailList.divideMonth.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '이율',
+                value: detailList.interestRate.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '분납완료일',
+                value: detailList.payLastDate ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '총 대여금',
+                value: numberFormat.format(detailList.totalRentalAmount),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '총 회수금',
+                value: numberFormat.format(detailList.totalReturnAmount),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '총 대여잔액',
+                value: numberFormat.format(detailList.balance),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '영업 담당',
+                value: detailList.salesRepName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '당일 예정액',
+                value: numberFormat.format(detailList.rentalAmount),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '당일 회수액',
+                value: numberFormat.format(detailList.returnAmount),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '연체금액',
+                value: numberFormat.format(detailList.overdueAmount),
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          ))));
 }
