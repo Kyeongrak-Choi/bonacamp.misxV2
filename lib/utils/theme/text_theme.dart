@@ -27,7 +27,7 @@ TextTheme textThemeLight() {
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.gray,
     ),
     titleMedium: GoogleFonts.nanumGothic(
@@ -37,7 +37,7 @@ TextTheme textThemeLight() {
     ),
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 12.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.gray,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
@@ -60,7 +60,7 @@ TextTheme textThemeDark() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: CommonColors.white,
     ),
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 15.0,
@@ -79,7 +79,7 @@ TextTheme textThemeDark() {
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.gray,
     ),
     titleMedium: GoogleFonts.nanumGothic(
@@ -89,7 +89,7 @@ TextTheme textThemeDark() {
     ),
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 12.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.gray,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
@@ -126,12 +126,12 @@ TextTheme textThemeCommon() {
     ),
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
     bodySmall: GoogleFonts.nanumGothic(
       fontSize: 10.0,
-      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.bold,
       color: CommonColors.dark,
     ),
   );
