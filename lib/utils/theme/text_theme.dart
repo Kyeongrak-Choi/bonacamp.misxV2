@@ -75,7 +75,7 @@ TextTheme textThemeDark() {
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: CommonColors.white,
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,

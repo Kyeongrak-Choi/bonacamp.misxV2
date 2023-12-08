@@ -21,6 +21,7 @@ class SalesDailyItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
+
           children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,

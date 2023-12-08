@@ -43,7 +43,7 @@ class DashBoard extends StatelessWidget {
               children: <Widget>[
                 Container(
                   padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                      ? EdgeInsetsDirectional.all(20) : EdgeInsetsDirectional.all(0),
+                      ? EdgeInsetsDirectional.all(5) : EdgeInsetsDirectional.all(0),
                   child: setChild(),
                 ),
                 Expanded(
