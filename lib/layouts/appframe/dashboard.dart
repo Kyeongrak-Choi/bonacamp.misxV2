@@ -41,8 +41,9 @@ class DashBoard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsetsDirectional.all(5),
+                Container(
+                  padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
+                      ? EdgeInsetsDirectional.all(20) : EdgeInsetsDirectional.all(0),
                   child: setChild(),
                 ),
                 Expanded(
@@ -69,11 +70,11 @@ class DashBoard extends StatelessWidget {
     );
   }
 
-  Widget setChild() {
+  Widget? setChild() {
     if (getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))) {
       return DashBoardAdmob();
     } else {
-      return EmptyWidget();
+      return null;
     }
   }
 }

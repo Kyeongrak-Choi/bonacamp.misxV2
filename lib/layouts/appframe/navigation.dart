@@ -86,7 +86,7 @@ class Navigation extends GetView<NavigationController> {
         }),
         bottomNavigationBar: Obx(() {
           return CurvedNavigationBar(
-            index: 1,
+            index: controller.currentIndex.value,
             height: 50,
             color: CommonColors.signature,
             backgroundColor: context.theme.canvasColor,
