@@ -16,7 +16,7 @@ class IconTitleTwoField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
           child: Text(
             titleName,
             style: context.textTheme.displaySmall,
@@ -27,7 +27,7 @@ class IconTitleTwoField extends StatelessWidget {
       Expanded(
         flex: 4,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
           child: Text(
             value1,
             style: context.textTheme.bodyMedium,
@@ -38,7 +38,7 @@ class IconTitleTwoField extends StatelessWidget {
       Expanded(
         flex: 4,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
           child: Text(
             value2,
             style: context.textTheme.bodyMedium,
