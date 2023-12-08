@@ -37,7 +37,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
                   flex: 1,
                   child: IconButton(
                     onPressed: () {
-                      ShowLendReportCustomerDetailDialog(detailList,context);
+                      ShowLendReportCustomerDetailDialog(detailList, context);
                     },
                     icon: Icon(Icons.search, color: context.theme.primaryColor),
                   )),
@@ -76,69 +76,69 @@ class LendReportCustomerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowLendReportCustomerDetailDialog(var detailList,context) {
+void ShowLendReportCustomerDetailDialog(var detailList, context) {
   Get.defaultDialog(
       title: "\n용공수불현황 거래처별 상세보기",
       titleStyle: TextStyle(color: CommonColors.signature),
       content: Container(
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width * 0.85,
-      child: ListView(
-        children: [
-          IconTitleField(
-            titleName: '용기공병명',
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '',
-            value1: '입용기',
-            value2: '공용기',
-            value3: '공병',
-            iconData: Icons.remove,
-          ),
-          IconTitleThreeField(
-            titleName: '전일 재고',
-            value1: numberFormat.format(detailList.fullBox.lastQuantity),
-            value2: numberFormat.format(detailList.box.lastQuantity),
-            value3: numberFormat.format(detailList.bottle.lastQuantity),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '출고 현황',
-            value1: numberFormat.format(detailList.fullBox.outQuantity),
-            value2: numberFormat.format(detailList.box.outQuantity),
-            value3: numberFormat.format(detailList.bottle.outQuantity),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '회수 현황',
-            value1: numberFormat.format(detailList.fullBox.inQuantity),
-            value2: numberFormat.format(detailList.box.inQuantity),
-            value3: numberFormat.format(detailList.bottle.inQuantity),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '미회수 현황',
-            value1: numberFormat.format(detailList.fullBox.remainQuantity),
-            value2: numberFormat.format(detailList.box.remainQuantity),
-            value3: numberFormat.format(detailList.bottle.remainQuantity),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '회수 비율',
-            value1: detailList.fullBox.inRate.toString(),
-            value2: detailList.box.inRate.toString(),
-            value3: detailList.bottle.inRate.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleThreeField(
-            titleName: '미회수 비율',
-            value1: detailList.fullBox.remainRate.toString(),
-            value2: detailList.box.remainRate.toString(),
-            value3: detailList.bottle.remainRate.toString(),
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      )));
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
+          child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '용기공병명',
+                value: detailList.itemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '',
+                value1: '입용기',
+                value2: '공용기',
+                value3: '공병',
+                iconData: Icons.remove,
+              ),
+              IconTitleThreeField(
+                titleName: '전일 재고',
+                value1: numberFormat.format(detailList.fullBox.lastQuantity),
+                value2: numberFormat.format(detailList.box.lastQuantity),
+                value3: numberFormat.format(detailList.bottle.lastQuantity),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '출고 현황',
+                value1: numberFormat.format(detailList.fullBox.outQuantity),
+                value2: numberFormat.format(detailList.box.outQuantity),
+                value3: numberFormat.format(detailList.bottle.outQuantity),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '회수 현황',
+                value1: numberFormat.format(detailList.fullBox.inQuantity),
+                value2: numberFormat.format(detailList.box.inQuantity),
+                value3: numberFormat.format(detailList.bottle.inQuantity),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '미회수 현황',
+                value1: numberFormat.format(detailList.fullBox.remainQuantity),
+                value2: numberFormat.format(detailList.box.remainQuantity),
+                value3: numberFormat.format(detailList.bottle.remainQuantity),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '회수 비율',
+                value1: detailList.fullBox.inRate.toString(),
+                value2: detailList.box.inRate.toString(),
+                value3: detailList.bottle.inRate.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleThreeField(
+                titleName: '미회수 비율',
+                value1: detailList.fullBox.remainRate.toString(),
+                value2: detailList.box.remainRate.toString(),
+                value3: detailList.bottle.remainRate.toString(),
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          )));
 }

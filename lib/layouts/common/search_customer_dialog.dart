@@ -4,7 +4,6 @@ import 'package:misxV2/components/common/dialog/customer/search_customer_option.
 
 import '../../components/common/dialog/customer/search_customer_listview.dart';
 import '../../utils/constants.dart';
-import '../../utils/theme/color_manager.dart';
 
 class SearchCustomerDialog extends StatelessWidget {
   @override

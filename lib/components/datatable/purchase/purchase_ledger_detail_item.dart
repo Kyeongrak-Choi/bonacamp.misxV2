@@ -36,7 +36,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                   flex: 1,
                   child: IconButton(
                     onPressed: () {
-                      ShowPurchaseLedgerDetailDialog(detailList,context);
+                      ShowPurchaseLedgerDetailDialog(detailList, context);
                     },
                     icon: Icon(Icons.search, color: context.theme.primaryColor),
                   )),
@@ -66,7 +66,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowPurchaseLedgerDetailDialog(var detailList,context) {
+void ShowPurchaseLedgerDetailDialog(var detailList, context) {
   Get.defaultDialog(
       title: "\n매입 상세보기",
       titleStyle: TextStyle(color: CommonColors.signature),
@@ -75,41 +75,41 @@ void ShowPurchaseLedgerDetailDialog(var detailList,context) {
           width: MediaQuery.of(context).size.width * 0.85,
           child: ListView(
             children: [
-          IconTitleField(
-            titleName: 'item'.tr,
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'BOX',
-            value: detailList.boxQuantity.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'EA',
-            value: detailList.bottleQuantity.toString(),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매입액',
-            value: numberFormat.format(detailList.total),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '공급가',
-            value: numberFormat.format(detailList.price),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '출금액',
-            value: numberFormat.format(detailList.withdraw),
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '채무잔액',
-            value: numberFormat.format(detailList.balance),
-            iconData: Icons.label_outlined,
-          ),
+              IconTitleField(
+                titleName: 'item'.tr,
+                value: detailList.itemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: 'BOX',
+                value: detailList.boxQuantity.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: 'EA',
+                value: detailList.bottleQuantity.toString(),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매입액',
+                value: numberFormat.format(detailList.total),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '공급가',
+                value: numberFormat.format(detailList.price),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '출금액',
+                value: numberFormat.format(detailList.withdraw),
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '채무잔액',
+                value: numberFormat.format(detailList.balance),
+                iconData: Icons.label_outlined,
+              ),
             ],
           )));
 }

@@ -16,7 +16,6 @@ import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
-import '../../../components/common/field/icon_title_two_field.dart';
 import '../../../components/datatable/management/sales_daily_division_item.dart';
 import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../../models/system/userinfo.dart';

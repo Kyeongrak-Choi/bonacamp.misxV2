@@ -42,8 +42,6 @@ void ShowSnackBar(type, content) {
   );
 }
 
-
-
 // Dialog
 void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE.SELECT) {
@@ -74,32 +72,32 @@ void ShowDialog(type, title, content, context) {
   } else if (type == DIALOG_TYPE.MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.signature,
-        buttonOkColor: CommonColors.white,
-        title: title,
-        titleColor: CommonColors.white,
-        message: content,
-        messageColor: CommonColors.white,
-        buttonOkText: 'confirm'.tr,
-        dialogRadius: 15.0,
-        buttonRadius: 18.0,
-       // iconButtonOk: Icon(Icons.one_k)
+      dialogBackgroundColor: CommonColors.signature,
+      buttonOkColor: CommonColors.white,
+      title: title,
+      titleColor: CommonColors.white,
+      message: content,
+      messageColor: CommonColors.white,
+      buttonOkText: 'confirm'.tr,
+      dialogRadius: 15.0,
+      buttonRadius: 18.0,
+      // iconButtonOk: Icon(Icons.one_k)
     );
     messageDialog.show(context, barrierColor: CommonColors.signature);
   } else if (type == DIALOG_TYPE.NOTICE) {
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.signature,
-        title: title,
-        titleColor: CommonColors.white,
-        message: content,
-        messageColor: CommonColors.white,
-        buttonOkText: 'confirm'.tr,
-        buttonOkColor: CommonColors.white,
-        dialogRadius: 15.0,
-        buttonRadius: 18.0,
-       // iconButtonOk: Icon(Icons.one_k)
+      dialogBackgroundColor: CommonColors.signature,
+      title: title,
+      titleColor: CommonColors.white,
+      message: content,
+      messageColor: CommonColors.white,
+      buttonOkText: 'confirm'.tr,
+      buttonOkColor: CommonColors.white,
+      dialogRadius: 15.0,
+      buttonRadius: 18.0,
+      // iconButtonOk: Icon(Icons.one_k)
     );
-    messageDialog.show(context, barrierColor: CommonColors.signature );
+    messageDialog.show(context, barrierColor: CommonColors.signature);
   }
 }
 
