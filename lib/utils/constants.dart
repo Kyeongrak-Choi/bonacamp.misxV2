@@ -2,6 +2,8 @@
   System
  */
 
+import 'package:misxV2/utils/theme/color_manager.dart';
+
 const APP_NAME = 'MISX Ver2';
 const COPY_RIGHT = 'Copyright 2023. BONACAMP All rights reserved.';
 const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
@@ -245,6 +247,7 @@ const KEY_SAVED_ID = 'savedId'; // save id Key
 const KEY_SAVED_TOKEN = 'token'; // save token Key
 const KEY_AUTH_URL = 'baseUrl'; // auth api url
 const KEY_BASE_URL = 'baseUrl'; // target api url Key
+const KEY_SHOW_ADMOB = 'isShowAdmob'; // 광고 보기 Key
 const KEY_CUSTOM_FILTER = 'isCustomFilter'; // '거래처필터링 사용' Key
 const KEY_INCLUDE_SALCHRG = 'isIncludeSalChrgCd'; // '영업사원 선택시 관리담당 포함' Key
 const KEY_COMPARE_FIRST = 'isCompareFirst'; // '초성검색시 첫글자부터 비교' Key
@@ -256,3 +259,5 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
+
+const APPBAR_BACKGROUND_COLOR = CommonColors.signature;

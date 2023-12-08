@@ -12,7 +12,7 @@ class OptionDialogPurchase extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+            padding: EdgeInsetsDirectional.all(20),
             child: Text(
               'title_search_purchase'.tr,
               textAlign: TextAlign.start,

@@ -29,7 +29,7 @@ class VendorLocation extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_vendor_location'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

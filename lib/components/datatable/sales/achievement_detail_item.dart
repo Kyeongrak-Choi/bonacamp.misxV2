@@ -4,6 +4,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/sales/achievement/achievement_details_model.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 
 class AchievementDetailItem extends StatelessWidget {
@@ -31,7 +32,7 @@ class AchievementDetailItem extends StatelessWidget {
               Expanded(
                   child: IconButton(
                 onPressed: () {
-                  ShowAchievementDetailDialog(detailList);
+                  ShowAchievementDetailDialog(detailList,context);
                 },
                 icon: Icon(Icons.search, color: context.theme.primaryColor),
               ))
@@ -61,11 +62,15 @@ class AchievementDetailItem extends StatelessWidget {
   }
 }
 
-void ShowAchievementDetailDialog(var detailList) {
+void ShowAchievementDetailDialog(var detailList,context) {
   Get.defaultDialog(
-      title: "목표대비 실적현황 상세보기",
-      content: Column(
-        children: [
+      title: "\n목표대비 실적현황 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
+      content: Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
+          child: ListView(
+            children: [
           IconTitleField(
             titleName: '구분',
             value: changeStringYYYYMMToDateFormat(detailList.month ?? ''),
@@ -111,6 +116,6 @@ void ShowAchievementDetailDialog(var detailList) {
             value: detailList.balanceRate.toString(),
             iconData: Icons.label_outlined,
           ),
-        ],
-      ));
+            ],
+          )));
 }

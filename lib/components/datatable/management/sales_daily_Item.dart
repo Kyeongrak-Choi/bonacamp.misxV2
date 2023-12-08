@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,26 +21,22 @@ class SalesDailyItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
+
           children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: '', value: model.salesRepName.toString());
+                return ShowListHeaderRow(titleName: '', value: model.salesRepName ?? '');
               },
               body: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                      child: Text(
-                        '(일 금액 / 월 금액)',
-                        textAlign: TextAlign.right,
-                        style: context.textTheme.bodyLarge,
-                      ),
-                    ),
+                  IconTitleTwoField(
+                    titleName: '',
+                    value1: '일 금액',
+                    value2: '월 금액',
+                    iconData: CupertinoIcons.minus,
                   ),
                   IconTitleTwoField(
                     titleName: '공급가',

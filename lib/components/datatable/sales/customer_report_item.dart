@@ -32,7 +32,7 @@ class CustomerReportItem extends StatelessWidget {
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: '', value: model.customerName.toString() ?? '');
+                    return ShowListHeaderRow(titleName: '', value: model.customerName ?? '');
                   },
                   body: Column(
                     children: [

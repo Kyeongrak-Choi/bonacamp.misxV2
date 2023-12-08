@@ -15,6 +15,7 @@ import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field.dart';
+import '../../common/field/icon_title_field_small_interval.dart';
 
 class VendorLocationItem extends StatefulWidget {
   const VendorLocationItem({super.key});
@@ -115,6 +116,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
     return Container(
       color: context.theme.cardColor,
+      height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.85,
       child: Column(
         children: [
           Padding(
@@ -128,73 +131,75 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
           Expanded(
             child: Container(
               padding: EdgeInsetsDirectional.all(2),
-              child: Column(children: [
-                IconTitleField(
+              child: ListView(children: [
+                IconTitleFieldSmallInterval(
                   titleName: '상태'.tr,
                   value: cluster.items.first.locationInfo.status ?? '',
                   iconData: Icons.label_outlined,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '사업주'.tr,
                   value: cluster.items.first.locationInfo.representative ?? '',
                   iconData: Icons.person,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '사업자 번호'.tr,
                   value: cluster.items.first.locationInfo.businessNo != null ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
                   iconData: Icons.numbers,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '영업 담당'.tr,
                   value: cluster.items.first.locationInfo.salesRep ?? '',
                   iconData: Icons.person,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '매출 기준일'.tr,
                   value: cluster.items.first.locationInfo.salesDate ?? '',
                   iconData: Icons.date_range,
                 ),
-                IconTitleField(
+                SizedBox(height: 14),
+                IconTitleFieldSmallInterval(
                   titleName: '당일 매출'.tr,
                   value: cluster.items.first.locationInfo.amount,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '당월 매출'.tr,
                   value: cluster.items.first.locationInfo.monthlyAmount,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '입금 금액'.tr,
                   value: cluster.items.first.locationInfo.deposit,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                SizedBox(height: 14),
+                IconTitleFieldSmallInterval(
                   titleName: '미수 잔액'.tr,
                   value: cluster.items.first.locationInfo.remainDeposit,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '채권 잔액'.tr,
                   value: cluster.items.first.locationInfo.balance,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '대여 금액'.tr,
                   value: cluster.items.first.locationInfo.rentAmount,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '대여 잔액'.tr,
                   value: cluster.items.first.locationInfo.rentBalance,
                   iconData: Icons.money,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '방문 횟수'.tr,
                   value: cluster.items.first.locationInfo.visitCount.toString(),
                   iconData: Icons.numbers,
                 ),
-                IconTitleField(
+                IconTitleFieldSmallInterval(
                   titleName: '마진율'.tr,
                   value: cluster.items.first.locationInfo.marginRate.toString(),
                   iconData: Icons.percent,
@@ -329,7 +334,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       ),
       CustomInfoWindow(
         controller: customInfoWindowController,
-        height: 515,
+        height: 485,
         width: 250,
         offset: 0,
       ),

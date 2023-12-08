@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class LightColors {
-  static const Color background = Color(0xFFE7E7E7);
+  static const Color background = Color(0xFFF8F7F7);
   static const Color basic = Color(0xFFFFFFFF);
   static const Color canvas = Color(0xFF2D2D2D);
   static const Color important = Color(0xFF2D2D2D);
@@ -27,4 +27,5 @@ class CommonColors {
   static const Color chartborder = Color(0xFF005E46);
   static const Color charttextcolor = Color(0xFF0A936F);
   static const Color gray = Color(0xFFA1A2A2);
+  static const Color signature = Color(0xFF1F5C93);
 }

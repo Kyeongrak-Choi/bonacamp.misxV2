@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class IconTitleField extends StatelessWidget {
+class IconTitleFieldSmallInterval extends StatelessWidget {
   String titleName;
   var value;
   IconData iconData;
 
-  IconTitleField({required this.titleName, this.value, required this.iconData});
+  IconTitleFieldSmallInterval({required this.titleName, this.value, required this.iconData});
 
   @override
   Widget build(BuildContext context) {

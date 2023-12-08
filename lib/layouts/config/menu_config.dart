@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
 
+import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
 import 'config.dart';
 
@@ -14,7 +15,7 @@ class MenuConfig extends StatelessWidget {
       appBar: AppBar(
         title: Text('menu_setting'.tr),
         titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: context.theme.canvasColor,
+        backgroundColor: APPBAR_BACKGROUND_COLOR,
         iconTheme: context.theme.iconTheme,
       ),
       body: Container(

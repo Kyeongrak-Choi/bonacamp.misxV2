@@ -123,7 +123,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].last.box,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -131,7 +131,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].last.bottle,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -139,7 +139,7 @@ class InventoryInOutReportItem extends StatelessWidget {
                       flex: 2,
                       child: IconButton(
                         onPressed: () {
-                          ShowInventoryInOutDetailDialog(dataList[index]);
+                          ShowInventoryInOutDetailDialog(dataList[index], context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                         alignment: Alignment.centerRight,
@@ -156,46 +156,50 @@ class InventoryInOutReportItem extends StatelessWidget {
   }
 }
 
-void ShowInventoryInOutDetailDialog(var detailList) {
+void ShowInventoryInOutDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "재고 수불 현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '품목',
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleTwoField(
-            titleName: '',
-            iconData: Icons.remove,
-            value1: 'BOX',
-            value2: 'EA',
-          ),
-          IconTitleTwoField(
-            titleName: '입고',
-            iconData: Icons.label_outlined,
-            value1: detailList.inventoryIn.box,
-            value2: detailList.inventoryIn.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '출고',
-            iconData: Icons.label_outlined,
-            value1: detailList.inventoryOut.box,
-            value2: detailList.inventoryOut.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '실사',
-            iconData: Icons.label_outlined,
-            value1: detailList.physical.box,
-            value2: detailList.physical.bottle,
-          ),
-          IconTitleTwoField(
-            titleName: '금일재고',
-            iconData: Icons.label_outlined,
-            value1: detailList.current.box,
-            value2: detailList.current.bottle,
-          ),
-        ],
-      ));
+      title: "\n재고 수불 현황 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
+      content: Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
+          child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '품목',
+                value: detailList.itemName ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleTwoField(
+                titleName: '',
+                iconData: Icons.remove,
+                value1: 'BOX',
+                value2: 'EA',
+              ),
+              IconTitleTwoField(
+                titleName: '입고',
+                iconData: Icons.label_outlined,
+                value1: detailList.inventoryIn.box,
+                value2: detailList.inventoryIn.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '출고',
+                iconData: Icons.label_outlined,
+                value1: detailList.inventoryOut.box,
+                value2: detailList.inventoryOut.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '실사',
+                iconData: Icons.label_outlined,
+                value1: detailList.physical.box,
+                value2: detailList.physical.bottle,
+              ),
+              IconTitleTwoField(
+                titleName: '금일재고',
+                iconData: Icons.label_outlined,
+                value1: detailList.current.box,
+                value2: detailList.current.bottle,
+              ),
+            ],
+          )));
 }

@@ -12,6 +12,9 @@ class Themes {
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
     canvasColor: LightColors.background,
+    iconTheme: const IconThemeData(
+      color: LightColors.basic,
+    ),
     // backgorund
     cardColor: LightColors.basic,
     textTheme: textThemeLight(),
@@ -32,6 +35,9 @@ class Themes {
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
     canvasColor: DarkColors.background,
+    iconTheme: const IconThemeData(
+      color: LightColors.basic,
+    ),
     // backgorund
     cardColor: DarkColors.basic,
     textTheme: textThemeDark(),

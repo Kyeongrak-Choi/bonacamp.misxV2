@@ -88,7 +88,7 @@ class BalanceReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowBalanceDetailDialog(dataList[index]);
+                          ShowBalanceDetailDialog(dataList[index], context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -104,51 +104,55 @@ class BalanceReportItem extends StatelessWidget {
   }
 }
 
-void ShowBalanceDetailDialog(var detailList) {
+void ShowBalanceDetailDialog(var detailList, context) {
   Get.defaultDialog(
-      title: "채권 현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '거래처',
-            value: detailList.name ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출액',
-            value: detailList.total ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '공급가',
-            value: detailList.price ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '합계\n(공급가 + 부가세)',
-            value: detailList.amount ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '입금합계',
-            value: detailList.deposit,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '채권잔액',
-            value: detailList.balance,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출이익',
-            value: detailList.margin,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '마진율',
-            value: detailList.marginRate.toString(),
-            iconData: Icons.label_outlined,
-          ),
-        ],
-      ));
+      title: "\n채권 현황 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
+      content: Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
+          child: ListView(
+            children: [
+              IconTitleField(
+                titleName: '거래처',
+                value: detailList.name ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출액',
+                value: detailList.total ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '공급가',
+                value: detailList.price ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '합계\n(공급가 + 부가세)',
+                value: detailList.amount ?? '',
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '입금합계',
+                value: detailList.deposit,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '채권잔액',
+                value: detailList.balance,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '매출이익',
+                value: detailList.margin,
+                iconData: Icons.label_outlined,
+              ),
+              IconTitleField(
+                titleName: '마진율',
+                value: detailList.marginRate.toString(),
+                iconData: Icons.label_outlined,
+              ),
+            ],
+          )));
 }

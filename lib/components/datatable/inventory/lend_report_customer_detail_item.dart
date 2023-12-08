@@ -4,6 +4,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_list_model.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 import '../../common/field/icon_title_three_field.dart';
 
@@ -36,7 +37,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
                   flex: 1,
                   child: IconButton(
                     onPressed: () {
-                      ShowLendReportCustomerDetailDialog(detailList);
+                      ShowLendReportCustomerDetailDialog(detailList,context);
                     },
                     icon: Icon(Icons.search, color: context.theme.primaryColor),
                   )),
@@ -48,7 +49,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.fullBox.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -57,7 +58,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.box.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -66,7 +67,7 @@ class LendReportCustomerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.bottle.lastQuantity),
             textAlign: TextAlign.center,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),
         )
@@ -75,10 +76,14 @@ class LendReportCustomerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowLendReportCustomerDetailDialog(var detailList) {
+void ShowLendReportCustomerDetailDialog(var detailList,context) {
   Get.defaultDialog(
-      title: "용공수불현황 거래처별 상세보기",
-      content: Column(
+      title: "\n용공수불현황 거래처별 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
+      content: Container(
+      height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.85,
+      child: ListView(
         children: [
           IconTitleField(
             titleName: '용기공병명',
@@ -135,5 +140,5 @@ void ShowLendReportCustomerDetailDialog(var detailList) {
             iconData: Icons.label_outlined,
           ),
         ],
-      ));
+      )));
 }

@@ -53,7 +53,7 @@ class OverAllTable extends StatelessWidget {
               ),
 
               Container(
-                  width: 500,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
 
@@ -94,7 +94,7 @@ class OverAllTable extends StatelessWidget {
               ),
 
               Container(
-                  width: 500,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
                   child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
 

@@ -11,11 +11,11 @@ class OptionBtnVisible extends StatelessWidget {
     return visible == true
         ? Icon(
             Icons.arrow_circle_up_outlined,
-            color: context.theme.primaryColor,
+            color: context.theme.primaryColorLight,
           )
         : Icon(
             Icons.arrow_circle_down,
-            color: context.theme.primaryColor,
+            color: context.theme.primaryColorLight,
           );
   }
 }

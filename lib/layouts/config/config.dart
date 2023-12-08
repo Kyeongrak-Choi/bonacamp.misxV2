@@ -7,6 +7,7 @@ import 'package:misxV2/utils/database/hive_manager.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 import '../appframe/navigation.dart';
 
@@ -34,6 +35,16 @@ class Config extends StatelessWidget {
                     CardIconMenu(iconMenuList: noticeMaster),
                     CardIconMenu(iconMenuList: systemMaster),
                     CardIconMenu(iconMenuList: menuMaster),
+                    SizedBox(height: 50),
+                    ElevatedButton(
+                        onPressed: () async {
+                          Get.offAllNamed(ROUTE_LOGIN);
+                        },
+                        child: Text('text_logout'.tr),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CommonColors.white,
+                          backgroundColor: CommonColors.signature,
+                        ))
                   ],
                 ),
               ),
@@ -52,6 +63,7 @@ class OptionController extends GetxController {
   RxString userNm = ''.obs;
 
   RxBool isDark = getHiveBool(Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())).obs; // 다크모드
+  RxBool isShowAdmob = getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: true)).obs; // 광고 보기
   RxBool isCustomFilter = getHiveBool(Hive.box(LOCAL_DB).get(KEY_CUSTOM_FILTER, defaultValue: false)).obs; // 거래처 필터링 사용
   RxBool isIncludeSalChrgCd = getHiveBool(Hive.box(LOCAL_DB).get(KEY_INCLUDE_SALCHRG, defaultValue: true)).obs; // 영업사원 선택시 관리사원 포함
   RxBool isCompareFirst = getHiveBool(Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: false)).obs; // 초성검색시 첫글자부터 비교
@@ -94,6 +106,9 @@ class OptionController extends GetxController {
         break;
       case KEY_COMPARE_FIRST:
         isCompareFirst.value = val;
+        break;
+      case KEY_SHOW_ADMOB:
+        isShowAdmob.value = val;
         break;
     }
     await Hive.box(LOCAL_DB).put(id, val);

@@ -28,7 +28,7 @@ class DashBoardMonth extends StatelessWidget {
                       child: Text(
                         'title_month'.tr,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.displayLarge,
+                        style: context.textTheme.headlineLarge,
                       ),
                     ),
                   ),

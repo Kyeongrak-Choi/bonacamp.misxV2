@@ -24,9 +24,9 @@ class DashBoardAdmob extends StatelessWidget {
             );
           }).toList(),
           options: CarouselOptions(
-            height: 80,
+            height: 150,
             aspectRatio: 16 / 9,
-            viewportFraction: 0.8,
+            viewportFraction: 1, // 비율조정
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
@@ -54,9 +54,9 @@ class DashBoardAdmobController extends GetxController {
   }
 
   void setAdmodList() {
-    admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_main.png');
-    admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_1.jpg');
-    admobList.add('http://dionysoserp.com/download/assets/misxV2/getju_2.jpg');
+    admobList.add('http://dionysoserp.com/download/assets/misxV2/admob1.png');
+    admobList.add('http://dionysoserp.com/download/assets/misxV2/admob2.png');
+    admobList.add('http://dionysoserp.com/download/assets/misxV2/admob3.png');
 
     for (int i = 0; i < admobList.length; i++) {
       admobItem.add(Image.network(admobList[i], fit: BoxFit.cover));

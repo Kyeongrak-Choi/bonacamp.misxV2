@@ -30,7 +30,8 @@ class SalesPersonReportMonthly extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_report_monthly'.tr),
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
+              titleTextStyle: context.textTheme.displayLarge,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

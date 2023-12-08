@@ -37,17 +37,19 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.bluesky,
+    backgroundColor: CommonColors.white,
     colorText: CommonColors.dark,
   );
 }
+
+
 
 // Dialog
 void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE.SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: CommonColors.bluesky,
+      dialogBackgroundColor: CommonColors.signature,
       title: title,
       titleColor: CommonColors.dark,
       message: content,
@@ -55,7 +57,7 @@ void ShowDialog(type, title, content, context) {
       buttonOkText: '',
       buttonOkColor: CommonColors.dark,
       buttonCancelText: '',
-      buttonCancelBorderColor: CommonColors.bluesky,
+      buttonCancelBorderColor: CommonColors.signature,
       buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
@@ -68,34 +70,36 @@ void ShowDialog(type, title, content, context) {
         color: CommonColors.red,
       ),
     );
-    choiceDialog.show(context, barrierColor: CommonColors.bluesky);
+    choiceDialog.show(context, barrierColor: CommonColors.signature);
   } else if (type == DIALOG_TYPE.MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.bluesky,
-        buttonOkColor: CommonColors.dark,
+        dialogBackgroundColor: CommonColors.signature,
+        buttonOkColor: CommonColors.white,
         title: title,
-        titleColor: CommonColors.dark,
+        titleColor: CommonColors.white,
         message: content,
-        messageColor: CommonColors.dark,
+        messageColor: CommonColors.white,
         buttonOkText: 'confirm'.tr,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
-        iconButtonOk: Icon(Icons.one_k));
-    messageDialog.show(context, barrierColor: CommonColors.bluesky);
+       // iconButtonOk: Icon(Icons.one_k)
+    );
+    messageDialog.show(context, barrierColor: CommonColors.signature);
   } else if (type == DIALOG_TYPE.NOTICE) {
     MessageDialog messageDialog = MessageDialog(
-        dialogBackgroundColor: CommonColors.bluesky,
-        buttonOkColor: CommonColors.dark,
+        dialogBackgroundColor: CommonColors.signature,
         title: title,
-        titleColor: CommonColors.dark,
+        titleColor: CommonColors.white,
         message: content,
-        messageColor: CommonColors.dark,
+        messageColor: CommonColors.white,
         buttonOkText: 'confirm'.tr,
+        buttonOkColor: CommonColors.white,
         dialogRadius: 15.0,
         buttonRadius: 18.0,
-        iconButtonOk: Icon(Icons.one_k));
-    messageDialog.show(context, barrierColor: CommonColors.bluesky);
+       // iconButtonOk: Icon(Icons.one_k)
+    );
+    messageDialog.show(context, barrierColor: CommonColors.signature );
   }
 }
 
@@ -103,7 +107,7 @@ void ShowDialog(type, title, content, context) {
 void ShowProgress(context, dynamic, bool) {
   ProgressDialog progressDialog = ProgressDialog(
     context: context,
-    backgroundColor: CommonColors.bluesky,
+    backgroundColor: CommonColors.signature,
     textColor: CommonColors.dark,
     loadingText: dynamic,
   );

@@ -31,7 +31,7 @@ class PurchaseLedger extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_purchase_ledger'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

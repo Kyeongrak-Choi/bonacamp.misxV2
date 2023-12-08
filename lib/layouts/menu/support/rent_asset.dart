@@ -29,7 +29,7 @@ class RentAsset extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_support_rent_asset'.tr),
               titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: context.theme.canvasColor,
+              backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
                 IconButton(

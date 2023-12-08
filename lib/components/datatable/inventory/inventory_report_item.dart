@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../models/menu/inventory/inventory_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
+import '../../common/field/sum_title_table.dart';
 
 class InventoryReportItem extends StatelessWidget {
   var dataList;
@@ -96,7 +97,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].boxQuantity ,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -104,7 +105,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         dataList[index].bottleQuantity,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -112,7 +113,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 3,
                       child: Text(
                         dataList[index].amount,
-                        style: context.textTheme.displaySmall,
+                        style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -120,7 +121,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowInventoryDetailDialog(dataList[index]);
+                          ShowInventoryDetailDialog(dataList[index],context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -136,81 +137,87 @@ class InventoryReportItem extends StatelessWidget {
   }
 }
 
-void ShowInventoryDetailDialog(var detailList) {
+void ShowInventoryDetailDialog(var detailList,context) {
   Get.defaultDialog(
-      title: "재고 현황 상세보기",
-      content: Column(
-        children: [
-          IconTitleField(
-            titleName: '품목',
-            value: detailList.itemName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'BOX',
-            value: detailList.boxQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: 'EA',
-            value: detailList.bottleQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '금액',
-            value: detailList.amount,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매입처',
-            value: detailList.customerName ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매입단가(BOX)',
-            value: detailList.purchase.box,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매입단가(EA)',
-            value: detailList.purchase.bottle,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출단가(BOX)',
-            value: detailList.sales.box,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '매출단가(EA)',
-            value: detailList.sales.bottle,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '입수량',
-            value: detailList.packageQuantity,
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '주종',
-            value: detailList.liquorType ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '판매분류',
-            value: detailList.salesType ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '품목분류',
-            value: detailList.itemType ?? '',
-            iconData: Icons.label_outlined,
-          ),
-          IconTitleField(
-            titleName: '용도',
-            value: detailList.use ?? '',
-            iconData: Icons.label_outlined,
-          ),
-        ],
+      title: "\n재고 현황 상세보기",
+      titleStyle: TextStyle(color: CommonColors.signature),
+      content: Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.85,
+        child: ListView(
+          children: [
+            IconTitleField(
+              titleName: '품목',
+              value: detailList.itemName ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: 'BOX',
+              value: detailList.boxQuantity,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: 'EA',
+              value: detailList.bottleQuantity,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '금액',
+              value: detailList.amount,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매입처',
+              value: detailList.customerName ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매입단가(BOX)',
+              value: detailList.purchase.box,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매입단가(EA)',
+              value: detailList.purchase.bottle,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매출단가(BOX)',
+              value: detailList.sales.box,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '매출단가(EA)',
+              value: detailList.sales.bottle,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '입수량',
+              value: detailList.packageQuantity,
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '주종',
+              value: detailList.liquorType ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '판매분류',
+              value: detailList.salesType ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '품목분류',
+              value: detailList.itemType ?? '',
+              iconData: Icons.label_outlined,
+            ),
+            IconTitleField(
+              titleName: '용도',
+              value: detailList.use ?? '',
+              iconData: Icons.label_outlined,
+            ),
+
+          ],
+        ),
       ));
 }
