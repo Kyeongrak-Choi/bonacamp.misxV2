@@ -23,7 +23,7 @@ class ItemStatusTable extends StatelessWidget {
                 value: controller.controllerItemStatus != null ? controller.controllerItemStatus.name : '',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: 500, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매입'),
               IconTitleTwoField(
                 titleName: '',
@@ -37,7 +37,7 @@ class ItemStatusTable extends StatelessWidget {
                 value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.totalBottle) : '0',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: 500, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매출 - 일반'),
               IconTitleTwoField(
                 titleName: '',
@@ -63,7 +63,7 @@ class ItemStatusTable extends StatelessWidget {
                 value2: controller.controllerItemStatus != null ? numberFormat.format(controller.totNormalBottle) : '0',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: 500, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매출 - 유흥'),
               IconTitleTwoField(
                 titleName: '',

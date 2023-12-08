@@ -120,7 +120,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowInventoryDetailDialog(dataList[index]);
+                          ShowInventoryDetailDialog(dataList[index],context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -136,12 +136,12 @@ class InventoryReportItem extends StatelessWidget {
   }
 }
 
-void ShowInventoryDetailDialog(var detailList) {
+void ShowInventoryDetailDialog(var detailList,context) {
   Get.defaultDialog(
       title: "재고 현황 상세보기",
       content: Container(
-        height: 300,
-        width: 500,
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.85,
         child: Expanded(
           child: ListView(
             children: [

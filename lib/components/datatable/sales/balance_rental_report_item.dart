@@ -88,7 +88,7 @@ class BalanceRentalReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowBalanceRentalDetailDialog(dataList[index]);
+                          ShowBalanceRentalDetailDialog(dataList[index],context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -104,12 +104,12 @@ class BalanceRentalReportItem extends StatelessWidget {
   }
 }
 
-void ShowBalanceRentalDetailDialog(var detailList) {
+void ShowBalanceRentalDetailDialog(var detailList,context) {
   Get.defaultDialog(
       title: "채권 및 대여 현황 상세보기",
       content: Container(
-          height: 300,
-          width: 500,
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
           child: Expanded(
               child: ListView(
             children: [

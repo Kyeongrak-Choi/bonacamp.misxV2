@@ -116,8 +116,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
     return Container(
       color: context.theme.cardColor,
-      height: 300,
-      width: 500,
+      height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.85,
       child: Column(
         children: [
           Padding(

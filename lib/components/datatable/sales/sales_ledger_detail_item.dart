@@ -32,7 +32,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
                   child: detailList.salesTypeName == 'sales'.tr
                       ? IconButton(
                           onPressed: () {
-                            ShowLedgerDetailDialog(detailList);
+                            ShowLedgerDetailDialog(detailList,context);
                           },
                           icon: Icon(Icons.search, color: context.theme.primaryColor),
                         )
@@ -66,12 +66,12 @@ class SalesLedgerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowLedgerDetailDialog(var detailList) {
+void ShowLedgerDetailDialog(var detailList,context) {
   Get.defaultDialog(
       title: "매출 상세보기",
       content: Container(
-          height: 300,
-          width: 500,
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: MediaQuery.of(context).size.width * 0.85,
           child: Expanded(
               child: ListView(
             children: [

@@ -160,8 +160,8 @@ void ShowInventoryInOutDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "재고 수불 현황 상세보기",
       content: Container(
-          height: 300,
-          width: 500,
+          height: MediaQuery.of(context).size.height * 0.6,,
+          width: MediaQuery.of(context).size.width * 0.85,
           child: Expanded(
               child: ListView(
             children: [

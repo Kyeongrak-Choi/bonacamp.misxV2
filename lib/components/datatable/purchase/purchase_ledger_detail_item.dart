@@ -69,8 +69,8 @@ void ShowPurchaseLedgerDetailDialog(var detailList) {
   Get.defaultDialog(
       title: "매입 상세보기",
       content: Container(
-          height: 300,
-          width: 500,
+          height: MediaQuery.of(context).size.height * 0.6,,
+          width: MediaQuery.of(context).size.width * 0.85,
           child: Expanded(
               child: ListView(
             children: [
