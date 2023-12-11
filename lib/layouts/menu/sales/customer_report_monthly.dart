@@ -62,10 +62,9 @@ class CustomerReportMonthly extends StatelessWidget {
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
                                 child: Column(
                                   children: [
-                                    OptionYearMonthPicker(),
-                                    OptionDialogCustomer(),
+                                    OptionTwoContent(OptionYearMonthPicker(),OptionCbBranch() ),
                                     OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
-                                    OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                                    OptionTwoContent(OptionDialogCustomer(), OptionCbSalesType()),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
                                   ],
                                 ),

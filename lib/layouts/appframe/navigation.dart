@@ -191,6 +191,7 @@ void ShowUserInfoDialog() {
   UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
   Get.defaultDialog(
     title: 'user_info'.tr,
+    titleStyle: TextStyle(color: CommonColors.signature),
     content: Column(children: [
       IconTitleField(
         titleName: 'user_name'.tr,

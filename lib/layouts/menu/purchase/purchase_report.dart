@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
@@ -58,8 +59,7 @@ class PurchaseReport extends StatelessWidget {
                         child: Column(
                           children: [
                             OptionPeriodPicker(),
-                            OptionCbBranch(),
-                            OptionDialogPurchase(),
+                            OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
                             OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
                           ],
                         ),

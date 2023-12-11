@@ -33,7 +33,7 @@ class BalanceReportItem extends StatelessWidget {
                     child: Text(
                       '거래처',
                       style: context.textTheme.displayMedium,
-                      textAlign: TextAlign.left,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Expanded(

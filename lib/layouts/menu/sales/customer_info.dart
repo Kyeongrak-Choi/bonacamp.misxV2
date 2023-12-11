@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import '../../../components/chart/customer_info_graph.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/sales/customer_info_item.dart';
 import '../../../models/common/chart_spot.dart';
@@ -60,8 +61,7 @@ class CustomerInfo extends StatelessWidget {
                                 padding: EdgeInsetsDirectional.all(20),
                                 child: Column(
                                   children: [
-                                    OptionCbBranch(),
-                                    OptionDialogCustomer(),
+                                    OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
                                     OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
                                   ],
                                 ),

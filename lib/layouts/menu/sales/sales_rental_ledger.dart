@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
@@ -58,8 +59,7 @@ class SalesRentalLedger extends StatelessWidget {
                           child: Column(
                             children: [
                               OptionPeriodPicker(),
-                              OptionCbBranch(),
-                              OptionDialogCustomer(),
+                              OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
                               OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
                             ],
                           ),

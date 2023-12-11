@@ -195,6 +195,12 @@ void ShowInventoryInOutDetailDialog(var detailList, context) {
                 value2: detailList.physical.bottle,
               ),
               IconTitleTwoField(
+                titleName: '전일재고',
+                iconData: Icons.label_outlined,
+                value1: detailList.last.box,
+                value2: detailList.last.bottle,
+              ),
+              IconTitleTwoField(
                 titleName: '금일재고',
                 iconData: Icons.label_outlined,
                 value1: detailList.current.box,
