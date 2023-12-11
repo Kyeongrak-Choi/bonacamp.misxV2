@@ -65,7 +65,6 @@ class NoticeController extends GetxController {
   }
 
   void setNoticeData() {
-    data.add(NoticeModel('테스트1', '탁월한 성취 뒤에는\n언제나 끝까지 버티는 힘이 숨어있다.' + '\n버티면 끝내 이긴다.\n\n<앤드류 매튜스>\n\n', '2023-10-01'));
-    data.add(NoticeModel('테스트2', '삶을 변화시키려면 쓴소리를 찾아다녀야 한다\n위로나 희망에 중독되면 현실에 대한\n진단은 오진이 되기 쉽고,' + '\n삶을 바꿔보려는 실천력도 점점 사라진다.\n\n', '2023-10-12'));
+    data.add(NoticeModel('오픈', '경영관리 리뉴얼 버전을 오픈하였습니다.', '2023-12-11'));
   }
 }
