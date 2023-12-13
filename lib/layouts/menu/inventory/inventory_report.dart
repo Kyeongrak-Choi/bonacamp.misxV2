@@ -23,6 +23,7 @@ import '../../../models/menu/inventory/inventory_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class InventoryReport extends StatelessWidget {
@@ -36,85 +37,98 @@ class InventoryReport extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<InventoryReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<InventoryReportController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<InventoryReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                            OptionTwoContent(OptionDialogItem(), OptionCbWarehouses()),
-                            OptionTwoContent(OptionDialogPurchase(), OptionCbSalesClass()),
-                            OptionBtnSearch(ROUTE_MENU_INVENTORY_REPORT),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: !Get.find<InventoryReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 채권 및 대여 합계'),
-                            SumItemTable(
-                              'BOX',
-                              numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity),
-                              'EA',
-                              numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<InventoryReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
+                                OptionTwoContent(OptionDialogItem(), OptionCbWarehouses()),
+                                OptionTwoContent(OptionDialogPurchase(), OptionCbSalesClass()),
+                                OptionBtnSearch(ROUTE_MENU_INVENTORY_REPORT),
+                              ],
                             ),
-                            SumItemTable(null, null, '금액', numberFormat.format(Get.find<InventoryReportController>().sumAmount)),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Visibility(
+                        visible: !Get.find<InventoryReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 채권 및 대여 합계'),
+                                SumItemTable(
+                                  'BOX',
+                                  numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity),
+                                  'EA',
+                                  numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity),
+                                ),
+                                SumItemTable(null, null, '금액', numberFormat.format(Get.find<InventoryReportController>().sumAmount)),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<InventoryReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<InventoryReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

@@ -82,7 +82,7 @@ class OverallStatus extends StatelessWidget {
                       ],
                     )),
                 Align(
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(

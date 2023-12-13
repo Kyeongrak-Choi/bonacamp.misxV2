@@ -24,6 +24,7 @@ import '../../../models/menu/sales/customer_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerReport extends StatelessWidget {
@@ -37,88 +38,101 @@ class CustomerReport extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<CustomerReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<CustomerReportController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<CustomerReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                            OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<CustomerReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
+                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
-                  ),
-                  Visibility(
-                    visible: !Get.find<CustomerReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 합계'),
-                            SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
-                                numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
-                            SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
-                                numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
-                            SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
-                                numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
-                          ],
+                      Visibility(
+                        visible: !Get.find<CustomerReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 합계'),
+                                SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
+                                    numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
+                                SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
+                                    numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
+                                SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
+                                    numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: !Get.find<CustomerReportController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: !Get.find<CustomerReportController>().visible.value ? 20 : 0,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<CustomerReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<CustomerReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

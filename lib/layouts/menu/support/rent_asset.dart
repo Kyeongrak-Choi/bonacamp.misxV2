@@ -19,6 +19,7 @@ import '../../../components/common/emptyWidget.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class RentAsset extends StatelessWidget {
@@ -32,60 +33,73 @@ class RentAsset extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<RentAssetController>().visible.value),
-                  onPressed: () {
-                    Get.find<RentAssetController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<RentAssetController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
-                            OptionDialogCustomer(),
-                            OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<RentAssetController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
+                                OptionDialogCustomer(),
+                                OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.find<RentAssetController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: Get.find<RentAssetController>().visible.value ? 20 : 0,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<RentAssetController>().visible.value),
+                      onPressed: () {
+                        Get.find<RentAssetController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));
