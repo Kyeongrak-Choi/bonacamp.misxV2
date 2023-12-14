@@ -11,7 +11,7 @@ class ShowListHeaderRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       Container(
-        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
         child: Text(
           titleName,
           style: context.textTheme.displaySmall,
