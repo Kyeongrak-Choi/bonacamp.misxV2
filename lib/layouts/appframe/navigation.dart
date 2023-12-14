@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
@@ -192,6 +191,7 @@ void ShowUserInfoDialog() {
   UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
   Get.defaultDialog(
     title: 'user_info'.tr,
+    titleStyle: TextStyle(color: CommonColors.signature),
     content: Column(children: [
       IconTitleField(
         titleName: 'user_name'.tr,

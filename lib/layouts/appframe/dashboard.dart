@@ -16,7 +16,6 @@ import 'package:misxV2/utils/utility.dart';
 import 'package:sn_progress_dialog/options/cancel.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
-import '../../components/common/emptyWidget.dart';
 import '../../components/dashboard/dashboard_graph.dart';
 import '../../models/common/chart_spot.dart';
 import '../../models/system/employee.dart';
@@ -43,7 +42,8 @@ class DashBoard extends StatelessWidget {
               children: <Widget>[
                 Container(
                   padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                      ? EdgeInsetsDirectional.all(5) : EdgeInsetsDirectional.all(0),
+                      ? EdgeInsetsDirectional.all(5)
+                      : EdgeInsetsDirectional.all(0),
                   child: setChild(),
                 ),
                 Expanded(

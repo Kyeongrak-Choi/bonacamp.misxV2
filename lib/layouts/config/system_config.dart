@@ -4,8 +4,6 @@ import 'package:misxV2/components/menu/card_radio_menu.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
-import '../../utils/theme/color_manager.dart';
-import '../../utils/utility.dart';
 
 // System Config Setting
 class SystemConfig extends StatelessWidget {
@@ -36,8 +34,6 @@ class SystemConfig extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                     child: CardRadioMenu(radioMenu: systemDetail),
                   )
-
-
                 ],
               ),
             ),

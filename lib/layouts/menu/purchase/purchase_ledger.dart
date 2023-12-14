@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
@@ -21,6 +22,7 @@ import '../../../models/menu/purchase/purchase_ledger/purchase_ledger_model.dart
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class PurchaseLedger extends StatelessWidget {
@@ -34,92 +36,104 @@ class PurchaseLedger extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<PurchaseLedgerController>().visible.value),
-                  onPressed: () {
-                    Get.find<PurchaseLedgerController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<PurchaseLedgerController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionCbBranch(),
-                            OptionDialogPurchase(),
-                            OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: !Get.find<PurchaseLedgerController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 매입 합계'),
-                            SumItemTable(
-                              'BOX',
-                              numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity),
-                              'EA',
-                              numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<PurchaseLedgerController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
+                                OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
+                              ],
                             ),
-                            SumItemTable(
-                              '매입액',
-                              numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal),
-                              '공급가',
-                              numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: !Get.find<PurchaseLedgerController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 매입 합계'),
+                                SumItemTable(
+                                  'BOX',
+                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity),
+                                  'EA',
+                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                                ),
+                                SumItemTable(
+                                  '매입액',
+                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal),
+                                  '공급가',
+                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                                ),
+                                SumItemTable('출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw), '채무잔액',
+                                    numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
+                              ],
                             ),
-                            SumItemTable('출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw), '채무잔액',
-                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: 20,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<PurchaseLedgerController>().visible.value),
+                      onPressed: () {
+                        Get.find<PurchaseLedgerController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

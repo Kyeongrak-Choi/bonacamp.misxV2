@@ -27,8 +27,7 @@ class RentAssetHistoryItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(
-                    titleName: '', value:  model.name + ' (' + model.status + ')' );
+                return ShowListHeaderRow(titleName: '', value: model.name + ' (' + model.status + ')');
               },
               body: Column(
                 children: [

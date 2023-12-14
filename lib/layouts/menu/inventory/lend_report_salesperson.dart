@@ -21,6 +21,7 @@ import '../../../models/menu/inventory/lend_report_salesperson_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class LendReportSalesperson extends StatelessWidget {
@@ -34,60 +35,73 @@ class LendReportSalesperson extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<LendReportSalespersonController>().visible.value),
-                  onPressed: () {
-                    Get.find<LendReportSalespersonController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                      visible: Get.find<LendReportSalespersonController>().visible.value,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: Column(
-                            children: [
-                              OptionPeriodPicker(),
-                              OptionCbBranch(),
-                              OptionTwoContent(OptionDialogCustomer(), OptionCbEmployee()),
-                              OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
-                              OptionBtnSearch(ROUTE_MENU_LEND_REPORT_SALESPERSON),
-                            ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                          visible: Get.find<LendReportSalespersonController>().visible.value,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(20),
+                              child: Column(
+                                children: [
+                                  OptionPeriodPicker(),
+                                  OptionCbBranch(),
+                                  OptionTwoContent(OptionDialogCustomer(), OptionCbEmployee()),
+                                  OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
+                                  OptionBtnSearch(ROUTE_MENU_LEND_REPORT_SALESPERSON),
+                                ],
+                              ),
+                            ),
+                          )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
                           ),
                         ),
-                      )),
-                  SizedBox(
-                    height: 20,
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
-                        ),
-                      ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<LendReportSalespersonController>().visible.value),
+                      onPressed: () {
+                        Get.find<LendReportSalespersonController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

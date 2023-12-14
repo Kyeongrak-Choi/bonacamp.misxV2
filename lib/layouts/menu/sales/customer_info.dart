@@ -10,6 +10,7 @@ import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.
 import '../../../components/chart/customer_info_graph.dart';
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
+import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/datatable/sales/customer_info_item.dart';
 import '../../../models/common/chart_spot.dart';
@@ -34,78 +35,91 @@ class CustomerInfo extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
-                  onPressed: () {
-                    Get.find<CustomerInfoController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-                padding: EdgeInsetsDirectional.all(20),
-                child: Column(
-                  children: [
-                    Visibility(
-                        visible: Get.find<CustomerInfoController>().visible.value,
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                                borderRadius: BorderRadius.circular(20),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.all(20),
-                                child: Column(
-                                  children: [
-                                    OptionCbBranch(),
-                                    OptionDialogCustomer(),
-                                    OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
-                                  ],
+            child: Stack(
+              children: [
+                Padding(
+                    padding: EdgeInsetsDirectional.all(20),
+                    child: Column(
+                      children: [
+                        Visibility(
+                            visible: Get.find<CustomerInfoController>().visible.value,
+                            child: Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: context.theme.cardColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.all(20),
+                                    child: Column(
+                                      children: [
+                                        OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
+                                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
+                            )),
+                        SizedBox(
+                          height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
+                        ),
+                        Expanded(
+                          flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
                             ),
-                          ],
-                        )),
-                    SizedBox(
-                      height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
-                    ),
-                    Expanded(
-                      flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(20),
+                              child: setChild(),
+                            ),
+                          ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: setChild(),
+                        SizedBox(
+                          height: 20,
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Expanded(
-                      flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
+                        Expanded(
+                          flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(20),
+                              child: CustomerInfoTable(),
+                            ),
+                          ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: CustomerInfoTable(),
-                        ),
-                      ),
+                      ],
+                    )
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
+                      onPressed: () {
+                        Get.find<CustomerInfoController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
-                  ],
-                )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }

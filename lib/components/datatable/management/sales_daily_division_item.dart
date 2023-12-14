@@ -43,7 +43,7 @@ class SalesDailyDivisionItem extends StatelessWidget {
                   ),
                   IconTitleField(
                     titleName: 'BOX',
-                    value: model.boxQuantity ,
+                    value: model.boxQuantity,
                     iconData: Icons.label_outlined,
                   ),
                   IconTitleField(

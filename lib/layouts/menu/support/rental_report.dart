@@ -23,6 +23,7 @@ import '../../../models/menu/support/rental_report/rental_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class RentalReport extends StatelessWidget {
@@ -36,83 +37,96 @@ class RentalReport extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<RentalReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<RentalReportController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                      visible: Get.find<RentalReportController>().visible.value,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: Column(
-                            children: [
-                              OptionDatePicker(),
-                              OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                              OptionTwoContent(OptionDialogCustomer(), OptionCbRentalDivision()),
-                              OptionBtnSearch(ROUTE_MENU_SUPPORT_RENTAL_REPORT),
-                            ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                          visible: Get.find<RentalReportController>().visible.value,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(20),
+                              child: Column(
+                                children: [
+                                  OptionDatePicker(),
+                                  OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
+                                  OptionTwoContent(OptionDialogCustomer(), OptionCbRentalDivision()),
+                                  OptionBtnSearch(ROUTE_MENU_SUPPORT_RENTAL_REPORT),
+                                ],
+                              ),
+                            ),
+                          )),
+                      Visibility(
+                        visible: !Get.find<RentalReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 대여금 합계'),
+                                SumItemTable('대여금', numberFormat.format(Get.find<RentalReportController>().sumTotalRentalAmount), '회수금',
+                                    numberFormat.format(Get.find<RentalReportController>().sumTotalReturnAmount)),
+                                SumItemTable('대여잔액', numberFormat.format(Get.find<RentalReportController>().sumBalance), '당일예정액',
+                                    numberFormat.format(Get.find<RentalReportController>().sumRentalAmount)),
+                                SumItemTable('당일회수액', numberFormat.format(Get.find<RentalReportController>().sumReturnAmount), '연체금액',
+                                    numberFormat.format(Get.find<RentalReportController>().sumOverdueAmount)),
+                              ],
+                            ),
                           ),
                         ),
-                      )),
-                  Visibility(
-                    visible: !Get.find<RentalReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 대여금 합계'),
-                            SumItemTable('대여금', numberFormat.format(Get.find<RentalReportController>().sumTotalRentalAmount), '회수금',
-                                numberFormat.format(Get.find<RentalReportController>().sumTotalReturnAmount)),
-                            SumItemTable('대여잔액', numberFormat.format(Get.find<RentalReportController>().sumBalance), '당일예정액',
-                                numberFormat.format(Get.find<RentalReportController>().sumRentalAmount)),
-                            SumItemTable('당일회수액', numberFormat.format(Get.find<RentalReportController>().sumReturnAmount), '연체금액',
-                                numberFormat.format(Get.find<RentalReportController>().sumOverdueAmount)),
-                          ],
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<RentalReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<RentalReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

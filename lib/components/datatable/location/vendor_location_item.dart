@@ -14,7 +14,6 @@ import '../../../../models/menu/location/place_model.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../utils/utility.dart';
-import '../../common/field/icon_title_field.dart';
 import '../../common/field/icon_title_field_small_interval.dart';
 
 class VendorLocationItem extends StatefulWidget {

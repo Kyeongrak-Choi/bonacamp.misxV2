@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../../models/menu/inventory/inventory_report_model.dart';
 import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
-import '../../common/field/sum_title_table.dart';
 
 class InventoryReportItem extends StatelessWidget {
   var dataList;
@@ -96,7 +95,7 @@ class InventoryReportItem extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        dataList[index].boxQuantity ,
+                        dataList[index].boxQuantity,
                         style: context.textTheme.bodyMedium,
                         textAlign: TextAlign.right,
                       ),
@@ -121,7 +120,7 @@ class InventoryReportItem extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          ShowInventoryDetailDialog(dataList[index],context);
+                          ShowInventoryDetailDialog(dataList[index], context);
                         },
                         icon: Icon(Icons.search, color: context.theme.primaryColor),
                       ),
@@ -137,7 +136,7 @@ class InventoryReportItem extends StatelessWidget {
   }
 }
 
-void ShowInventoryDetailDialog(var detailList,context) {
+void ShowInventoryDetailDialog(var detailList, context) {
   Get.defaultDialog(
       title: "\n재고 현황 상세보기",
       titleStyle: TextStyle(color: CommonColors.signature),
@@ -216,7 +215,6 @@ void ShowInventoryDetailDialog(var detailList,context) {
               value: detailList.use ?? '',
               iconData: Icons.label_outlined,
             ),
-
           ],
         ),
       ));
