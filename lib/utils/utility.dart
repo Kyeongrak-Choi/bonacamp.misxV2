@@ -104,6 +104,7 @@ void ShowDialog(type, title, content, context) {
 // Progress Bar
 void ShowProgress(context) {
   showDialog(
+    barrierDismissible: false,
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
