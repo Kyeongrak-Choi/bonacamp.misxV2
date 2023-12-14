@@ -38,6 +38,8 @@ class Navigation extends GetView<NavigationController> {
           title: Text(
             '${Get.find<DashBoardController>().clientNm}' ?? '',
             style: context.textTheme.displayLarge,
+
+
           ),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
@@ -46,19 +48,19 @@ class Navigation extends GetView<NavigationController> {
           // HW Back Key disenable
           leading: IconButton(
             icon: Icon(Icons.account_circle_sharp),
-            color: context.theme.primaryColorLight,
+            color: CommonColors.dark,
             onPressed: () {
-              ShowUserInfoDialog();
+              ShowUserInfoDialog(context);
             },
           ),
-          backgroundColor: CommonColors.signature,
+          backgroundColor: CommonColors.white,
           actions: [
             // IconButton(
             //     icon: Icon(Icons.notifications_none_outlined),
             //     color: context.theme.primaryColor,
             //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
             // ),
-            IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColorLight, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
+            IconButton(icon: Icon(Icons.settings), color:  CommonColors.dark, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             // IconButton(
             //     icon: Icon(Icons.logout),
             //     color: context.theme.primaryColor,
@@ -187,33 +189,37 @@ class NavigationController extends GetxController {
   }
 }
 
-void ShowUserInfoDialog() {
+void ShowUserInfoDialog(context) {
   UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
   Get.defaultDialog(
     title: 'user_info'.tr,
     titleStyle: TextStyle(color: CommonColors.signature),
-    content: Column(children: [
-      IconTitleField(
-        titleName: 'user_name'.tr,
-        value: user.getUserName,
-        iconData: Icons.person,
-      ),
-      IconTitleField(
-        titleName: 'user_id'.tr,
-        value: user.getUserId,
-        iconData: Icons.label_outlined,
-      ),
-      IconTitleField(
-        titleName: 'business_name'.tr,
-        value: user.getClientName,
-        iconData: Icons.label_outlined,
-      ),
-      IconTitleField(
-        titleName: 'business_no'.tr,
-        value: convertBusinessNo(user.getBusinessNo),
-        iconData: Icons.label_outlined,
-      ),
-    ]),
+    content: Container(
+     // height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.85,
+      child: Column(children: [
+        IconTitleField(
+          titleName: 'user_name'.tr,
+          value: user.getUserName,
+          iconData: Icons.person,
+        ),
+        IconTitleField(
+          titleName: 'user_id'.tr,
+          value: user.getUserId,
+          iconData: Icons.label_outlined,
+        ),
+        IconTitleField(
+          titleName: 'business_name'.tr,
+          value: user.getClientName,
+          iconData: Icons.label_outlined,
+        ),
+        IconTitleField(
+          titleName: 'business_no'.tr,
+          value: convertBusinessNo(user.getBusinessNo),
+          iconData: Icons.label_outlined,
+        ),
+      ]),
+    ),
     confirmTextColor: Colors.white,
   );
 }

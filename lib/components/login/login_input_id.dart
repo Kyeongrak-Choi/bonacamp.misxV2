@@ -22,26 +22,27 @@ class LoginInputId extends StatelessWidget {
           maxLength: 16,
           style: textThemeCommon().displayMedium,
           decoration: InputDecoration(
-            labelStyle: textThemeCommon().displayMedium,
-            labelText: 'text_id'.tr,
-            hintText: 'hint_id_input'.tr,
-            //hintStyle: TextStyle(color: CommonColors.gray),
+            labelStyle: textThemeCommon().bodyLarge,
+            //labelText: 'text_id'.tr,
+            hintText: 'text_id'.tr,
+            hintStyle: TextStyle(color: CommonColors.gray),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: CommonColors.dark,
-                width: 2,
+                color: CommonColors.signature,
+                width: 1,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: CommonColors.dark,
-                width: 2,
+                color: CommonColors.signature,
+                width: 3,
               ),
+
               borderRadius: BorderRadius.circular(8),
             ),
-            filled: true,
-            fillColor: CommonColors.white,
+            filled: false,
+            fillColor: CommonColors.bluesky,
             contentPadding: EdgeInsets.all(20),
             counterText: '',
           ),

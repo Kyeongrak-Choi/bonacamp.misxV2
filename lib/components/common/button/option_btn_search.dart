@@ -34,6 +34,7 @@ import '../../../layouts/menu/support/rent_asset_history.dart';
 import '../../../layouts/menu/support/rental_report.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
+import '../../../utils/utility.dart';
 
 class OptionBtnSearch extends StatelessWidget {
   var menu;
@@ -55,15 +56,17 @@ class OptionBtnSearch extends StatelessWidget {
             height: 40,
             child: ElevatedButton(
                 onPressed: () async {
-                  ProgressDialog pd = ProgressDialog(context: context);
-                  pd.show(
-                    max: 1000,
-                    msg: 'Searching',
-                    cancel: Cancel(),
-                    backgroundColor: CommonColors.white,
-                    progressValueColor: CommonColors.signature,
-                    msgColor: CommonColors.signature,
-                  );
+                  // ProgressDialog pd = ProgressDialog(context: context);
+                  // pd.show(
+                  //   max: 1000,
+                  //   msg: 'Searching',
+                  //   cancel: Cancel(),
+                  //   backgroundColor: CommonColors.white,
+                  //   progressValueColor: CommonColors.signature,
+                  //   msgColor: CommonColors.signature,
+                  // );
+
+                  ShowProgress(context);
 
                   try {
                     switch (menu) {
@@ -219,10 +222,10 @@ class OptionBtnSearch extends StatelessWidget {
                         break;
                     }
                   } catch (e) {
-                    pd.close();
+                    Navigator.pop(context);
                   }
 
-                  pd.close();
+                  Navigator.pop(context);
                 },
                 child: Icon(Icons.search, color: CommonColors.white),
                 style: ElevatedButton.styleFrom(

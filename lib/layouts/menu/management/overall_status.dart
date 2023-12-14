@@ -43,47 +43,41 @@ class OverallStatus extends StatelessWidget {
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-                padding: EdgeInsetsDirectional.all(20),
-                child: Column(
-                  children: [
-                    Visibility(
-                        visible: Get.find<OverAllController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionCbBranch(),
-                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                              ],
-                            ),
-                          ),
-                        )),
-                    SizedBox(
-                      height: Get.find<OverAllController>().visible.value ? 20 : 0,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: OverAllTable(),
-                        ),
+            child: Column(
+              children: [
+                Visibility(
+                    visible: Get.find<OverAllController>().visible.value,
+                    child: Container(
+                      color: context.theme.cardColor,
+                      child: Column(
+                        children: [
+                          OptionPeriodPicker(),
+                          OptionCbBranch(),
+                          OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                        ],
+                      ),
+                    )),
+                SizedBox(
+                  height: Get.find<OverAllController>().visible.value ? 10 : 0,
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(20),
+                        child: OverAllTable(),
                       ),
                     ),
-                  ],
-                )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }
