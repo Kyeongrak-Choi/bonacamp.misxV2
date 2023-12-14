@@ -31,7 +31,7 @@ class SearchItemOption extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.find<SearchItemListController>().search();
+                      Get.find<SearchItemListController>().search(context);
                     },
                     child: Icon(
                       Icons.search,

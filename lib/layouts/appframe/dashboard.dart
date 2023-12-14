@@ -153,16 +153,17 @@ class DashBoardController extends GetxController {
 
     dio = await reqApi(param);
 
-    sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
+    // sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      pd.show(
-        max: 1000,
-        msg: 'Searching',
-        cancel: Cancel(),
-        backgroundColor: CommonColors.white,
-        progressValueColor: CommonColors.signature,
-        msgColor: CommonColors.signature,
-      );
+      // pd.show(
+      //   max: 1000,
+      //   msg: 'Searching',
+      //   cancel: Cancel(),
+      //   backgroundColor: CommonColors.white,
+      //   progressValueColor: CommonColors.signature,
+      //   msgColor: CommonColors.signature,
+      // );
+      ShowProgress(Get.context);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resDashboard = await dio
@@ -187,10 +188,10 @@ class DashBoardController extends GetxController {
 
         update();
       }
-      pd.close();
+      Navigator.pop(Get.context!);
       //ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
-      pd.close();
+      Navigator.pop(Get.context!);
       if (e.response != null) {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }

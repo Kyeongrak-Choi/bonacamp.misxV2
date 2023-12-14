@@ -67,16 +67,17 @@ class SearchItemListController extends GetxController {
     searchTxt = text;
   }
 
-  void search() async {
-    ProgressDialog pd = ProgressDialog(context: Get.context);
-    pd.show(
-      max: 1000,
-      msg: 'Searching',
-      cancel: Cancel(),
-      backgroundColor: CommonColors.white,
-      progressValueColor: CommonColors.signature,
-      msgColor: CommonColors.signature,
-    );
+  void search(context) async {
+    // ProgressDialog pd = ProgressDialog(context: Get.context);
+    // pd.show(
+    //   max: 1000,
+    //   msg: 'Searching',
+    //   cancel: Cancel(),
+    //   backgroundColor: CommonColors.white,
+    //   progressValueColor: CommonColors.signature,
+    //   msgColor: CommonColors.signature,
+    // );
+    ShowProgress(context);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
     var dataObjsJson;
@@ -90,7 +91,7 @@ class SearchItemListController extends GetxController {
       final response = await dio.get(API_COMMON + API_COMMON_ITEM + '?q=search' + queryParam);
 
       if (response.statusCode == 200) {
-        pd.close();
+        Navigator.pop(context);
         if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
@@ -98,9 +99,9 @@ class SearchItemListController extends GetxController {
           parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
         }
       }
-      pd.close();
+      Navigator.pop(context);
     } on DioException catch (e) {
-      pd.close();
+      Navigator.pop(context);
       if (e.response != null) {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }

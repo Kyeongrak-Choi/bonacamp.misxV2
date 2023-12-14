@@ -8,7 +8,7 @@ TextTheme textThemeLight() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: CommonColors.dark,
     ),
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 15.0,

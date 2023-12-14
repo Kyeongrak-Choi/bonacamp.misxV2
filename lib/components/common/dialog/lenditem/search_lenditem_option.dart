@@ -32,7 +32,7 @@ class SearchLendItemOption extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.find<SearchLendItemListController>().search();
+                      Get.find<SearchLendItemListController>().search(context);
                     },
                     child: Icon(
                       Icons.search,

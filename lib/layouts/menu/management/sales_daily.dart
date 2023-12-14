@@ -128,7 +128,6 @@ class SalesDaily extends StatelessWidget {
                           ),
                         ),
                         ),
-                      ),
                     ],
                   ),
                 ),

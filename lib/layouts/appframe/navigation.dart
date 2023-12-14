@@ -48,19 +48,19 @@ class Navigation extends GetView<NavigationController> {
           // HW Back Key disenable
           leading: IconButton(
             icon: Icon(Icons.account_circle_sharp),
-            color: CommonColors.dark,
+            color: context.theme.primaryColor,
             onPressed: () {
               ShowUserInfoDialog(context);
             },
           ),
-          backgroundColor: CommonColors.white,
+          backgroundColor: context.theme.canvasColor,
           actions: [
             // IconButton(
             //     icon: Icon(Icons.notifications_none_outlined),
             //     color: context.theme.primaryColor,
             //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
             // ),
-            IconButton(icon: Icon(Icons.settings), color:  CommonColors.dark, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
+            IconButton(icon: Icon(Icons.settings), color:  context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             // IconButton(
             //     icon: Icon(Icons.logout),
             //     color: context.theme.primaryColor,
