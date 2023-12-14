@@ -23,6 +23,7 @@ import '../../../models/menu/inventory/inventory_in_out_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class InventoryInOutReport extends StatelessWidget {
@@ -36,106 +37,119 @@ class InventoryInOutReport extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<InventoryInOutReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<InventoryInOutReportController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<InventoryInOutReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionDialogItem(),
-                            OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
-                            OptionTwoContent(OptionCbWarehouses(), OptionCbSalesClass()),
-                            OptionBtnSearch(ROUTE_MENU_INVENTORY_INOUT_REPORT),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: !Get.find<InventoryInOutReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 채권 및 대여 합계(BOX/EA)'),
-                            SumItemTable(
-                              '전일재고',
-                              numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBoxQuantity) +
-                                  ' / ' +
-                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBottleQuantity),
-                              '입고',
-                              numberFormat.format(Get.find<InventoryInOutReportController>().sumInBoxQuantity) +
-                                  ' / ' +
-                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumInBottleQuantity),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<InventoryInOutReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionDialogItem(),
+                                OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
+                                OptionTwoContent(OptionCbWarehouses(), OptionCbSalesClass()),
+                                OptionBtnSearch(ROUTE_MENU_INVENTORY_INOUT_REPORT),
+                              ],
                             ),
-                            SumItemTable(
-                              '금일재고',
-                              numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBoxQuantity) +
-                                  ' / ' +
-                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBottleQuantity),
-                              '출고',
-                              numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBoxQuantity) +
-                                  ' / ' +
-                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBottleQuantity),
+                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: !Get.find<InventoryInOutReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 채권 및 대여 합계(BOX/EA)'),
+                                SumItemTable(
+                                  '전일재고',
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBoxQuantity) +
+                                      ' / ' +
+                                      numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBottleQuantity),
+                                  '입고',
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumInBoxQuantity) +
+                                      ' / ' +
+                                      numberFormat.format(Get.find<InventoryInOutReportController>().sumInBottleQuantity),
+                                ),
+                                SumItemTable(
+                                  '금일재고',
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBoxQuantity) +
+                                      ' / ' +
+                                      numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBottleQuantity),
+                                  '출고',
+                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBoxQuantity) +
+                                      ' / ' +
+                                      numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBottleQuantity),
+                                ),
+                                SumItemTable(
+                                    null,
+                                    null,
+                                    '실사',
+                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBoxQuantity) +
+                                        ' / ' +
+                                        numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBottleQuantity)),
+                              ],
                             ),
-                            SumItemTable(
-                                null,
-                                null,
-                                '실사',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBoxQuantity) +
-                                    ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBottleQuantity)),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: 20,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<InventoryInOutReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<InventoryInOutReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class OptionBtnVisible extends StatelessWidget {
@@ -10,12 +12,12 @@ class OptionBtnVisible extends StatelessWidget {
   Widget build(BuildContext context) {
     return visible == true
         ? Icon(
-            Icons.arrow_circle_up_outlined,
-            color: context.theme.primaryColorLight,
+      CupertinoIcons.rectangle_compress_vertical,
+            color: context.theme.primaryColorDark,
           )
         : Icon(
-            Icons.arrow_circle_down,
-            color: context.theme.primaryColorLight,
+      CupertinoIcons.rectangle_expand_vertical,
+            color: context.theme.primaryColorDark,
           );
   }
 }

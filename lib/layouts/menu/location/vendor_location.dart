@@ -19,6 +19,7 @@ import '../../../components/datatable/location/vendor_location_item.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class VendorLocation extends StatelessWidget {
@@ -32,58 +33,71 @@ class VendorLocation extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<VendorLocationController>().visible.value),
-                  onPressed: () {
-                    Get.find<VendorLocationController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<VendorLocationController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionDatePicker(),
-                            OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                            OptionTwoContent(OptionCbCustomerStatus(), OptionCbBusiness()),
-                            OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
-                            //SizedBox(height: 14),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<VendorLocationController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionDatePicker(),
+                                OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
+                                OptionTwoContent(OptionCbCustomerStatus(), OptionCbBusiness()),
+                                OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
+                                //SizedBox(height: 14),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        height: Get.find<VendorLocationController>().visible.value ? 20 : 0,
+                      ),
+                      Expanded(
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                              child: VendorLocationItem(),
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<VendorLocationController>().visible.value),
+                      onPressed: () {
+                        Get.find<VendorLocationController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                  SizedBox(
-                    height: Get.find<VendorLocationController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                          child: VendorLocationItem(),
-                        )),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

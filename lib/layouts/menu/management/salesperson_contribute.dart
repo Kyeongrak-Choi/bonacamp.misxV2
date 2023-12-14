@@ -19,6 +19,7 @@ import '../../../models/menu/management/salesperson_contribute.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesPersonContribute extends StatelessWidget {
@@ -32,57 +33,70 @@ class SalesPersonContribute extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<SalesPersonContributeController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesPersonContributeController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<SalesPersonContributeController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
-                            OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<SalesPersonContributeController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                                OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
+                                OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        height: Get.find<SalesPersonContributeController>().visible.value ? 20 : 0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: SalesPersonContributeTable(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesPersonContributeController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesPersonContributeController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                  SizedBox(
-                    height: Get.find<SalesPersonContributeController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: SalesPersonContributeTable(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

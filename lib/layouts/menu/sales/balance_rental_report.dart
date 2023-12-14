@@ -23,6 +23,7 @@ import '../../../models/menu/sales/balance_rental_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class BalanceRentalReport extends StatelessWidget {
@@ -36,91 +37,104 @@ class BalanceRentalReport extends StatelessWidget {
               backgroundColor: APPBAR_BACKGROUND_COLOR,
               iconTheme: context.theme.iconTheme,
               actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<BalanceRentalReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<BalanceRentalReportController>().setVisible();
-                  },
-                ),
               ]),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<BalanceRentalReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionCbBranch(),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            OptionTwoContent(OptionCbTeam(), OptionCbCustomerClass()),
-                            OptionBtnSearch(ROUTE_MENU_BALANCE_RENTAL_REPORT),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(20),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<BalanceRentalReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                OptionTwoContent(OptionCbTeam(), OptionCbCustomerClass()),
+                                OptionBtnSearch(ROUTE_MENU_BALANCE_RENTAL_REPORT),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: !Get.find<BalanceRentalReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 채권 및 대여 합계'),
-                            // SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
-                            //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
-                            // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
-                            //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
-                            SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
-                                numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
-                            SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
-                                numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
-                            SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
-                                numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
-                            SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
-                                numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
-                          ],
+                      Visibility(
+                        visible: !Get.find<BalanceRentalReportController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Column(
+                              children: [
+                                SumTitleTable('기간 채권 및 대여 합계'),
+                                // SumItemTable('매출액', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotal), '공급가',
+                                //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
+                                // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
+                                //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
+                                SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
+                                    numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
+                                SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
+                                    numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
+                                SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
+                                    numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
+                                SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
+                                    numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: 20,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(20),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<BalanceRentalReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<BalanceRentalReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.signature,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));
