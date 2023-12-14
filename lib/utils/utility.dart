@@ -107,6 +107,7 @@ void ShowProgress(context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+        elevation: 0.0,
         backgroundColor: Colors.transparent,
         // shape: RoundedRectangleBorder(
         //     borderRadius: BorderRadius.circular(8.0)
