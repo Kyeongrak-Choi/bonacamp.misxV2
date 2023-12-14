@@ -36,7 +36,7 @@ class DashboardGraph extends StatelessWidget {
                 dataSource: Get.find<DashBoardController>().salesList,
                 xValueMapper: (ChartSpot data, _) => data.name,
                 yValueMapper: (ChartSpot data, _) => data.value,
-                markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+                markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 5),
               ),
               // LineSeries<ChartSpot, String>(
               //   name: '채권',

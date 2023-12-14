@@ -18,40 +18,41 @@ class Config extends StatelessWidget {
     Get.put(OptionController());
     return Scaffold(
       backgroundColor: context.theme.canvasColor,
-      body: ListView(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 40, 20, 20),
-            child: Container(
-              decoration: BoxDecoration(
-                color: context.theme.cardColor,
-                borderRadius: BorderRadius.circular(20),
-                shape: BoxShape.rectangle,
-              ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 10, 20),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Container(
+          decoration: BoxDecoration(
+            color: context.theme.cardColor,
+            borderRadius: BorderRadius.circular(20),
+            shape: BoxShape.rectangle,
+          ),
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     CardIconMenu(iconMenuList: noticeMaster),
                     CardIconMenu(iconMenuList: systemMaster),
                     CardIconMenu(iconMenuList: menuMaster),
-                    SizedBox(height: 50),
-                    ElevatedButton(
-                        onPressed: () async {
-                          Get.offAllNamed(ROUTE_LOGIN);
-                        },
-                        child: Text('text_logout'.tr),
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: CommonColors.white,
-                          backgroundColor: CommonColors.signature,
-                        ))
                   ],
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
+      floatingActionButton: Align(
+          alignment: Alignment.bottomCenter,
+          child: ElevatedButton(
+              onPressed: () async {
+                Get.offAllNamed(ROUTE_LOGIN);
+              },
+              child: Text('text_logout'.tr),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: CommonColors.white,
+                backgroundColor: CommonColors.signature,
+              ))),
     );
   }
 }

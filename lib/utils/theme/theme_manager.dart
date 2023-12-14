@@ -13,7 +13,7 @@ class Themes {
     primaryColorDark: DarkColors.basic,
     canvasColor: LightColors.background,
     iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: DarkColors.basic,
     ),
     // backgorund
     cardColor: LightColors.basic,

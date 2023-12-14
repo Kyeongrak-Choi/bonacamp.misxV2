@@ -37,8 +37,8 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.white,
-    colorText: CommonColors.dark,
+    backgroundColor: CommonColors.signature,
+    colorText: CommonColors.white,
   );
 }
 

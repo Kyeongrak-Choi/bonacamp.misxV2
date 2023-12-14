@@ -31,10 +31,10 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('menu_sub_total'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
+            title: Text('menu_sub_total'.tr),
+            titleTextStyle: context.textTheme.displayLarge,
+            backgroundColor: context.theme.canvasColor,
+            iconTheme: context.theme.iconTheme,
           ),
           body: Container(
             color: context.theme.canvasColor,
@@ -45,24 +45,14 @@ class OverallStatus extends StatelessWidget {
                     child: Column(
                       children: [
                         Visibility(
-                          visible: Get.find<OverAllController>().visible.value,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(20),
-                              child: Column(
-                                children: [
-                                  OptionPeriodPicker(),
-                                  OptionCbBranch(),
-                                  OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                                ],
-                              ),
-                            ),
-                          )),
+                            visible: Get.find<OverAllController>().visible.value,
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
+                            )),
                         SizedBox(
                           height: Get.find<OverAllController>().visible.value ? 20 : 0,
                         ),
@@ -93,7 +83,6 @@ class OverallStatus extends StatelessWidget {
                       splashColor: CommonColors.signature,
                       backgroundColor: Colors.white,
                       elevation: 1,
-
                     ),
                   ),
                 ),
