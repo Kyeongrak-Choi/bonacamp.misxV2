@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
+import '../../layouts/appframe/navigation.dart';
 import '../../models/system/req_login.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
@@ -85,6 +86,7 @@ class LoginBtnController extends GetxController {
             await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
             await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
             inputPw = ''; // pw 초기화
+            Get.find<NavigationController>().changeIndex();
             return true;
           }
         } on DioException catch (e) {

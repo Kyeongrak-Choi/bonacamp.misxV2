@@ -20,9 +20,9 @@ class LoginInputId extends StatelessWidget {
             child: TextFormField(
           obscureText: false,
           maxLength: 16,
-          style: textThemeCommon().displayMedium,
+          style: textThemeCommon().titleLarge,
           decoration: InputDecoration(
-            labelStyle: textThemeCommon().bodyLarge,
+            labelStyle: textThemeCommon().titleMedium,
             //labelText: 'text_id'.tr,
             hintText: 'text_id'.tr,
             hintStyle: TextStyle(color: CommonColors.gray),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/theme/text_theme.dart';
 
 class IconTitleFieldDash extends StatelessWidget {
   String titleName;
@@ -14,29 +15,23 @@ class IconTitleFieldDash extends StatelessWidget {
       //Icon(iconData, color: context.theme.primaryColor),
       Expanded(
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
           child: Column(
             children: [
               Container(
                 alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsetsDirectional.all(5),
-                  child: Text(
-                    titleName,
-                    style: context.textTheme.titleMedium,
-                    textAlign: TextAlign.start,
-                  ),
+                child: Text(
+                  titleName,
+                  style: textThemeCommon().bodyLarge,
+                  textAlign: TextAlign.start,
                 ),
               ),
               Container(
                 alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5,5,50,5),
-                  child: Text(
-                    value + ' 원 ',
-                    style: context.textTheme.headlineLarge,
-                    textAlign: TextAlign.end,
-                  ),
+                child: Text(
+                  value + ' 원 ',
+                  style: context.textTheme.bodyLarge,
+                  textAlign: TextAlign.end,
                 ),
               )
             ],

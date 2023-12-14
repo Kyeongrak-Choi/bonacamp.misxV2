@@ -18,7 +18,7 @@ class DashboardGraph extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: SfCartesianChart(
-            title: ChartTitle(text: '최근 3개월 매출 추이\n(단위:천원)\n', textStyle: context.textTheme.labelLarge),
+            title: ChartTitle(text: '최근 3개월 매출 추이\n(단위:천원)\n', textStyle: context.textTheme.titleSmall),
             primaryXAxis: CategoryAxis(),
             // primaryYAxis: NumericAxis(title: AxisTitle(text: 'Sales')),
             legend: Legend(
@@ -36,7 +36,7 @@ class DashboardGraph extends StatelessWidget {
                 dataSource: Get.find<DashBoardController>().salesList,
                 xValueMapper: (ChartSpot data, _) => data.name,
                 yValueMapper: (ChartSpot data, _) => data.value,
-                markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 5),
+                markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 3),
               ),
               // LineSeries<ChartSpot, String>(
               //   name: '채권',

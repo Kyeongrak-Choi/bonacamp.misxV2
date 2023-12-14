@@ -11,6 +11,7 @@ import 'package:misxV2/utils/theme/color_manager.dart';
 import '../../components/common/field/icon_title_field.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
+import '../../utils/theme/text_theme.dart';
 import '../../utils/utility.dart';
 import '../config/config.dart';
 
@@ -24,7 +25,6 @@ class Navigation extends GetView<NavigationController> {
       onWillPop: () {
         // return Future(() => true); // HW Back key disenable
         DateTime now = DateTime.now();
-
         if (currentBackPressTime == null || now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
           currentBackPressTime = now;
           ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
@@ -38,8 +38,6 @@ class Navigation extends GetView<NavigationController> {
           title: Text(
             '${Get.find<DashBoardController>().clientNm}' ?? '',
             style: context.textTheme.displayLarge,
-
-
           ),
           // title: Image.asset(
           //   'lib/assets/icons/logo.png',
@@ -60,7 +58,7 @@ class Navigation extends GetView<NavigationController> {
             //     color: context.theme.primaryColor,
             //     onPressed: () => ShowDialog(DIALOG_TYPE.NOTICE, '공지사항 예시', '리뉴얼 오픈\n1.\n2.\n3.\n4.\n5.\n6.', context)
             // ),
-            IconButton(icon: Icon(Icons.settings), color:  context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
+            IconButton(icon: Icon(Icons.settings), color: context.theme.primaryColor, onPressed: () => Get.toNamed(ROUTE_MENU_CONFIG)),
             // IconButton(
             //     icon: Icon(Icons.logout),
             //     color: context.theme.primaryColor,
@@ -194,31 +192,34 @@ void ShowUserInfoDialog(context) {
   Get.defaultDialog(
     title: 'user_info'.tr,
     titleStyle: TextStyle(color: CommonColors.signature),
-    content: Container(
-     // height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width * 0.85,
-      child: Column(children: [
-        IconTitleField(
-          titleName: 'user_name'.tr,
-          value: user.getUserName,
-          iconData: Icons.person,
-        ),
-        IconTitleField(
-          titleName: 'user_id'.tr,
-          value: user.getUserId,
-          iconData: Icons.label_outlined,
-        ),
-        IconTitleField(
-          titleName: 'business_name'.tr,
-          value: user.getClientName,
-          iconData: Icons.label_outlined,
-        ),
-        IconTitleField(
-          titleName: 'business_no'.tr,
-          value: convertBusinessNo(user.getBusinessNo),
-          iconData: Icons.label_outlined,
-        ),
-      ]),
+    content: Padding(
+      padding: const EdgeInsets.all(15),
+      child: Container(
+        // height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.85,
+        child: Column(children: [
+          IconTitleField(
+            titleName: 'user_name'.tr,
+            value: user.getUserName,
+            iconData: Icons.person,
+          ),
+          IconTitleField(
+            titleName: 'user_id'.tr,
+            value: user.getUserId,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: 'business_name'.tr,
+            value: user.getClientName,
+            iconData: Icons.label_outlined,
+          ),
+          IconTitleField(
+            titleName: 'business_no'.tr,
+            value: convertBusinessNo(user.getBusinessNo),
+            iconData: Icons.label_outlined,
+          ),
+        ]),
+      ),
     ),
     confirmTextColor: Colors.white,
   );
