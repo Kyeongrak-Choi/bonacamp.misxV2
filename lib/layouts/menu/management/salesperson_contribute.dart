@@ -39,7 +39,7 @@ class SalesPersonContribute extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.all(20),
+                  padding: EdgeInsetsDirectional.all(15),
                   child: Column(
                     children: [
                       Visibility(
@@ -51,7 +51,7 @@ class SalesPersonContribute extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
                                 OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
@@ -73,7 +73,7 @@ class SalesPersonContribute extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: SalesPersonContributeTable(),
                           ),
                         ),

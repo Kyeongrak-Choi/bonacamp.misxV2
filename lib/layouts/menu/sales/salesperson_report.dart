@@ -42,7 +42,7 @@ class SalesPersonReport extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.all(20),
+                  padding: EdgeInsetsDirectional.all(15),
                   child: Column(
                     children: [
                       Visibility(
@@ -54,7 +54,7 @@ class SalesPersonReport extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
@@ -104,7 +104,7 @@ class SalesPersonReport extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: ListView(
                               children: <Widget>[setChild()],
                             ),

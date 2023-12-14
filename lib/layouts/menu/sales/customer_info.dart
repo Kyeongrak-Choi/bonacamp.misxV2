@@ -41,7 +41,7 @@ class CustomerInfo extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                    padding: EdgeInsetsDirectional.all(20),
+                    padding: EdgeInsetsDirectional.all(15),
                     child: Column(
                       children: [
                         Visibility(
@@ -55,7 +55,7 @@ class CustomerInfo extends StatelessWidget {
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.all(20),
+                                    padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
                                         OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
@@ -78,7 +78,7 @@ class CustomerInfo extends StatelessWidget {
                               shape: BoxShape.rectangle,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.all(20),
+                              padding: EdgeInsetsDirectional.all(15),
                               child: setChild(),
                             ),
                           ),
@@ -95,7 +95,7 @@ class CustomerInfo extends StatelessWidget {
                               shape: BoxShape.rectangle,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.all(20),
+                              padding: EdgeInsetsDirectional.all(15),
                               child: CustomerInfoTable(),
                             ),
                           ),

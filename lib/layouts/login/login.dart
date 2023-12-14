@@ -45,7 +45,7 @@ class Login extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: LoginLogo(), // Logo
                           ),
                           Padding(
@@ -64,12 +64,12 @@ class Login extends StatelessWidget {
                             color: CommonColors.signature,
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: LoginBtn(), // Login
                           ),
 
                           // Padding(
-                          //   padding: EdgeInsetsDirectional.all(20),
+                          //   padding: EdgeInsetsDirectional.all(15),
                           //   child: PolicyView(), // 개인정보 처리방침
                           // ),
                         ],

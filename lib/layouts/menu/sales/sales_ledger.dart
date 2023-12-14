@@ -42,7 +42,7 @@ class SalesLedger extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.all(20),
+                  padding: EdgeInsetsDirectional.all(15),
                   child: Column(
                     children: [
                       Visibility(
@@ -54,7 +54,7 @@ class SalesLedger extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),

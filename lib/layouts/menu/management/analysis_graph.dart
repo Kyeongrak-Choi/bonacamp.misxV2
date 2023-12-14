@@ -35,7 +35,7 @@ class AnalysisGraph extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.all(20),
+                  padding: EdgeInsetsDirectional.all(15),
                   child: Column(
                     children: [
                       Visibility(
@@ -47,7 +47,7 @@ class AnalysisGraph extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
                                 OptionPeriodYearmonthPicker(true),
@@ -69,7 +69,7 @@ class AnalysisGraph extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: setChild(),
                           ),
                         ),

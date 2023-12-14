@@ -50,15 +50,15 @@ class DashBoard extends StatelessWidget {
                   child: ListView(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: DashBoardCurrent(), // 당일 현황
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: DashBoardMonth(), // 당월 현황
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: DashboardGraph(), // 차트
                       ),
                     ],

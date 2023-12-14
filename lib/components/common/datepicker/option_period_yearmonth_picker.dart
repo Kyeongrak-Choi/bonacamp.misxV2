@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
 import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
 import '../../../utils/utility.dart';
 
 class OptionPeriodYearmonthPicker extends StatelessWidget {
@@ -21,11 +22,11 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(20),
+            padding: EdgeInsetsDirectional.all(15),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.titleMedium,
+              style: textThemeCommon().bodyMedium,
             ),
           ),
         ),

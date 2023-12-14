@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
 
 class OptionCbRentalDivision extends StatelessWidget {
   @override
@@ -13,11 +14,11 @@ class OptionCbRentalDivision extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(20),
+            padding: EdgeInsetsDirectional.all(15),
             child: Text(
               'opt_rental_division'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.titleMedium,
+              style: textThemeCommon().bodyMedium,
             ),
           ),
         ),

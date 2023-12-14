@@ -21,7 +21,7 @@ class MenuConfig extends StatelessWidget {
       body: Container(
         color: context.theme.canvasColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
+          padding: EdgeInsetsDirectional.all(15),
           child: Container(
             decoration: BoxDecoration(
               color: context.theme.cardColor,

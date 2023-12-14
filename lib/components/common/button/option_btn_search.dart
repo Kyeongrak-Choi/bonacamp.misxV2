@@ -50,7 +50,7 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
+          padding: EdgeInsetsDirectional.all(15),
           child: Container(
             color: CommonColors.signature,
             height: 40,

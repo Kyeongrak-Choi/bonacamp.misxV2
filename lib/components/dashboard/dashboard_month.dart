@@ -25,51 +25,51 @@ class DashBoardMonth extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(20),
+                      padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 20),
                       child: Text(
                         'title_month'.tr,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.headlineLarge,
+                        style: context.textTheme.displayLarge,
                       ),
                     ),
                   ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '매 출'.tr,
+                      titleName: '매  출'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '매 입'.tr,
+                      titleName: '매  입'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '회 수'.tr,
+                      titleName: '회  수'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '입 금'.tr,
+                      titleName: '입  금'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
                     child: IconTitleFieldDash(
-                      titleName: '채 권'.tr,
+                      titleName: '채  권'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositBalance) : '0',
                       iconData: Icons.label_outlined,
                     ),

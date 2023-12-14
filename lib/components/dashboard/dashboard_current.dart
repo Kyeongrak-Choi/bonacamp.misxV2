@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/theme/text_theme.dart';
 
 import '../../layouts/appframe/dashboard.dart';
 import '../../utils/utility.dart';
@@ -25,51 +26,50 @@ class DashBoardCurrent extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.all(20),
+                      padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 20),
                       child: Text(
                         'title_current'.tr,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.headlineLarge,
+                        style: context.textTheme.displayLarge,
                       ),
                     ),
                   ),
-                  // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '매 출'.tr,
+                      titleName: '매  출'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '매 입'.tr,
+                      titleName: '매  입'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '회 수'.tr,
+                      titleName: '회  수'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: IconTitleFieldDash(
-                      titleName: '입 금'.tr,
+                      titleName: '입  금'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
                     child: IconTitleFieldDash(
-                      titleName: '채 권'.tr,
+                      titleName: '채  권'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
                       iconData: Icons.label_outlined,
                     ),

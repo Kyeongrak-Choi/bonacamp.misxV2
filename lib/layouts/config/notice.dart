@@ -18,34 +18,31 @@ class Notice extends StatelessWidget {
           backgroundColor: APPBAR_BACKGROUND_COLOR,
           iconTheme: context.theme.iconTheme,
         ),
-        body: Container(
-          color: context.theme.canvasColor,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: context.theme.cardColor,
-                  borderRadius: BorderRadius.circular(20),
-                  shape: BoxShape.rectangle,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: ExpansionPanelList.radio(
-                    elevation: 0.0,
-                    animationDuration: Duration(milliseconds: 500),
-                    children: Get.find<NoticeController>().data.map<ExpansionPanelRadio>((NoticeModel model) {
-                      return ExpansionPanelRadio(
-                        canTapOnHeader: true,
-                        value: model.title.toString(),
-                        backgroundColor: context.theme.cardColor,
-                        headerBuilder: (BuildContext context, bool isExpanded) {
-                          return ShowListHeaderRow(titleName: model.regData, value: model.title.toString() ?? '');
-                        },
-                        body: Text(model.content),
-                      );
-                    }).toList(),
-                  ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.theme.cardColor,
+                borderRadius: BorderRadius.circular(20),
+                shape: BoxShape.rectangle,
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(20.0),
+                child: ExpansionPanelList.radio(
+                  elevation: 0.0,
+                  animationDuration: Duration(milliseconds: 500),
+                  children: Get.find<NoticeController>().data.map<ExpansionPanelRadio>((NoticeModel model) {
+                    return ExpansionPanelRadio(
+                      canTapOnHeader: true,
+                      value: model.title.toString(),
+                      backgroundColor: context.theme.cardColor,
+                      headerBuilder: (BuildContext context, bool isExpanded) {
+                        return ShowListHeaderRow(titleName: model.regData, value: model.title.toString() ?? '');
+                      },
+                      body: Text(model.content),
+                    );
+                  }).toList(),
                 ),
               ),
             ),
