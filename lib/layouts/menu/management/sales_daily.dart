@@ -31,9 +31,6 @@ class SalesDaily extends StatelessWidget {
     return Obx(() => Scaffold(
       appBar: AppBar(
         title: Text('menu_sub_salesdaily'.tr),
-        titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: APPBAR_BACKGROUND_COLOR,
-        iconTheme: context.theme.iconTheme,
       ),
       body: Container(
         color: context.theme.canvasColor,
