@@ -9,22 +9,14 @@ class ShowListHeaderRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Container(
-        padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
-        child: Text(
-          titleName,
-          style: context.textTheme.displaySmall,
-          textAlign: TextAlign.left,
-        ),
+    return Container(
+      padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
+      child: Text(
+        titleName,
+        style: context.textTheme.displayMedium,
+        textAlign: TextAlign.left,
+        overflow: TextOverflow.ellipsis,
       ),
-      Expanded(
-        child: Text(
-          value,
-          style: context.textTheme.displayMedium,
-          textAlign: TextAlign.center,
-        ),
-      ),
-    ]);
+    );
   }
 }

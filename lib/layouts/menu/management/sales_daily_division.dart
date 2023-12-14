@@ -59,7 +59,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       '',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.start,
                                     ),
                                   ),
@@ -70,7 +70,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       'BOX',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),
@@ -81,7 +81,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       'EA',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),
@@ -92,7 +92,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       '금액',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),

@@ -260,4 +260,3 @@ const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
 
-const APPBAR_BACKGROUND_COLOR = CommonColors.signature;

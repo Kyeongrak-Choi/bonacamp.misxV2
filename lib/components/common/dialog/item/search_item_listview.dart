@@ -99,7 +99,6 @@ class SearchItemListController extends GetxController {
           parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
         }
       }
-      Navigator.pop(context);
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {

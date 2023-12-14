@@ -13,7 +13,7 @@ class SystemConfig extends StatelessWidget {
       appBar: AppBar(
         title: Text('system_setting'.tr),
         titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: APPBAR_BACKGROUND_COLOR,
+        backgroundColor: context.theme.canvasColor,
         iconTheme: context.theme.iconTheme,
       ),
       body: Container(

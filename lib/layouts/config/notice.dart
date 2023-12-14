@@ -11,11 +11,11 @@ class Notice extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(NoticeController());
     return Scaffold(
-        backgroundColor: context.theme.canvasColor,
+        //backgroundColor: context.theme.canvasColor,
         appBar: AppBar(
           title: Text('notice'.tr),
           titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: APPBAR_BACKGROUND_COLOR,
+          backgroundColor: context.theme.canvasColor,
           iconTheme: context.theme.iconTheme,
         ),
         body: SingleChildScrollView(
