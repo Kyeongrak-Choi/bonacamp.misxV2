@@ -127,23 +127,6 @@ class SalesDaily extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: !Get.find<SalesDailyController>().visible.value ? 20 : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
                         ),
                       ),
                     ],

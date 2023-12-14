@@ -26,6 +26,6 @@ class CommonColors {
   static const Color chartbar = Color(0xFF1DE9B6);
   static const Color chartborder = Color(0xFF005E46);
   static const Color charttextcolor = Color(0xFF0A936F);
-  static const Color gray = Color(0xFFA1A2A2);
+  static const Color gray = Color(0xFFCCCCCC);
   static const Color signature = Color(0xFF1F5C93);
 }

@@ -14,10 +14,10 @@ const Map<String, String> koKR = {
   'business_no': '사업자등록번호',
 
   // Login
-  'text_id': 'ID',
-  'text_pw': 'PW',
-  'text_login': 'SIGN IN',
-  'text_logout': 'SIGN OUT',
+  'text_id': '아이디',
+  'text_pw': '패스워드',
+  'text_login': '로그인',
+  'text_logout': '로그아웃',
   'hint_id_input': 'ID를 입력해 주세요.',
   'hint_pw_input': 'PW를 입력해 주세요.',
   'privacy_policy': '개인정보 처리방침',

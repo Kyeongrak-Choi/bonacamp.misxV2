@@ -29,22 +29,13 @@ class LoginBtn extends StatelessWidget {
           height: 50,
           child: ElevatedButton(
               onPressed: () async {
-                ProgressDialog pd = ProgressDialog(
-                  context: context,
-                );
-                pd.show(
-                  max: 1000,
-                  msg: 'Searching',
-                  cancel: Cancel(),
-                  backgroundColor: CommonColors.white,
-                  progressValueColor: CommonColors.signature,
-                  msgColor: CommonColors.signature,
-                );
+                ShowProgress(context);
                 if (await Get.find<LoginBtnController>().LoginCheck()) {
-                  pd.close();
+                  Navigator.pop(context);
                   Get.toNamed(ROUTE_NATIGATION);
+                }else {
+                  Navigator.pop(context);
                 }
-                pd.close();
               },
               child: Text('text_login'.tr),
               style: ElevatedButton.styleFrom(

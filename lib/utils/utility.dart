@@ -102,18 +102,32 @@ void ShowDialog(type, title, content, context) {
 }
 
 // Progress Bar
-void ShowProgress(context, dynamic, bool) {
-  ProgressDialog progressDialog = ProgressDialog(
+void ShowProgress(context) {
+  showDialog(
     context: context,
-    backgroundColor: CommonColors.signature,
-    textColor: CommonColors.dark,
-    loadingText: dynamic,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.transparent,
+        // shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(8.0)
+        // ),
+        content: SizedBox(
+          height: 50,
+          child: Center(
+              child:SizedBox(
+                child:
+                new CircularProgressIndicator(
+                    valueColor: new AlwaysStoppedAnimation(CommonColors.signature),
+                    strokeWidth: 10.0
+                ),
+                height: 50.0,
+                width: 50.0,
+              )
+          ),
+        ),
+      );
+    },
   );
-  if (bool) {
-    progressDialog.show();
-  } else {
-    progressDialog.dismiss();
-  }
 }
 
 // 사업자번호 포맷변환 ( ex: 111-11-11111 )
