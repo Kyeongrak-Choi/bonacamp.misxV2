@@ -40,37 +40,43 @@ class OverallStatus extends StatelessWidget {
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(20),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<OverAllController>().visible.value,
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionCbBranch(),
-                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                              ],
-                            )),
-                        SizedBox(
-                          height: Get.find<OverAllController>().visible.value ? 20 : 0,
-                        ),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(20),
-                              child: OverAllTable(),
-                            ),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: context.theme.cardColor,
+                      ),
+                      child: Visibility(
+                          visible: Get.find<OverAllController>().visible.value,
+                          child: Column(
+                            children: [
+                              OptionPeriodPicker(),
+                              OptionCbBranch(),
+                              OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                            ],
+                          )),
+                    ),
+                    SizedBox(
+                      height: Get.find<OverAllController>().visible.value ? 10 : 0,
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(15),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(15),
+                            child: OverAllTable(),
                           ),
                         ),
-                      ],
-                    )),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
