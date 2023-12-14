@@ -19,9 +19,6 @@ class SearchPurchaseDialog extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text('title_search_purchase'.tr),
-            titleTextStyle: context.textTheme.displayLarge,
-            backgroundColor: APPBAR_BACKGROUND_COLOR,
-            iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,
           body: Container(

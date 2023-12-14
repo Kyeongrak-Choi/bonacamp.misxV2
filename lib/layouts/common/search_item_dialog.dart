@@ -20,9 +20,6 @@ class SearchItemDialog extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text('title_search_item'.tr),
-            titleTextStyle: context.textTheme.displayLarge,
-            backgroundColor: APPBAR_BACKGROUND_COLOR,
-            iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,
           body: Container(

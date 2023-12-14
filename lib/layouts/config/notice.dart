@@ -14,9 +14,6 @@ class Notice extends StatelessWidget {
         backgroundColor: context.theme.canvasColor,
         appBar: AppBar(
           title: Text('notice'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: APPBAR_BACKGROUND_COLOR,
-          iconTheme: context.theme.iconTheme,
         ),
         body: SingleChildScrollView(
           child: Padding(
