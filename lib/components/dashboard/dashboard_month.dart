@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../layouts/appframe/dashboard.dart';
 import '../../utils/utility.dart';
 import '../common/field/icon_title_field.dart';
+import '../common/field/icon_title_field_dash.dart';
 
 class DashBoardMonth extends StatelessWidget {
   @override
@@ -35,7 +36,7 @@ class DashBoardMonth extends StatelessWidget {
                   // dummy
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
+                    child: IconTitleFieldDash(
                       titleName: '매 출'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
@@ -43,7 +44,7 @@ class DashBoardMonth extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
+                    child: IconTitleFieldDash(
                       titleName: '매 입'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
@@ -51,7 +52,7 @@ class DashBoardMonth extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
+                    child: IconTitleFieldDash(
                       titleName: '회 수'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
@@ -59,7 +60,7 @@ class DashBoardMonth extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
+                    child: IconTitleFieldDash(
                       titleName: '입 금'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
@@ -67,7 +68,7 @@ class DashBoardMonth extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
-                    child: IconTitleField(
+                    child: IconTitleFieldDash(
                       titleName: '채 권'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.depositBalance) : '0',
                       iconData: Icons.label_outlined,
