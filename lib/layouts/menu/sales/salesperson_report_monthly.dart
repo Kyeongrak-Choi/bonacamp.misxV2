@@ -31,9 +31,6 @@ class SalesPersonReportMonthly extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_report_monthly'.tr),
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              titleTextStyle: context.textTheme.displayLarge,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
@@ -41,7 +38,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                    padding: EdgeInsetsDirectional.all(20),
+                    padding: EdgeInsetsDirectional.all(15),
                     child: Column(
                       children: [
                         Visibility(
@@ -51,11 +48,11 @@ class SalesPersonReportMonthly extends StatelessWidget {
                                 Container(
                                   decoration: BoxDecoration(
                                     color: context.theme.cardColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.all(20),
+                                    padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
                                         OptionYearMonthPicker(),
@@ -76,11 +73,11 @@ class SalesPersonReportMonthly extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(15),
                               shape: BoxShape.rectangle,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.all(20),
+                              padding: EdgeInsetsDirectional.all(15),
                               child: setChild(),
                             ),
                           ),

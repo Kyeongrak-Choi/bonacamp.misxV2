@@ -32,91 +32,92 @@ class PurchaseLedger extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_purchase_ledger'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(20),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<PurchaseLedgerController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
-                                OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<PurchaseLedgerController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 매입 합계'),
+                              SumItemTable(
+                                'BOX',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity),
+                                'EA',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                              ),
+                              SumItemTable(
+                                '매입액',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal),
+                                '공급가',
+                                numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                              ),
+                              SumItemTable('출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw), '채무잔액',
+                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
+                            ],
                           ),
                         ),
                       ),
-                      Visibility(
-                        visible: !Get.find<PurchaseLedgerController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                SumTitleTable('기간 매입 합계'),
-                                SumItemTable(
-                                  'BOX',
-                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumBoxQuantity),
-                                  'EA',
-                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumBottleQuantity),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: Get.find<PurchaseLedgerController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
                                 ),
-                                SumItemTable(
-                                  '매입액',
-                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumTotal),
-                                  '공급가',
-                                  numberFormat.format(Get.find<PurchaseLedgerController>().sumPrice),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
+                                      OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
+                                    ],
+                                  ),
                                 ),
-                                SumItemTable('출금액', numberFormat.format(Get.find<PurchaseLedgerController>().sumWithdraw), '채무잔액',
-                                    numberFormat.format(Get.find<PurchaseLedgerController>().sumBalance)),
-                              ],
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: Get.find<PurchaseLedgerController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,

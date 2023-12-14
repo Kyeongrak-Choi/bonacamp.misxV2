@@ -32,87 +32,85 @@ class SalesPersonReport extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesperson_report'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(20),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<SalesPersonReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<SalesPersonReportController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 합계'),
+                              SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
+                              SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
+                              SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
-                      ),
-                      Visibility(
-                        visible: !Get.find<SalesPersonReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                SumTitleTable('기간 합계'),
-                                SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
-                                    numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
-                                SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
-                                    numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
-                                SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
-                                    numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
-                              ],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: Get.find<SalesPersonReportController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                      OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: !Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,

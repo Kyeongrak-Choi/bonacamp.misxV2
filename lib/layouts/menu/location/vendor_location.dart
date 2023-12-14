@@ -29,9 +29,6 @@ class VendorLocation extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_vendor_location'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
@@ -39,7 +36,7 @@ class VendorLocation extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+                  padding: EdgeInsetsDirectional.all(15),
                   child: Column(
                     children: [
                       Visibility(
@@ -47,11 +44,11 @@ class VendorLocation extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(15),
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
+                            padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
                                 OptionDatePicker(),
@@ -71,11 +68,11 @@ class VendorLocation extends StatelessWidget {
                         child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(15),
                               shape: BoxShape.rectangle,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                              padding: EdgeInsetsDirectional.all(15),
                               child: VendorLocationItem(),
                             )),
                       ),

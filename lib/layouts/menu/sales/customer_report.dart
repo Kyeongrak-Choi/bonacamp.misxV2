@@ -34,88 +34,86 @@ class CustomerReport extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_sales_status'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(20),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<CustomerReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
-                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<CustomerReportController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 합계'),
+                              SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
+                                  numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
+                              SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
+                                  numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
+                              SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
+                                  numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
-                      ),
-                      Visibility(
-                        visible: !Get.find<CustomerReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                SumTitleTable('기간 합계'),
-                                SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
-                                    numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
-                                SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
-                                    numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
-                                SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
-                                    numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
-                              ],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: Get.find<CustomerReportController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                      OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
+                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                      OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: !Get.find<CustomerReportController>().visible.value ? 20 : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
