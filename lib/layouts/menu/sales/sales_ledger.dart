@@ -32,98 +32,99 @@ class SalesLedger extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_sales_ledger'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<SalesLedgerController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<SalesLedgerController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 매출 원장 합계'),
+                              SumItemTable(
+                                'BOX',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity),
+                                'EA',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
+                              ),
+                              SumItemTable(
+                                '매출액',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumTotal),
+                                '공급가',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumPrice),
+                              ),
+                              SumItemTable(
+                                '합계',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumAmount),
+                                '보증금',
+                                numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee),
+                              ),
+                              SumItemTable('입금액', numberFormat.format(Get.find<SalesLedgerController>().sumDeposit), '채권잔액',
+                                  numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
+                            ],
                           ),
                         ),
                       ),
-                      Visibility(
-                        visible: !Get.find<SalesLedgerController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                SumTitleTable('기간 매출 원장 합계'),
-                                SumItemTable(
-                                  'BOX',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumBoxQuantity),
-                                  'EA',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumBottleQuantity),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: Get.find<SalesLedgerController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
                                 ),
-                                SumItemTable(
-                                  '매출액',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumTotal),
-                                  '공급가',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumPrice),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                      //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                      OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
+                                    ],
+                                  ),
                                 ),
-                                SumItemTable(
-                                  '합계',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumAmount),
-                                  '보증금',
-                                  numberFormat.format(Get.find<SalesLedgerController>().sumGuarantee),
-                                ),
-                                SumItemTable('입금액', numberFormat.format(Get.find<SalesLedgerController>().sumDeposit), '채권잔액',
-                                    numberFormat.format(Get.find<SalesLedgerController>().sumBalance)),
-                              ],
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: Get.find<SalesLedgerController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,

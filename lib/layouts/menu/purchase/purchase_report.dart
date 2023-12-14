@@ -30,80 +30,81 @@ class PurchaseReport extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_purchase_report'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<PurchaseReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
-                                OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<PurchaseReportController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 매입 합계'),
+                              SumItemTable('매입액', numberFormat.format(Get.find<PurchaseReportController>().sumPurchase), '출금합계',
+                                  numberFormat.format(Get.find<PurchaseReportController>().sumWithdraw)),
+                              SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseReportController>().sumBalance)),
+                            ],
                           ),
                         ),
                       ),
-                      Visibility(
-                        visible: !Get.find<PurchaseReportController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                SumTitleTable('기간 매입 합계'),
-                                SumItemTable('매입액', numberFormat.format(Get.find<PurchaseReportController>().sumPurchase), '출금합계',
-                                    numberFormat.format(Get.find<PurchaseReportController>().sumWithdraw)),
-                                SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseReportController>().sumBalance)),
-                              ],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: Get.find<PurchaseReportController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
+                                      OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: Get.find<PurchaseReportController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,

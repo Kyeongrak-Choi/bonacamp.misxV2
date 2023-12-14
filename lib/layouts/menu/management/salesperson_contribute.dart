@@ -29,9 +29,6 @@ class SalesPersonContribute extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
               title: Text('menu_sub_salesperson_contribute'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
               actions: [
               ]),
           body: Container(
@@ -47,7 +44,7 @@ class SalesPersonContribute extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(15),
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
@@ -69,7 +66,7 @@ class SalesPersonContribute extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(15),
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(

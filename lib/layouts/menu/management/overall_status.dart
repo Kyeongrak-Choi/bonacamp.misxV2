@@ -75,32 +75,56 @@ class OverallStatus extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: EdgeInsetsDirectional.all(15),
-                            child: OverAllTable(),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
+                            ),
                           ),
+                        )),
+                    SizedBox(
+                      height: Get.find<OverAllController>().visible.value ? 20 : 0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                          borderRadius: BorderRadius.circular(15),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: OverAllTable(),
                         ),
                       ),
+                    ),
+                  ],
+                )),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: FloatingActionButton.small(
+                  child: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
+                  onPressed: () {
+                    Get.find<OverAllController>().setVisible();
+                  },
+                  splashColor: CommonColors.signature,
+                  backgroundColor: Colors.white,
+                  elevation: 1,
+
                     ],
                   ),
+
                 ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
-                      onPressed: () {
-                        Get.find<OverAllController>().setVisible();
-                      },
-                      splashColor: CommonColors.signature,
-                      backgroundColor: Colors.white,
-                      elevation: 1,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    ));
   }
 }
 
@@ -141,7 +165,7 @@ class OverAllController extends GetxController {
       dio = await reqApi(param);
 
       final response =
-          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
+      await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
 
       if (response.statusCode == 200) {
         parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];
