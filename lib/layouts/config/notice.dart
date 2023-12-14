@@ -17,6 +17,7 @@ class Notice extends StatelessWidget {
           titleTextStyle: context.textTheme.displayLarge,
           backgroundColor: context.theme.canvasColor,
           iconTheme: context.theme.iconTheme,
+
         ),
         body: SingleChildScrollView(
           child: Padding(

@@ -21,7 +21,6 @@ class SearchPurchaseDialog extends StatelessWidget {
             title: Text('title_search_purchase'.tr),
             titleTextStyle: context.textTheme.displayLarge,
             backgroundColor: context.theme.canvasColor,
-            iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,
           body: Container(

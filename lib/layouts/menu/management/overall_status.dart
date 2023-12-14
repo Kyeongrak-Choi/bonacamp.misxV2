@@ -32,9 +32,6 @@ class OverallStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(
             title: Text('menu_sub_total'.tr),
-            titleTextStyle: context.textTheme.displayLarge,
-            backgroundColor: context.theme.canvasColor,
-            iconTheme: context.theme.iconTheme,
           ),
           body: Container(
             color: context.theme.canvasColor,
@@ -94,8 +91,10 @@ class OverallStatus extends StatelessWidget {
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),
+
                   ),
                 ),
+
               ],
             ),
           ),

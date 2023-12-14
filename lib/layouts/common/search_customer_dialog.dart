@@ -22,6 +22,7 @@ class SearchCustomerDialog extends StatelessWidget {
             titleTextStyle: context.textTheme.displayLarge,
             backgroundColor: context.theme.canvasColor,
             iconTheme: context.theme.iconTheme,
+
           ),
           backgroundColor: context.theme.cardColor,
           body: Container(
