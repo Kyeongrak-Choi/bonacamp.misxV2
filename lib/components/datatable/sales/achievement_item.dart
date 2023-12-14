@@ -24,7 +24,7 @@ class AchievementItem extends StatelessWidget {
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ShowListHeaderRow(titleName: '', value: model.name ?? '');
+                  return ShowListHeaderRow(titleName: model.name ?? '', value: '');
                 },
                 body: Column(
                   children: [

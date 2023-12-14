@@ -66,14 +66,14 @@ class DashBoardCurrent extends StatelessWidget {
                       iconData: Icons.label_outlined,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
-                    child: IconTitleFieldDash(
-                      titleName: '채  권'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
-                      iconData: Icons.label_outlined,
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
+                  //   child: IconTitleFieldDash(
+                  //     titleName: '채  권'.tr,
+                  //     value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
+                  //     iconData: Icons.label_outlined,
+                  //   ),
+                  // ),
                 ],
               )),
         ],

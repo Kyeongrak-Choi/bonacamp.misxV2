@@ -14,6 +14,9 @@ class MenuConfig extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('menu_setting'.tr),
+        titleTextStyle: context.textTheme.displayLarge,
+        backgroundColor: context.theme.canvasColor,
+        iconTheme: context.theme.iconTheme,
       ),
       body: Container(
         color: context.theme.canvasColor,

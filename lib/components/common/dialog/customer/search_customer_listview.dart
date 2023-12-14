@@ -100,7 +100,6 @@ class SearchCustomerListController extends GetxController {
           parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
         }
       }
-      Navigator.pop(context);
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {

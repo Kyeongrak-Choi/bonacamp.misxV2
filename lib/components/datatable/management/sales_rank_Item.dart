@@ -26,7 +26,7 @@ class SalesRankItem extends StatelessWidget {
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: model.ranking.toString() + '.', value: model.customerName ?? '');
+                return ShowListHeaderRow(titleName: model.ranking.toString() + '. ' + model.customerName ?? '', value: '');
               },
               body: Column(
                 children: [
