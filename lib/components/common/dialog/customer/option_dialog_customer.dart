@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
+import '../../../../utils/theme/text_theme.dart';
 
 class OptionDialogCustomer extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class OptionDialogCustomer extends StatelessWidget {
             child: Text(
               'title_search_customer'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.titleMedium,
+              style: textThemeCommon().bodyMedium,
             ),
           ),
         ),

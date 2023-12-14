@@ -63,7 +63,7 @@ class SalesDaily extends StatelessWidget {
                             ),
                           )),
                       SizedBox(
-                        height: Get.find<SalesDailyController>().visible.value ? 15 : 0,
+                        height: Get.find<SalesDailyController>().visible.value ? 20 : 0,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -72,7 +72,7 @@ class SalesDaily extends StatelessWidget {
                         child: Visibility(
                           visible: !Get.find<SalesDailyController>().visible.value,
                           child: Padding(
-                            padding: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
                                 SumTitleTable('일자 합계 (일/월)'),
