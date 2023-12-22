@@ -1,54 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'color_manager.dart';
 
 TextTheme textThemeLight() {
   return TextTheme(
-    // 라벨
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 20.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
-    // 타이틀
+    // Heading 3
     titleLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 4
     titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+      fontSize: 32.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 5
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
+      fontSize: 24.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
-    // 데이터
+    // Heading 6
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      color: CommonColors.dark,
+      fontSize: 20.sp,
+      color: LightColors.font,
     ),
+    // Paragraph 1
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.dark,
+      fontSize: 18.sp,
+      color: LightColors.font,
     ),
+    // Paragraph 2
     bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      color: CommonColors.dark,
+      fontSize: 16.sp,
+      color: LightColors.font,
     ),
 
   );
@@ -120,15 +127,15 @@ TextTheme textThemeCommon() {
     ),
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 16.0,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 14.0,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 12.0,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 18.0,

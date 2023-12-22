@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
@@ -28,6 +29,7 @@ import '../../utils/theme/color_manager.dart';
 class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     Get.put(NetworkManager());
     Get.put(DashBoardController());
     return Scaffold(

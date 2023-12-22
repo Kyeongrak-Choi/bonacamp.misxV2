@@ -5,6 +5,7 @@ class LightColors {
   static const Color basic = Color(0xFFFFFFFF);
   static const Color canvas = Color(0xFF2D2D2D);
   static const Color important = Color(0xFF2D2D2D);
+  static const Color font = Color(0xFF000000);
 }
 
 class DarkColors {
@@ -12,6 +13,7 @@ class DarkColors {
   static const Color basic = Color(0xFF262D34);
   static const Color canvas = Color(0x42000000);
   static const Color important = Color(0xFFFFFFFF);
+  static const Color font = Color(0xFFFFFFFF);
 }
 
 class CommonColors {
