@@ -80,7 +80,7 @@ class ItemStatus extends StatelessWidget {
                       onPressed: () {
                         Get.find<ItemStatusController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

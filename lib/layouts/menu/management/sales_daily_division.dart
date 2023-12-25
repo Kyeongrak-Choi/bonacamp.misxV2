@@ -204,7 +204,7 @@ class SalesDailyDivision extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesDailyDivisionController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

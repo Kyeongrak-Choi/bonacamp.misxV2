@@ -87,7 +87,7 @@ class Achievement extends StatelessWidget {
                       onPressed: () {
                         Get.find<AchievementController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

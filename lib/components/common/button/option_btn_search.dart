@@ -52,7 +52,7 @@ class OptionBtnSearch extends StatelessWidget {
             child: Padding(
           padding: EdgeInsetsDirectional.all(15),
           child: Container(
-            color: CommonColors.signature,
+            color: CommonColors.primary,
             height: 40,
             child: ElevatedButton(
                 onPressed: () async {
@@ -62,8 +62,8 @@ class OptionBtnSearch extends StatelessWidget {
                   //   msg: 'Searching',
                   //   cancel: Cancel(),
                   //   backgroundColor: CommonColors.white,
-                  //   progressValueColor: CommonColors.signature,
-                  //   msgColor: CommonColors.signature,
+                  //   progressValueColor: CommonColors.primary,
+                  //   msgColor: CommonColors.primary,
                   // );
 
                   ShowProgress(context);
@@ -229,8 +229,8 @@ class OptionBtnSearch extends StatelessWidget {
                 },
                 child: Icon(Icons.search, color: CommonColors.white),
                 style: ElevatedButton.styleFrom(
-                  //foregroundColor: CommonColors.signature,
-                  backgroundColor: CommonColors.signature,
+                  //foregroundColor: CommonColors.primary,
+                  backgroundColor: CommonColors.primary,
                 )),
           ),
         )),

@@ -90,7 +90,7 @@ class SalesRank extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesRankController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

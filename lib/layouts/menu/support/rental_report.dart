@@ -122,7 +122,7 @@ class RentalReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<RentalReportController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

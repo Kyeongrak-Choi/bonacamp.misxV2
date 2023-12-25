@@ -121,7 +121,7 @@ class SalesPersonReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesPersonReportController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

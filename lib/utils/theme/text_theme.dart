@@ -25,129 +25,179 @@ TextTheme textThemeLight() {
       color: LightColors.font,
     ),
     // Heading 3
-    titleLarge: GoogleFonts.nanumGothic(
+    headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
       fontWeight: FontWeight.bold,
       color: LightColors.font,
     ),
     // Heading 4
-    titleMedium: GoogleFonts.nanumGothic(
+    headlineMedium: GoogleFonts.nanumGothic(
       fontSize: 32.sp,
       fontWeight: FontWeight.bold,
       color: LightColors.font,
     ),
     // Heading 5
-    titleSmall: GoogleFonts.nanumGothic(
+    headlineSmall: GoogleFonts.nanumGothic(
       fontSize: 24.sp,
       fontWeight: FontWeight.bold,
       color: LightColors.font,
     ),
     // Heading 6
-    bodyLarge: GoogleFonts.nanumGothic(
+    titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
       color: LightColors.font,
     ),
     // Paragraph 1
-    bodyMedium: GoogleFonts.nanumGothic(
+    titleMedium: GoogleFonts.nanumGothic(
       fontSize: 18.sp,
-      color: LightColors.font,
+      color: LightColors.paragraphFont,
     ),
     // Paragraph 2
-    bodySmall: GoogleFonts.nanumGothic(
+    titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: LightColors.font,
+      color: LightColors.paragraphFont,
     ),
-
+    // Paragraph 3
+    bodyLarge: GoogleFonts.nanumGothic(
+      fontSize: 14.sp,
+      color: LightColors.paragraphFont,
+    ),
+    // Paragraph 4
+    bodyMedium: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: LightColors.paragraphFont,
+    ),
   );
 }
 
 TextTheme textThemeDark() {
   return TextTheme(
-    // 라벨
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 20.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
-    // 타이틀
+    // Heading 3
+    headlineLarge: GoogleFonts.nanumGothic(
+      fontSize: 40.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 4
+    headlineMedium: GoogleFonts.nanumGothic(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 5
+    headlineSmall: GoogleFonts.nanumGothic(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
-      color: CommonColors.white,
+      fontSize: 20.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      color: CommonColors.white,
+      fontSize: 18.sp,
+      color: DarkColors.paragraphFont,
     ),
+    // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.white,
+      fontSize: 16.sp,
+      color: DarkColors.paragraphFont,
     ),
-    // 데이터
+    // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      color: CommonColors.white,
+      fontSize: 14.sp,
+      color: DarkColors.paragraphFont,
     ),
+    // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.white,
-    ),
-    bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      color: CommonColors.white,
+      fontSize: 13.sp,
+      color: DarkColors.paragraphFont,
     ),
   );
 }
 
 TextTheme textThemeCommon() {
   return TextTheme(
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: DarkColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: DarkColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: DarkColors.font,
     ),
+    // Heading 3
+    headlineLarge: GoogleFonts.nanumGothic(
+      fontSize: 40.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 4
+    headlineMedium: GoogleFonts.nanumGothic(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 5
+    headlineSmall: GoogleFonts.nanumGothic(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      color: LightColors.font,
+      fontSize: 20.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: LightColors.font,
+      fontSize: 18.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      color: LightColors.font,
+      fontSize: 16.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
-      color: CommonColors.signature,
+      fontSize: 14.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      color: CommonColors.signature,
-    ),
-    bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.signature,
+      fontSize: 13.sp,
+      color: DarkColors.font,
     ),
   );
 }

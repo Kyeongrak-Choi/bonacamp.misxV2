@@ -128,7 +128,7 @@ class PurchaseLedger extends StatelessWidget {
                       onPressed: () {
                         Get.find<PurchaseLedgerController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

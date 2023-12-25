@@ -86,7 +86,7 @@ class SalesClassStatus extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesClassStatusController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

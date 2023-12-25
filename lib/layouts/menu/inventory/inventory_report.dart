@@ -123,7 +123,7 @@ class InventoryReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<InventoryReportController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

@@ -90,7 +90,7 @@ class LendReportCustomer extends StatelessWidget {
                       onPressed: () {
                         Get.find<LendReportCustomerController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

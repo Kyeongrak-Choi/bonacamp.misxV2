@@ -38,10 +38,10 @@ class LoginBtn extends StatelessWidget {
                   Navigator.pop(context);
                 }
               },
-              child: Text('text_login'.tr),
+              child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
               style: ElevatedButton.styleFrom(
                 foregroundColor: CommonColors.white,
-                backgroundColor: CommonColors.signature,
+                backgroundColor: CommonColors.primary,
               )),
         ))
       ],

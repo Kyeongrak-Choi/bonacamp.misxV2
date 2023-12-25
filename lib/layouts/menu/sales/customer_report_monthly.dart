@@ -95,7 +95,7 @@ class CustomerReportMonthly extends StatelessWidget {
                       onPressed: () {
                         Get.find<CustomerReportMonthlyController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

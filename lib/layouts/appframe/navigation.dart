@@ -87,9 +87,9 @@ class Navigation extends GetView<NavigationController> {
           return CurvedNavigationBar(
             index: controller.currentIndex.value,
             height: 50,
-            color: CommonColors.signature,
+            color: CommonColors.primary,
             backgroundColor: context.theme.canvasColor,
-            buttonBackgroundColor: CommonColors.signature,
+            buttonBackgroundColor: CommonColors.primary,
             items: [
               Container(
                 //height: 40,
@@ -191,7 +191,7 @@ void ShowUserInfoDialog(context) {
   UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO);
   Get.defaultDialog(
     title: 'user_info'.tr,
-    titleStyle: TextStyle(color: CommonColors.signature),
+    titleStyle: TextStyle(color: CommonColors.primary),
     content: Padding(
       padding: const EdgeInsets.all(15),
       child: Container(

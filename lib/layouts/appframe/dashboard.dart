@@ -162,8 +162,8 @@ class DashBoardController extends GetxController {
       //   msg: 'Searching',
       //   cancel: Cancel(),
       //   backgroundColor: CommonColors.white,
-      //   progressValueColor: CommonColors.signature,
-      //   msgColor: CommonColors.signature,
+      //   progressValueColor: CommonColors.primary,
+      //   msgColor: CommonColors.primary,
       // );
       ShowProgress(Get.context);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save

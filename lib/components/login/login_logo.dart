@@ -18,13 +18,13 @@ class LoginLogo extends StatelessWidget {
         // )),
         Text(
           'DIONYSOS',
-          style: context.textTheme.titleLarge,
+          style: context.textTheme.headlineLarge,
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 20.sp,),
         Text(
           '디오니소스 경영관리 서비스',
-          style: context.textTheme.bodySmall,
+          style: context.textTheme.titleSmall,
           textAlign: TextAlign.center,
         ),
       ],

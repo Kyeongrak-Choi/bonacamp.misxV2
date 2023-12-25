@@ -90,7 +90,7 @@ class RentAssetHistory extends StatelessWidget {
                       onPressed: () {
                         Get.find<RentAssetHistoryController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

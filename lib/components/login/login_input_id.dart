@@ -28,14 +28,14 @@ class LoginInputId extends StatelessWidget {
             hintStyle: TextStyle(color: CommonColors.gray),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: CommonColors.signature,
+                //color: CommonColors.primary,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: CommonColors.signature,
+                //color: CommonColors.primary,
                 width: 3,
               ),
 

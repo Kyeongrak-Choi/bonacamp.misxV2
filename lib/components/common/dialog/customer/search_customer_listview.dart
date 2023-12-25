@@ -74,8 +74,8 @@ class SearchCustomerListController extends GetxController {
     //   msg: 'Searching',
     //   cancel: Cancel(),
     //   backgroundColor: CommonColors.white,
-    //   progressValueColor: CommonColors.signature,
-    //   msgColor: CommonColors.signature,
+    //   progressValueColor: CommonColors.primary,
+    //   msgColor: CommonColors.primary,
     // );
     ShowProgress(context);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save

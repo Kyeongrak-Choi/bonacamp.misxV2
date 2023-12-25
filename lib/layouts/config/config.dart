@@ -45,7 +45,7 @@ class Config extends StatelessWidget {
                           child: Text('text_logout'.tr),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: CommonColors.white,
-                            backgroundColor: CommonColors.signature,
+                            backgroundColor: CommonColors.primary,
                             minimumSize: Size(100, 50),
                           ))),
                 ),

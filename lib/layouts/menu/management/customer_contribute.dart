@@ -85,7 +85,7 @@ class CustomerContribute extends StatelessWidget {
                       onPressed: () {
                         Get.find<CustomerContributeController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),

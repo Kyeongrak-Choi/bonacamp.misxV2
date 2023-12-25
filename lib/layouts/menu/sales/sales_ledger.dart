@@ -135,7 +135,7 @@ class SalesLedger extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesLedgerController>().setVisible();
                       },
-                      splashColor: CommonColors.signature,
+                      splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),
