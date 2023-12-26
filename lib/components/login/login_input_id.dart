@@ -31,7 +31,7 @@ class LoginInputId extends StatelessWidget {
               child: TextFormField(
             obscureText: false,
             maxLength: 16,
-            style: TextStyle(color: CommonColors.gray, fontSize: 16.sp),
+            style: TextStyle(color: CommonColors.black, fontSize: 16.sp),
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.person_2_outlined),
               labelStyle: TextStyle(color: CommonColors.gray),

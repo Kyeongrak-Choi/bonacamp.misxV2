@@ -68,6 +68,8 @@ TextTheme textThemeLight() {
       color: LightColors.paragraphFont,
     ),
   );
+
+
 }
 
 TextTheme textThemeDark() {

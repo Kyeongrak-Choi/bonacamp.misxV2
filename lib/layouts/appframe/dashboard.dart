@@ -5,17 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:misxV2/components/dashboard/dashboard_Tab.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
-import 'package:misxV2/components/dashboard/dashboard_current.dart';
-import 'package:misxV2/components/dashboard/dashboard_month.dart';
 import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/dashboard_status.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
-import 'package:sn_progress_dialog/options/cancel.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
 import '../../components/dashboard/dashboard_graph.dart';
 import '../../models/common/chart_spot.dart';
@@ -24,7 +21,6 @@ import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
-import '../../utils/theme/color_manager.dart';
 
 class DashBoard extends StatelessWidget {
   @override
@@ -33,7 +29,7 @@ class DashBoard extends StatelessWidget {
     Get.put(NetworkManager());
     Get.put(DashBoardController());
     return Scaffold(
-      backgroundColor: context.theme.canvasColor,
+      backgroundColor: Colors.white,
       body: RefreshIndicator(
           onRefresh: () async {
             Get.find<DashBoardController>().getDashBoard();
@@ -42,27 +38,23 @@ class DashBoard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                      ? EdgeInsetsDirectional.all(0)
-                      : EdgeInsetsDirectional.all(0),
-                  child: setChild(),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  child: Container(
+                    padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
+                        ? EdgeInsetsDirectional.all(0)
+                        : EdgeInsetsDirectional.all(0),
+                    child: setChild(),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  child: DashBoardTab(),
                 ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: DashBoardCurrent(), // 당일 현황
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: DashBoardMonth(), // 당월 현황
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: DashboardGraph(), // 차트
-                      ),
+                      DashboardGraph(),
                     ],
                   ),
                 )

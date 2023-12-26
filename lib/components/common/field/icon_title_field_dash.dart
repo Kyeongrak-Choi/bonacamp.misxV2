@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/utils/theme/text_theme.dart';
 
@@ -12,33 +13,40 @@ class IconTitleFieldDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      //Icon(iconData, color: context.theme.primaryColor),
       Expanded(
+        flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-          child: Column(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  titleName,
-                  style: textThemeCommon().bodyLarge,
-                  textAlign: TextAlign.start,
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  value + ' 원 ',
-                  style: context.textTheme.bodyLarge,
-                  textAlign: TextAlign.end,
-                ),
-              )
-            ],
+          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          child: Text(
+            titleName,
+            // style: context.textTheme.titleLarge,
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
+            textAlign: TextAlign.start,
           ),
         ),
       ),
-
+      Expanded(
+        flex: 10,
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          child: Text(
+            value,
+            style: context.textTheme.titleLarge,
+            textAlign: TextAlign.end,
+          ),
+        ),
+      ),
+      Expanded(
+        flex: 1,
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          child: Text(
+            '원',
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
+            textAlign: TextAlign.end,
+          ),
+        ),
+      ),
     ]);
   }
 }

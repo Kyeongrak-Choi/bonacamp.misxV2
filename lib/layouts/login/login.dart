@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 150,),
+                      SizedBox(height: MediaQuery.of(context).size.height / 5 ,),
                       Padding(
                         padding: EdgeInsetsDirectional.all(15),
                         child: LoginLogo(), // Logo
