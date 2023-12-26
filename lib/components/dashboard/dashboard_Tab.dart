@@ -27,7 +27,7 @@ class DashBoardTab extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: TabBar(
                 labelColor: Colors.black, // 선택된 탭의 색상
-                unselectedLabelColor: Colors.black, // 선택되지 않은 택의 색상
+                unselectedLabelColor: Colors.grey, // 선택되지 않은 택의 색상
                 controller: controller.tabController,
                 indicatorColor: Colors.black,
                 indicatorWeight: 5,
@@ -35,12 +35,17 @@ class DashBoardTab extends StatelessWidget {
                 tabAlignment: TabAlignment.start,
                 dividerColor: Colors.black,
                 indicatorPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                unselectedLabelStyle: TextStyle(fontSize: 18.sp,color: Colors.grey,fontWeight: FontWeight.bold),
+                //unselectedLabelStyle: TextStyle(fontSize: 18.sp,color: Colors.grey,fontWeight: FontWeight.bold),
+
+                labelStyle: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+                unselectedLabelStyle: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
                 tabs: [
                   Container(
                     child: Text(
                       'title_current'.tr,
-                      style: TextStyle(fontSize: 18.sp,color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                     alignment: Alignment.center,
                     height: 36,
@@ -48,7 +53,6 @@ class DashBoardTab extends StatelessWidget {
                   Container(
                     child: Text(
                       'title_month'.tr,
-                      style: TextStyle(fontSize: 18.sp,color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                     alignment: Alignment.center,
                     height: 36,

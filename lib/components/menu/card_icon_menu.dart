@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../utils/menu_manager.dart';
@@ -42,14 +43,14 @@ class CardIconMenu extends StatelessWidget {
             SizedBox(width: 20),
             Text(
               title,
-              style: context.textTheme.displayMedium,
+              style: TextStyle(fontSize: 14.sp,color: context.theme.focusColor),
             ),
-            Spacer(),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 17,
-              color: context.theme.primaryColor,
-            ),
+            // Spacer(),
+            // Icon(
+            //   Icons.arrow_forward_ios,
+            //   size: 17,
+            //   color: context.theme.primaryColor,
+            // ),
           ],
         ),
       ),

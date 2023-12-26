@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/components/menu/card_icon_menu.dart';
 import 'package:misxV2/utils/database/hive_manager.dart';
 
+import '../../components/common/field/icon_title_field.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
@@ -17,15 +18,46 @@ class Config extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OptionController());
     return Scaffold(
-      backgroundColor: context.theme.canvasColor,
+      floatingActionButton: Align(
+        alignment: Alignment.bottomRight,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: FloatingActionButton(
+            // child: ElevatedButton(
+            //     onPressed: () async {
+            //       Get.offAllNamed(ROUTE_LOGIN);
+            //     },
+            //     child: Text('text_logout'.tr),
+            //     style: ElevatedButton.styleFrom(
+            //       foregroundColor: CommonColors.white,
+            //       backgroundColor: CommonColors.primary,
+            //       minimumSize: Size(100, 50),
+            //       maximumSize: Size(200,100),
+            //     )),
+
+            child: IconTitleField(
+              titleName: '',
+              value: '',
+              iconData: Icons.logout,
+            ),
+            onPressed: () {
+              Get.offAllNamed(ROUTE_LOGIN);
+            },
+            //splashColor: CommonColors.primary,
+            backgroundColor: Colors.white,
+            elevation: 0,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Container(
-          decoration: BoxDecoration(
-            color: context.theme.cardColor,
-            borderRadius: BorderRadius.circular(20),
-            shape: BoxShape.rectangle,
-          ),
+          // decoration: BoxDecoration(
+          //   color: context.theme.cardColor,
+          //   borderRadius: BorderRadius.circular(20),
+          //   shape: BoxShape.rectangle,
+          // ),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -33,30 +65,30 @@ class Config extends StatelessWidget {
                 CardIconMenu(iconMenuList: noticeMaster),
                 CardIconMenu(iconMenuList: systemMaster),
                 CardIconMenu(iconMenuList: menuMaster),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: ElevatedButton(
-                          onPressed: () async {
-                            Get.offAllNamed(ROUTE_LOGIN);
-                          },
-                          child: Text('text_logout'.tr),
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: CommonColors.white,
-                            backgroundColor: CommonColors.primary,
-                            minimumSize: Size(100, 50),
-                          ))),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Text(
-                    COPY_RIGHT,
-                    style: context.textTheme.bodyLarge,
-                    textAlign: TextAlign.right,
-                  ),
-                ),
+                // Spacer(),
+                // Padding(
+                //   padding: const EdgeInsets.all(15),
+                //   child: Align(
+                //       alignment: Alignment.bottomCenter,
+                //       child: ElevatedButton(
+                //           onPressed: () async {
+                //             Get.offAllNamed(ROUTE_LOGIN);
+                //           },
+                //           child: Text('text_logout'.tr),
+                //           style: ElevatedButton.styleFrom(
+                //             foregroundColor: CommonColors.white,
+                //             backgroundColor: CommonColors.primary,
+                //             minimumSize: Size(100, 50),
+                //           ))),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.all(15),
+                //   child: Text(
+                //     COPY_RIGHT,
+                //     style: context.textTheme.bodyLarge,
+                //     textAlign: TextAlign.right,
+                //   ),
+                // ),
               ],
             ),
           ),

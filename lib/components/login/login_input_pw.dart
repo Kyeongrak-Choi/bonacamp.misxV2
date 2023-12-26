@@ -31,9 +31,9 @@ class LoginInputPw extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               maxLength: 16,
-              style: TextStyle(color: CommonColors.black,fontSize: 16.sp),
+              style: TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock_outline_rounded),
+                prefixIcon: Icon(Icons.lock),
                 labelStyle: TextStyle(color: CommonColors.gray),
                // labelText: 'text_pw'.tr,
                 hintText: 'text_pw'.tr,

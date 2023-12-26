@@ -29,7 +29,7 @@ class RadioMenu {
 
 // notice master
 final List<IconMenu> noticeMaster = [
-  IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_2_fill, path: ROUTE_NOTICE),
+  IconMenu(title: 'notice'.tr, iconData: CupertinoIcons.speaker_1, path: ROUTE_NOTICE),
 ];
 
 // system setting master
