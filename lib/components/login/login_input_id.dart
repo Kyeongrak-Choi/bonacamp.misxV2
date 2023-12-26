@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/utils/constants.dart';
@@ -11,47 +12,60 @@ class LoginInputId extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
-
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-            child: TextFormField(
-          obscureText: false,
-          maxLength: 16,
-          style: textThemeCommon().titleLarge,
-          decoration: InputDecoration(
-            labelStyle: textThemeCommon().titleMedium,
-            //labelText: 'text_id'.tr,
-            hintText: 'text_id'.tr,
-            hintStyle: TextStyle(color: CommonColors.gray),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                //color: CommonColors.primary,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(8),
+    return Container(
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              spreadRadius: 0,
+              blurRadius: 5.0,
+              offset: Offset(0, 3), // changes position of shadow
             ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                //color: CommonColors.primary,
-                width: 3,
+          ]
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+              child: TextFormField(
+            obscureText: false,
+            maxLength: 16,
+            style: TextStyle(color: CommonColors.gray, fontSize: 16.sp),
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.person_2_outlined),
+              labelStyle: TextStyle(color: CommonColors.gray),
+              //labelText: 'text_id'.tr,
+              hintText: 'text_id'.tr,
+              hintStyle: TextStyle(color: CommonColors.gray),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: CommonColors.white,
+                  width: 1,
+                ),
+                //borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0),top: Radius.circular(10)),
               ),
-
-              borderRadius: BorderRadius.circular(8),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: CommonColors.white,
+                  width: 1,
+                ),
+                //borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0),top: Radius.circular(10)),
+              ),
+              filled: true,
+              fillColor: context.theme.shadowColor,
+              contentPadding: EdgeInsets.all(20),
+              counterText: '',
             ),
-            filled: false,
-            fillColor: CommonColors.bluesky,
-            contentPadding: EdgeInsets.all(20),
-            counterText: '',
-          ),
-          initialValue: Hive.box(LOCAL_DB).get(KEY_SAVED_ID),
-          onChanged: (text) {
-            Get.find<LoginBtnController>().setInputId(text);
-          },
-        )),
-      ],
+            initialValue: Hive.box(LOCAL_DB).get(KEY_SAVED_ID),
+            onChanged: (text) {
+              Get.find<LoginBtnController>().setInputId(text);
+            },
+          )),
+        ],
+      ),
     );
   }
 }

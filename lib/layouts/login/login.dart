@@ -33,30 +33,23 @@ class Login extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      SizedBox(height: 150,),
                       Padding(
                         padding: EdgeInsetsDirectional.all(15),
                         child: LoginLogo(), // Logo
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 1),
                         child: LoginInputId(), // ID
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                         child: LoginInputPw(), // PW
-                      ),
-                      Divider(
-                        height: 2,
-                        thickness: 1,
-                        indent: 20,
-                        endIndent: 20,
-                        color: CommonColors.primary,
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.all(15),
                         child: LoginBtn(), // Login
                       ),
-
                       Padding(
                         padding: EdgeInsetsDirectional.all(15),
                         child: PolicyView(), // 개인정보 처리방침
@@ -64,19 +57,21 @@ class Login extends StatelessWidget {
                     ],
                   ),
                 ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Text(
+                    COPY_RIGHT,
+                    style: textThemeCommon().bodyMedium,
+                    textAlign: TextAlign.right,
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
-      // floatingActionButton: Align(
-      //   alignment: Alignment.bottomCenter,
-      //   child: Text(
-      //     COPY_RIGHT,
-      //     style: textThemeCommon().bodyLarge,
-      //     textAlign: TextAlign.right,
-      //   ),
-      // ),
     );
+
   }
 }

@@ -28,7 +28,7 @@ TextTheme textThemeLight() {
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
+      color: LightColors.logo,
     ),
     // Heading 4
     headlineMedium: GoogleFonts.nanumGothic(
@@ -45,7 +45,7 @@ TextTheme textThemeLight() {
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
-      color: LightColors.font,
+      color: LightColors.basic,
     ),
     // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
@@ -55,7 +55,7 @@ TextTheme textThemeLight() {
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: LightColors.paragraphFont,
+      color: LightColors.sublogo,
     ),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
@@ -94,7 +94,7 @@ TextTheme textThemeDark() {
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
+      color: DarkColors.logo,
     ),
     // Heading 4
     headlineMedium: GoogleFonts.nanumGothic(
@@ -111,7 +111,7 @@ TextTheme textThemeDark() {
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
-      color: DarkColors.font,
+      color: DarkColors.basic,
     ),
     // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
@@ -121,12 +121,12 @@ TextTheme textThemeDark() {
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: DarkColors.paragraphFont,
+      color: DarkColors.sublogo,
     ),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.sp,
-      color: DarkColors.paragraphFont,
+      color: CommonColors.copyright,
     ),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
@@ -187,17 +187,17 @@ TextTheme textThemeCommon() {
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: DarkColors.font,
+      color: DarkColors.paragraphFont,
     ),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.sp,
-      color: DarkColors.font,
+      color: CommonColors.copyright,
     ),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 13.sp,
-      color: DarkColors.font,
+      color: CommonColors.copyright,
     ),
   );
 }

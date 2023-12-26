@@ -7,6 +7,9 @@ class LightColors {
   static const Color important = Color(0xFF2D2D2D);
   static const Color font = Color(0xFF000000);
   static const Color paragraphFont = Color(0xFFF959F);
+  static const Color logo = Color(0xFF2D84FB);
+  static const Color sublogo = Color(0xFF8F959F);
+  static const Color textform = Color(0xFFFFFFFF);
 }
 
 class DarkColors {
@@ -16,6 +19,9 @@ class DarkColors {
   static const Color important = Color(0xFFFFFFFF);
   static const Color font = Color(0xFFFFFFFF);
   static const Color paragraphFont = Color(0xFFF959F);
+  static const Color logo = Color(0xFFFFFFFF);
+  static const Color sublogo = Color(0xFF8F959F);
+  static const Color textform = Color(0x12FFFFFF);
 }
 
 class CommonColors {
@@ -32,4 +38,5 @@ class CommonColors {
   static const Color charttextcolor = Color(0xFF0A936F);
   static const Color gray = Color(0xFFCCCCCC);
   static const Color primary = Color(0xFF2D84FB);
+  static const Color copyright = Color(0xFF8F959F);
 }
