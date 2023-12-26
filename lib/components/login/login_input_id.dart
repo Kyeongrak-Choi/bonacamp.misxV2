@@ -16,7 +16,7 @@ class LoginInputId extends StatelessWidget {
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
+              color: CommonColors.sublogo.withOpacity(0.3),
               spreadRadius: 0,
               blurRadius: 5.0,
               offset: Offset(0, 3), // changes position of shadow
