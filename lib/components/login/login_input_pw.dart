@@ -16,10 +16,10 @@ class LoginInputPw extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.7),
+            color: Colors.grey.withOpacity(0.3),
             spreadRadius: 0,
             blurRadius: 5.0,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: Offset(0, 5), // changes position of shadow
           ),
         ]
       ),
@@ -53,7 +53,7 @@ class LoginInputPw extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(10),top: Radius.circular(0)),
                 ),
                 filled: true,
-                fillColor: CommonColors.white,
+                fillColor: context.theme.shadowColor,
                 contentPadding: EdgeInsets.all(20),
                 counterText: '',
               ),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
@@ -38,7 +39,8 @@ class LoginBtn extends StatelessWidget {
                   Navigator.pop(context);
                 }
               },
-              child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
+             // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
+              child: Text('text_login'.tr,style: TextStyle(color: CommonColors.white , fontSize: 20.sp)),
               style: ElevatedButton.styleFrom(
                 foregroundColor: CommonColors.white,
                 backgroundColor: CommonColors.primary,
