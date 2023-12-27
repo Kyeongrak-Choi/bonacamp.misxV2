@@ -18,7 +18,7 @@ class DashboardGraph extends StatelessWidget {
           shape: BoxShape.rectangle,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               Row(
@@ -26,7 +26,7 @@ class DashboardGraph extends StatelessWidget {
                   Expanded(
                     flex: 7,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(5, 15, 5, 15),
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 15),
                       child: Text(
                         '최근 3개월 매출 추이',
                         // style: context.textTheme.titleLarge,
@@ -38,7 +38,7 @@ class DashboardGraph extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(5, 15, 5, 15),
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 15),
                       child: Text(
                         '(단위:천원)',
                         style: TextStyle(fontSize: 12.sp, color: Colors.grey),

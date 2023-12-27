@@ -39,11 +39,10 @@ class DashBoard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
+                      ? EdgeInsetsDirectional.all(15)
+                      : EdgeInsetsDirectional.all(0),
                   child: Container(
-                    padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                        ? EdgeInsetsDirectional.all(0)
-                        : EdgeInsetsDirectional.all(0),
                     child: setChild(),
                   ),
                 ),

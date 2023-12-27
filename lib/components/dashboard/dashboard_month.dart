@@ -15,6 +15,7 @@ class DashBoardMonth extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
+            height: 60 * 4,
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
                 //borderRadius: BorderRadius.circular(20),
@@ -38,7 +39,7 @@ class DashBoardMonth extends StatelessWidget {
                   // ),
                   // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
                     child: IconTitleFieldDash(
                       titleName: '매출'.tr,
                       value: controller.controllerMonthModel != null ? numberFormat.format(controller.controllerMonthModel.salesAmount) : '0',

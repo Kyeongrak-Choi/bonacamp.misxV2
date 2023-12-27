@@ -24,26 +24,28 @@ class LoginBtn extends StatelessWidget {
     Get.put(LoginBtnController());
     Get.put(NetworkManager());
     return Row(
+      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
             child: Container(
-          height: 50,
+          height: 50.sp,
           child: ElevatedButton(
               onPressed: () async {
                 ShowProgress(context);
                 if (await Get.find<LoginBtnController>().LoginCheck()) {
                   Navigator.pop(context);
                   Get.toNamed(ROUTE_NATIGATION);
-                }else {
+                } else {
                   Navigator.pop(context);
                 }
               },
-             // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
-              child: Text('text_login'.tr,style: TextStyle(color: CommonColors.white , fontSize: 20.sp)),
+              // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
+              child: Text('text_login'.tr, style: TextStyle(color: CommonColors.white, fontSize: 20.sp)),
               style: ElevatedButton.styleFrom(
                 foregroundColor: CommonColors.white,
                 backgroundColor: CommonColors.primary,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               )),
         ))
       ],

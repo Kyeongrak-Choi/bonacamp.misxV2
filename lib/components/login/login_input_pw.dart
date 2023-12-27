@@ -13,15 +13,16 @@ class LoginInputPw extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
     return Container(
+      height: 50.sp,
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 0,
-            blurRadius: 5.0,
-            offset: Offset(0, 5), // changes position of shadow
-          ),
-        ]
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.grey.withOpacity(0.3),
+        //     spreadRadius: 0,
+        //     blurRadius: 5.0,
+        //     offset: Offset(0, 5), // changes position of shadow
+        //   ),
+        // ]
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -40,14 +41,14 @@ class LoginInputPw extends StatelessWidget {
                 hintStyle: TextStyle(color: CommonColors.gray),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: CommonColors.white,
+                    color: context.theme.canvasColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(10),top: Radius.circular(0)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: CommonColors.white,
+                    color: context.theme.canvasColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(10),top: Radius.circular(0)),

@@ -47,11 +47,11 @@ class Login extends StatelessWidget {
                         child: LoginInputPw(), // PW
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.all(15),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                         child: LoginBtn(), // Login
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.all(15),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                         child: PolicyView(), // 개인정보 처리방침
                       ),
                     ],

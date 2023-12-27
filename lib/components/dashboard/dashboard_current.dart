@@ -16,6 +16,7 @@ class DashBoardCurrent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
+            height: 60 * 4,
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
                 //borderRadius: BorderRadius.circular(20),
@@ -27,7 +28,7 @@ class DashBoardCurrent extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
                     child: IconTitleFieldDash(
                       titleName: '매출'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.salesAmount) : '0',

@@ -34,7 +34,7 @@ final List<IconMenu> noticeMaster = [
 
 // system setting master
 final List<IconMenu> systemMaster = [
-  IconMenu(title: 'system_setting'.tr, iconData: Icons.settings, path: ROUTE_SYSTEM_CONFIG),
+  IconMenu(title: 'system_setting'.tr, iconData: Icons.settings_outlined, path: ROUTE_SYSTEM_CONFIG),
 ];
 
 // system setting detail

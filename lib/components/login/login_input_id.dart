@@ -13,15 +13,16 @@ class LoginInputId extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
     return Container(
+      height: 50.sp,
       decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: CommonColors.sublogo.withOpacity(0.3),
-              spreadRadius: 0,
-              blurRadius: 5.0,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ]
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: CommonColors.sublogo.withOpacity(0.3),
+          //     spreadRadius: 0,
+          //     blurRadius: 5.0,
+          //     offset: Offset(0, 3), // changes position of shadow
+          //   ),
+          // ]
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -40,7 +41,7 @@ class LoginInputId extends StatelessWidget {
               hintStyle: TextStyle(color: CommonColors.gray),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: CommonColors.white,
+                  color: context.theme.canvasColor,
                   width: 1,
                 ),
                 //borderRadius: BorderRadius.circular(10),
@@ -48,7 +49,7 @@ class LoginInputId extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: CommonColors.white,
+                  color: context.theme.canvasColor,
                   width: 1,
                 ),
                 //borderRadius: BorderRadius.circular(10),
