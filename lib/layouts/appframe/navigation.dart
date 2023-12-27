@@ -14,6 +14,8 @@ import '../../utils/constants.dart';
 import '../../utils/theme/text_theme.dart';
 import '../../utils/utility.dart';
 import '../config/config.dart';
+import 'menu_list_design.dart';
+import 'menu_list_drawer.dart';
 
 class Navigation extends GetView<NavigationController> {
   DateTime? currentBackPressTime;
@@ -71,7 +73,7 @@ class Navigation extends GetView<NavigationController> {
         body: Obx(() {
           switch (NAVIGATION_BAR_ITEM.values[controller.currentIndex.value]) {
             case NAVIGATION_BAR_ITEM.MENU:
-              return MenuList();
+              return MenuListDrawer();
             case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
             case NAVIGATION_BAR_ITEM.CONFIG:

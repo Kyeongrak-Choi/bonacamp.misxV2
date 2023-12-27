@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../utils/menu_manager.dart';
@@ -13,14 +14,14 @@ class CardTitleMenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            menuTitleName,
-            style: context.textTheme.displayLarge,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
+        // Container(
+        //   alignment: Alignment.centerLeft,
+        //   child: Text(
+        //     menuTitleName,
+        //     style: context.textTheme.displayLarge,
+        //     overflow: TextOverflow.ellipsis,
+        //   ),
+        // ),
         Card(
           elevation: 0,
           margin: EdgeInsets.zero,
@@ -46,20 +47,21 @@ class CardTitleMenuList extends StatelessWidget {
         color: context.theme.cardColor,
         child: Row(
           children: [
-            Icon(
-              iconData,
-              size: 20,
-              color: context.theme.primaryColor,
-            ),
-            SizedBox(width: 20),
+            // Icon(
+            //   iconData,
+            //   size: 20,
+            //   color: context.theme.primaryColor,
+            // ),
+            // SizedBox(width: 20),
             Text(
               title,
-              style: context.textTheme.displayMedium,
+              //style: context.textTheme.displayMedium,
+              style: TextStyle(fontSize:  16.sp, color: Colors.black),
             ),
             Spacer(),
             Icon(
               Icons.arrow_forward_ios,
-              size: 17,
+              size:  16,
               color: context.theme.primaryColor,
             ),
           ],
