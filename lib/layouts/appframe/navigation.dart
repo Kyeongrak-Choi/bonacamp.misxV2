@@ -51,7 +51,7 @@ class Navigation extends GetView<NavigationController> {
           //     ShowUserInfoDialog(context);
           //   },
           // ),
-          backgroundColor: context.theme.canvasColor,
+          backgroundColor: Colors.white,
           // actions: [
           //   // IconButton(
           //   //     icon: Icon(Icons.notifications_none_outlined),

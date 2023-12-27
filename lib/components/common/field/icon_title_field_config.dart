@@ -3,18 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/utils/theme/text_theme.dart';
 
-class IconTitleFieldDash extends StatelessWidget {
+class IconTitleFieldConfig extends StatelessWidget {
   String titleName;
   var value;
-  IconData iconData;
 
-  IconTitleFieldDash({required this.titleName, this.value, required this.iconData});
+  IconTitleFieldConfig({required this.titleName, this.value});
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       Expanded(
-        flex: 2,
+        flex: 5,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
           child: Text(
@@ -26,23 +25,12 @@ class IconTitleFieldDash extends StatelessWidget {
         ),
       ),
       Expanded(
-        flex: 10,
+        flex: 5,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
           child: Text(
             value,
-            style: context.textTheme.titleLarge,
-            textAlign: TextAlign.end,
-          ),
-        ),
-      ),
-      Expanded(
-        flex: 1,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
-          child: Text(
-            '원',
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
+            style: TextStyle(fontSize: 16.sp, color: Colors.black),
             textAlign: TextAlign.end,
           ),
         ),

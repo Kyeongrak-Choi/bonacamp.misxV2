@@ -13,6 +13,7 @@ class Themes {
     primaryColorDark: DarkColors.basic,
     canvasColor: LightColors.background,
     shadowColor: LightColors.textform,
+    focusColor: LightColors.font,
     iconTheme: const IconThemeData(
       color: DarkColors.basic,
     ),
@@ -37,6 +38,7 @@ class Themes {
     primaryColorDark: DarkColors.basic,
     canvasColor: DarkColors.background,
     shadowColor: DarkColors.textform,
+    focusColor: DarkColors.font,
     iconTheme: const IconThemeData(
       color: LightColors.basic,
     ),
