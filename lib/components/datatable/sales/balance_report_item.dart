@@ -107,7 +107,7 @@ class BalanceReportItem extends StatelessWidget {
 void ShowBalanceDetailDialog(var detailList, context) {
   Get.defaultDialog(
       title: "\n채권 현황 상세보기",
-      titleStyle: TextStyle(color: CommonColors.signature),
+      titleStyle: TextStyle(color: CommonColors.primary),
       content: Container(
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.85,

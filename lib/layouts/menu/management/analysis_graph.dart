@@ -15,6 +15,7 @@ import '../../../components/common/emptyWidget.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class AnalysisGraph extends StatelessWidget {
@@ -22,63 +23,70 @@ class AnalysisGraph extends StatelessWidget {
   Widget build(context) {
     Get.put(AnalysisGraphController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_analysis_graph'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<AnalysisGraphController>().visible.value),
-                  onPressed: () {
-                    Get.find<AnalysisGraphController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_analysis_graph'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<AnalysisGraphController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodYearmonthPicker(true),
-                            OptionCbBranch(),
-                            OptionBtnSearch(ROUTE_MENU_GRAPH),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(15),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<AnalysisGraphController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(15),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(15),
+                            child: Column(
+                              children: [
+                                OptionPeriodYearmonthPicker(true),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_GRAPH),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        height: Get.find<AnalysisGraphController>().visible.value ? 20 : 0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(15),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(15),
+                            child: setChild(),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<AnalysisGraphController>().visible.value),
+                      onPressed: () {
+                        Get.find<AnalysisGraphController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                  SizedBox(
-                    height: Get.find<AnalysisGraphController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: setChild(),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

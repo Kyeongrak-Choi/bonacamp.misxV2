@@ -20,6 +20,7 @@ import '../../../models/menu/sales/sales_rental_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesRentalLedger extends StatelessWidget {
@@ -27,90 +28,101 @@ class SalesRentalLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRentalLedgerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_sales_rental_ledger'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<SalesRentalLedgerController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesRentalLedgerController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_sales_rental_ledger'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                      visible: Get.find<SalesRentalLedgerController>().visible.value,
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<SalesRentalLedgerController>().visible.value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
+                          padding: EdgeInsetsDirectional.all(15),
                           child: Column(
                             children: [
-                              OptionPeriodPicker(),
-                              OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
-                              OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
+                              SumTitleTable('기간 매출 및 대여 합계'),
+                              SumItemTable('매출액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotal), '공급가\n+부가세',
+                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumAmount)),
+                              SumItemTable('입금액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumDeposit), '채권잔액',
+                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumBalance)),
+                              SumItemTable('대여금\n(장기)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumLongRent), '대여금\n(단기)',
+                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumShortRent)),
+                              SumItemTable('대여금\n(합계)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalRent), '채권\n+대여금',
+                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalBalance)),
                             ],
                           ),
                         ),
-                      )),
-                  Visibility(
-                    visible: !Get.find<SalesRentalLedgerController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
                       ),
+                    ),
+                    Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: Column(
                           children: [
-                            SumTitleTable('기간 매출 및 대여 합계'),
-                            SumItemTable('매출액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotal), '공급가\n+부가세',
-                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumAmount)),
-                            SumItemTable('입금액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumDeposit), '채권잔액',
-                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumBalance)),
-                            SumItemTable('대여금\n(장기)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumLongRent), '대여금\n(단기)',
-                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumShortRent)),
-                            SumItemTable('대여금\n(합계)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalRent), '채권\n+대여금',
-                                numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalBalance)),
+                            Visibility(
+                                visible: Get.find<SalesRentalLedgerController>().visible.value,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: context.theme.cardColor,
+                                    borderRadius: BorderRadius.circular(15),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.all(15),
+                                    child: Column(
+                                      children: [
+                                        OptionPeriodPicker(),
+                                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                        OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
+                                      ],
+                                    ),
+                                  ),
+                                )),
+                            SizedBox(
+                              height: Get.find<SalesRentalLedgerController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
-                        ),
-                      ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesRentalLedgerController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesRentalLedgerController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

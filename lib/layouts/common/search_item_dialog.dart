@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../components/common/dialog/item/search_item_listview.dart';
 import '../../components/common/dialog/item/search_item_option.dart';
 import '../../components/common/dialog/purchase/search_purchase_listview.dart';
-import '../../utils/constants.dart';
 
 class SearchItemDialog extends StatelessWidget {
   @override
@@ -21,7 +20,7 @@ class SearchItemDialog extends StatelessWidget {
           appBar: AppBar(
             title: Text('title_search_item'.tr),
             titleTextStyle: context.textTheme.displayLarge,
-            backgroundColor: APPBAR_BACKGROUND_COLOR,
+            backgroundColor: context.theme.canvasColor,
             iconTheme: context.theme.iconTheme,
           ),
           backgroundColor: context.theme.cardColor,

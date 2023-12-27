@@ -1,138 +1,203 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'color_manager.dart';
 
 TextTheme textThemeLight() {
   return TextTheme(
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: LightColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: LightColors.font,
     ),
+    // Heading 3
     headlineLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.black,
+      color: LightColors.font,
     ),
+    // Heading 4
+    headlineMedium: GoogleFonts.nanumGothic(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: LightColors.font,
+    ),
+    // Heading 5
+    headlineSmall: GoogleFonts.nanumGothic(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: LightColors.font,
+    ),
+    // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      fontSize: 20.sp,
+      color: LightColors.font,
     ),
+    // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      fontSize: 18.sp,
+      color: LightColors.paragraphFont,
     ),
+    // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      fontSize: 16.sp,
+      color: LightColors.paragraphFont,
     ),
+    // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.dark,
+      fontSize: 14.sp,
+      color: LightColors.paragraphFont,
     ),
+    // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      color: CommonColors.dark,
-    ),
-    bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 10.0,
-      color: CommonColors.dark,
+      fontSize: 13.sp,
+      color: LightColors.paragraphFont,
     ),
   );
 }
 
 TextTheme textThemeDark() {
   return TextTheme(
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 13.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 3
     headlineLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.white,
+      color: DarkColors.font,
     ),
+    // Heading 4
+    headlineMedium: GoogleFonts.nanumGothic(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 5
+    headlineSmall: GoogleFonts.nanumGothic(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
-      fontSize: 16.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      fontSize: 20.sp,
+      color: DarkColors.font,
     ),
+    // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      fontSize: 18.sp,
+      color: DarkColors.paragraphFont,
     ),
+    // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.gray,
+      fontSize: 16.sp,
+      color: DarkColors.paragraphFont,
     ),
+    // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      color: CommonColors.white,
+      fontSize: 14.sp,
+      color: DarkColors.paragraphFont,
     ),
+    // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
-      color: CommonColors.white,
-    ),
-    bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 10.0,
-      color: CommonColors.white,
+      fontSize: 13.sp,
+      color: DarkColors.paragraphFont,
     ),
   );
 }
 
 TextTheme textThemeCommon() {
   return TextTheme(
+    // Display 1
     displayLarge: GoogleFonts.nanumGothic(
-      fontSize: 18.0,
+      fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.signature,
+      color: DarkColors.font,
     ),
+    // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
-      fontSize: 15.0,
+      fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: DarkColors.font,
     ),
+    // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
-      fontSize: 12.0,
+      fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      color: DarkColors.font,
     ),
+    // Heading 3
+    headlineLarge: GoogleFonts.nanumGothic(
+      fontSize: 40.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 4
+    headlineMedium: GoogleFonts.nanumGothic(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 5
+    headlineSmall: GoogleFonts.nanumGothic(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font,
+    ),
+    // Heading 6
+    titleLarge: GoogleFonts.nanumGothic(
+      fontSize: 20.sp,
+      color: DarkColors.font,
+    ),
+    // Paragraph 1
+    titleMedium: GoogleFonts.nanumGothic(
+      fontSize: 18.sp,
+      color: DarkColors.font,
+    ),
+    // Paragraph 2
+    titleSmall: GoogleFonts.nanumGothic(
+      fontSize: 16.sp,
+      color: DarkColors.paragraphFont,
+    ),
+    // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
-      fontSize: 14.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+      fontSize: 14.sp,
+      color: CommonColors.copyright,
     ),
-    bodySmall: GoogleFonts.nanumGothic(
-      fontSize: 10.0,
-      //fontWeight: FontWeight.bold,
-      color: CommonColors.dark,
+    // Paragraph 4
+    bodyMedium: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: CommonColors.copyright,
     ),
   );
 }

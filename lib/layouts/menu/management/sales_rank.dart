@@ -19,6 +19,7 @@ import '../../../models/menu/management/sales_rank_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesRank extends StatelessWidget {
@@ -26,66 +27,73 @@ class SalesRank extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRankController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_sales_rank'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesRankController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_sales_rank'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<SalesRankController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionPeriodPicker(),
-                            OptionCbBranch(),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
-                          ],
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.all(15),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: Get.find<SalesRankController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(15),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(15),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.find<SalesRankController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+                      SizedBox(
+                        height: Get.find<SalesRankController>().visible.value ? 20 : 0,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(15),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(15),
+                            child: ListView(
+                              children: <Widget>[setChild()],
+                            ),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesRankController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

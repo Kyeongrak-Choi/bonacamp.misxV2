@@ -7,6 +7,7 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -29,61 +30,70 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-              title: Text('menu_sub_total'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
-                  onPressed: () {
-                    Get.find<OverAllController>().setVisible();
-                  },
-                ),
-              ]),
+            title: Text('menu_sub_total'.tr),
+          ),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-                padding: EdgeInsetsDirectional.all(20),
-                child: Column(
-                  children: [
-                    Visibility(
-                        visible: Get.find<OverAllController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(20),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionCbBranch(),
-                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                              ],
+            child: Stack(
+              children: [
+                Padding(
+                    padding: EdgeInsetsDirectional.all(15),
+                    child: Column(
+                      children: [
+                        Visibility(
+                            visible: Get.find<OverAllController>().visible.value,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                                borderRadius: BorderRadius.circular(20),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.all(15),
+                                child: Column(
+                                  children: [
+                                    OptionPeriodPicker(),
+                                    OptionCbBranch(),
+                                    OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                                  ],
+                                ),
+                              ),
+                            )),
+                        SizedBox(
+                          height: Get.find<OverAllController>().visible.value ? 20 : 0,
+                        ),
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(15),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(15),
+                              child: OverAllTable(),
                             ),
                           ),
-                        )),
-                    SizedBox(
-                      height: Get.find<OverAllController>().visible.value ? 20 : 0,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.all(20),
-                          child: OverAllTable(),
-                        ),
-                      ),
+                      ],
+                    )),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
+                      onPressed: () {
+                        Get.find<OverAllController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
-                  ],
-                )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }

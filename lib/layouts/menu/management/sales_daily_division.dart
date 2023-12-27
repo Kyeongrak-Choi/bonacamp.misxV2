@@ -16,11 +16,13 @@ import '../../../components/common/button/option_btn_visible.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_cb_team.dart';
 import '../../../components/common/emptyWidget.dart';
+import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/management/sales_daily_division_item.dart';
 import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesDailyDivision extends StatelessWidget {
@@ -29,62 +31,24 @@ class SalesDailyDivision extends StatelessWidget {
     Get.put(SalesDailyDivisionController());
     var divisionController = Get.find<SalesDailyDivisionController>();
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_salesdaily_division'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: divisionController.visible.value),
-                  onPressed: () {
-                    divisionController.setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_salesdaily_division'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: divisionController.visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: Column(
-                          children: [
-                            OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                            OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
-                          ],
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !divisionController.visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
                         ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    flex: 55,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(10),
-                        child: SingleChildScrollView(
-                          physics: RangeMaintainingScrollPhysics(),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
                           child: Column(
                             children: [
+                              SumTitleTable('일자 합계'),
                               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                                 Expanded(
                                   flex: 3,
@@ -92,7 +56,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       '',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.start,
                                     ),
                                   ),
@@ -103,7 +67,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       'BOX',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),
@@ -114,7 +78,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       'EA',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),
@@ -125,7 +89,7 @@ class SalesDailyDivision extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                                     child: Text(
                                       '금액',
-                                      style: context.textTheme.displaySmall,
+                                      style: context.textTheme.titleSmall,
                                       textAlign: TextAlign.end,
                                     ),
                                   ),
@@ -178,31 +142,72 @@ class SalesDailyDivision extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    flex: 45,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
+                    Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: divisionController.visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
+                                      OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
+                                      OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              flex: 45,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesDailyDivisionController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesDailyDivisionController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
+                    ),
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

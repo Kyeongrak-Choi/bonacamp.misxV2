@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../layouts/appframe/dashboard.dart';
 import '../../utils/utility.dart';
-import '../common/field/icon_title_field.dart';
+import '../common/field/icon_title_field_dash.dart';
 
 class DashBoardCurrent extends StatelessWidget {
   @override
@@ -14,65 +14,57 @@ class DashBoardCurrent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
+              height: 60 * 4,
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
-                borderRadius: BorderRadius.circular(20),
-                shape: BoxShape.rectangle,
+                //borderRadius: BorderRadius.circular(20),
+                //shape: BoxShape.rectangle,
+                border: Border(
+                  top: BorderSide(color: Colors.grey.withOpacity(0.3)),
+                ),
               ),
               child: Column(
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.all(20),
-                      child: Text(
-                        'title_current'.tr,
-                        textAlign: TextAlign.center,
-                        style: context.textTheme.headlineLarge,
-                      ),
-                    ),
-                  ),
-                  // dummy
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
-                      titleName: '매 출'.tr,
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
+                    child: IconTitleFieldDash(
+                      titleName: '매출'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.salesAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
-                      titleName: '매 입'.tr,
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    child: IconTitleFieldDash(
+                      titleName: '매입'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.purchaseAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
-                      titleName: '회 수'.tr,
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    child: IconTitleFieldDash(
+                      titleName: '회수'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositCollect) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child: IconTitleField(
-                      titleName: '입 금'.tr,
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    child: IconTitleFieldDash(
+                      titleName: '입금'.tr,
                       value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositAmount) : '0',
                       iconData: Icons.label_outlined,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 20),
-                    child: IconTitleField(
-                      titleName: '채 권'.tr,
-                      value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
-                      iconData: Icons.label_outlined,
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
+                  //   child: IconTitleFieldDash(
+                  //     titleName: '채  권'.tr,
+                  //     value: controller.controllerCurrentModel != null ? numberFormat.format(controller.controllerCurrentModel.depositBalance) : '0',
+                  //     iconData: Icons.label_outlined,
+                  //   ),
+                  // ),
                 ],
               )),
         ],

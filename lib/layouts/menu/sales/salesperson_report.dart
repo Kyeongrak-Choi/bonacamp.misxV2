@@ -22,6 +22,7 @@ import '../../../models/menu/sales/salesperson_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesPersonReport extends StatelessWidget {
@@ -29,93 +30,101 @@ class SalesPersonReport extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_salesperson_report'.tr),
-              titleTextStyle: context.textTheme.displayLarge,
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<SalesPersonReportController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesPersonReportController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_salesperson_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-              padding: EdgeInsetsDirectional.all(20),
-              child: Column(
-                children: [
-                  Visibility(
-                    visible: Get.find<SalesPersonReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<SalesPersonReportController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('기간 합계'),
+                              SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
+                              SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
+                              SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
+                                  numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
+                            ],
+                          ),
+                        ),
                       ),
+                    ),
+                    Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: Column(
                           children: [
-                            OptionPeriodPicker(),
-                            OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                            OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                            OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
+                            Visibility(
+                              visible: Get.find<SalesPersonReportController>().visible.value,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
+                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                      OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
-                  ),
-                  Visibility(
-                    visible: !Get.find<SalesPersonReportController>().visible.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Column(
-                          children: [
-                            SumTitleTable('기간 합계'),
-                            SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
-                                numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
-                            SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
-                                numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
-                            SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
-                                numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
-                          ],
-                        ),
-                      ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesPersonReportController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesPersonReportController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
-                  SizedBox(
-                    height: !Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: context.theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: ListView(
-                          children: <Widget>[setChild()],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ));

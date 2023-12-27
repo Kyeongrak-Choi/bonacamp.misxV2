@@ -8,7 +8,10 @@ class PolicyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () => Get.toNamed(ROUTE_POLICY),
-      child: Text('privacy_policy'.tr),
+      child: Text(
+        'privacy_policy'.tr,
+        style: TextStyle(decoration: TextDecoration.underline),
+      ),
     );
   }
 }

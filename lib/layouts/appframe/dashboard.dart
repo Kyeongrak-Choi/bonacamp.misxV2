@@ -2,19 +2,17 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:misxV2/components/dashboard/dashboard_Tab.dart';
 import 'package:misxV2/components/dashboard/dashboard_admob.dart';
-import 'package:misxV2/components/dashboard/dashboard_current.dart';
-import 'package:misxV2/components/dashboard/dashboard_month.dart';
 import 'package:misxV2/models/system/branch.dart';
 import 'package:misxV2/models/system/common.dart';
 import 'package:misxV2/models/system/dashboard_status.dart';
 import 'package:misxV2/models/system/team.dart';
 import 'package:misxV2/models/system/warehouse.dart';
 import 'package:misxV2/utils/utility.dart';
-import 'package:sn_progress_dialog/options/cancel.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart' as sn;
 
 import '../../components/dashboard/dashboard_graph.dart';
 import '../../models/common/chart_spot.dart';
@@ -23,15 +21,15 @@ import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
-import '../../utils/theme/color_manager.dart';
 
 class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     Get.put(NetworkManager());
     Get.put(DashBoardController());
     return Scaffold(
-      backgroundColor: context.theme.canvasColor,
+      backgroundColor: Colors.white,
       body: RefreshIndicator(
           onRefresh: () async {
             Get.find<DashBoardController>().getDashBoard();
@@ -40,27 +38,22 @@ class DashBoard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
+                Padding(
                   padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                      ? EdgeInsetsDirectional.all(5)
+                      ? EdgeInsetsDirectional.all(15)
                       : EdgeInsetsDirectional.all(0),
-                  child: setChild(),
+                  child: Container(
+                    child: setChild(),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  child: DashBoardTab(),
                 ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: DashBoardCurrent(), // 당일 현황
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: DashBoardMonth(), // 당월 현황
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(20),
-                        child: DashboardGraph(), // 차트
-                      ),
+                      DashboardGraph(),
                     ],
                   ),
                 )
@@ -153,16 +146,17 @@ class DashBoardController extends GetxController {
 
     dio = await reqApi(param);
 
-    sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
+    // sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      pd.show(
-        max: 1000,
-        msg: 'Searching',
-        cancel: Cancel(),
-        backgroundColor: CommonColors.white,
-        progressValueColor: CommonColors.signature,
-        msgColor: CommonColors.signature,
-      );
+      // pd.show(
+      //   max: 1000,
+      //   msg: 'Searching',
+      //   cancel: Cancel(),
+      //   backgroundColor: CommonColors.white,
+      //   progressValueColor: CommonColors.primary,
+      //   msgColor: CommonColors.primary,
+      // );
+      ShowProgress(Get.context);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
       final resDashboard = await dio
@@ -187,10 +181,10 @@ class DashBoardController extends GetxController {
 
         update();
       }
-      pd.close();
+      Navigator.pop(Get.context!);
       //ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
-      pd.close();
+      Navigator.pop(Get.context!);
       if (e.response != null) {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }

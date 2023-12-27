@@ -12,8 +12,10 @@ class Themes {
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
     canvasColor: LightColors.background,
+    shadowColor: LightColors.textform,
+    focusColor: LightColors.font,
     iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: DarkColors.basic,
     ),
     // backgorund
     cardColor: LightColors.basic,
@@ -35,6 +37,8 @@ class Themes {
     primaryColorLight: LightColors.basic,
     primaryColorDark: DarkColors.basic,
     canvasColor: DarkColors.background,
+    shadowColor: DarkColors.textform,
+    focusColor: DarkColors.font,
     iconTheme: const IconThemeData(
       color: LightColors.basic,
     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
 class LoginLogo extends StatelessWidget {
@@ -7,25 +8,32 @@ class LoginLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
         // Expanded(
         //     child: Image.asset(
         //   'lib/assets/icons/logo.png',
         // )),
-        Expanded(
-          child: Text(
-            'DIONYSOS\n\n경영관리',
-            style: TextStyle(
-              fontSize: 30, // 폰트 크기
-              fontFamily: 'Black Han Sans', // 사용할 폰트 패밀리
-              fontWeight: FontWeight.bold, // 폰트 굵기
-              color: CommonColors.signature, // 텍스트 색상
-            ),
-            textAlign: TextAlign.center,
+        Text(
+          'DIONYSOS',
+          //style: context.textTheme.headlineLarge,
+          style: TextStyle(
+            fontSize: 40.sp,
+            color: CommonColors.primary,
+            fontWeight: FontWeight.bold,
           ),
-        )
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 20.sp,
+        ),
+        Text(
+          '디오니소스 경영관리 서비스',
+          //style: context.textTheme.titleSmall,
+          style: TextStyle(fontSize: 16.sp, color: CommonColors.sublogo),
+          textAlign: TextAlign.center,
+        ),
       ],
     );
   }

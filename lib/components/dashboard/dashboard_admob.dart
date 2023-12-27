@@ -14,9 +14,9 @@ class DashBoardAdmob extends StatelessWidget {
               builder: (BuildContext context) {
                 return Container(
                   width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  //margin: EdgeInsets.symmetric(horizontal: 15.0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     child: image,
                   ),
                 );
@@ -26,7 +26,8 @@ class DashBoardAdmob extends StatelessWidget {
           options: CarouselOptions(
             height: 150,
             aspectRatio: 16 / 9,
-            viewportFraction: 1, // 비율조정
+            viewportFraction: 1,
+            // 비율조정
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,

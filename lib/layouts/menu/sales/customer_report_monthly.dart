@@ -22,6 +22,7 @@ import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerReportMonthly extends StatelessWidget {
@@ -29,68 +30,75 @@ class CustomerReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_customer_monthly'.tr),
-              backgroundColor: APPBAR_BACKGROUND_COLOR,
-              titleTextStyle: context.textTheme.displayLarge,
-              iconTheme: context.theme.iconTheme,
-              actions: [
-                IconButton(
-                  icon: OptionBtnVisible(visible: Get.find<CustomerReportMonthlyController>().visible.value),
-                  onPressed: () {
-                    Get.find<CustomerReportMonthlyController>().setVisible();
-                  },
-                ),
-              ]),
+          appBar: AppBar(title: Text('menu_sub_customer_monthly'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
-            child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
-                child: Column(
-                  children: [
-                    Visibility(
-                        visible: Get.find<CustomerReportMonthlyController>().visible.value,
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                                borderRadius: BorderRadius.circular(20),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
-                                child: Column(
-                                  children: [
-                                    OptionTwoContent(OptionYearMonthPicker(),OptionCbBranch() ),
-                                    OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
-                                    OptionTwoContent(OptionDialogCustomer(), OptionCbSalesType()),
-                                    OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
-                                  ],
+            child: Stack(
+              children: [
+                Padding(
+                    padding: EdgeInsetsDirectional.all(15),
+                    child: Column(
+                      children: [
+                        Visibility(
+                            visible: Get.find<CustomerReportMonthlyController>().visible.value,
+                            child: Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: context.theme.cardColor,
+                                    borderRadius: BorderRadius.circular(15),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.all(15),
+                                    child: Column(
+                                      children: [
+                                        OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                                        OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
+                                        OptionTwoContent(OptionDialogCustomer(), OptionCbSalesType()),
+                                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
+                            )),
+                        SizedBox(
+                          height: Get.find<CustomerReportMonthlyController>().visible.value ? 20 : 0,
+                        ),
+                        Expanded(
+                          flex: Get.find<CustomerReportMonthlyController>().visible.value ? 4 : 3,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(15),
+                              shape: BoxShape.rectangle,
                             ),
-                          ],
-                        )),
-                    SizedBox(
-                      height: Get.find<CustomerReportMonthlyController>().visible.value ? 20 : 0,
-                    ),
-                    Expanded(
-                      flex: Get.find<CustomerReportMonthlyController>().visible.value ? 4 : 3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                          borderRadius: BorderRadius.circular(20),
-                          shape: BoxShape.rectangle,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.all(15),
+                              child: setChild(),
+                            ),
+                          ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                          child: setChild(),
-                        ),
-                      ),
+                      ],
+                    )),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<CustomerReportMonthlyController>().visible.value),
+                      onPressed: () {
+                        Get.find<CustomerReportMonthlyController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
-                  ],
-                )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }

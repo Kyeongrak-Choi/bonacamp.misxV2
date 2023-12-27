@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/theme/text_theme.dart';
+
 class OptionDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,11 +13,11 @@ class OptionDatePicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(20),
+            padding: EdgeInsetsDirectional.all(15),
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.titleMedium,
+              style: textThemeCommon().bodyMedium,
             ),
           ),
         ),

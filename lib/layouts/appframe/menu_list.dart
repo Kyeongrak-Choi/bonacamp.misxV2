@@ -23,7 +23,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),
                       )),
                 ),
@@ -36,7 +36,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_sales'.tr, iconMenuList: salesAnalysisMaster),
                       )),
                 ),
@@ -49,7 +49,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_purchase'.tr, iconMenuList: purchaseAnalysisMaster),
                       )),
                 ),
@@ -62,7 +62,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_support'.tr, iconMenuList: supportStatusMaster),
                       )),
                 ),
@@ -75,7 +75,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_location'.tr, iconMenuList: locationSearchMaster),
                       )),
                 ),
@@ -88,7 +88,7 @@ class MenuList extends StatelessWidget {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.all(20),
+                        padding: EdgeInsetsDirectional.all(15),
                         child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster),
                       )),
                 ),

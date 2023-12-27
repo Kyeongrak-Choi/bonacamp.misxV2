@@ -6,7 +6,6 @@ import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/inventory/inventory_report.dart';
 import '../../../layouts/menu/inventory/lend_report_customer.dart';
@@ -34,6 +33,7 @@ import '../../../layouts/menu/support/rent_asset_history.dart';
 import '../../../layouts/menu/support/rental_report.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
+import '../../../utils/utility.dart';
 
 class OptionBtnSearch extends StatelessWidget {
   var menu;
@@ -49,21 +49,23 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.all(20),
+          padding: EdgeInsetsDirectional.all(15),
           child: Container(
-            color: CommonColors.signature,
+            color: CommonColors.primary,
             height: 40,
             child: ElevatedButton(
                 onPressed: () async {
-                  ProgressDialog pd = ProgressDialog(context: context);
-                  pd.show(
-                    max: 1000,
-                    msg: 'Searching',
-                    cancel: Cancel(),
-                    backgroundColor: CommonColors.white,
-                    progressValueColor: CommonColors.signature,
-                    msgColor: CommonColors.signature,
-                  );
+                  // ProgressDialog pd = ProgressDialog(context: context);
+                  // pd.show(
+                  //   max: 1000,
+                  //   msg: 'Searching',
+                  //   cancel: Cancel(),
+                  //   backgroundColor: CommonColors.white,
+                  //   progressValueColor: CommonColors.primary,
+                  //   msgColor: CommonColors.primary,
+                  // );
+
+                  ShowProgress(context);
 
                   try {
                     switch (menu) {
@@ -219,15 +221,15 @@ class OptionBtnSearch extends StatelessWidget {
                         break;
                     }
                   } catch (e) {
-                    pd.close();
+                    Navigator.pop(context);
                   }
 
-                  pd.close();
+                  Navigator.pop(context);
                 },
                 child: Icon(Icons.search, color: CommonColors.white),
                 style: ElevatedButton.styleFrom(
-                  //foregroundColor: CommonColors.signature,
-                  backgroundColor: CommonColors.signature,
+                  //foregroundColor: CommonColors.primary,
+                  backgroundColor: CommonColors.primary,
                 )),
           ),
         )),

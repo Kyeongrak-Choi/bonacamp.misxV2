@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 
 import '../../../models/system/warehouse.dart';
 import '../../../utils/constants.dart';
+import '../../../utils/theme/text_theme.dart';
 
 class OptionCbWarehouses extends StatelessWidget {
   @override
@@ -14,11 +15,11 @@ class OptionCbWarehouses extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(20),
+            padding: EdgeInsetsDirectional.all(15),
             child: Text(
               'opt_warehouse'.tr,
               textAlign: TextAlign.start,
-              style: context.textTheme.titleMedium,
+              style: textThemeCommon().bodyMedium,
             ),
           ),
         ),

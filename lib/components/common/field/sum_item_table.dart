@@ -18,7 +18,7 @@ class SumItemTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
         child: Column(children: [
           Row(
             children: [

@@ -37,8 +37,8 @@ void ShowSnackBar(type, content) {
     snackPosition: SnackPosition.TOP,
     forwardAnimationCurve: Curves.elasticInOut,
     reverseAnimationCurve: Curves.easeOut,
-    backgroundColor: CommonColors.white,
-    colorText: CommonColors.dark,
+    backgroundColor: CommonColors.primary,
+    colorText: CommonColors.white,
   );
 }
 
@@ -47,7 +47,7 @@ void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE.SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: CommonColors.signature,
+      dialogBackgroundColor: CommonColors.primary,
       title: title,
       titleColor: CommonColors.dark,
       message: content,
@@ -55,7 +55,7 @@ void ShowDialog(type, title, content, context) {
       buttonOkText: '',
       buttonOkColor: CommonColors.dark,
       buttonCancelText: '',
-      buttonCancelBorderColor: CommonColors.signature,
+      buttonCancelBorderColor: CommonColors.primary,
       buttonOkOnPressed: () => Get.offAllNamed(ROUTE_LOGIN),
       dialogRadius: 15.0,
       buttonRadius: 18.0,
@@ -68,11 +68,11 @@ void ShowDialog(type, title, content, context) {
         color: CommonColors.red,
       ),
     );
-    choiceDialog.show(context, barrierColor: CommonColors.signature);
+    choiceDialog.show(context, barrierColor: CommonColors.primary);
   } else if (type == DIALOG_TYPE.MSG) {
     // Message Dialog
     MessageDialog messageDialog = MessageDialog(
-      dialogBackgroundColor: CommonColors.signature,
+      dialogBackgroundColor: CommonColors.primary,
       buttonOkColor: CommonColors.white,
       title: title,
       titleColor: CommonColors.white,
@@ -83,10 +83,10 @@ void ShowDialog(type, title, content, context) {
       buttonRadius: 18.0,
       // iconButtonOk: Icon(Icons.one_k)
     );
-    messageDialog.show(context, barrierColor: CommonColors.signature);
+    messageDialog.show(context, barrierColor: CommonColors.primary);
   } else if (type == DIALOG_TYPE.NOTICE) {
     MessageDialog messageDialog = MessageDialog(
-      dialogBackgroundColor: CommonColors.signature,
+      dialogBackgroundColor: CommonColors.primary,
       title: title,
       titleColor: CommonColors.white,
       message: content,
@@ -97,23 +97,34 @@ void ShowDialog(type, title, content, context) {
       buttonRadius: 18.0,
       // iconButtonOk: Icon(Icons.one_k)
     );
-    messageDialog.show(context, barrierColor: CommonColors.signature);
+    messageDialog.show(context, barrierColor: CommonColors.primary);
   }
 }
 
 // Progress Bar
-void ShowProgress(context, dynamic, bool) {
-  ProgressDialog progressDialog = ProgressDialog(
+void ShowProgress(context) {
+  showDialog(
+    barrierDismissible: false,
     context: context,
-    backgroundColor: CommonColors.signature,
-    textColor: CommonColors.dark,
-    loadingText: dynamic,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        // shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(8.0)
+        // ),
+        content: SizedBox(
+          height: 50,
+          child: Center(
+              child: SizedBox(
+            child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation(CommonColors.primary), strokeWidth: 10.0),
+            height: 50.0,
+            width: 50.0,
+          )),
+        ),
+      );
+    },
   );
-  if (bool) {
-    progressDialog.show();
-  } else {
-    progressDialog.dismiss();
-  }
 }
 
 // 사업자번호 포맷변환 ( ex: 111-11-11111 )

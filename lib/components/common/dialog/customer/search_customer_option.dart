@@ -31,7 +31,7 @@ class SearchCustomerOption extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.find<SearchCustomerListController>().search();
+                      Get.find<SearchCustomerListController>().search(context);
                     },
                     child: Icon(
                       Icons.search,

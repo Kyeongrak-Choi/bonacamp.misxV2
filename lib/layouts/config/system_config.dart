@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
 
-import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
 
 // System Config Setting
@@ -13,7 +12,7 @@ class SystemConfig extends StatelessWidget {
       appBar: AppBar(
         title: Text('system_setting'.tr),
         titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: APPBAR_BACKGROUND_COLOR,
+        backgroundColor: context.theme.canvasColor,
         iconTheme: context.theme.iconTheme,
       ),
       body: Container(

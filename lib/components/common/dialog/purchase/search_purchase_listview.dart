@@ -9,7 +9,6 @@ import 'package:misxV2/models/common/customer.dart';
 import 'package:misxV2/utils/network/network_manager.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/utility.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../../models/system/userinfo.dart';
 import '../../../../utils/constants.dart';
@@ -67,16 +66,17 @@ class SearchPurchaseListController extends GetxController {
     searchTxt = text;
   }
 
-  void search() async {
-    ProgressDialog pd = ProgressDialog(context: Get.context);
-    pd.show(
-      max: 1000,
-      msg: 'Searching',
-      cancel: Cancel(),
-      backgroundColor: CommonColors.white,
-      progressValueColor: CommonColors.signature,
-      msgColor: CommonColors.signature,
-    );
+  void search(context) async {
+    // ProgressDialog pd = ProgressDialog(context: Get.context);
+    // pd.show(
+    //   max: 1000,
+    //   msg: 'Searching',
+    //   cancel: Cancel(),
+    //   backgroundColor: CommonColors.white,
+    //   progressValueColor: CommonColors.primary,
+    //   msgColor: CommonColors.primary,
+    // );
+    ShowProgress(context);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
     var dataObjsJson;
@@ -91,7 +91,7 @@ class SearchPurchaseListController extends GetxController {
       final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
       if (response.statusCode == 200) {
-        pd.close();
+        Navigator.pop(context);
         if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
           ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
@@ -99,9 +99,8 @@ class SearchPurchaseListController extends GetxController {
           parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
         }
       }
-      pd.close();
     } on DioException catch (e) {
-      pd.close();
+      Navigator.pop(context);
       if (e.response != null) {
         ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
