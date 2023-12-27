@@ -30,10 +30,7 @@ class PurchaseLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(PurchaseLedgerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_purchase_ledger'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_purchase_ledger'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -88,7 +85,7 @@ class PurchaseLedger extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
+                                      OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
                                       OptionBtnSearch(ROUTE_MENU_PURCHASE_LEDGER),
                                     ],
                                   ),

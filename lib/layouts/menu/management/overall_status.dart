@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -91,10 +90,8 @@ class OverallStatus extends StatelessWidget {
                       backgroundColor: Colors.white,
                       elevation: 1,
                     ),
-
                   ),
                 ),
-
               ],
             ),
           ),

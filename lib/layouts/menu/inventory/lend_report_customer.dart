@@ -28,10 +28,7 @@ class LendReportCustomer extends StatelessWidget {
   Widget build(context) {
     Get.put(LendReportCustomerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_lend_report_customer'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_lend_report_customer'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

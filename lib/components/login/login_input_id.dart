@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/utils/constants.dart';
 
 import '../../utils/theme/color_manager.dart';
-import '../../utils/theme/text_theme.dart';
 import 'login_btn.dart';
 
 class LoginInputId extends StatelessWidget {
@@ -23,7 +22,7 @@ class LoginInputId extends StatelessWidget {
           //     offset: Offset(0, 3), // changes position of shadow
           //   ),
           // ]
-      ),
+          ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +44,7 @@ class LoginInputId extends StatelessWidget {
                   width: 1,
                 ),
                 //borderRadius: BorderRadius.circular(10),
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0),top: Radius.circular(10)),
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0), top: Radius.circular(10)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -53,7 +52,7 @@ class LoginInputId extends StatelessWidget {
                   width: 1,
                 ),
                 //borderRadius: BorderRadius.circular(10),
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0),top: Radius.circular(10)),
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(0), top: Radius.circular(10)),
               ),
               filled: true,
               fillColor: context.theme.shadowColor,

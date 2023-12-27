@@ -116,16 +116,11 @@ void ShowProgress(context) {
         content: SizedBox(
           height: 50,
           child: Center(
-              child:SizedBox(
-                child:
-                new CircularProgressIndicator(
-                    valueColor: new AlwaysStoppedAnimation(CommonColors.primary),
-                    strokeWidth: 10.0
-                ),
-                height: 50.0,
-                width: 50.0,
-              )
-          ),
+              child: SizedBox(
+            child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation(CommonColors.primary), strokeWidth: 10.0),
+            height: 50.0,
+            width: 50.0,
+          )),
         ),
       );
     },

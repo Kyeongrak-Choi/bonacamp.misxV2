@@ -24,10 +24,7 @@ class SalesClassStatus extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesClassStatusController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_sales_class_status'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_sales_class_status'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

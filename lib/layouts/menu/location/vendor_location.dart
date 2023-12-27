@@ -27,10 +27,7 @@ class VendorLocation extends StatelessWidget {
   Widget build(context) {
     Get.put(VendorLocationController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_vendor_location'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_vendor_location'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

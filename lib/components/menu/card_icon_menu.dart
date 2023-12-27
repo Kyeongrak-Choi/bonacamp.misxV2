@@ -43,7 +43,7 @@ class CardIconMenu extends StatelessWidget {
             SizedBox(width: 20),
             Text(
               title,
-              style: TextStyle(fontSize: 14.sp,color: context.theme.focusColor),
+              style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),
             ),
             // Spacer(),
             // Icon(

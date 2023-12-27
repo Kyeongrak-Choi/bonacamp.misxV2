@@ -26,7 +26,8 @@ class DashBoardAdmob extends StatelessWidget {
           options: CarouselOptions(
             height: 150,
             aspectRatio: 16 / 9,
-            viewportFraction: 1, // 비율조정
+            viewportFraction: 1,
+            // 비율조정
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,

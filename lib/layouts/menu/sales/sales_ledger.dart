@@ -30,10 +30,7 @@ class SalesLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesLedgerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_sales_ledger'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_sales_ledger'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

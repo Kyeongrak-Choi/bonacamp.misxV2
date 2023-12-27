@@ -25,10 +25,7 @@ class Achievement extends StatelessWidget {
   Widget build(context) {
     Get.put(AchievementController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_achievement'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_achievement'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

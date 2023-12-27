@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../layouts/appframe/navigation.dart';
 import '../../models/system/req_login.dart';

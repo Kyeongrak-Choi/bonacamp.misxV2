@@ -27,10 +27,7 @@ class RentAssetHistory extends StatelessWidget {
   Widget build(context) {
     Get.put(RentAssetHistoryController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_support_rent_asset_history'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_support_rent_asset_history'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

@@ -31,10 +31,7 @@ class RentalReport extends StatelessWidget {
   Widget build(context) {
     Get.put(RentalReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_support_rental_report'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_support_rental_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -87,8 +84,7 @@ class RentalReport extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                )
-                            ),
+                                )),
                             SizedBox(
                               height: Get.find<RentalReportController>().visible.value ? 20 : 0,
                             ),

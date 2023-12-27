@@ -30,10 +30,7 @@ class SalesPersonReport extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_salesperson_report'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_salesperson_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

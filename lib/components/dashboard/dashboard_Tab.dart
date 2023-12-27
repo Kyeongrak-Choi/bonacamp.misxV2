@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/emptyWidget.dart';
 import 'package:misxV2/components/dashboard/dashboard_current.dart';
 import 'package:misxV2/components/dashboard/dashboard_month.dart';
-import 'package:misxV2/layouts/menu/sales/achievement.dart';
-import 'package:misxV2/utils/theme/color_manager.dart';
-import 'package:misxV2/utils/theme/text_theme.dart';
-
-import '../../layouts/appframe/dashboard.dart';
-import '../../utils/utility.dart';
-import '../common/field/icon_title_field.dart';
-import '../common/field/icon_title_field_dash.dart';
 
 class DashBoardTab extends StatelessWidget {
   @override
@@ -26,8 +17,10 @@ class DashBoardTab extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
-                labelColor: Colors.black, // 선택된 탭의 색상
-                unselectedLabelColor: Colors.grey, // 선택되지 않은 택의 색상
+                labelColor: Colors.black,
+                // 선택된 탭의 색상
+                unselectedLabelColor: Colors.grey,
+                // 선택되지 않은 택의 색상
                 controller: controller.tabController,
                 indicatorColor: Colors.black,
                 indicatorWeight: 5,

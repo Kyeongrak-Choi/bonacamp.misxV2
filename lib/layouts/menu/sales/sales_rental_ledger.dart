@@ -28,10 +28,7 @@ class SalesRentalLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRentalLedgerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_sales_rental_ledger'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_sales_rental_ledger'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -80,7 +77,7 @@ class SalesRentalLedger extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         OptionPeriodPicker(),
-                                        OptionTwoContent(OptionDialogCustomer(),OptionCbBranch()),
+                                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
                                         OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
                                       ],
                                     ),

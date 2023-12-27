@@ -7,7 +7,6 @@ import 'package:misxV2/components/login/login_logo.dart';
 import 'package:misxV2/components/login/login_policy.dart';
 
 import '../../utils/constants.dart';
-import '../../utils/theme/color_manager.dart';
 import '../../utils/theme/text_theme.dart';
 
 class Login extends StatelessWidget {

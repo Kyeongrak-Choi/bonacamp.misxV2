@@ -25,10 +25,7 @@ class CustomerContribute extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerContributeController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_customer_contribute'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_customer_contribute'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

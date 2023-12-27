@@ -28,10 +28,7 @@ class PurchaseReport extends StatelessWidget {
   Widget build(context) {
     Get.put(PurchaseReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_purchase_report'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_purchase_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -75,7 +72,7 @@ class PurchaseReport extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogPurchase(),OptionCbBranch()),
+                                      OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
                                       OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
                                     ],
                                   ),

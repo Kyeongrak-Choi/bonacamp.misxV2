@@ -27,10 +27,7 @@ class RentAsset extends StatelessWidget {
   Widget build(context) {
     Get.put(RentAssetController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_support_rent_asset'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_support_rent_asset'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

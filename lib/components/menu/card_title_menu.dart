@@ -56,12 +56,12 @@ class CardTitleMenuList extends StatelessWidget {
             Text(
               title,
               //style: context.textTheme.displayMedium,
-              style: TextStyle(fontSize:  16.sp, color: Colors.black),
+              style: TextStyle(fontSize: 16.sp, color: Colors.black),
             ),
             Spacer(),
             Icon(
               Icons.arrow_forward_ios,
-              size:  16,
+              size: 16,
               color: context.theme.primaryColor,
             ),
           ],

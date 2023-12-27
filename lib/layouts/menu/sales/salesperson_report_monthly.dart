@@ -29,10 +29,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_report_monthly'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_report_monthly'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -83,8 +80,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
-                ),
+                    )),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(

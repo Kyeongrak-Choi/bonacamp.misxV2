@@ -9,7 +9,6 @@ import 'package:misxV2/models/common/item.dart';
 import 'package:misxV2/utils/network/network_manager.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 import 'package:misxV2/utils/utility.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../../models/system/userinfo.dart';
 import '../../../../utils/constants.dart';

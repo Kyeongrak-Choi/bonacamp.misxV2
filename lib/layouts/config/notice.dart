@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:misxV2/models/system/notice.dart';
 
 import '../../components/common/field/show_list_header_row.dart';
-import '../../utils/constants.dart';
 
 // System Config Setting
 class Notice extends StatelessWidget {
@@ -17,7 +16,6 @@ class Notice extends StatelessWidget {
           titleTextStyle: context.textTheme.displayLarge,
           backgroundColor: context.theme.canvasColor,
           iconTheme: context.theme.iconTheme,
-
         ),
         body: SingleChildScrollView(
           child: Padding(

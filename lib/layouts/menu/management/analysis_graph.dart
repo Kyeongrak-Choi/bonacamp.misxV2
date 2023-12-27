@@ -23,10 +23,7 @@ class AnalysisGraph extends StatelessWidget {
   Widget build(context) {
     Get.put(AnalysisGraphController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_analysis_graph'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_analysis_graph'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

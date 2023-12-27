@@ -29,143 +29,143 @@ class SalesDaily extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesDailyController());
     return Obx(() => Scaffold(
-      appBar: AppBar(
-        title: Text('menu_sub_salesdaily'.tr),
-      ),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Stack(
-          children: [
-            Column(
+          appBar: AppBar(
+            title: Text('menu_sub_salesdaily'.tr),
+          ),
+          body: Container(
+            color: context.theme.canvasColor,
+            child: Stack(
               children: [
-                Visibility(
-                  visible: !Get.find<SalesDailyController>().visible.value,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: context.theme.cardColor,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.all(15),
-                      child: Column(
-                        children: [
-                          SumTitleTable('일자 합계 (일/월)'),
-                          SumItemTable(
-                              '공급가',
-                              numberFormat.format(Get.find<SalesDailyController>().sumPrice_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumPrice_M),
-                              '부가세',
-                              numberFormat.format(Get.find<SalesDailyController>().sumVat_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumVat_M)),
-                          SumItemTable(
-                              '보증금\n합계',
-                              numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_M),
-                              '총합계',
-                              numberFormat.format(Get.find<SalesDailyController>().sumTotal_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumTotal_M)),
-                          SumItemTable(
-                              '매출원가',
-                              numberFormat.format(Get.find<SalesDailyController>().sumCost_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumCost_M),
-                              '매출이익',
-                              numberFormat.format(Get.find<SalesDailyController>().sumMargin_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumMargin_M)),
-                          SumItemTable(
-                              '입금소계',
-                              numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_M),
-                              '용공입금',
-                              numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_M)),
-                          SumItemTable(
-                              '입금합계',
-                              numberFormat.format(Get.find<SalesDailyController>().sumDeposit_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDeposit_M),
-                              '채권잔액',
-                              numberFormat.format(Get.find<SalesDailyController>().sumBalance_D) +
-                                  '\n' +
-                                  numberFormat.format(Get.find<SalesDailyController>().sumBalance_M)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<SalesDailyController>().visible.value,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                                borderRadius: BorderRadius.circular(15),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.all(15),
-                                child: Column(
-                                  children: [
-                                    OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                                    OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                                    OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
-                                  ],
-                                ),
-                              ),
-                            )),
-                        SizedBox(
-                          height: Get.find<SalesDailyController>().visible.value ? 20 : 0,
+                Column(
+                  children: [
+                    Visibility(
+                      visible: !Get.find<SalesDailyController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
                         ),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: ListView(
-                                children: <Widget>[setChild()],
-                              ),
-                            ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.all(15),
+                          child: Column(
+                            children: [
+                              SumTitleTable('일자 합계 (일/월)'),
+                              SumItemTable(
+                                  '공급가',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumPrice_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumPrice_M),
+                                  '부가세',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumVat_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumVat_M)),
+                              SumItemTable(
+                                  '보증금\n합계',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_M),
+                                  '총합계',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumTotal_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumTotal_M)),
+                              SumItemTable(
+                                  '매출원가',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumCost_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumCost_M),
+                                  '매출이익',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumMargin_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumMargin_M)),
+                              SumItemTable(
+                                  '입금소계',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_M),
+                                  '용공입금',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_M)),
+                              SumItemTable(
+                                  '입금합계',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumDeposit_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumDeposit_M),
+                                  '채권잔액',
+                                  numberFormat.format(Get.find<SalesDailyController>().sumBalance_D) +
+                                      '\n' +
+                                      numberFormat.format(Get.find<SalesDailyController>().sumBalance_M)),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: Column(
+                          children: [
+                            Visibility(
+                                visible: Get.find<SalesDailyController>().visible.value,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: context.theme.cardColor,
+                                    borderRadius: BorderRadius.circular(15),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.all(15),
+                                    child: Column(
+                                      children: [
+                                        OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
+                                        OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
+                                        OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
+                                      ],
+                                    ),
+                                  ),
+                                )),
+                            SizedBox(
+                              height: Get.find<SalesDailyController>().visible.value ? 20 : 0,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: context.theme.cardColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.all(15),
+                                  child: ListView(
+                                    children: <Widget>[setChild()],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FloatingActionButton.small(
+                      child: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
+                      onPressed: () {
+                        Get.find<SalesDailyController>().setVisible();
+                      },
+                      splashColor: CommonColors.primary,
+                      backgroundColor: Colors.white,
+                      elevation: 1,
                     ),
                   ),
                 ),
               ],
             ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: const EdgeInsets.all(5),
-                child: FloatingActionButton.small(
-                  child: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
-                  onPressed: () {
-                    Get.find<SalesDailyController>().setVisible();
-                  },
-                  splashColor: CommonColors.primary,
-                  backgroundColor: Colors.white,
-                  elevation: 1,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 
   Widget setChild() {

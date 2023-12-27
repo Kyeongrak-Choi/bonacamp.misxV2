@@ -30,10 +30,7 @@ class CustomerReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_customer_monthly'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_customer_monthly'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -56,7 +53,7 @@ class CustomerReportMonthly extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
-                                        OptionTwoContent(OptionYearMonthPicker(),OptionCbBranch() ),
+                                        OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
                                         OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
                                         OptionTwoContent(OptionDialogCustomer(), OptionCbSalesType()),
                                         OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
@@ -84,8 +81,7 @@ class CustomerReportMonthly extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
-                ),
+                    )),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(

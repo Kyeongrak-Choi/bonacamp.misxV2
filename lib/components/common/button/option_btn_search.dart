@@ -6,7 +6,6 @@ import 'package:misxV2/layouts/menu/inventory/lend_report_warehouse.dart';
 import 'package:misxV2/layouts/menu/management/sales_class_status.dart';
 import 'package:misxV2/layouts/menu/sales/achievement.dart';
 import 'package:misxV2/layouts/menu/support/rent_asset.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 import '../../../layouts/menu/inventory/inventory_report.dart';
 import '../../../layouts/menu/inventory/lend_report_customer.dart';

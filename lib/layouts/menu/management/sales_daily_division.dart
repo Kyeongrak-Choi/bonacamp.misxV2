@@ -31,10 +31,7 @@ class SalesDailyDivision extends StatelessWidget {
     Get.put(SalesDailyDivisionController());
     var divisionController = Get.find<SalesDailyDivisionController>();
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_salesdaily_division'.tr),
-              actions: [
-              ]),
+          appBar: AppBar(title: Text('menu_sub_salesdaily_division'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_option.dart';
 
 import '../../components/common/dialog/customer/search_customer_listview.dart';
-import '../../utils/constants.dart';
 
 class SearchCustomerDialog extends StatelessWidget {
   @override
@@ -22,7 +21,6 @@ class SearchCustomerDialog extends StatelessWidget {
             titleTextStyle: context.textTheme.displayLarge,
             backgroundColor: context.theme.canvasColor,
             iconTheme: context.theme.iconTheme,
-
           ),
           backgroundColor: context.theme.cardColor,
           body: Container(

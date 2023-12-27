@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../components/common/dialog/purchase/search_purchase_listview.dart';
 import '../../components/common/dialog/purchase/search_purchase_option.dart';
-import '../../utils/constants.dart';
 
 class SearchPurchaseDialog extends StatelessWidget {
   @override
