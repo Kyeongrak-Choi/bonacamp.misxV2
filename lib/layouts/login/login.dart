@@ -27,35 +27,34 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: MediaQuery.of(context).size.height / 5 ,),
-                      Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: LoginLogo(), // Logo
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 1),
-                        child: LoginInputId(), // ID
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-                        child: LoginInputPw(), // PW
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-                        child: LoginBtn(), // Login
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-                        child: PolicyView(), // 개인정보 처리방침
-                      ),
-                    ],
-                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 4,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 30),
+                      child: LoginLogo(), // Logo
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 1),
+                      child: LoginInputId(), // ID
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
+                      child: LoginInputPw(), // PW
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
+                      child: LoginBtn(), // Login
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      child: PolicyView(), // 개인정보 처리방침
+                    ),
+                  ],
                 ),
                 Spacer(),
                 Padding(
@@ -72,6 +71,5 @@ class Login extends StatelessWidget {
         ),
       ),
     );
-
   }
 }

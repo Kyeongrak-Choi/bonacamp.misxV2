@@ -19,14 +19,20 @@ class LoginLogo extends StatelessWidget {
         Text(
           'DIONYSOS',
           //style: context.textTheme.headlineLarge,
-          style: TextStyle(fontSize: 40.sp,color: CommonColors.primary),
+          style: TextStyle(
+            fontSize: 40.sp,
+            color: CommonColors.primary,
+            fontWeight: FontWeight.bold,
+          ),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 20.sp,),
+        SizedBox(
+          height: 20.sp,
+        ),
         Text(
           '디오니소스 경영관리 서비스',
           //style: context.textTheme.titleSmall,
-          style: TextStyle(fontSize: 16.sp,color: CommonColors.sublogo),
+          style: TextStyle(fontSize: 16.sp, color: CommonColors.sublogo),
           textAlign: TextAlign.center,
         ),
       ],
