@@ -45,6 +45,7 @@ TextTheme textThemeLight() {
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
+      fontWeight: FontWeight.bold,
       color: LightColors.font,
     ),
     // Paragraph 1
@@ -111,6 +112,7 @@ TextTheme textThemeDark() {
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
+      fontWeight: FontWeight.bold,
       color: DarkColors.font,
     ),
     // Paragraph 1
@@ -177,6 +179,7 @@ TextTheme textThemeCommon() {
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
+      fontWeight: FontWeight.bold,
       color: DarkColors.font,
     ),
     // Paragraph 1
