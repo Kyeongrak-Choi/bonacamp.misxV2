@@ -11,57 +11,60 @@ class DashBoardAdmob extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(DashBoardAdmobController());
     return GetBuilder<DashBoardAdmobController>(builder: (DashBoardAdmobController controller) {
-      return Column(
-        children: [
-          CarouselSlider(
-              items: controller.admobItem.map((image) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      //margin: EdgeInsets.symmetric(horizontal: 15.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15.0),
-                        child: image,
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 150,
-                aspectRatio: 16 / 9,
-                viewportFraction: 1,
-                // 비율조정
-                initialPage: controller.currentIndex,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                // onPageChanged: callbackFunction,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index,reason){
-                  controller.currentIndex = index;
-                  controller.update();
-                }
-              )),
-          DotsIndicator(
-            dotsCount: controller.admobItem.length,
-            position: controller.currentIndex,
-            decorator: DotsDecorator(
-              color: Colors.grey[300]!,
-              activeColor: Colors.blue,
-              size: Size(10.0, 10.0),
-              activeSize: Size(20.0, 10.0),
-              spacing: EdgeInsets.all(3.0),
-              activeShape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
+      return SizedBox(
+        height: MediaQuery.of(context).size.height / 4,
+        child: Column(
+          children: [
+            CarouselSlider(
+                items: controller.admobItem.map((image) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        //margin: EdgeInsets.symmetric(horizontal: 15.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: image,
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height / 5,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 1,
+                  // 비율조정
+                  initialPage: controller.currentIndex,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  // onPageChanged: callbackFunction,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index,reason){
+                    controller.currentIndex = index;
+                    controller.update();
+                  }
+                )),
+            DotsIndicator(
+              dotsCount: controller.admobItem.length,
+              position: controller.currentIndex,
+              decorator: DotsDecorator(
+                color: Colors.grey[300]!,
+                activeColor: Colors.blue,
+                size: Size(10.0, 10.0),
+                activeSize: Size(20.0, 10.0),
+                spacing: EdgeInsets.all(3.0),
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     });
   }

@@ -26,7 +26,7 @@ class LoginLogo extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         SizedBox(
-          height: 20.sp,
+          height: 20.h,
         ),
         Text(
           '디오니소스 경영관리 서비스',

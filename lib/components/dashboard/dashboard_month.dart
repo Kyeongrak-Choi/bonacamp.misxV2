@@ -14,7 +14,6 @@ class DashBoardMonth extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-              height: 60 * 4,
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
                 //borderRadius: BorderRadius.circular(20),

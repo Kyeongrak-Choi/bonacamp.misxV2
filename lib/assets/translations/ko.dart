@@ -20,7 +20,7 @@ const Map<String, String> koKR = {
   'text_logout': '로그아웃',
   'hint_id_input': 'ID를 입력해 주세요.',
   'hint_pw_input': 'PW를 입력해 주세요.',
-  'privacy_policy': '개인정보 처리방침',
+  'privacy_policy': '개인정보처리방침',
   'admob_banner': '광고배너',
   'check_login_header': 'ID/PW 확인',
   'check_login_content': 'ID/PW를 확인해 주세요.',

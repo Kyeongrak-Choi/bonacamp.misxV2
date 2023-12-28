@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../layouts/appframe/dashboard.dart';
@@ -14,7 +15,6 @@ class DashBoardCurrent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-              height: 60 * 4,
               decoration: BoxDecoration(
                 color: context.theme.cardColor,
                 //borderRadius: BorderRadius.circular(20),

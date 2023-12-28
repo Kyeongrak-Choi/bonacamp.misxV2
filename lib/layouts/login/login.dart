@@ -38,13 +38,13 @@ class Login extends StatelessWidget {
                       child: LoginLogo(), // Logo
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 1),
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
                       child: LoginInputId(), // ID
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
-                      child: LoginInputPw(), // PW
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
+                    //   child: LoginInputPw(), // PW
+                    // ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
                       child: LoginBtn(), // Login

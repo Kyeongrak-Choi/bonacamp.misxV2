@@ -67,7 +67,7 @@ class Misx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //ScreenUtil.init(context,designSize: Size(360,640),);
-    return ScreenUtilInit(designSize: Size(360,640), builder: (context, child) {
+    return ScreenUtilInit(builder: (context, child) {
       return MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaleFactor: 0.8
