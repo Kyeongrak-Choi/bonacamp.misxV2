@@ -100,8 +100,11 @@ dependencies:
   # reference - https://pub.dev/packages/flutter_custom_dialog
   # descryption - dialog
   flutter_screenutil: ^5.9.0
-  # reference - https://pub.dev/packages/flutter_screenutil/install
+  # reference - https://pub.dev/packages/flutter_screenutil
   # descryption - ui concept
+  dots_indicator: ^3.0.0
+  # reference - https://pub.dev/packages/dots_indicator
+  # descryption - Slider Indicator
 
 
 
