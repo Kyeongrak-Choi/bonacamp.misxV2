@@ -36,31 +36,27 @@ class DashBoard extends StatelessWidget {
           },
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: true))
-                      ? EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0)
-                      : EdgeInsetsDirectional.all(0),
-                  child: Container(
-                    child: setChild(),
-                  ),
+                Container(
+                  child: setChild(),
                 ),
-                // Padding(
-                //   padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
-                //   child: DashBoardTab(),
-                // ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
-                        child: DashBoardTab(),
+                      DashBoardTab(),
+                      SizedBox(
+                        height: 16.h,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.canvasColor,
+                          ),
+                        ),
                       ),
-                     // DashboardGraph(),
+                      DashboardGraph(),
                     ],
                   ),
-                )
+                ),
+                //DashboardGraph(),
               ],
             ),
           )),

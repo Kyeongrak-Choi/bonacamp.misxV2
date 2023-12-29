@@ -29,7 +29,7 @@ class LoginBtn extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-            height: 50.h,
+            height: 48.h,
             child: ElevatedButton(
                 onPressed: () async {
                   ShowProgress(context);
@@ -45,7 +45,7 @@ class LoginBtn extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   foregroundColor: CommonColors.white,
                   backgroundColor: CommonColors.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 )),
           ))
         ],

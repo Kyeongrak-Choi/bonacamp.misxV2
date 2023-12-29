@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DashBoardAdmob extends StatelessWidget {
@@ -11,56 +12,66 @@ class DashBoardAdmob extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(DashBoardAdmobController());
     return GetBuilder<DashBoardAdmobController>(builder: (DashBoardAdmobController controller) {
-      return SizedBox(
-        height: MediaQuery.of(context).size.height / 4,
-        child: Column(
+      return Container(
+        decoration: BoxDecoration(
+            color: context.theme.canvasColor,
+        ),
+        child: Stack(
           children: [
-            CarouselSlider(
-                items: controller.admobItem.map((image) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        //margin: EdgeInsets.symmetric(horizontal: 15.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: image,
-                        ),
-                      );
-                    },
-                  );
-                }).toList(),
-                options: CarouselOptions(
-                  height: MediaQuery.of(context).size.height / 5,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 1,
-                  // 비율조정
-                  initialPage: controller.currentIndex,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  // onPageChanged: callbackFunction,
-                  scrollDirection: Axis.horizontal,
-                  onPageChanged: (index,reason){
-                    controller.currentIndex = index;
-                    controller.update();
-                  }
-                )),
-            DotsIndicator(
-              dotsCount: controller.admobItem.length,
-              position: controller.currentIndex,
-              decorator: DotsDecorator(
-                color: Colors.grey[300]!,
-                activeColor: Colors.blue,
-                size: Size(10.0, 10.0),
-                activeSize: Size(20.0, 10.0),
-                spacing: EdgeInsets.all(3.0),
-                activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.w, 16.h, 16.w, 16.h),
+              child: CarouselSlider(
+                  items: controller.admobItem.map((image) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          //margin: EdgeInsets.symmetric(horizontal: 15.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16.0),
+                            child: image,
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                  options: CarouselOptions(
+                    height: MediaQuery.of(context).size.height / 5,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1,
+                    // 비율조정
+                    initialPage: controller.currentIndex,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    // onPageChanged: callbackFunction,
+                    scrollDirection: Axis.horizontal,
+                    onPageChanged: (index,reason){
+                      controller.currentIndex = index;
+                      controller.update();
+                    }
+                  )),
+            ),
+            Positioned(
+              bottom: 16.0.h,  // 아래 여백
+              left: 0.0.w,    // 왼쪽 여백
+              right: 0.0.w,   // 오른쪽 여백
+              child: DotsIndicator(
+                dotsCount: controller.admobItem.length,
+                position: controller.currentIndex,
+                decorator: DotsDecorator(
+                  color: Colors.grey,
+                  activeColor: Colors.blue,
+                  size: Size(8.0.w, 8.0.w),
+                  activeSize: Size(32.0.w, 8.0.w),
+                  spacing: EdgeInsets.all(3.0.w),
+                  activeShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                ),
               ),
             ),
           ],

@@ -22,11 +22,12 @@ class LoginLogo extends StatelessWidget {
             fontSize: 40.sp,
             color: CommonColors.primary,
             fontWeight: FontWeight.bold,
+            letterSpacing: 8,
           ),
           textAlign: TextAlign.center,
         ),
         SizedBox(
-          height: 20.h,
+          height: 24.h,
         ),
         Text(
           '디오니소스 경영관리 서비스',

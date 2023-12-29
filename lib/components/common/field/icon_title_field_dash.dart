@@ -11,41 +11,28 @@ class IconTitleFieldDash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Expanded(
-        flex: 2,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
-          child: Text(
-            titleName,
-            // style: context.textTheme.titleLarge,
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
-            textAlign: TextAlign.start,
-          ),
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text(
+          titleName,
+          style: TextStyle(fontSize: 14.sp, color: Colors.black),
         ),
-      ),
-      Expanded(
-        flex: 10,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
-          child: Text(
-            value,
-            style: context.textTheme.titleLarge,
-            textAlign: TextAlign.end,
+        Container(
+          child: Row(
+            children: [
+              Text(
+                value,
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              Text(
+                ' 원',
+                style: TextStyle(fontSize: 14.sp, color: Colors.black),
+              ),
+            ],
           ),
-        ),
-      ),
-      Expanded(
-        flex: 1,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
-          child: Text(
-            '원',
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
-            textAlign: TextAlign.end,
-          ),
-        ),
-      ),
-    ]);
+        )
+      ]),
+    );
   }
 }
