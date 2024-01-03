@@ -66,8 +66,8 @@ class DashBoardAdmob extends StatelessWidget {
                 decorator: DotsDecorator(
                   color: Colors.grey,
                   activeColor: Colors.blue,
-                  size: Size(8.0.w, 8.0.w),
-                  activeSize: Size(32.0.w, 8.0.w),
+                  size: Size(4.0.w, 4.0.w),
+                  activeSize: Size(16.0.w, 4.0.w),
                   spacing: EdgeInsets.all(3.0.w),
                   activeShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0)),
