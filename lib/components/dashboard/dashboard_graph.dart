@@ -22,7 +22,7 @@ class DashboardGraph extends StatelessWidget {
                   child: Text(
                     '최근 3개월 매출 추이',
                     // style: context.textTheme.titleLarge,
-                    style: TextStyle(fontSize: 14.sp, fontWeight:FontWeight.bold, color: Colors.black),
+                    style: TextStyle(fontSize: 14.sp, fontWeight:FontWeight.bold, color: context.theme.focusColor),
                     textAlign: TextAlign.start,
                   ),
                 ),

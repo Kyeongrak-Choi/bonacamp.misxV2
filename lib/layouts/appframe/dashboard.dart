@@ -29,7 +29,7 @@ class DashBoard extends StatelessWidget {
     Get.put(NetworkManager());
     Get.put(DashBoardController());
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: context.theme.hoverColor,
       body: RefreshIndicator(
           onRefresh: () async {
             Get.find<DashBoardController>().getDashBoard();

@@ -20,7 +20,7 @@ class DashBoardTab extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
-                labelColor: Colors.black,
+                labelColor: context.theme.focusColor,
                 // 선택된 탭의 색상
                 unselectedLabelColor: Colors.grey,
                 // 선택되지 않은 택의 색상
@@ -29,7 +29,7 @@ class DashBoardTab extends StatelessWidget {
                 indicatorWeight: 4,
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
-                dividerColor: Colors.black,
+                dividerColor: Colors.grey,
                 //indicatorPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 labelPadding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
                 labelStyle: TextStyle(

@@ -14,6 +14,7 @@ class Themes {
     canvasColor: LightColors.background,
     shadowColor: LightColors.textform,
     focusColor: LightColors.font,
+    hoverColor: LightColors.defaultColor,
     iconTheme: const IconThemeData(
       color: DarkColors.basic,
     ),
@@ -39,6 +40,7 @@ class Themes {
     canvasColor: DarkColors.background,
     shadowColor: DarkColors.textform,
     focusColor: DarkColors.font,
+    hoverColor: DarkColors.defaultColor,
     iconTheme: const IconThemeData(
       color: LightColors.basic,
     ),

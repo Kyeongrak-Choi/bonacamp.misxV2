@@ -9,6 +9,7 @@ class LightColors {
   static const Color paragraphFont = Color(0xFFF959F);
   static const Color logo = Color(0xFF2D84FB);
   static const Color textform = Color(0xFFFFFFFF);
+  static const Color defaultColor = Color(0xFFFFFFFF);
 }
 
 class DarkColors {
@@ -20,6 +21,7 @@ class DarkColors {
   static const Color paragraphFont = Color(0xFFF959F);
   static const Color logo = Color(0xFFFFFFFF);
   static const Color textform = Color(0x12FFFFFF);
+  static const Color defaultColor = Color(0xFF000000);
 }
 
 class CommonColors {

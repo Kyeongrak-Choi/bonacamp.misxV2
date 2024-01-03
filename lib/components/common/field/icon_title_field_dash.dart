@@ -16,18 +16,18 @@ class IconTitleFieldDash extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(
           titleName,
-          style: TextStyle(fontSize: 14.sp, color: Colors.black),
+          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),
         ),
         Container(
           child: Row(
             children: [
               Text(
                 value,
-                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: context.theme.focusColor),
               ),
               Text(
                 ' 원',
-                style: TextStyle(fontSize: 14.sp, color: Colors.black),
+                style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),
               ),
             ],
           ),

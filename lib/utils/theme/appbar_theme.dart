@@ -7,11 +7,11 @@ AppBarTheme appBarThemeLight() {
   return AppBarTheme(
     centerTitle: false,
     //color: LightColors.basic,
-    backgroundColor: LightColors.background,
+    backgroundColor: LightColors.defaultColor,
     elevation: 0.0,
     titleTextStyle: textThemeLight().displayLarge,
     iconTheme: const IconThemeData(
-      color: DarkColors.basic,
+      color: DarkColors.canvas,
     ),
   );
 }
@@ -20,7 +20,7 @@ AppBarTheme appBarThemeDark() {
   return AppBarTheme(
     centerTitle: false,
     //color: DarkColors.basic,
-    backgroundColor: DarkColors.background,
+    backgroundColor: DarkColors.defaultColor,
     elevation: 0.0,
     titleTextStyle: textThemeDark().displayLarge,
     iconTheme: const IconThemeData(
