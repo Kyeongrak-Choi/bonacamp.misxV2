@@ -42,7 +42,9 @@ final List<RadioMenu> systemDetail = [
   RadioMenu(
     id: KEY_THEME_MODE,
     title: 'dark_mode'.tr,
-    val: Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode()),
+    val: Hive.box(LOCAL_DB).get(
+
+        KEY_THEME_MODE, defaultValue: GetSystemMode()),
   ),
   RadioMenu(
     id: KEY_SHOW_ADMOB,

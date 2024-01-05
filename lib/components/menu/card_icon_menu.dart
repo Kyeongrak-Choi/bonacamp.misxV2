@@ -15,7 +15,7 @@ class CardIconMenu extends StatelessWidget {
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.cardColor,
+      color: context.theme.hoverColor,
       child: Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 15, 10),
         child: Column(
@@ -31,26 +31,24 @@ class CardIconMenu extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed(path),
       child: Container(
         height: 50,
-        //color: Color(AppColor),
-        color: context.theme.cardColor,
         child: Row(
           children: [
-            Icon(
-              iconData,
-              size: 17,
-              color: context.theme.primaryColor,
-            ),
-            SizedBox(width: 20),
+            // Icon(
+            //   iconData,
+            //   size: 17,
+            //   color: context.theme.primaryColor,
+            // ),
+            // SizedBox(width: 20),
             Text(
               title,
               style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),
             ),
-            // Spacer(),
-            // Icon(
-            //   Icons.arrow_forward_ios,
-            //   size: 17,
-            //   color: context.theme.primaryColor,
-            // ),
+            Spacer(),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 17,
+              color: context.theme.primaryColor,
+            ),
           ],
         ),
       ),

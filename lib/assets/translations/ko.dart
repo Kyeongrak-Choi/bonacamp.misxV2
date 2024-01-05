@@ -28,9 +28,9 @@ const Map<String, String> koKR = {
   'expiration_content': '인증이 만료되어 로그인페이지로 이동합니다.',
 
   // config
-  'notice': '공지 사항',
+  'notice': '공지사항',
   'system_setting': '시스템 설정',
-  'menu_setting': '메뉴 설정',
+  'menu_setting': '메뉴설정',
   'exam_menu': '예제 메뉴',
   'dark_mode': '다크 모드',
   'show_admob': '광고 노출',
