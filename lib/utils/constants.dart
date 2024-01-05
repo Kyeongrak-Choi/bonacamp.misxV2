@@ -8,8 +8,8 @@ const POLICY_URL = 'http://www.dionysoserp.com/ex-privacy.html';
 const APP_ID = 'MISX';
 
 enum NAVIGATION_BAR_ITEM {
-  MENU,
   HOME,
+  MENU,
   CONFIG,
 } // Navigation Item
 
