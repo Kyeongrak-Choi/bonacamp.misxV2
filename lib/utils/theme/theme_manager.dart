@@ -16,7 +16,7 @@ class Themes {
     focusColor: LightColors.font,
     hoverColor: LightColors.defaultColor,
     iconTheme: const IconThemeData(
-      color: DarkColors.basic,
+      color: LightColors.font,
     ),
     // backgorund
     cardColor: LightColors.basic,
@@ -42,7 +42,7 @@ class Themes {
     focusColor: DarkColors.font,
     hoverColor: DarkColors.defaultColor,
     iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: DarkColors.font,
     ),
     // backgorund
     cardColor: DarkColors.basic,

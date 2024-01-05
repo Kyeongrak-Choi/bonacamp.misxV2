@@ -79,7 +79,7 @@ const Map<String, String> koKR = {
   'nav_more': '더보기',
 
   // option
-  'opt_period': '기  간',
+  'opt_period': '기간',
   'opt_date': '일  자',
   'opt_month': '조회월',
   'opt_workspace': '사업장',

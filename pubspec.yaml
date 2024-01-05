@@ -145,6 +145,14 @@ flutter:
 
   uses-material-design: true
 
+  fonts:
+    - family: SUITE
+      fonts:
+        - asset: lib/assets/fonts/SUITE-Bold.otf
+        - asset: lib/assets/fonts/SUITE-SemiBold.otf
+        - asset: lib/assets/fonts/SUITE-Regular.otf
+
   assets:
     - lib/assets/translations/
     - lib/assets/icons/
+    - lib/assets/fonts/

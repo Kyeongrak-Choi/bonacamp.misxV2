@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/inventory/inventory_in_out_report.dart';
 import 'package:misxV2/layouts/menu/inventory/lend_report_salesperson.dart';
@@ -49,10 +50,14 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.all(15),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 8.h, 0, 0),
           child: Container(
-            color: CommonColors.primary,
-            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              shape: BoxShape.rectangle,
+              color: CommonColors.primary,
+            ),
+            height: 40.h,
             child: ElevatedButton(
                 onPressed: () async {
                   // ProgressDialog pd = ProgressDialog(context: context);

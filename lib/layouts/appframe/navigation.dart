@@ -43,7 +43,7 @@ class Navigation extends GetView<NavigationController> {
           // ),
           centerTitle: false,
           title: Image.asset(
-            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
+            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false) ? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
           ),
           automaticallyImplyLeading: false,
           // bottom: PreferredSize(

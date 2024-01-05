@@ -23,7 +23,7 @@ AppBarTheme appBarThemeDark() {
     elevation: 0.0,
     titleTextStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: LightColors.basic),
     iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: DarkColors.font,
     ),
   );
 }
