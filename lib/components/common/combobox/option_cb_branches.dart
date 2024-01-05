@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/branch.dart';
@@ -15,39 +16,41 @@ class OptionCbBranch extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 8.h, 0, 8.h),
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-                flex: 1,
-                child: Obx(
-                  () => DropdownButtonFormField<BranchModel>(
-                    isExpanded: true,
-                    value: Get.find<CbBranchController>().selectedValue,
-                    style: context.textTheme.bodyMedium,
-                    decoration: InputDecoration(border: InputBorder.none),
-                    dropdownColor: context.theme.cardColor,
-                    items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
-                      return DropdownMenuItem<BranchModel>(
-                        alignment: Alignment.center,
-                        value: value,
-                        child: Text(value.getBranchName ?? ''),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      Get.find<CbBranchController>().chooseItem(value!);
-                    },
-                  ),
-                )),
-          ],
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.cardColor,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: Color(0x22000000)),
+          ),
+          child: Obx(
+            () => DropdownButtonFormField<BranchModel>(
+              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              isExpanded: false,
+              value: Get.find<CbBranchController>().selectedValue,
+              style: context.textTheme.bodyLarge,
+              decoration: InputDecoration(border: InputBorder.none),
+              dropdownColor: context.theme.cardColor,
+              items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
+                return DropdownMenuItem<BranchModel>(
+                  alignment: Alignment.center,
+                  value: value,
+                  child: Text(value.getBranchName ?? ''),
+                );
+              }).toList(),
+              onChanged: (value) {
+                Get.find<CbBranchController>().chooseItem(value!);
+              },
+            ),
+          ),
         ),
       ],
     );

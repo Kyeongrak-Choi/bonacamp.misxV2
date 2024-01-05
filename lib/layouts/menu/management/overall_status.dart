@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -30,64 +31,56 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-            title: Text('menu_sub_total'.tr),
+            title: Text('menu_sub_total'.tr,
+            style: context.textTheme.titleSmall!.merge(TextStyle(fontWeight: FontWeight.bold)),),
           ),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<OverAllController>().visible.value,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                                borderRadius: BorderRadius.circular(20),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.all(15),
-                                child: Column(
-                                  children: [
-                                    OptionPeriodPicker(),
-                                    OptionCbBranch(),
-                                    OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                                  ],
-                                ),
-                              ),
-                            )),
-                        SizedBox(
-                          height: Get.find<OverAllController>().visible.value ? 20 : 0,
-                        ),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: OverAllTable(),
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<OverAllController>().visible.value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.cardColor,
+                            borderRadius: BorderRadius.circular(0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.all(16),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
                             ),
                           ),
-                        ),
-                      ],
-                    )),
+                        )),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Expanded(
+                      child: Container(
+                        //padding: EdgeInsetsDirectional.all(16),
+                        child: OverAllTable(),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.only(right: 16),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
                       onPressed: () {
                         Get.find<OverAllController>().setVisible();
                       },
                       splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: CommonColors.BK10,
                       elevation: 1,
                     ),
                   ),

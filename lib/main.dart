@@ -70,7 +70,7 @@ class Misx extends StatelessWidget {
     return ScreenUtilInit(builder: (context, child) {
       return MediaQuery(
         data: MediaQuery.of(context).copyWith(
-          textScaleFactor: 0.8
+          textScaleFactor: 1.0
         ),
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,

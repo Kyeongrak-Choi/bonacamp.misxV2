@@ -40,4 +40,5 @@ class CommonColors {
   static const Color primary = Color(0xFF2D84FB);
   static const Color copyright = Color(0xFF8F959F);
   static const Color sublogo = Color(0xFF8F959F);
+  static const Color BK10 = Color(0x22000000);
 }

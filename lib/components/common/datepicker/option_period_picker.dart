@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/utils/theme/text_theme.dart';
 
 import '../../../utils/constants.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
-class OptionPeriodPicker extends StatelessWidget {
+class  OptionPeriodPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PeriodPickerController());
     return Column(
       children: [
         Align(
-          alignment: AlignmentDirectional(-1, 0),
+          alignment: Alignment.centerLeft,
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.only(bottom: 8.h),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
+              //style: TextStyle(fontSize: 14.sp, fontFamily: 'SUITE'),
             ),
           ),
         ),
@@ -27,48 +30,75 @@ class OptionPeriodPicker extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Obx(
-                    () => TextButton(
-                      onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                      child: Text(
-                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.center,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.cardColor,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: Color(0x22000000)),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseFromDate();
+                        },
+                        //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                        icon: ImageIcon(
+                        AssetImage('lib/assets/icons/calendar.png'), color: context.theme.primaryColor, size: 24,)),
+                    Obx(
+                          () => TextButton(
+                            onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
+                            child: Text(
+                              DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
+                              style: context.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<PeriodPickerController>().chooseFromDate();
-                      },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  Text(
-                    ' ~ ',
-                    style: context.textTheme.bodyMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                  Obx(
-                    () => TextButton(
-                      onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-                      child: Text(
-                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<PeriodPickerController>().chooseToDate();
-                      },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
-                ],
+                  ],
+                ),
               ),
             ),
+            Container(
+              padding: EdgeInsetsDirectional.fromSTEB(8.w, 0, 8.w, 0),
+              child: Text(
+                ' - ',
+                style: context.textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.cardColor,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: Color(0x22000000)),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.find<PeriodPickerController>().chooseToDate();
+                        },
+                        icon: ImageIcon(
+                          AssetImage('lib/assets/icons/calendar.png'), color: context.theme.primaryColor, size: 24,)),
+                    Obx(
+                          () => TextButton(
+                        onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                        child: Text(
+                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
           ],
         ),
       ],

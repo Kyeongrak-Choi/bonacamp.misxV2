@@ -5,26 +5,26 @@ import 'color_manager.dart';
 
 AppBarTheme appBarThemeLight() {
   return AppBarTheme(
-    centerTitle: false,
+    centerTitle: true,
     //color: LightColors.basic,
     backgroundColor: LightColors.defaultColor,
-    elevation: 0.0,
+    elevation: 0.5,
     titleTextStyle: textThemeLight().displayLarge,
     iconTheme: const IconThemeData(
-      color: DarkColors.canvas,
+      color: LightColors.font,
     ),
   );
 }
 
 AppBarTheme appBarThemeDark() {
   return AppBarTheme(
-    centerTitle: false,
+    centerTitle: true,
     //color: DarkColors.basic,
     backgroundColor: DarkColors.defaultColor,
-    elevation: 0.0,
+    elevation: 0.5,
     titleTextStyle: textThemeDark().displayLarge,
     iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: DarkColors.font,
     ),
   );
 }
