@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ShowListHeaderRow extends StatelessWidget {
@@ -13,7 +14,7 @@ class ShowListHeaderRow extends StatelessWidget {
       padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
       child: Text(
         titleName,
-        style: context.textTheme.displayMedium,
+        style: TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
         textAlign: TextAlign.left,
         overflow: TextOverflow.ellipsis,
       ),

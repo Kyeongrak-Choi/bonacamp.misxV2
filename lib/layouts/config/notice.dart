@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/models/system/notice.dart';
 
@@ -10,22 +11,19 @@ class Notice extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(NoticeController());
     return Scaffold(
-        //backgroundColor: context.theme.canvasColor,
+        backgroundColor: context.theme.hoverColor,
         appBar: AppBar(
           title: Text('notice'.tr),
-          titleTextStyle: context.textTheme.displayLarge,
-          backgroundColor: context.theme.canvasColor,
-          iconTheme: context.theme.iconTheme,
         ),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(20.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: context.theme.cardColor,
-                borderRadius: BorderRadius.circular(20),
-                shape: BoxShape.rectangle,
-              ),
+              // decoration: BoxDecoration(
+              //   color: context.theme.hoverColor,
+              //   borderRadius: BorderRadius.circular(20),
+              //   shape: BoxShape.rectangle,
+              // ),
               child: Padding(
                 padding: EdgeInsets.all(20.0),
                 child: ExpansionPanelList.radio(
@@ -35,11 +33,14 @@ class Notice extends StatelessWidget {
                     return ExpansionPanelRadio(
                       canTapOnHeader: true,
                       value: model.title.toString(),
-                      backgroundColor: context.theme.cardColor,
+                      backgroundColor: context.theme.hoverColor,
                       headerBuilder: (BuildContext context, bool isExpanded) {
                         return ShowListHeaderRow(titleName: model.regData, value: model.title.toString() ?? '');
                       },
-                      body: Text(model.content),
+                      body: Text(
+                        model.content,
+                        style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
+                      ),
                     );
                   }).toList(),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/field/icon_title_field_config.dart';
@@ -9,6 +10,7 @@ import '../../components/common/field/icon_title_field.dart';
 import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/menu_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 import '../appframe/navigation.dart';
 
@@ -19,38 +21,45 @@ class Config extends StatelessWidget {
     Get.put(OptionController());
     return GetBuilder<OptionController>(builder: (OptionController controller) {
       return Scaffold(
-        floatingActionButton: Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: FloatingActionButton(
-              // child: ElevatedButton(
-              //     onPressed: () async {
-              //       Get.offAllNamed(ROUTE_LOGIN);
-              //     },
-              //     child: Text('text_logout'.tr),
-              //     style: ElevatedButton.styleFrom(
-              //       foregroundColor: CommonColors.white,
-              //       backgroundColor: CommonColors.primary,
-              //       minimumSize: Size(100, 50),
-              //       maximumSize: Size(200,100),
-              //     )),
-
-              child: IconTitleField(
-                titleName: '로그아웃',
-                value: '로그아웃',
-                iconData: Icons.logout,
-              ),
-              onPressed: () {
-                Get.offAllNamed(ROUTE_LOGIN);
-              },
-              //splashColor: CommonColors.primary,
-              backgroundColor: Colors.white,
-              elevation: 0,
-            ),
-          ),
-        ),
-        backgroundColor: Colors.white,
+        // floatingActionButton: Align(
+        //   alignment: Alignment.bottomRight,
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.end,
+        //     children: [
+        //       Text('로그아웃'),
+        //       Padding(
+        //         padding: const EdgeInsets.all(5),
+        //         child: FloatingActionButton(
+        //           // child: ElevatedButton(
+        //           //     onPressed: () async {
+        //           //       Get.offAllNamed(ROUTE_LOGIN);
+        //           //     },
+        //           //     child: Text('text_logout'.tr),
+        //           //     style: ElevatedButton.styleFrom(
+        //           //       foregroundColor: CommonColors.white,
+        //           //       backgroundColor: CommonColors.primary,
+        //           //       minimumSize: Size(100, 50),
+        //           //       maximumSize: Size(200,100),
+        //           //     )),
+        //
+        //           // child: IconTitleField(
+        //           //   titleName: '',
+        //           //   value: '로그아웃',
+        //           //   iconData: Icons.logout,
+        //           // ),
+        //           child: Icon(Icons.logout),
+        //           onPressed: () {
+        //             Get.offAllNamed(ROUTE_LOGIN);
+        //           },
+        //           //splashColor: CommonColors.primary,
+        //           backgroundColor: Colors.black,
+        //           elevation: 0,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        backgroundColor: context.theme.hoverColor,
         body: Column(
           children: [
             Container(
@@ -94,6 +103,20 @@ class Config extends StatelessWidget {
                 ),
               ),
             ),
+            Spacer(),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('로그아웃', style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),),
+                    SizedBox(width: 15,),
+                    Icon(Icons.logout),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       );

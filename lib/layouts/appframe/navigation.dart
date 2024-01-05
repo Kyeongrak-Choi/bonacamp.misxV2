@@ -39,8 +39,9 @@ class Navigation extends GetView<NavigationController> {
           //   '${Get.find<DashBoardController>().clientNm}' ?? '',
           //   style: context.textTheme.titleLarge,
           // ),
+          centerTitle: false,
           title: Image.asset(
-            Hive.box(LOCAL_DB).get(KEY_THEME_MODE) ? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
+            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
           ),
           automaticallyImplyLeading: false,
           // HW Back Key disenable

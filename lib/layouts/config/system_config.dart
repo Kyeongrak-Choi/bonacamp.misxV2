@@ -11,20 +11,17 @@ class SystemConfig extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('system_setting'.tr),
-        titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: context.theme.canvasColor,
-        iconTheme: context.theme.iconTheme,
       ),
       body: Container(
-        color: context.theme.canvasColor,
+        color: context.theme.hoverColor,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Container(
-            decoration: BoxDecoration(
-              color: context.theme.cardColor,
-              borderRadius: BorderRadius.circular(20),
-              shape: BoxShape.rectangle,
-            ),
+            // decoration: BoxDecoration(
+            //   //color: context.theme.cardColor,
+            //   borderRadius: BorderRadius.circular(20),
+            //   shape: BoxShape.rectangle,
+            // ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
               child: ListView(
