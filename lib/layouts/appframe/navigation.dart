@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
@@ -44,6 +45,13 @@ class Navigation extends GetView<NavigationController> {
             Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: GetSystemMode())? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
           ),
           automaticallyImplyLeading: false,
+          // bottom: PreferredSize(
+          //   preferredSize: Size.fromHeight(8), // 줄의 높이를 설정합니다.
+          //   child: Divider(
+          //     height: 8, // 줄의 높이를 설정합니다.
+          //     color: Colors.grey, // 줄의 색상을 설정합니다.
+          //   ),
+          // ),
           // HW Back Key disenable
           // leading: IconButton(
           //   icon: Icon(Icons.account_circle_sharp),

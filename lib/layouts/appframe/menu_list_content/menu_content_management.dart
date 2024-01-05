@@ -9,13 +9,13 @@ class MenuContentManagemet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: context.theme.cardColor,
+          color: context.theme.hoverColor,
           borderRadius: BorderRadius.circular(0),
           shape: BoxShape.rectangle,
         ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(0),
-          child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster),
-        ));
+        child: Align(
+            alignment: Alignment.topLeft,
+            child:
+                SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster))));
   }
 }

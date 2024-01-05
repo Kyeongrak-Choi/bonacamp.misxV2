@@ -18,23 +18,14 @@ class MenuConfig extends StatelessWidget {
       body: Container(
         color: context.theme.hoverColor,
         child: Padding(
-          padding: EdgeInsetsDirectional.all(15),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              shape: BoxShape.rectangle,
-            ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-              child: ListView(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                    child: CardRadioMenu(radioMenu: menuDetail),
-                  ),
-                ],
+          padding: EdgeInsets.all(16),
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(8, 8, 0, 8),
+                child: CardRadioMenu(radioMenu: menuDetail),
               ),
-            ),
+            ],
           ),
         ),
       ),

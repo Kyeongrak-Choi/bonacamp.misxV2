@@ -16,34 +16,26 @@ class Notice extends StatelessWidget {
           title: Text('notice'.tr),
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Container(
-              // decoration: BoxDecoration(
-              //   color: context.theme.hoverColor,
-              //   borderRadius: BorderRadius.circular(20),
-              //   shape: BoxShape.rectangle,
-              // ),
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: ExpansionPanelList.radio(
-                  elevation: 0.0,
-                  animationDuration: Duration(milliseconds: 500),
-                  children: Get.find<NoticeController>().data.map<ExpansionPanelRadio>((NoticeModel model) {
-                    return ExpansionPanelRadio(
-                      canTapOnHeader: true,
-                      value: model.title.toString(),
-                      backgroundColor: context.theme.hoverColor,
-                      headerBuilder: (BuildContext context, bool isExpanded) {
-                        return ShowListHeaderRow(titleName: model.regData, value: model.title.toString() ?? '');
-                      },
-                      body: Text(
-                        model.content,
-                        style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
-                      ),
-                    );
-                  }).toList(),
-                ),
+          child: Container(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: ExpansionPanelList.radio(
+                elevation: 0.0,
+                animationDuration: Duration(milliseconds: 500),
+                children: Get.find<NoticeController>().data.map<ExpansionPanelRadio>((NoticeModel model) {
+                  return ExpansionPanelRadio(
+                    canTapOnHeader: true,
+                    value: model.title.toString(),
+                    backgroundColor: context.theme.hoverColor,
+                    headerBuilder: (BuildContext context, bool isExpanded) {
+                      return ShowListHeaderRow(titleName: model.regData, value: model.title.toString() ?? '');
+                    },
+                    body: Text(
+                      model.content,
+                      style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
+                    ),
+                  );
+                }).toList(),
               ),
             ),
           ),

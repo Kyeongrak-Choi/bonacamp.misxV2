@@ -60,9 +60,8 @@ class CardRadioMenu extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
+            style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
           ),
-          SizedBox(width: 20),
           Obx(() => Switch(
               activeColor: CommonColors.green,
               value: optValue.value,

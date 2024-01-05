@@ -21,44 +21,6 @@ class Config extends StatelessWidget {
     Get.put(OptionController());
     return GetBuilder<OptionController>(builder: (OptionController controller) {
       return Scaffold(
-        // floatingActionButton: Align(
-        //   alignment: Alignment.bottomRight,
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.end,
-        //     children: [
-        //       Text('로그아웃'),
-        //       Padding(
-        //         padding: const EdgeInsets.all(5),
-        //         child: FloatingActionButton(
-        //           // child: ElevatedButton(
-        //           //     onPressed: () async {
-        //           //       Get.offAllNamed(ROUTE_LOGIN);
-        //           //     },
-        //           //     child: Text('text_logout'.tr),
-        //           //     style: ElevatedButton.styleFrom(
-        //           //       foregroundColor: CommonColors.white,
-        //           //       backgroundColor: CommonColors.primary,
-        //           //       minimumSize: Size(100, 50),
-        //           //       maximumSize: Size(200,100),
-        //           //     )),
-        //
-        //           // child: IconTitleField(
-        //           //   titleName: '',
-        //           //   value: '로그아웃',
-        //           //   iconData: Icons.logout,
-        //           // ),
-        //           child: Icon(Icons.logout),
-        //           onPressed: () {
-        //             Get.offAllNamed(ROUTE_LOGIN);
-        //           },
-        //           //splashColor: CommonColors.primary,
-        //           backgroundColor: Colors.black,
-        //           elevation: 0,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
         backgroundColor: context.theme.hoverColor,
         body: Column(
           children: [
@@ -67,7 +29,7 @@ class Config extends StatelessWidget {
                 color: context.theme.canvasColor,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     IconTitleFieldConfig(
@@ -87,13 +49,8 @@ class Config extends StatelessWidget {
               ),
             ),
             Container(
-              // decoration: BoxDecoration(
-              //   color: context.theme.cardColor,
-              //   borderRadius: BorderRadius.circular(20),
-              //   shape: BoxShape.rectangle,
-              // ),
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     CardIconMenu(iconMenuList: noticeMaster),
@@ -106,13 +63,13 @@ class Config extends StatelessWidget {
             Spacer(),
             Container(
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('로그아웃', style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),),
-                    SizedBox(width: 15,),
-                    Icon(Icons.logout),
+                    SizedBox(width: 15.w,),
+                    Icon(Icons.logout,size: 14.sp,),
                   ],
                 ),
               ),

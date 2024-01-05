@@ -11,10 +11,10 @@ class ShowListHeaderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(32, 8, 8, 0),
       child: Text(
         titleName,
-        style: TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
+        style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
         textAlign: TextAlign.left,
         overflow: TextOverflow.ellipsis,
       ),

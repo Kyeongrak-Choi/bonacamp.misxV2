@@ -8,14 +8,14 @@ class MenuContentInventory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-          color: context.theme.cardColor,
+          color: context.theme.hoverColor,
           borderRadius: BorderRadius.circular(0),
           shape: BoxShape.rectangle,
         ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.all(0),
-          child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster),
-        ));
+        child: Align(
+            alignment: Alignment.topLeft,
+            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster))));
   }
 }
