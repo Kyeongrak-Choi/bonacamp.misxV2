@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:misxV2/utils/theme/text_theme.dart';
 
 import 'color_manager.dart';
@@ -6,12 +7,11 @@ import 'color_manager.dart';
 AppBarTheme appBarThemeLight() {
   return AppBarTheme(
     centerTitle: true,
-    //color: LightColors.basic,
     backgroundColor: LightColors.defaultColor,
-    elevation: 0.5,
-    titleTextStyle: textThemeLight().displayLarge,
+    elevation: 0.0,
+    titleTextStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color:  DarkColors.defaultColor),
     iconTheme: const IconThemeData(
-      color: LightColors.font,
+      color: DarkColors.defaultColor,
     ),
   );
 }
@@ -19,10 +19,9 @@ AppBarTheme appBarThemeLight() {
 AppBarTheme appBarThemeDark() {
   return AppBarTheme(
     centerTitle: true,
-    //color: DarkColors.basic,
     backgroundColor: DarkColors.defaultColor,
-    elevation: 0.5,
-    titleTextStyle: textThemeDark().displayLarge,
+    elevation: 0.0,
+    titleTextStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: LightColors.basic),
     iconTheme: const IconThemeData(
       color: DarkColors.font,
     ),

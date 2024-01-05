@@ -7,6 +7,7 @@ import 'package:misxV2/layouts/appframe/menu_list_content/menu_content_purchase.
 import 'package:misxV2/layouts/appframe/menu_list_content/menu_content_sales.dart';
 import 'package:misxV2/layouts/appframe/menu_list_content/menu_content_support.dart';
 
+import '../../utils/theme/color_manager.dart';
 import 'menu_list_content/menu_content_management.dart';
 
 class MenuListDrawer extends StatelessWidget {
@@ -17,82 +18,105 @@ class MenuListDrawer extends StatelessWidget {
           backgroundColor: context.theme.canvasColor,
           body: Row(
             children: [
-              Divider(color: context.theme.primaryColor, thickness: 5),
               Expanded(
                 flex: 1,
                 child: Column(
                   children: [
-                    ListTile(
-                      title: Text(
-                        'menu_main_managemnent'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_managemnent'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[0],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(0);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[0],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(0);
-                      },
                     ),
-                    ListTile(
-                      title: Text(
-                        'menu_main_sales'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_sales'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[1],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(1);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[1],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(1);
-                      },
                     ),
-                    ListTile(
-                      title: Text(
-                        'menu_main_purchase'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_purchase'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[2],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(2);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[2],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(2);
-                      },
                     ),
-                    ListTile(
-                      title: Text(
-                        'menu_main_support'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_support'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[3],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(3);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[3],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(3);
-                      },
                     ),
-                    ListTile(
-                      title: Text(
-                        'menu_main_location'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_location'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[4],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(4);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[4],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(4);
-                      },
                     ),
-                    ListTile(
-                      title: Text(
-                        'menu_main_asset'.tr,
-                        style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 56,
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        title: Text(
+                          'menu_main_asset'.tr,
+                          style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor, fontWeight: FontWeight.bold),
+                        ),
+                        selected: Get.find<DrawerController>()._bSelected[5],
+                        tileColor: context.theme.canvasColor,
+                        selectedTileColor: context.theme.hoverColor,
+                        onTap: () {
+                          _selectDrawerItem(5);
+                        },
                       ),
-                      selected: Get.find<DrawerController>()._bSelected[5],
-                      tileColor: context.theme.canvasColor,
-                      selectedTileColor: Colors.white,
-                      onTap: () {
-                        _selectDrawerItem(5);
-                      },
                     ),
                   ],
                 ),

@@ -21,6 +21,7 @@ import '../../models/system/userinfo.dart';
 import '../../utils/constants.dart';
 import '../../utils/database/hive_manager.dart';
 import '../../utils/network/network_manager.dart';
+import '../../utils/theme/color_manager.dart';
 
 class DashBoard extends StatelessWidget {
   @override
@@ -146,16 +147,7 @@ class DashBoardController extends GetxController {
 
     dio = await reqApi(param);
 
-    // sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      // pd.show(
-      //   max: 1000,
-      //   msg: 'Searching',
-      //   cancel: Cancel(),
-      //   backgroundColor: CommonColors.white,
-      //   progressValueColor: CommonColors.primary,
-      //   msgColor: CommonColors.primary,
-      // );
       ShowProgress(Get.context);
       BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
@@ -182,7 +174,6 @@ class DashBoardController extends GetxController {
         update();
       }
       Navigator.pop(Get.context!);
-      //ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
       Navigator.pop(Get.context!);
       if (e.response != null) {

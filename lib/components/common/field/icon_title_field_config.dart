@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class IconTitleFieldConfig extends StatelessWidget {
   String titleName;
@@ -17,7 +18,7 @@ class IconTitleFieldConfig extends StatelessWidget {
           child: Text(
             titleName,
             // style: context.textTheme.titleLarge,
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black),
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: context.theme.focusColor),
             textAlign: TextAlign.start,
           ),
         ),
@@ -28,7 +29,7 @@ class IconTitleFieldConfig extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
           child: Text(
             value,
-            style: TextStyle(fontSize: 16.sp, color: Colors.black),
+            style: TextStyle(fontSize: 16.sp, color: context.theme.focusColor),
             textAlign: TextAlign.end,
           ),
         ),
