@@ -41,7 +41,7 @@ class OptionDialogPurchase extends StatelessWidget {
                   onPressed: () {
                     Get.find<OptionDialogPurchaseController>()
                         .selectedValue
-                        .value = 'all'.tr;
+                        .value = '전체';
                     Get.find<OptionDialogPurchaseController>()
                         .paramPurchaseName
                         .value = ''.tr;
@@ -65,7 +65,7 @@ class OptionDialogPurchase extends StatelessWidget {
 }
 
 class OptionDialogPurchaseController extends GetxController {
-  RxString selectedValue = 'all'.tr.obs;
+  RxString selectedValue = '전체'.obs;
 
   RxString paramPurchaseName = ''.tr.obs;
   RxString paramPurchaseCode = ''.tr.obs;

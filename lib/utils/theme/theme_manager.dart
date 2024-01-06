@@ -35,12 +35,13 @@ class Themes {
     canvasColor: LightColors.canvasColor,
     shadowColor: LightColors.shadowColor,
     focusColor: LightColors.focusColor,
-    hoverColor: LightColors.hoverColor,
+   // hoverColor: LightColors.hoverColor,
     cardColor: LightColors.basic,
 
     appBarTheme: appBarThemeLight(),
     iconTheme: const IconThemeData(
       color: LightColors.iconColor,
+
     ),
     textTheme: textThemeLight(),
     buttonTheme: const ButtonThemeData(
@@ -81,7 +82,7 @@ class Themes {
     canvasColor: DarkColors.canvasColor,
     shadowColor: DarkColors.shadowColor,
     focusColor: DarkColors.focusColor,
-    hoverColor: DarkColors.hoverColor,
+    //hoverColor: DarkColors.hoverColor,
     cardColor: DarkColors.cardColor,
 
     appBarTheme: appBarThemeDark(),

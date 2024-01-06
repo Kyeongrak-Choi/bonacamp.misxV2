@@ -41,7 +41,7 @@ class OptionDialogLendItem extends StatelessWidget {
                   onPressed: () {
                     Get.find<OptionDialogLendItemController>()
                         .selectedValue
-                        .value = 'all'.tr;
+                        .value = '전체';
                     Get.find<OptionDialogLendItemController>()
                         .paramLendItemName
                         .value = ''.tr;
@@ -65,7 +65,7 @@ class OptionDialogLendItem extends StatelessWidget {
 }
 
 class OptionDialogLendItemController extends GetxController {
-  RxString selectedValue = 'all'.tr.obs;
+  RxString selectedValue = '전체'.obs;
 
   RxString paramLendItemName = ''.tr.obs;
   RxString paramLendItemCode = ''.tr.obs;

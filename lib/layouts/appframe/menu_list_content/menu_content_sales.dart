@@ -9,7 +9,7 @@ class MenuContentSales extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: context.theme.hoverColor,
+          color: context.theme.canvasColor,
           borderRadius: BorderRadius.circular(0),
           shape: BoxShape.rectangle,
         ),

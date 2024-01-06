@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class OptionBtnVisible extends StatelessWidget {
@@ -11,13 +12,11 @@ class OptionBtnVisible extends StatelessWidget {
     return visible == true
         ? ImageIcon(
             AssetImage('lib/assets/icons/Invisible.png'),
-            color: context.theme.primaryColor,
-            size: 24,
+            size: 24.sp,
           )
         : ImageIcon(
             AssetImage('lib/assets/icons/Visible.png'),
-            color: context.theme.primaryColor,
-            size: 24,
+            size: 24.sp,
           );
   }
 }

@@ -102,8 +102,8 @@ class Navigation extends GetView<NavigationController> {
             index: controller.currentIndex.value,
             height: 56,
             color: CommonColors.primary,
-            backgroundColor: context.theme.hoverColor,
-            buttonBackgroundColor: context.theme.hoverColor,
+            backgroundColor: context.theme.canvasColor,
+            buttonBackgroundColor: context.theme.canvasColor,
             items: [
               Container(
                 //height: 40,

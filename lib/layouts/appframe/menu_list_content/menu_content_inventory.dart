@@ -10,7 +10,7 @@ class MenuContentInventory extends StatelessWidget {
     return Container(
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-          color: context.theme.hoverColor,
+          color: context.theme.canvasColor,
           borderRadius: BorderRadius.circular(0),
           shape: BoxShape.rectangle,
         ),

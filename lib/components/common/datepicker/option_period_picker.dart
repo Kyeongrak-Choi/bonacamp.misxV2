@@ -15,12 +15,11 @@ class OptionPeriodPicker extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: EdgeInsetsDirectional.only(bottom: 8.h),
+            padding: EdgeInsetsDirectional.only(bottom: BASIC_PADDING.h),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
               style: context.textTheme.bodyLarge,
-              //style: TextStyle(fontSize: 14.sp, fontFamily: 'SUITE'),
             ),
           ),
         ),
@@ -30,10 +29,10 @@ class OptionPeriodPicker extends StatelessWidget {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: context.theme.cardColor,
+                  color: context.theme.colorScheme.surface,
                   borderRadius: BorderRadius.circular(8),
                   shape: BoxShape.rectangle,
-                  border: Border.all(color: Color(0x22000000)),
+                  border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
                   children: [
@@ -44,8 +43,7 @@ class OptionPeriodPicker extends StatelessWidget {
                         //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                         icon: ImageIcon(
                           AssetImage('lib/assets/icons/calendar.png'),
-                          color: context.theme.primaryColor,
-                          size: 24,
+                          size: 24.sp,
                         )),
                     Obx(
                       () => TextButton(
@@ -67,7 +65,7 @@ class OptionPeriodPicker extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsetsDirectional.fromSTEB(8.w, 0, 8.w, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING.w, 0.h),
               child: Text(
                 ' - ',
                 style: context.textTheme.bodyMedium,
@@ -77,10 +75,10 @@ class OptionPeriodPicker extends StatelessWidget {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: context.theme.cardColor,
+                  color: context.theme.colorScheme.surface,
                   borderRadius: BorderRadius.circular(8),
                   shape: BoxShape.rectangle,
-                  border: Border.all(color: Color(0x22000000)),
+                  border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
                   children: [
@@ -90,8 +88,7 @@ class OptionPeriodPicker extends StatelessWidget {
                         },
                         icon: ImageIcon(
                           AssetImage('lib/assets/icons/calendar.png'),
-                          color: context.theme.primaryColor,
-                          size: 24,
+                          size: 24.sp,
                         )),
                     Obx(
                       () => TextButton(

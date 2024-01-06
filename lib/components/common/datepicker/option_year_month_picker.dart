@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
+import '../../../utils/constants.dart';
 import '../../../utils/theme/text_theme.dart';
 
 class OptionYearMonthPicker extends StatelessWidget {
@@ -14,45 +16,47 @@ class OptionYearMonthPicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'opt_month'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Obx(
-                    () => TextButton(
-                      onPressed: () =>
-                          Get.find<MonthPickerController>().chooseYearMonth(),
-                      child: Text(
-                        DateFormat('yyyy-MM')
-                            .format(Get.find<MonthPickerController>()
-                                .yearMonth
-                                .value)
-                            .toString(),
-                        style: context.textTheme.bodyMedium,
-                      ),
-                    ),
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Obx(
+                () => TextButton(
+                  onPressed: () =>
+                      Get.find<MonthPickerController>().chooseYearMonth(),
+                  child: Text(
+                    DateFormat('yyyy-MM')
+                        .format(Get.find<MonthPickerController>()
+                            .yearMonth
+                            .value)
+                        .toString(),
+                    style: context.textTheme.bodyMedium,
                   ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<MonthPickerController>().chooseYearMonth();
-                      },
-                      icon: Icon(Icons.date_range,
-                          color: context.theme.primaryColor)),
-                ],
+                ),
               ),
-            ),
-          ],
+              IconButton(
+                  onPressed: () {
+                    Get.find<MonthPickerController>().chooseYearMonth();
+                  },
+                  icon: Icon(Icons.date_range,
+                  )),
+            ],
+          ),
         )
       ],
     );

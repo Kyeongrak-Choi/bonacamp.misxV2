@@ -16,8 +16,7 @@ class IconTitleField extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Icon(
           iconData,
-          color: context.theme.primaryColor,
-          size: 24,
+          size: 24.sp,
         ),
         Expanded(
           flex: 5,

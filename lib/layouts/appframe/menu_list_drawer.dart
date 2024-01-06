@@ -25,7 +25,6 @@ class MenuListDrawer extends StatelessWidget {
                     Container(
                       height: BASIC_PADDING * 7.h,
                       alignment: Alignment.center,
-                     // color: context.theme.colorScheme.background,
                       child: ListTile(
                         titleAlignment: ListTileTitleAlignment.center,
                         title: Text(
@@ -34,7 +33,7 @@ class MenuListDrawer extends StatelessWidget {
                               ?.copyWith(fontWeight: FontWeight.bold),
                         ),
                         selected: Get.find<DrawerController>()._bSelected[0],
-                        tileColor: context.theme.colorScheme.background,
+                        //tileColor: context.theme.colorScheme.background,
                         selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(0);
@@ -52,7 +51,7 @@ class MenuListDrawer extends StatelessWidget {
                         ),
                         selected: Get.find<DrawerController>()._bSelected[1],
                         tileColor: context.theme.colorScheme.background,
-                        selectedTileColor: context.theme.hoverColor,
+                        selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(1);
                         },
@@ -69,7 +68,7 @@ class MenuListDrawer extends StatelessWidget {
                         ),
                         selected: Get.find<DrawerController>()._bSelected[2],
                         tileColor: context.theme.colorScheme.background,
-                        selectedTileColor: context.theme.hoverColor,
+                        selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(2);
                         },
@@ -86,7 +85,7 @@ class MenuListDrawer extends StatelessWidget {
                         ),
                         selected: Get.find<DrawerController>()._bSelected[3],
                         tileColor: context.theme.colorScheme.background,
-                        selectedTileColor: context.theme.hoverColor,
+                        selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(3);
                         },
@@ -103,7 +102,7 @@ class MenuListDrawer extends StatelessWidget {
                         ),
                         selected: Get.find<DrawerController>()._bSelected[4],
                         tileColor: context.theme.colorScheme.background,
-                        selectedTileColor: context.theme.hoverColor,
+                        selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(4);
                         },
@@ -120,7 +119,7 @@ class MenuListDrawer extends StatelessWidget {
                         ),
                         selected: Get.find<DrawerController>()._bSelected[5],
                         tileColor: context.theme.colorScheme.background,
-                        selectedTileColor: context.theme.hoverColor,
+                        selectedTileColor: context.theme.canvasColor,
                         onTap: () {
                           _selectDrawerItem(5);
                         },

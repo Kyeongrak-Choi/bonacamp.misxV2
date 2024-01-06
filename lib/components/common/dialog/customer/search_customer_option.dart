@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_listview.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class SearchCustomerOption extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(SearchCustomerListController());
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(
+          BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, 0.w, 0.h),
       child: Row(
         children: [
           Flexible(
             flex: 7,
             child: TextField(
                 decoration: InputDecoration(
-                  border: InputBorder.none,
-                  filled: true,
+                  //border: InputBorder.none,
+                  //filled: true,
                   hintText: 'hint_search_customer'.tr,
-                  hintStyle: context.textTheme.displaySmall,
+                  hintStyle: context.textTheme.bodyMedium,
                 ),
                 onChanged: (text) {
                   Get.find<SearchCustomerListController>().setSearchTxt(text);
                 },
-                style: context.textTheme.displaySmall),
+                style: context.textTheme.bodyMedium),
           ),
           Flexible(
               flex: 1,
@@ -35,7 +38,6 @@ class SearchCustomerOption extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.search,
-                      color: context.theme.primaryColor,
                     ),
                   ),
                 ),

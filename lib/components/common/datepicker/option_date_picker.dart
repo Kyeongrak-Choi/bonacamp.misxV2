@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/constants.dart';
 import '../../../utils/theme/text_theme.dart';
 
 class OptionDatePicker extends StatelessWidget {
@@ -13,50 +15,52 @@ class OptionDatePicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 7,
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () =>
-                            Get.find<DatePickerController>().chooseDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd')
-                              .format(
-                                  Get.find<DatePickerController>().date.value)
-                              .toString(),
-                          style: context.textTheme.bodyMedium,
-                        ),
-                      ),
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 3,
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () =>
+                        Get.find<DatePickerController>().chooseDate(),
+                    child: Text(
+                      DateFormat('yyyy-MM-dd')
+                          .format(Get.find<DatePickerController>().date.value)
+                          .toString(),
+                      style: context.textTheme.bodyMedium,
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<DatePickerController>().chooseDate();
-                        },
-                        icon: Icon(Icons.date_range,
-                            color: context.theme.primaryColor)),
-                  )
-                ],
+                ),
               ),
-            ),
-          ],
+              Expanded(
+                flex: 1,
+                child: IconButton(
+                    onPressed: () {
+                      Get.find<DatePickerController>().chooseDate();
+                    },
+                    icon: Icon(
+                      Icons.date_range,
+                    )),
+              )
+            ],
+          ),
         )
       ],
     );

@@ -22,7 +22,7 @@ class LightColors {
   static const Color focusColor = Color(0xFFFFFFFF);
   static const Color highlightColor = Color(0xFFFFFFFF);
   static const Color hintColor = Color(0xFFFFFFFF);
-  static const Color hoverColor = Color(0xFFFFFFFF);
+  //static const Color hoverColor = Color(0xFFFFFFFF);
   static const Color indicatorColor = Color(0xFFFFFFFF);
   static const Color primaryColor = Color(0xFF2D84FB);
   static const Color primaryColorDark = Color(0xFFFFFFFF);
@@ -57,7 +57,7 @@ class DarkColors {
   static const Color focusColor = Color(0xFF000000);
   static const Color highlightColor = Color(0xFF000000);
   static const Color hintColor = Color(0xFF000000);
-  static const Color hoverColor = Color(0xFF000000);
+  //static const Color hoverColor = Color(0xFF000000);
   static const Color indicatorColor = Color(0xFF000000);
   static const Color primaryColor = Color(0xFF2D84FB);
   static const Color primaryColorDark = Color(0xFF000000);

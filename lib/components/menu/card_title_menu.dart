@@ -16,11 +16,8 @@ class CardTitleMenuList extends StatelessWidget {
     return Column(
       children: [
         Card(
-        //  elevation: 0.h,
+          elevation: 0.h,
           margin: EdgeInsets.zero,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-          color: context.theme.hoverColor,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(
                 BASIC_PADDING * 2.w, 0.h, BASIC_PADDING * 2.w, 0.h),
@@ -47,9 +44,7 @@ class CardTitleMenuList extends StatelessWidget {
         height: BASIC_PADDING * 7.h,
         child: Row(
           children: [
-            Text(title,
-                //style: context.textTheme.displayMedium,
-                style: context.textTheme.bodyLarge),
+            Text(title, style: context.textTheme.bodyLarge),
             Spacer(),
             Icon(
               Icons.arrow_forward_ios,

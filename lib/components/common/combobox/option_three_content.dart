@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:misxV2/components/common/emptyWidget.dart';
 
 class OptionThreeContent extends StatelessWidget {
@@ -17,9 +18,9 @@ class OptionThreeContent extends StatelessWidget {
     return Row(
       children: [
         Expanded(flex: 1, child: firstItem),
-        SizedBox(width: 20),
+        SizedBox(width: 20.w),
         Expanded(flex: 1, child: secondItem),
-        SizedBox(width: 20),
+        SizedBox(width: 20.w),
         Expanded(flex: 1, child: thirdItem),
       ],
     );

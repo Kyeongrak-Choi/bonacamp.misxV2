@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_listitem.dart';
@@ -30,7 +31,7 @@ class SearchCustomerList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
-              height: 50,
+              height: BASIC_PADDING * 7.h,
               color: context.theme.cardColor,
               padding: const EdgeInsets.all(5),
               child: selectSearchListItem(index),

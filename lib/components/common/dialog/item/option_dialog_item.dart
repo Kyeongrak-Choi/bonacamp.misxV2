@@ -40,7 +40,7 @@ class OptionDialogItem extends StatelessWidget {
               child: IconButton(
                   onPressed: () {
                     Get.find<OptionDialogItemController>().selectedValue.value =
-                        'all'.tr;
+                        '전체';
                     Get.find<OptionDialogItemController>().paramItemName.value =
                         ''.tr;
                     Get.find<OptionDialogItemController>().paramItemCode.value =
@@ -62,7 +62,7 @@ class OptionDialogItem extends StatelessWidget {
 }
 
 class OptionDialogItemController extends GetxController {
-  RxString selectedValue = 'all'.tr.obs;
+  RxString selectedValue = '전체'.obs;
 
   RxString paramItemCode = ''.tr.obs;
   RxString paramItemName = ''.tr.obs;

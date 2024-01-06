@@ -46,8 +46,11 @@ class OverallStatus extends StatelessWidget {
                         child: Container(
                           color: context.theme.canvasColor,
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.all(BASIC_PADDING * 2.sp),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h,
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
@@ -71,15 +74,19 @@ class OverallStatus extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: EdgeInsets.only(right: BASIC_PADDING * 2.sp),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible: Get.find<OverAllController>().visible.value),
                       onPressed: () {
                         Get.find<OverAllController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: CommonColors.dark,
+                      //splashColor: CommonColors.primary,
+                      backgroundColor: context.theme.colorScheme.background,
                       elevation: 1,
                     ),
                   ),

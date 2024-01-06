@@ -32,7 +32,6 @@ class Notice extends StatelessWidget {
                 return ExpansionPanelRadio(
                   canTapOnHeader: true,
                   value: model.title.toString(),
-                  // backgroundColor: context.theme.hoverColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     return ShowListHeaderRow(
                         titleName: model.regData,

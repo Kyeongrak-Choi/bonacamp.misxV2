@@ -16,7 +16,7 @@ class CardIconMenu extends StatelessWidget {
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.hoverColor,
+      color: context.theme.canvasColor,
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(
             0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),

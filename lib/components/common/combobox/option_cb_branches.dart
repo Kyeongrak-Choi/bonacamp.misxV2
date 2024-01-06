@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/branch.dart';
+import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../../utils/constants.dart';
 
@@ -15,7 +16,8 @@ class OptionCbBranch extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 8.h, 0, 8.h),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'opt_workspace'.tr,
               textAlign: TextAlign.start,
@@ -25,26 +27,39 @@ class OptionCbBranch extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-            color: context.theme.cardColor,
+            color: context.theme.colorScheme.surface,
             borderRadius: BorderRadius.circular(8),
             shape: BoxShape.rectangle,
-            border: Border.all(color: Color(0x22000000)),
+            border: Border.all(color: context.theme.colorScheme.background),
           ),
           child: Obx(
             () => DropdownButtonFormField<BranchModel>(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-              isExpanded: false,
+              padding: EdgeInsetsDirectional.fromSTEB(
+                  BASIC_PADDING * 2.w, 0.h, BASIC_PADDING * 2.w, 0.h),
+              isExpanded: true,
+              menuMaxHeight: BASIC_PADDING * 30.h,
               value: Get.find<CbBranchController>().selectedValue,
-              style: context.textTheme.bodyLarge,
+              style: context.textTheme.bodyMedium,
               decoration: InputDecoration(border: InputBorder.none),
-              dropdownColor: context.theme.cardColor,
+              dropdownColor: context.theme.colorScheme.background,
+              borderRadius: BorderRadius.circular(8),
               items: Get.find<CbBranchController>()
                   .data
                   .map<DropdownMenuItem<BranchModel>>((BranchModel value) {
                 return DropdownMenuItem<BranchModel>(
                   alignment: Alignment.center,
                   value: value,
-                  child: Text(value.getBranchName ?? ''),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Text(
+                            value.getBranchName ?? '',
+                            style: context.textTheme.bodyMedium,
+                          ))),
                 );
               }).toList(),
               onChanged: (value) {
