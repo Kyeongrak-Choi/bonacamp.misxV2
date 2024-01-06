@@ -17,7 +17,9 @@ class BalanceReportModel {
   var marginRate; // 이익률
   int? id;
 
-  BalanceReportModel(this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate, {this.id});
+  BalanceReportModel(this.code, this.name, this.total, this.price, this.amount,
+      this.deposit, this.balance, this.margin, this.marginRate,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -33,7 +35,8 @@ class BalanceReportModel {
     };
   }
 
-  factory BalanceReportModel.fromJson(Map<String, dynamic> json) => _$BalanceReportModelFromJson(json);
+  factory BalanceReportModel.fromJson(Map<String, dynamic> json) =>
+      _$BalanceReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$BalanceReportModelToJson(this);
 

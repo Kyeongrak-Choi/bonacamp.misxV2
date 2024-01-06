@@ -19,7 +19,8 @@ class OverAllDepositModel {
     };
   }
 
-  factory OverAllDepositModel.fromJson(Map<String, dynamic> json) => _$OverAllDepositModelFromJson(json);
+  factory OverAllDepositModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllDepositModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllDepositModelToJson(this);
 }

@@ -17,7 +17,8 @@ class ChartSpot {
     };
   }
 
-  factory ChartSpot.fromJson(Map<String, dynamic> json) => _$ChartSpotFromJson(json);
+  factory ChartSpot.fromJson(Map<String, dynamic> json) =>
+      _$ChartSpotFromJson(json);
 
   Map<String, dynamic> toJson() => _$ChartSpotToJson(this);
 }

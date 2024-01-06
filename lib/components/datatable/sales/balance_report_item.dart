@@ -61,7 +61,8 @@ class BalanceReportItem extends StatelessWidget {
               //padding: const EdgeInsets.all(10),
               itemCount: dataList.length,
               // Divider 로 구분자 추가.
-              separatorBuilder: (BuildContext context, int index) => const Divider(
+              separatorBuilder: (BuildContext context, int index) =>
+                  const Divider(
                 height: 5,
                 color: CommonColors.black,
               ),
@@ -90,7 +91,8 @@ class BalanceReportItem extends StatelessWidget {
                         onPressed: () {
                           ShowBalanceDetailDialog(dataList[index], context);
                         },
-                        icon: Icon(Icons.search, color: context.theme.primaryColor),
+                        icon: Icon(Icons.search,
+                            color: context.theme.primaryColor),
                       ),
                     )
                   ],

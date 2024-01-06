@@ -22,8 +22,18 @@ class InventoryInOutReportModel {
 
   int? id;
 
-  InventoryInOutReportModel(this.itemCode, this.itemName, this.salesTypeCode, this.salesType, this.customerCode, this.customerName, this.current,
-      this.last, this.physical, this.inventoryIn, this.inventoryOut,
+  InventoryInOutReportModel(
+      this.itemCode,
+      this.itemName,
+      this.salesTypeCode,
+      this.salesType,
+      this.customerCode,
+      this.customerName,
+      this.current,
+      this.last,
+      this.physical,
+      this.inventoryIn,
+      this.inventoryOut,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -42,12 +52,14 @@ class InventoryInOutReportModel {
     };
   }
 
-  factory InventoryInOutReportModel.fromJson(Map<String, dynamic> json) => _$InventoryInOutReportModelFromJson(json);
+  factory InventoryInOutReportModel.fromJson(Map<String, dynamic> json) =>
+      _$InventoryInOutReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$InventoryInOutReportModelToJson(this);
 }
 
-List<InventoryInOutReportModel> generateInventoryInOutReportModelList(dataList, count) {
+List<InventoryInOutReportModel> generateInventoryInOutReportModelList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => InventoryInOutReportModel(
@@ -57,16 +69,26 @@ List<InventoryInOutReportModel> generateInventoryInOutReportModelList(dataList, 
             dataList[index].salesType,
             dataList[index].customerCode,
             dataList[index].customerName,
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].current.box), numberFormat.format(dataList[index].current.bottle),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].current.box),
+                numberFormat.format(dataList[index].current.bottle),
                 numberFormat.format(dataList[index].current.total)),
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].last.box), numberFormat.format(dataList[index].last.bottle),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].last.box),
+                numberFormat.format(dataList[index].last.bottle),
                 numberFormat.format(dataList[index].last.total)),
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].physical.box), numberFormat.format(dataList[index].physical.bottle),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].physical.box),
+                numberFormat.format(dataList[index].physical.bottle),
                 numberFormat.format(dataList[index].physical.total)),
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].inventoryIn.box),
-                numberFormat.format(dataList[index].inventoryIn.bottle), numberFormat.format(dataList[index].inventoryIn.total)),
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].inventoryOut.box),
-                numberFormat.format(dataList[index].inventoryOut.bottle), numberFormat.format(dataList[index].inventoryOut.total)),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].inventoryIn.box),
+                numberFormat.format(dataList[index].inventoryIn.bottle),
+                numberFormat.format(dataList[index].inventoryIn.total)),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].inventoryOut.box),
+                numberFormat.format(dataList[index].inventoryOut.bottle),
+                numberFormat.format(dataList[index].inventoryOut.total)),
             id: index,
           ));
 }

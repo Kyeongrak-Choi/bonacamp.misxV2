@@ -39,7 +39,9 @@ class CustomerInfo extends StatelessWidget {
                     child: Column(
                       children: [
                         Visibility(
-                            visible: Get.find<CustomerInfoController>().visible.value,
+                            visible: Get.find<CustomerInfoController>()
+                                .visible
+                                .value,
                             child: Column(
                               children: [
                                 Container(
@@ -52,8 +54,10 @@ class CustomerInfo extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
-                                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
+                                        OptionTwoContent(OptionDialogCustomer(),
+                                            OptionCbBranch()),
+                                        OptionBtnSearch(
+                                            ROUTE_MENU_CUSTOMER_INFO),
                                       ],
                                     ),
                                   ),
@@ -61,10 +65,15 @@ class CustomerInfo extends StatelessWidget {
                               ],
                             )),
                         SizedBox(
-                          height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
+                          height:
+                              Get.find<CustomerInfoController>().visible.value
+                                  ? 20
+                                  : 0,
                         ),
                         Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
+                          flex: Get.find<CustomerInfoController>().visible.value
+                              ? 4
+                              : 3,
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
@@ -81,7 +90,9 @@ class CustomerInfo extends StatelessWidget {
                           height: 20,
                         ),
                         Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,
+                          flex: Get.find<CustomerInfoController>().visible.value
+                              ? 6
+                              : 7,
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
@@ -101,7 +112,9 @@ class CustomerInfo extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<CustomerInfoController>().visible.value),
                       onPressed: () {
                         Get.find<CustomerInfoController>().setVisible();
                       },
@@ -146,7 +159,9 @@ class CustomerInfoController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramCustCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value ?? '';
+    String paramCustCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value ??
+            '';
 
     if (paramCustCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
@@ -162,25 +177,44 @@ class CustomerInfoController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES + API_SALES_CUSTOMERINFO + '?branch=' + paramBranchCode + '&code=' + paramCustCode);
+      final response = await dio.get(API_SALES +
+          API_SALES_CUSTOMERINFO +
+          '?branch=' +
+          paramBranchCode +
+          '&code=' +
+          paramCustCode);
 
       if (response.statusCode == 200) {
         spotListSales.clear();
         spotListBalance.clear();
 
-        parsedDataCustomerInfo = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
-        parsedDataCustomerInfoRepre = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_REPRESENTATIVE];
-        parsedDataCustomerInfoEmp = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_EMPLOYEE];
-        parsedDataCustomerInfoSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALESSUMMARIES] as List;
+        parsedDataCustomerInfo =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA];
+        parsedDataCustomerInfoRepre =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+                [TAG_REPRESENTATIVE];
+        parsedDataCustomerInfoEmp =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_EMPLOYEE];
+        parsedDataCustomerInfoSales =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+                [TAG_SALESSUMMARIES] as List;
 
-        controllerCustomerInfoModel = CustomerInfoModel.fromJson(parsedDataCustomerInfo);
-        controllerCustomerInfoRepresentativeModel = CustomerInfoRepresentativeModel.fromJson(parsedDataCustomerInfoRepre);
-        controllerCustomerInfoEmployeeModel = CustomerInfoEmployeeModel.fromJson(parsedDataCustomerInfoEmp);
-        controllerCustomerInfoSalesModel = parsedDataCustomerInfoSales.map((dataJson) => CustomerInfoSalesModel.fromJson(dataJson)).toList();
+        controllerCustomerInfoModel =
+            CustomerInfoModel.fromJson(parsedDataCustomerInfo);
+        controllerCustomerInfoRepresentativeModel =
+            CustomerInfoRepresentativeModel.fromJson(
+                parsedDataCustomerInfoRepre);
+        controllerCustomerInfoEmployeeModel =
+            CustomerInfoEmployeeModel.fromJson(parsedDataCustomerInfoEmp);
+        controllerCustomerInfoSalesModel = parsedDataCustomerInfoSales
+            .map((dataJson) => CustomerInfoSalesModel.fromJson(dataJson))
+            .toList();
 
         for (var list in parsedDataCustomerInfoSales) {
-          spotListSales.add(ChartSpot(list['title'].toString(), list['sales-amount']));
-          spotListBalance.add(ChartSpot(list['title'].toString(), list['balance']));
+          spotListSales
+              .add(ChartSpot(list['title'].toString(), list['sales-amount']));
+          spotListBalance
+              .add(ChartSpot(list['title'].toString(), list['balance']));
         }
 
         Get.find<CustomerInfoController>().setVisible();
@@ -188,7 +222,8 @@ class CustomerInfoController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

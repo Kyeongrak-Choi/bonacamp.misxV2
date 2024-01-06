@@ -29,7 +29,7 @@ class LoginBtn extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-            height: 48.h,
+            height: BASIC_PADDING * 7.h,
             child: ElevatedButton(
                 onPressed: () async {
                   ShowProgress(context);
@@ -40,12 +40,14 @@ class LoginBtn extends StatelessWidget {
                     Navigator.pop(context);
                   }
                 },
-                // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
-                child: Text('text_login'.tr, style: TextStyle(color: CommonColors.white, fontSize: 18.sp)),
+                child: Text('text_login'.tr,
+                    style: context.textTheme.titleMedium
+                        ?.copyWith(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: CommonColors.white,
                   backgroundColor: CommonColors.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
                 )),
           ))
         ],
@@ -84,10 +86,12 @@ class LoginBtnController extends GetxController {
       if (await reqToken(true)) {
         dio = await reqLogin();
         try {
-          final response = await await dio.post(API_SYSTEM_LOGIN, data: ReqLoginModel(inputId, inputPw, APP_ID).toMap());
+          final response = await await dio.post(API_SYSTEM_LOGIN,
+              data: ReqLoginModel(inputId, inputPw, APP_ID).toMap());
           if (response.statusCode == 200) {
             BoxInit(); // local DB Set
-            UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
+            UserinfoModel userinfoModel =
+                UserinfoModel.fromJson(response.data[TAG_DATA]);
             await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
             await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
             inputPw = ''; // pw 초기화
@@ -96,7 +100,8 @@ class LoginBtnController extends GetxController {
           }
         } on DioException catch (e) {
           if (e.response != null) {
-            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+            ShowSnackBar(SNACK_TYPE.INFO,
+                e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
             return false;
           }
         }

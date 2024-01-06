@@ -29,7 +29,9 @@ class OptionDialogLendItem extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_LENDITM),
                   child: Obx(() => Text(
-                        Get.find<OptionDialogLendItemController>().selectedValue.value,
+                        Get.find<OptionDialogLendItemController>()
+                            .selectedValue
+                            .value,
                         style: context.textTheme.bodyMedium,
                       )),
                 )),
@@ -37,12 +39,19 @@ class OptionDialogLendItem extends StatelessWidget {
               flex: 1,
               child: IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogLendItemController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogLendItemController>().paramLendItemName.value = ''.tr;
-                    Get.find<OptionDialogLendItemController>().paramLendItemCode.value = ''.tr;
+                    Get.find<OptionDialogLendItemController>()
+                        .selectedValue
+                        .value = 'all'.tr;
+                    Get.find<OptionDialogLendItemController>()
+                        .paramLendItemName
+                        .value = ''.tr;
+                    Get.find<OptionDialogLendItemController>()
+                        .paramLendItemCode
+                        .value = ''.tr;
                     Get.find<OptionDialogLendItemController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
+                  icon: Icon(Icons.cancel_outlined,
+                      color: context.theme.primaryColor)),
             ),
             // Expanded(
             //   flex: 1,

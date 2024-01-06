@@ -30,7 +30,8 @@ class CustomerReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_customer_monthly'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_customer_monthly'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -40,7 +41,9 @@ class CustomerReportMonthly extends StatelessWidget {
                     child: Column(
                       children: [
                         Visibility(
-                            visible: Get.find<CustomerReportMonthlyController>().visible.value,
+                            visible: Get.find<CustomerReportMonthlyController>()
+                                .visible
+                                .value,
                             child: Column(
                               children: [
                                 Container(
@@ -53,10 +56,15 @@ class CustomerReportMonthly extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
-                                        OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                                        OptionTwoContent(OptionCbManager(), OptionCbEmployee()),
-                                        OptionTwoContent(OptionDialogCustomer(), OptionCbSalesType()),
-                                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
+                                        OptionTwoContent(
+                                            OptionYearMonthPicker(),
+                                            OptionCbBranch()),
+                                        OptionTwoContent(OptionCbManager(),
+                                            OptionCbEmployee()),
+                                        OptionTwoContent(OptionDialogCustomer(),
+                                            OptionCbSalesType()),
+                                        OptionBtnSearch(
+                                            ROUTE_MENU_CUSTOMER_REPORT_MONTHLY),
                                       ],
                                     ),
                                   ),
@@ -64,10 +72,18 @@ class CustomerReportMonthly extends StatelessWidget {
                               ],
                             )),
                         SizedBox(
-                          height: Get.find<CustomerReportMonthlyController>().visible.value ? 20 : 0,
+                          height: Get.find<CustomerReportMonthlyController>()
+                                  .visible
+                                  .value
+                              ? 20
+                              : 0,
                         ),
                         Expanded(
-                          flex: Get.find<CustomerReportMonthlyController>().visible.value ? 4 : 3,
+                          flex: Get.find<CustomerReportMonthlyController>()
+                                  .visible
+                                  .value
+                              ? 4
+                              : 3,
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
@@ -87,9 +103,13 @@ class CustomerReportMonthly extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<CustomerReportMonthlyController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<CustomerReportMonthlyController>()
+                              .visible
+                              .value),
                       onPressed: () {
-                        Get.find<CustomerReportMonthlyController>().setVisible();
+                        Get.find<CustomerReportMonthlyController>()
+                            .setVisible();
                       },
                       splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
@@ -104,8 +124,12 @@ class CustomerReportMonthly extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<CustomerReportMonthlyController>().controllerSalesPersonMonthlyReport != null) {
-      return SalesPersonReportMonthlyItem(Get.find<CustomerReportMonthlyController>().controllerSalesPersonMonthlyReport);
+    if (Get.find<CustomerReportMonthlyController>()
+            .controllerSalesPersonMonthlyReport !=
+        null) {
+      return SalesPersonReportMonthlyItem(
+          Get.find<CustomerReportMonthlyController>()
+              .controllerSalesPersonMonthlyReport);
     } else {
       return EmptyWidget();
     }
@@ -126,11 +150,16 @@ class CustomerReportMonthlyController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramYearMonth = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
+    String paramYearMonth = DateFormat('yyyyMM')
+        .format(Get.find<MonthPickerController>().yearMonth.value)
+        .toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
@@ -159,17 +188,22 @@ class CustomerReportMonthlyController extends GetxController {
 
       if (response.statusCode == 200) {
         if (jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
           jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
           sumTotal = 0;
           log(response.data.toString());
 
-          parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          controllerSalesPersonMonthlyReport =
-              parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportMonthlyModel.fromJson(dataJson)).toList();
+          parsedSalesPersonReportSales =
+              await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          controllerSalesPersonMonthlyReport = parsedSalesPersonReportSales
+              .map((dataJson) =>
+                  SalesPersonReportMonthlyModel.fromJson(dataJson))
+              .toList();
 
-          for (SalesPersonReportMonthlyModel calData in controllerSalesPersonMonthlyReport) {
+          for (SalesPersonReportMonthlyModel calData
+              in controllerSalesPersonMonthlyReport) {
             sumTotal += calData.total as int;
           }
 
@@ -179,7 +213,8 @@ class CustomerReportMonthlyController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

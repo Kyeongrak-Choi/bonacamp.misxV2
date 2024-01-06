@@ -15,6 +15,9 @@ class MenuContentPurchase extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_purchase'.tr, iconMenuList: purchaseAnalysisMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_purchase'.tr,
+                    iconMenuList: purchaseAnalysisMaster))));
   }
 }

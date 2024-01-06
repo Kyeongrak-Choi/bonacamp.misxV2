@@ -28,7 +28,8 @@ class SalesRentalLedger extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesRentalLedgerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_sales_rental_ledger'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_sales_rental_ledger'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -36,7 +37,9 @@ class SalesRentalLedger extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<SalesRentalLedgerController>().visible.value,
+                      visible: !Get.find<SalesRentalLedgerController>()
+                          .visible
+                          .value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -46,14 +49,42 @@ class SalesRentalLedger extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 매출 및 대여 합계'),
-                              SumItemTable('매출액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotal), '공급가\n+부가세',
-                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumAmount)),
-                              SumItemTable('입금액', numberFormat.format(Get.find<SalesRentalLedgerController>().sumDeposit), '채권잔액',
-                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumBalance)),
-                              SumItemTable('대여금\n(장기)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumLongRent), '대여금\n(단기)',
-                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumShortRent)),
-                              SumItemTable('대여금\n(합계)', numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalRent), '채권\n+대여금',
-                                  numberFormat.format(Get.find<SalesRentalLedgerController>().sumTotalBalance)),
+                              SumItemTable(
+                                  '매출액',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumTotal),
+                                  '공급가\n+부가세',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumAmount)),
+                              SumItemTable(
+                                  '입금액',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumDeposit),
+                                  '채권잔액',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumBalance)),
+                              SumItemTable(
+                                  '대여금\n(장기)',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumLongRent),
+                                  '대여금\n(단기)',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumShortRent)),
+                              SumItemTable(
+                                  '대여금\n(합계)',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumTotalRent),
+                                  '채권\n+대여금',
+                                  numberFormat.format(
+                                      Get.find<SalesRentalLedgerController>()
+                                          .sumTotalBalance)),
                             ],
                           ),
                         ),
@@ -65,7 +96,9 @@ class SalesRentalLedger extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                                visible: Get.find<SalesRentalLedgerController>().visible.value,
+                                visible: Get.find<SalesRentalLedgerController>()
+                                    .visible
+                                    .value,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: context.theme.cardColor,
@@ -77,14 +110,20 @@ class SalesRentalLedger extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         OptionPeriodPicker(),
-                                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                        OptionBtnSearch(ROUTE_MENU_SALES_RENTAL_LEDGER),
+                                        OptionTwoContent(OptionDialogCustomer(),
+                                            OptionCbBranch()),
+                                        OptionBtnSearch(
+                                            ROUTE_MENU_SALES_RENTAL_LEDGER),
                                       ],
                                     ),
                                   ),
                                 )),
                             SizedBox(
-                              height: Get.find<SalesRentalLedgerController>().visible.value ? 20 : 0,
+                              height: Get.find<SalesRentalLedgerController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -112,7 +151,10 @@ class SalesRentalLedger extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesRentalLedgerController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<SalesRentalLedgerController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<SalesRentalLedgerController>().setVisible();
                       },
@@ -130,7 +172,8 @@ class SalesRentalLedger extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesRentalLedgerController>().salesRentalLedgerList != null) {
-      return SalesRentalLedgerItem(Get.find<SalesRentalLedgerController>().salesRentalLedgerList);
+      return SalesRentalLedgerItem(
+          Get.find<SalesRentalLedgerController>().salesRentalLedgerList);
     } else {
       return EmptyWidget();
     }
@@ -161,9 +204,14 @@ class SalesRentalLedgerController extends GetxController {
     var dio;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
 
     if (paramCustomerCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
@@ -187,12 +235,17 @@ class SalesRentalLedgerController extends GetxController {
           paramCustomerCode);
 
       if (response.statusCode == 200) {
-        if ((parsedsalesRentalLedger = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedsalesRentalLedger =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          salesRentalLedgerList = parsedsalesRentalLedger.map((dataJson) => SalesRentalLedgerModel.fromJson(dataJson)).toList();
+          salesRentalLedgerList = parsedsalesRentalLedger
+              .map((dataJson) => SalesRentalLedgerModel.fromJson(dataJson))
+              .toList();
 
           for (SalesRentalLedgerModel calData in salesRentalLedgerList) {
             sumTotal += calData.total as int;
@@ -212,7 +265,8 @@ class SalesRentalLedgerController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

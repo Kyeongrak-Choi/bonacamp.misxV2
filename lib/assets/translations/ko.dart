@@ -60,21 +60,19 @@ const Map<String, String> koKR = {
   'period_error_limit': '최대 6개월간 조회 가능합니다.',
 
   // DashBoard
-  'title_sales': '당월 매출',
-  'title_purchase': '당월 매입',
-  'title_deposit': '당월 회수',
-  'title_withdraw': '당월 출금',
-  'title_return': '당월 반납',
-  'title_rental': '당월 대여',
-  'title_asset': '당월 자산',
-  'title_status': '현  황',
-  'title_current': '당일현황',
-  'title_month': '당월현황',
+  'dashboard_today': '당일현황',
+  'dashboard_month': '당월현황',
+  'dashboard_sales': '매출',
+  'dashboard_purchase': '매입',
+  'dashboard_collect': '회수',
+  'dashboard_deposit': '입금',
+  'dashboard_graph_title': '최근 3개월 매출 추이',
+  'dashboard_graph_sub': '(단위:천원)',
 
   // Navigation Label
   'nav_home': '홈',
   'nav_mymenu': '마이메뉴',
-  'nav_menu': '메  뉴',
+  'nav_menu': '메뉴',
   'nav_premium': '프리미엄',
   'nav_more': '더보기',
 

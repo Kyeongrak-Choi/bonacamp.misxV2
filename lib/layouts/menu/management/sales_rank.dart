@@ -50,7 +50,8 @@ class SalesRank extends StatelessWidget {
                               children: [
                                 OptionPeriodPicker(),
                                 OptionCbBranch(),
-                                OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                OptionTwoContent(
+                                    OptionCbEmployee(), OptionCbManager()),
                                 OptionBtnSearch(ROUTE_MENU_RANKSTATUS),
                               ],
                             ),
@@ -58,7 +59,9 @@ class SalesRank extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<SalesRankController>().visible.value ? 20 : 0,
+                        height: Get.find<SalesRankController>().visible.value
+                            ? 20
+                            : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -83,7 +86,9 @@ class SalesRank extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesRankController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<SalesRankController>().visible.value),
                       onPressed: () {
                         Get.find<SalesRankController>().setVisible();
                       },
@@ -122,10 +127,16 @@ class SalesRankController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
 
     var param = user.getClientCode;
     List parsedDataSalesRank;
@@ -147,13 +158,18 @@ class SalesRankController extends GetxController {
           paramManagementCode);
 
       if (response.statusCode == 200) {
-        if ((parsedDataSalesRank = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedDataSalesRank =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerSalesRank = parsedDataSalesRank.map((element) => SalesRankModel.fromJson(element)).toList();
+          controllerSalesRank = parsedDataSalesRank
+              .map((element) => SalesRankModel.fromJson(element))
+              .toList();
         }
 
         Get.find<SalesRankController>().setVisible();
@@ -161,7 +177,8 @@ class SalesRankController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

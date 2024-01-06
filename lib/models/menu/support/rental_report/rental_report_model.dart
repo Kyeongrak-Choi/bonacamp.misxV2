@@ -21,7 +21,8 @@ class RentalReportModel {
     };
   }
 
-  factory RentalReportModel.fromJson(Map<String, dynamic> json) => _$RentalReportModelFromJson(json);
+  factory RentalReportModel.fromJson(Map<String, dynamic> json) =>
+      _$RentalReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$RentalReportModelToJson(this);
 }

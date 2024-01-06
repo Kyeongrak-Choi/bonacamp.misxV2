@@ -34,7 +34,9 @@ class OptionCbLendDivision extends StatelessWidget {
                 style: context.textTheme.bodyMedium,
                 decoration: InputDecoration(border: InputBorder.none),
                 dropdownColor: context.theme.cardColor,
-                items: Get.find<CbLendDivisionController>().data.map<DropdownMenuItem<CommonModel>>((CommonModel value) {
+                items: Get.find<CbLendDivisionController>()
+                    .data
+                    .map<DropdownMenuItem<CommonModel>>((CommonModel value) {
                   return DropdownMenuItem<CommonModel>(
                     alignment: Alignment.center,
                     value: value,

@@ -14,7 +14,8 @@ class LendReportCustomerListModel {
   LendReportCustomerQuantityModel box;
   LendReportCustomerQuantityModel bottle;
 
-  LendReportCustomerListModel(this.itemCode, this.itemName, this.quantity, this.standard, this.fullBox, this.box, this.bottle);
+  LendReportCustomerListModel(this.itemCode, this.itemName, this.quantity,
+      this.standard, this.fullBox, this.box, this.bottle);
 
   Map<String, dynamic> toMap() {
     return {
@@ -28,7 +29,8 @@ class LendReportCustomerListModel {
     };
   }
 
-  factory LendReportCustomerListModel.fromJson(Map<String, dynamic> json) => _$LendReportCustomerListModelFromJson(json);
+  factory LendReportCustomerListModel.fromJson(Map<String, dynamic> json) =>
+      _$LendReportCustomerListModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendReportCustomerListModelToJson(this);
 }

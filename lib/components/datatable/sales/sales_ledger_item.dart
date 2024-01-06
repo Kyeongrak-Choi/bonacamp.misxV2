@@ -10,7 +10,8 @@ class SalesLedgerItem extends StatelessWidget {
   var dataList;
 
   SalesLedgerItem(var model) {
-    dataList = generateSalesLedgerListModelList(model.dateList, model.dateList.length);
+    dataList =
+        generateSalesLedgerListModelList(model.dateList, model.dateList.length);
   }
 
   @override
@@ -21,13 +22,17 @@ class SalesLedgerItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((SalesLedgerListModel model) {
+          children:
+              dataList.map<ExpansionPanelRadio>((SalesLedgerListModel model) {
             return ExpansionPanelRadio(
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return ShowListHeaderRow(
-                      titleName: changeStringToDateFormat(model.date ?? ''), value: '채권잔액 ( ' + numberFormat.format(model.balance) + ' )');
+                      titleName: changeStringToDateFormat(model.date ?? ''),
+                      value: '채권잔액 ( ' +
+                          numberFormat.format(model.balance) +
+                          ' )');
                 },
                 body: Column(
                   children: [
@@ -38,7 +43,10 @@ class SalesLedgerItem extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: model.details.length,
                         itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: SalesLedgerDetailItem(model.details[idx]));
+                          return Container(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: SalesLedgerDetailItem(model.details[idx]));
                         }),
                   ],
                 ));

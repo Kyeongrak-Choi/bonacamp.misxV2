@@ -22,8 +22,20 @@ class RentalReportDetailsModel {
 
   int? id;
 
-  RentalReportDetailsModel(this.sequence, this.status, this.divideMonth, this.interestRate, this.payLastDate, this.totalRentalAmount,
-      this.totalReturnAmount, this.balance, this.salesRepCode, this.salesRepName, this.rentalAmount, this.returnAmount, this.overdueAmount,
+  RentalReportDetailsModel(
+      this.sequence,
+      this.status,
+      this.divideMonth,
+      this.interestRate,
+      this.payLastDate,
+      this.totalRentalAmount,
+      this.totalReturnAmount,
+      this.balance,
+      this.salesRepCode,
+      this.salesRepName,
+      this.rentalAmount,
+      this.returnAmount,
+      this.overdueAmount,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -44,12 +56,14 @@ class RentalReportDetailsModel {
     };
   }
 
-  factory RentalReportDetailsModel.fromJson(Map<String, dynamic> json) => _$RentalReportDetailsModelFromJson(json);
+  factory RentalReportDetailsModel.fromJson(Map<String, dynamic> json) =>
+      _$RentalReportDetailsModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$RentalReportDetailsModelToJson(this);
 }
 
-List<RentalReportDetailsModel> generateRentalReportDetailsModellList(dataList, count) {
+List<RentalReportDetailsModel> generateRentalReportDetailsModellList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => RentalReportDetailsModel(

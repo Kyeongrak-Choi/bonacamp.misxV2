@@ -11,7 +11,8 @@ class OverAllRentalModel {
   var remAmt; // 미회수잔액
   var totAmt; // 대여금잔액
 
-  OverAllRentalModel(this.lendAmt, this.inspayLendAmt, this.retrvAmt, this.remAmt, this.totAmt);
+  OverAllRentalModel(this.lendAmt, this.inspayLendAmt, this.retrvAmt,
+      this.remAmt, this.totAmt);
 
   Map<String, dynamic> toMap() {
     return {
@@ -23,7 +24,8 @@ class OverAllRentalModel {
     };
   }
 
-  factory OverAllRentalModel.fromJson(Map<String, dynamic> json) => _$OverAllRentalModelFromJson(json);
+  factory OverAllRentalModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllRentalModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllRentalModelToJson(this);
 }

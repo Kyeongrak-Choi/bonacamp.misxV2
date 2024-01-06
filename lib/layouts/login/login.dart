@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/login/login_btn.dart';
 import 'package:misxV2/components/login/login_input_id.dart';
-import 'package:misxV2/components/login/login_input_pw.dart';
 import 'package:misxV2/components/login/login_logo.dart';
 import 'package:misxV2/components/login/login_policy.dart';
 
 import '../../utils/constants.dart';
-import '../../utils/theme/text_theme.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -18,7 +17,7 @@ class Login extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
           ),
           child: Center(
             child: Column(
@@ -30,37 +29,37 @@ class Login extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4,
-                    ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 32),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          BASIC_PADDING * 2.w,
+                          BASIC_PADDING * 15.h,
+                          BASIC_PADDING * 2.w,
+                          BASIC_PADDING * 4.h),
                       child: LoginLogo(), // Logo
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                      padding: EdgeInsets.all(BASIC_PADDING * 2),
                       child: LoginInputId(), // ID
                     ),
-                    // Padding(
-                    //   padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 15),
-                    //   child: LoginInputPw(), // PW
-                    // ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+                      padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2,
+                          0, BASIC_PADDING * 2, BASIC_PADDING * 2),
                       child: LoginBtn(), // Login
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          0, BASIC_PADDING * 3, 0, 0),
                       child: PolicyView(), // 개인정보 처리방침
                     ),
                   ],
                 ),
                 Spacer(),
                 Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(BASIC_PADDING * 2),
                   child: Text(
                     COPY_RIGHT,
-                    style: textThemeCommon().bodyMedium,
+                    style: context.textTheme.bodyMedium?.copyWith(
+                        color: context.theme.colorScheme.onSurfaceVariant),
                     textAlign: TextAlign.right,
                   ),
                 ),

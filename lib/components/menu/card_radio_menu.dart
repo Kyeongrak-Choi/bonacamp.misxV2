@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/utils/theme/color_manager.dart';
 
@@ -15,18 +14,17 @@ class CardRadioMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OptionController());
-
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.hoverColor,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(BASIC_PADDING * 2),
         child: Column(
           children: List.generate(
             radioMenu.length,
-            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title, radioMenu[index].val, context),
+            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title,
+                radioMenu[index].val, context),
           ),
         ),
       ),
@@ -60,7 +58,7 @@ class CardRadioMenu extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(color: context.theme.focusColor, fontSize: 14.sp),
+            style: context.textTheme.bodyLarge,
           ),
           Obx(() => Switch(
               activeColor: CommonColors.green,

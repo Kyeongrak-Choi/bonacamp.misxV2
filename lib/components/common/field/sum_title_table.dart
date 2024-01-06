@@ -18,7 +18,10 @@ class SumTitleTable extends StatelessWidget {
             style: context.textTheme.displayMedium,
             textAlign: TextAlign.center,
           ),
-          Container(padding: EdgeInsets.zero, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+          Container(
+              padding: EdgeInsets.zero,
+              child:
+                  Divider(color: context.theme.primaryColor, thickness: 0.5)),
         ]));
   }
 }

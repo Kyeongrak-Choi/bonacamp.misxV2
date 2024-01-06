@@ -29,7 +29,9 @@ class OptionDialogItem extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
                   child: Obx(() => Text(
-                        Get.find<OptionDialogItemController>().selectedValue.value,
+                        Get.find<OptionDialogItemController>()
+                            .selectedValue
+                            .value,
                         style: context.textTheme.bodyMedium,
                       )),
                 )),
@@ -37,12 +39,16 @@ class OptionDialogItem extends StatelessWidget {
               flex: 1,
               child: IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogItemController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
-                    Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
+                    Get.find<OptionDialogItemController>().selectedValue.value =
+                        'all'.tr;
+                    Get.find<OptionDialogItemController>().paramItemName.value =
+                        ''.tr;
+                    Get.find<OptionDialogItemController>().paramItemCode.value =
+                        ''.tr;
                     Get.find<OptionDialogItemController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
+                  icon: Icon(Icons.cancel_outlined,
+                      color: context.theme.primaryColor)),
             ),
             // Expanded(
             //   flex: 1,

@@ -31,7 +31,8 @@ class LoginInputPw extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               maxLength: 16,
-              style: TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
+              style:
+                  TextStyle(color: context.theme.focusColor, fontSize: 16.sp),
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock),
                 labelStyle: TextStyle(color: CommonColors.gray),
@@ -43,14 +44,16 @@ class LoginInputPw extends StatelessWidget {
                     color: context.theme.canvasColor,
                     width: 1,
                   ),
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(10), top: Radius.circular(0)),
+                  borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(10), top: Radius.circular(0)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: context.theme.canvasColor,
                     width: 1,
                   ),
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(10), top: Radius.circular(0)),
+                  borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(10), top: Radius.circular(0)),
                 ),
                 filled: true,
                 fillColor: context.theme.shadowColor,

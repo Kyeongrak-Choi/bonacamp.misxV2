@@ -27,7 +27,8 @@ class RentAsset extends StatelessWidget {
   Widget build(context) {
     Get.put(RentAssetController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_support_rent_asset'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_support_rent_asset'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -49,7 +50,8 @@ class RentAsset extends StatelessWidget {
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
+                                OptionTwoContent(
+                                    OptionCbBranch(), OptionCbAssetStatus()),
                                 OptionDialogCustomer(),
                                 OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET),
                               ],
@@ -58,7 +60,9 @@ class RentAsset extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<RentAssetController>().visible.value ? 20 : 0,
+                        height: Get.find<RentAssetController>().visible.value
+                            ? 20
+                            : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -83,7 +87,9 @@ class RentAsset extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<RentAssetController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<RentAssetController>().visible.value),
                       onPressed: () {
                         Get.find<RentAssetController>().setVisible();
                       },
@@ -101,7 +107,8 @@ class RentAsset extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<RentAssetController>().controllerAchievement != null) {
-      return RentAssetItem(Get.find<RentAssetController>().controllerAchievement);
+      return RentAssetItem(
+          Get.find<RentAssetController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
@@ -122,10 +129,16 @@ class RentAssetController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramAssetStatus = Get.find<CbAssetStatusController>().paramAssetStatusCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramAssetStatus =
+        Get.find<CbAssetStatusController>().paramAssetStatusCode;
 
     var param = user.getClientCode;
     var parsedRentAsset;
@@ -152,19 +165,25 @@ class RentAssetController extends GetxController {
           paramAssetStatus);
 
       if (response.statusCode == 200) {
-        if ((parsedRentAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedRentAsset =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerAchievement = parsedRentAsset.map((dataJson) => RentAssetModel.fromJson(dataJson)).toList();
+          controllerAchievement = parsedRentAsset
+              .map((dataJson) => RentAssetModel.fromJson(dataJson))
+              .toList();
         }
         Get.find<RentAssetController>().setVisible();
         update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

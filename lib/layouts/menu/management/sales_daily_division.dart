@@ -31,7 +31,8 @@ class SalesDailyDivision extends StatelessWidget {
     Get.put(SalesDailyDivisionController());
     var divisionController = Get.find<SalesDailyDivisionController>();
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_salesdaily_division'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_salesdaily_division'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -49,93 +50,117 @@ class SalesDailyDivision extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('일자 합계'),
-                              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                                    child: Text(
-                                      '',
-                                      style: context.textTheme.titleSmall,
-                                      textAlign: TextAlign.start,
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      flex: 3,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 10, 0, 10),
+                                        child: Text(
+                                          '',
+                                          style: context.textTheme.titleSmall,
+                                          textAlign: TextAlign.start,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                                    child: Text(
-                                      'BOX',
-                                      style: context.textTheme.titleSmall,
-                                      textAlign: TextAlign.end,
+                                    Expanded(
+                                      flex: 2,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 10, 0, 10),
+                                        child: Text(
+                                          'BOX',
+                                          style: context.textTheme.titleSmall,
+                                          textAlign: TextAlign.end,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                                    child: Text(
-                                      'EA',
-                                      style: context.textTheme.titleSmall,
-                                      textAlign: TextAlign.end,
+                                    Expanded(
+                                      flex: 2,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 10, 0, 10),
+                                        child: Text(
+                                          'EA',
+                                          style: context.textTheme.titleSmall,
+                                          textAlign: TextAlign.end,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                                    child: Text(
-                                      '금액',
-                                      style: context.textTheme.titleSmall,
-                                      textAlign: TextAlign.end,
+                                    Expanded(
+                                      flex: 2,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 10, 0, 10),
+                                        child: Text(
+                                          '금액',
+                                          style: context.textTheme.titleSmall,
+                                          textAlign: TextAlign.end,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ]),
+                                  ]),
                               IconTitleThreeField(
                                 titleName: '유흥합계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.pleasureBoxSum),
-                                value2: numberFormat.format(divisionController.pleasureBottleSum),
-                                value3: numberFormat.format(divisionController.pleasureAmountSum),
+                                value1: numberFormat
+                                    .format(divisionController.pleasureBoxSum),
+                                value2: numberFormat.format(
+                                    divisionController.pleasureBottleSum),
+                                value3: numberFormat.format(
+                                    divisionController.pleasureAmountSum),
                               ),
                               IconTitleThreeField(
                                 titleName: '일반합계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.normalBoxSum),
-                                value2: numberFormat.format(divisionController.normalBottleSum),
-                                value3: numberFormat.format(divisionController.normalAmountSum),
+                                value1: numberFormat
+                                    .format(divisionController.normalBoxSum),
+                                value2: numberFormat
+                                    .format(divisionController.normalBottleSum),
+                                value3: numberFormat
+                                    .format(divisionController.normalAmountSum),
                               ),
                               IconTitleThreeField(
                                 titleName: '합     계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.totBoxSum),
-                                value2: numberFormat.format(divisionController.totBottleSum),
-                                value3: numberFormat.format(divisionController.totAmountSum),
+                                value1: numberFormat
+                                    .format(divisionController.totBoxSum),
+                                value2: numberFormat
+                                    .format(divisionController.totBottleSum),
+                                value3: numberFormat
+                                    .format(divisionController.totAmountSum),
                               ),
                               IconTitleThreeField(
                                 titleName: '유흥누계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.pleasureBoxQuantity),
-                                value2: numberFormat.format(divisionController.pleasureBottleQuantity),
-                                value3: numberFormat.format(divisionController.pleasureAmountQuantity),
+                                value1: numberFormat.format(
+                                    divisionController.pleasureBoxQuantity),
+                                value2: numberFormat.format(
+                                    divisionController.pleasureBottleQuantity),
+                                value3: numberFormat.format(
+                                    divisionController.pleasureAmountQuantity),
                               ),
                               IconTitleThreeField(
                                 titleName: '일반누계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.normalBoxQuantity),
-                                value2: numberFormat.format(divisionController.normalBottleQuantity),
-                                value3: numberFormat.format(divisionController.normalAmountQuantity),
+                                value1: numberFormat.format(
+                                    divisionController.normalBoxQuantity),
+                                value2: numberFormat.format(
+                                    divisionController.normalBottleQuantity),
+                                value3: numberFormat.format(
+                                    divisionController.normalAmountQuantity),
                               ),
                               IconTitleThreeField(
                                 titleName: '누     계',
                                 iconData: Icons.label_outlined,
-                                value1: numberFormat.format(divisionController.totBoxQuantity),
-                                value2: numberFormat.format(divisionController.totBottleQuantity),
-                                value3: numberFormat.format(divisionController.totAmountQuantity),
+                                value1: numberFormat
+                                    .format(divisionController.totBoxQuantity),
+                                value2: numberFormat.format(
+                                    divisionController.totBottleQuantity),
+                                value3: numberFormat.format(
+                                    divisionController.totAmountQuantity),
                               ),
                             ],
                           ),
@@ -159,16 +184,23 @@ class SalesDailyDivision extends StatelessWidget {
                                   padding: EdgeInsetsDirectional.all(15),
                                   child: Column(
                                     children: [
-                                      OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                                      OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
-                                      OptionBtnSearch(ROUTE_MENU_DIVISIONSTATUS),
+                                      OptionTwoContent(
+                                          OptionDatePicker(), OptionCbBranch()),
+                                      OptionTwoContent(
+                                          OptionCbEmployee(), OptionCbTeam()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_DIVISIONSTATUS),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<SalesDailyDivisionController>().visible.value ? 20 : 0,
+                              height: Get.find<SalesDailyDivisionController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               flex: 45,
@@ -197,7 +229,10 @@ class SalesDailyDivision extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesDailyDivisionController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<SalesDailyDivisionController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<SalesDailyDivisionController>().setVisible();
                       },
@@ -214,9 +249,14 @@ class SalesDailyDivision extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<SalesDailyDivisionController>().salesDailyDivisionList != null) {
-      log('check : ' + Get.find<SalesDailyDivisionController>().salesDailyDivisionList.toString());
-      return SalesDailyDivisionItem(Get.find<SalesDailyDivisionController>().salesDailyDivisionList);
+    if (Get.find<SalesDailyDivisionController>().salesDailyDivisionList !=
+        null) {
+      log('check : ' +
+          Get.find<SalesDailyDivisionController>()
+              .salesDailyDivisionList
+              .toString());
+      return SalesDailyDivisionItem(
+          Get.find<SalesDailyDivisionController>().salesDailyDivisionList);
     } else {
       return EmptyWidget();
     }
@@ -308,7 +348,8 @@ class SalesDailyDivisionController extends GetxController {
     totAmountSum = tmpPleasureAmountSum + tmpNormalAmountSum;
 
     pleasureBoxQuantity = salesDailyDivisionList[0].pleasureBoxTotalQuantity;
-    pleasureBottleQuantity = salesDailyDivisionList[0].pleasureBottleTotalQuantity;
+    pleasureBottleQuantity =
+        salesDailyDivisionList[0].pleasureBottleTotalQuantity;
     pleasureAmountQuantity = salesDailyDivisionList[0].pleasureTotalAmount;
     normalBoxQuantity = salesDailyDivisionList[0].normalBoxTotalQuantity;
     normalBottleQuantity = salesDailyDivisionList[0].normalBottleTotalQuantity;
@@ -326,8 +367,11 @@ class SalesDailyDivisionController extends GetxController {
     List dataObjsJson;
 
     String paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramDt = DateFormat('yyyyMMdd')
+        .format(Get.find<DatePickerController>().date.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;
@@ -346,12 +390,17 @@ class SalesDailyDivisionController extends GetxController {
           paramTeamCode);
 
       if (response.statusCode == 200) {
-        if ((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((dataObjsJson =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          salesDailyDivisionList = dataObjsJson.map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson)).toList();
+          salesDailyDivisionList = dataObjsJson
+              .map((dataJson) => SalesDailyDivisionModel.fromJson(dataJson))
+              .toList();
         }
 
         Get.find<SalesDailyDivisionController>().setVisible();
@@ -359,7 +408,8 @@ class SalesDailyDivisionController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

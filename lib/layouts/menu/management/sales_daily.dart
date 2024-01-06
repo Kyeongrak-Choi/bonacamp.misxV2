@@ -51,49 +51,89 @@ class SalesDaily extends StatelessWidget {
                               SumTitleTable('일자 합계 (일/월)'),
                               SumItemTable(
                                   '공급가',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumPrice_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumPrice_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumPrice_M),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumPrice_M),
                                   '부가세',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumVat_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumVat_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumVat_M)),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumVat_M)),
                               SumItemTable(
                                   '보증금\n합계',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumGuarantee_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumGuarantee_M),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumGuarantee_M),
                                   '총합계',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumTotal_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumTotal_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumTotal_M)),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumTotal_M)),
                               SumItemTable(
                                   '매출원가',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumCost_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumCost_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumCost_M),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumCost_M),
                                   '매출이익',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumMargin_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumMargin_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumMargin_M)),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumMargin_M)),
                               SumItemTable(
                                   '입금소계',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDepositCash_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumDepositCash_M),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDepositCash_M),
                                   '용공입금',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDepositEtc_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumDepositEtc_M)),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDepositEtc_M)),
                               SumItemTable(
                                   '입금합계',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumDeposit_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDeposit_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumDeposit_M),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumDeposit_M),
                                   '채권잔액',
-                                  numberFormat.format(Get.find<SalesDailyController>().sumBalance_D) +
+                                  numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumBalance_D) +
                                       '\n' +
-                                      numberFormat.format(Get.find<SalesDailyController>().sumBalance_M)),
+                                      numberFormat.format(
+                                          Get.find<SalesDailyController>()
+                                              .sumBalance_M)),
                             ],
                           ),
                         ),
@@ -105,7 +145,9 @@ class SalesDaily extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                                visible: Get.find<SalesDailyController>().visible.value,
+                                visible: Get.find<SalesDailyController>()
+                                    .visible
+                                    .value,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: context.theme.cardColor,
@@ -116,15 +158,20 @@ class SalesDaily extends StatelessWidget {
                                     padding: EdgeInsetsDirectional.all(15),
                                     child: Column(
                                       children: [
-                                        OptionTwoContent(OptionDatePicker(), OptionCbBranch()),
-                                        OptionTwoContent(OptionCbEmployee(), OptionCbTeam()),
+                                        OptionTwoContent(OptionDatePicker(),
+                                            OptionCbBranch()),
+                                        OptionTwoContent(
+                                            OptionCbEmployee(), OptionCbTeam()),
                                         OptionBtnSearch(ROUTE_MENU_SALES_DAILY),
                                       ],
                                     ),
                                   ),
                                 )),
                             SizedBox(
-                              height: Get.find<SalesDailyController>().visible.value ? 20 : 0,
+                              height:
+                                  Get.find<SalesDailyController>().visible.value
+                                      ? 20
+                                      : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -152,7 +199,9 @@ class SalesDaily extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesDailyController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<SalesDailyController>().visible.value),
                       onPressed: () {
                         Get.find<SalesDailyController>().setVisible();
                       },
@@ -213,8 +262,11 @@ class SalesDailyController extends GetxController {
     var parsedSalesDaily;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramDt = DateFormat('yyyyMMdd')
+        .format(Get.find<DatePickerController>().date.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
 
     var param = user.getClientCode;
@@ -234,12 +286,17 @@ class SalesDailyController extends GetxController {
           paramTeamCode);
 
       if (response.statusCode == 200) {
-        if ((parsedSalesDaily = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedSalesDaily =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          salesDailyList = parsedSalesDaily.map((dataJson) => SalesDailyModel.fromJson(dataJson)).toList();
+          salesDailyList = parsedSalesDaily
+              .map((dataJson) => SalesDailyModel.fromJson(dataJson))
+              .toList();
 
           for (int i = 0; i < salesDailyList.length; i++) {
             if (salesDailyList[i].dateType == '1') {
@@ -275,7 +332,8 @@ class SalesDailyController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

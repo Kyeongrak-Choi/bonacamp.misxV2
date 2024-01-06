@@ -20,12 +20,14 @@ class PurchaseReportItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((PurchaseReportModel model) {
+          children:
+              dataList.map<ExpansionPanelRadio>((PurchaseReportModel model) {
             return ExpansionPanelRadio(
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: model.name ?? '', value: '');
+                return ShowListHeaderRow(
+                    titleName: model.name ?? '', value: '');
               },
               body: Column(
                 children: [

@@ -23,7 +23,8 @@ class ReqLoginModel {
     };
   }
 
-  factory ReqLoginModel.fromJson(Map<String, dynamic> json) => _$ReqLoginModelFromJson(json);
+  factory ReqLoginModel.fromJson(Map<String, dynamic> json) =>
+      _$ReqLoginModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReqLoginModelToJson(this);
 }

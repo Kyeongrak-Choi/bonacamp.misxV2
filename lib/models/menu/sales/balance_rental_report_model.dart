@@ -23,8 +23,22 @@ class BalanceRentalReportModel {
   var marginRate; // 이익률
   int? id;
 
-  BalanceRentalReportModel(this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.longRent, this.shortRent,
-      this.totalRent, this.totalBalance, this.rentQuantity, this.consumeQuantity, this.margin, this.marginRate,
+  BalanceRentalReportModel(
+      this.code,
+      this.name,
+      this.total,
+      this.price,
+      this.amount,
+      this.deposit,
+      this.balance,
+      this.longRent,
+      this.shortRent,
+      this.totalRent,
+      this.totalBalance,
+      this.rentQuantity,
+      this.consumeQuantity,
+      this.margin,
+      this.marginRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -47,7 +61,8 @@ class BalanceRentalReportModel {
     };
   }
 
-  factory BalanceRentalReportModel.fromJson(Map<String, dynamic> json) => _$BalanceRentalReportModelFromJson(json);
+  factory BalanceRentalReportModel.fromJson(Map<String, dynamic> json) =>
+      _$BalanceRentalReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$BalanceRentalReportModelToJson(this);
 
@@ -106,7 +121,8 @@ class BalanceRentalReportModel {
   }
 }
 
-List<BalanceRentalReportModel> generateBalanceRentalReportList(dataList, count) {
+List<BalanceRentalReportModel> generateBalanceRentalReportList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => BalanceRentalReportModel(

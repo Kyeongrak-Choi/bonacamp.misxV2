@@ -6,7 +6,8 @@ class IconTitleFieldSmallInterval extends StatelessWidget {
   var value;
   IconData iconData;
 
-  IconTitleFieldSmallInterval({required this.titleName, this.value, required this.iconData});
+  IconTitleFieldSmallInterval(
+      {required this.titleName, this.value, required this.iconData});
 
   @override
   Widget build(BuildContext context) {

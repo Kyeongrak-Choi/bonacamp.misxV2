@@ -33,7 +33,9 @@ class OptionCbRentalDivision extends StatelessWidget {
                 style: context.textTheme.bodyMedium,
                 decoration: InputDecoration(border: InputBorder.none),
                 dropdownColor: context.theme.cardColor,
-                items: Get.find<CbRentalDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
+                items: Get.find<CbRentalDivisionController>()
+                    .data
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     alignment: Alignment.center,
                     value: value,

@@ -12,7 +12,9 @@ class LendReportSalespersonModel {
   List<LendReportCustomerModel> salespersonList;
   int? id;
 
-  LendReportSalespersonModel(this.salesRepCode, this.salesRep, this.salespersonList, {this.id});
+  LendReportSalespersonModel(
+      this.salesRepCode, this.salesRep, this.salespersonList,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -22,12 +24,14 @@ class LendReportSalespersonModel {
     };
   }
 
-  factory LendReportSalespersonModel.fromJson(Map<String, dynamic> json) => _$LendReportSalespersonModelFromJson(json);
+  factory LendReportSalespersonModel.fromJson(Map<String, dynamic> json) =>
+      _$LendReportSalespersonModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendReportSalespersonModelToJson(this);
 }
 
-List<LendReportSalespersonModel> generateLendReportCustomerModelList(dataList, count) {
+List<LendReportSalespersonModel> generateLendReportCustomerModelList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => LendReportSalespersonModel(

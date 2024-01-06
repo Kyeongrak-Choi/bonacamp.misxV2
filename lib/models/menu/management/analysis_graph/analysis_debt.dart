@@ -18,7 +18,8 @@ class AnalysisDebtModel {
     };
   }
 
-  factory AnalysisDebtModel.fromJson(Map<String, dynamic> json) => _$AnalysisDebtModelFromJson(json);
+  factory AnalysisDebtModel.fromJson(Map<String, dynamic> json) =>
+      _$AnalysisDebtModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AnalysisDebtModelToJson(this);
 }

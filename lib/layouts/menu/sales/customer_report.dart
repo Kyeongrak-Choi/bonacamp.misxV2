@@ -40,7 +40,8 @@ class CustomerReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<CustomerReportController>().visible.value,
+                      visible:
+                          !Get.find<CustomerReportController>().visible.value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -50,12 +51,33 @@ class CustomerReport extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 합계'),
-                              SumItemTable('매출액', numberFormat.format(Get.find<CustomerReportController>().sumTotal), '공급가',
-                                  numberFormat.format(Get.find<CustomerReportController>().sumPrice)),
-                              SumItemTable('합계', numberFormat.format(Get.find<CustomerReportController>().sumAmount), '입금합계',
-                                  numberFormat.format(Get.find<CustomerReportController>().sumDeposit)),
-                              SumItemTable('채권잔액', numberFormat.format(Get.find<CustomerReportController>().sumBalance), '매출이익',
-                                  numberFormat.format(Get.find<CustomerReportController>().sumMargin)),
+                              SumItemTable(
+                                  '매출액',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumTotal),
+                                  '공급가',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumPrice)),
+                              SumItemTable(
+                                  '합계',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumAmount),
+                                  '입금합계',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumDeposit)),
+                              SumItemTable(
+                                  '채권잔액',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumBalance),
+                                  '매출이익',
+                                  numberFormat.format(
+                                      Get.find<CustomerReportController>()
+                                          .sumMargin)),
                             ],
                           ),
                         ),
@@ -67,7 +89,9 @@ class CustomerReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<CustomerReportController>().visible.value,
+                              visible: Get.find<CustomerReportController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -79,17 +103,25 @@ class CustomerReport extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                      OptionTwoContent(OptionDialogItem(), OptionCbSalesType()),
-                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                      OptionBtnSearch(ROUTE_MENU_CUSTOMER_REPORT),
+                                      OptionTwoContent(OptionDialogCustomer(),
+                                          OptionCbBranch()),
+                                      OptionTwoContent(OptionDialogItem(),
+                                          OptionCbSalesType()),
+                                      OptionTwoContent(OptionCbEmployee(),
+                                          OptionCbManager()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_CUSTOMER_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<CustomerReportController>().visible.value ? 20 : 0,
+                              height: Get.find<CustomerReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -117,7 +149,10 @@ class CustomerReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<CustomerReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<CustomerReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<CustomerReportController>().setVisible();
                       },
@@ -135,7 +170,8 @@ class CustomerReport extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<CustomerReportController>().controllerCustomerReport != null) {
-      return CustomerReportItem(Get.find<CustomerReportController>().controllerCustomerReport);
+      return CustomerReportItem(
+          Get.find<CustomerReportController>().controllerCustomerReport);
     } else {
       return EmptyWidget();
     }
@@ -162,12 +198,20 @@ class CustomerReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramItemCode = Get.find<OptionDialogItemController>().paramItemCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramItemCode =
+        Get.find<OptionDialogItemController>().paramItemCode.value;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
@@ -198,12 +242,17 @@ class CustomerReportController extends GetxController {
           '1');
 
       if (response.statusCode == 200) {
-        if ((parsedCustomerReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedCustomerReportSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerCustomerReport = parsedCustomerReportSales.map((dataJson) => CustomerReportModel.fromJson(dataJson)).toList();
+          controllerCustomerReport = parsedCustomerReportSales
+              .map((dataJson) => CustomerReportModel.fromJson(dataJson))
+              .toList();
 
           for (CustomerReportModel calData in controllerCustomerReport) {
             sumTotal += calData.total as int;
@@ -220,7 +269,8 @@ class CustomerReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

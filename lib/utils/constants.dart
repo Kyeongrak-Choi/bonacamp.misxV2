@@ -37,8 +37,10 @@ const ROUTE_DIALOG_LENDITM = '/searchLendItem';
 const ROUTE_MENU_OVERALL_STATUS = '/overallStatus'; // 종합현황
 const ROUTE_MENU_SALES_DAILY = '/salesDaily'; // 영업일보
 const ROUTE_MENU_OVERALL_DAILYSTATUS = '/daily-status'; // 영업일보
-const ROUTE_MENU_SALESPERSON_CONTRIBUTE = '/contribution-status-employee'; // 영업사원별 기여현황
-const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER = '/contribution-status-customer'; // 매출처별 기여현황
+const ROUTE_MENU_SALESPERSON_CONTRIBUTE =
+    '/contribution-status-employee'; // 영업사원별 기여현황
+const ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER =
+    '/contribution-status-customer'; // 매출처별 기여현황
 const ROUTE_MENU_CLASSSTATUS = '/sales-class-status'; // 판매분류별 현황
 const ROUTE_MENU_RANKSTATUS = '/sales-rank-status'; // 매출순위현황
 const ROUTE_MENU_GRAPH = '/analysis-graph'; // 분석 그래프
@@ -47,7 +49,8 @@ const ROUTE_MENU_DIVISIONSTATUS = '/daily-division-status'; // 영업일보(용�
 // sales (영업분석)
 const ROUTE_MENU_CUSTOMER_INFO = '/customer-info'; // 거래처 현황
 const ROUTE_MENU_SALESPERSON_REPORT = '/sales-rep'; // 영업사원별 매출현황
-const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY = '/report-monthly'; // 영업사원별 월별 매출현황
+const ROUTE_MENU_SALESPERSON_REPORT_MONTHLY =
+    '/report-monthly'; // 영업사원별 월별 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT = '/customer'; // 매출현황
 const ROUTE_MENU_CUSTOMER_REPORT_MONTHLY = '/customer-monthly'; // 월별 매출현황
 const ROUTE_MENU_SALES_LEDGER = '/ledger'; // 매출원장
@@ -64,7 +67,8 @@ const ROUTE_MENU_PURCHASE_LEDGER = '/purchase-ledger'; // 매입원장
 // support (지원현황)
 const ROUTE_MENU_SUPPORT_RENTAL_REPORT = '/rental-report'; // 대여금 현황
 const ROUTE_MENU_SUPPORT_RENT_ASSET = '/rent-asset'; // 대여자산 현황
-const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY = '/rent-asset-history'; // 대여자산 현황(이력)
+const ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY =
+    '/rent-asset-history'; // 대여자산 현황(이력)
 
 // location (위치조회)
 const ROUTE_MENU_VENDORLOCATION = '/vendor-location'; // 매출처 위치조회
@@ -74,7 +78,8 @@ const ROUTE_MENU_INVENTORY_REPORT = '/inventory-report'; // 재고현황
 const ROUTE_MENU_INVENTORY_INOUT_REPORT = '/inventory-in-out-report'; // 재고수불현황
 const ROUTE_MENU_LEND_REPORT_WAREHOUSE = '/lend-report-warehouse'; // 용공수불현황(창고)
 const ROUTE_MENU_LEND_REPORT_CUSTOMER = '/lend-report-customer'; // 용공수불현황(거래처)
-const ROUTE_MENU_LEND_REPORT_SALESPERSON = '/lend-report-salesperson'; // 용공수불현황(거래처)
+const ROUTE_MENU_LEND_REPORT_SALESPERSON =
+    '/lend-report-salesperson'; // 용공수불현황(거래처)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -108,7 +113,8 @@ const CERT_TOKEN = '/token';
 //  Authorization Account
 const AUTH_ID = 'diony-xps';
 const AUTH_PW = '!@!diony-xps1234';
-const AUTH_CLIENT_ID = 'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ==';
+const AUTH_CLIENT_ID =
+    'Ym9uYS02NVNVN0ppazY0dUk3SWFNN0lxa0xWaFFVMEJBUUVCQVFFQkEtaQ==';
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -127,7 +133,8 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM =
+    'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
 const API_SYSTEM_DASHBOARD = '/total-v2'; // 대시보드
 
 // common
@@ -141,7 +148,8 @@ const API_MANAGEMENT = '/v1/views/management';
 const API_MANAGEMENT_OVERALL = '/total'; // 종합현황
 const API_MANAGEMENT_DAILYSTATUS = '/daily'; // 영업일보
 const API_MANAGEMENT_SERVE = '/serve/sales-rep'; // 영원사원별 기여현황
-const API_MANAGEMENT_CONTRIBUTIONCUSTOMER = '/serve/sales-distination'; // 매출처별 기여현황
+const API_MANAGEMENT_CONTRIBUTIONCUSTOMER =
+    '/serve/sales-distination'; // 매출처별 기여현황
 const API_MANAGEMENT_CLASSSTATUS = '/serve/sales-class'; // 판매분류별 현황
 const API_MANAGEMENT_RANKSTATUS = '/sales-rank-rep'; // 매출순위현황
 const API_MANAGEMENT_GRAPH = '/analysis-graph'; // 분석 그래프
@@ -202,7 +210,8 @@ const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 const TAG_TOKEN = 'token'; // response token tag
 const TAG_GRANT_TYPE = 'grant-type'; // response token - grant type tag
 const TAG_ACCESS_TOKEN = 'access-token'; // response token - access token tag
-const TAG_TOKEN_EXPIRE_TIME = 'access-token-expiration-time'; // response token - expire time tag
+const TAG_TOKEN_EXPIRE_TIME =
+    'access-token-expiration-time'; // response token - expire time tag
 const TAG_ISSUE_DATE = 'issue_date'; // response token - issue-date tag
 
 const TAG_SERVER = 'server'; // response server tag
@@ -257,3 +266,10 @@ const KEY_TEAM = 'TEAM'; // TEAM Object key - @HiveType(typeId: 4)
 const KEY_WH = 'WAREHOUSE'; // WAREHOUSE Object key - @HiveType(typeId: 5)
 const KEY_COMMON = 'COMMON'; // COMMON Object key - @HiveType(typeId: 6)
 const KEY_MENU = 'MENU'; // MENU Object key
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+  UI
+ */
+const BASIC_PADDING = 8.0;

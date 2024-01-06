@@ -31,7 +31,8 @@ class InventoryInOutReport extends StatelessWidget {
   Widget build(context) {
     Get.put(InventoryInOutReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_inventory_in_out_report'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_inventory_in_out_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,9 @@ class InventoryInOutReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<InventoryInOutReportController>().visible.value,
+                      visible: !Get.find<InventoryInOutReportController>()
+                          .visible
+                          .value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -51,31 +54,51 @@ class InventoryInOutReport extends StatelessWidget {
                               SumTitleTable('기간 채권 및 대여 합계(BOX/EA)'),
                               SumItemTable(
                                 '전일재고',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBoxQuantity) +
+                                numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumLastBoxQuantity) +
                                     ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumLastBottleQuantity),
+                                    numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumLastBottleQuantity),
                                 '입고',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumInBoxQuantity) +
+                                numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumInBoxQuantity) +
                                     ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumInBottleQuantity),
+                                    numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumInBottleQuantity),
                               ),
                               SumItemTable(
                                 '금일재고',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBoxQuantity) +
+                                numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumCurrentBoxQuantity) +
                                     ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumCurrentBottleQuantity),
+                                    numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumCurrentBottleQuantity),
                                 '출고',
-                                numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBoxQuantity) +
+                                numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumOutBoxQuantity) +
                                     ' / ' +
-                                    numberFormat.format(Get.find<InventoryInOutReportController>().sumOutBottleQuantity),
+                                    numberFormat.format(Get.find<
+                                            InventoryInOutReportController>()
+                                        .sumOutBottleQuantity),
                               ),
                               SumItemTable(
                                   null,
                                   null,
                                   '실사',
-                                  numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBoxQuantity) +
+                                  numberFormat.format(Get.find<
+                                              InventoryInOutReportController>()
+                                          .sumPhysicalBoxQuantity) +
                                       ' / ' +
-                                      numberFormat.format(Get.find<InventoryInOutReportController>().sumPhysicalBottleQuantity)),
+                                      numberFormat.format(Get.find<
+                                              InventoryInOutReportController>()
+                                          .sumPhysicalBottleQuantity)),
                             ],
                           ),
                         ),
@@ -87,7 +110,10 @@ class InventoryInOutReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<InventoryInOutReportController>().visible.value,
+                              visible:
+                                  Get.find<InventoryInOutReportController>()
+                                      .visible
+                                      .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -100,16 +126,23 @@ class InventoryInOutReport extends StatelessWidget {
                                     children: [
                                       OptionPeriodPicker(),
                                       OptionDialogItem(),
-                                      OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
-                                      OptionTwoContent(OptionCbWarehouses(), OptionCbSalesClass()),
-                                      OptionBtnSearch(ROUTE_MENU_INVENTORY_INOUT_REPORT),
+                                      OptionTwoContent(OptionDialogPurchase(),
+                                          OptionCbBranch()),
+                                      OptionTwoContent(OptionCbWarehouses(),
+                                          OptionCbSalesClass()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_INVENTORY_INOUT_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<InventoryInOutReportController>().visible.value ? 20 : 0,
+                              height: Get.find<InventoryInOutReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -137,7 +170,10 @@ class InventoryInOutReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<InventoryInOutReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<InventoryInOutReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<InventoryInOutReportController>().setVisible();
                       },
@@ -154,8 +190,11 @@ class InventoryInOutReport extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<InventoryInOutReportController>().controllerInventoryInOutReport != null) {
-      return InventoryInOutReportItem(Get.find<InventoryInOutReportController>().controllerInventoryInOutReport);
+    if (Get.find<InventoryInOutReportController>()
+            .controllerInventoryInOutReport !=
+        null) {
+      return InventoryInOutReportItem(Get.find<InventoryInOutReportController>()
+          .controllerInventoryInOutReport);
     } else {
       return EmptyWidget();
     }
@@ -187,12 +226,20 @@ class InventoryInOutReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramPurchaseCode = Get.find<OptionDialogPurchaseController>().paramCode;
-    String paramItemCode = Get.find<OptionDialogItemController>().paramItemCode.value;
-    String paramWarehouseCode = Get.find<CbWarehousesController>().paramWarehouseCode;
-    String paramSalesClassCode = Get.find<CbSalesClassController>().paramSalesClassCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramPurchaseCode =
+        Get.find<OptionDialogPurchaseController>().paramCode;
+    String paramItemCode =
+        Get.find<OptionDialogItemController>().paramItemCode.value;
+    String paramWarehouseCode =
+        Get.find<CbWarehousesController>().paramWarehouseCode;
+    String paramSalesClassCode =
+        Get.find<CbSalesClassController>().paramSalesClassCode;
 
     var param = user.getClientCode;
     var parsedInventoryInOutReportSales;
@@ -220,14 +267,20 @@ class InventoryInOutReportController extends GetxController {
           '');
 
       if (response.statusCode == 200) {
-        if ((parsedInventoryInOutReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedInventoryInOutReportSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerInventoryInOutReport = parsedInventoryInOutReportSales.map((dataJson) => InventoryInOutReportModel.fromJson(dataJson)).toList();
+          controllerInventoryInOutReport = parsedInventoryInOutReportSales
+              .map((dataJson) => InventoryInOutReportModel.fromJson(dataJson))
+              .toList();
 
-          for (InventoryInOutReportModel calData in controllerInventoryInOutReport) {
+          for (InventoryInOutReportModel calData
+              in controllerInventoryInOutReport) {
             sumCurrentBoxQuantity += calData.current.box as int;
             sumCurrentBottleQuantity += calData.current.bottle as int;
             sumLastBoxQuantity += calData.last.box as int;
@@ -246,7 +299,8 @@ class InventoryInOutReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

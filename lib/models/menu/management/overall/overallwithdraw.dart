@@ -17,7 +17,8 @@ class OverAllWithdrawModel {
     };
   }
 
-  factory OverAllWithdrawModel.fromJson(Map<String, dynamic> json) => _$OverAllWithdrawModelFromJson(json);
+  factory OverAllWithdrawModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllWithdrawModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllWithdrawModelToJson(this);
 }

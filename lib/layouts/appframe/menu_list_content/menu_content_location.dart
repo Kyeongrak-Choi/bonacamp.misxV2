@@ -15,6 +15,9 @@ class MenuContentLocation extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_location'.tr, iconMenuList: locationSearchMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_location'.tr,
+                    iconMenuList: locationSearchMaster))));
   }
 }

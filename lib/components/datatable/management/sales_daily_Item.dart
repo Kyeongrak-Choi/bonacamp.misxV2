@@ -21,13 +21,15 @@ class SalesDailyItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
+          children: dataList
+              .map<ExpansionPanelRadio>((SalesDailyDayMonthModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: model.salesRepName ?? '', value: '');
+                return ShowListHeaderRow(
+                    titleName: model.salesRepName ?? '', value: '');
               },
               body: Column(
                 children: [

@@ -32,9 +32,13 @@ class OptionDatePicker extends StatelessWidget {
                     flex: 7,
                     child: Obx(
                       () => TextButton(
-                        onPressed: () => Get.find<DatePickerController>().chooseDate(),
+                        onPressed: () =>
+                            Get.find<DatePickerController>().chooseDate(),
                         child: Text(
-                          DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
+                          DateFormat('yyyy-MM-dd')
+                              .format(
+                                  Get.find<DatePickerController>().date.value)
+                              .toString(),
                           style: context.textTheme.bodyMedium,
                         ),
                       ),
@@ -46,7 +50,8 @@ class OptionDatePicker extends StatelessWidget {
                         onPressed: () {
                           Get.find<DatePickerController>().chooseDate();
                         },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                        icon: Icon(Icons.date_range,
+                            color: context.theme.primaryColor)),
                   )
                 ],
               ),
@@ -92,7 +97,8 @@ class DatePickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,

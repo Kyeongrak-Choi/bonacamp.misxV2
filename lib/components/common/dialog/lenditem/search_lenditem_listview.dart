@@ -41,10 +41,13 @@ class SearchLendItemList extends StatelessWidget {
 
   Widget selectSearchListItem(int index) {
     return SearchLendItemListItem(
-        Get.find<SearchLendItemListController>().datas[index].getLendItmCd ?? '',
-        Get.find<SearchLendItemListController>().datas[index].getLendItmNm ?? '',
+        Get.find<SearchLendItemListController>().datas[index].getLendItmCd ??
+            '',
+        Get.find<SearchLendItemListController>().datas[index].getLendItmNm ??
+            '',
         Get.find<SearchLendItemListController>().datas[index].getCaseName ?? '',
-        Get.find<SearchLendItemListController>().datas[index].getBottleName ?? '');
+        Get.find<SearchLendItemListController>().datas[index].getBottleName ??
+            '');
   }
 }
 
@@ -87,20 +90,27 @@ class SearchLendItemListController extends GetxController {
 
     try {
       String queryParam = Uri.encodeComponent('=' + searchTxt);
-      final response = await dio.get(API_COMMON + API_COMMON_LENDITEM + '?q=search' + queryParam);
+      final response = await dio
+          .get(API_COMMON + API_COMMON_LENDITEM + '?q=search' + queryParam);
       Navigator.pop(context);
       if (response.statusCode == 200) {
-        if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if (dataObjsJson =
+            jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
-          dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          parsedResponse = dataObjsJson.map((dataJson) => LendItemModel.fromJson(dataJson)).toList();
+          dataObjsJson =
+              jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          parsedResponse = dataObjsJson
+              .map((dataJson) => LendItemModel.fromJson(dataJson))
+              .toList();
         }
       }
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
 

@@ -12,7 +12,8 @@ NoticeModel _$NoticeModelFromJson(Map<String, dynamic> json) => NoticeModel(
       json['reg-data'],
     );
 
-Map<String, dynamic> _$NoticeModelToJson(NoticeModel instance) => <String, dynamic>{
+Map<String, dynamic> _$NoticeModelToJson(NoticeModel instance) =>
+    <String, dynamic>{
       'title': instance.title,
       'content': instance.content,
       'reg-data': instance.regData,

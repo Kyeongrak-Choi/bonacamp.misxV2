@@ -6,7 +6,9 @@ part of 'purchase_ledger_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PurchaseLedgerDetailsModel _$PurchaseLedgerDetailsModelFromJson(Map<String, dynamic> json) => PurchaseLedgerDetailsModel(
+PurchaseLedgerDetailsModel _$PurchaseLedgerDetailsModelFromJson(
+        Map<String, dynamic> json) =>
+    PurchaseLedgerDetailsModel(
       json['item-code'],
       json['item-name'],
       json['box-quantity'],
@@ -17,7 +19,9 @@ PurchaseLedgerDetailsModel _$PurchaseLedgerDetailsModelFromJson(Map<String, dyna
       json['balance'],
     );
 
-Map<String, dynamic> _$PurchaseLedgerDetailsModelToJson(PurchaseLedgerDetailsModel instance) => <String, dynamic>{
+Map<String, dynamic> _$PurchaseLedgerDetailsModelToJson(
+        PurchaseLedgerDetailsModel instance) =>
+    <String, dynamic>{
       'item-code': instance.itemCode,
       'item-name': instance.itemName,
       'box-quantity': instance.boxQuantity,

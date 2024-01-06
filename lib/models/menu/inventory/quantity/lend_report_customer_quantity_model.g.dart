@@ -6,7 +6,9 @@ part of 'lend_report_customer_quantity_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LendReportCustomerQuantityModel _$LendReportCustomerQuantityModelFromJson(Map<String, dynamic> json) => LendReportCustomerQuantityModel(
+LendReportCustomerQuantityModel _$LendReportCustomerQuantityModelFromJson(
+        Map<String, dynamic> json) =>
+    LendReportCustomerQuantityModel(
       json['last-quantity'],
       json['in-quantity'],
       json['out-quantity'],
@@ -15,7 +17,9 @@ LendReportCustomerQuantityModel _$LendReportCustomerQuantityModelFromJson(Map<St
       json['remain-rate'],
     );
 
-Map<String, dynamic> _$LendReportCustomerQuantityModelToJson(LendReportCustomerQuantityModel instance) => <String, dynamic>{
+Map<String, dynamic> _$LendReportCustomerQuantityModelToJson(
+        LendReportCustomerQuantityModel instance) =>
+    <String, dynamic>{
       'last-quantity': instance.lastQuantity,
       'in-quantity': instance.inQuantity,
       'out-quantity': instance.outQuantity,

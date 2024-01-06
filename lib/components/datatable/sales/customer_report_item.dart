@@ -26,13 +26,15 @@ class CustomerReportItem extends StatelessWidget {
             child: ExpansionPanelList.radio(
               elevation: 0.0,
               animationDuration: Duration(milliseconds: 500),
-              children: dataList.map<ExpansionPanelRadio>((CustomerReportModel model) {
+              children: dataList
+                  .map<ExpansionPanelRadio>((CustomerReportModel model) {
                 return ExpansionPanelRadio(
                   canTapOnHeader: true,
                   value: model.id.toString(),
                   backgroundColor: context.theme.cardColor,
                   headerBuilder: (BuildContext context, bool isExpanded) {
-                    return ShowListHeaderRow(titleName: model.customerName ?? '', value: '');
+                    return ShowListHeaderRow(
+                        titleName: model.customerName ?? '', value: '');
                   },
                   body: Column(
                     children: [

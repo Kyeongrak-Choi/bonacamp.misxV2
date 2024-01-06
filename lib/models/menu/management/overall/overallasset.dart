@@ -17,7 +17,8 @@ class OverAllAssetModel {
     };
   }
 
-  factory OverAllAssetModel.fromJson(Map<String, dynamic> json) => _$OverAllAssetModelFromJson(json);
+  factory OverAllAssetModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllAssetModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllAssetModelToJson(this);
 }

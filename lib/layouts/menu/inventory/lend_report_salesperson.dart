@@ -29,7 +29,8 @@ class LendReportSalesperson extends StatelessWidget {
   Widget build(context) {
     Get.put(LendReportSalespersonController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_lend_report_salesperson'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_lend_report_salesperson'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,9 @@ class LendReportSalesperson extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                          visible: Get.find<LendReportSalespersonController>().visible.value,
+                          visible: Get.find<LendReportSalespersonController>()
+                              .visible
+                              .value,
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
@@ -52,9 +55,12 @@ class LendReportSalesperson extends StatelessWidget {
                                 children: [
                                   OptionPeriodPicker(),
                                   OptionCbBranch(),
-                                  OptionTwoContent(OptionDialogCustomer(), OptionCbEmployee()),
-                                  OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
-                                  OptionBtnSearch(ROUTE_MENU_LEND_REPORT_SALESPERSON),
+                                  OptionTwoContent(OptionDialogCustomer(),
+                                      OptionCbEmployee()),
+                                  OptionTwoContent(OptionDialogLendItem(),
+                                      OptionCbLendDivision()),
+                                  OptionBtnSearch(
+                                      ROUTE_MENU_LEND_REPORT_SALESPERSON),
                                 ],
                               ),
                             ),
@@ -70,7 +76,8 @@ class LendReportSalesperson extends StatelessWidget {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
                             child: ListView(
                               children: <Widget>[setChild()],
                             ),
@@ -85,9 +92,13 @@ class LendReportSalesperson extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<LendReportSalespersonController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<LendReportSalespersonController>()
+                              .visible
+                              .value),
                       onPressed: () {
-                        Get.find<LendReportSalespersonController>().setVisible();
+                        Get.find<LendReportSalespersonController>()
+                            .setVisible();
                       },
                       splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
@@ -102,8 +113,12 @@ class LendReportSalesperson extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<LendReportSalespersonController>().controllerLendReportSalesperson != null) {
-      return LendReportCustomerItem(Get.find<LendReportSalespersonController>().controllerLendReportSalesperson[0].salespersonList);
+    if (Get.find<LendReportSalespersonController>()
+            .controllerLendReportSalesperson !=
+        null) {
+      return LendReportCustomerItem(Get.find<LendReportSalespersonController>()
+          .controllerLendReportSalesperson[0]
+          .salespersonList);
     } else {
       return EmptyWidget();
     }
@@ -123,12 +138,20 @@ class LendReportSalespersonController extends GetxController {
     var dio;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramLendItemCode = Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
-    String paramLendDivisionCode = Get.find<CbLendDivisionController>().paramLendDivisionCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramLendItemCode =
+        Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
+    String paramLendDivisionCode =
+        Get.find<CbLendDivisionController>().paramLendDivisionCode;
 
     if (paramEmployeeCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, '영업담당을 선택해주세요.');
@@ -158,13 +181,18 @@ class LendReportSalespersonController extends GetxController {
           paramLendDivisionCode);
 
       if (response.statusCode == 200) {
-        if ((parsedLendReportSalesperson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedLendReportSalesperson =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerLendReportSalesperson = parsedLendReportSalesperson.map((dataJson) => LendReportSalespersonModel.fromJson(dataJson)).toList();
+          controllerLendReportSalesperson = parsedLendReportSalesperson
+              .map((dataJson) => LendReportSalespersonModel.fromJson(dataJson))
+              .toList();
         }
 
         Get.find<LendReportSalespersonController>().setVisible();
@@ -172,7 +200,8 @@ class LendReportSalespersonController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

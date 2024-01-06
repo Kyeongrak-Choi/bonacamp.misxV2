@@ -43,7 +43,8 @@ Future<void> initToken() async {
 }
 
 Future<String> getToken() async {
-  String token = await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
+  String token =
+      await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail');
 
   if (token == 'fail') {
     return 'GetToken() Failed';

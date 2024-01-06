@@ -6,7 +6,8 @@ part of 'customer_report_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerReportModel _$CustomerReportModelFromJson(Map<String, dynamic> json) => CustomerReportModel(
+CustomerReportModel _$CustomerReportModelFromJson(Map<String, dynamic> json) =>
+    CustomerReportModel(
       json['branch-code'],
       json['customer-code'],
       json['customer-name'],
@@ -19,7 +20,9 @@ CustomerReportModel _$CustomerReportModelFromJson(Map<String, dynamic> json) => 
       json['margin-rate'],
     );
 
-Map<String, dynamic> _$CustomerReportModelToJson(CustomerReportModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CustomerReportModelToJson(
+        CustomerReportModel instance) =>
+    <String, dynamic>{
       'branch-code': instance.branchCode,
       'customer-code': instance.customerCode,
       'customer-name': instance.customerName,

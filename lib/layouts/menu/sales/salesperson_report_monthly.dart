@@ -29,7 +29,8 @@ class SalesPersonReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_report_monthly'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_report_monthly'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,10 @@ class SalesPersonReportMonthly extends StatelessWidget {
                     child: Column(
                       children: [
                         Visibility(
-                            visible: Get.find<SalesPersonReportMonthlyController>().visible.value,
+                            visible:
+                                Get.find<SalesPersonReportMonthlyController>()
+                                    .visible
+                                    .value,
                             child: Column(
                               children: [
                                 Container(
@@ -53,9 +57,12 @@ class SalesPersonReportMonthly extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         OptionYearMonthPicker(),
-                                        OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                        OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
+                                        OptionTwoContent(OptionCbBranch(),
+                                            OptionCbSalesType()),
+                                        OptionTwoContent(OptionCbEmployee(),
+                                            OptionCbManager()),
+                                        OptionBtnSearch(
+                                            ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
                                       ],
                                     ),
                                   ),
@@ -63,10 +70,18 @@ class SalesPersonReportMonthly extends StatelessWidget {
                               ],
                             )),
                         SizedBox(
-                          height: Get.find<SalesPersonReportMonthlyController>().visible.value ? 20 : 0,
+                          height: Get.find<SalesPersonReportMonthlyController>()
+                                  .visible
+                                  .value
+                              ? 20
+                              : 0,
                         ),
                         Expanded(
-                          flex: Get.find<SalesPersonReportMonthlyController>().visible.value ? 4 : 3,
+                          flex: Get.find<SalesPersonReportMonthlyController>()
+                                  .visible
+                                  .value
+                              ? 4
+                              : 3,
                           child: Container(
                             decoration: BoxDecoration(
                               color: context.theme.cardColor,
@@ -86,9 +101,14 @@ class SalesPersonReportMonthly extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesPersonReportMonthlyController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<SalesPersonReportMonthlyController>()
+                                  .visible
+                                  .value),
                       onPressed: () {
-                        Get.find<SalesPersonReportMonthlyController>().setVisible();
+                        Get.find<SalesPersonReportMonthlyController>()
+                            .setVisible();
                       },
                       splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
@@ -103,8 +123,12 @@ class SalesPersonReportMonthly extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<SalesPersonReportMonthlyController>().controllerSalesPersonMonthlyReport != null) {
-      return SalesPersonReportMonthlyItem(Get.find<SalesPersonReportMonthlyController>().controllerSalesPersonMonthlyReport);
+    if (Get.find<SalesPersonReportMonthlyController>()
+            .controllerSalesPersonMonthlyReport !=
+        null) {
+      return SalesPersonReportMonthlyItem(
+          Get.find<SalesPersonReportMonthlyController>()
+              .controllerSalesPersonMonthlyReport);
     } else {
       return EmptyWidget();
     }
@@ -125,10 +149,14 @@ class SalesPersonReportMonthlyController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramYearMonth = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
+    String paramYearMonth = DateFormat('yyyyMM')
+        .format(Get.find<MonthPickerController>().yearMonth.value)
+        .toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
@@ -153,17 +181,22 @@ class SalesPersonReportMonthlyController extends GetxController {
 
       if (response.statusCode == 200) {
         if (jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
           jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
           sumTotal = 0;
           log(response.data.toString());
 
-          parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          controllerSalesPersonMonthlyReport =
-              parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportMonthlyModel.fromJson(dataJson)).toList();
+          parsedSalesPersonReportSales =
+              await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          controllerSalesPersonMonthlyReport = parsedSalesPersonReportSales
+              .map((dataJson) =>
+                  SalesPersonReportMonthlyModel.fromJson(dataJson))
+              .toList();
 
-          for (SalesPersonReportMonthlyModel calData in controllerSalesPersonMonthlyReport) {
+          for (SalesPersonReportMonthlyModel calData
+              in controllerSalesPersonMonthlyReport) {
             sumTotal += calData.total as int;
           }
 
@@ -173,7 +206,8 @@ class SalesPersonReportMonthlyController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

@@ -40,18 +40,26 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                 children: [
                   Obx(
                     () => TextButton(
-                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth(),
+                      onPressed: () =>
+                          Get.find<PeriodYearmonthPickerController>()
+                              .chooseFromYearmonth(),
                       child: Text(
-                        DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value).toString(),
+                        DateFormat('yyyy-MM')
+                            .format(Get.find<PeriodYearmonthPickerController>()
+                                .fromYearMonth
+                                .value)
+                            .toString(),
                         style: context.textTheme.bodyMedium,
                       ),
                     ),
                   ),
                   IconButton(
                       onPressed: () {
-                        Get.find<PeriodYearmonthPickerController>().chooseFromYearmonth();
+                        Get.find<PeriodYearmonthPickerController>()
+                            .chooseFromYearmonth();
                       },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                      icon: Icon(Icons.date_range,
+                          color: context.theme.primaryColor)),
                   Text(
                     ' ~ ',
                     style: context.textTheme.bodyMedium,
@@ -59,16 +67,26 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   ),
                   Obx(
                     () => TextButton(
-                      onPressed: () => Get.find<PeriodYearmonthPickerController>().chooseToYearmonth(),
-                      child: Text(DateFormat('yyyy-MM').format(Get.find<PeriodYearmonthPickerController>().toYearMonth.value).toString(),
+                      onPressed: () =>
+                          Get.find<PeriodYearmonthPickerController>()
+                              .chooseToYearmonth(),
+                      child: Text(
+                          DateFormat('yyyy-MM')
+                              .format(
+                                  Get.find<PeriodYearmonthPickerController>()
+                                      .toYearMonth
+                                      .value)
+                              .toString(),
                           style: context.textTheme.bodyMedium),
                     ),
                   ),
                   IconButton(
                       onPressed: () {
-                        Get.find<PeriodYearmonthPickerController>().chooseToYearmonth();
+                        Get.find<PeriodYearmonthPickerController>()
+                            .chooseToYearmonth();
                       },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                      icon: Icon(Icons.date_range,
+                          color: context.theme.primaryColor)),
                 ],
               ),
             ),
@@ -120,7 +138,8 @@ class PeriodYearmonthPickerController extends GetxController {
       locale: localeObj,
     );
 
-    if (pickedFromYearMonth != null && pickedFromYearMonth != fromYearMonth.value) {
+    if (pickedFromYearMonth != null &&
+        pickedFromYearMonth != fromYearMonth.value) {
       if (checkLimit) {
         if (Validate()) {
           fromYearMonth.value = pickedFromYearMonth;
@@ -160,7 +179,9 @@ class PeriodYearmonthPickerController extends GetxController {
     if (pickedFromYearMonth.compareTo(pickedToYearMonth) > 0) {
       ShowSnackBar(SNACK_TYPE.ERROR, 'period_error_content'.tr);
       return false;
-    } else if (calculateMonthDifference(pickedFromYearMonth, pickedToYearMonth) > 5) {
+    } else if (calculateMonthDifference(
+            pickedFromYearMonth, pickedToYearMonth) >
+        5) {
       ShowSnackBar(SNACK_TYPE.ERROR, 'period_error_limit'.tr);
       return false;
     } else {

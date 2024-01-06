@@ -6,7 +6,9 @@ part of 'rental_report_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RentalReportDetailsModel _$RentalReportDetailsModelFromJson(Map<String, dynamic> json) => RentalReportDetailsModel(
+RentalReportDetailsModel _$RentalReportDetailsModelFromJson(
+        Map<String, dynamic> json) =>
+    RentalReportDetailsModel(
       json['sequence'],
       json['status'],
       json['divide-month'],
@@ -22,7 +24,9 @@ RentalReportDetailsModel _$RentalReportDetailsModelFromJson(Map<String, dynamic>
       json['overdue-amount'],
     );
 
-Map<String, dynamic> _$RentalReportDetailsModelToJson(RentalReportDetailsModel instance) => <String, dynamic>{
+Map<String, dynamic> _$RentalReportDetailsModelToJson(
+        RentalReportDetailsModel instance) =>
+    <String, dynamic>{
       'sequence': instance.sequence,
       'status': instance.status,
       'divide-month': instance.divideMonth,

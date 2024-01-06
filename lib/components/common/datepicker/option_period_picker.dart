@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/utils/theme/text_theme.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
-class  OptionPeriodPicker extends StatelessWidget {
+class OptionPeriodPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PeriodPickerController());
@@ -45,14 +43,22 @@ class  OptionPeriodPicker extends StatelessWidget {
                         },
                         //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
                         icon: ImageIcon(
-                        AssetImage('lib/assets/icons/calendar.png'), color: context.theme.primaryColor, size: 24,)),
+                          AssetImage('lib/assets/icons/calendar.png'),
+                          color: context.theme.primaryColor,
+                          size: 24,
+                        )),
                     Obx(
-                          () => TextButton(
-                            onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                            child: Text(
-                              DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                              style: context.textTheme.bodyMedium,
-                              textAlign: TextAlign.center,
+                      () => TextButton(
+                        onPressed: () =>
+                            Get.find<PeriodPickerController>().chooseFromDate(),
+                        child: Text(
+                          DateFormat('yyyy-MM-dd')
+                              .format(Get.find<PeriodPickerController>()
+                                  .fromDate
+                                  .value)
+                              .toString(),
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
@@ -83,12 +89,20 @@ class  OptionPeriodPicker extends StatelessWidget {
                           Get.find<PeriodPickerController>().chooseToDate();
                         },
                         icon: ImageIcon(
-                          AssetImage('lib/assets/icons/calendar.png'), color: context.theme.primaryColor, size: 24,)),
+                          AssetImage('lib/assets/icons/calendar.png'),
+                          color: context.theme.primaryColor,
+                          size: 24,
+                        )),
                     Obx(
-                          () => TextButton(
-                        onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
+                      () => TextButton(
+                        onPressed: () =>
+                            Get.find<PeriodPickerController>().chooseToDate(),
                         child: Text(
-                          DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
+                          DateFormat('yyyy-MM-dd')
+                              .format(Get.find<PeriodPickerController>()
+                                  .toDate
+                                  .value)
+                              .toString(),
                           style: context.textTheme.bodyMedium,
                           textAlign: TextAlign.center,
                         ),
@@ -98,7 +112,6 @@ class  OptionPeriodPicker extends StatelessWidget {
                 ),
               ),
             ),
-
           ],
         ),
       ],
@@ -144,7 +157,8 @@ class PeriodPickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,
@@ -174,7 +188,8 @@ class PeriodPickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,

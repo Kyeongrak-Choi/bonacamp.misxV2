@@ -31,7 +31,8 @@ class BanlanceReport extends StatelessWidget {
   Widget build(context) {
     Get.put(BalanceReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_balance_report'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_balance_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,8 @@ class BanlanceReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<BalanceReportController>().visible.value,
+                      visible:
+                          !Get.find<BalanceReportController>().visible.value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -51,12 +53,33 @@ class BanlanceReport extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 채권 합계'),
-                              SumItemTable('매출액', numberFormat.format(Get.find<BalanceReportController>().sumTotal), '공급가',
-                                  numberFormat.format(Get.find<BalanceReportController>().sumPrice)),
-                              SumItemTable('합계', numberFormat.format(Get.find<BalanceReportController>().sumAmount), '입금합계',
-                                  numberFormat.format(Get.find<BalanceReportController>().sumDeposit)),
-                              SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceReportController>().sumBalance), '매출이익',
-                                  numberFormat.format(Get.find<BalanceReportController>().sumMargin)),
+                              SumItemTable(
+                                  '매출액',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumTotal),
+                                  '공급가',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumPrice)),
+                              SumItemTable(
+                                  '합계',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumAmount),
+                                  '입금합계',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumDeposit)),
+                              SumItemTable(
+                                  '채권잔액',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumBalance),
+                                  '매출이익',
+                                  numberFormat.format(
+                                      Get.find<BalanceReportController>()
+                                          .sumMargin)),
                             ],
                           ),
                         ),
@@ -68,7 +91,9 @@ class BanlanceReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<BalanceReportController>().visible.value,
+                              visible: Get.find<BalanceReportController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -81,16 +106,23 @@ class BanlanceReport extends StatelessWidget {
                                     children: [
                                       OptionPeriodPicker(),
                                       OptionCbBranch(),
-                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                      OptionTwoContent(OptionCbCustomerClass(), OptionCbCustomerStatus()),
-                                      OptionBtnSearch(ROUTE_MENU_BALANCE_REPORT),
+                                      OptionTwoContent(OptionCbEmployee(),
+                                          OptionCbManager()),
+                                      OptionTwoContent(OptionCbCustomerClass(),
+                                          OptionCbCustomerStatus()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_BALANCE_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<BalanceReportController>().visible.value ? 20 : 0,
+                              height: Get.find<BalanceReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -118,7 +150,10 @@ class BanlanceReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<BalanceReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<BalanceReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<BalanceReportController>().setVisible();
                       },
@@ -136,7 +171,8 @@ class BanlanceReport extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<BalanceReportController>().controllerBalanceReport != null) {
-      return BalanceReportItem(Get.find<BalanceReportController>().controllerBalanceReport);
+      return BalanceReportItem(
+          Get.find<BalanceReportController>().controllerBalanceReport);
     } else {
       return EmptyWidget();
     }
@@ -163,12 +199,20 @@ class BalanceReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
-    String paramCustStat = Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
-    String paramCustGrade = Get.find<CbCustomerClassController>().paramBusinessCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
+    String paramCustStat =
+        Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
+    String paramCustGrade =
+        Get.find<CbCustomerClassController>().paramBusinessCode;
 
     var param = user.getClientCode;
     var parsedBalanceReportSales;
@@ -194,12 +238,17 @@ class BalanceReportController extends GetxController {
           paramCustStat);
 
       if (response.statusCode == 200) {
-        if ((parsedBalanceReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedBalanceReportSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerBalanceReport = parsedBalanceReportSales.map((dataJson) => BalanceReportModel.fromJson(dataJson)).toList();
+          controllerBalanceReport = parsedBalanceReportSales
+              .map((dataJson) => BalanceReportModel.fromJson(dataJson))
+              .toList();
 
           for (BalanceReportModel calData in controllerBalanceReport) {
             sumTotal += calData.total as int;
@@ -216,7 +265,8 @@ class BalanceReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

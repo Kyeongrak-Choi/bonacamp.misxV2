@@ -16,6 +16,9 @@ class MenuContentInventory extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_asset'.tr, iconMenuList: inventoryAnalysisMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_asset'.tr,
+                    iconMenuList: inventoryAnalysisMaster))));
   }
 }

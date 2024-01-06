@@ -12,7 +12,8 @@ class LendReportCustomerQuantityModel {
   var inRate;
   var remainRate;
 
-  LendReportCustomerQuantityModel(this.lastQuantity, this.inQuantity, this.outQuantity, this.remainQuantity, this.inRate, this.remainRate);
+  LendReportCustomerQuantityModel(this.lastQuantity, this.inQuantity,
+      this.outQuantity, this.remainQuantity, this.inRate, this.remainRate);
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,7 +26,9 @@ class LendReportCustomerQuantityModel {
     };
   }
 
-  factory LendReportCustomerQuantityModel.fromJson(Map<String, dynamic> json) => _$LendReportCustomerQuantityModelFromJson(json);
+  factory LendReportCustomerQuantityModel.fromJson(Map<String, dynamic> json) =>
+      _$LendReportCustomerQuantityModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$LendReportCustomerQuantityModelToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$LendReportCustomerQuantityModelToJson(this);
 }

@@ -27,8 +27,23 @@ class InventoryReportModel {
 
   int? id;
 
-  InventoryReportModel(this.itemCode, this.itemName, this.boxQuantity, this.bottleQuantity, this.amount, this.customerCode, this.customerName,
-      this.sales, this.purchase, this.packageQuantity, this.liquorType, this.salesTypeCode, this.salesType, this.itemType, this.useCode, this.use,
+  InventoryReportModel(
+      this.itemCode,
+      this.itemName,
+      this.boxQuantity,
+      this.bottleQuantity,
+      this.amount,
+      this.customerCode,
+      this.customerName,
+      this.sales,
+      this.purchase,
+      this.packageQuantity,
+      this.liquorType,
+      this.salesTypeCode,
+      this.salesType,
+      this.itemType,
+      this.useCode,
+      this.use,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -52,7 +67,8 @@ class InventoryReportModel {
     };
   }
 
-  factory InventoryReportModel.fromJson(Map<String, dynamic> json) => _$InventoryReportModelFromJson(json);
+  factory InventoryReportModel.fromJson(Map<String, dynamic> json) =>
+      _$InventoryReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$InventoryReportModelToJson(this);
 }
@@ -68,8 +84,14 @@ List<InventoryReportModel> generateInventoryReportModelList(dataList, count) {
             numberFormat.format(dataList[index].amount),
             dataList[index].customerCode,
             dataList[index].customerName,
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].sales.box), numberFormat.format(dataList[index].sales.bottle), ''),
-            InventoryReportQuantityModel(numberFormat.format(dataList[index].purchase.box), numberFormat.format(dataList[index].purchase.bottle), ''),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].sales.box),
+                numberFormat.format(dataList[index].sales.bottle),
+                ''),
+            InventoryReportQuantityModel(
+                numberFormat.format(dataList[index].purchase.box),
+                numberFormat.format(dataList[index].purchase.bottle),
+                ''),
             numberFormat.format(dataList[index].packageQuantity),
             dataList[index].liquorType,
             dataList[index].salesTypeCode,

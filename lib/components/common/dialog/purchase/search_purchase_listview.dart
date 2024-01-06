@@ -43,8 +43,10 @@ class SearchPurchaseList extends StatelessWidget {
     return SearchPurchaseListItem(
         Get.find<SearchPurchaseListController>().datas[index].getCode ?? '',
         Get.find<SearchPurchaseListController>().datas[index].getName ?? '',
-        Get.find<SearchPurchaseListController>().datas[index].getBusinessItem ?? '',
-        Get.find<SearchPurchaseListController>().datas[index].getStatuaName ?? '');
+        Get.find<SearchPurchaseListController>().datas[index].getBusinessItem ??
+            '',
+        Get.find<SearchPurchaseListController>().datas[index].getStatuaName ??
+            '');
   }
 }
 
@@ -86,23 +88,35 @@ class SearchPurchaseListController extends GetxController {
     dio = await reqApi(param);
 
     try {
-      String queryParam =
-          Uri.encodeComponent('=' + searchTxt + '&type=1' + '&like=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
-      final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
+      String queryParam = Uri.encodeComponent('=' +
+          searchTxt +
+          '&type=1' +
+          '&like=' +
+          Hive.box(LOCAL_DB)
+              .get(KEY_COMPARE_FIRST, defaultValue: true)
+              .toString());
+      final response = await dio
+          .get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
       if (response.statusCode == 200) {
         Navigator.pop(context);
-        if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if (dataObjsJson =
+            jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
-          dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+          dataObjsJson =
+              jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          parsedResponse = dataObjsJson
+              .map((dataJson) => CustomerModel.fromJson(dataJson))
+              .toList();
         }
       }
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
 

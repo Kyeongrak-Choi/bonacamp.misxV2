@@ -17,10 +17,15 @@ class EmployeeModel {
   EmployeeModel(this.employeeCode, this.employeeName, this.manager);
 
   Map<String, dynamic> toMap() {
-    return {'employee-code': employeeCode, 'employee-name': employeeName, 'manager': manager};
+    return {
+      'employee-code': employeeCode,
+      'employee-name': employeeName,
+      'manager': manager
+    };
   }
 
-  factory EmployeeModel.fromJson(Map<String, dynamic> json) => _$EmployeeModelFromJson(json);
+  factory EmployeeModel.fromJson(Map<String, dynamic> json) =>
+      _$EmployeeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$EmployeeModelToJson(this);
 

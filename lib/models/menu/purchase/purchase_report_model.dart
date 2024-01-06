@@ -14,7 +14,9 @@ class PurchaseReportModel {
   var balance; // 채무잔액
   int? id;
 
-  PurchaseReportModel(this.code, this.name, this.purchase, this.withdraw, this.balance, {this.id});
+  PurchaseReportModel(
+      this.code, this.name, this.purchase, this.withdraw, this.balance,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -26,7 +28,8 @@ class PurchaseReportModel {
     };
   }
 
-  factory PurchaseReportModel.fromJson(Map<String, dynamic> json) => _$PurchaseReportModelFromJson(json);
+  factory PurchaseReportModel.fromJson(Map<String, dynamic> json) =>
+      _$PurchaseReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PurchaseReportModelToJson(this);
 }

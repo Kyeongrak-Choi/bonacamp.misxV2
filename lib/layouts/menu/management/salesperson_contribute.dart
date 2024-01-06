@@ -27,7 +27,8 @@ class SalesPersonContribute extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonContributeController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_salesperson_contribute'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_salesperson_contribute'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -37,7 +38,9 @@ class SalesPersonContribute extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                        visible: Get.find<SalesPersonContributeController>().visible.value,
+                        visible: Get.find<SalesPersonContributeController>()
+                            .visible
+                            .value,
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
@@ -48,16 +51,23 @@ class SalesPersonContribute extends StatelessWidget {
                             padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
-                                OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
-                                OptionTwoContent(OptionCbEmployee(), OptionCbCustomerStatus()),
-                                OptionBtnSearch(ROUTE_MENU_SALESPERSON_CONTRIBUTE),
+                                OptionTwoContent(
+                                    OptionYearMonthPicker(), OptionCbBranch()),
+                                OptionTwoContent(OptionCbEmployee(),
+                                    OptionCbCustomerStatus()),
+                                OptionBtnSearch(
+                                    ROUTE_MENU_SALESPERSON_CONTRIBUTE),
                               ],
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<SalesPersonContributeController>().visible.value ? 20 : 0,
+                        height: Get.find<SalesPersonContributeController>()
+                                .visible
+                                .value
+                            ? 20
+                            : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -80,9 +90,13 @@ class SalesPersonContribute extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesPersonContributeController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<SalesPersonContributeController>()
+                              .visible
+                              .value),
                       onPressed: () {
-                        Get.find<SalesPersonContributeController>().setVisible();
+                        Get.find<SalesPersonContributeController>()
+                            .setVisible();
                       },
                       splashColor: CommonColors.primary,
                       backgroundColor: Colors.white,
@@ -112,9 +126,12 @@ class SalesPersonContributeController extends GetxController {
 
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    var paramYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
+    var paramYM = DateFormat('yyyyMM')
+        .format(Get.find<MonthPickerController>().yearMonth.value)
+        .toString();
     var paramSalChrgCd = Get.find<CbEmployeeController>().paramEmployeeCode;
-    var paramCustStat = Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
+    var paramCustStat =
+        Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
 
     try {
       dio = await reqApi(paramClientCd);
@@ -133,8 +150,11 @@ class SalesPersonContributeController extends GetxController {
       log('paramNodeCd :' + paramNodeCd);
 
       if (response.statusCode == 200) {
-        if ((parsedData = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedData =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
@@ -146,7 +166,8 @@ class SalesPersonContributeController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

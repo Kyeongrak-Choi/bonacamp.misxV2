@@ -19,8 +19,18 @@ class SalesRentalLedgerModel {
   var totalBalance; // 채권잔액 + 대여금 합계
   int? id;
 
-  SalesRentalLedgerModel(this.salesDate, this.memo, this.total, this.price, this.amount, this.deposit, this.balance, this.longRent, this.shortRent,
-      this.totalRent, this.totalBalance,
+  SalesRentalLedgerModel(
+      this.salesDate,
+      this.memo,
+      this.total,
+      this.price,
+      this.amount,
+      this.deposit,
+      this.balance,
+      this.longRent,
+      this.shortRent,
+      this.totalRent,
+      this.totalBalance,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -39,7 +49,8 @@ class SalesRentalLedgerModel {
     };
   }
 
-  factory SalesRentalLedgerModel.fromJson(Map<String, dynamic> json) => _$SalesRentalLedgerModelFromJson(json);
+  factory SalesRentalLedgerModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesRentalLedgerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesRentalLedgerModelToJson(this);
 

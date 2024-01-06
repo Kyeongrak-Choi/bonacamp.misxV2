@@ -13,7 +13,9 @@ class SalesPersonReportMonthlyModel {
   var total; // 매출 합계
   int? id;
 
-  SalesPersonReportMonthlyModel(this.branchCode, this.code, this.name, this.sales, this.total, {this.id});
+  SalesPersonReportMonthlyModel(
+      this.branchCode, this.code, this.name, this.sales, this.total,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,12 +27,14 @@ class SalesPersonReportMonthlyModel {
     };
   }
 
-  factory SalesPersonReportMonthlyModel.fromJson(Map<String, dynamic> json) => _$SalesPersonReportMonthlyModelFromJson(json);
+  factory SalesPersonReportMonthlyModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesPersonReportMonthlyModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesPersonReportMonthlyModelToJson(this);
 }
 
-List<SalesPersonReportMonthlyModel> generateSalesPersonReportMonthlyList(dataList, count) {
+List<SalesPersonReportMonthlyModel> generateSalesPersonReportMonthlyList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => SalesPersonReportMonthlyModel(

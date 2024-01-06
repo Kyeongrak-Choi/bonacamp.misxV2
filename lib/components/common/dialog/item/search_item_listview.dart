@@ -87,21 +87,28 @@ class SearchItemListController extends GetxController {
 
     try {
       String queryParam = Uri.encodeComponent('=' + searchTxt);
-      final response = await dio.get(API_COMMON + API_COMMON_ITEM + '?q=search' + queryParam);
+      final response = await dio
+          .get(API_COMMON + API_COMMON_ITEM + '?q=search' + queryParam);
 
       if (response.statusCode == 200) {
         Navigator.pop(context);
-        if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if (dataObjsJson =
+            jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
-          dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          parsedResponse = dataObjsJson.map((dataJson) => ItemModel.fromJson(dataJson)).toList();
+          dataObjsJson =
+              jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          parsedResponse = dataObjsJson
+              .map((dataJson) => ItemModel.fromJson(dataJson))
+              .toList();
         }
       }
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
     datas.clear();

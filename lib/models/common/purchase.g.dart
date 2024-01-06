@@ -6,7 +6,8 @@ part of 'purchase.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PurchaseModel _$PurchaseModelFromJson(Map<String, dynamic> json) => PurchaseModel(
+PurchaseModel _$PurchaseModelFromJson(Map<String, dynamic> json) =>
+    PurchaseModel(
       json['customer-code'] as String?,
       json['customer-name'] as String?,
       json['representative'] as String?,
@@ -16,7 +17,8 @@ PurchaseModel _$PurchaseModelFromJson(Map<String, dynamic> json) => PurchaseMode
       json['business-type'] as String?,
     );
 
-Map<String, dynamic> _$PurchaseModelToJson(PurchaseModel instance) => <String, dynamic>{
+Map<String, dynamic> _$PurchaseModelToJson(PurchaseModel instance) =>
+    <String, dynamic>{
       'customer-code': instance.custCd,
       'customer-name': instance.custNm,
       'representative': instance.reprNm,

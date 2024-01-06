@@ -23,7 +23,8 @@ class AnalysisGraph extends StatelessWidget {
   Widget build(context) {
     Get.put(AnalysisGraphController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_analysis_graph'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_analysis_graph'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -33,7 +34,8 @@ class AnalysisGraph extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                        visible: Get.find<AnalysisGraphController>().visible.value,
+                        visible:
+                            Get.find<AnalysisGraphController>().visible.value,
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
@@ -53,7 +55,10 @@ class AnalysisGraph extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<AnalysisGraphController>().visible.value ? 20 : 0,
+                        height:
+                            Get.find<AnalysisGraphController>().visible.value
+                                ? 20
+                                : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -76,7 +81,10 @@ class AnalysisGraph extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<AnalysisGraphController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<AnalysisGraphController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<AnalysisGraphController>().setVisible();
                       },
@@ -122,15 +130,23 @@ class AnalysisGraphController extends GetxController {
 
     var paramClientCd = user.getClientCode;
     var paramNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    var paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
-    var paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
+    var paramFromYearmonth = setFirstDay(
+        Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
+    var paramToYearmonth = setLastDay(
+        Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
     //var graphType = Get.find<CbGraphTypeController>().paramGraphType;
 
     try {
       dio = await reqApi(paramClientCd);
 
-      final response =
-          await dio.get(API_MANAGEMENT + API_MANAGEMENT_GRAPH + '?branch=' + paramNodeCd + '&from=' + paramFromYearmonth + '&to=' + paramToYearmonth);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_GRAPH +
+          '?branch=' +
+          paramNodeCd +
+          '&from=' +
+          paramFromYearmonth +
+          '&to=' +
+          paramToYearmonth);
 
       if (response.statusCode == 200) {
         salesList.clear();
@@ -140,28 +156,41 @@ class AnalysisGraphController extends GetxController {
         rentalList.clear();
         assetList.clear();
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES]) {
-          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_SALES]) {
+          salesList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['total']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_BOND]) {
-          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_GRAPH_BOND]) {
+          bondList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE]) {
-          purchaseList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total-supply']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_PURCHASE]) {
+          purchaseList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6),
+              list['total-supply']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_GRAPH_DEBT]) {
-          debtList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_GRAPH_DEBT]) {
+          debtList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL]) {
-          rentalList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_RENTAL]) {
+          rentalList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET]) {
-          assetList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        for (var list in await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+            [TAG_ASSET]) {
+          assetList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         Get.find<AnalysisGraphController>().setVisible();
@@ -169,7 +198,8 @@ class AnalysisGraphController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

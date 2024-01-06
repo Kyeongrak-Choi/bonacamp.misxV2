@@ -6,7 +6,9 @@ part of 'balance_rental_report_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BalanceRentalReportModel _$BalanceRentalReportModelFromJson(Map<String, dynamic> json) => BalanceRentalReportModel(
+BalanceRentalReportModel _$BalanceRentalReportModelFromJson(
+        Map<String, dynamic> json) =>
+    BalanceRentalReportModel(
       json['code'],
       json['name'],
       json['total'],
@@ -24,7 +26,9 @@ BalanceRentalReportModel _$BalanceRentalReportModelFromJson(Map<String, dynamic>
       json['margin-rate'],
     );
 
-Map<String, dynamic> _$BalanceRentalReportModelToJson(BalanceRentalReportModel instance) => <String, dynamic>{
+Map<String, dynamic> _$BalanceRentalReportModelToJson(
+        BalanceRentalReportModel instance) =>
+    <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
       'total': instance.total,

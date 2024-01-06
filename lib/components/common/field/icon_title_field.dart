@@ -14,14 +14,19 @@ class IconTitleField extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.only(bottom: 16.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Icon(iconData, color: context.theme.primaryColor, size: 24,),
+        Icon(
+          iconData,
+          color: context.theme.primaryColor,
+          size: 24,
+        ),
         Expanded(
           flex: 5,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(8.w, 0, 0, 0),
             child: Text(
               titleName,
-              style: context.textTheme.bodyLarge!.merge(TextStyle(fontWeight: FontWeight.bold)),
+              style: context.textTheme.bodyLarge!
+                  .merge(TextStyle(fontWeight: FontWeight.bold)),
               textAlign: TextAlign.start,
             ),
           ),

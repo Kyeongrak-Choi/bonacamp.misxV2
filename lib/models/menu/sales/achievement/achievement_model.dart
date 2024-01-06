@@ -22,7 +22,8 @@ class AchievementModel {
     };
   }
 
-  factory AchievementModel.fromJson(Map<String, dynamic> json) => _$AchievementModelFromJson(json);
+  factory AchievementModel.fromJson(Map<String, dynamic> json) =>
+      _$AchievementModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AchievementModelToJson(this);
 }
@@ -33,7 +34,8 @@ List<AchievementModel> generateAchievementModelList(dataList, count) {
       (index) => AchievementModel(
             dataList[index].code,
             dataList[index].name,
-            generateAchievementDetailsModelList(dataList[index].detailsList, dataList[index].detailsList.length),
+            generateAchievementDetailsModelList(dataList[index].detailsList,
+                dataList[index].detailsList.length),
             id: index,
           ));
 }

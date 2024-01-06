@@ -28,7 +28,8 @@ class PurchaseReport extends StatelessWidget {
   Widget build(context) {
     Get.put(PurchaseReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_purchase_report'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_purchase_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -36,7 +37,8 @@ class PurchaseReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<PurchaseReportController>().visible.value,
+                      visible:
+                          !Get.find<PurchaseReportController>().visible.value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -46,9 +48,22 @@ class PurchaseReport extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 매입 합계'),
-                              SumItemTable('매입액', numberFormat.format(Get.find<PurchaseReportController>().sumPurchase), '출금합계',
-                                  numberFormat.format(Get.find<PurchaseReportController>().sumWithdraw)),
-                              SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseReportController>().sumBalance)),
+                              SumItemTable(
+                                  '매입액',
+                                  numberFormat.format(
+                                      Get.find<PurchaseReportController>()
+                                          .sumPurchase),
+                                  '출금합계',
+                                  numberFormat.format(
+                                      Get.find<PurchaseReportController>()
+                                          .sumWithdraw)),
+                              SumItemTable(
+                                  null,
+                                  null,
+                                  '채무잔액',
+                                  numberFormat.format(
+                                      Get.find<PurchaseReportController>()
+                                          .sumBalance)),
                             ],
                           ),
                         ),
@@ -60,7 +75,9 @@ class PurchaseReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<PurchaseReportController>().visible.value,
+                              visible: Get.find<PurchaseReportController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -72,15 +89,21 @@ class PurchaseReport extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
-                                      OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
+                                      OptionTwoContent(OptionDialogPurchase(),
+                                          OptionCbBranch()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_PURCHASE_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<PurchaseReportController>().visible.value ? 20 : 0,
+                              height: Get.find<PurchaseReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -108,7 +131,10 @@ class PurchaseReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<PurchaseReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<PurchaseReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<PurchaseReportController>().setVisible();
                       },
@@ -126,7 +152,8 @@ class PurchaseReport extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<PurchaseReportController>().controllerPurchaseReport != null) {
-      return PurchaseReportItem(Get.find<PurchaseReportController>().controllerPurchaseReport);
+      return PurchaseReportItem(
+          Get.find<PurchaseReportController>().controllerPurchaseReport);
     } else {
       return EmptyWidget();
     }
@@ -151,9 +178,14 @@ class PurchaseReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramPurchaseCode = Get.find<OptionDialogPurchaseController>().paramCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramPurchaseCode =
+        Get.find<OptionDialogPurchaseController>().paramCode;
 
     var param = user.getClientCode;
     var parsedPurchaseReport;
@@ -173,13 +205,18 @@ class PurchaseReportController extends GetxController {
           paramPurchaseCode);
 
       if (response.statusCode == 200) {
-        if ((parsedPurchaseReport = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedPurchaseReport =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerPurchaseReport = parsedPurchaseReport.map((dataJson) => PurchaseReportModel.fromJson(dataJson)).toList();
+          controllerPurchaseReport = parsedPurchaseReport
+              .map((dataJson) => PurchaseReportModel.fromJson(dataJson))
+              .toList();
 
           for (PurchaseReportModel calData in controllerPurchaseReport) {
             sumPurchase += calData.purchase as int;
@@ -193,7 +230,8 @@ class PurchaseReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

@@ -6,7 +6,8 @@ part of 'rent_asset_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RentAssetModel _$RentAssetModelFromJson(Map<String, dynamic> json) => RentAssetModel(
+RentAssetModel _$RentAssetModelFromJson(Map<String, dynamic> json) =>
+    RentAssetModel(
       json['date'],
       json['code'],
       json['name'],
@@ -16,7 +17,8 @@ RentAssetModel _$RentAssetModelFromJson(Map<String, dynamic> json) => RentAssetM
       json['memo'],
     );
 
-Map<String, dynamic> _$RentAssetModelToJson(RentAssetModel instance) => <String, dynamic>{
+Map<String, dynamic> _$RentAssetModelToJson(RentAssetModel instance) =>
+    <String, dynamic>{
       'date': instance.date,
       'code': instance.code,
       'name': instance.name,

@@ -23,7 +23,8 @@ class ReqTokenModel {
     };
   }
 
-  factory ReqTokenModel.fromJson(Map<String, dynamic> json) => _$ReqTokenModelFromJson(json);
+  factory ReqTokenModel.fromJson(Map<String, dynamic> json) =>
+      _$ReqTokenModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReqTokenModelToJson(this);
 }

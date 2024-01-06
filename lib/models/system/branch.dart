@@ -20,7 +20,8 @@ class BranchModel {
   @HiveField(5)
   String? representative; // 대표자
 
-  BranchModel(this.clientCode, this.clientName, this.branchCode, this.branchName, this.businessNo, this.representative);
+  BranchModel(this.clientCode, this.clientName, this.branchCode,
+      this.branchName, this.businessNo, this.representative);
 
   Map<String, dynamic> toMap() {
     return {
@@ -33,7 +34,8 @@ class BranchModel {
     };
   }
 
-  factory BranchModel.fromJson(Map<String, dynamic> json) => _$BranchModelFromJson(json);
+  factory BranchModel.fromJson(Map<String, dynamic> json) =>
+      _$BranchModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$BranchModelToJson(this);
 

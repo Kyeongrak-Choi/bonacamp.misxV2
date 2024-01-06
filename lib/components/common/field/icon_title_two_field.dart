@@ -7,7 +7,11 @@ class IconTitleTwoField extends StatelessWidget {
   var value2;
   IconData iconData;
 
-  IconTitleTwoField({required this.titleName, this.value1, this.value2, required this.iconData});
+  IconTitleTwoField(
+      {required this.titleName,
+      this.value1,
+      this.value2,
+      required this.iconData});
 
   @override
   Widget build(BuildContext context) {

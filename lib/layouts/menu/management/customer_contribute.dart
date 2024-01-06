@@ -25,7 +25,8 @@ class CustomerContribute extends StatelessWidget {
   Widget build(context) {
     Get.put(CustomerContributeController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_customer_contribute'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_customer_contribute'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -35,7 +36,9 @@ class CustomerContribute extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                        visible: Get.find<CustomerContributeController>().visible.value,
+                        visible: Get.find<CustomerContributeController>()
+                            .visible
+                            .value,
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
@@ -46,16 +49,22 @@ class CustomerContribute extends StatelessWidget {
                             padding: EdgeInsetsDirectional.all(15),
                             child: Column(
                               children: [
-                                OptionTwoContent(OptionYearMonthPicker(), OptionCbBranch()),
+                                OptionTwoContent(
+                                    OptionYearMonthPicker(), OptionCbBranch()),
                                 OptionDialogCustomer(),
-                                OptionBtnSearch(ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
+                                OptionBtnSearch(
+                                    ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER),
                               ],
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<CustomerContributeController>().visible.value ? 20 : 0,
+                        height: Get.find<CustomerContributeController>()
+                                .visible
+                                .value
+                            ? 20
+                            : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -78,7 +87,10 @@ class CustomerContribute extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<CustomerContributeController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<CustomerContributeController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<CustomerContributeController>().setVisible();
                       },
@@ -108,25 +120,38 @@ class CustomerContributeController extends GetxController {
     var dio;
 
     String tempNodeCd = Get.find<CbBranchController>().paramBranchCode;
-    String tempYM = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
-    String tempCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String tempYM = DateFormat('yyyyMM')
+        .format(Get.find<MonthPickerController>().yearMonth.value)
+        .toString();
+    String tempCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
 
     var param = user.getClientCode;
     var parseCustomerContribute;
 
     try {
       dio = await reqApi(param);
-      final response = await dio
-          .get(API_MANAGEMENT + API_MANAGEMENT_CONTRIBUTIONCUSTOMER + '?branch=' + tempNodeCd + '&month=' + tempYM + '&customer=' + tempCustomerCode);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_CONTRIBUTIONCUSTOMER +
+          '?branch=' +
+          tempNodeCd +
+          '&month=' +
+          tempYM +
+          '&customer=' +
+          tempCustomerCode);
 
       if (response.statusCode == 200) {
-        if ((parseCustomerContribute = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parseCustomerContribute =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerCustomerContribute = CustomerContributeModel.fromJson(parseCustomerContribute);
+          controllerCustomerContribute =
+              CustomerContributeModel.fromJson(parseCustomerContribute);
         }
 
         Get.find<CustomerContributeController>().setVisible();
@@ -134,7 +159,8 @@ class CustomerContributeController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

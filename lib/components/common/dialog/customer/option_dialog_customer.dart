@@ -29,7 +29,9 @@ class OptionDialogCustomer extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
                   child: Obx(() => Text(
-                        Get.find<OptionDialogCustomerController>().selectedValue.value,
+                        Get.find<OptionDialogCustomerController>()
+                            .selectedValue
+                            .value,
                         style: context.textTheme.bodyMedium,
                       )),
                 )),
@@ -37,12 +39,19 @@ class OptionDialogCustomer extends StatelessWidget {
               flex: 1,
               child: IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogCustomerController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogCustomerController>().paramCustomerName.value = ''.tr;
-                    Get.find<OptionDialogCustomerController>().paramCustomerCode.value = ''.tr;
+                    Get.find<OptionDialogCustomerController>()
+                        .selectedValue
+                        .value = 'all'.tr;
+                    Get.find<OptionDialogCustomerController>()
+                        .paramCustomerName
+                        .value = ''.tr;
+                    Get.find<OptionDialogCustomerController>()
+                        .paramCustomerCode
+                        .value = ''.tr;
                     Get.find<OptionDialogCustomerController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
+                  icon: Icon(Icons.cancel_outlined,
+                      color: context.theme.primaryColor)),
             ),
             // Expanded(
             //   flex: 1,

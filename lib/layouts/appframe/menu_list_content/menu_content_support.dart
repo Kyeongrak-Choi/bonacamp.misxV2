@@ -15,6 +15,9 @@ class MenuContentSupport extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_support'.tr, iconMenuList: supportStatusMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_support'.tr,
+                    iconMenuList: supportStatusMaster))));
   }
 }

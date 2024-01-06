@@ -29,7 +29,9 @@ class OptionDialogPurchase extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_PURCHASE),
                   child: Obx(() => Text(
-                        Get.find<OptionDialogPurchaseController>().selectedValue.value,
+                        Get.find<OptionDialogPurchaseController>()
+                            .selectedValue
+                            .value,
                         style: context.textTheme.bodyMedium,
                       )),
                 )),
@@ -37,12 +39,19 @@ class OptionDialogPurchase extends StatelessWidget {
               flex: 1,
               child: IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogPurchaseController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogPurchaseController>().paramPurchaseName.value = ''.tr;
-                    Get.find<OptionDialogPurchaseController>().paramPurchaseCode.value = ''.tr;
+                    Get.find<OptionDialogPurchaseController>()
+                        .selectedValue
+                        .value = 'all'.tr;
+                    Get.find<OptionDialogPurchaseController>()
+                        .paramPurchaseName
+                        .value = ''.tr;
+                    Get.find<OptionDialogPurchaseController>()
+                        .paramPurchaseCode
+                        .value = ''.tr;
                     Get.find<OptionDialogPurchaseController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
+                  icon: Icon(Icons.cancel_outlined,
+                      color: context.theme.primaryColor)),
             ),
             // Expanded(
             //   flex: 1,

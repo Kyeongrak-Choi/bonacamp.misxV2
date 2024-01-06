@@ -21,13 +21,16 @@ class SalesRentalLedgerItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((SalesRentalLedgerModel model) {
+          children:
+              dataList.map<ExpansionPanelRadio>((SalesRentalLedgerModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: changeStringToDateFormat(model.salesDate ?? ''), value: '채권 + 대여금\n(' + model.totalBalance + ')');
+                return ShowListHeaderRow(
+                    titleName: changeStringToDateFormat(model.salesDate ?? ''),
+                    value: '채권 + 대여금\n(' + model.totalBalance + ')');
               },
               body: Column(
                 children: [

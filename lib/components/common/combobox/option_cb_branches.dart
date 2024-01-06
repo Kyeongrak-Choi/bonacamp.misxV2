@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/branch.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbBranch extends StatelessWidget {
   @override
@@ -39,7 +38,9 @@ class OptionCbBranch extends StatelessWidget {
               style: context.textTheme.bodyLarge,
               decoration: InputDecoration(border: InputBorder.none),
               dropdownColor: context.theme.cardColor,
-              items: Get.find<CbBranchController>().data.map<DropdownMenuItem<BranchModel>>((BranchModel value) {
+              items: Get.find<CbBranchController>()
+                  .data
+                  .map<DropdownMenuItem<BranchModel>>((BranchModel value) {
                 return DropdownMenuItem<BranchModel>(
                   alignment: Alignment.center,
                   value: value,

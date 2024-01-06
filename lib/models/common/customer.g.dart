@@ -6,7 +6,8 @@ part of 'customer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) => CustomerModel(
+CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
+    CustomerModel(
       json['code'],
       json['name'],
       json['nick-name'],
@@ -20,7 +21,8 @@ CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) => CustomerMode
       json['status-name'],
     );
 
-Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
+    <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
       'nick-name': instance.nickName,

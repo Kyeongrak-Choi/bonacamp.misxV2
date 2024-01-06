@@ -10,7 +10,8 @@ class PurchaseLedgerItem extends StatelessWidget {
   var dataList;
 
   PurchaseLedgerItem(var model) {
-    dataList = generatePurchaseLedgerListModelList(model.dateList, model.dateList.length);
+    dataList = generatePurchaseLedgerListModelList(
+        model.dateList, model.dateList.length);
   }
 
   @override
@@ -21,13 +22,17 @@ class PurchaseLedgerItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((PurchaseLedgerListModel model) {
+          children: dataList
+              .map<ExpansionPanelRadio>((PurchaseLedgerListModel model) {
             return ExpansionPanelRadio(
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return ShowListHeaderRow(
-                      titleName: changeStringToDateFormat(model.date ?? ''), value: '채무잔액 ( ' + numberFormat.format(model.balance) + ' )');
+                      titleName: changeStringToDateFormat(model.date ?? ''),
+                      value: '채무잔액 ( ' +
+                          numberFormat.format(model.balance) +
+                          ' )');
                 },
                 body: Container(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
@@ -41,7 +46,10 @@ class PurchaseLedgerItem extends StatelessWidget {
                           itemCount: model.details.length,
                           itemBuilder: (BuildContext ctx, int idx) {
                             return Container(
-                                padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: PurchaseLedgerDetailItem(model.details[idx]));
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                                child: PurchaseLedgerDetailItem(
+                                    model.details[idx]));
                           }),
                     ],
                   ),

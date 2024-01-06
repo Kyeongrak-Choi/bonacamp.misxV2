@@ -28,7 +28,10 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                 child: Text(
                   detailList.itemName,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.displayMedium!.merge(TextStyle(color: detailList.itemName == '지급' ? Colors.red : Colors.blue)),
+                  style: context.textTheme.displayMedium!.merge(TextStyle(
+                      color: detailList.itemName == '지급'
+                          ? Colors.red
+                          : Colors.blue)),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -46,7 +49,9 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Text(
-            detailList.itemName == '지급' ? numberFormat.format(detailList.withdraw) : numberFormat.format(detailList.total),
+            detailList.itemName == '지급'
+                ? numberFormat.format(detailList.withdraw)
+                : numberFormat.format(detailList.total),
             textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,

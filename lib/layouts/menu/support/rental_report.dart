@@ -31,7 +31,8 @@ class RentalReport extends StatelessWidget {
   Widget build(context) {
     Get.put(RentalReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_support_rental_report'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_support_rental_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,8 @@ class RentalReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<RentalReportController>().visible.value,
+                      visible:
+                          !Get.find<RentalReportController>().visible.value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -49,12 +51,33 @@ class RentalReport extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 대여금 합계'),
-                              SumItemTable('대여금', numberFormat.format(Get.find<RentalReportController>().sumTotalRentalAmount), '회수금',
-                                  numberFormat.format(Get.find<RentalReportController>().sumTotalReturnAmount)),
-                              SumItemTable('대여잔액', numberFormat.format(Get.find<RentalReportController>().sumBalance), '당일예정액',
-                                  numberFormat.format(Get.find<RentalReportController>().sumRentalAmount)),
-                              SumItemTable('당일회수액', numberFormat.format(Get.find<RentalReportController>().sumReturnAmount), '연체금액',
-                                  numberFormat.format(Get.find<RentalReportController>().sumOverdueAmount)),
+                              SumItemTable(
+                                  '대여금',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumTotalRentalAmount),
+                                  '회수금',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumTotalReturnAmount)),
+                              SumItemTable(
+                                  '대여잔액',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumBalance),
+                                  '당일예정액',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumRentalAmount)),
+                              SumItemTable(
+                                  '당일회수액',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumReturnAmount),
+                                  '연체금액',
+                                  numberFormat.format(
+                                      Get.find<RentalReportController>()
+                                          .sumOverdueAmount)),
                             ],
                           ),
                         ),
@@ -66,7 +89,9 @@ class RentalReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                                visible: Get.find<RentalReportController>().visible.value,
+                                visible: Get.find<RentalReportController>()
+                                    .visible
+                                    .value,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: context.theme.cardColor,
@@ -78,15 +103,22 @@ class RentalReport extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         OptionDatePicker(),
-                                        OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                                        OptionTwoContent(OptionDialogCustomer(), OptionCbRentalDivision()),
-                                        OptionBtnSearch(ROUTE_MENU_SUPPORT_RENTAL_REPORT),
+                                        OptionTwoContent(OptionCbBranch(),
+                                            OptionCbEmployee()),
+                                        OptionTwoContent(OptionDialogCustomer(),
+                                            OptionCbRentalDivision()),
+                                        OptionBtnSearch(
+                                            ROUTE_MENU_SUPPORT_RENTAL_REPORT),
                                       ],
                                     ),
                                   ),
                                 )),
                             SizedBox(
-                              height: Get.find<RentalReportController>().visible.value ? 20 : 0,
+                              height: Get.find<RentalReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -114,7 +146,9 @@ class RentalReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<RentalReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<RentalReportController>().visible.value),
                       onPressed: () {
                         Get.find<RentalReportController>().setVisible();
                       },
@@ -132,7 +166,8 @@ class RentalReport extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<RentalReportController>().controllerRentalReport != null) {
-      return RentalReportItem(Get.find<RentalReportController>().controllerRentalReport);
+      return RentalReportItem(
+          Get.find<RentalReportController>().controllerRentalReport);
     } else {
       return EmptyWidget();
     }
@@ -159,10 +194,15 @@ class RentalReportController extends GetxController {
     var dio;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramRentalStatusCode = Get.find<CbRentalDivisionController>().paramDivisionCode;
+    String paramDt = DateFormat('yyyyMMdd')
+        .format(Get.find<DatePickerController>().date.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramRentalStatusCode =
+        Get.find<CbRentalDivisionController>().paramDivisionCode;
 
     var param = user.getClientCode;
     var parsedRentalReport;
@@ -183,16 +223,22 @@ class RentalReportController extends GetxController {
           paramRentalStatusCode);
 
       if (response.statusCode == 200) {
-        if ((parsedRentalReport = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedRentalReport =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerRentalReport = parsedRentalReport.map((dataJson) => RentalReportModel.fromJson(dataJson)).toList();
+          controllerRentalReport = parsedRentalReport
+              .map((dataJson) => RentalReportModel.fromJson(dataJson))
+              .toList();
 
           for (RentalReportModel rentalData in controllerRentalReport) {
-            for (RentalReportDetailsModel detailsData in rentalData.detailList) {
+            for (RentalReportDetailsModel detailsData
+                in rentalData.detailList) {
               sumTotalRentalAmount += detailsData.totalRentalAmount as int;
               sumTotalReturnAmount += detailsData.totalReturnAmount as int;
               sumBalance += detailsData.balance as int;
@@ -208,7 +254,8 @@ class RentalReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

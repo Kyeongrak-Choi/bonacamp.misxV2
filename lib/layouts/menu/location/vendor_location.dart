@@ -27,7 +27,8 @@ class VendorLocation extends StatelessWidget {
   Widget build(context) {
     Get.put(VendorLocationController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_vendor_location'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_vendor_location'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -37,7 +38,8 @@ class VendorLocation extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                        visible: Get.find<VendorLocationController>().visible.value,
+                        visible:
+                            Get.find<VendorLocationController>().visible.value,
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
@@ -49,8 +51,10 @@ class VendorLocation extends StatelessWidget {
                             child: Column(
                               children: [
                                 OptionDatePicker(),
-                                OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                                OptionTwoContent(OptionCbCustomerStatus(), OptionCbBusiness()),
+                                OptionTwoContent(
+                                    OptionCbBranch(), OptionCbEmployee()),
+                                OptionTwoContent(OptionCbCustomerStatus(),
+                                    OptionCbBusiness()),
                                 OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
                                 //SizedBox(height: 14),
                               ],
@@ -59,7 +63,10 @@ class VendorLocation extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<VendorLocationController>().visible.value ? 20 : 0,
+                        height:
+                            Get.find<VendorLocationController>().visible.value
+                                ? 20
+                                : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -81,7 +88,10 @@ class VendorLocation extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<VendorLocationController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<VendorLocationController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<VendorLocationController>().setVisible();
                       },
@@ -112,11 +122,16 @@ class VendorLocationController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramDt = DateFormat('yyyyMMdd').format(Get.find<DatePickerController>().date.value).toString();
+    String paramDt = DateFormat('yyyyMMdd')
+        .format(Get.find<DatePickerController>().date.value)
+        .toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramCustomerStatus = Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
-    String paramBusinessCode = Get.find<CbBusinessController>().paramBusinessCode;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramCustomerStatus =
+        Get.find<CbCustomerStatusController>().paramCustomerStatusCode;
+    String paramBusinessCode =
+        Get.find<CbBusinessController>().paramBusinessCode;
 
     var param = user.getClientCode;
     var parsedVendorLocation;
@@ -137,13 +152,18 @@ class VendorLocationController extends GetxController {
           paramBusinessCode);
 
       if (response.statusCode == 200) {
-        if ((parsedVendorLocation = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedVendorLocation =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerVendorLocation = parsedVendorLocation.map((dataJson) => VendorLocationModel.fromJson(dataJson)).toList();
+          controllerVendorLocation = parsedVendorLocation
+              .map((dataJson) => VendorLocationModel.fromJson(dataJson))
+              .toList();
         }
 
         searchFlag = true;
@@ -152,7 +172,8 @@ class VendorLocationController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

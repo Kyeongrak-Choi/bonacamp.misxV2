@@ -1,25 +1,28 @@
-import 'dart:developer';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class DashBoardAdmob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DashBoardAdmobController());
-    return GetBuilder<DashBoardAdmobController>(builder: (DashBoardAdmobController controller) {
+    return GetBuilder<DashBoardAdmobController>(
+        builder: (DashBoardAdmobController controller) {
       return Container(
         decoration: BoxDecoration(
-            color: context.theme.canvasColor,
+          color: context.theme.colorScheme.background,
         ),
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.w, 16.h, 16.w, 16.h),
+              padding: EdgeInsetsDirectional.fromSTEB(
+                  BASIC_PADDING * 2.w,
+                  BASIC_PADDING * 2.h,
+                  BASIC_PADDING * 2.w,
+                  BASIC_PADDING * 2.h),
               child: CarouselSlider(
                   items: controller.admobItem.map((image) {
                     return Builder(
@@ -36,30 +39,29 @@ class DashBoardAdmob extends StatelessWidget {
                     );
                   }).toList(),
                   options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height / 5,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 1,
-                    // 비율조정
-                    initialPage: controller.currentIndex,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    // onPageChanged: callbackFunction,
-                    scrollDirection: Axis.horizontal,
-                    onPageChanged: (index,reason){
-                      controller.currentIndex = index;
-                      controller.update();
-                    }
-                  )),
+                      height: BASIC_PADDING * 15.h,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 1,
+                      // 비율조정
+                      initialPage: controller.currentIndex,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      // onPageChanged: callbackFunction,
+                      scrollDirection: Axis.horizontal,
+                      onPageChanged: (index, reason) {
+                        controller.currentIndex = index;
+                        controller.update();
+                      })),
             ),
             Positioned(
-              bottom: 16.0.h,  // 아래 여백
-              left: 0.0.w,    // 왼쪽 여백
-              right: 0.0.w,   // 오른쪽 여백
+              bottom: 16.0.h, // 아래 여백
+              left: 0.0.w, // 왼쪽 여백
+              right: 0.0.w, // 오른쪽 여백
               child: DotsIndicator(
                 dotsCount: controller.admobItem.length,
                 position: controller.currentIndex,

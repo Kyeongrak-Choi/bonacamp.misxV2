@@ -31,7 +31,8 @@ class BalanceRentalReport extends StatelessWidget {
   Widget build(context) {
     Get.put(BalanceRentalReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_balance_rental_report'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_balance_rental_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -39,7 +40,9 @@ class BalanceRentalReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<BalanceRentalReportController>().visible.value,
+                      visible: !Get.find<BalanceRentalReportController>()
+                          .visible
+                          .value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -53,14 +56,42 @@ class BalanceRentalReport extends StatelessWidget {
                               //     numberFormat.format(Get.find<BalanceRentalReportController>().sumPrice)),
                               // SumItemTable('합계', numberFormat.format(Get.find<BalanceRentalReportController>().sumAmount), '입금합계',
                               //     numberFormat.format(Get.find<BalanceRentalReportController>().sumDeposit)),
-                              SumItemTable('채권잔액', numberFormat.format(Get.find<BalanceRentalReportController>().sumBalance), '대여금\n(장기)',
-                                  numberFormat.format(Get.find<BalanceRentalReportController>().sumLongRent)),
-                              SumItemTable('대여금\n(단기)', numberFormat.format(Get.find<BalanceRentalReportController>().sumShortRent), '대여금\n(합계)',
-                                  numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalRent)),
-                              SumItemTable('채권\n+대여금', numberFormat.format(Get.find<BalanceRentalReportController>().sumTotalBalance), '대여자산',
-                                  numberFormat.format(Get.find<BalanceRentalReportController>().sumRentQuantity)),
-                              SumItemTable('소비자산', numberFormat.format(Get.find<BalanceRentalReportController>().sumConsumeQuantity), '매출이익',
-                                  numberFormat.format(Get.find<BalanceRentalReportController>().sumMargin)),
+                              SumItemTable(
+                                  '채권잔액',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumBalance),
+                                  '대여금\n(장기)',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumLongRent)),
+                              SumItemTable(
+                                  '대여금\n(단기)',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumShortRent),
+                                  '대여금\n(합계)',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumTotalRent)),
+                              SumItemTable(
+                                  '채권\n+대여금',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumTotalBalance),
+                                  '대여자산',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumRentQuantity)),
+                              SumItemTable(
+                                  '소비자산',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumConsumeQuantity),
+                                  '매출이익',
+                                  numberFormat.format(
+                                      Get.find<BalanceRentalReportController>()
+                                          .sumMargin)),
                             ],
                           ),
                         ),
@@ -72,7 +103,9 @@ class BalanceRentalReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<BalanceRentalReportController>().visible.value,
+                              visible: Get.find<BalanceRentalReportController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -85,16 +118,23 @@ class BalanceRentalReport extends StatelessWidget {
                                     children: [
                                       OptionPeriodPicker(),
                                       OptionCbBranch(),
-                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                      OptionTwoContent(OptionCbTeam(), OptionCbCustomerClass()),
-                                      OptionBtnSearch(ROUTE_MENU_BALANCE_RENTAL_REPORT),
+                                      OptionTwoContent(OptionCbEmployee(),
+                                          OptionCbManager()),
+                                      OptionTwoContent(OptionCbTeam(),
+                                          OptionCbCustomerClass()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_BALANCE_RENTAL_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<BalanceRentalReportController>().visible.value ? 20 : 0,
+                              height: Get.find<BalanceRentalReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -122,7 +162,10 @@ class BalanceRentalReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<BalanceRentalReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<BalanceRentalReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<BalanceRentalReportController>().setVisible();
                       },
@@ -139,8 +182,11 @@ class BalanceRentalReport extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<BalanceRentalReportController>().controllerBalanceRentalReport != null) {
-      return BalanceRentalReportItem(Get.find<BalanceRentalReportController>().controllerBalanceRentalReport);
+    if (Get.find<BalanceRentalReportController>()
+            .controllerBalanceRentalReport !=
+        null) {
+      return BalanceRentalReportItem(Get.find<BalanceRentalReportController>()
+          .controllerBalanceRentalReport);
     } else {
       return EmptyWidget();
     }
@@ -173,12 +219,19 @@ class BalanceRentalReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTeamCode = Get.find<CbTeamController>().paramTeamCode;
-    String paramCustGrade = Get.find<CbCustomerClassController>().paramBusinessCode;
+    String paramCustGrade =
+        Get.find<CbCustomerClassController>().paramBusinessCode;
 
     var param = user.getClientCode;
     var parsedBalanceRentalReportSales;
@@ -204,14 +257,20 @@ class BalanceRentalReportController extends GetxController {
           paramCustGrade);
 
       if (response.statusCode == 200) {
-        if ((parsedBalanceRentalReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedBalanceRentalReportSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerBalanceRentalReport = parsedBalanceRentalReportSales.map((dataJson) => BalanceRentalReportModel.fromJson(dataJson)).toList();
+          controllerBalanceRentalReport = parsedBalanceRentalReportSales
+              .map((dataJson) => BalanceRentalReportModel.fromJson(dataJson))
+              .toList();
 
-          for (BalanceRentalReportModel calData in controllerBalanceRentalReport) {
+          for (BalanceRentalReportModel calData
+              in controllerBalanceRentalReport) {
             sumTotal += calData.total as int;
             sumPrice += calData.price as int;
             sumAmount += calData.amount as int;
@@ -232,7 +291,8 @@ class BalanceRentalReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

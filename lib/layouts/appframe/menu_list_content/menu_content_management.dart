@@ -15,7 +15,9 @@ class MenuContentManagemet extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child:
-                SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_managemnent'.tr, iconMenuList: managementAnalysisMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_managemnent'.tr,
+                    iconMenuList: managementAnalysisMaster))));
   }
 }

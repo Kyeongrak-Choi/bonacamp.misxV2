@@ -31,9 +31,14 @@ class OptionYearMonthPicker extends StatelessWidget {
                 children: [
                   Obx(
                     () => TextButton(
-                      onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
+                      onPressed: () =>
+                          Get.find<MonthPickerController>().chooseYearMonth(),
                       child: Text(
-                        DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
+                        DateFormat('yyyy-MM')
+                            .format(Get.find<MonthPickerController>()
+                                .yearMonth
+                                .value)
+                            .toString(),
                         style: context.textTheme.bodyMedium,
                       ),
                     ),
@@ -42,7 +47,8 @@ class OptionYearMonthPicker extends StatelessWidget {
                       onPressed: () {
                         Get.find<MonthPickerController>().chooseYearMonth();
                       },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                      icon: Icon(Icons.date_range,
+                          color: context.theme.primaryColor)),
                 ],
               ),
             ),

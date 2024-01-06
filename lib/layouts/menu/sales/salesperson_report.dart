@@ -30,7 +30,8 @@ class SalesPersonReport extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_salesperson_report'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_salesperson_report'.tr), actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -38,7 +39,9 @@ class SalesPersonReport extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                      visible: !Get.find<SalesPersonReportController>().visible.value,
+                      visible: !Get.find<SalesPersonReportController>()
+                          .visible
+                          .value,
                       child: Container(
                         decoration: BoxDecoration(
                           color: context.theme.cardColor,
@@ -48,12 +51,33 @@ class SalesPersonReport extends StatelessWidget {
                           child: Column(
                             children: [
                               SumTitleTable('기간 합계'),
-                              SumItemTable('매출액', numberFormat.format(Get.find<SalesPersonReportController>().sumTotal), '공급가',
-                                  numberFormat.format(Get.find<SalesPersonReportController>().sumPrice)),
-                              SumItemTable('합계', numberFormat.format(Get.find<SalesPersonReportController>().sumAmount), '입금합계',
-                                  numberFormat.format(Get.find<SalesPersonReportController>().sumDeposit)),
-                              SumItemTable('채권잔액', numberFormat.format(Get.find<SalesPersonReportController>().sumBalance), '매출이익',
-                                  numberFormat.format(Get.find<SalesPersonReportController>().sumMargin)),
+                              SumItemTable(
+                                  '매출액',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumTotal),
+                                  '공급가',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumPrice)),
+                              SumItemTable(
+                                  '합계',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumAmount),
+                                  '입금합계',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumDeposit)),
+                              SumItemTable(
+                                  '채권잔액',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumBalance),
+                                  '매출이익',
+                                  numberFormat.format(
+                                      Get.find<SalesPersonReportController>()
+                                          .sumMargin)),
                             ],
                           ),
                         ),
@@ -65,7 +89,9 @@ class SalesPersonReport extends StatelessWidget {
                         child: Column(
                           children: [
                             Visibility(
-                              visible: Get.find<SalesPersonReportController>().visible.value,
+                              visible: Get.find<SalesPersonReportController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
@@ -77,16 +103,23 @@ class SalesPersonReport extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       OptionPeriodPicker(),
-                                      OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                      OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                      OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT),
+                                      OptionTwoContent(OptionCbBranch(),
+                                          OptionCbSalesType()),
+                                      OptionTwoContent(OptionCbEmployee(),
+                                          OptionCbManager()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_SALESPERSON_REPORT),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: Get.find<SalesPersonReportController>().visible.value ? 20 : 0,
+                              height: Get.find<SalesPersonReportController>()
+                                      .visible
+                                      .value
+                                  ? 20
+                                  : 0,
                             ),
                             Expanded(
                               child: Container(
@@ -114,7 +147,10 @@ class SalesPersonReport extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesPersonReportController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<SalesPersonReportController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<SalesPersonReportController>().setVisible();
                       },
@@ -131,8 +167,10 @@ class SalesPersonReport extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<SalesPersonReportController>().controllerSalesPersonReport != null) {
-      return SalesPersonReportItem(Get.find<SalesPersonReportController>().controllerSalesPersonReport);
+    if (Get.find<SalesPersonReportController>().controllerSalesPersonReport !=
+        null) {
+      return SalesPersonReportItem(
+          Get.find<SalesPersonReportController>().controllerSalesPersonReport);
     } else {
       return EmptyWidget();
     }
@@ -159,10 +197,16 @@ class SalesPersonReportController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
@@ -187,12 +231,17 @@ class SalesPersonReportController extends GetxController {
           paramTypeCode);
 
       if (response.statusCode == 200) {
-        if ((parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedSalesPersonReportSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerSalesPersonReport = parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportModel.fromJson(dataJson)).toList();
+          controllerSalesPersonReport = parsedSalesPersonReportSales
+              .map((dataJson) => SalesPersonReportModel.fromJson(dataJson))
+              .toList();
 
           for (SalesPersonReportModel calData in controllerSalesPersonReport) {
             sumTotal += calData.total as int;
@@ -209,7 +258,8 @@ class SalesPersonReportController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

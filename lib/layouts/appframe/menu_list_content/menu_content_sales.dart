@@ -15,6 +15,9 @@ class MenuContentSales extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topLeft,
-            child: SingleChildScrollView(child: CardTitleMenuList(menuTitleName: 'menu_main_sales'.tr, iconMenuList: salesAnalysisMaster))));
+            child: SingleChildScrollView(
+                child: CardTitleMenuList(
+                    menuTitleName: 'menu_main_sales'.tr,
+                    iconMenuList: salesAnalysisMaster))));
   }
 }

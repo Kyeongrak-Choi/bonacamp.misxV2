@@ -21,13 +21,16 @@ class RentAssetHistoryItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((RentAssetHistoryModel model) {
+          children:
+              dataList.map<ExpansionPanelRadio>((RentAssetHistoryModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.id.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: model.name + ' (' + model.status + ')', value: '');
+                return ShowListHeaderRow(
+                    titleName: model.name + ' (' + model.status + ')',
+                    value: '');
               },
               body: Column(
                 children: [

@@ -17,7 +17,8 @@ class ItemStatusAmountModel {
     };
   }
 
-  factory ItemStatusAmountModel.fromJson(Map<String, dynamic> json) => _$ItemStatusAmountModelFromJson(json);
+  factory ItemStatusAmountModel.fromJson(Map<String, dynamic> json) =>
+      _$ItemStatusAmountModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ItemStatusAmountModelToJson(this);
 }

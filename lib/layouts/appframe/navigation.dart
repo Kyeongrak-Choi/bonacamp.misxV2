@@ -27,7 +27,8 @@ class Navigation extends GetView<NavigationController> {
       onWillPop: () {
         // return Future(() => true); // HW Back key disenable
         DateTime now = DateTime.now();
-        if (currentBackPressTime == null || now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
+        if (currentBackPressTime == null ||
+            now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
           currentBackPressTime = now;
           ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
           return Future.value(false);
@@ -43,7 +44,10 @@ class Navigation extends GetView<NavigationController> {
           // ),
           centerTitle: false,
           title: Image.asset(
-            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false) ? 'lib/assets/icons/Dionysos_dark.png' : 'lib/assets/icons/Dionysos_light.png',
+              fit: BoxFit.cover,
+            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false)
+                ? 'lib/assets/icons/Dionysos_dark.png'
+                : 'lib/assets/icons/Dionysos_light.png',
           ),
           automaticallyImplyLeading: false,
           // bottom: PreferredSize(
@@ -103,48 +107,67 @@ class Navigation extends GetView<NavigationController> {
             items: [
               Container(
                 //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.HOME
-                    ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(CupertinoIcons.home, color: context.theme.primaryColorLight),
-                    Text(
-                      'nav_home'.tr,
-                      style: TextStyle(color: context.theme.primaryColorLight),
-                    )
-                  ],
-                )
-                    : Icon(CupertinoIcons.home, color: context.theme.focusColor),
-              ),
-              Container(
-                //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.MENU
+                child: NAVIGATION_BAR_ITEM
+                            .values[controller.currentIndex.value] !=
+                        NAVIGATION_BAR_ITEM.HOME
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.menu, color: context.theme.primaryColorLight),
+                          Icon(CupertinoIcons.home,
+                              color: context.theme.primaryColorLight),
                           Text(
-                            'nav_menu'.tr,
-                            style: TextStyle(color: context.theme.primaryColorLight),
+                            'nav_home'.tr,
+                            style: TextStyle(
+                                fontSize: 12.sp,
+                                fontFamily: 'SUITE',
+                                color: context.theme.primaryColorLight),
                           )
                         ],
                       )
-                    : Icon(Icons.menu, color: context.theme.focusColor),
+                    : Icon(CupertinoIcons.home, color: CommonColors.primary),
               ),
               Container(
                 //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.CONFIG
-                    ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(CupertinoIcons.slider_horizontal_3, color: context.theme.primaryColorLight),
-                    Text(
-                      'nav_more'.tr,
-                      style: TextStyle(color: context.theme.primaryColorLight),
-                    )
-                  ],
-                )
-                    : Icon(CupertinoIcons.slider_horizontal_3, color: context.theme.focusColor),
+                child:
+                    NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] !=
+                            NAVIGATION_BAR_ITEM.MENU
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.menu,
+                                  color: context.theme.primaryColorLight),
+                              Text(
+                                'nav_menu'.tr,
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'SUITE',
+                                    color: context.theme.primaryColorLight),
+                              )
+                            ],
+                          )
+                        : Icon(Icons.menu, color: CommonColors.primary),
+              ),
+              Container(
+                //height: 40,
+                child:
+                    NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] !=
+                            NAVIGATION_BAR_ITEM.CONFIG
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(CupertinoIcons.slider_horizontal_3,
+                                  color: context.theme.primaryColorLight),
+                              Text(
+                                'nav_more'.tr,
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'SUITE',
+                                    color: context.theme.primaryColorLight),
+                              )
+                            ],
+                          )
+                        : Icon(CupertinoIcons.slider_horizontal_3,
+                            color: CommonColors.primary),
               ),
               // Container(
               //   height: 50,

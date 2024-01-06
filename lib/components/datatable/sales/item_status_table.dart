@@ -11,7 +11,8 @@ class ItemStatusTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemStatusController());
-    return GetBuilder<ItemStatusController>(builder: (ItemStatusController controller) {
+    return GetBuilder<ItemStatusController>(
+        builder: (ItemStatusController controller) {
       return Container(
         color: context.theme.cardColor,
         child: Padding(
@@ -20,10 +21,15 @@ class ItemStatusTable extends StatelessWidget {
             children: [
               IconTitleField(
                 titleName: '품목명',
-                value: controller.controllerItemStatus != null ? controller.controllerItemStatus.name : '',
+                value: controller.controllerItemStatus != null
+                    ? controller.controllerItemStatus.name
+                    : '',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  child: Divider(
+                      color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매입'),
               IconTitleTwoField(
                 titleName: '',
@@ -33,11 +39,20 @@ class ItemStatusTable extends StatelessWidget {
               ),
               IconTitleTwoField(
                 titleName: '합계',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.totalBox) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.totalBottle) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat
+                        .format(controller.controllerItemStatus.totalBox)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat
+                        .format(controller.controllerItemStatus.totalBottle)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  child: Divider(
+                      color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매출 - 일반'),
               IconTitleTwoField(
                 titleName: '',
@@ -47,23 +62,42 @@ class ItemStatusTable extends StatelessWidget {
               ),
               IconTitleTwoField(
                 titleName: '공급가',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.normalBox.amount) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.normalBottle.amount) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.normalBox.amount)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.normalBottle.amount)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleTwoField(
                 titleName: '부가세',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.normalBox.vat) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.normalBottle.vat) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat
+                        .format(controller.controllerItemStatus.normalBox.vat)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.normalBottle.vat)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleTwoField(
                 titleName: '합계',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.totNormalBox) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.totNormalBottle) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat.format(controller.totNormalBox)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(controller.totNormalBottle)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
-              Container(width: MediaQuery.of(context).size.width * 0.85, child: Divider(color: context.theme.primaryColor, thickness: 0.5)),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  child: Divider(
+                      color: context.theme.primaryColor, thickness: 0.5)),
               SumTitleTable('매출 - 유흥'),
               IconTitleTwoField(
                 titleName: '',
@@ -73,20 +107,36 @@ class ItemStatusTable extends StatelessWidget {
               ),
               IconTitleTwoField(
                 titleName: '공급가',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.pleasureBox.amount) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.pleasureBottle.amount) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.pleasureBox.amount)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.pleasureBottle.amount)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleTwoField(
                 titleName: '부가세',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.pleasureBox.vat) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.controllerItemStatus.pleasureBottle.vat) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat
+                        .format(controller.controllerItemStatus.pleasureBox.vat)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(
+                        controller.controllerItemStatus.pleasureBottle.vat)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
               IconTitleTwoField(
                 titleName: '합계',
-                value1: controller.controllerItemStatus != null ? numberFormat.format(controller.totPleasureBox) : '0',
-                value2: controller.controllerItemStatus != null ? numberFormat.format(controller.totPleasureBottle) : '0',
+                value1: controller.controllerItemStatus != null
+                    ? numberFormat.format(controller.totPleasureBox)
+                    : '0',
+                value2: controller.controllerItemStatus != null
+                    ? numberFormat.format(controller.totPleasureBottle)
+                    : '0',
                 iconData: Icons.label_outlined,
               ),
             ],

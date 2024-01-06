@@ -6,7 +6,9 @@ part of 'rent_asset_history_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RentAssetHistoryModel _$RentAssetHistoryModelFromJson(Map<String, dynamic> json) => RentAssetHistoryModel(
+RentAssetHistoryModel _$RentAssetHistoryModelFromJson(
+        Map<String, dynamic> json) =>
+    RentAssetHistoryModel(
       json['date'],
       json['code'],
       json['name'],
@@ -17,7 +19,9 @@ RentAssetHistoryModel _$RentAssetHistoryModelFromJson(Map<String, dynamic> json)
       json['status'],
     );
 
-Map<String, dynamic> _$RentAssetHistoryModelToJson(RentAssetHistoryModel instance) => <String, dynamic>{
+Map<String, dynamic> _$RentAssetHistoryModelToJson(
+        RentAssetHistoryModel instance) =>
+    <String, dynamic>{
       'date': instance.date,
       'code': instance.code,
       'name': instance.name,

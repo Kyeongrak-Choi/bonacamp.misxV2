@@ -20,7 +20,8 @@ class LendReportCustomerItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((LendReportCustomerModel model) {
+          children: dataList
+              .map<ExpansionPanelRadio>((LendReportCustomerModel model) {
             return ExpansionPanelRadio(
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
@@ -37,7 +38,10 @@ class LendReportCustomerItem extends StatelessWidget {
                         itemCount: model.detailList.length,
                         itemBuilder: (BuildContext ctx, int idx) {
                           return Container(
-                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: LendReportCustomerDetailItem(model.detailList[idx]));
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: LendReportCustomerDetailItem(
+                                  model.detailList[idx]));
                         }),
                   ],
                 ));

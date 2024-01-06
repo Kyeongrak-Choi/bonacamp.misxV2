@@ -12,7 +12,8 @@ class PurchaseLedgerModel {
   List<PurchaseLedgerListModel> dateList;
   int? id;
 
-  PurchaseLedgerModel(this.code, this.name, this.balance, this.dateList, {this.id});
+  PurchaseLedgerModel(this.code, this.name, this.balance, this.dateList,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -23,7 +24,8 @@ class PurchaseLedgerModel {
     };
   }
 
-  factory PurchaseLedgerModel.fromJson(Map<String, dynamic> json) => _$PurchaseLedgerModelFromJson(json);
+  factory PurchaseLedgerModel.fromJson(Map<String, dynamic> json) =>
+      _$PurchaseLedgerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PurchaseLedgerModelToJson(this);
 }

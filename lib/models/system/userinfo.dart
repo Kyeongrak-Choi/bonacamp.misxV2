@@ -22,7 +22,8 @@ class UserinfoModel {
   @HiveField(6)
   String schemaCode; // DB 스키마 코드
 
-  UserinfoModel(this.clientCode, this.clientName, this.businessNo, this.userId, this.userName, this.roleCode, this.schemaCode);
+  UserinfoModel(this.clientCode, this.clientName, this.businessNo, this.userId,
+      this.userName, this.roleCode, this.schemaCode);
 
   Map<String, dynamic> toMap() {
     return {
@@ -36,7 +37,8 @@ class UserinfoModel {
     };
   }
 
-  factory UserinfoModel.fromJson(Map<String, dynamic> json) => _$UserinfoModelFromJson(json);
+  factory UserinfoModel.fromJson(Map<String, dynamic> json) =>
+      _$UserinfoModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserinfoModelToJson(this);
 

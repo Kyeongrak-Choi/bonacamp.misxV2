@@ -68,7 +68,8 @@ class CustomerContributeModel {
     };
   }
 
-  factory CustomerContributeModel.fromJson(Map<String, dynamic> json) => _$CustomerContributeModelFromJson(json);
+  factory CustomerContributeModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerContributeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerContributeModelToJson(this);
 

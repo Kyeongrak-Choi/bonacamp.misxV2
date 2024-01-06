@@ -20,12 +20,14 @@ class RentalReportItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((RentalReportModel model) {
+          children:
+              dataList.map<ExpansionPanelRadio>((RentalReportModel model) {
             return ExpansionPanelRadio(
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ShowListHeaderRow(titleName: model.name ?? '', value: '');
+                  return ShowListHeaderRow(
+                      titleName: model.name ?? '', value: '');
                 },
                 body: Column(
                   children: [
@@ -36,7 +38,11 @@ class RentalReportItem extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: model.detailList.length,
                         itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: RentalReportDetailItem(model.detailList[idx]));
+                          return Container(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: RentalReportDetailItem(
+                                  model.detailList[idx]));
                         }),
                   ],
                 ));

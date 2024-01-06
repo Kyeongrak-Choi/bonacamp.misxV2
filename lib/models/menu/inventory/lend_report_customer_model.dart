@@ -22,12 +22,14 @@ class LendReportCustomerModel {
     };
   }
 
-  factory LendReportCustomerModel.fromJson(Map<String, dynamic> json) => _$LendReportCustomerModelFromJson(json);
+  factory LendReportCustomerModel.fromJson(Map<String, dynamic> json) =>
+      _$LendReportCustomerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendReportCustomerModelToJson(this);
 }
 
-List<LendReportCustomerModel> generateLendReportCustomerModelList(dataList, count) {
+List<LendReportCustomerModel> generateLendReportCustomerModelList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => LendReportCustomerModel(

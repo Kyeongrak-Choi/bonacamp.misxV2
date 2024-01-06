@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../utils/menu_manager.dart';
 
@@ -17,37 +18,37 @@ class CardIconMenu extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
       color: context.theme.hoverColor,
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 15, 10),
+        padding: EdgeInsetsDirectional.fromSTEB(
+            0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
         child: Column(
-          children: List.generate(iconMenuList.length,
-              (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
+          children: List.generate(
+              iconMenuList.length,
+              (index) => buildRowIconItem(
+                  iconMenuList[index].title,
+                  iconMenuList[index].iconData,
+                  iconMenuList[index].path,
+                  context)),
         ),
       ),
     );
   }
 
-  Widget buildRowIconItem(String title, IconData iconData, String path, BuildContext context) {
+  Widget buildRowIconItem(
+      String title, IconData iconData, String path, BuildContext context) {
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed(path),
       child: Container(
-        height: 50,
+        height: BASIC_PADDING * 3.h,
         child: Row(
           children: [
-            // Icon(
-            //   iconData,
-            //   size: 17,
-            //   color: context.theme.primaryColor,
-            // ),
-            // SizedBox(width: 20),
             Text(
               title,
-              style: TextStyle(fontSize: 14.sp, color: context.theme.focusColor),
+              style: context.textTheme.bodyLarge,
             ),
             Spacer(),
             Icon(
               Icons.arrow_forward_ios,
-              size: 17,
-              color: context.theme.primaryColor,
+              size: 14.sp,
             ),
           ],
         ),

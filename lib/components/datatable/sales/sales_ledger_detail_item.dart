@@ -26,7 +26,10 @@ class SalesLedgerDetailItem extends StatelessWidget {
               Text(
                 detailList.salesTypeName,
                 textAlign: TextAlign.left,
-                style: context.textTheme.displayMedium!.merge(TextStyle(color: detailList.salesTypeName == 'sales'.tr ? Colors.blue : Colors.red)),
+                style: context.textTheme.displayMedium!.merge(TextStyle(
+                    color: detailList.salesTypeName == 'sales'.tr
+                        ? Colors.blue
+                        : Colors.red)),
                 overflow: TextOverflow.ellipsis,
               ),
               Expanded(
@@ -35,7 +38,8 @@ class SalesLedgerDetailItem extends StatelessWidget {
                           onPressed: () {
                             ShowLedgerDetailDialog(detailList, context);
                           },
-                          icon: Icon(Icons.search, color: context.theme.primaryColor),
+                          icon: Icon(Icons.search,
+                              color: context.theme.primaryColor),
                         )
                       : TextButton(
                           onPressed: null,
@@ -47,7 +51,9 @@ class SalesLedgerDetailItem extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Text(
-            detailList.salesTypeName == 'sales'.tr ? numberFormat.format(detailList.total) : numberFormat.format(detailList.deposit),
+            detailList.salesTypeName == 'sales'.tr
+                ? numberFormat.format(detailList.total)
+                : numberFormat.format(detailList.deposit),
             textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,

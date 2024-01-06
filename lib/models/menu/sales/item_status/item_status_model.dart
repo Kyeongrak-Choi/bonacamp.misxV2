@@ -21,7 +21,15 @@ class ItemStatusModel {
   int? id;
 
   ItemStatusModel(
-      this.code, this.name, this.status, this.totalBox, this.totalBottle, this.normalBox, this.normalBottle, this.pleasureBox, this.pleasureBottle,
+      this.code,
+      this.name,
+      this.status,
+      this.totalBox,
+      this.totalBottle,
+      this.normalBox,
+      this.normalBottle,
+      this.pleasureBox,
+      this.pleasureBottle,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -38,7 +46,8 @@ class ItemStatusModel {
     };
   }
 
-  factory ItemStatusModel.fromJson(Map<String, dynamic> json) => _$ItemStatusModelFromJson(json);
+  factory ItemStatusModel.fromJson(Map<String, dynamic> json) =>
+      _$ItemStatusModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ItemStatusModelToJson(this);
 }
@@ -52,13 +61,20 @@ List<ItemStatusModel> generateItemStatusModelList(dataList, count) {
             dataList[index].status,
             numberFormat.format(dataList[index].totalBox),
             numberFormat.format(dataList[index].totalBottle),
-            ItemStatusAmountModel(numberFormat.format(dataList[index].last.bottleQuantity), numberFormat.format(dataList[index].last.equipQuantity)),
             ItemStatusAmountModel(
-                numberFormat.format(dataList[index].physical.bottleQuantity), numberFormat.format(dataList[index].physical.equipQuantity)),
+                numberFormat.format(dataList[index].last.bottleQuantity),
+                numberFormat.format(dataList[index].last.equipQuantity)),
             ItemStatusAmountModel(
-                numberFormat.format(dataList[index].inventoryIn.bottleQuantity), numberFormat.format(dataList[index].inventoryIn.equipQuantity)),
+                numberFormat.format(dataList[index].physical.bottleQuantity),
+                numberFormat.format(dataList[index].physical.equipQuantity)),
             ItemStatusAmountModel(
-                numberFormat.format(dataList[index].inventoryOut.bottleQuantity), numberFormat.format(dataList[index].inventoryOut.equipQuantity)),
+                numberFormat.format(dataList[index].inventoryIn.bottleQuantity),
+                numberFormat.format(dataList[index].inventoryIn.equipQuantity)),
+            ItemStatusAmountModel(
+                numberFormat
+                    .format(dataList[index].inventoryOut.bottleQuantity),
+                numberFormat
+                    .format(dataList[index].inventoryOut.equipQuantity)),
             id: index,
           ));
 }

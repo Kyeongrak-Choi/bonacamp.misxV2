@@ -24,7 +24,8 @@ class AchievementItem extends StatelessWidget {
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ShowListHeaderRow(titleName: model.name ?? '', value: '');
+                  return ShowListHeaderRow(
+                      titleName: model.name ?? '', value: '');
                 },
                 body: Column(
                   children: [
@@ -35,7 +36,11 @@ class AchievementItem extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: model.detailsList.length,
                         itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: AchievementDetailItem(model.detailsList[idx]));
+                          return Container(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: AchievementDetailItem(
+                                  model.detailsList[idx]));
                         }),
                   ],
                 ));

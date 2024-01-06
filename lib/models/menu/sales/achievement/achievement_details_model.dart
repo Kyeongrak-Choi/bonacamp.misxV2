@@ -17,8 +17,16 @@ class AchievementDetailsModel {
   var balanceRate;
   int? id;
 
-  AchievementDetailsModel(this.month, this.salesGoal, this.salesAmount, this.salesRate, this.balanceGoal, this.lastBalance, this.variationBalance,
-      this.changeBalance, this.balanceRate,
+  AchievementDetailsModel(
+      this.month,
+      this.salesGoal,
+      this.salesAmount,
+      this.salesRate,
+      this.balanceGoal,
+      this.lastBalance,
+      this.variationBalance,
+      this.changeBalance,
+      this.balanceRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -35,12 +43,14 @@ class AchievementDetailsModel {
     };
   }
 
-  factory AchievementDetailsModel.fromJson(Map<String, dynamic> json) => _$AchievementDetailsModelFromJson(json);
+  factory AchievementDetailsModel.fromJson(Map<String, dynamic> json) =>
+      _$AchievementDetailsModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AchievementDetailsModelToJson(this);
 }
 
-List<AchievementDetailsModel> generateAchievementDetailsModelList(dataList, count) {
+List<AchievementDetailsModel> generateAchievementDetailsModelList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => AchievementDetailsModel(

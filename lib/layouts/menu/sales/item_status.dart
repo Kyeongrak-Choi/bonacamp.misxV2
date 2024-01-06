@@ -50,7 +50,9 @@ class ItemStatus extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<ItemStatusController>().visible.value ? 20 : 0,
+                        height: Get.find<ItemStatusController>().visible.value
+                            ? 20
+                            : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -73,7 +75,9 @@ class ItemStatus extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<ItemStatusController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<ItemStatusController>().visible.value),
                       onPressed: () {
                         Get.find<ItemStatusController>().setVisible();
                       },
@@ -107,7 +111,8 @@ class ItemStatusController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramItemCode = Get.find<OptionDialogItemController>().paramItemCode.value;
+    String paramItemCode =
+        Get.find<OptionDialogItemController>().paramItemCode.value;
 
     var param = user.getClientCode;
     var parsedItemStatusSales;
@@ -120,28 +125,39 @@ class ItemStatusController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES + API_SALES_ITEMSTATUS + '?code=' + paramItemCode);
+      final response = await dio
+          .get(API_SALES + API_SALES_ITEMSTATUS + '?code=' + paramItemCode);
 
       if (response.statusCode == 200) {
-        if ((parsedItemStatusSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedItemStatusSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
           //controllerItemStatus = parsedItemStatusSales.map((dataJson) => ItemStatusModel.fromJson(dataJson)).toList();
-          controllerItemStatus = ItemStatusModel.fromJson(parsedItemStatusSales);
+          controllerItemStatus =
+              ItemStatusModel.fromJson(parsedItemStatusSales);
 
-          totNormalBox = controllerItemStatus.normalBox.amount.round() + controllerItemStatus.normalBox.vat.round();
-          totNormalBottle = controllerItemStatus.normalBottle.amount.round() + controllerItemStatus.normalBottle.vat.round();
-          totPleasureBox = controllerItemStatus.pleasureBox.amount.round() + controllerItemStatus.pleasureBox.vat.round();
-          totPleasureBottle = controllerItemStatus.pleasureBottle.amount.round() + controllerItemStatus.pleasureBottle.vat.round();
+          totNormalBox = controllerItemStatus.normalBox.amount.round() +
+              controllerItemStatus.normalBox.vat.round();
+          totNormalBottle = controllerItemStatus.normalBottle.amount.round() +
+              controllerItemStatus.normalBottle.vat.round();
+          totPleasureBox = controllerItemStatus.pleasureBox.amount.round() +
+              controllerItemStatus.pleasureBox.vat.round();
+          totPleasureBottle =
+              controllerItemStatus.pleasureBottle.amount.round() +
+                  controllerItemStatus.pleasureBottle.vat.round();
         }
         Get.find<ItemStatusController>().setVisible();
         update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

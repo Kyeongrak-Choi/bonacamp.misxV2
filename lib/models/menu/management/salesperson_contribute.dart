@@ -63,7 +63,8 @@ class SalesPersonContributeModel {
     };
   }
 
-  factory SalesPersonContributeModel.fromJson(Map<String, dynamic> json) => _$SalesPersonContributeModelFromJson(json);
+  factory SalesPersonContributeModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesPersonContributeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesPersonContributeModelToJson(this);
 }

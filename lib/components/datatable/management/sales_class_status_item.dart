@@ -20,13 +20,15 @@ class SalesClassStatusItem extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
+          children:
+              dataList!.map<ExpansionPanelRadio>((SalesClassStatusModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.salesClassCode.toString(),
               backgroundColor: context.theme.cardColor,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ShowListHeaderRow(titleName: model.salesClassName ?? '', value: '');
+                return ShowListHeaderRow(
+                    titleName: model.salesClassName ?? '', value: '');
               },
               body: Column(
                 children: [

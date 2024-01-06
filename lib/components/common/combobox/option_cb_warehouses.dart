@@ -34,7 +34,10 @@ class OptionCbWarehouses extends StatelessWidget {
                   style: context.textTheme.bodyMedium,
                   decoration: InputDecoration(border: InputBorder.none),
                   dropdownColor: context.theme.cardColor,
-                  items: Get.find<CbWarehousesController>().data.map<DropdownMenuItem<WarehouseModel>>((WarehouseModel value) {
+                  items: Get.find<CbWarehousesController>()
+                      .data
+                      .map<DropdownMenuItem<WarehouseModel>>(
+                          (WarehouseModel value) {
                     return DropdownMenuItem<WarehouseModel>(
                       alignment: Alignment.center,
                       value: value,

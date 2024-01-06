@@ -6,11 +6,13 @@ part of 'vendor_location_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VendorLocationModel _$VendorLocationModelFromJson(Map<String, dynamic> json) => VendorLocationModel(
+VendorLocationModel _$VendorLocationModelFromJson(Map<String, dynamic> json) =>
+    VendorLocationModel(
       json['code'],
       json['name'],
       json['representative'],
-      VendorLocationListModel.fromJson(json['location'] as Map<String, dynamic>),
+      VendorLocationListModel.fromJson(
+          json['location'] as Map<String, dynamic>),
       json['sales-rep-code'],
       json['sales-rep'],
       json['status-code'],
@@ -28,7 +30,9 @@ VendorLocationModel _$VendorLocationModelFromJson(Map<String, dynamic> json) => 
       json['margin-rate'],
     );
 
-Map<String, dynamic> _$VendorLocationModelToJson(VendorLocationModel instance) => <String, dynamic>{
+Map<String, dynamic> _$VendorLocationModelToJson(
+        VendorLocationModel instance) =>
+    <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
       'representative': instance.representative,

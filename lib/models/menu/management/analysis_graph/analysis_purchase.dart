@@ -10,7 +10,8 @@ class AnalysisPurchaseModel {
   var supply; // 매입공급가
   var totalSupply; // 총계(보충보증)
 
-  AnalysisPurchaseModel(this.searchDate, this.dateName, this.total, this.supply, this.totalSupply);
+  AnalysisPurchaseModel(this.searchDate, this.dateName, this.total, this.supply,
+      this.totalSupply);
 
   Map<String, dynamic> toMap() {
     return {
@@ -22,7 +23,8 @@ class AnalysisPurchaseModel {
     };
   }
 
-  factory AnalysisPurchaseModel.fromJson(Map<String, dynamic> json) => _$AnalysisPurchaseModelFromJson(json);
+  factory AnalysisPurchaseModel.fromJson(Map<String, dynamic> json) =>
+      _$AnalysisPurchaseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AnalysisPurchaseModelToJson(this);
 }

@@ -12,7 +12,8 @@ class ServerModel {
   String status; // 상태
   List<String> role_ids; //
 
-  ServerModel(this.server_code, this.server_name, this.resource_url, this.memo, this.status, this.role_ids); //
+  ServerModel(this.server_code, this.server_name, this.resource_url, this.memo,
+      this.status, this.role_ids); //
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,7 +26,8 @@ class ServerModel {
     };
   }
 
-  factory ServerModel.fromJson(Map<String, dynamic> json) => _$ServerModelFromJson(json);
+  factory ServerModel.fromJson(Map<String, dynamic> json) =>
+      _$ServerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ServerModelToJson(this);
 

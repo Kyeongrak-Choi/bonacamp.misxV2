@@ -6,7 +6,9 @@ part of 'sales_rental_ledger_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesRentalLedgerModel _$SalesRentalLedgerModelFromJson(Map<String, dynamic> json) => SalesRentalLedgerModel(
+SalesRentalLedgerModel _$SalesRentalLedgerModelFromJson(
+        Map<String, dynamic> json) =>
+    SalesRentalLedgerModel(
       json['sales-date'],
       json['memo'],
       json['total'],
@@ -20,7 +22,9 @@ SalesRentalLedgerModel _$SalesRentalLedgerModelFromJson(Map<String, dynamic> jso
       json['total-balance'],
     );
 
-Map<String, dynamic> _$SalesRentalLedgerModelToJson(SalesRentalLedgerModel instance) => <String, dynamic>{
+Map<String, dynamic> _$SalesRentalLedgerModelToJson(
+        SalesRentalLedgerModel instance) =>
+    <String, dynamic>{
       'sales-date': instance.salesDate,
       'memo': instance.memo,
       'total': instance.total,

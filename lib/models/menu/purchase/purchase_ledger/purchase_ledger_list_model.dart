@@ -21,12 +21,14 @@ class PurchaseLedgerListModel {
     };
   }
 
-  factory PurchaseLedgerListModel.fromJson(Map<String, dynamic> json) => _$PurchaseLedgerListModelFromJson(json);
+  factory PurchaseLedgerListModel.fromJson(Map<String, dynamic> json) =>
+      _$PurchaseLedgerListModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PurchaseLedgerListModelToJson(this);
 }
 
-List<PurchaseLedgerListModel> generatePurchaseLedgerListModelList(dataList, count) {
+List<PurchaseLedgerListModel> generatePurchaseLedgerListModelList(
+    dataList, count) {
   return List.generate(
       count,
       (index) => PurchaseLedgerListModel(

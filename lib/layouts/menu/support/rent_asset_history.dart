@@ -27,7 +27,9 @@ class RentAssetHistory extends StatelessWidget {
   Widget build(context) {
     Get.put(RentAssetHistoryController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_support_rent_asset_history'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_support_rent_asset_history'.tr),
+              actions: []),
           body: Container(
             color: context.theme.canvasColor,
             child: Stack(
@@ -37,7 +39,9 @@ class RentAssetHistory extends StatelessWidget {
                   child: Column(
                     children: [
                       Visibility(
-                        visible: Get.find<RentAssetHistoryController>().visible.value,
+                        visible: Get.find<RentAssetHistoryController>()
+                            .visible
+                            .value,
                         child: Container(
                           decoration: BoxDecoration(
                             color: context.theme.cardColor,
@@ -49,16 +53,21 @@ class RentAssetHistory extends StatelessWidget {
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                OptionTwoContent(OptionCbBranch(), OptionCbAssetStatus()),
+                                OptionTwoContent(
+                                    OptionCbBranch(), OptionCbAssetStatus()),
                                 OptionDialogCustomer(),
-                                OptionBtnSearch(ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY),
+                                OptionBtnSearch(
+                                    ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY),
                               ],
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: Get.find<RentAssetHistoryController>().visible.value ? 20 : 0,
+                        height:
+                            Get.find<RentAssetHistoryController>().visible.value
+                                ? 20
+                                : 0,
                       ),
                       Expanded(
                         child: Container(
@@ -83,7 +92,10 @@ class RentAssetHistory extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<RentAssetHistoryController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<RentAssetHistoryController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<RentAssetHistoryController>().setVisible();
                       },
@@ -101,7 +113,8 @@ class RentAssetHistory extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<RentAssetHistoryController>().controllerAchievement != null) {
-      return RentAssetHistoryItem(Get.find<RentAssetHistoryController>().controllerAchievement);
+      return RentAssetHistoryItem(
+          Get.find<RentAssetHistoryController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
@@ -122,10 +135,16 @@ class RentAssetHistoryController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
-    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramAssetStatus = Get.find<CbAssetStatusController>().paramAssetStatusCode;
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
+    String paramCustomerCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramAssetStatus =
+        Get.find<CbAssetStatusController>().paramAssetStatusCode;
 
     var param = user.getClientCode;
     var parsedRentAssetHistory;
@@ -152,19 +171,25 @@ class RentAssetHistoryController extends GetxController {
           paramAssetStatus);
 
       if (response.statusCode == 200) {
-        if ((parsedRentAssetHistory = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedRentAssetHistory =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerAchievement = parsedRentAssetHistory.map((dataJson) => RentAssetHistoryModel.fromJson(dataJson)).toList();
+          controllerAchievement = parsedRentAssetHistory
+              .map((dataJson) => RentAssetHistoryModel.fromJson(dataJson))
+              .toList();
         }
         Get.find<RentAssetHistoryController>().setVisible();
         update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

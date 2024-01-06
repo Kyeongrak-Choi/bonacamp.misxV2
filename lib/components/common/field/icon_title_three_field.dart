@@ -8,7 +8,12 @@ class IconTitleThreeField extends StatelessWidget {
   var value3;
   IconData iconData;
 
-  IconTitleThreeField({required this.titleName, this.value1, this.value2, this.value3, required this.iconData});
+  IconTitleThreeField(
+      {required this.titleName,
+      this.value1,
+      this.value2,
+      this.value3,
+      required this.iconData});
 
   @override
   Widget build(BuildContext context) {

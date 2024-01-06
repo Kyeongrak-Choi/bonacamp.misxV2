@@ -9,7 +9,8 @@ import '../../models/common/chart_spot.dart';
 class AnalysisGraphComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AnalysisGraphController>(builder: (AnalysisGraphController controller) {
+    return GetBuilder<AnalysisGraphController>(
+        builder: (AnalysisGraphController controller) {
       return Container(
         decoration: BoxDecoration(
           color: context.theme.cardColor,
@@ -30,7 +31,10 @@ class AnalysisGraphComponent extends StatelessWidget {
               overflowMode: LegendItemOverflowMode.wrap,
               textStyle: context.textTheme.displaySmall),
 
-          tooltipBehavior: TooltipBehavior(enable: true, textStyle: context.textTheme.displaySmall, color: context.theme.canvasColor),
+          tooltipBehavior: TooltipBehavior(
+              enable: true,
+              textStyle: context.textTheme.displaySmall,
+              color: context.theme.canvasColor),
           enableAxisAnimation: true,
           enableSideBySideSeriesPlacement: true,
           series: <ChartSeries<ChartSpot, String>>[
@@ -39,42 +43,48 @@ class AnalysisGraphComponent extends StatelessWidget {
               dataSource: Get.find<AnalysisGraphController>().salesList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
             LineSeries<ChartSpot, String>(
               name: '채권',
               dataSource: Get.find<AnalysisGraphController>().bondList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
             LineSeries<ChartSpot, String>(
               name: '매입',
               dataSource: Get.find<AnalysisGraphController>().purchaseList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
             LineSeries<ChartSpot, String>(
               name: '채무',
               dataSource: Get.find<AnalysisGraphController>().debtList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
             LineSeries<ChartSpot, String>(
               name: '대여금액',
               dataSource: Get.find<AnalysisGraphController>().rentalList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
             LineSeries<ChartSpot, String>(
               name: '대여자산',
               dataSource: Get.find<AnalysisGraphController>().assetList,
               xValueMapper: (ChartSpot data, _) => data.name,
               yValueMapper: (ChartSpot data, _) => data.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 10),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 10),
             ),
           ],
         ),
