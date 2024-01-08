@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_option.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../components/common/dialog/customer/search_customer_listview.dart';
 
@@ -22,12 +23,11 @@ class SearchCustomerDialog extends StatelessWidget {
           ),
           backgroundColor: context.theme.colorScheme.background,
           body: Container(
-            color: context.theme.cardColor,
             child: Center(
               child: Column(
                 children: <Widget>[
                   SearchCustomerOption(),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: BASIC_PADDING.h),
                   Expanded(child: SearchCustomerList()),
                 ],
               ),

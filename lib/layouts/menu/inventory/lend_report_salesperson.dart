@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -29,79 +30,60 @@ class LendReportSalesperson extends StatelessWidget {
   Widget build(context) {
     Get.put(LendReportSalespersonController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_lend_report_salesperson'.tr), actions: []),
+          appBar: AppBar(title: Text('menu_sub_lend_report_salesperson'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                          visible: Get.find<LendReportSalespersonController>()
-                              .visible
-                              .value,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: Column(
-                                children: [
-                                  OptionPeriodPicker(),
-                                  OptionCbBranch(),
-                                  OptionTwoContent(OptionDialogCustomer(),
-                                      OptionCbEmployee()),
-                                  OptionTwoContent(OptionDialogLendItem(),
-                                      OptionCbLendDivision()),
-                                  OptionBtnSearch(
-                                      ROUTE_MENU_LEND_REPORT_SALESPERSON),
-                                ],
-                              ),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<LendReportSalespersonController>().visible.value,
                         child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
+                          color: context.theme.canvasColor,
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h,
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionTwoContent(OptionDialogCustomer(), OptionCbEmployee()),
+                                OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
+                                OptionBtnSearch(ROUTE_MENU_LEND_REPORT_SALESPERSON),
+                              ],
                             ),
                           ),
+                        )),
+                    SizedBox(
+                      height: BASIC_PADDING,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                          children: <Widget>[setChild()],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(
-                          visible: Get.find<LendReportSalespersonController>()
-                              .visible
-                              .value),
+                      child: OptionBtnVisible(visible: Get.find<LendReportSalespersonController>().visible.value),
                       onPressed: () {
-                        Get.find<LendReportSalespersonController>()
-                            .setVisible();
+                        Get.find<LendReportSalespersonController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.background,
                       elevation: 1,
                     ),
                   ),
@@ -113,12 +95,8 @@ class LendReportSalesperson extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<LendReportSalespersonController>()
-            .controllerLendReportSalesperson !=
-        null) {
-      return LendReportCustomerItem(Get.find<LendReportSalespersonController>()
-          .controllerLendReportSalesperson[0]
-          .salespersonList);
+    if (Get.find<LendReportSalespersonController>().controllerLendReportSalesperson != null) {
+      return LendReportCustomerItem(Get.find<LendReportSalespersonController>().controllerLendReportSalesperson[0].salespersonList);
     } else {
       return EmptyWidget();
     }
@@ -138,20 +116,12 @@ class LendReportSalespersonController extends GetxController {
     var dio;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd')
-        .format(Get.find<PeriodPickerController>().fromDate.value)
-        .toString();
-    String paramToDate = DateFormat('yyyyMMdd')
-        .format(Get.find<PeriodPickerController>().toDate.value)
-        .toString();
-    String paramCustomerCode =
-        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramEmployeeCode =
-        Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramLendItemCode =
-        Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
-    String paramLendDivisionCode =
-        Get.find<CbLendDivisionController>().paramLendDivisionCode;
+    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
+    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramLendItemCode = Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
+    String paramLendDivisionCode = Get.find<CbLendDivisionController>().paramLendDivisionCode;
 
     if (paramEmployeeCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, '영업담당을 선택해주세요.');
@@ -181,18 +151,13 @@ class LendReportSalespersonController extends GetxController {
           paramLendDivisionCode);
 
       if (response.statusCode == 200) {
-        if ((parsedLendReportSalesperson =
-                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
-            null) {
-          ShowSnackBar(
-              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedLendReportSalesperson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerLendReportSalesperson = parsedLendReportSalesperson
-              .map((dataJson) => LendReportSalespersonModel.fromJson(dataJson))
-              .toList();
+          controllerLendReportSalesperson = parsedLendReportSalesperson.map((dataJson) => LendReportSalespersonModel.fromJson(dataJson)).toList();
         }
 
         Get.find<LendReportSalespersonController>().setVisible();
@@ -200,8 +165,7 @@ class LendReportSalespersonController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO,
-            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

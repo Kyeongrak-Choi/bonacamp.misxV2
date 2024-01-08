@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../components/common/dialog/purchase/search_purchase_listview.dart';
 import '../../components/common/dialog/purchase/search_purchase_option.dart';
+import '../../utils/constants.dart';
 
 class SearchPurchaseDialog extends StatelessWidget {
   @override
@@ -18,17 +20,14 @@ class SearchPurchaseDialog extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text('title_search_purchase'.tr),
-            titleTextStyle: context.textTheme.displayLarge,
-            backgroundColor: context.theme.canvasColor,
           ),
-          backgroundColor: context.theme.cardColor,
+          backgroundColor: context.theme.colorScheme.background,
           body: Container(
-            color: context.theme.cardColor,
             child: Center(
               child: Column(
                 children: <Widget>[
                   SearchPurchaseOption(),
-                  SizedBox(height: 14),
+                  SizedBox(height: BASIC_PADDING.h),
                   Expanded(child: SearchPurchaseList()),
                 ],
               ),

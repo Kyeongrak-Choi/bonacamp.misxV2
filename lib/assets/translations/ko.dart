@@ -93,7 +93,7 @@ const Map<String, String> koKR = {
   'opt_customer_class': '등  급',
   'opt_rental_division': '대여구분',
   'opt_asset_status': '자산상태',
-  'opt_warehouse': '창  고',
+  'opt_warehouse': '창고',
   'opt_sales_class': '판매분류',
   'opt_lend_division': '용기구분',
 
