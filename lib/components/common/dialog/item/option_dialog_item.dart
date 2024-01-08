@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
@@ -13,31 +14,35 @@ class OptionDialogItem extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'title_search_item'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-                flex: 9,
-                child: TextButton(
-                  onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                  child: Obx(() => Text(
-                        Get.find<OptionDialogItemController>()
-                            .selectedValue
-                            .value,
-                        style: context.textTheme.bodyMedium,
-                      )),
-                )),
-            Expanded(
-              flex: 1,
-              child: IconButton(
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
+                child: Obx(() => Text(
+                      Get.find<OptionDialogItemController>()
+                          .selectedValue
+                          .value,
+                      style: context.textTheme.bodyMedium,
+                    )),
+              ),
+              IconButton(
                   onPressed: () {
                     Get.find<OptionDialogItemController>().selectedValue.value =
                         '전체';
@@ -47,14 +52,13 @@ class OptionDialogItem extends StatelessWidget {
                         ''.tr;
                     Get.find<OptionDialogItemController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined,
-                      color: context.theme.primaryColor)),
-            ),
-            // Expanded(
-            //   flex: 1,
-            //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
-            // ),
-          ],
+                  icon: Icon(Icons.cancel_outlined,size: 24.sp,)),
+              // Expanded(
+              //   flex: 1,
+              //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
+              // ),
+            ],
+          ),
         ),
       ],
     );
