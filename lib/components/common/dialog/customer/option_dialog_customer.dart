@@ -57,6 +57,7 @@ class OptionDialogCustomer extends StatelessWidget {
                   },
                   icon: Icon(
                     Icons.cancel_outlined,
+                    size: 24.sp,
                   )),
               // Expanded(
               //   flex: 1,
