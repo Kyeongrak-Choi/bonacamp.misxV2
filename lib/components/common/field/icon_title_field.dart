@@ -19,7 +19,7 @@ class IconTitleField extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, 0.h),
           child: Icon(
             iconData,
-            size: 14.sp,
+            size: 24.sp,
           ),
         ),
         Expanded(
