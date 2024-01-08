@@ -41,7 +41,7 @@ class SumTitleTable extends StatelessWidget {
                   onPressed: () {
                     controller.setSumTableVisible();
                   },
-                  icon: Icon(Icons.keyboard_arrow_down, size: 24.sp,),
+                icon: Icon(controller.sumTableVisible.value == true ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, size: 24.sp,),
                 alignment: Alignment.centerLeft,
               ),
             ],
