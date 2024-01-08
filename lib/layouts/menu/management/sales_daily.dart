@@ -190,9 +190,6 @@ class SalesDaily extends StatelessWidget {
                           ),
                           Expanded(
                             child: Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                              ),
                               child: ListView(
                                 children: <Widget>[setChild()],
                               ),
