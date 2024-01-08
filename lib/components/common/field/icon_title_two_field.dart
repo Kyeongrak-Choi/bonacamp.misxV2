@@ -18,12 +18,11 @@ class IconTitleTwoField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: context.theme.colorScheme.background,
       padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING.h, BASIC_PADDING * 2.w, BASIC_PADDING.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Icon(iconData, color: context.theme.colorScheme.onSurface),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
           child: Text(
             titleName,
             style: context.textTheme.bodyMedium,
@@ -36,7 +35,7 @@ class IconTitleTwoField extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  value1 + ' 원',
+                  value1 ?? ' ',
                   style: context.textTheme.bodyMedium,
                   textAlign: TextAlign.end,
                 ),
@@ -44,7 +43,7 @@ class IconTitleTwoField extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  value2 + ' 원',
+                  value2 ?? ' ',
                   style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.end,
                 ),

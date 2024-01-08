@@ -9,6 +9,7 @@ class LightColors {
   static const Color font60 = Color(0x99000000);
   static const Color font40 = Color(0x66000000);
   static const Color font20 = Color(0x33000000);
+  static const Color font10 = Color(0x11000000);
   static const Color basic = Color(0xFFFFFFFF);
   static const Color important = Color(0xFF2D2D2D);
   static const Color textform = Color(0xFFFFFFFF);
@@ -43,6 +44,7 @@ class DarkColors {
   static const Color font60 = Color(0x99FFFFFF);
   static const Color font40 = Color(0x66FFFFFF);
   static const Color font20 = Color(0x33FFFFFF);
+  static const Color font10 = Color(0x11FFFFFF);
   static const Color basic = Color(0xFF262D34);
   static const Color important = Color(0xFFFFFFFF);
   static const Color logo = Color(0xFFFFFFFF);

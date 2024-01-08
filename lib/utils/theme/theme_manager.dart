@@ -57,6 +57,7 @@ class Themes {
       onSurface: LightColors.font60, // font60
       onSurfaceVariant: LightColors.font40, // font40
       onBackground: LightColors.font20, // font20
+      onTertiary: LightColors.font10, // font10
       surface: LightColors.textform, // login textForm
 
       primary: LightColors.primaryColor, // point color1
@@ -103,6 +104,7 @@ class Themes {
       onSurface: DarkColors.font60, // font60
       onSurfaceVariant: DarkColors.font40, // font40
       onBackground: DarkColors.font20, // font20
+      onTertiary: DarkColors.font10, // font10
       surface: DarkColors.textform, // login textForm
 
       primary: DarkColors.primaryColor, // point color1

@@ -42,6 +42,15 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              IconButton(
+                  onPressed: () {
+                    Get.find<PeriodYearmonthPickerController>()
+                        .chooseFromYearmonth();
+                  },
+                  icon: ImageIcon(
+                    AssetImage('lib/assets/icons/calendar.png'),
+                    size: 24.sp,
+                  )),
               Obx(
                 () => TextButton(
                   onPressed: () =>
@@ -57,18 +66,20 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    Get.find<PeriodYearmonthPickerController>()
-                        .chooseFromYearmonth();
-                  },
-                  icon: Icon(Icons.date_range,
-                      )),
               Text(
                 ' ~ ',
                 style: context.textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
+              IconButton(
+                  onPressed: () {
+                    Get.find<PeriodYearmonthPickerController>()
+                        .chooseToYearmonth();
+                  },
+                  icon: ImageIcon(
+                    AssetImage('lib/assets/icons/calendar.png'),
+                    size: 24.sp,
+                  )),
               Obx(
                 () => TextButton(
                   onPressed: () =>
@@ -84,13 +95,6 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                       style: context.textTheme.bodyMedium),
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    Get.find<PeriodYearmonthPickerController>()
-                        .chooseToYearmonth();
-                  },
-                  icon: Icon(Icons.date_range,
-                      )),
             ],
           ),
         ),

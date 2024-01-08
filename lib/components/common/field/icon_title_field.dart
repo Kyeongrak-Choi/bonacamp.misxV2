@@ -15,21 +15,17 @@ class IconTitleField extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, 0.h),
-          child: Icon(
-            iconData,
-            size: 14.sp,
-          ),
+        Icon(
+          iconData,
+          size: 14.sp,
         ),
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, 0.w, 0.h),
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
             child: Text(
               titleName,
-              style: context.textTheme.bodyLarge!
-                  .merge(TextStyle(fontWeight: FontWeight.bold)),
+              style: context.textTheme.bodyLarge,
               textAlign: TextAlign.start,
             ),
           ),
@@ -37,10 +33,10 @@ class IconTitleField extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, BASIC_PADDING.w, 0.h),
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
             child: Text(
               value,
-              style: context.textTheme.bodyLarge,
+              style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.end,
             ),
           ),
