@@ -85,7 +85,7 @@ class OverallStatus extends StatelessWidget {
                       onPressed: () {
                         Get.find<OverAllController>().setVisible();
                       },
-                      backgroundColor: context.theme.colorScheme.background,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

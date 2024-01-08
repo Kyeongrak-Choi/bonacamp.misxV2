@@ -219,7 +219,7 @@ class SalesDaily extends StatelessWidget {
                         Get.find<SalesDailyController>().setVisible();
                       },
                       //splashColor: CommonColors.primary,
-                      backgroundColor: context.theme.colorScheme.background,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
