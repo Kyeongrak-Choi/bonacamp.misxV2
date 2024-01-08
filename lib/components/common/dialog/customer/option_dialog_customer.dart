@@ -31,38 +31,33 @@ class OptionDialogCustomer extends StatelessWidget {
             border: Border.all(color: context.theme.colorScheme.background),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
-                  flex: 9,
-                  child: TextButton(
-                    onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
-                    child: Obx(() => Text(
-                          Get.find<OptionDialogCustomerController>()
-                              .selectedValue
-                              .value,
-                          style: context.textTheme.bodyMedium,
-                        )),
-                  )),
-              Expanded(
-                flex: 1,
-                child: IconButton(
-                    onPressed: () {
+              TextButton(
+                onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
+                child: Obx(() => Text(
                       Get.find<OptionDialogCustomerController>()
                           .selectedValue
-                          .value = '전체';
-                      Get.find<OptionDialogCustomerController>()
-                          .paramCustomerName
-                          .value = ''.tr;
-                      Get.find<OptionDialogCustomerController>()
-                          .paramCustomerCode
-                          .value = ''.tr;
-                      Get.find<OptionDialogCustomerController>().paramCode = '';
-                    },
-                    icon: Icon(
-                      Icons.cancel_outlined,
+                          .value,
+                      style: context.textTheme.bodyMedium,
                     )),
               ),
+              IconButton(
+                  onPressed: () {
+                    Get.find<OptionDialogCustomerController>()
+                        .selectedValue
+                        .value = '전체';
+                    Get.find<OptionDialogCustomerController>()
+                        .paramCustomerName
+                        .value = ''.tr;
+                    Get.find<OptionDialogCustomerController>()
+                        .paramCustomerCode
+                        .value = ''.tr;
+                    Get.find<OptionDialogCustomerController>().paramCode = '';
+                  },
+                  icon: Icon(
+                    Icons.cancel_outlined,
+                  )),
               // Expanded(
               //   flex: 1,
               //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class IconTitleField extends StatelessWidget {
   String titleName;
@@ -12,16 +13,16 @@ class IconTitleField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(bottom: 16.h),
+      padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Icon(
           iconData,
-          size: 24.sp,
+          size: 14.sp,
         ),
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(8.w, 0, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, 0.w, 0.h),
             child: Text(
               titleName,
               style: context.textTheme.bodyLarge!
@@ -33,7 +34,7 @@ class IconTitleField extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, BASIC_PADDING.w, 0.h),
             child: Text(
               value,
               style: context.textTheme.bodyLarge,
