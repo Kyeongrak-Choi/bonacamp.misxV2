@@ -55,7 +55,7 @@ class SalesDaily extends StatelessWidget {
                             children: [
                               SumTitleTable('일자 합계', sub: '(일/월)', controller: Get.find<SalesDailyController>(),),
                               Visibility(
-                                visible: !Get.find<SalesDailyController>().sumTableVisible.value,
+                                visible: Get.find<SalesDailyController>().sumTableVisible.value,
                                 child: Column(
                                   children: [
                                     SumItemTable(
