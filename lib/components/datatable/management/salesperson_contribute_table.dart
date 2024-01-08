@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../../layouts/menu/management/salesperson_contribute.dart';
 import '../../../utils/utility.dart';
@@ -27,9 +29,8 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
+                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
               IconTitleField(
                 titleName: '매출공급가',
                 value: (controller.controllerModel != null
@@ -63,9 +64,8 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
+                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
               IconTitleField(
                 titleName: '관리비용',
                 value: (controller.controllerModel != null
@@ -100,9 +100,8 @@ class SalesPersonContributeTable extends StatelessWidget {
               ),
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
+                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
               IconTitleField(
                 titleName: '채권잔액',
                 value: (controller.controllerModel != null
