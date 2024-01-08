@@ -193,11 +193,8 @@ class SalesDaily extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: context.theme.cardColor,
                               ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.all(15),
-                                child: ListView(
-                                  children: <Widget>[setChild()],
-                                ),
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
                           ),
