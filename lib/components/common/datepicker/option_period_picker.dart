@@ -45,18 +45,20 @@ class OptionPeriodPicker extends StatelessWidget {
                           AssetImage('lib/assets/icons/calendar.png'),
                           size: 24.sp,
                         )),
-                    Obx(
-                      () => TextButton(
-                        onPressed: () =>
-                            Get.find<PeriodPickerController>().chooseFromDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd')
-                              .format(Get.find<PeriodPickerController>()
-                                  .fromDate
-                                  .value)
-                              .toString(),
-                          style: context.textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
+                    Expanded(
+                      child: Obx(
+                        () => TextButton(
+                          onPressed: () =>
+                              Get.find<PeriodPickerController>().chooseFromDate(),
+                          child: Text(
+                            DateFormat('yyyy-MM-dd')
+                                .format(Get.find<PeriodPickerController>()
+                                    .fromDate
+                                    .value)
+                                .toString(),
+                            style: context.textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),
@@ -90,18 +92,20 @@ class OptionPeriodPicker extends StatelessWidget {
                           AssetImage('lib/assets/icons/calendar.png'),
                           size: 24.sp,
                         )),
-                    Obx(
-                      () => TextButton(
-                        onPressed: () =>
-                            Get.find<PeriodPickerController>().chooseToDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd')
-                              .format(Get.find<PeriodPickerController>()
-                                  .toDate
-                                  .value)
-                              .toString(),
-                          style: context.textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
+                    Expanded(
+                      child: Obx(
+                        () => TextButton(
+                          onPressed: () =>
+                              Get.find<PeriodPickerController>().chooseToDate(),
+                          child: Text(
+                            DateFormat('yyyy-MM-dd')
+                                .format(Get.find<PeriodPickerController>()
+                                    .toDate
+                                    .value)
+                                .toString(),
+                            style: context.textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),

@@ -33,12 +33,12 @@ class SalesDailyItem extends StatelessWidget {
               },
               body: Column(
                 children: [
-                  IconTitleTwoField(
-                    titleName: '',
-                    value1: '일 금액',
-                    value2: '월 금액',
-                    iconData: CupertinoIcons.minus,
-                  ),
+                  // IconTitleTwoField(
+                  //   titleName: '',
+                  //   value1: '일 금액',
+                  //   value2: '월 금액',
+                  //   iconData: CupertinoIcons.minus,
+                  // ),
                   IconTitleTwoField(
                     titleName: '공급가',
                     value1: model.price_D,
