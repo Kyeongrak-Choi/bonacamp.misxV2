@@ -29,8 +29,7 @@ class LendReportCustomer extends StatelessWidget {
   Widget build(context) {
     Get.put(LendReportCustomerController());
     return Obx(() => Scaffold(
-          appBar: AppBar(
-              title: Text('menu_sub_lend_report_customer'.tr), actions: []),
+          appBar: AppBar(title: Text('menu_sub_lend_report_customer'.tr), actions: []),
           body: Container(
             color: context.theme.colorScheme.background,
             child: Stack(
@@ -38,26 +37,18 @@ class LendReportCustomer extends StatelessWidget {
                 Column(
                   children: [
                     Visibility(
-                        visible: Get.find<LendReportCustomerController>()
-                            .visible
-                            .value,
+                        visible: Get.find<LendReportCustomerController>().visible.value,
                         child: Container(
                           color: context.theme.canvasColor,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                BASIC_PADDING * 2.w,
-                                BASIC_PADDING * 2.h,
-                                BASIC_PADDING * 2.w,
-                                BASIC_PADDING * 2.h),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
                             child: Column(
                               children: [
                                 OptionPeriodPicker(),
-                                OptionTwoContent(
-                                    OptionDialogCustomer(), OptionCbBranch()),
-                                OptionTwoContent(OptionDialogLendItem(),
-                                    OptionCbLendDivision()),
-                                OptionBtnSearch(
-                                    ROUTE_MENU_LEND_REPORT_CUSTOMER),
+                                OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
+                                OptionBtnSearch(ROUTE_MENU_LEND_REPORT_CUSTOMER),
                               ],
                             ),
                           ),
@@ -77,16 +68,9 @@ class LendReportCustomer extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(
-                        0.w,
-                        0.h,
-                        BASIC_PADDING * 2.w,
-                        0.h),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, BASIC_PADDING * 2.w, 0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(
-                          visible: Get.find<LendReportCustomerController>()
-                              .visible
-                              .value),
+                      child: OptionBtnVisible(visible: Get.find<LendReportCustomerController>().visible.value),
                       onPressed: () {
                         Get.find<LendReportCustomerController>().setVisible();
                       },
@@ -102,10 +86,8 @@ class LendReportCustomer extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<LendReportCustomerController>().controllerLendReportCustomer !=
-        null) {
-      return LendReportCustomerItem(Get.find<LendReportCustomerController>()
-          .controllerLendReportCustomer);
+    if (Get.find<LendReportCustomerController>().controllerLendReportCustomer != null) {
+      return LendReportCustomerItem(Get.find<LendReportCustomerController>().controllerLendReportCustomer);
     } else {
       return EmptyWidget();
     }
@@ -125,18 +107,11 @@ class LendReportCustomerController extends GetxController {
     var dio;
 
     String paramBranchCd = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd')
-        .format(Get.find<PeriodPickerController>().fromDate.value)
-        .toString();
-    String paramToDate = DateFormat('yyyyMMdd')
-        .format(Get.find<PeriodPickerController>().toDate.value)
-        .toString();
-    String paramCustomerCode =
-        Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
-    String paramLendItemCode =
-        Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
-    String paramLendDivisionCode =
-        Get.find<CbLendDivisionController>().paramLendDivisionCode;
+    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
+    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramCustomerCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value;
+    String paramLendItemCode = Get.find<OptionDialogLendItemController>().paramLendItemCode.value;
+    String paramLendDivisionCode = Get.find<CbLendDivisionController>().paramLendDivisionCode;
 
     if (paramCustomerCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
@@ -166,18 +141,13 @@ class LendReportCustomerController extends GetxController {
           paramLendDivisionCode);
 
       if (response.statusCode == 200) {
-        if ((parsedLendReportCustomer =
-                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
-            null) {
-          ShowSnackBar(
-              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedLendReportCustomer = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
+          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
 
-          controllerLendReportCustomer = parsedLendReportCustomer
-              .map((dataJson) => LendReportCustomerModel.fromJson(dataJson))
-              .toList();
+          controllerLendReportCustomer = parsedLendReportCustomer.map((dataJson) => LendReportCustomerModel.fromJson(dataJson)).toList();
         }
 
         Get.find<LendReportCustomerController>().setVisible();
@@ -185,8 +155,7 @@ class LendReportCustomerController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO,
-            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

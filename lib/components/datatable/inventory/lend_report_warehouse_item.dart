@@ -21,139 +21,141 @@ class LendReportWarehouseItem extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: context.theme.canvasColor,
-          padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, BASIC_PADDING.w, 0.h),
         ),
         onPressed: () {},
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Text(
-                      '용기공병',
-                      textAlign: TextAlign.center,
-                      style: context.textTheme.bodyMedium,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 6,
-                    child: Column(
-                      children: [
-                        Text(
-                          '전일재고',
-                          textAlign: TextAlign.center,
-                          style: context.textTheme.bodyMedium,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 14),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                '입용기',
-                                textAlign: TextAlign.center,
-                                style: context.textTheme.bodyMedium,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                '공용기',
-                                textAlign: TextAlign.center,
-                                style: context.textTheme.bodyMedium,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                '공병',
-                                textAlign: TextAlign.center,
-                                style: context.textTheme.bodyMedium,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                '상세',
-                                textAlign: TextAlign.right,
-                                style: context.textTheme.bodyMedium,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            ListView.separated(
-              primary: false,
-              shrinkWrap: true,
-              //padding: const EdgeInsets.all(10),
-              itemCount: dataList.length,
-              // Divider 로 구분자 추가.
-              separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(
-                height: 0,
-                color: CommonColors.gray,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Row(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+          child: Column(
+            children: [
+              Container(
+                child: Row(
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 4,
                       child: Text(
-                        dataList[index].lendItemName ?? '',
+                        '용기공병',
+                        textAlign: TextAlign.center,
                         style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Expanded(
-                      flex: 1,
-                      child: Text(
-                        dataList[index].last.quantity ?? '',
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.right,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        dataList[index].last.equipQuantity ?? '',
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.right,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        dataList[index].last.bottleQuantity,
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.right,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: IconButton(
-                        onPressed: () {
-                          ShowLendReportWarehouseDetailDialog(
-                              dataList[index], context);
-                        },
-                        icon: Icon(Icons.search,size: 24.sp,),
-                        alignment: Alignment.centerRight,
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Text(
+                            '전일재고',
+                            textAlign: TextAlign.center,
+                            style: context.textTheme.bodyMedium,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          SizedBox(height: BASIC_PADDING.h),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '입용기',
+                                  textAlign: TextAlign.center,
+                                  style: context.textTheme.bodyMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  '공용기',
+                                  textAlign: TextAlign.center,
+                                  style: context.textTheme.bodyMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  '공병',
+                                  textAlign: TextAlign.center,
+                                  style: context.textTheme.bodyMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  '상세',
+                                  textAlign: TextAlign.right,
+                                  style: context.textTheme.bodyMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     )
                   ],
-                );
-              },
-            ),
-          ],
+                ),
+              ),
+              ListView.separated(
+                primary: false,
+                shrinkWrap: true,
+                //padding: const EdgeInsets.all(10),
+                itemCount: dataList.length,
+                // Divider 로 구분자 추가.
+                separatorBuilder: (BuildContext context, int index) => const Divider(
+                  height: 0,
+                  color: CommonColors.gray,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          dataList[index].lendItemName ?? '',
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          dataList[index].last.quantity ?? '',
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          dataList[index].last.equipQuantity ?? '',
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          dataList[index].last.bottleQuantity,
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: IconButton(
+                          onPressed: () {
+                            ShowLendReportWarehouseDetailDialog(dataList[index], context);
+                          },
+                          icon: Icon(
+                            Icons.search,
+                            size: 24.sp,
+                          ),
+                          alignment: Alignment.centerRight,
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -171,9 +173,16 @@ void ShowLendReportWarehouseDetailDialog(var detailList, BuildContext context) {
             padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING.w, BASIC_PADDING.h),
             child: ListView(
               children: [
-                Text('용공수불현황 상세보기',style: context.textTheme.titleSmall
-                    ?.copyWith(fontWeight: FontWeight.bold, color: context.theme.colorScheme.onPrimary,),),
-                SizedBox(height: BASIC_PADDING.h,),
+                Text(
+                  '용공수불현황 상세보기',
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: context.theme.colorScheme.onPrimary,
+                  ),
+                ),
+                SizedBox(
+                  height: BASIC_PADDING.h,
+                ),
                 Divider(
                   height: 1.h,
                   color: context.theme.colorScheme.onPrimary,
