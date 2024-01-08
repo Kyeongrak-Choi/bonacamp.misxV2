@@ -16,7 +16,7 @@ class OptionTwoContent extends StatelessWidget {
     return Row(
       children: [
         Expanded(flex: 1, child: firstItem),
-        SizedBox(width: 50.w),
+        SizedBox(width: 30.w),
         Expanded(flex: 1, child: secondItem),
       ],
     );
