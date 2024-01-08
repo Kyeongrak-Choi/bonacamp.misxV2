@@ -95,7 +95,6 @@ class LendReportWarehouseItem extends StatelessWidget {
               ListView.separated(
                 primary: false,
                 shrinkWrap: true,
-                //padding: const EdgeInsets.all(10),
                 itemCount: dataList.length,
                 // Divider 로 구분자 추가.
                 separatorBuilder: (BuildContext context, int index) => const Divider(
