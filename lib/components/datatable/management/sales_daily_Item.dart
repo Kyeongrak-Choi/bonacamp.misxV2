@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../models/menu/management/sales_daily_model.dart';
+import '../../../utils/constants.dart';
 import '../../common/field/icon_title_two_field.dart';
 import '../../common/field/show_list_header_row.dart';
 
@@ -32,6 +34,11 @@ class SalesDailyItem extends StatelessWidget {
                     titleName: model.salesRepName ?? '', value: '');
               },
               body: Container(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    BASIC_PADDING * 2.w,
+                    BASIC_PADDING * 2.h,
+                    BASIC_PADDING * 2.w,
+                    BASIC_PADDING * 2.h),
                 color: context.theme.colorScheme.background,
                 child: Column(
                   children: [
