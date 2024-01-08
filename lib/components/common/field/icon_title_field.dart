@@ -16,7 +16,7 @@ class IconTitleField extends StatelessWidget {
       padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, 0.h),
+          padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
           child: Icon(
             iconData,
             size: 24.sp,
