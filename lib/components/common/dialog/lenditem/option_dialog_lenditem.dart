@@ -55,7 +55,7 @@ class OptionDialogLendItem extends StatelessWidget {
                         .value = ''.tr;
                     Get.find<OptionDialogLendItemController>().paramCode = '';
                   },
-                  icon: Icon(Icons.cancel_outlined,)),
+                  icon: Icon(Icons.cancel_outlined,size: 24.sp,)),
             ],
           ),
         ),

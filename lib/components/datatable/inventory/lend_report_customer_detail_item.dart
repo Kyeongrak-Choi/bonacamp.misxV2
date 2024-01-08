@@ -93,7 +93,7 @@ void ShowLendReportCustomerDetailDialog(var detailList, BuildContext context) {
                     ?.copyWith(fontWeight: FontWeight.bold, color: context.theme.colorScheme.onPrimary,),),
                 SizedBox(height: BASIC_PADDING.h,),
                 Divider(
-                  height: 1,
+                  height: 1.h,
                   color: context.theme.colorScheme.onPrimary,
                 ),
                 SizedBox(height: BASIC_PADDING.h,),
