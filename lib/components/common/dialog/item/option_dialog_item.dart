@@ -14,8 +14,7 @@ class OptionDialogItem extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(
-                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'title_search_item'.tr,
               textAlign: TextAlign.start,
@@ -33,30 +32,38 @@ class OptionDialogItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                child: Obx(() => Text(
-                      Get.find<OptionDialogItemController>()
-                          .selectedValue
-                          .value,
-                      style: context.textTheme.bodyMedium,
-                    )),
+              Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
+                    child: Obx(() => Text(
+                          Get.find<OptionDialogItemController>().selectedValue.value,
+                          style: context.textTheme.bodyMedium,
+                          overflow: TextOverflow.ellipsis,
+                        )),
+                  ),
+                ),
               ),
-              IconButton(
-                  onPressed: () {
-                    Get.find<OptionDialogItemController>().selectedValue.value =
-                        '전체';
-                    Get.find<OptionDialogItemController>().paramItemName.value =
-                        ''.tr;
-                    Get.find<OptionDialogItemController>().paramItemCode.value =
-                        ''.tr;
-                    Get.find<OptionDialogItemController>().paramCode = '';
-                  },
-                  icon: Icon(Icons.cancel_outlined,size: 24.sp,)),
-              // Expanded(
-              //   flex: 1,
-              //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
-              // ),
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                      onPressed: () {
+                        Get.find<OptionDialogItemController>().selectedValue.value = '전체';
+                        Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
+                        Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
+                        Get.find<OptionDialogItemController>().paramCode = '';
+                      },
+                      icon: Icon(
+                        Icons.cancel_outlined,
+                        size: 24.sp,
+                      )),
+                ),
+              ),
+
             ],
           ),
         ),

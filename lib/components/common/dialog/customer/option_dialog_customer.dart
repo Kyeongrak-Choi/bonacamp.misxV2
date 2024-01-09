@@ -14,8 +14,7 @@ class OptionDialogCustomer extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(
-                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'title_search_customer'.tr,
               textAlign: TextAlign.start,
@@ -36,23 +35,16 @@ class OptionDialogCustomer extends StatelessWidget {
               TextButton(
                 onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
                 child: Obx(() => Text(
-                      Get.find<OptionDialogCustomerController>()
-                          .selectedValue
-                          .value,
+                      Get.find<OptionDialogCustomerController>().selectedValue.value,
                       style: context.textTheme.bodyMedium,
+                      overflow: TextOverflow.ellipsis,
                     )),
               ),
               IconButton(
                   onPressed: () {
-                    Get.find<OptionDialogCustomerController>()
-                        .selectedValue
-                        .value = '전체';
-                    Get.find<OptionDialogCustomerController>()
-                        .paramCustomerName
-                        .value = ''.tr;
-                    Get.find<OptionDialogCustomerController>()
-                        .paramCustomerCode
-                        .value = ''.tr;
+                    Get.find<OptionDialogCustomerController>().selectedValue.value = '전체';
+                    Get.find<OptionDialogCustomerController>().paramCustomerName.value = ''.tr;
+                    Get.find<OptionDialogCustomerController>().paramCustomerCode.value = ''.tr;
                     Get.find<OptionDialogCustomerController>().paramCode = '';
                   },
                   icon: Icon(
