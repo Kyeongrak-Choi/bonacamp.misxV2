@@ -22,13 +22,13 @@ class CustomerInfoGraph extends StatelessWidget {
             iconWidth: 10.0,
             iconHeight: 10.0,
             overflowMode: LegendItemOverflowMode.wrap,
-            textStyle: context.textTheme.displaySmall,
+            textStyle: context.textTheme.bodyMedium,
             alignment: ChartAlignment.center,
             position: LegendPosition.top,
           ),
           tooltipBehavior: TooltipBehavior(
               enable: true,
-              textStyle: context.textTheme.displaySmall,
+              textStyle: context.textTheme.bodyMedium,
               color: context.theme.canvasColor),
           series: <ChartSeries<ChartSpot, String>>[
             StackedLineSeries<ChartSpot, String>(

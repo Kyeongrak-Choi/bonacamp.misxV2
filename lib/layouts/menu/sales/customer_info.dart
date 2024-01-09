@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
@@ -31,86 +32,84 @@ class CustomerInfo extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_customer_info'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<CustomerInfoController>()
-                                .visible
-                                .value,
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.theme.cardColor,
-                                    borderRadius: BorderRadius.circular(15),
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.all(15),
-                                    child: Column(
-                                      children: [
-                                        OptionTwoContent(OptionDialogCustomer(),
-                                            OptionCbBranch()),
-                                        OptionBtnSearch(
-                                            ROUTE_MENU_CUSTOMER_INFO),
-                                      ],
-                                    ),
-                                  ),
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<CustomerInfoController>()
+                            .visible
+                            .value,
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionTwoContent(OptionDialogCustomer(),
+                                        OptionCbBranch()),
+                                    OptionBtnSearch(
+                                        ROUTE_MENU_CUSTOMER_INFO),
+                                  ],
                                 ),
-                              ],
-                            )),
-                        SizedBox(
-                          height:
-                              Get.find<CustomerInfoController>().visible.value
-                                  ? 20
-                                  : 0,
-                        ),
-                        Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value
-                              ? 4
-                              : 3,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
+                              ),
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: setChild(),
-                            ),
-                          ),
+                          ],
+                        )),
+                    SizedBox(
+                      height:
+                          Get.find<CustomerInfoController>().visible.value
+                              ? BASIC_PADDING.h
+                              : 0,
+                    ),
+                    Expanded(
+                      flex: Get.find<CustomerInfoController>().visible.value
+                          ? 4
+                          : 3,
+                      child: Container(
+                        child: setChild(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: BASIC_PADDING.h,
+                    ),
+                    Expanded(
+                      flex: Get.find<CustomerInfoController>().visible.value
+                          ? 6
+                          : 7,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
                         ),
-                        SizedBox(
-                          height: 20,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: CustomerInfoTable(),
                         ),
-                        Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value
-                              ? 6
-                              : 7,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: CustomerInfoTable(),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible:
