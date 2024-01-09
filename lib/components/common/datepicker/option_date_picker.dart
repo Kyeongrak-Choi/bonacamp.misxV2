@@ -32,7 +32,7 @@ class OptionDatePicker extends StatelessWidget {
             border: Border.all(color: context.theme.colorScheme.background),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                   onPressed: () {
