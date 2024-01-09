@@ -22,7 +22,7 @@ class IconTitleThreeField extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       Icon(iconData,size: 14.sp,),
       Expanded(
-        flex: 3,
+        flex: 2,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(

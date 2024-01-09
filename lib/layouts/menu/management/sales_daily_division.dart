@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -34,7 +35,7 @@ class SalesDailyDivision extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_salesdaily_division'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
                 Column(
@@ -46,121 +47,132 @@ class SalesDailyDivision extends StatelessWidget {
                           color: context.theme.cardColor,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(15),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('일자 합계'),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                              SumTitleTable('일자 합계', controller: Get.find<SalesDailyDivisionController>(),),
+                              Visibility(
+                                visible: Get.find<SalesDailyDivisionController>().sumTableVisible.value,
+                                child: Column(
                                   children: [
-                                    Expanded(
-                                      flex: 3,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 0, 10),
-                                        child: Text(
-                                          '',
-                                          style: context.textTheme.titleSmall,
-                                          textAlign: TextAlign.start,
-                                        ),
-                                      ),
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            flex: 2,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(
+                                                  BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+                                              child: Text(
+                                                '',
+                                                style: context.textTheme.titleSmall,
+                                                textAlign: TextAlign.start,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 2,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(
+                                                  BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+                                              child: Text(
+                                                'BOX',
+                                                style: context.textTheme.titleSmall,
+                                                textAlign: TextAlign.end,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 2,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(
+                                                  BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+                                              child: Text(
+                                                'EA',
+                                                style: context.textTheme.titleSmall,
+                                                textAlign: TextAlign.end,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 2,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(
+                                                  BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+                                              child: Text(
+                                                '금액',
+                                                style: context.textTheme.titleSmall,
+                                                textAlign: TextAlign.end,
+                                              ),
+                                            ),
+                                          ),
+                                        ]),
+                                    IconTitleThreeField(
+                                      titleName: '유흥합계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat
+                                          .format(divisionController.pleasureBoxSum),
+                                      value2: numberFormat.format(
+                                          divisionController.pleasureBottleSum),
+                                      value3: numberFormat.format(
+                                          divisionController.pleasureAmountSum),
                                     ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 0, 10),
-                                        child: Text(
-                                          'BOX',
-                                          style: context.textTheme.titleSmall,
-                                          textAlign: TextAlign.end,
-                                        ),
-                                      ),
+                                    IconTitleThreeField(
+                                      titleName: '일반합계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat
+                                          .format(divisionController.normalBoxSum),
+                                      value2: numberFormat
+                                          .format(divisionController.normalBottleSum),
+                                      value3: numberFormat
+                                          .format(divisionController.normalAmountSum),
                                     ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 0, 10),
-                                        child: Text(
-                                          'EA',
-                                          style: context.textTheme.titleSmall,
-                                          textAlign: TextAlign.end,
-                                        ),
-                                      ),
+                                    IconTitleThreeField(
+                                      titleName: '합     계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat
+                                          .format(divisionController.totBoxSum),
+                                      value2: numberFormat
+                                          .format(divisionController.totBottleSum),
+                                      value3: numberFormat
+                                          .format(divisionController.totAmountSum),
                                     ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 0, 10),
-                                        child: Text(
-                                          '금액',
-                                          style: context.textTheme.titleSmall,
-                                          textAlign: TextAlign.end,
-                                        ),
-                                      ),
+                                    IconTitleThreeField(
+                                      titleName: '유흥누계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat.format(
+                                          divisionController.pleasureBoxQuantity),
+                                      value2: numberFormat.format(
+                                          divisionController.pleasureBottleQuantity),
+                                      value3: numberFormat.format(
+                                          divisionController.pleasureAmountQuantity),
                                     ),
-                                  ]),
-                              IconTitleThreeField(
-                                titleName: '유흥합계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat
-                                    .format(divisionController.pleasureBoxSum),
-                                value2: numberFormat.format(
-                                    divisionController.pleasureBottleSum),
-                                value3: numberFormat.format(
-                                    divisionController.pleasureAmountSum),
-                              ),
-                              IconTitleThreeField(
-                                titleName: '일반합계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat
-                                    .format(divisionController.normalBoxSum),
-                                value2: numberFormat
-                                    .format(divisionController.normalBottleSum),
-                                value3: numberFormat
-                                    .format(divisionController.normalAmountSum),
-                              ),
-                              IconTitleThreeField(
-                                titleName: '합     계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat
-                                    .format(divisionController.totBoxSum),
-                                value2: numberFormat
-                                    .format(divisionController.totBottleSum),
-                                value3: numberFormat
-                                    .format(divisionController.totAmountSum),
-                              ),
-                              IconTitleThreeField(
-                                titleName: '유흥누계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat.format(
-                                    divisionController.pleasureBoxQuantity),
-                                value2: numberFormat.format(
-                                    divisionController.pleasureBottleQuantity),
-                                value3: numberFormat.format(
-                                    divisionController.pleasureAmountQuantity),
-                              ),
-                              IconTitleThreeField(
-                                titleName: '일반누계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat.format(
-                                    divisionController.normalBoxQuantity),
-                                value2: numberFormat.format(
-                                    divisionController.normalBottleQuantity),
-                                value3: numberFormat.format(
-                                    divisionController.normalAmountQuantity),
-                              ),
-                              IconTitleThreeField(
-                                titleName: '누     계',
-                                iconData: Icons.label_outlined,
-                                value1: numberFormat
-                                    .format(divisionController.totBoxQuantity),
-                                value2: numberFormat.format(
-                                    divisionController.totBottleQuantity),
-                                value3: numberFormat.format(
-                                    divisionController.totAmountQuantity),
+                                    IconTitleThreeField(
+                                      titleName: '일반누계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat.format(
+                                          divisionController.normalBoxQuantity),
+                                      value2: numberFormat.format(
+                                          divisionController.normalBottleQuantity),
+                                      value3: numberFormat.format(
+                                          divisionController.normalAmountQuantity),
+                                    ),
+                                    IconTitleThreeField(
+                                      titleName: '누     계',
+                                      iconData: Icons.label_outlined,
+                                      value1: numberFormat
+                                          .format(divisionController.totBoxQuantity),
+                                      value2: numberFormat.format(
+                                          divisionController.totBottleQuantity),
+                                      value3: numberFormat.format(
+                                          divisionController.totAmountQuantity),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -168,58 +180,45 @@ class SalesDailyDivision extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: Column(
-                          children: [
-                            Visibility(
-                              visible: divisionController.visible.value,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: Column(
-                                    children: [
-                                      OptionTwoContent(
-                                          OptionDatePicker(), OptionCbBranch()),
-                                      OptionTwoContent(
-                                          OptionCbEmployee(), OptionCbTeam()),
-                                      OptionBtnSearch(
-                                          ROUTE_MENU_DIVISIONSTATUS),
-                                    ],
-                                  ),
+                      child: Column(
+                        children: [
+                          Visibility(
+                            visible: divisionController.visible.value,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionTwoContent(
+                                        OptionDatePicker(), OptionCbBranch()),
+                                    OptionTwoContent(
+                                        OptionCbEmployee(), OptionCbTeam()),
+                                    OptionBtnSearch(
+                                        ROUTE_MENU_DIVISIONSTATUS),
+                                  ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: Get.find<SalesDailyDivisionController>()
-                                      .visible
-                                      .value
-                                  ? 20
-                                  : 0,
-                            ),
-                            Expanded(
-                              flex: 45,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: ListView(
-                                    children: <Widget>[setChild()],
-                                  ),
-                                ),
+                          ),
+                          SizedBox(
+                            height: BASIC_PADDING.h,
+                          ),
+                          Expanded(
+                            flex: 45,
+                            child: Container(
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -227,7 +226,11 @@ class SalesDailyDivision extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible: Get.find<SalesDailyDivisionController>()
@@ -236,8 +239,7 @@ class SalesDailyDivision extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesDailyDivisionController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -265,6 +267,7 @@ class SalesDailyDivision extends StatelessWidget {
 
 class SalesDailyDivisionController extends GetxController {
   var visible = true.obs;
+  var sumTableVisible = true.obs;
   var salesDailyDivisionList;
 
   int pleasureBoxSum = 0;
@@ -289,6 +292,10 @@ class SalesDailyDivisionController extends GetxController {
 
   setVisible() async {
     visible.value = !visible.value;
+  }
+
+  setSumTableVisible() async {
+    sumTableVisible.value = !sumTableVisible.value;
   }
 
   Future calBoxBottleSum() async {
