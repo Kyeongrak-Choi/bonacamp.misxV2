@@ -169,8 +169,7 @@ class BalanceRentalReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<BalanceRentalReportController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

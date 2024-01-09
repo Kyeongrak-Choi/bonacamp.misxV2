@@ -83,7 +83,7 @@ class LendReportSalesperson extends StatelessWidget {
                       onPressed: () {
                         Get.find<LendReportSalespersonController>().setVisible();
                       },
-                      backgroundColor: context.theme.colorScheme.background,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

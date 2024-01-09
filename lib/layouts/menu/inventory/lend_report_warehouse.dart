@@ -80,7 +80,7 @@ class LendReportWarehouse extends StatelessWidget {
                       onPressed: () {
                         Get.find<LendReportWarehouseController>().setVisible();
                       },
-                      backgroundColor: context.theme.colorScheme.background,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

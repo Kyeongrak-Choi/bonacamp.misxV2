@@ -118,8 +118,7 @@ class CustomerInfo extends StatelessWidget {
                       onPressed: () {
                         Get.find<CustomerInfoController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

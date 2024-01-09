@@ -138,8 +138,7 @@ class PurchaseReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<PurchaseReportController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
