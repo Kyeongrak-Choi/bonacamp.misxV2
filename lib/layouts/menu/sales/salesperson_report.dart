@@ -17,6 +17,7 @@ import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_one_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/salesperson_report_item.dart';
 import '../../../models/menu/sales/salesperson_report_model.dart';
@@ -33,7 +34,7 @@ class SalesPersonReport extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_salesperson_report'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
                 Column(
@@ -47,97 +48,104 @@ class SalesPersonReport extends StatelessWidget {
                           color: context.theme.cardColor,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(15),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('기간 합계'),
-                              SumItemTable(
-                                  '매출액',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumTotal),
-                                  '공급가',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumPrice)),
-                              SumItemTable(
-                                  '합계',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumAmount),
-                                  '입금합계',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumDeposit)),
-                              SumItemTable(
-                                  '채권잔액',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumBalance),
-                                  '매출이익',
-                                  numberFormat.format(
-                                      Get.find<SalesPersonReportController>()
-                                          .sumMargin)),
+                              SumTitleTable('기간 합계', controller: Get.find<SalesPersonReportController>(),),
+                              Visibility(
+                                visible: Get.find<SalesPersonReportController>().sumTableVisible.value,
+                                child: Column(
+                                  children: [
+                                    SumOneItemTable(
+                                        '매출액',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumTotal) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '공급가',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumPrice) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '합계',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumAmount) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '입금합계',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumDeposit) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '채권잔액',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumBalance) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '매출이익',
+                                        numberFormat.format(
+                                            Get.find<SalesPersonReportController>()
+                                                .sumMargin) + ' 원'
+                                    ),
+                                  ],
+                                )
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: Column(
-                          children: [
-                            Visibility(
-                              visible: Get.find<SalesPersonReportController>()
-                                  .visible
-                                  .value,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: Column(
-                                    children: [
-                                      OptionPeriodPicker(),
-                                      OptionTwoContent(OptionCbBranch(),
-                                          OptionCbSalesType()),
-                                      OptionTwoContent(OptionCbEmployee(),
-                                          OptionCbManager()),
-                                      OptionBtnSearch(
-                                          ROUTE_MENU_SALESPERSON_REPORT),
-                                    ],
-                                  ),
+                      child: Column(
+                        children: [
+                          Visibility(
+                            visible: Get.find<SalesPersonReportController>()
+                                .visible
+                                .value,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionPeriodPicker(),
+                                    OptionTwoContent(OptionCbBranch(),
+                                        OptionCbSalesType()),
+                                    OptionTwoContent(OptionCbEmployee(),
+                                        OptionCbManager()),
+                                    OptionBtnSearch(
+                                        ROUTE_MENU_SALESPERSON_REPORT),
+                                  ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: Get.find<SalesPersonReportController>()
-                                      .visible
-                                      .value
-                                  ? 20
-                                  : 0,
-                            ),
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: ListView(
-                                    children: <Widget>[setChild()],
-                                  ),
-                                ),
+                          ),
+                          SizedBox(
+                            height: BASIC_PADDING.h
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -190,9 +198,14 @@ class SalesPersonReportController extends GetxController {
   int sumMargin = 0;
 
   var visible = true.obs;
+  var sumTableVisible = true.obs;
 
   setVisible() async {
     visible.value = !visible.value;
+  }
+
+  setSumTableVisible() async {
+    sumTableVisible.value = !sumTableVisible.value;
   }
 
   Future showResult() async {
