@@ -14,20 +14,18 @@ class DashBoardCurrent extends StatelessWidget {
     return GetBuilder<DashBoardController>(
         builder: (DashBoardController controller) {
       return Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(
                 0.w, BASIC_PADDING * 2.h, 0.w, BASIC_PADDING.h),
-            child: Container(
-              child: IconTitleFieldDash(
-                titleName: 'dashboard_sales'.tr,
-                value: controller.controllerCurrentModel != null
-                    ? numberFormat
-                        .format(controller.controllerCurrentModel.salesAmount)
-                    : '0',
-                iconData: Icons.label_outlined,
-              ),
+            child: IconTitleFieldDash(
+              titleName: 'dashboard_sales'.tr,
+              value: controller.controllerCurrentModel != null
+                  ? numberFormat
+                      .format(controller.controllerCurrentModel.salesAmount)
+                  : '0',
+              iconData: Icons.label_outlined,
             ),
           ),
           Padding(
