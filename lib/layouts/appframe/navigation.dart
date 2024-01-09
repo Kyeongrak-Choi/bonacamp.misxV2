@@ -44,10 +44,11 @@ class Navigation extends GetView<NavigationController> {
           // ),
           centerTitle: false,
           title: Image.asset(
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false)
                 ? 'lib/assets/icons/Dionysos_dark.png'
                 : 'lib/assets/icons/Dionysos_light.png',
+
           ),
           automaticallyImplyLeading: false,
           // bottom: PreferredSize(

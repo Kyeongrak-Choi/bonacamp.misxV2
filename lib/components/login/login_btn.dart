@@ -29,7 +29,7 @@ class LoginBtn extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-            height: BASIC_PADDING * 7.h,
+            height: BASIC_PADDING * 5.h,
             child: ElevatedButton(
                 onPressed: () async {
                   ShowProgress(context);

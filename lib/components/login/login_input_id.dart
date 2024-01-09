@@ -15,7 +15,7 @@ class LoginInputId extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: BASIC_PADDING * 7.h,
+            //height: BASIC_PADDING * 7.h,
             child: TextFormField(
           obscureText: false,
           maxLength: 20,
@@ -52,11 +52,11 @@ class LoginInputId extends StatelessWidget {
             ),
             filled: true,
             fillColor: context.theme.colorScheme.surface,
-            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                BASIC_PADDING * 3.w,
-                BASIC_PADDING * 3.h,
-                BASIC_PADDING * 3.w,
-                BASIC_PADDING * 3.h),
+            // contentPadding: EdgeInsetsDirectional.fromSTEB(
+            //     BASIC_PADDING * 3.w,
+            //     BASIC_PADDING * 3.h,
+            //     BASIC_PADDING * 3.w,
+            //     BASIC_PADDING * 3.h),
             counterText: '',
           ),textAlignVertical: TextAlignVertical.center,
           initialValue: Hive.box(LOCAL_DB).get(KEY_SAVED_ID),
@@ -67,7 +67,7 @@ class LoginInputId extends StatelessWidget {
           ),
           Divider(height: 1),
           Container(
-            height: BASIC_PADDING * 7.h,
+            //height: BASIC_PADDING * 7.h,
             child: TextFormField(
               obscureText: true,
               maxLength: 16,
@@ -103,11 +103,11 @@ class LoginInputId extends StatelessWidget {
                 ),
                 filled: true,
                 fillColor: context.theme.colorScheme.surface,
-                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                    BASIC_PADDING * 3.w,
-                    BASIC_PADDING * 3.h,
-                    BASIC_PADDING * 3.w,
-                    BASIC_PADDING * 3.h),
+                // contentPadding: EdgeInsetsDirectional.fromSTEB(
+                //     BASIC_PADDING * 3.w,
+                //     BASIC_PADDING * 3.h,
+                //     BASIC_PADDING * 3.w,
+                //     BASIC_PADDING * 3.h),
                 counterText: '',
               ),
               onChanged: (text) {

@@ -14,7 +14,7 @@ class DashBoardMonth extends StatelessWidget {
     return GetBuilder<DashBoardController>(
         builder: (DashBoardController controller) {
       return Column(
-        //mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(

@@ -62,7 +62,7 @@ class DashBoardTab extends StatelessWidget {
                 color: CommonColors.black,
               ),
               SizedBox(
-                height: BASIC_PADDING * 25.h,
+                height: BASIC_PADDING * 28.h,
                 child: TabBarView(
                   controller: controller.tabController,
                   children: [

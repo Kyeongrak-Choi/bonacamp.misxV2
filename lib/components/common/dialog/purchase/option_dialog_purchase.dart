@@ -32,24 +32,37 @@ class OptionDialogPurchase extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () => Get.toNamed(ROUTE_DIALOG_PURCHASE),
-                child: Obx(() => Text(
-                      Get.find<OptionDialogPurchaseController>().selectedValue.value,
-                      style: context.textTheme.bodyMedium,
-                    )),
+              Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () => Get.toNamed(ROUTE_DIALOG_PURCHASE),
+                    child: Obx(() => Text(
+                          Get.find<OptionDialogPurchaseController>().selectedValue.value,
+                          style: context.textTheme.bodyMedium,
+                      overflow: TextOverflow.ellipsis,
+                        )),
+                  ),
+                ),
               ),
-              IconButton(
-                  onPressed: () {
-                    Get.find<OptionDialogPurchaseController>().selectedValue.value = '전체';
-                    Get.find<OptionDialogPurchaseController>().paramPurchaseName.value = ''.tr;
-                    Get.find<OptionDialogPurchaseController>().paramPurchaseCode.value = ''.tr;
-                    Get.find<OptionDialogPurchaseController>().paramCode = '';
-                  },
-                  icon: Icon(
-                    Icons.cancel_outlined,
-                    size: 24.sp,
-                  )),
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                      onPressed: () {
+                        Get.find<OptionDialogPurchaseController>().selectedValue.value = '전체';
+                        Get.find<OptionDialogPurchaseController>().paramPurchaseName.value = ''.tr;
+                        Get.find<OptionDialogPurchaseController>().paramPurchaseCode.value = ''.tr;
+                        Get.find<OptionDialogPurchaseController>().paramCode = '';
+                      },
+                      icon: Icon(
+                        Icons.cancel_outlined,
+                        size: 24.sp,
+                      )),
+                ),
+              ),
               // Expanded(
               //   flex: 1,
               //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),

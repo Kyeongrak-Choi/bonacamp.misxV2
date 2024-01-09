@@ -23,7 +23,7 @@ class IconTitleField extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 5,
+          flex: 4,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
             child: Text(
@@ -34,7 +34,7 @@ class IconTitleField extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 5,
+          flex: 6,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
             child: Text(
