@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:misxV2/components/common/field/icon_title_two_field.dart';
 
 import '../../../models/menu/inventory/inventory_in_out_report_model.dart';
 import '../../../utils/constants.dart';

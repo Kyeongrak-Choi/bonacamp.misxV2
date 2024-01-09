@@ -6,7 +6,6 @@ import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_list_model.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 import '../../common/field/icon_title_three_field.dart';
 

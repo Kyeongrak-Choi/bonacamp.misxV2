@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
-import '../../../../utils/theme/text_theme.dart';
 
 class OptionDialogCustomer extends StatelessWidget {
   @override
@@ -30,20 +29,23 @@ class OptionDialogCustomer extends StatelessWidget {
             border: Border.all(color: context.theme.colorScheme.background),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 flex: 3,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
-                    child: Obx(() => Text(
-                          Get.find<OptionDialogCustomerController>().selectedValue.value,
-                          style: context.textTheme.bodyMedium,
-                          overflow: TextOverflow.ellipsis,
-                        )),
-                  ),
+                child: TextButton(
+                  onPressed: () => Get.toNamed(ROUTE_DIALOG_CUSTOMER),
+                  child: Obx(() => Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                            Get.find<OptionDialogCustomerController>().selectedValue.value,
+                            style: context.textTheme.bodyMedium,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                    ),
+                  )),
                 ),
               ),
               Expanded(

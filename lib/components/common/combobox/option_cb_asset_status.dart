@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 
 import '../../../models/system/common.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbAssetStatus extends StatelessWidget {
   @override

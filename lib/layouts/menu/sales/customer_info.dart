@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
@@ -21,7 +22,6 @@ import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart'
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerInfo extends StatelessWidget {
@@ -110,7 +110,11 @@ class CustomerInfo extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible:

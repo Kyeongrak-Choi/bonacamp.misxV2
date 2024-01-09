@@ -21,7 +21,6 @@ import '../../../models/menu/inventory/lend_report_customer_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class LendReportCustomer extends StatelessWidget {

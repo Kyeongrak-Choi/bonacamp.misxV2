@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/branch.dart';
-import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../../utils/constants.dart';
 

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -22,7 +23,6 @@ import '../../../models/menu/sales/sales_ledger/sales_ledger_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesLedger extends StatelessWidget {
@@ -150,7 +150,11 @@ class SalesLedger extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible:

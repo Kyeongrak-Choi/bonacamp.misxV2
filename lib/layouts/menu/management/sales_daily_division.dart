@@ -23,7 +23,6 @@ import '../../../models/menu/management/sales_daily_division_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesDailyDivision extends StatelessWidget {

@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 
 import '../../../models/system/warehouse.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbWarehouses extends StatelessWidget {
   @override

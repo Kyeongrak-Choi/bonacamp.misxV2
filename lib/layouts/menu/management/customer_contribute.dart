@@ -18,7 +18,6 @@ import '../../../models/menu/management/customer_contribute_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerContribute extends StatelessWidget {

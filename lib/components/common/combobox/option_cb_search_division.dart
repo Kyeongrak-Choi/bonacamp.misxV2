@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbSearchDivision extends StatelessWidget {
   @override

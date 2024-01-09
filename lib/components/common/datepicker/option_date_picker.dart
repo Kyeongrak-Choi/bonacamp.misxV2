@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionDatePicker extends StatelessWidget {
   @override
