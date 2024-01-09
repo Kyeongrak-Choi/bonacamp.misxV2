@@ -157,8 +157,7 @@ class BanlanceReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<BalanceReportController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

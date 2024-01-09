@@ -158,8 +158,7 @@ class SalesRentalLedger extends StatelessWidget {
                       onPressed: () {
                         Get.find<SalesRentalLedgerController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

@@ -6,6 +6,7 @@ import 'package:custom_info_window/custom_info_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,6 +14,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../../models/menu/location/place_model.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field_small_interval.dart';
 
@@ -121,19 +124,16 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
 
   Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
     return Container(
-      color: context.theme.cardColor,
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width * 0.85,
+      color: context.theme.canvasColor,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width ,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
             child: Text(
               cluster.items.first.locationInfo.name ?? '',
-              style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold),
+              style: context.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           ),
@@ -169,7 +169,10 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                   value: cluster.items.first.locationInfo.salesDate ?? '',
                   iconData: Icons.date_range,
                 ),
-                SizedBox(height: 14),
+                const Divider(
+                    height: 1,
+                    color: CommonColors.gray
+                ),
                 IconTitleFieldSmallInterval(
                   titleName: '당일 매출'.tr,
                   value: cluster.items.first.locationInfo.amount,
@@ -185,7 +188,10 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                   value: cluster.items.first.locationInfo.deposit,
                   iconData: Icons.money,
                 ),
-                SizedBox(height: 14),
+                const Divider(
+                    height: 1,
+                    color: CommonColors.gray
+                ),
                 IconTitleFieldSmallInterval(
                   titleName: '미수 잔액'.tr,
                   value: cluster.items.first.locationInfo.remainDeposit,
@@ -352,9 +358,11 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       ),
       CustomInfoWindow(
         controller: customInfoWindowController,
-        height: 485,
-        width: 250,
+        // height: 485,
+        // width: 250,
         offset: 0,
+        height: MediaQuery.of(context).size.height * 0.3,
+        width: MediaQuery.of(context).size.width * 0.8 ,
       ),
     ]));
   }

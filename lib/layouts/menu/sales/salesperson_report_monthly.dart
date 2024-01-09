@@ -110,8 +110,7 @@ class SalesPersonReportMonthly extends StatelessWidget {
                         Get.find<SalesPersonReportMonthlyController>()
                             .setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

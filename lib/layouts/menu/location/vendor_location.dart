@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -30,63 +31,55 @@ class VendorLocation extends StatelessWidget {
           appBar:
               AppBar(title: Text('menu_sub_vendor_location'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible:
-                            Get.find<VendorLocationController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionDatePicker(),
-                                OptionTwoContent(
-                                    OptionCbBranch(), OptionCbEmployee()),
-                                OptionTwoContent(OptionCbCustomerStatus(),
-                                    OptionCbBusiness()),
-                                OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
-                                //SizedBox(height: 14),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible:
+                          Get.find<VendorLocationController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.canvasColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: Column(
+                            children: [
+                              OptionDatePicker(),
+                              OptionTwoContent(
+                                  OptionCbBranch(), OptionCbEmployee()),
+                              OptionTwoContent(OptionCbCustomerStatus(),
+                                  OptionCbBusiness()),
+                              OptionBtnSearch(ROUTE_MENU_VENDORLOCATION),
+                              //SizedBox(height: 14),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height:
-                            Get.find<VendorLocationController>().visible.value
-                                ? 20
-                                : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: VendorLocationItem(),
-                            )),
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: BASIC_PADDING.h,
+                    ),
+                    Expanded(
+                      child: Container(
+                          child: VendorLocationItem()),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible: Get.find<VendorLocationController>()
@@ -95,8 +88,7 @@ class VendorLocation extends StatelessWidget {
                       onPressed: () {
                         Get.find<VendorLocationController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

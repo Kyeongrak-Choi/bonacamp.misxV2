@@ -120,7 +120,7 @@ class InventoryInOutReport extends StatelessWidget {
                       onPressed: () {
                         Get.find<InventoryInOutReportController>().setVisible();
                       },
-                      backgroundColor: context.theme.colorScheme.background,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

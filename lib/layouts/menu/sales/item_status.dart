@@ -81,8 +81,7 @@ class ItemStatus extends StatelessWidget {
                       onPressed: () {
                         Get.find<ItemStatusController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
