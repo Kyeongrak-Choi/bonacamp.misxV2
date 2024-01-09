@@ -37,7 +37,7 @@ class OptionCbBranch extends StatelessWidget {
               padding: EdgeInsetsDirectional.fromSTEB(
                   BASIC_PADDING * 2.w, 0.h, BASIC_PADDING * 2.w, 0.h),
               isExpanded: true,
-              //menuMaxHeight: BASIC_PADDING * 30.h,
+              menuMaxHeight: BASIC_PADDING * 30.h,
               value: Get.find<CbBranchController>().selectedValue,
               style: context.textTheme.bodyMedium,
               decoration: InputDecoration(border: InputBorder.none),

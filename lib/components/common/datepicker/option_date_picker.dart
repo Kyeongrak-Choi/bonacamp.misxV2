@@ -101,7 +101,7 @@ class DatePickerController extends GetxController {
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
               titleMedium:
-                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+                  TextStyle(fontSize: 16.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,
