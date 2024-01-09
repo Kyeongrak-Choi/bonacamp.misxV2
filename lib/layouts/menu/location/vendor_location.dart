@@ -20,7 +20,6 @@ import '../../../components/datatable/location/vendor_location_item.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class VendorLocation extends StatelessWidget {

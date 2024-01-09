@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 import 'package:misxV2/models/system/common.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbSalesClass extends StatelessWidget {
   @override

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
-import '../../../../utils/theme/text_theme.dart';
 
 class OptionDialogItem extends StatelessWidget {
   @override
@@ -34,16 +33,19 @@ class OptionDialogItem extends StatelessWidget {
             children: [
               Expanded(
                 flex: 3,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                    child: Obx(() => Text(
-                          Get.find<OptionDialogItemController>().selectedValue.value,
-                          style: context.textTheme.bodyMedium,
-                          overflow: TextOverflow.ellipsis,
-                        )),
-                  ),
+                child: TextButton(
+                  onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
+                  child: Obx(() => Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                            Get.find<OptionDialogItemController>().selectedValue.value,
+                            style: context.textTheme.bodyMedium,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                    ),
+                  )),
                 ),
               ),
               Expanded(

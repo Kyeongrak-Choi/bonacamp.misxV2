@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 
 import '../../../models/system/team.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbTeam extends StatelessWidget {
   @override
