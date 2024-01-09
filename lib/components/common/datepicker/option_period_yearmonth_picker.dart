@@ -32,71 +32,98 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: context.theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(8),
-            shape: BoxShape.rectangle,
-            border: Border.all(color: context.theme.colorScheme.background),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Get.find<PeriodYearmonthPickerController>()
-                        .chooseFromYearmonth();
-                  },
-                  icon: ImageIcon(
-                    AssetImage('lib/assets/icons/calendar.png'),
-                    size: 24.sp,
-                  )),
-              Obx(
-                () => TextButton(
-                  onPressed: () =>
-                      Get.find<PeriodYearmonthPickerController>()
-                          .chooseFromYearmonth(),
-                  child: Text(
-                    DateFormat('yyyy-MM')
-                        .format(Get.find<PeriodYearmonthPickerController>()
-                            .fromYearMonth
-                            .value)
-                        .toString(),
-                    style: context.textTheme.bodyMedium,
-                  ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: context.theme.colorScheme.background),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.find<PeriodYearmonthPickerController>()
+                              .chooseFromYearmonth();
+                        },
+                        icon: ImageIcon(
+                          AssetImage('lib/assets/icons/calendar.png'),
+                          size: 24.sp,
+                        )),
+                    Obx(
+                      () => TextButton(
+                        onPressed: () =>
+                            Get.find<PeriodYearmonthPickerController>()
+                                .chooseFromYearmonth(),
+                        child: Text(
+                          DateFormat('yyyy-MM')
+                              .format(Get.find<PeriodYearmonthPickerController>()
+                                  .fromYearMonth
+                                  .value)
+                              .toString(),
+                          style: context.textTheme.bodyMedium,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                ' ~ ',
+            ),
+
+            Container(
+              padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING.w, 0.h),
+              child: Text(
+                ' - ',
                 style: context.textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
-              IconButton(
-                  onPressed: () {
-                    Get.find<PeriodYearmonthPickerController>()
-                        .chooseToYearmonth();
-                  },
-                  icon: ImageIcon(
-                    AssetImage('lib/assets/icons/calendar.png'),
-                    size: 24.sp,
-                  )),
-              Obx(
-                () => TextButton(
-                  onPressed: () =>
-                      Get.find<PeriodYearmonthPickerController>()
-                          .chooseToYearmonth(),
-                  child: Text(
-                      DateFormat('yyyy-MM')
-                          .format(
-                              Get.find<PeriodYearmonthPickerController>()
-                                  .toYearMonth
-                                  .value)
-                          .toString(),
-                      style: context.textTheme.bodyMedium),
+            ),
+
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: context.theme.colorScheme.background),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.find<PeriodYearmonthPickerController>()
+                              .chooseToYearmonth();
+                        },
+                        icon: ImageIcon(
+                          AssetImage('lib/assets/icons/calendar.png'),
+                          size: 24.sp,
+                        )),
+                    Obx(
+                          () => TextButton(
+                        onPressed: () =>
+                            Get.find<PeriodYearmonthPickerController>()
+                                .chooseToYearmonth(),
+                        child: Text(
+                            DateFormat('yyyy-MM')
+                                .format(
+                                Get.find<PeriodYearmonthPickerController>()
+                                    .toYearMonth
+                                    .value)
+                                .toString(),
+                            style: context.textTheme.bodyMedium),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );
@@ -142,6 +169,19 @@ class PeriodYearmonthPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
       locale: localeObj,
+      builder: (context, child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium:
+              TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (pickedFromYearMonth != null &&
@@ -167,6 +207,19 @@ class PeriodYearmonthPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
       locale: localeObj,
+      builder: (context, child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+            hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+            primaryTextTheme: TextTheme(
+              titleMedium:
+              TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+            ),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (pickedToYearMonth != null && pickedToYearMonth != toYearMonth.value) {
