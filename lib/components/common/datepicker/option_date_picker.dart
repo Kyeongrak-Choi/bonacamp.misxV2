@@ -43,13 +43,13 @@ class OptionDatePicker extends StatelessWidget {
                   ),
                 visualDensity: VisualDensity.compact,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Expanded(
-                  child: Obx(
-                    () => TextButton(
-                      onPressed: () =>
-                          Get.find<DatePickerController>().chooseDate(),
+              Expanded(
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () =>
+                        Get.find<DatePickerController>().chooseDate(),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
                       child: Text(
                         DateFormat('yyyy-MM-dd')
                             .format(Get.find<DatePickerController>().date.value)

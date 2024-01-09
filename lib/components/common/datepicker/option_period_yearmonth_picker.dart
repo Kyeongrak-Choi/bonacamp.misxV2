@@ -43,7 +43,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     IconButton(
                         onPressed: () {
@@ -92,7 +92,7 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                   border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     IconButton(
                         onPressed: () {

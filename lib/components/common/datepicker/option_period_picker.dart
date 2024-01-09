@@ -24,7 +24,7 @@ class OptionPeriodPicker extends StatelessWidget {
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
               child: Container(
@@ -35,6 +35,7 @@ class OptionPeriodPicker extends StatelessWidget {
                   border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     IconButton(
                         onPressed: () {
@@ -83,6 +84,7 @@ class OptionPeriodPicker extends StatelessWidget {
                   border: Border.all(color: context.theme.colorScheme.background),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     IconButton(
                         onPressed: () {
@@ -97,14 +99,17 @@ class OptionPeriodPicker extends StatelessWidget {
                         () => TextButton(
                           onPressed: () =>
                               Get.find<PeriodPickerController>().chooseToDate(),
-                          child: Text(
-                            DateFormat('yyyy-MM-dd')
-                                .format(Get.find<PeriodPickerController>()
-                                    .toDate
-                                    .value)
-                                .toString(),
-                            style: context.textTheme.bodyMedium,
-                            textAlign: TextAlign.center,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              DateFormat('yyyy-MM-dd')
+                                  .format(Get.find<PeriodPickerController>()
+                                      .toDate
+                                      .value)
+                                  .toString(),
+                              style: context.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),

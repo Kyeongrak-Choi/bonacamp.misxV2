@@ -44,12 +44,16 @@ class OptionYearMonthPicker extends StatelessWidget {
                 visualDensity: VisualDensity.comfortable,
               ),
               Expanded(
+                flex: 1,
                 child: Obx(
                   () => TextButton(
                     onPressed: () => Get.find<MonthPickerController>().chooseYearMonth(),
-                    child: Text(
-                      DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
-                      style: context.textTheme.bodyMedium,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        DateFormat('yyyy-MM').format(Get.find<MonthPickerController>().yearMonth.value).toString(),
+                        style: context.textTheme.bodyMedium,
+                      ),
                     ),
                   ),
                 ),
