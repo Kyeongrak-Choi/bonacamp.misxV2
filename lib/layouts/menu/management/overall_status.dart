@@ -61,7 +61,7 @@ class OverallStatus extends StatelessWidget {
                           ),
                         )),
                     SizedBox(
-                      height: BASIC_PADDING,
+                      height: BASIC_PADDING.h,
                     ),
                     Expanded(
                       child: Container(

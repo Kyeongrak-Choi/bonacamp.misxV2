@@ -142,6 +142,46 @@ class PeriodYearmonthPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
       locale: localeObj,
+      // builder: (context, child) {
+      //   return Theme(
+      //     data: ThemeData.light().copyWith(
+      //       backgroundColor: Colors.red,
+      //       // primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+      //       // hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+      //       // primaryTextTheme: TextTheme(
+      //       //   titleMedium:
+      //       //   TextStyle(fontSize: 50, color: Colors.black), // 글자 크기 조정
+      //       // ),
+      //       // textTheme: TextTheme(
+      //       //   titleMedium:
+      //       //   TextStyle(fontSize: 50, color: Colors.black), // 글자 크기 조정
+      //       // ),
+      //       // textButtonTheme: TextButtonThemeData(
+      //       //   style: ButtonStyle(
+      //       //
+      //       //   )
+      //       // ),
+      //       // toggleButtonsTheme: ToggleButtonsThemeData(
+      //       //
+      //       // ),
+      //       //
+      //       // timePickerTheme: TimePickerThemeData(
+      //       //   dayPeriodTextStyle: context.textTheme.displayMedium
+      //       // ),
+      //       datePickerTheme: DatePickerThemeData(
+      //         dayStyle: context.textTheme.displayMedium,
+      //         weekdayStyle: context.textTheme.displayMedium,
+      //         backgroundColor: Colors.red,
+      //         headerBackgroundColor: Colors.red,
+      //         headerForegroundColor: Colors.red,
+      //
+      //
+      //       ),
+      //
+      //     ),
+      //     child: child!,
+      //   );
+      // },
     );
 
     if (pickedFromYearMonth != null &&
@@ -167,6 +207,23 @@ class PeriodYearmonthPickerController extends GetxController {
       lastDate: DateTime(DateTime.now().year + 1),
       //initialEntryMode: DatePickerEntryMode.input,
       locale: localeObj,
+      // builder: (context, child) {
+      //   return Theme(
+      //     data: ThemeData.light().copyWith(
+      //       primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
+      //       hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
+      //       primaryTextTheme: TextTheme(
+      //         titleMedium:
+      //         TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+      //       ),
+      //       textTheme: TextTheme(
+      //         titleMedium:
+      //         TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+      //       ),
+      //     ),
+      //     child: child!,
+      //   );
+      // },
     );
 
     if (pickedToYearMonth != null && pickedToYearMonth != toYearMonth.value) {
