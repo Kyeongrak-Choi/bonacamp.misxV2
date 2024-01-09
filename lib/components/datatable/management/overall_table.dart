@@ -21,58 +21,58 @@ class OverAllTable extends StatelessWidget {
               children: [
                 IconTitleField(
                   titleName: 'sales_amount'.tr,
-                  value: controller.controllerSalesModel != null
+                  value: (controller.controllerSalesModel != null
                       ? numberFormat
                           .format(controller.controllerSalesModel.totAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'supplement_amount'.tr,
-                  value: controller.controllerSalesModel != null
+                  value: (controller.controllerSalesModel != null
                       ? numberFormat
                           .format(controller.controllerSalesModel.suppAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'vat_amount'.tr,
-                  value: controller.controllerSalesModel != null
+                  value: (controller.controllerSalesModel != null
                       ? numberFormat
                           .format(controller.controllerSalesModel.vatAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'guarantee_amount'.tr,
-                  value: controller.controllerSalesModel != null
+                  value: (controller.controllerSalesModel != null
                       ? numberFormat
                           .format(controller.controllerSalesModel.grntAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'collect_amount'.tr,
-                  value: controller.controllerDepositModel != null
+                  value: (controller.controllerDepositModel != null
                       ? numberFormat
                           .format(controller.controllerDepositModel.retrvAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'deposit_amount'.tr,
-                  value: controller.controllerDepositModel != null
+                  value: (controller.controllerDepositModel != null
                       ? numberFormat
                           .format(controller.controllerDepositModel.ipTot)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'deposit_title_amt'.tr,
-                  value: controller.controllerDepositModel != null
+                  value: (controller.controllerDepositModel != null
                       ? numberFormat
                           .format(controller.controllerDepositModel.amt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
               ],
@@ -88,58 +88,58 @@ class OverAllTable extends StatelessWidget {
               children: [
                 IconTitleField(
                   titleName: 'purchase_amount'.tr,
-                  value: controller.controllerPurchaseModel != null
+                  value: (controller.controllerPurchaseModel != null
                       ? numberFormat
                           .format(controller.controllerPurchaseModel.boTotAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'supplement_amount'.tr,
-                  value: controller.controllerPurchaseModel != null
+                  value: (controller.controllerPurchaseModel != null
                       ? numberFormat
                           .format(controller.controllerPurchaseModel.suppAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'vat_amount'.tr,
-                  value: controller.controllerPurchaseModel != null
+                  value: (controller.controllerPurchaseModel != null
                       ? numberFormat
                           .format(controller.controllerPurchaseModel.vatAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'guarantee_amount'.tr,
-                  value: controller.controllerPurchaseModel != null
+                  value: (controller.controllerPurchaseModel != null
                       ? numberFormat
                           .format(controller.controllerPurchaseModel.grntAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'return_amount'.tr,
-                  value: controller.controllerReturnModel != null
+                  value: (controller.controllerReturnModel != null
                       ? numberFormat
                           .format(controller.controllerReturnModel.oTot)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'withdraw_title_outTot'.tr,
-                  value: controller.controllerWithdrawModel != null
+                  value: (controller.controllerWithdrawModel != null
                       ? numberFormat
                           .format(controller.controllerWithdrawModel.outTot)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'withdraw_title_amt'.tr,
-                  value: controller.controllerWithdrawModel != null
+                  value: (controller.controllerWithdrawModel != null
                       ? numberFormat
                           .format(controller.controllerWithdrawModel.amt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
               ],
@@ -155,58 +155,58 @@ class OverAllTable extends StatelessWidget {
               children: [
                 IconTitleField(
                   titleName: 'rental_amount'.tr,
-                  value: controller.controllerRentalModel != null
+                  value: (controller.controllerRentalModel != null
                       ? numberFormat
                           .format(controller.controllerRentalModel.lendAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'rental_title_inspayLendAmt'.tr,
-                  value: controller.controllerRentalModel != null
+                  value: (controller.controllerRentalModel != null
                       ? numberFormat.format(
                           controller.controllerRentalModel.inspayLendAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'collect_amount'.tr,
-                  value: controller.controllerRentalModel != null
+                  value: (controller.controllerRentalModel != null
                       ? numberFormat
                           .format(controller.controllerRentalModel.retrvAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'rental_title_remAmt'.tr,
-                  value: controller.controllerRentalModel != null
+                  value: (controller.controllerRentalModel != null
                       ? numberFormat
                           .format(controller.controllerRentalModel.remAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'rental_title_totAmt'.tr,
-                  value: controller.controllerRentalModel != null
+                  value: (controller.controllerRentalModel != null
                       ? numberFormat
                           .format(controller.controllerRentalModel.totAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'asset_title_totQty'.tr,
-                  value: controller.controllerAssetModel != null
+                  value: (controller.controllerAssetModel != null
                       ? numberFormat
                           .format(controller.controllerAssetModel.totQty)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: 'asset_title_totAmt'.tr,
-                  value: controller.controllerAssetModel != null
+                  value: (controller.controllerAssetModel != null
                       ? numberFormat
                           .format(controller.controllerAssetModel.totAmt)
-                      : '0',
+                      : '0') + ' 원',
                   iconData: Icons.label_outlined,
                 ),
               ],
