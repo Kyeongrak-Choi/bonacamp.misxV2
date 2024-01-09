@@ -68,6 +68,12 @@ TextTheme textThemeLight() {
       fontSize: 13.sp,
       color: LightColors.font100,
     ).merge(TextStyle(fontFamily: 'SUITE')),
+
+    // 없으면 graph legend 에러 발생.
+    bodySmall: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
   );
 }
 
@@ -132,6 +138,12 @@ TextTheme textThemeDark() {
     ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
+
+    // 없으면 graph legend 에러 발생.
+    bodySmall: GoogleFonts.nanumGothic(
       fontSize: 13.sp,
       color: DarkColors.font100,
     ).merge(TextStyle(fontFamily: 'SUITE')),

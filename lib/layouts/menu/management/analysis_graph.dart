@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/chart/analysis_graph.dart';
@@ -26,60 +27,55 @@ class AnalysisGraph extends StatelessWidget {
           appBar:
               AppBar(title: Text('menu_sub_analysis_graph'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible:
-                            Get.find<AnalysisGraphController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionPeriodYearmonthPicker(true),
-                                OptionCbBranch(),
-                                OptionBtnSearch(ROUTE_MENU_GRAPH),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible:
+                          Get.find<AnalysisGraphController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: Column(
+                            children: [
+                              OptionPeriodYearmonthPicker(true),
+                              OptionCbBranch(),
+                              OptionBtnSearch(ROUTE_MENU_GRAPH),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height:
-                            Get.find<AnalysisGraphController>().visible.value
-                                ? 20
-                                : 0,
+                    ),
+                    SizedBox(
+                      height:
+                          Get.find<AnalysisGraphController>().visible.value
+                              ? BASIC_PADDING.h
+                              : 0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: setChild(),
                       ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: setChild(),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(
                           visible: Get.find<AnalysisGraphController>()
@@ -88,8 +84,8 @@ class AnalysisGraph extends StatelessWidget {
                       onPressed: () {
                         Get.find<AnalysisGraphController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      //splashColor: CommonColors.primary,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

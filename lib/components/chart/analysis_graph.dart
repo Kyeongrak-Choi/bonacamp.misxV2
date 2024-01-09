@@ -29,11 +29,11 @@ class AnalysisGraphComponent extends StatelessWidget {
               iconWidth: 15.0,
               iconHeight: 15.0,
               overflowMode: LegendItemOverflowMode.wrap,
-              textStyle: context.textTheme.displaySmall),
+              textStyle: context.textTheme.bodyMedium),
 
           tooltipBehavior: TooltipBehavior(
               enable: true,
-              textStyle: context.textTheme.displaySmall,
+              textStyle: context.textTheme.bodyMedium,
               color: context.theme.canvasColor),
           enableAxisAnimation: true,
           enableSideBySideSeriesPlacement: true,
