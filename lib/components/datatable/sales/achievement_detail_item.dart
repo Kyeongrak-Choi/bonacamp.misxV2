@@ -26,15 +26,15 @@ class AchievementDetailItem extends StatelessWidget {
               Text(
                 changeStringYYYYMMToDateFormat(detailList.month ?? ''),
                 textAlign: TextAlign.left,
-                style: context.textTheme.displayMedium,
+                style: context.textTheme.bodyLarge,
                 overflow: TextOverflow.ellipsis,
               ),
               Expanded(
                   child: IconButton(
-                onPressed: () {
-                  ShowAchievementDetailDialog(detailList, context);
-                },
-                icon: Icon(Icons.search, color: context.theme.primaryColor),
+                    onPressed: () {
+                      ShowAchievementDetailDialog(detailList, context);
+                    },
+                    icon: Icon(Icons.search),
               ))
             ],
           ),
@@ -44,7 +44,7 @@ class AchievementDetailItem extends StatelessWidget {
           child: Text(
             detailList.salesRate.toString() + ' %',
             textAlign: TextAlign.right,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -53,7 +53,7 @@ class AchievementDetailItem extends StatelessWidget {
           child: Text(
             detailList.balanceRate.toString() + ' %',
             textAlign: TextAlign.right,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         )
@@ -78,42 +78,42 @@ void ShowAchievementDetailDialog(var detailList, context) {
               ),
               IconTitleField(
                 titleName: '매출목표',
-                value: detailList.salesGoal ?? '',
+                value: (detailList.salesGoal ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '매출실적',
-                value: detailList.salesAmount ?? '',
+                value: (detailList.salesAmount ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '달성률(%)',
-                value: detailList.salesRate.toString(),
+                value: detailList.salesRate.toString() + ' %',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '채권목표',
-                value: detailList.balanceGoal ?? '',
+                value: (detailList.balanceGoal ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '전월채권',
-                value: detailList.lastBalance ?? '',
+                value: (detailList.lastBalance ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '전월증감',
-                value: detailList.variationBalance ?? '',
+                value: (detailList.variationBalance ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '채권증감',
-                value: detailList.changeBalance ?? '',
+                value: (detailList.changeBalance ?? '') + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '달성률(%)',
-                value: detailList.balanceRate.toString(),
+                value: detailList.balanceRate.toString() + ' %',
                 iconData: Icons.label_outlined,
               ),
             ],
