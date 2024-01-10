@@ -91,10 +91,7 @@ void ShowLendReportCustomerDetailDialog(var detailList, BuildContext context) {
                 Text('용공수불현황 상세보기',style: context.textTheme.titleSmall
                     ?.copyWith(fontWeight: FontWeight.bold, color: context.theme.colorScheme.onPrimary,),),
                 SizedBox(height: BASIC_PADDING.h,),
-                Divider(
-                  height: 1.h,
-                  color: context.theme.colorScheme.onPrimary,
-                ),
+                Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
                 SizedBox(height: BASIC_PADDING.h,),
                 IconTitleField(
                   titleName: '용기공병명',

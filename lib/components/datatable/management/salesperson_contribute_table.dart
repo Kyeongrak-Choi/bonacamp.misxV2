@@ -30,7 +30,7 @@ class SalesPersonContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
-                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '매출공급가',
                 value: (controller.controllerModel != null
@@ -65,7 +65,7 @@ class SalesPersonContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
-                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '관리비용',
                 value: (controller.controllerModel != null
@@ -101,7 +101,7 @@ class SalesPersonContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING * 3.w, 0.h),
-                  child: Divider(color: context.theme.colorScheme.onPrimary,thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '채권잔액',
                 value: (controller.controllerModel != null

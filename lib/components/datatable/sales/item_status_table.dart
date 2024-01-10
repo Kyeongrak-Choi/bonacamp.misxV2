@@ -33,10 +33,7 @@ class ItemStatusTable extends StatelessWidget {
                     : '',
                 iconData: Icons.label_outlined,
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(
                     BASIC_PADDING.w,
@@ -51,10 +48,7 @@ class ItemStatusTable extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               IconTitleTwoField2(
                 titleName: '',
                 value1: 'BOX',
@@ -73,10 +67,7 @@ class ItemStatusTable extends StatelessWidget {
                     : '0',
                 iconData: Icons.label_outlined,
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(
                     BASIC_PADDING.w,
@@ -91,10 +82,7 @@ class ItemStatusTable extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               IconTitleTwoField2(
                 titleName: '',
                 value1: 'BOX',
@@ -135,10 +123,7 @@ class ItemStatusTable extends StatelessWidget {
                     : '0',
                 iconData: Icons.label_outlined,
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(
                     BASIC_PADDING.w,
@@ -153,10 +138,7 @@ class ItemStatusTable extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               IconTitleTwoField2(
                 titleName: '',
                 value1: 'BOX',
