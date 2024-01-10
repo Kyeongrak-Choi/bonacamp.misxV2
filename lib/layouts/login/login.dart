@@ -32,7 +32,8 @@ class Login extends StatelessWidget {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
                           BASIC_PADDING * 2.w,
-                          BASIC_PADDING * 15.h,
+                         // BASIC_PADDING * 15.h,
+                          MediaQuery.of(context).size.height / 3.h,
                           BASIC_PADDING * 2.w,
                           BASIC_PADDING * 4.h),
                       child: LoginLogo(), // Logo
