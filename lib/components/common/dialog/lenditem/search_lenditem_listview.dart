@@ -21,7 +21,6 @@ class SearchLendItemList extends StatelessWidget {
     Get.put(NetworkManager());
     return Obx(() => ListView.separated(
           shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
           itemCount: Get.find<SearchLendItemListController>().datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
