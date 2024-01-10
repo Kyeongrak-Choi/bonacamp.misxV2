@@ -23,6 +23,7 @@ class AchievementItem extends StatelessWidget {
           animationDuration: Duration(milliseconds: 500),
           children: dataList.map<ExpansionPanelRadio>((AchievementModel model) {
             return ExpansionPanelRadio(
+                canTapOnHeader: true,
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {

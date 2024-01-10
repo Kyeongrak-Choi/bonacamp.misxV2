@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../layouts/menu/management/customer_contribute.dart';
@@ -54,8 +55,7 @@ class CustomerContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '관리비용',
                 value: (controller.controllerCustomerContribute != null
@@ -91,8 +91,7 @@ class CustomerContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '채권잔액',
                 value: (controller.controllerCustomerContribute != null
@@ -138,8 +137,7 @@ class CustomerContributeTable extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
-                  child: Divider(
-                      color: context.theme.primaryColor, thickness: 0.5)),
+                  child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),),
               IconTitleField(
                 titleName: '거래시작일',
                 value: controller.controllerCustomerContribute != null

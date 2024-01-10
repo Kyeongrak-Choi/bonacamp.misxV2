@@ -166,10 +166,7 @@ void ShowInventoryDetailDialog(var detailList, BuildContext context) {
               SizedBox(
                 height: BASIC_PADDING.h,
               ),
-              Divider(
-                height: 1.h,
-                color: context.theme.colorScheme.onPrimary,
-              ),
+              Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,),
               IconTitleField(
                 titleName: '품목',
                 value: detailList.itemName ?? '',

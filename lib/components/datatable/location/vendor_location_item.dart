@@ -169,10 +169,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                   value: cluster.items.first.locationInfo.salesDate ?? '',
                   iconData: Icons.date_range,
                 ),
-                const Divider(
-                    height: 1,
-                    color: CommonColors.gray
-                ),
+                const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '당일 매출'.tr,
                   value: cluster.items.first.locationInfo.amount,
@@ -188,10 +185,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                   value: cluster.items.first.locationInfo.deposit,
                   iconData: Icons.money,
                 ),
-                const Divider(
-                    height: 1,
-                    color: CommonColors.gray
-                ),
+                const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '미수 잔액'.tr,
                   value: cluster.items.first.locationInfo.remainDeposit,

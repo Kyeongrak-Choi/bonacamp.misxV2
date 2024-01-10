@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../layouts/menu/sales/customer_info.dart';
@@ -26,8 +27,7 @@ class CustomerInfoTable extends StatelessWidget {
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                child: Divider(
-                    color: context.theme.primaryColor, thickness: 0.5)),
+                child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,)),
             IconTitleField(
               titleName: '대표자',
               value:
@@ -60,8 +60,7 @@ class CustomerInfoTable extends StatelessWidget {
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                child: Divider(
-                    color: context.theme.primaryColor, thickness: 0.5)),
+                child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,)),
             IconTitleField(
               titleName: '영업담당',
               value: controller.controllerCustomerInfoEmployeeModel != null
@@ -80,8 +79,7 @@ class CustomerInfoTable extends StatelessWidget {
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                child: Divider(
-                    color: context.theme.primaryColor, thickness: 0.5)),
+                child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,)),
             IconTitleField(
               titleName: '전화번호1',
               value: controller.controllerCustomerInfoModel != null
@@ -119,8 +117,7 @@ class CustomerInfoTable extends StatelessWidget {
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                child: Divider(
-                    color: context.theme.primaryColor, thickness: 0.5)),
+                child: Divider(color: context.theme.colorScheme.onBackground,thickness: 0.5,height: 1.h,)),
             IconTitleField(
               titleName: '대표자주소',
               value:
