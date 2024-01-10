@@ -46,7 +46,7 @@ class InventoryInOutReport extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('기간 채권 및 대여 합계(BOX/EA)', controller: Get.find<InventoryInOutReportController>()),
+                              SumTitleTable('기간 채권 및 대여 합계',sub: '(BOX/EA)', controller: Get.find<InventoryInOutReportController>()),
                               Visibility(
                                 visible: Get.find<InventoryInOutReportController>().sumTableVisible.value,
                                 child: Column(

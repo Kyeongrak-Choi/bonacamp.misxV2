@@ -42,6 +42,7 @@ class InventoryReport extends StatelessWidget {
                     Visibility(
                       visible: !Get.find<InventoryReportController>().visible.value,
                       child: Container(
+                        color: context.theme.cardColor,
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
                           child: Column(
