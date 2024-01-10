@@ -15,6 +15,7 @@ import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_one_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/sales_ledger_item.dart';
 import '../../../models/menu/sales/sales_ledger/sales_ledger_details_model.dart';
@@ -32,7 +33,7 @@ class SalesLedger extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_sales_ledger'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
                 Column(
@@ -44,105 +45,113 @@ class SalesLedger extends StatelessWidget {
                           color: context.theme.cardColor,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(15),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('기간 매출 원장 합계'),
-                              SumItemTable(
-                                'BOX',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>()
-                                        .sumBoxQuantity),
-                                'EA',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>()
-                                        .sumBottleQuantity),
+                              SumTitleTable('기간 매출 원장 합계', controller: Get.find<SalesLedgerController>()),
+                              Visibility(
+                                visible: Get.find<SalesLedgerController>().sumTableVisible.value,
+                                child: Column(
+                                  children: [
+                                    SumOneItemTable(
+                                      'BOX',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumBoxQuantity),
+                                    ),
+                                    SumOneItemTable(
+                                      'EA',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumBottleQuantity),
+                                    ),
+                                    SumOneItemTable(
+                                      '매출액',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>().sumTotal) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                      '공급가',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>().sumPrice) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                      '합계',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumAmount) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                      '보증금',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumGuarantee) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                      '입금액',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumDeposit) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                      '채권잔액',
+                                      numberFormat.format(
+                                          Get.find<SalesLedgerController>()
+                                              .sumBalance) + ' 원'
+                                    ),
+                                  ],
+                                )
                               ),
-                              SumItemTable(
-                                '매출액',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>().sumTotal),
-                                '공급가',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>().sumPrice),
-                              ),
-                              SumItemTable(
-                                '합계',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>()
-                                        .sumAmount),
-                                '보증금',
-                                numberFormat.format(
-                                    Get.find<SalesLedgerController>()
-                                        .sumGuarantee),
-                              ),
-                              SumItemTable(
-                                  '입금액',
-                                  numberFormat.format(
-                                      Get.find<SalesLedgerController>()
-                                          .sumDeposit),
-                                  '채권잔액',
-                                  numberFormat.format(
-                                      Get.find<SalesLedgerController>()
-                                          .sumBalance)),
+
                             ],
                           ),
                         ),
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: Column(
-                          children: [
-                            Visibility(
-                              visible: Get.find<SalesLedgerController>()
-                                  .visible
-                                  .value,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: Column(
-                                    children: [
-                                      OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogCustomer(),
-                                          OptionCbBranch()),
-                                      //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                      OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
-                                    ],
-                                  ),
+                      child: Column(
+                        children: [
+                          Visibility(
+                            visible: Get.find<SalesLedgerController>()
+                                .visible
+                                .value,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionPeriodPicker(),
+                                    OptionTwoContent(OptionDialogCustomer(),
+                                        OptionCbBranch()),
+                                    //OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
+                                    OptionBtnSearch(ROUTE_MENU_SALES_LEDGER),
+                                  ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: Get.find<SalesLedgerController>()
-                                      .visible
-                                      .value
-                                  ? 20
-                                  : 0,
-                            ),
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: ListView(
-                                    children: <Widget>[setChild()],
-                                  ),
-                                ),
+                          ),
+                          SizedBox(
+                            height: BASIC_PADDING.h,
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -187,6 +196,7 @@ class SalesLedgerController extends GetxController {
   var controllerSalesLedger;
 
   var visible = true.obs;
+  var sumTableVisible = true.obs;
 
   int sumBoxQuantity = 0;
   int sumBottleQuantity = 0;
@@ -199,6 +209,10 @@ class SalesLedgerController extends GetxController {
 
   setVisible() async {
     visible.value = !visible.value;
+  }
+
+  setSumTableVisible() async {
+    sumTableVisible.value = !sumTableVisible.value;
   }
 
   Future showResult() async {
