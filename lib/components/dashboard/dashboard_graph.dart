@@ -35,7 +35,7 @@ class DashboardGraph extends StatelessWidget {
                         BASIC_PADDING * 2, 0, BASIC_PADDING, BASIC_PADDING * 2),
                     child: Text(
                       'dashboard_graph_sub'.tr,
-                      style: context.textTheme.bodyMedium,
+                      style: context.textTheme.bodyMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant,),
                       textAlign: TextAlign.end,
                     ),
                   ),

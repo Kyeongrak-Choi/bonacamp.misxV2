@@ -49,6 +49,7 @@ class CardIconMenu extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios,
               size: 14.sp,
+              color: context.theme.colorScheme.onBackground,
             ),
           ],
         ),
