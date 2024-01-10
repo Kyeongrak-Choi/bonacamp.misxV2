@@ -27,6 +27,7 @@ class SalesLedgerItem extends StatelessWidget {
           children:
               dataList.map<ExpansionPanelRadio>((SalesLedgerListModel model) {
             return ExpansionPanelRadio(
+                canTapOnHeader: true,
                 value: model.id.toString(),
                 backgroundColor: context.theme.cardColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
