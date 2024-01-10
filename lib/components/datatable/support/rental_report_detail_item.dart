@@ -38,7 +38,7 @@ class RentalReportDetailItem extends StatelessWidget {
                 onPressed: () {
                   ShowRentalReportDetailDialog(detailList, context);
                 },
-                icon: Icon(Icons.search, color: context.theme.primaryColor),
+                icon: Icon(Icons.search,size: 24.sp,),
               )),
             ],
           ),
