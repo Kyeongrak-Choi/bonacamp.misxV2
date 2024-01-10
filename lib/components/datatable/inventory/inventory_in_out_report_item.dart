@@ -24,7 +24,7 @@ class InventoryInOutReportItem extends StatelessWidget {
         ),
         onPressed: () {},
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+          padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, 0.h),
           child: Column(
             children: [
               Container(

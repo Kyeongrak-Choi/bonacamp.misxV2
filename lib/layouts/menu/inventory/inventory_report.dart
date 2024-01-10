@@ -18,6 +18,7 @@ import '../../../components/common/combobox/option_cb_branches.dart';
 import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_one_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/inventory/inventory_report_item.dart';
 import '../../../models/menu/inventory/inventory_report_model.dart';
@@ -41,9 +42,6 @@ class InventoryReport extends StatelessWidget {
                     Visibility(
                       visible: !Get.find<InventoryReportController>().visible.value,
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.canvasColor,
-                        ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
                           child: Column(
@@ -53,19 +51,9 @@ class InventoryReport extends StatelessWidget {
                                   visible: Get.find<InventoryReportController>().sumTableVisible.value,
                                   child: Column(
                                     children: [
-                                      SumItemTable(
-                                        'BOX',
-                                        '',
-                                        numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity),
-                                        '',
-                                      ),
-                                      SumItemTable(
-                                        'EA',
-                                        '',
-                                        numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity),
-                                        '',
-                                      ),
-                                      SumItemTable('금액', '', numberFormat.format(Get.find<InventoryReportController>().sumAmount), ''),
+                                      SumOneItemTable('BOX',numberFormat.format(Get.find<InventoryReportController>().sumBoxQuantity)),
+                                      SumOneItemTable('EA', numberFormat.format(Get.find<InventoryReportController>().sumBottleQuantity)),
+                                      SumOneItemTable('금액',numberFormat.format(Get.find<InventoryReportController>().sumAmount) + ' 원'),
                                     ],
                                   )),
                             ],
