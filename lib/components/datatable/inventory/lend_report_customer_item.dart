@@ -26,6 +26,7 @@ class LendReportCustomerItem extends StatelessWidget {
           children: dataList
               .map<ExpansionPanelRadio>((LendReportCustomerModel model) {
             return ExpansionPanelRadio(
+                canTapOnHeader: true,
                 value: model.id.toString(),
                 backgroundColor: context.theme.canvasColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
