@@ -14,8 +14,6 @@ class AnalysisGraphComponent extends StatelessWidget {
       return Container(
         decoration: BoxDecoration(
           color: context.theme.cardColor,
-          borderRadius: BorderRadius.circular(20),
-          shape: BoxShape.rectangle,
         ),
         child: SfCartesianChart(
           title: ChartTitle(text: '단위:천원'),
