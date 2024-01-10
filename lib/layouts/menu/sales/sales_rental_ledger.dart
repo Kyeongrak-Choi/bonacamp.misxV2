@@ -15,6 +15,7 @@ import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/customer/option_dialog_customer.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_one_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/sales/sales_rental_ledger_Item.dart';
 import '../../../models/menu/sales/sales_rental_ledger_model.dart';
@@ -31,7 +32,7 @@ class SalesRentalLedger extends StatelessWidget {
           appBar: AppBar(
               title: Text('menu_sub_sales_rental_ledger'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
                 Column(
@@ -45,103 +46,113 @@ class SalesRentalLedger extends StatelessWidget {
                           color: context.theme.cardColor,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(15),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('기간 매출 및 대여 합계'),
-                              SumItemTable(
-                                  '매출액',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumTotal),
-                                  '공급가\n+부가세',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumAmount)),
-                              SumItemTable(
-                                  '입금액',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumDeposit),
-                                  '채권잔액',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumBalance)),
-                              SumItemTable(
-                                  '대여금\n(장기)',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumLongRent),
-                                  '대여금\n(단기)',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumShortRent)),
-                              SumItemTable(
-                                  '대여금\n(합계)',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumTotalRent),
-                                  '채권\n+대여금',
-                                  numberFormat.format(
-                                      Get.find<SalesRentalLedgerController>()
-                                          .sumTotalBalance)),
+                              SumTitleTable('기간 매출 및 대여 합계', controller: Get.find<SalesRentalLedgerController>(),),
+                              Visibility(
+                                visible: Get.find<SalesRentalLedgerController>().sumTableVisible.value,
+                                child: Column(
+                                  children: [
+                                    SumOneItemTable(
+                                        '매출액',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumTotal) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                        '공급가 + 부가세',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumAmount) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '입금액',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumDeposit) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                        '채권잔액',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumBalance) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '대여금 (장기)',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumLongRent) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                        '대여금 (단기)',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumShortRent) + ' 원'
+                                    ),
+                                    SumOneItemTable(
+                                        '대여금 (합계)',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumTotalRent) + ' 원',
+                                    ),
+                                    SumOneItemTable(
+                                        '채권 + 대여금',
+                                        numberFormat.format(
+                                            Get.find<SalesRentalLedgerController>()
+                                                .sumTotalBalance) + ' 원'
+                                    ),
+                                  ],
+                                )
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: Column(
-                          children: [
-                            Visibility(
-                                visible: Get.find<SalesRentalLedgerController>()
-                                    .visible
-                                    .value,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: context.theme.cardColor,
-                                    borderRadius: BorderRadius.circular(15),
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.all(15),
-                                    child: Column(
-                                      children: [
-                                        OptionPeriodPicker(),
-                                        OptionTwoContent(OptionDialogCustomer(),
-                                            OptionCbBranch()),
-                                        OptionBtnSearch(
-                                            ROUTE_MENU_SALES_RENTAL_LEDGER),
-                                      ],
-                                    ),
-                                  ),
-                                )),
-                            SizedBox(
-                              height: Get.find<SalesRentalLedgerController>()
-                                      .visible
-                                      .value
-                                  ? 20
-                                  : 0,
-                            ),
-                            Expanded(
+                      child: Column(
+                        children: [
+                          Visibility(
+                              visible: Get.find<SalesRentalLedgerController>()
+                                  .visible
+                                  .value,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: ListView(
-                                    children: <Widget>[setChild()],
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      BASIC_PADDING * 2.w,
+                                      BASIC_PADDING * 2.h,
+                                      BASIC_PADDING * 2.w,
+                                      BASIC_PADDING * 2.h),
+                                  child: Column(
+                                    children: [
+                                      OptionPeriodPicker(),
+                                      OptionTwoContent(OptionDialogCustomer(),
+                                          OptionCbBranch()),
+                                      OptionBtnSearch(
+                                          ROUTE_MENU_SALES_RENTAL_LEDGER),
+                                    ],
                                   ),
                                 ),
+                              )),
+                          SizedBox(
+                            height: BASIC_PADDING.h,
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -185,6 +196,7 @@ class SalesRentalLedger extends StatelessWidget {
 
 class SalesRentalLedgerController extends GetxController {
   var visible = true.obs;
+  var sumTableVisible = true.obs;
   var salesRentalLedgerList;
 
   int sumTotal = 0;
@@ -200,6 +212,10 @@ class SalesRentalLedgerController extends GetxController {
 
   setVisible() async {
     visible.value = !visible.value;
+  }
+
+  setSumTableVisible() async {
+    sumTableVisible.value = !sumTableVisible.value;
   }
 
   Future showResult() async {

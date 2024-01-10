@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/lenditem/search_lenditem_listview.dart';
+
+import '../../../../utils/constants.dart';
 
 class SearchLendItemOption extends StatelessWidget {
   @override
   Widget build(context) {
     Get.put(SearchLendItemListController());
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(
+          BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, 0.w, BASIC_PADDING * 2.h),
       //padding: EdgeInsets.zero,
       child: Row(
         children: [
@@ -16,15 +20,15 @@ class SearchLendItemOption extends StatelessWidget {
             flex: 7,
             child: TextField(
                 decoration: InputDecoration(
-                  border: InputBorder.none,
-                  filled: true,
+                  // border: InputBorder.none,
+                  // filled: true,
                   hintText: 'hint_search_lenditem'.tr,
-                  hintStyle: context.textTheme.displaySmall,
+                  hintStyle: context.textTheme.bodyMedium,
                 ),
                 onChanged: (text) {
                   Get.find<SearchLendItemListController>().setSearchTxt(text);
                 },
-                style: context.textTheme.displaySmall),
+                style: context.textTheme.bodyMedium),
           ),
           Flexible(
               flex: 1,
@@ -36,7 +40,7 @@ class SearchLendItemOption extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.search,
-                      color: context.theme.primaryColor,
+                      size: 24.sp,
                     ),
                   ),
                 ),

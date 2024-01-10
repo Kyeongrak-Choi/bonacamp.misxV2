@@ -30,9 +30,9 @@ class SearchItemList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
-              color: context.theme.canvasColor,
+                  color: context.theme.canvasColor,
                   padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING.h),
-              child: selectSearchListItem(index),
+                  child: selectSearchListItem(index),
             ));
           },
         ));

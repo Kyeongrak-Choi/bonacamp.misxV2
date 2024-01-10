@@ -37,13 +37,13 @@ class SumTitleTable extends StatelessWidget {
                 style: context.textTheme.bodyMedium?.copyWith(color: context.theme.colorScheme.onSecondary),
                 textAlign: TextAlign.left,
               ),
-              IconButton(
+              controller != null ? IconButton(
                   onPressed: () {
                     controller.setSumTableVisible();
                   },
                 icon: Icon(controller.sumTableVisible.value == true ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, size: 24.sp,),
                 alignment: Alignment.centerLeft,
-              ),
+              ) : Text(''),
             ],
           ),
           // Container(
