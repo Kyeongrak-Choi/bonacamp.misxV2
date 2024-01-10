@@ -39,7 +39,7 @@ class IconTitleField extends StatelessWidget {
             padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
             child: Text(
               value,
-              style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+              style: context.textTheme.bodyLarge,
               textAlign: TextAlign.end,
             ),
           ),

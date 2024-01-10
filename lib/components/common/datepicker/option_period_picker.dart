@@ -51,14 +51,17 @@ class OptionPeriodPicker extends StatelessWidget {
                         () => TextButton(
                           onPressed: () =>
                               Get.find<PeriodPickerController>().chooseFromDate(),
-                          child: Text(
-                            DateFormat('yyyy-MM-dd')
-                                .format(Get.find<PeriodPickerController>()
-                                    .fromDate
-                                    .value)
-                                .toString(),
-                            style: context.textTheme.bodyMedium,
-                            textAlign: TextAlign.center,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              DateFormat('yyyy-MM-dd')
+                                  .format(Get.find<PeriodPickerController>()
+                                      .fromDate
+                                      .value)
+                                  .toString(),
+                              style: context.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
