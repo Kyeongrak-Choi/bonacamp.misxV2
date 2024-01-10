@@ -135,7 +135,7 @@ class Navigation extends GetView<NavigationController> {
                         ? Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.menu,
+                              Icon(Icons.drag_handle,
                                   color: context.theme.primaryColorLight),
                               Text(
                                 'nav_menu'.tr,
@@ -146,7 +146,7 @@ class Navigation extends GetView<NavigationController> {
                               )
                             ],
                           )
-                        : Icon(Icons.menu, color: CommonColors.primary),
+                        : Icon(Icons.drag_handle, color: CommonColors.primary),
               ),
               Container(
                 //height: 40,
