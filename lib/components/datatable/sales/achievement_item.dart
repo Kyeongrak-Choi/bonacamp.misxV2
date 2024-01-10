@@ -39,7 +39,7 @@ class AchievementItem extends StatelessWidget {
                   child: Column(
                     children: [
                       ledgerListHead(context),
-                      SizedBox(height: BASIC_PADDING * 2.h),
+                      SizedBox(height: BASIC_PADDING.h),
                       ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,

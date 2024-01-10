@@ -26,7 +26,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
               Text(
                 detailList.salesTypeName,
                 textAlign: TextAlign.left,
-                style: context.textTheme.displayMedium!.merge(TextStyle(
+                style: context.textTheme.bodyLarge!.merge(TextStyle(
                     color: detailList.salesTypeName == 'sales'.tr
                         ? Colors.blue
                         : Colors.red)),
@@ -38,8 +38,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
                           onPressed: () {
                             ShowLedgerDetailDialog(detailList, context);
                           },
-                          icon: Icon(Icons.search,
-                              color: context.theme.primaryColor),
+                          icon: Icon(Icons.search),
                         )
                       : TextButton(
                           onPressed: null,
@@ -52,19 +51,19 @@ class SalesLedgerDetailItem extends StatelessWidget {
           flex: 5,
           child: Text(
             detailList.salesTypeName == 'sales'.tr
-                ? numberFormat.format(detailList.total)
-                : numberFormat.format(detailList.deposit),
+                ? numberFormat.format(detailList.total) + ' 원'
+                : numberFormat.format(detailList.deposit) + ' 원',
             textAlign: TextAlign.center,
-            style: context.textTheme.bodyMedium,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         Expanded(
           flex: 5,
           child: Text(
-            numberFormat.format(detailList.balance),
+            numberFormat.format(detailList.balance) + ' 원',
             textAlign: TextAlign.center,
-            style: context.textTheme.bodyMedium,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         )
@@ -104,27 +103,27 @@ void ShowLedgerDetailDialog(var detailList, context) {
               ),
               IconTitleField(
                 titleName: '매출액',
-                value: numberFormat.format(detailList.total),
+                value: numberFormat.format(detailList.total) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '공급가',
-                value: numberFormat.format(detailList.price),
+                value: numberFormat.format(detailList.price) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '공급가 + 부가세',
-                value: numberFormat.format(detailList.amount),
+                value: numberFormat.format(detailList.amount) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '보증금',
-                value: numberFormat.format(detailList.guarantee),
+                value: numberFormat.format(detailList.guarantee) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '채권잔액',
-                value: numberFormat.format(detailList.balance),
+                value: numberFormat.format(detailList.balance) + ' 원',
                 iconData: Icons.label_outlined,
               ),
             ],
