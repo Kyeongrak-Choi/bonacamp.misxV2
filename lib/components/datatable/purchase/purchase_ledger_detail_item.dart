@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/common/dialog/customer/option_dialog_customer.dart';
 import 'package:misxV2/utils/utility.dart';
 
 import '../../../models/menu/purchase/purchase_ledger/purchase_ledger_details_model.dart';
+import '../../../utils/constants.dart';
 import '../../../utils/theme/color_manager.dart';
 import '../../common/field/icon_title_field.dart';
 
@@ -28,7 +30,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                 child: Text(
                   detailList.itemName,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.displayMedium!.merge(TextStyle(
+                  style: context.textTheme.bodyLarge!.merge(TextStyle(
                       color: detailList.itemName == '지급'
                           ? Colors.red
                           : Colors.blue)),
@@ -41,7 +43,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                     onPressed: () {
                       ShowPurchaseLedgerDetailDialog(detailList, context);
                     },
-                    icon: Icon(Icons.search, color: context.theme.primaryColor),
+                    icon: Icon(Icons.search,size: 24.sp,),
                   )),
             ],
           ),
@@ -53,7 +55,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
                 ? numberFormat.format(detailList.withdraw)
                 : numberFormat.format(detailList.total),
             textAlign: TextAlign.center,
-            style: context.textTheme.bodyMedium,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -62,7 +64,7 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
           child: Text(
             numberFormat.format(detailList.balance),
             textAlign: TextAlign.center,
-            style: context.textTheme.bodyMedium,
+            style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
         )
@@ -71,15 +73,29 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
   }
 }
 
-void ShowPurchaseLedgerDetailDialog(var detailList, context) {
+void ShowPurchaseLedgerDetailDialog(var detailList, BuildContext context) {
   Get.defaultDialog(
-      title: "\n매입 상세보기",
-      titleStyle: TextStyle(color: CommonColors.primary),
+      title: '',
+      backgroundColor: context.theme.canvasColor,
       content: Container(
           height: MediaQuery.of(context).size.height * 0.6,
-          width: MediaQuery.of(context).size.width * 0.85,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: ListView(
             children: [
+              Text(
+                '매입 상세보기',
+                style: context.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: context.theme.colorScheme.onPrimary,
+                ),
+              ),
+              SizedBox(
+                height: BASIC_PADDING.h,
+              ),
+              Divider(
+                height: 1.h,
+                color: context.theme.colorScheme.onPrimary,
+              ),
               IconTitleField(
                 titleName: 'item'.tr,
                 value: detailList.itemName ?? '',
