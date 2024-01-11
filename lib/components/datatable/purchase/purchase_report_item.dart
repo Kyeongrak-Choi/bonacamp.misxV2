@@ -37,17 +37,17 @@ class PurchaseReportItem extends StatelessWidget {
                   children: [
                     IconTitleField(
                       titleName: '매입액',
-                      value: model.purchase ?? '',
+                      value: (model.purchase ?? '') + ' 원',
                       iconData: Icons.label_outlined,
                     ),
                     IconTitleField(
                       titleName: '출금합계',
-                      value: model.withdraw ?? '',
+                      value: (model.withdraw ?? '') + ' 원',
                       iconData: Icons.label_outlined,
                     ),
                     IconTitleField(
                       titleName: '채무잔액',
-                      value: model.balance ?? '',
+                      value: (model.balance ?? '') + ' 원',
                       iconData: Icons.label_outlined,
                     ),
                   ],

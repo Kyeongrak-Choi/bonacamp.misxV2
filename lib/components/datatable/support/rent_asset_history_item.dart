@@ -50,7 +50,7 @@ class RentAssetHistoryItem extends StatelessWidget {
                     ),
                     IconTitleField(
                       titleName: '지원금액',
-                      value: model.amount ?? 0,
+                      value: (model.amount ?? 0) + ' 원',
                       iconData: Icons.label_outlined,
                     ),
                     IconTitleField(

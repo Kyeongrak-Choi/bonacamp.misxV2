@@ -110,22 +110,22 @@ void ShowPurchaseLedgerDetailDialog(var detailList, BuildContext context) {
               ),
               IconTitleField(
                 titleName: '매입액',
-                value: numberFormat.format(detailList.total),
+                value: numberFormat.format(detailList.total) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '공급가',
-                value: numberFormat.format(detailList.price),
+                value: numberFormat.format(detailList.price) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '출금액',
-                value: numberFormat.format(detailList.withdraw),
+                value: numberFormat.format(detailList.withdraw) + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '채무잔액',
-                value: numberFormat.format(detailList.balance),
+                value: numberFormat.format(detailList.balance) + ' 원',
                 iconData: Icons.label_outlined,
               ),
             ],

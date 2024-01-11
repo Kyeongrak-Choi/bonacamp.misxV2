@@ -9,7 +9,7 @@ class SumItemTable extends StatelessWidget {
   var value;
   var boldValue;
 
-  SumItemTable(titleName, value, boldValue, buildTmp) {
+  SumItemTable(titleName, value, boldValue) {
     this.titleName = titleName;
     this.value = value;
     this.boldValue = boldValue;
@@ -34,7 +34,7 @@ class SumItemTable extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      value ?? ' ' + ' 원',
+                      value ?? ' ',
                       style: context.textTheme.bodyMedium,
                       textAlign: TextAlign.right,
                     ),
@@ -42,7 +42,7 @@ class SumItemTable extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      boldValue ?? ' ' + ' 원',
+                      boldValue ?? ' ',
                       style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.right,
                     ),

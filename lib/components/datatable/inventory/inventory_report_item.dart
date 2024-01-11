@@ -184,7 +184,7 @@ void ShowInventoryDetailDialog(var detailList, BuildContext context) {
               ),
               IconTitleField(
                 titleName: '금액',
-                value: detailList.amount,
+                value: detailList.amount + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
@@ -194,22 +194,22 @@ void ShowInventoryDetailDialog(var detailList, BuildContext context) {
               ),
               IconTitleField(
                 titleName: '매입단가(BOX)',
-                value: detailList.purchase.box,
+                value: detailList.purchase.box + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '매입단가(EA)',
-                value: detailList.purchase.bottle,
+                value: detailList.purchase.bottle + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '매출단가(BOX)',
-                value: detailList.sales.box,
+                value: detailList.sales.box + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(
                 titleName: '매출단가(EA)',
-                value: detailList.sales.bottle,
+                value: detailList.sales.bottle + ' 원',
                 iconData: Icons.label_outlined,
               ),
               IconTitleField(

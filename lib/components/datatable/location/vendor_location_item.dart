@@ -172,38 +172,38 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '당일 매출'.tr,
-                  value: cluster.items.first.locationInfo.amount,
+                  value: cluster.items.first.locationInfo.amount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '당월 매출'.tr,
-                  value: cluster.items.first.locationInfo.monthlyAmount,
+                  value: cluster.items.first.locationInfo.monthlyAmount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '입금 금액'.tr,
-                  value: cluster.items.first.locationInfo.deposit,
+                  value: cluster.items.first.locationInfo.deposit + ' 원',
                   iconData: Icons.money,
                 ),
                 const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '미수 잔액'.tr,
-                  value: cluster.items.first.locationInfo.remainDeposit,
+                  value: cluster.items.first.locationInfo.remainDeposit + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '채권 잔액'.tr,
-                  value: cluster.items.first.locationInfo.balance,
+                  value: cluster.items.first.locationInfo.balance + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '대여 금액'.tr,
-                  value: cluster.items.first.locationInfo.rentAmount,
+                  value: cluster.items.first.locationInfo.rentAmount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '대여 잔액'.tr,
-                  value: cluster.items.first.locationInfo.rentBalance,
+                  value: cluster.items.first.locationInfo.rentBalance + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
@@ -213,7 +213,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '마진율'.tr,
-                  value: cluster.items.first.locationInfo.marginRate.toString(),
+                  value: cluster.items.first.locationInfo.marginRate.toString() + ' %',
                   iconData: Icons.percent,
                 ),
               ]),

@@ -61,91 +61,91 @@ class SalesDaily extends StatelessWidget {
                                         '공급가',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumPrice_D),
+                                                .sumPrice_D) + ' 원',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumPrice_M),0,
+                                                .sumPrice_M) + ' 원',
                                         ),
                                     SumItemTable(
                                         '부가세',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumVat_D),
+                                                .sumVat_D) + ' 원',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumVat_M),0
+                                                .sumVat_M) + ' 원',
                                     ),
                                     SumItemTable(
-                                        '보증금\n합계',
+                                        '보증금 합계',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumGuarantee_D),
+                                                .sumGuarantee_D) + ' 원',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumGuarantee_M),0,
+                                                .sumGuarantee_M) + ' 원',
                                         ),
                                     SumItemTable(
                                         '총합계',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumTotal_D),
+                                                .sumTotal_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumTotal_M),0,
+                                                    .sumTotal_M) + ' 원',
                                     ),
                                     SumItemTable(
                                         '매출원가',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumCost_D),
+                                                .sumCost_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumCost_M),0,
+                                                    .sumCost_M) + ' 원',
                                         ),
                                     SumItemTable(
                                         '매출이익',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumMargin_D),
+                                                .sumMargin_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumMargin_M),0,
+                                                    .sumMargin_M) + ' 원',
                                     ),
                                     SumItemTable(
                                         '입금소계',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumDepositCash_D),
+                                                .sumDepositCash_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumDepositCash_M),0,
+                                                    .sumDepositCash_M) + ' 원',
                                         ),
                                     SumItemTable(
                                         '용공입금',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumDepositEtc_D),
+                                                .sumDepositEtc_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumDepositEtc_M),0,
+                                                    .sumDepositEtc_M) + ' 원',
                                     ),
                                     SumItemTable(
                                         '입금합계',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumDeposit_D),
+                                                .sumDeposit_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumDeposit_M),0,
+                                                    .sumDeposit_M) + ' 원',
                                         ),
                                     SumItemTable(
                                         '채권잔액',
                                         numberFormat.format(
                                             Get.find<SalesDailyController>()
-                                                .sumBalance_D),
+                                                .sumBalance_D) + ' 원',
                                             numberFormat.format(
                                                 Get.find<SalesDailyController>()
-                                                    .sumBalance_M),0,
+                                                    .sumBalance_M) + ' 원',
                                     ),
                                   ],
                                 )

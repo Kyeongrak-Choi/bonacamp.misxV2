@@ -105,7 +105,7 @@ void ShowRentalReportDetailDialog(var detailList, BuildContext context) {
                 ),
                 IconTitleField(
                   titleName: '이율',
-                  value: detailList.interestRate.toString(),
+                  value: detailList.interestRate.toString() + ' %',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
@@ -115,17 +115,17 @@ void ShowRentalReportDetailDialog(var detailList, BuildContext context) {
                 ),
                 IconTitleField(
                   titleName: '총 대여금',
-                  value: numberFormat.format(detailList.totalRentalAmount),
+                  value: numberFormat.format(detailList.totalRentalAmount) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: '총 회수금',
-                  value: numberFormat.format(detailList.totalReturnAmount),
+                  value: numberFormat.format(detailList.totalReturnAmount) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: '총 대여잔액',
-                  value: numberFormat.format(detailList.balance),
+                  value: numberFormat.format(detailList.balance) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
@@ -135,17 +135,17 @@ void ShowRentalReportDetailDialog(var detailList, BuildContext context) {
                 ),
                 IconTitleField(
                   titleName: '당일 예정액',
-                  value: numberFormat.format(detailList.rentalAmount),
+                  value: numberFormat.format(detailList.rentalAmount) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: '당일 회수액',
-                  value: numberFormat.format(detailList.returnAmount),
+                  value: numberFormat.format(detailList.returnAmount) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
                   titleName: '연체금액',
-                  value: numberFormat.format(detailList.overdueAmount),
+                  value: numberFormat.format(detailList.overdueAmount) + ' 원',
                   iconData: Icons.label_outlined,
                 ),
               ],
