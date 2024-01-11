@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
 import 'package:misxV2/utils/constants.dart';
@@ -14,7 +15,11 @@ class DashboardGraph extends StatelessWidget {
       return Container(
         color: context.theme.canvasColor,
         child: Padding(
-          padding: EdgeInsets.all(BASIC_PADDING * 2),
+          padding: EdgeInsetsDirectional.fromSTEB(
+              BASIC_PADDING * 2.w,
+              BASIC_PADDING * 2.h,
+              BASIC_PADDING * 2.w,
+              BASIC_PADDING * 2.h),
           child: Column(
             children: [
               Row(
@@ -22,7 +27,7 @@ class DashboardGraph extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(
-                        BASIC_PADDING * 2, 0, BASIC_PADDING, BASIC_PADDING * 2),
+                        0, 0, 0, BASIC_PADDING * 2.h),
                     child: Text(
                       'dashboard_graph_title'.tr,
                       style: context.textTheme.bodyLarge
@@ -32,7 +37,7 @@ class DashboardGraph extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(
-                        BASIC_PADDING * 2, 0, BASIC_PADDING, BASIC_PADDING * 2),
+                        0, 0, 0, BASIC_PADDING * 2.h),
                     child: Text(
                       'dashboard_graph_sub'.tr,
                       style: context.textTheme.bodyMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant,),
