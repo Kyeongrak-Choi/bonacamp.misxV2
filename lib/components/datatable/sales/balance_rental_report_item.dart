@@ -143,7 +143,7 @@ void ShowBalanceRentalDetailDialog(var detailList, BuildContext context) {
                   iconData: Icons.label_outlined,
                 ),
                 IconTitleField(
-                  titleName: '합계\n(공급가 + 부가세)',
+                  titleName: '합계',
                   value: detailList.amount + ' 원',
                   iconData: Icons.label_outlined,
                 ),

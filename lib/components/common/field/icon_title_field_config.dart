@@ -20,7 +20,7 @@ class IconTitleFieldConfig extends StatelessWidget {
           child: Text(
             titleName,
             // style: context.textTheme.titleLarge,
-            style: context.textTheme.bodyLarge,
+            style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.start,
           ),
         ),

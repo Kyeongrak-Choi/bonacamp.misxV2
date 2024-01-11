@@ -21,7 +21,7 @@ class IconTitleFieldSmallInterval extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(
             titleName,
-            style: context.textTheme.bodyMedium,
+            style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.start,
           ),
         ),

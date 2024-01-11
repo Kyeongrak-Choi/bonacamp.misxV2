@@ -19,7 +19,7 @@ class IconTitleFieldDash extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(
           titleName,
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
         Container(
           child: Row(

@@ -24,7 +24,7 @@ class IconTitleTwoField2 extends StatelessWidget {
           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
           child: Text(
             titleName,
-            style: context.textTheme.bodyLarge,
+            style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.start,
           ),
         ),
