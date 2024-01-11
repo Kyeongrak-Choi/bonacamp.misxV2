@@ -68,7 +68,7 @@ class SalesDailyDivision extends StatelessWidget {
                                                   BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
                                               child: Text(
                                                 '',
-                                                style: context.textTheme.titleSmall,
+                                                style: context.textTheme.bodyMedium,
                                                 textAlign: TextAlign.start,
                                               ),
                                             ),
@@ -80,7 +80,7 @@ class SalesDailyDivision extends StatelessWidget {
                                                   BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
                                               child: Text(
                                                 'BOX',
-                                                style: context.textTheme.titleSmall,
+                                                style: context.textTheme.bodyMedium,
                                                 textAlign: TextAlign.end,
                                               ),
                                             ),
@@ -92,19 +92,19 @@ class SalesDailyDivision extends StatelessWidget {
                                                   BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
                                               child: Text(
                                                 'EA',
-                                                style: context.textTheme.titleSmall,
+                                                style: context.textTheme.bodyMedium,
                                                 textAlign: TextAlign.end,
                                               ),
                                             ),
                                           ),
                                           Expanded(
-                                            flex: 2,
+                                            flex: 4,
                                             child: Padding(
                                               padding: EdgeInsetsDirectional.fromSTEB(
                                                   BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
                                               child: Text(
                                                 '금액',
-                                                style: context.textTheme.titleSmall,
+                                                style: context.textTheme.bodyMedium,
                                                 textAlign: TextAlign.end,
                                               ),
                                             ),
@@ -118,7 +118,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat.format(
                                           divisionController.pleasureBottleSum),
                                       value3: numberFormat.format(
-                                          divisionController.pleasureAmountSum),
+                                          divisionController.pleasureAmountSum) + ' 원',
                                     ),
                                     IconTitleThreeField(
                                       titleName: '일반합계',
@@ -128,7 +128,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat
                                           .format(divisionController.normalBottleSum),
                                       value3: numberFormat
-                                          .format(divisionController.normalAmountSum),
+                                          .format(divisionController.normalAmountSum) + ' 원',
                                     ),
                                     IconTitleThreeField(
                                       titleName: '합     계',
@@ -138,7 +138,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat
                                           .format(divisionController.totBottleSum),
                                       value3: numberFormat
-                                          .format(divisionController.totAmountSum),
+                                          .format(divisionController.totAmountSum) + ' 원',
                                     ),
                                     IconTitleThreeField(
                                       titleName: '유흥누계',
@@ -148,7 +148,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat.format(
                                           divisionController.pleasureBottleQuantity),
                                       value3: numberFormat.format(
-                                          divisionController.pleasureAmountQuantity),
+                                          divisionController.pleasureAmountQuantity) + ' 원',
                                     ),
                                     IconTitleThreeField(
                                       titleName: '일반누계',
@@ -158,7 +158,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat.format(
                                           divisionController.normalBottleQuantity),
                                       value3: numberFormat.format(
-                                          divisionController.normalAmountQuantity),
+                                          divisionController.normalAmountQuantity) + ' 원',
                                     ),
                                     IconTitleThreeField(
                                       titleName: '누     계',
@@ -168,7 +168,7 @@ class SalesDailyDivision extends StatelessWidget {
                                       value2: numberFormat.format(
                                           divisionController.totBottleQuantity),
                                       value3: numberFormat.format(
-                                          divisionController.totAmountQuantity),
+                                          divisionController.totAmountQuantity) + ' 원',
                                     ),
                                   ],
                                 ),
@@ -210,7 +210,7 @@ class SalesDailyDivision extends StatelessWidget {
                             height: BASIC_PADDING.h,
                           ),
                           Expanded(
-                            flex: 45,
+                            flex: 1,
                             child: Container(
                               child: ListView(
                                 children: <Widget>[setChild()],
@@ -252,10 +252,6 @@ class SalesDailyDivision extends StatelessWidget {
   Widget setChild() {
     if (Get.find<SalesDailyDivisionController>().salesDailyDivisionList !=
         null) {
-      log('check : ' +
-          Get.find<SalesDailyDivisionController>()
-              .salesDailyDivisionList
-              .toString());
       return SalesDailyDivisionItem(
           Get.find<SalesDailyDivisionController>().salesDailyDivisionList);
     } else {

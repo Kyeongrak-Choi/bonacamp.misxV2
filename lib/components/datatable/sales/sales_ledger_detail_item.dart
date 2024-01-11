@@ -55,7 +55,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
             detailList.salesTypeName == 'sales'.tr
                 ? numberFormat.format(detailList.total) + ' 원'
                 : numberFormat.format(detailList.deposit) + ' 원',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.right,
             style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
@@ -64,7 +64,7 @@ class SalesLedgerDetailItem extends StatelessWidget {
           flex: 5,
           child: Text(
             numberFormat.format(detailList.balance) + ' 원',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.right,
             style: context.textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
