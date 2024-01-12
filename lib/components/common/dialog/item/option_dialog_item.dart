@@ -52,17 +52,19 @@ class OptionDialogItem extends StatelessWidget {
                 flex: 1,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.find<OptionDialogItemController>().selectedValue.value = '전체';
-                        Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
-                        Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
-                        Get.find<OptionDialogItemController>().paramCode = '';
-                      },
-                      icon: Icon(
-                        Icons.cancel_outlined,
-                        size: 24.sp,
-                      )),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<OptionDialogItemController>().selectedValue.value = '전체';
+                          Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
+                          Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
+                          Get.find<OptionDialogItemController>().paramCode = '';
+                        },
+                        icon: Icon(
+                          Icons.cancel_outlined,
+                        )),
+                  ),
                 ),
               ),
 

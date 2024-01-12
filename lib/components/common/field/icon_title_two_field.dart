@@ -20,7 +20,7 @@ class IconTitleTwoField extends StatelessWidget {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, BASIC_PADDING.h, 0, BASIC_PADDING.h),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Icon(iconData,size: 24.sp,),
+        FittedBox(fit: BoxFit.contain,child: Icon(iconData)),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0, 0, 0),
           child: Text(

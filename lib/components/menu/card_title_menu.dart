@@ -46,10 +46,12 @@ class CardTitleMenuList extends StatelessWidget {
           children: [
             Text(title, style: context.textTheme.bodyLarge),
             Spacer(),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 14.sp,
-              color: context.theme.colorScheme.onBackground, // font20
+            FittedBox(
+              fit: BoxFit.contain,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: context.theme.colorScheme.onBackground, // font20
+              ),
             ),
           ],
         ),

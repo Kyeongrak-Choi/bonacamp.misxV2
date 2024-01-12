@@ -38,9 +38,11 @@ class SearchItemOption extends StatelessWidget {
                       onTap: () {
                         Get.find<SearchItemListController>().search(context);
                       },
-                      child: Icon(
-                        Icons.search,
-                        size: 24.sp,
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Icon(
+                          Icons.search,
+                        ),
                       ),
                     ),
                   ),

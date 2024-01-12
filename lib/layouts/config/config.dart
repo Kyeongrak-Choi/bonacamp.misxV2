@@ -79,11 +79,14 @@ class Config extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text('logout'.tr, style: context.textTheme.bodyLarge),
-                      IconButton(
-                        icon: Icon(Icons.logout, size: 14.sp),
-                        onPressed: () async {
-                          Get.offAllNamed(ROUTE_LOGIN);
-                        },
+                      FittedBox(
+                        fit: BoxFit.contain,
+                        child: IconButton(
+                          icon: Icon(Icons.logout),
+                          onPressed: () async {
+                            Get.offAllNamed(ROUTE_LOGIN);
+                          },
+                        ),
                       ),
                     ],
                   ),

@@ -37,15 +37,17 @@ class OptionPeriodPicker extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.find<PeriodPickerController>().chooseFromDate();
-                        },
-                        //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                        icon: ImageIcon(
-                          AssetImage('lib/assets/icons/calendar.png'),
-                          size: 24.sp,
-                        )),
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodPickerController>().chooseFromDate();
+                          },
+                          //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
                     Expanded(
                       child: Obx(
                         () => TextButton(
@@ -89,14 +91,16 @@ class OptionPeriodPicker extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.find<PeriodPickerController>().chooseToDate();
-                        },
-                        icon: ImageIcon(
-                          AssetImage('lib/assets/icons/calendar.png'),
-                          size: 24.sp,
-                        )),
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodPickerController>().chooseToDate();
+                          },
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
                     Expanded(
                       child: Obx(
                         () => TextButton(

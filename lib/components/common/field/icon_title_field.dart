@@ -17,9 +17,11 @@ class IconTitleField extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
-          child: Icon(
-            iconData,
-            size: 24.sp,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Icon(
+              iconData,
+            ),
           ),
         ),
         Expanded(

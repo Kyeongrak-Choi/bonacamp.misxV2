@@ -9,13 +9,17 @@ class OptionBtnVisible extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return visible == true
-        ? ImageIcon(
-            AssetImage('lib/assets/icons/Invisible.png'),
-            size: 24.sp,
-          )
-        : ImageIcon(
-            AssetImage('lib/assets/icons/Visible.png'),
-            size: 24.sp,
-          );
+        ? FittedBox(
+      fit: BoxFit.contain,
+          child: ImageIcon(
+              AssetImage('lib/assets/icons/Invisible.png'),
+            ),
+        )
+        : FittedBox(
+      fit: BoxFit.contain,
+          child: ImageIcon(
+              AssetImage('lib/assets/icons/Visible.png'),
+            ),
+        );
   }
 }

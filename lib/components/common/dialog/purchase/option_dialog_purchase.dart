@@ -52,17 +52,19 @@ class OptionDialogPurchase extends StatelessWidget {
                 flex: 1,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.find<OptionDialogPurchaseController>().selectedValue.value = '전체';
-                        Get.find<OptionDialogPurchaseController>().paramPurchaseName.value = ''.tr;
-                        Get.find<OptionDialogPurchaseController>().paramPurchaseCode.value = ''.tr;
-                        Get.find<OptionDialogPurchaseController>().paramCode = '';
-                      },
-                      icon: Icon(
-                        Icons.cancel_outlined,
-                        size: 24.sp,
-                      )),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<OptionDialogPurchaseController>().selectedValue.value = '전체';
+                          Get.find<OptionDialogPurchaseController>().paramPurchaseName.value = ''.tr;
+                          Get.find<OptionDialogPurchaseController>().paramPurchaseCode.value = ''.tr;
+                          Get.find<OptionDialogPurchaseController>().paramCode = '';
+                        },
+                        icon: Icon(
+                          Icons.cancel_outlined,
+                        )),
+                  ),
                 ),
               ),
               // Expanded(

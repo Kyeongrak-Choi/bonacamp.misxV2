@@ -39,11 +39,14 @@ class PurchaseLedgerDetailItem extends StatelessWidget {
               ),
               Expanded(
                   flex: 1,
-                  child: IconButton(
-                    onPressed: () {
-                      ShowPurchaseLedgerDetailDialog(detailList, context);
-                    },
-                    icon: Icon(Icons.search,size: 24.sp,),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                      onPressed: () {
+                        ShowPurchaseLedgerDetailDialog(detailList, context);
+                      },
+                      icon: Icon(Icons.search),
+                    ),
                   )),
             ],
           ),

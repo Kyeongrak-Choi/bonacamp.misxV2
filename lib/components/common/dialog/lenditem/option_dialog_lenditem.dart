@@ -55,20 +55,23 @@ class OptionDialogLendItem extends StatelessWidget {
                 flex: 1,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.find<OptionDialogLendItemController>()
-                            .selectedValue
-                            .value = '전체';
-                        Get.find<OptionDialogLendItemController>()
-                            .paramLendItemName
-                            .value = ''.tr;
-                        Get.find<OptionDialogLendItemController>()
-                            .paramLendItemCode
-                            .value = ''.tr;
-                        Get.find<OptionDialogLendItemController>().paramCode = '';
-                      },
-                      icon: Icon(Icons.cancel_outlined,size: 24.sp,)),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<OptionDialogLendItemController>()
+                              .selectedValue
+                              .value = '전체';
+                          Get.find<OptionDialogLendItemController>()
+                              .paramLendItemName
+                              .value = ''.tr;
+                          Get.find<OptionDialogLendItemController>()
+                              .paramLendItemCode
+                              .value = ''.tr;
+                          Get.find<OptionDialogLendItemController>().paramCode = '';
+                        },
+                        icon: Icon(Icons.cancel_outlined)),
+                  ),
                 ),
               ),
             ],

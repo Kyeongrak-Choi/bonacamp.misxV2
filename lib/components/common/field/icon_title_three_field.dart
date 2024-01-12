@@ -20,7 +20,7 @@ class IconTitleThreeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Icon(iconData,size: 24.sp,),
+      FittedBox(fit: BoxFit.contain,child: Icon(iconData)),
       Expanded(
         flex: 2,
         child: Padding(

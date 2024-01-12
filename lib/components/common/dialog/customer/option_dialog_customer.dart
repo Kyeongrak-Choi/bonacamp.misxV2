@@ -51,18 +51,20 @@ class OptionDialogCustomer extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.find<OptionDialogCustomerController>().selectedValue.value = '전체';
-                        Get.find<OptionDialogCustomerController>().paramCustomerName.value = ''.tr;
-                        Get.find<OptionDialogCustomerController>().paramCustomerCode.value = ''.tr;
-                        Get.find<OptionDialogCustomerController>().paramCode = '';
-                      },
-                      icon: Icon(
-                        Icons.cancel_outlined,
-                        size: 24.sp,
-                      )),
+                  alignment: Alignment.topRight,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<OptionDialogCustomerController>().selectedValue.value = '전체';
+                          Get.find<OptionDialogCustomerController>().paramCustomerName.value = ''.tr;
+                          Get.find<OptionDialogCustomerController>().paramCustomerCode.value = ''.tr;
+                          Get.find<OptionDialogCustomerController>().paramCode = '';
+                        },
+                        icon: Icon(
+                          Icons.cancel_outlined,
+                        )),
+                  ),
                 ),
               ),
               // Expanded(

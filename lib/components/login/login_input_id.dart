@@ -23,7 +23,7 @@ class LoginInputId extends StatelessWidget {
           decoration: InputDecoration(
             prefixIcon: Icon(
               CupertinoIcons.person,
-              size: 16.sp,
+              size: 24.sp,
               // color: CommonColors.primary,
             ),
             //labelStyle: TextStyle(color: CommonColors.yellow, fontSize: 16.sp),
@@ -75,7 +75,7 @@ class LoginInputId extends StatelessWidget {
               decoration: InputDecoration(
                 prefixIcon: Icon(
                   CupertinoIcons.lock,
-                  size: 16.sp,
+                  size: 24.sp,
                 ),
                 //labelStyle: TextStyle(color: CommonColors.gray,fontSize: 16.sp),
                 // labelText: 'text_pw'.tr,

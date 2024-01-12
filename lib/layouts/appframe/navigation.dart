@@ -114,8 +114,11 @@ class Navigation extends GetView<NavigationController> {
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(CupertinoIcons.home,
-                              color: context.theme.primaryColorLight),
+                          FittedBox(
+                            fit: BoxFit.contain,
+                            child: Icon(CupertinoIcons.home,
+                                color: context.theme.primaryColorLight),
+                          ),
                           Text(
                             'nav_home'.tr,
                             style: TextStyle(
@@ -125,7 +128,7 @@ class Navigation extends GetView<NavigationController> {
                           )
                         ],
                       )
-                    : Icon(CupertinoIcons.home, color: CommonColors.primary),
+                    : FittedBox(fit: BoxFit.contain,child: Icon(CupertinoIcons.home, color: CommonColors.primary)),
               ),
               Container(
                 //height: 40,
@@ -135,8 +138,11 @@ class Navigation extends GetView<NavigationController> {
                         ? Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.drag_handle,
-                                  color: context.theme.primaryColorLight),
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Icon(Icons.drag_handle,
+                                    color: context.theme.primaryColorLight),
+                              ),
                               Text(
                                 'nav_menu'.tr,
                                 style: TextStyle(
@@ -146,7 +152,7 @@ class Navigation extends GetView<NavigationController> {
                               )
                             ],
                           )
-                        : Icon(Icons.drag_handle, color: CommonColors.primary),
+                        : FittedBox(fit: BoxFit.contain,child: Icon(Icons.drag_handle, color: CommonColors.primary)),
               ),
               Container(
                 //height: 40,
@@ -156,8 +162,11 @@ class Navigation extends GetView<NavigationController> {
                         ? Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(CupertinoIcons.slider_horizontal_3,
-                                  color: context.theme.primaryColorLight),
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Icon(CupertinoIcons.slider_horizontal_3,
+                                    color: context.theme.primaryColorLight),
+                              ),
                               Text(
                                 'nav_more'.tr,
                                 style: TextStyle(
@@ -167,8 +176,11 @@ class Navigation extends GetView<NavigationController> {
                               )
                             ],
                           )
-                        : Icon(CupertinoIcons.slider_horizontal_3,
-                            color: CommonColors.primary),
+                        : FittedBox(
+                      fit: BoxFit.contain,
+                          child: Icon(CupertinoIcons.slider_horizontal_3,
+                              color: CommonColors.primary),
+                        ),
               ),
               // Container(
               //   height: 50,

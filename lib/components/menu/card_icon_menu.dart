@@ -46,10 +46,12 @@ class CardIconMenu extends StatelessWidget {
               style: context.textTheme.bodyLarge,
             ),
             Spacer(),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 14.sp,
-              color: context.theme.colorScheme.onBackground,
+            FittedBox(
+              fit: BoxFit.contain,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: context.theme.colorScheme.onBackground,
+              ),
             ),
           ],
         ),

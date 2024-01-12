@@ -45,15 +45,17 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>()
-                              .chooseFromYearmonth();
-                        },
-                        icon: ImageIcon(
-                          AssetImage('lib/assets/icons/calendar.png'),
-                          size: 24.sp,
-                        )),
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodYearmonthPickerController>()
+                                .chooseFromYearmonth();
+                          },
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
                     Obx(
                       () => TextButton(
                         onPressed: () =>
@@ -94,15 +96,17 @@ class OptionPeriodYearmonthPicker extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.find<PeriodYearmonthPickerController>()
-                              .chooseToYearmonth();
-                        },
-                        icon: ImageIcon(
-                          AssetImage('lib/assets/icons/calendar.png'),
-                          size: 24.sp,
-                        )),
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodYearmonthPickerController>()
+                                .chooseToYearmonth();
+                          },
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
                     Obx(
                           () => TextButton(
                         onPressed: () =>

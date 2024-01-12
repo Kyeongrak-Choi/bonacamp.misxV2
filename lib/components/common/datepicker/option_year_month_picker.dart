@@ -33,15 +33,17 @@ class OptionYearMonthPicker extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              IconButton(
-                onPressed: () {
-                  Get.find<MonthPickerController>().chooseYearMonth();
-                },
-                icon: ImageIcon(
-                  AssetImage('lib/assets/icons/calendar.png'),
-                  size: 24.sp,
+              FittedBox(
+                fit: BoxFit.contain,
+                child: IconButton(
+                  onPressed: () {
+                    Get.find<MonthPickerController>().chooseYearMonth();
+                  },
+                  icon: ImageIcon(
+                    AssetImage('lib/assets/icons/calendar.png'),
+                  ),
+                  visualDensity: VisualDensity.comfortable,
                 ),
-                visualDensity: VisualDensity.comfortable,
               ),
               Expanded(
                 flex: 1,

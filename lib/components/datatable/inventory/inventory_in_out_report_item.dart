@@ -122,15 +122,17 @@ class InventoryInOutReportItem extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 2,
-                        child: IconButton(
-                          onPressed: () {
-                            ShowInventoryInOutDetailDialog(dataList[index], context);
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            size: 24.sp,
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: IconButton(
+                            onPressed: () {
+                              ShowInventoryInOutDetailDialog(dataList[index], context);
+                            },
+                            icon: Icon(
+                              Icons.search,
+                            ),
+                            alignment: Alignment.centerRight,
                           ),
-                          alignment: Alignment.centerRight,
                         ),
                       )
                     ],

@@ -33,15 +33,17 @@ class OptionDatePicker extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              IconButton(
-                  onPressed: () {
-                    Get.find<DatePickerController>().chooseDate();
-                  },
-                  icon: ImageIcon(
-                    AssetImage('lib/assets/icons/calendar.png'),
-                    size: 24.sp,
-                  ),
-                visualDensity: VisualDensity.compact,
+              FittedBox(
+                fit: BoxFit.contain,
+                child: IconButton(
+                    onPressed: () {
+                      Get.find<DatePickerController>().chooseDate();
+                    },
+                    icon: ImageIcon(
+                      AssetImage('lib/assets/icons/calendar.png'),
+                    ),
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
               Expanded(
                 child: Obx(
