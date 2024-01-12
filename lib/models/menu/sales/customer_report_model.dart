@@ -18,8 +18,17 @@ class CustomerReportModel {
   var marginRate; // 이익률
   int? id;
 
-  CustomerReportModel(this.branchCode, this.customerCode, this.customerName, this.total, this.price, this.amount, this.deposit, this.balance,
-      this.margin, this.marginRate,
+  CustomerReportModel(
+      this.branchCode,
+      this.customerCode,
+      this.customerName,
+      this.total,
+      this.price,
+      this.amount,
+      this.deposit,
+      this.balance,
+      this.margin,
+      this.marginRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -37,7 +46,8 @@ class CustomerReportModel {
     };
   }
 
-  factory CustomerReportModel.fromJson(Map<String, dynamic> json) => _$CustomerReportModelFromJson(json);
+  factory CustomerReportModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerReportModelToJson(this);
 

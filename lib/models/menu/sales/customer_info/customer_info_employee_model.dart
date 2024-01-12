@@ -19,7 +19,8 @@ class CustomerInfoEmployeeModel {
     };
   }
 
-  factory CustomerInfoEmployeeModel.fromJson(Map<String, dynamic> json) => _$CustomerInfoEmployeeModelFromJson(json);
+  factory CustomerInfoEmployeeModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerInfoEmployeeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerInfoEmployeeModelToJson(this);
 

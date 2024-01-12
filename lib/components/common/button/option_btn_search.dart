@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/menu/inventory/inventory_in_out_report.dart';
 import 'package:misxV2/layouts/menu/inventory/lend_report_salesperson.dart';
@@ -49,24 +50,17 @@ class OptionBtnSearch extends StatelessWidget {
       children: [
         Expanded(
             child: Padding(
-          padding: EdgeInsetsDirectional.all(15),
+          padding: EdgeInsetsDirectional.fromSTEB(0, BASIC_PADDING.h, 0, 0),
           child: Container(
-            color: CommonColors.primary,
-            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              shape: BoxShape.rectangle,
+              color: CommonColors.primary,
+            ),
+            height: 40.h,
             child: ElevatedButton(
                 onPressed: () async {
-                  // ProgressDialog pd = ProgressDialog(context: context);
-                  // pd.show(
-                  //   max: 1000,
-                  //   msg: 'Searching',
-                  //   cancel: Cancel(),
-                  //   backgroundColor: CommonColors.white,
-                  //   progressValueColor: CommonColors.primary,
-                  //   msgColor: CommonColors.primary,
-                  // );
-
                   ShowProgress(context);
-
                   try {
                     switch (menu) {
                       // 경영분석 - 종합현황
@@ -81,17 +75,20 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 경영분석 - 영업사원별 기여현황
                       case ROUTE_MENU_SALESPERSON_CONTRIBUTE:
-                        await Get.find<SalesPersonContributeController>().showResult();
+                        await Get.find<SalesPersonContributeController>()
+                            .showResult();
                         break;
 
                       // 경영분석 - 매출처별 기여현황
                       case ROUTE_MENU_CONTRIBUTION_STATUS_CUSTOMER:
-                        await Get.find<CustomerContributeController>().showResult();
+                        await Get.find<CustomerContributeController>()
+                            .showResult();
                         break;
 
                       // 경영분석 - 판매분류별 현황
                       case ROUTE_MENU_CLASSSTATUS:
-                        await Get.find<SalesClassStatusController>().showResult();
+                        await Get.find<SalesClassStatusController>()
+                            .showResult();
                         break;
 
                       // 경영분석 - 매출순위현황
@@ -106,8 +103,10 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 경영분석 - 영업일보 (용도별)
                       case ROUTE_MENU_DIVISIONSTATUS:
-                        await Get.find<SalesDailyDivisionController>().showResult();
-                        await Get.find<SalesDailyDivisionController>().calBoxBottleSum();
+                        await Get.find<SalesDailyDivisionController>()
+                            .showResult();
+                        await Get.find<SalesDailyDivisionController>()
+                            .calBoxBottleSum();
                         break;
 
                       // 위치조회 - 매출처 위치조회
@@ -122,12 +121,14 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 영업분석 - 영업사원별 매출현황
                       case ROUTE_MENU_SALESPERSON_REPORT:
-                        await Get.find<SalesPersonReportController>().showResult();
+                        await Get.find<SalesPersonReportController>()
+                            .showResult();
                         break;
 
                       // 영업분석 - 영업사원별 월별 매출현황
                       case ROUTE_MENU_SALESPERSON_REPORT_MONTHLY:
-                        await Get.find<SalesPersonReportMonthlyController>().showResult();
+                        await Get.find<SalesPersonReportMonthlyController>()
+                            .showResult();
                         break;
 
                       // 영업분석 - 매출현황
@@ -137,7 +138,8 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 영업분석 - 월별 매출현황
                       case ROUTE_MENU_CUSTOMER_REPORT_MONTHLY:
-                        await Get.find<CustomerReportMonthlyController>().showResult();
+                        await Get.find<CustomerReportMonthlyController>()
+                            .showResult();
                         break;
 
                       // 영업분석 - 매출원장
@@ -157,12 +159,14 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 영업분석 - 채권 및 대여 현황
                       case ROUTE_MENU_BALANCE_RENTAL_REPORT:
-                        await Get.find<BalanceRentalReportController>().showResult();
+                        await Get.find<BalanceRentalReportController>()
+                            .showResult();
                         break;
 
                       // 영업분석 - 매출 및 대여 원장
                       case ROUTE_MENU_SALES_RENTAL_LEDGER:
-                        await Get.find<SalesRentalLedgerController>().showResult();
+                        await Get.find<SalesRentalLedgerController>()
+                            .showResult();
                         break;
 
                       // 영업분석 - 품목 현황
@@ -192,32 +196,38 @@ class OptionBtnSearch extends StatelessWidget {
 
                       // 지원현황 - 대여자산 현황(이력)
                       case ROUTE_MENU_SUPPORT_RENT_ASSET_HISTORY:
-                        await Get.find<RentAssetHistoryController>().showResult();
+                        await Get.find<RentAssetHistoryController>()
+                            .showResult();
                         break;
 
                       // 재고분석 - 재고현황
                       case ROUTE_MENU_INVENTORY_REPORT:
-                        await Get.find<InventoryReportController>().showResult();
+                        await Get.find<InventoryReportController>()
+                            .showResult();
                         break;
 
                       // 재고분석 - 재고수불현황
                       case ROUTE_MENU_INVENTORY_INOUT_REPORT:
-                        await Get.find<InventoryInOutReportController>().showResult();
+                        await Get.find<InventoryInOutReportController>()
+                            .showResult();
                         break;
 
                       // 재고분석 - 용공수불(창고)
                       case ROUTE_MENU_LEND_REPORT_WAREHOUSE:
-                        await Get.find<LendReportWarehouseController>().showResult();
+                        await Get.find<LendReportWarehouseController>()
+                            .showResult();
                         break;
 
                       // 재고분석 - 용공수불현황(거래처)
                       case ROUTE_MENU_LEND_REPORT_CUSTOMER:
-                        await Get.find<LendReportCustomerController>().showResult();
+                        await Get.find<LendReportCustomerController>()
+                            .showResult();
                         break;
 
                       // 재고분석 - 용공수불현황(거래처)
                       case ROUTE_MENU_LEND_REPORT_SALESPERSON:
-                        await Get.find<LendReportSalespersonController>().showResult();
+                        await Get.find<LendReportSalespersonController>()
+                            .showResult();
                         break;
                     }
                   } catch (e) {
@@ -226,9 +236,10 @@ class OptionBtnSearch extends StatelessWidget {
 
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.search, color: CommonColors.white),
+                child: Text('search'.tr,
+                    style: context.textTheme.bodyLarge
+                        ?.copyWith(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
-                  //foregroundColor: CommonColors.primary,
                   backgroundColor: CommonColors.primary,
                 )),
           ),

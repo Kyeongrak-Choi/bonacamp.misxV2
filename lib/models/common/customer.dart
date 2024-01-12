@@ -17,8 +17,18 @@ class CustomerModel {
   var status; // 상태코드
   var statusName; // 상태명
 
-  CustomerModel(this.code, this.name, this.nickName, this.representative, this.businessNo, this.businessType, this.businessItem, this.useType,
-      this.useTypeName, this.status, this.statusName);
+  CustomerModel(
+      this.code,
+      this.name,
+      this.nickName,
+      this.representative,
+      this.businessNo,
+      this.businessType,
+      this.businessItem,
+      this.useType,
+      this.useTypeName,
+      this.status,
+      this.statusName);
 
   Map<String, dynamic> toMap() {
     return {
@@ -36,7 +46,8 @@ class CustomerModel {
     };
   }
 
-  factory CustomerModel.fromJson(Map<String, dynamic> json) => _$CustomerModelFromJson(json);
+  factory CustomerModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);
 

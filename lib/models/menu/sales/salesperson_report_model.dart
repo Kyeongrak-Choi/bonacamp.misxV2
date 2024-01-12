@@ -19,7 +19,16 @@ class SalesPersonReportModel {
   int? id;
 
   SalesPersonReportModel(
-      this.branchCode, this.code, this.name, this.total, this.price, this.amount, this.deposit, this.balance, this.margin, this.marginRate,
+      this.branchCode,
+      this.code,
+      this.name,
+      this.total,
+      this.price,
+      this.amount,
+      this.deposit,
+      this.balance,
+      this.margin,
+      this.marginRate,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -37,7 +46,8 @@ class SalesPersonReportModel {
     };
   }
 
-  factory SalesPersonReportModel.fromJson(Map<String, dynamic> json) => _$SalesPersonReportModelFromJson(json);
+  factory SalesPersonReportModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesPersonReportModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesPersonReportModelToJson(this);
 

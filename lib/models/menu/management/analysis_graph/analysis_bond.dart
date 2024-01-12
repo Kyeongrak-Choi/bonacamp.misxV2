@@ -18,7 +18,8 @@ class AnalysisBondModel {
     };
   }
 
-  factory AnalysisBondModel.fromJson(Map<String, dynamic> json) => _$AnalysisBondModelFromJson(json);
+  factory AnalysisBondModel.fromJson(Map<String, dynamic> json) =>
+      _$AnalysisBondModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AnalysisBondModelToJson(this);
 }

@@ -18,7 +18,8 @@ class WarehouseModel {
     return {'warehouse-code': warehouseCode, 'warehouse-name': warehouseName};
   }
 
-  factory WarehouseModel.fromJson(Map<String, dynamic> json) => _$WarehouseModelFromJson(json);
+  factory WarehouseModel.fromJson(Map<String, dynamic> json) =>
+      _$WarehouseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$WarehouseModelToJson(this);
 

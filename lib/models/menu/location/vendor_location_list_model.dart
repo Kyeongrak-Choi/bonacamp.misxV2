@@ -17,7 +17,8 @@ class VendorLocationListModel {
     };
   }
 
-  factory VendorLocationListModel.fromJson(Map<String, dynamic> json) => _$VendorLocationListModelFromJson(json);
+  factory VendorLocationListModel.fromJson(Map<String, dynamic> json) =>
+      _$VendorLocationListModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$VendorLocationListModelToJson(this);
 }

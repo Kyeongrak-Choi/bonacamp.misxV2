@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -20,7 +21,6 @@ import '../../../models/menu/inventory/lend_report_customer_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class LendReportCustomer extends StatelessWidget {
@@ -30,65 +30,50 @@ class LendReportCustomer extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_lend_report_customer'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                          visible: Get.find<LendReportCustomerController>().visible.value,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: Column(
-                                children: [
-                                  OptionPeriodPicker(),
-                                  OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                  OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
-                                  OptionBtnSearch(ROUTE_MENU_LEND_REPORT_CUSTOMER),
-                                ],
-                              ),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<LendReportCustomerController>().visible.value,
                         child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
+                          color: context.theme.canvasColor,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 20),
-                            child: ListView(
-                              children: <Widget>[setChild()],
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
+                                OptionTwoContent(OptionDialogLendItem(), OptionCbLendDivision()),
+                                OptionBtnSearch(ROUTE_MENU_LEND_REPORT_CUSTOMER),
+                              ],
                             ),
                           ),
+                        )),
+                    SizedBox(
+                      height: BASIC_PADDING,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                          children: <Widget>[setChild()],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, BASIC_PADDING * 2.w, 0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(visible: Get.find<LendReportCustomerController>().visible.value),
                       onPressed: () {
                         Get.find<LendReportCustomerController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),

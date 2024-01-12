@@ -77,7 +77,8 @@ class VendorLocationModel {
     };
   }
 
-  factory VendorLocationModel.fromJson(Map<String, dynamic> json) => _$VendorLocationModelFromJson(json);
+  factory VendorLocationModel.fromJson(Map<String, dynamic> json) =>
+      _$VendorLocationModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$VendorLocationModelToJson(this);
 }
@@ -108,6 +109,7 @@ List<PlaceModel> generateVendorLocationModelList(dataList, count) {
               dataList[index].marginRate,
             ),
             name: index.toString(),
-            latLng: LatLng(dataList[index].location.longitude, dataList[index].location.latitude),
+            latLng: LatLng(dataList[index].location.longitude,
+                dataList[index].location.latitude),
           ));
 }

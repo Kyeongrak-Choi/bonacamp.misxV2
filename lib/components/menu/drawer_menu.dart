@@ -14,7 +14,10 @@ class DrawerMenu extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-                color: Color(0xFF262D34), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40.0), bottomRight: Radius.circular(40.0))),
+                color: Color(0xFF262D34),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40.0),
+                    bottomRight: Radius.circular(40.0))),
             child: Text(
               '보나캠프(주)\n\n개발자',
               textAlign: TextAlign.start,

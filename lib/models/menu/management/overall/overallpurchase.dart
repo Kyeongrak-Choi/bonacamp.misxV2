@@ -21,7 +21,8 @@ class OverAllPurchaseModel {
     };
   }
 
-  factory OverAllPurchaseModel.fromJson(Map<String, dynamic> json) => _$OverAllPurchaseModelFromJson(json);
+  factory OverAllPurchaseModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllPurchaseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllPurchaseModelToJson(this);
 }

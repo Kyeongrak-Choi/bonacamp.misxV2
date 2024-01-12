@@ -14,7 +14,8 @@ class LendItemModel {
   var bottleCode; // 공병코드
   var bottleName; // 공병명
 
-  LendItemModel(this.code, this.name, this.standard, this.unit, this.unitName, this.caseCode, this.caseName, this.bottleCode, this.bottleName);
+  LendItemModel(this.code, this.name, this.standard, this.unit, this.unitName,
+      this.caseCode, this.caseName, this.bottleCode, this.bottleName);
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,7 +31,8 @@ class LendItemModel {
     };
   }
 
-  factory LendItemModel.fromJson(Map<String, dynamic> json) => _$LendItemModelFromJson(json);
+  factory LendItemModel.fromJson(Map<String, dynamic> json) =>
+      _$LendItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendItemModelToJson(this);
 

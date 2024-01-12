@@ -6,7 +6,8 @@ part of 'sales_rank_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesRankModel _$SalesRankModelFromJson(Map<String, dynamic> json) => SalesRankModel(
+SalesRankModel _$SalesRankModelFromJson(Map<String, dynamic> json) =>
+    SalesRankModel(
       json['ranking'],
       json['customer-code'],
       json['customer-name'],
@@ -18,7 +19,8 @@ SalesRankModel _$SalesRankModelFromJson(Map<String, dynamic> json) => SalesRankM
       json['total-amount'],
     );
 
-Map<String, dynamic> _$SalesRankModelToJson(SalesRankModel instance) => <String, dynamic>{
+Map<String, dynamic> _$SalesRankModelToJson(SalesRankModel instance) =>
+    <String, dynamic>{
       'ranking': instance.ranking,
       'customer-code': instance.customerCode,
       'customer-name': instance.customerName,

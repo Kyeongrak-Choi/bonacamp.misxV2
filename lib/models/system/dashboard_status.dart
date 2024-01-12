@@ -11,7 +11,8 @@ class DashboardStatusModel {
   var depositAmount; // 입금
   var depositBalance; // 채권
 
-  DashboardStatusModel(this.salesAmount, this.purchaseAmount, this.depositCollect, this.depositAmount, this.depositBalance);
+  DashboardStatusModel(this.salesAmount, this.purchaseAmount,
+      this.depositCollect, this.depositAmount, this.depositBalance);
 
   Map<String, dynamic> toMap() {
     return {
@@ -23,7 +24,8 @@ class DashboardStatusModel {
     };
   }
 
-  factory DashboardStatusModel.fromJson(Map<String, dynamic> json) => _$DashboardStatusModelFromJson(json);
+  factory DashboardStatusModel.fromJson(Map<String, dynamic> json) =>
+      _$DashboardStatusModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$DashboardStatusModelToJson(this);
 }

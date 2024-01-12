@@ -14,7 +14,8 @@ class ItemModel {
   var unit; // 단위
   var unitName; // 단위명
 
-  ItemModel(this.code, this.name, this.nickName, this.standard, this.useType, this.useTypeName, this.unit, this.unitName);
+  ItemModel(this.code, this.name, this.nickName, this.standard, this.useType,
+      this.useTypeName, this.unit, this.unitName);
 
   Map<String, dynamic> toMap() {
     return {
@@ -29,7 +30,8 @@ class ItemModel {
     };
   }
 
-  factory ItemModel.fromJson(Map<String, dynamic> json) => _$ItemModelFromJson(json);
+  factory ItemModel.fromJson(Map<String, dynamic> json) =>
+      _$ItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ItemModelToJson(this);
 

@@ -26,7 +26,8 @@ class ToKenModel {
     };
   }
 
-  factory ToKenModel.fromJson(Map<String, dynamic> json) => _$ToKenModelFromJson(json);
+  factory ToKenModel.fromJson(Map<String, dynamic> json) =>
+      _$ToKenModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ToKenModelToJson(this);
 }

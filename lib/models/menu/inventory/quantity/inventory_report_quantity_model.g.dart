@@ -6,13 +6,17 @@ part of 'inventory_report_quantity_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-InventoryReportQuantityModel _$InventoryReportQuantityModelFromJson(Map<String, dynamic> json) => InventoryReportQuantityModel(
+InventoryReportQuantityModel _$InventoryReportQuantityModelFromJson(
+        Map<String, dynamic> json) =>
+    InventoryReportQuantityModel(
       json['box'],
       json['bottle'],
       json['total'],
     );
 
-Map<String, dynamic> _$InventoryReportQuantityModelToJson(InventoryReportQuantityModel instance) => <String, dynamic>{
+Map<String, dynamic> _$InventoryReportQuantityModelToJson(
+        InventoryReportQuantityModel instance) =>
+    <String, dynamic>{
       'box': instance.box,
       'bottle': instance.bottle,
       'total': instance.total,

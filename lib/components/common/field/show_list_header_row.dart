@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class ShowListHeaderRow extends StatelessWidget {
   String titleName;
@@ -10,10 +12,11 @@ class ShowListHeaderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsetsDirectional.fromSTEB(30, 10, 10, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w,
+          BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
       child: Text(
         titleName,
-        style: context.textTheme.displayMedium,
+        style: context.textTheme.bodyLarge,
         textAlign: TextAlign.left,
         overflow: TextOverflow.ellipsis,
       ),

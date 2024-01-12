@@ -64,7 +64,8 @@ class SalesDailyDivisionModel {
     };
   }
 
-  factory SalesDailyDivisionModel.fromJson(Map<String, dynamic> json) => _$SalesDailyDivisionModelFromJson(json);
+  factory SalesDailyDivisionModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesDailyDivisionModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesDailyDivisionModelToJson(this);
 

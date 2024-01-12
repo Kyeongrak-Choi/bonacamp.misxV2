@@ -22,32 +22,36 @@ class LoginBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginBtnController());
     Get.put(NetworkManager());
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-            child: Container(
-          height: 50.sp,
-          child: ElevatedButton(
-              onPressed: () async {
-                ShowProgress(context);
-                if (await Get.find<LoginBtnController>().LoginCheck()) {
-                  Navigator.pop(context);
-                  Get.toNamed(ROUTE_NATIGATION);
-                } else {
-                  Navigator.pop(context);
-                }
-              },
-              // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
-              child: Text('text_login'.tr, style: TextStyle(color: CommonColors.white, fontSize: 20.sp)),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: CommonColors.white,
-                backgroundColor: CommonColors.primary,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-              )),
-        ))
-      ],
+    return Container(
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+              child: Container(
+            height: BASIC_PADDING * 5.h,
+            child: ElevatedButton(
+                onPressed: () async {
+                  ShowProgress(context);
+                  if (await Get.find<LoginBtnController>().LoginCheck()) {
+                    Navigator.pop(context);
+                    Get.toNamed(ROUTE_NATIGATION);
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
+                child: Text('text_login'.tr,
+                    style: context.textTheme.titleMedium
+                        ?.copyWith(color: Colors.white)),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: CommonColors.white,
+                  backgroundColor: CommonColors.primary,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                )),
+          ))
+        ],
+      ),
     );
   }
 }
@@ -82,10 +86,12 @@ class LoginBtnController extends GetxController {
       if (await reqToken(true)) {
         dio = await reqLogin();
         try {
-          final response = await await dio.post(API_SYSTEM_LOGIN, data: ReqLoginModel(inputId, inputPw, APP_ID).toMap());
+          final response = await await dio.post(API_SYSTEM_LOGIN,
+              data: ReqLoginModel(inputId, inputPw, APP_ID).toMap());
           if (response.statusCode == 200) {
             BoxInit(); // local DB Set
-            UserinfoModel userinfoModel = UserinfoModel.fromJson(response.data[TAG_DATA]);
+            UserinfoModel userinfoModel =
+                UserinfoModel.fromJson(response.data[TAG_DATA]);
             await Hive.box(LOCAL_DB).put(KEY_USERINFO, userinfoModel);
             await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, inputId); // Id save
             inputPw = ''; // pw 초기화
@@ -94,7 +100,8 @@ class LoginBtnController extends GetxController {
           }
         } on DioException catch (e) {
           if (e.response != null) {
-            ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+            ShowSnackBar(SNACK_TYPE.INFO,
+                e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
             return false;
           }
         }

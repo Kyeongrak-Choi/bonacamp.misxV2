@@ -13,7 +13,8 @@ class PurchaseModel {
   String? bizcnd; // 업태
   String? indstyp; // 업종
 
-  PurchaseModel(this.custCd, this.custNm, this.reprNm, this.custStat, this.custStatNm, this.bizcnd, this.indstyp);
+  PurchaseModel(this.custCd, this.custNm, this.reprNm, this.custStat,
+      this.custStatNm, this.bizcnd, this.indstyp);
 
   Map<String, dynamic> toMap() {
     return {
@@ -27,7 +28,8 @@ class PurchaseModel {
     };
   }
 
-  factory PurchaseModel.fromJson(Map<String, dynamic> json) => _$PurchaseModelFromJson(json);
+  factory PurchaseModel.fromJson(Map<String, dynamic> json) =>
+      _$PurchaseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PurchaseModelToJson(this);
 

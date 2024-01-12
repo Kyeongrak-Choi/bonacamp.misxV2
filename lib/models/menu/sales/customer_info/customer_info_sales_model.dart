@@ -10,7 +10,8 @@ class CustomerInfoSalesModel {
   int salesAmount;
   int balance;
 
-  CustomerInfoSalesModel(this.title, this.month, this.salesAmount, this.balance);
+  CustomerInfoSalesModel(
+      this.title, this.month, this.salesAmount, this.balance);
 
   Map<String, dynamic> toMap() {
     return {
@@ -21,7 +22,8 @@ class CustomerInfoSalesModel {
     };
   }
 
-  factory CustomerInfoSalesModel.fromJson(Map<String, dynamic> json) => _$CustomerInfoSalesModelFromJson(json);
+  factory CustomerInfoSalesModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerInfoSalesModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerInfoSalesModelToJson(this);
 

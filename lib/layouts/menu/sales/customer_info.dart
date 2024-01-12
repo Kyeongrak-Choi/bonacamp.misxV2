@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
@@ -21,7 +22,6 @@ import '../../../models/menu/sales/customer_info/customer_info_sales_model.dart'
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class CustomerInfo extends StatelessWidget {
@@ -31,82 +31,92 @@ class CustomerInfo extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_customer_info'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<CustomerInfoController>().visible.value,
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.theme.cardColor,
-                                    borderRadius: BorderRadius.circular(15),
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.all(15),
-                                    child: Column(
-                                      children: [
-                                        OptionTwoContent(OptionDialogCustomer(), OptionCbBranch()),
-                                        OptionBtnSearch(ROUTE_MENU_CUSTOMER_INFO),
-                                      ],
-                                    ),
-                                  ),
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<CustomerInfoController>()
+                            .visible
+                            .value,
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionTwoContent(OptionDialogCustomer(),
+                                        OptionCbBranch()),
+                                    OptionBtnSearch(
+                                        ROUTE_MENU_CUSTOMER_INFO),
+                                  ],
                                 ),
-                              ],
-                            )),
-                        SizedBox(
-                          height: Get.find<CustomerInfoController>().visible.value ? 20 : 0,
-                        ),
-                        Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value ? 4 : 3,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
+                              ),
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: setChild(),
-                            ),
-                          ),
+                          ],
+                        )),
+                    SizedBox(
+                      height:
+                          Get.find<CustomerInfoController>().visible.value
+                              ? BASIC_PADDING.h
+                              : 0,
+                    ),
+                    Expanded(
+                      flex: Get.find<CustomerInfoController>().visible.value
+                          ? 4
+                          : 3,
+                      child: Container(
+                        child: setChild(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: BASIC_PADDING.h,
+                    ),
+                    Expanded(
+                      flex: Get.find<CustomerInfoController>().visible.value
+                          ? 6
+                          : 7,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
                         ),
-                        SizedBox(
-                          height: 20,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: CustomerInfoTable(),
                         ),
-                        Expanded(
-                          flex: Get.find<CustomerInfoController>().visible.value ? 6 : 7,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: CustomerInfoTable(),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<CustomerInfoController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<CustomerInfoController>().visible.value),
                       onPressed: () {
                         Get.find<CustomerInfoController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -146,7 +156,9 @@ class CustomerInfoController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramCustCode = Get.find<OptionDialogCustomerController>().paramCustomerCode.value ?? '';
+    String paramCustCode =
+        Get.find<OptionDialogCustomerController>().paramCustomerCode.value ??
+            '';
 
     if (paramCustCode == '') {
       ShowSnackBar(SNACK_TYPE.INFO, 'must_select_customer'.tr);
@@ -162,25 +174,44 @@ class CustomerInfoController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES + API_SALES_CUSTOMERINFO + '?branch=' + paramBranchCode + '&code=' + paramCustCode);
+      final response = await dio.get(API_SALES +
+          API_SALES_CUSTOMERINFO +
+          '?branch=' +
+          paramBranchCode +
+          '&code=' +
+          paramCustCode);
 
       if (response.statusCode == 200) {
         spotListSales.clear();
         spotListBalance.clear();
 
-        parsedDataCustomerInfo = await jsonDecode(jsonEncode(response.data))[TAG_DATA];
-        parsedDataCustomerInfoRepre = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_REPRESENTATIVE];
-        parsedDataCustomerInfoEmp = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_EMPLOYEE];
-        parsedDataCustomerInfoSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALESSUMMARIES] as List;
+        parsedDataCustomerInfo =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA];
+        parsedDataCustomerInfoRepre =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+                [TAG_REPRESENTATIVE];
+        parsedDataCustomerInfoEmp =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_EMPLOYEE];
+        parsedDataCustomerInfoSales =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA]
+                [TAG_SALESSUMMARIES] as List;
 
-        controllerCustomerInfoModel = CustomerInfoModel.fromJson(parsedDataCustomerInfo);
-        controllerCustomerInfoRepresentativeModel = CustomerInfoRepresentativeModel.fromJson(parsedDataCustomerInfoRepre);
-        controllerCustomerInfoEmployeeModel = CustomerInfoEmployeeModel.fromJson(parsedDataCustomerInfoEmp);
-        controllerCustomerInfoSalesModel = parsedDataCustomerInfoSales.map((dataJson) => CustomerInfoSalesModel.fromJson(dataJson)).toList();
+        controllerCustomerInfoModel =
+            CustomerInfoModel.fromJson(parsedDataCustomerInfo);
+        controllerCustomerInfoRepresentativeModel =
+            CustomerInfoRepresentativeModel.fromJson(
+                parsedDataCustomerInfoRepre);
+        controllerCustomerInfoEmployeeModel =
+            CustomerInfoEmployeeModel.fromJson(parsedDataCustomerInfoEmp);
+        controllerCustomerInfoSalesModel = parsedDataCustomerInfoSales
+            .map((dataJson) => CustomerInfoSalesModel.fromJson(dataJson))
+            .toList();
 
         for (var list in parsedDataCustomerInfoSales) {
-          spotListSales.add(ChartSpot(list['title'].toString(), list['sales-amount']));
-          spotListBalance.add(ChartSpot(list['title'].toString(), list['balance']));
+          spotListSales
+              .add(ChartSpot(list['title'].toString(), list['sales-amount']));
+          spotListBalance
+              .add(ChartSpot(list['title'].toString(), list['balance']));
         }
 
         Get.find<CustomerInfoController>().setVisible();
@@ -188,7 +219,8 @@ class CustomerInfoController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

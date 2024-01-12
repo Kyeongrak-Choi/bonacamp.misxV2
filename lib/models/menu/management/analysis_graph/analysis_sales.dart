@@ -20,7 +20,8 @@ class AnalysisSalesModel {
     };
   }
 
-  factory AnalysisSalesModel.fromJson(Map<String, dynamic> json) => _$AnalysisSalesModelFromJson(json);
+  factory AnalysisSalesModel.fromJson(Map<String, dynamic> json) =>
+      _$AnalysisSalesModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AnalysisSalesModelToJson(this);
 }

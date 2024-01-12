@@ -15,7 +15,9 @@ class RentAssetModel {
   var memo; // 비고
   int? id;
 
-  RentAssetModel(this.date, this.code, this.name, this.amount, this.type, this.serialNo, this.memo, {this.id});
+  RentAssetModel(this.date, this.code, this.name, this.amount, this.type,
+      this.serialNo, this.memo,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -29,7 +31,8 @@ class RentAssetModel {
     };
   }
 
-  factory RentAssetModel.fromJson(Map<String, dynamic> json) => _$RentAssetModelFromJson(json);
+  factory RentAssetModel.fromJson(Map<String, dynamic> json) =>
+      _$RentAssetModelFromJson(json);
 }
 
 List<RentAssetModel> generateRentAssetList(dataList, count) {

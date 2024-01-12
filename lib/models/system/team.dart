@@ -18,7 +18,8 @@ class TeamModel {
     return {'team-code': teamCode, 'team-name': teamName};
   }
 
-  factory TeamModel.fromJson(Map<String, dynamic> json) => _$TeamModelFromJson(json);
+  factory TeamModel.fromJson(Map<String, dynamic> json) =>
+      _$TeamModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TeamModelToJson(this);
 

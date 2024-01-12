@@ -14,18 +14,17 @@ class CardRadioMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OptionController());
-
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      color: context.theme.cardColor,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(BASIC_PADDING * 2),
         child: Column(
           children: List.generate(
             radioMenu.length,
-            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title, radioMenu[index].val, context),
+            (index) => buildRowItem(radioMenu[index].id, radioMenu[index].title,
+                radioMenu[index].val, context),
           ),
         ),
       ),
@@ -54,15 +53,13 @@ class CardRadioMenu extends StatelessWidget {
 
     return Container(
       height: 50,
-      color: context.theme.cardColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
-            style: context.textTheme.displaySmall,
+            style: context.textTheme.bodyLarge,
           ),
-          SizedBox(width: 20),
           Obx(() => Switch(
               activeColor: CommonColors.green,
               value: optValue.value,

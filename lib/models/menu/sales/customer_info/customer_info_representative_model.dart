@@ -10,7 +10,8 @@ class CustomerInfoRepresentativeModel {
   String? birthDay;
   String? address;
 
-  CustomerInfoRepresentativeModel(this.name, this.phone, this.birthDay, this.address);
+  CustomerInfoRepresentativeModel(
+      this.name, this.phone, this.birthDay, this.address);
 
   Map<String, dynamic> toMap() {
     return {
@@ -21,9 +22,11 @@ class CustomerInfoRepresentativeModel {
     };
   }
 
-  factory CustomerInfoRepresentativeModel.fromJson(Map<String, dynamic> json) => _$CustomerInfoRepresentativeModelFromJson(json);
+  factory CustomerInfoRepresentativeModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerInfoRepresentativeModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CustomerInfoRepresentativeModelToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$CustomerInfoRepresentativeModelToJson(this);
 
   String? get getName => name;
 

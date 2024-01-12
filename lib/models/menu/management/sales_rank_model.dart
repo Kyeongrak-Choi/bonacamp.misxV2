@@ -17,8 +17,16 @@ class SalesRankModel {
   var totalAmount; //총금액
   int? id;
 
-  SalesRankModel(this.ranking, this.customerCode, this.customerName, this.salesAmount, this.supplementAmount, this.profitAmount, this.profitRate,
-      this.bondBalance, this.totalAmount,
+  SalesRankModel(
+      this.ranking,
+      this.customerCode,
+      this.customerName,
+      this.salesAmount,
+      this.supplementAmount,
+      this.profitAmount,
+      this.profitRate,
+      this.bondBalance,
+      this.totalAmount,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -35,7 +43,8 @@ class SalesRankModel {
     };
   }
 
-  factory SalesRankModel.fromJson(Map<String, dynamic> json) => _$SalesRankModelFromJson(json);
+  factory SalesRankModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesRankModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesRankModelToJson(this);
 

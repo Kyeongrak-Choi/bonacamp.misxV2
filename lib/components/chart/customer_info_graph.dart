@@ -22,24 +22,29 @@ class CustomerInfoGraph extends StatelessWidget {
             iconWidth: 10.0,
             iconHeight: 10.0,
             overflowMode: LegendItemOverflowMode.wrap,
-            textStyle: context.textTheme.displaySmall,
+            textStyle: context.textTheme.bodyMedium,
             alignment: ChartAlignment.center,
             position: LegendPosition.top,
           ),
-          tooltipBehavior: TooltipBehavior(enable: true, textStyle: context.textTheme.displaySmall, color: context.theme.canvasColor),
+          tooltipBehavior: TooltipBehavior(
+              enable: true,
+              textStyle: context.textTheme.bodyMedium,
+              color: context.theme.canvasColor),
           series: <ChartSeries<ChartSpot, String>>[
             StackedLineSeries<ChartSpot, String>(
               dataSource: Get.find<CustomerInfoController>().spotListSales,
               xValueMapper: (ChartSpot spots, _) => spots.name,
               yValueMapper: (ChartSpot spots, _) => spots.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 5),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 5),
               name: 'sales'.tr,
             ),
             StackedLineSeries<ChartSpot, String>(
               dataSource: Get.find<CustomerInfoController>().spotListBalance,
               xValueMapper: (ChartSpot spots, _) => spots.name,
               yValueMapper: (ChartSpot spots, _) => spots.value,
-              markerSettings: MarkerSettings(isVisible: true, height: 5, width: 5, borderWidth: 5),
+              markerSettings: MarkerSettings(
+                  isVisible: true, height: 5, width: 5, borderWidth: 5),
               name: '채권',
             ),
           ]),

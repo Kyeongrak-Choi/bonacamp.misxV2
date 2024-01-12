@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class IconTitleThreeField extends StatelessWidget {
   String titleName;
@@ -8,19 +10,24 @@ class IconTitleThreeField extends StatelessWidget {
   var value3;
   IconData iconData;
 
-  IconTitleThreeField({required this.titleName, this.value1, this.value2, this.value3, required this.iconData});
+  IconTitleThreeField(
+      {required this.titleName,
+      this.value1,
+      this.value2,
+      this.value3,
+      required this.iconData});
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Icon(iconData, color: context.theme.primaryColor),
+      FittedBox(fit: BoxFit.contain,child: Icon(iconData)),
       Expanded(
-        flex: 3,
+        flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(
             titleName,
-            style: context.textTheme.titleSmall,
+            style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.start,
           ),
         ),
@@ -28,10 +35,10 @@ class IconTitleThreeField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(
             value1,
-            style: context.textTheme.titleSmall,
+            style: context.textTheme.bodyMedium,
             textAlign: TextAlign.end,
           ),
         ),
@@ -39,21 +46,21 @@ class IconTitleThreeField extends StatelessWidget {
       Expanded(
         flex: 2,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(
             value2,
-            style: context.textTheme.titleSmall,
+            style: context.textTheme.bodyMedium,
             textAlign: TextAlign.end,
           ),
         ),
       ),
       Expanded(
-        flex: 2,
+        flex: 4,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 15, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
           child: Text(
             value3,
-            style: context.textTheme.titleSmall,
+            style: context.textTheme.bodyMedium,
             textAlign: TextAlign.end,
           ),
         ),

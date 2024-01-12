@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../utils/menu_manager.dart';
 
@@ -14,24 +15,20 @@ class CardTitleMenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Container(
-        //   alignment: Alignment.centerLeft,
-        //   child: Text(
-        //     menuTitleName,
-        //     style: context.textTheme.displayLarge,
-        //     overflow: TextOverflow.ellipsis,
-        //   ),
-        // ),
         Card(
-          elevation: 0,
+          elevation: 0.h,
           margin: EdgeInsets.zero,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-          color: context.theme.cardColor,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                BASIC_PADDING * 2.w, 0.h, BASIC_PADDING * 2.w, 0.h),
             child: Column(
-              children: List.generate(iconMenuList.length,
-                  (index) => buildRowIconItem(iconMenuList[index].title, iconMenuList[index].iconData, iconMenuList[index].path, context)),
+              children: List.generate(
+                  iconMenuList.length,
+                  (index) => buildRowIconItem(
+                      iconMenuList[index].title,
+                      iconMenuList[index].iconData,
+                      iconMenuList[index].path,
+                      context)),
             ),
           ),
         )
@@ -39,30 +36,22 @@ class CardTitleMenuList extends StatelessWidget {
     );
   }
 
-  Widget buildRowIconItem(String title, IconData iconData, String path, BuildContext context) {
+  Widget buildRowIconItem(
+      String title, IconData iconData, String path, BuildContext context) {
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed(path),
       child: Container(
-        height: 50,
-        color: context.theme.cardColor,
+        height: BASIC_PADDING * 7.h,
         child: Row(
           children: [
-            // Icon(
-            //   iconData,
-            //   size: 20,
-            //   color: context.theme.primaryColor,
-            // ),
-            // SizedBox(width: 20),
-            Text(
-              title,
-              //style: context.textTheme.displayMedium,
-              style: TextStyle(fontSize: 16.sp, color: Colors.black),
-            ),
+            Text(title, style: context.textTheme.bodyLarge),
             Spacer(),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: context.theme.primaryColor,
+            FittedBox(
+              fit: BoxFit.contain,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: context.theme.colorScheme.onBackground, // font20
+              ),
             ),
           ],
         ),

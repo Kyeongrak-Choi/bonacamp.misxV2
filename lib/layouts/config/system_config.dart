@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/components/menu/card_radio_menu.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../utils/menu_manager.dart';
 
@@ -9,35 +11,18 @@ class SystemConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.theme.canvasColor,
       appBar: AppBar(
         title: Text('system_setting'.tr),
-        titleTextStyle: context.textTheme.displayLarge,
-        backgroundColor: context.theme.canvasColor,
-        iconTheme: context.theme.iconTheme,
       ),
-      body: Container(
-        color: context.theme.canvasColor,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: context.theme.cardColor,
-              borderRadius: BorderRadius.circular(20),
-              shape: BoxShape.rectangle,
-            ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-              child: ListView(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                    child: CardRadioMenu(radioMenu: systemDetail),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w,
+                BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
+            child: CardRadioMenu(radioMenu: systemDetail),
+          )
+        ],
       ),
     );
   }

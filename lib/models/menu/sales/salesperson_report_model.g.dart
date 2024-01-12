@@ -6,7 +6,9 @@ part of 'salesperson_report_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesPersonReportModel _$SalesPersonReportModelFromJson(Map<String, dynamic> json) => SalesPersonReportModel(
+SalesPersonReportModel _$SalesPersonReportModelFromJson(
+        Map<String, dynamic> json) =>
+    SalesPersonReportModel(
       json['branch-code'],
       json['code'],
       json['name'],
@@ -19,7 +21,9 @@ SalesPersonReportModel _$SalesPersonReportModelFromJson(Map<String, dynamic> jso
       json['margin-rate'],
     );
 
-Map<String, dynamic> _$SalesPersonReportModelToJson(SalesPersonReportModel instance) => <String, dynamic>{
+Map<String, dynamic> _$SalesPersonReportModelToJson(
+        SalesPersonReportModel instance) =>
+    <String, dynamic>{
       'branch-code': instance.branchCode,
       'code': instance.code,
       'name': instance.name,

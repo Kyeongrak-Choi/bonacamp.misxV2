@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../../../utils/constants.dart';
-import '../../../utils/theme/text_theme.dart';
 
 class OptionCbRentalDivision extends StatelessWidget {
   @override
@@ -14,38 +14,58 @@ class OptionCbRentalDivision extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'opt_rental_division'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-                child: Obx(
-              () => DropdownButtonFormField<String>(
-                isExpanded: true,
-                value: Get.find<CbRentalDivisionController>().selectedValue,
-                style: context.textTheme.bodyMedium,
-                decoration: InputDecoration(border: InputBorder.none),
-                dropdownColor: context.theme.cardColor,
-                items: Get.find<CbRentalDivisionController>().data.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    alignment: Alignment.center,
-                    value: value,
-                    child: Text(value ?? ''),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  Get.find<CbRentalDivisionController>().chooseItem(value!);
-                },
-              ),
-            )),
-          ],
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Obx(
+            () => DropdownButtonFormField<String>(
+              padding: EdgeInsetsDirectional.fromSTEB(
+                  BASIC_PADDING * 2.w, 0.h, BASIC_PADDING * 2.w, 0.h),
+              isExpanded: true,
+              menuMaxHeight: BASIC_PADDING * 30.h,
+              value: Get.find<CbRentalDivisionController>().selectedValue,
+              style: context.textTheme.bodyMedium,
+              decoration: InputDecoration(border: InputBorder.none),
+              dropdownColor: context.theme.colorScheme.background,
+              borderRadius: BorderRadius.circular(8),
+              items: Get.find<CbRentalDivisionController>()
+                  .data
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  alignment: Alignment.center,
+                  value: value,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Text(
+                          value ?? '',
+                          style: context.textTheme.bodyMedium,
+                        )),
+                  ),
+                );
+              }).toList(),
+              onChanged: (value) {
+                Get.find<CbRentalDivisionController>().chooseItem(value!);
+              },
+            ),
+          ),
         ),
       ],
     );

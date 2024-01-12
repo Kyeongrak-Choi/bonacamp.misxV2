@@ -22,7 +22,8 @@ class ResTokenModel {
     };
   }
 
-  factory ResTokenModel.fromJson(Map<String, dynamic> json) => _$ResTokenModelFromJson(json);
+  factory ResTokenModel.fromJson(Map<String, dynamic> json) =>
+      _$ResTokenModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResTokenModelToJson(this);
 }

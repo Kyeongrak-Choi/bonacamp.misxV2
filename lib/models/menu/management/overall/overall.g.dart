@@ -16,7 +16,8 @@ OverAllModel _$OverAllModelFromJson(Map<String, dynamic> json) => OverAllModel(
       OverAllAssetModel.fromJson(json['asset'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$OverAllModelToJson(OverAllModel instance) => <String, dynamic>{
+Map<String, dynamic> _$OverAllModelToJson(OverAllModel instance) =>
+    <String, dynamic>{
       'sales': instance.overAllSales.toJson(),
       'purchase': instance.overAllPurchase.toJson(),
       'deposit': instance.overAllDeposit.toJson(),

@@ -6,7 +6,9 @@ part of 'achievement_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AchievementDetailsModel _$AchievementDetailsModelFromJson(Map<String, dynamic> json) => AchievementDetailsModel(
+AchievementDetailsModel _$AchievementDetailsModelFromJson(
+        Map<String, dynamic> json) =>
+    AchievementDetailsModel(
       json['month'],
       json['sales-goal'],
       json['sales-amount'],
@@ -18,7 +20,9 @@ AchievementDetailsModel _$AchievementDetailsModelFromJson(Map<String, dynamic> j
       json['balance-rate'],
     );
 
-Map<String, dynamic> _$AchievementDetailsModelToJson(AchievementDetailsModel instance) => <String, dynamic>{
+Map<String, dynamic> _$AchievementDetailsModelToJson(
+        AchievementDetailsModel instance) =>
+    <String, dynamic>{
       'month': instance.month,
       'sales-goal': instance.salesGoal,
       'sales-amount': instance.salesAmount,

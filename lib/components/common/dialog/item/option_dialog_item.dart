@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
-import '../../../../utils/theme/text_theme.dart';
 
 class OptionDialogItem extends StatelessWidget {
   @override
@@ -13,42 +13,63 @@ class OptionDialogItem extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'title_search_item'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-                flex: 9,
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 3,
                 child: TextButton(
                   onPressed: () => Get.toNamed(ROUTE_DIALOG_ITEM),
-                  child: Obx(() => Text(
-                        Get.find<OptionDialogItemController>().selectedValue.value,
-                        style: context.textTheme.bodyMedium,
-                      )),
-                )),
-            Expanded(
-              flex: 1,
-              child: IconButton(
-                  onPressed: () {
-                    Get.find<OptionDialogItemController>().selectedValue.value = 'all'.tr;
-                    Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
-                    Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
-                    Get.find<OptionDialogItemController>().paramCode = '';
-                  },
-                  icon: Icon(Icons.cancel_outlined, color: context.theme.primaryColor)),
-            ),
-            // Expanded(
-            //   flex: 1,
-            //   child: IconButton(onPressed: () => Get.toNamed(route), icon: Icon(Icons.store_outlined, color: context.theme.primaryColor)),
-            // ),
-          ],
+                  child: Obx(() => Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                            Get.find<OptionDialogItemController>().selectedValue.value,
+                            style: context.textTheme.bodyMedium,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                    ),
+                  )),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.find<OptionDialogItemController>().selectedValue.value = '전체';
+                          Get.find<OptionDialogItemController>().paramItemName.value = ''.tr;
+                          Get.find<OptionDialogItemController>().paramItemCode.value = ''.tr;
+                          Get.find<OptionDialogItemController>().paramCode = '';
+                        },
+                        icon: Icon(
+                          Icons.cancel_outlined,
+                        )),
+                  ),
+                ),
+              ),
+
+            ],
+          ),
         ),
       ],
     );
@@ -56,7 +77,7 @@ class OptionDialogItem extends StatelessWidget {
 }
 
 class OptionDialogItemController extends GetxController {
-  RxString selectedValue = 'all'.tr.obs;
+  RxString selectedValue = '전체'.obs;
 
   RxString paramItemCode = ''.tr.obs;
   RxString paramItemName = ''.tr.obs;

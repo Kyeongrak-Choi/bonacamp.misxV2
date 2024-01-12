@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/dialog/item/search_item_listitem.dart';
@@ -20,20 +21,18 @@ class SearchItemList extends StatelessWidget {
     Get.put(NetworkManager());
     return Obx(() => ListView.separated(
           shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
           itemCount: Get.find<SearchItemListController>().datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
-            height: 5,
-            color: CommonColors.white,
+            height: 0,
+            color: CommonColors.gray,
           ),
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
-              height: 50,
-              color: context.theme.cardColor,
-              padding: const EdgeInsets.all(5),
-              child: selectSearchListItem(index),
+                  color: context.theme.canvasColor,
+                  padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING.h),
+                  child: selectSearchListItem(index),
             ));
           },
         ));
@@ -67,15 +66,6 @@ class SearchItemListController extends GetxController {
   }
 
   void search(context) async {
-    // ProgressDialog pd = ProgressDialog(context: Get.context);
-    // pd.show(
-    //   max: 1000,
-    //   msg: 'Searching',
-    //   cancel: Cancel(),
-    //   backgroundColor: CommonColors.white,
-    //   progressValueColor: CommonColors.primary,
-    //   msgColor: CommonColors.primary,
-    // );
     ShowProgress(context);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;

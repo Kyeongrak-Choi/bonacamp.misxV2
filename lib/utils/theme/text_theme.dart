@@ -10,63 +10,70 @@ TextTheme textThemeLight() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
       fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 3
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
-      fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      fontWeight: FontWeight.w900,
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 4
     headlineMedium: GoogleFonts.nanumGothic(
       fontSize: 32.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 5
     headlineSmall: GoogleFonts.nanumGothic(
       fontSize: 24.sp,
       fontWeight: FontWeight.bold,
-      color: LightColors.font,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
-      color: LightColors.font,
-    ),
+      fontWeight: FontWeight.bold,
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 18.sp,
-      color: LightColors.paragraphFont,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: LightColors.paragraphFont,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.sp,
-      color: LightColors.paragraphFont,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 13.sp,
-      color: LightColors.paragraphFont,
-    ),
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
+
+    // 없으면 graph legend 에러 발생.
+    bodySmall: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: LightColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
   );
 }
 
@@ -76,63 +83,70 @@ TextTheme textThemeDark() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
       fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 3
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
-      fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      fontWeight: FontWeight.w900,
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 4
     headlineMedium: GoogleFonts.nanumGothic(
       fontSize: 32.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 5
     headlineSmall: GoogleFonts.nanumGothic(
       fontSize: 24.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
-      color: DarkColors.font,
-    ),
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 18.sp,
-      color: DarkColors.paragraphFont,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: DarkColors.paragraphFont,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.sp,
-      color: DarkColors.paragraphFont,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 13.sp,
-      color: DarkColors.paragraphFont,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
+
+    // 없으면 graph legend 에러 발생.
+    bodySmall: GoogleFonts.nanumGothic(
+      fontSize: 13.sp,
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
   );
 }
 
@@ -142,62 +156,63 @@ TextTheme textThemeCommon() {
     displayLarge: GoogleFonts.nanumGothic(
       fontSize: 72.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 1
     displayMedium: GoogleFonts.nanumGothic(
       fontSize: 56.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 2
     displaySmall: GoogleFonts.nanumGothic(
       fontSize: 48.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 3
     headlineLarge: GoogleFonts.nanumGothic(
       fontSize: 40.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 4
     headlineMedium: GoogleFonts.nanumGothic(
       fontSize: 32.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 5
     headlineSmall: GoogleFonts.nanumGothic(
       fontSize: 24.sp,
       fontWeight: FontWeight.bold,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Heading 6
     titleLarge: GoogleFonts.nanumGothic(
       fontSize: 20.sp,
-      color: DarkColors.font,
-    ),
+      fontWeight: FontWeight.bold,
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 1
     titleMedium: GoogleFonts.nanumGothic(
       fontSize: 18.sp,
-      color: DarkColors.font,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 2
     titleSmall: GoogleFonts.nanumGothic(
       fontSize: 16.sp,
-      color: DarkColors.paragraphFont,
-    ),
+      color: DarkColors.font100,
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 3
     bodyLarge: GoogleFonts.nanumGothic(
       fontSize: 14.sp,
       color: CommonColors.copyright,
-    ),
+    ).merge(TextStyle(fontFamily: 'SUITE')),
     // Paragraph 4
     bodyMedium: GoogleFonts.nanumGothic(
       fontSize: 13.sp,
       color: CommonColors.copyright,
-    ),
+    ).merge(TextStyle(fontFamily: 'SUITE')),
   );
 }

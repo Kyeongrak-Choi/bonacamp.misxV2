@@ -6,7 +6,9 @@ part of 'lend_report_warehouse_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LendReportWarehouseModel _$LendReportWarehouseModelFromJson(Map<String, dynamic> json) => LendReportWarehouseModel(
+LendReportWarehouseModel _$LendReportWarehouseModelFromJson(
+        Map<String, dynamic> json) =>
+    LendReportWarehouseModel(
       json['trans-item-code'],
       json['lend-item-name'],
       json['obtin-quantity'],
@@ -19,7 +21,9 @@ LendReportWarehouseModel _$LendReportWarehouseModelFromJson(Map<String, dynamic>
       LendReportQuantityModel.fromJson(json['out'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$LendReportWarehouseModelToJson(LendReportWarehouseModel instance) => <String, dynamic>{
+Map<String, dynamic> _$LendReportWarehouseModelToJson(
+        LendReportWarehouseModel instance) =>
+    <String, dynamic>{
       'trans-item-code': instance.transItemCode,
       'lend-item-name': instance.lendItemName,
       'obtin-quantity': instance.obtinQuantity,

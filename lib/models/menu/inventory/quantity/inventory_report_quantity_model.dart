@@ -19,7 +19,8 @@ class InventoryReportQuantityModel {
     };
   }
 
-  factory InventoryReportQuantityModel.fromJson(Map<String, dynamic> json) => _$InventoryReportQuantityModelFromJson(json);
+  factory InventoryReportQuantityModel.fromJson(Map<String, dynamic> json) =>
+      _$InventoryReportQuantityModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$InventoryReportQuantityModelToJson(this);
 }

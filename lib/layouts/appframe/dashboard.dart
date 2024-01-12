@@ -29,34 +29,29 @@ class DashBoard extends StatelessWidget {
     Get.put(NetworkManager());
     Get.put(DashBoardController());
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: context.theme.colorScheme.background,
       body: RefreshIndicator(
           onRefresh: () async {
             Get.find<DashBoardController>().getDashBoard();
           },
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))
-                      ? EdgeInsetsDirectional.all(15)
-                      : EdgeInsetsDirectional.all(0),
-                  child: Container(
-                    child: setChild(),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-                  child: DashBoardTab(),
+                Container(
+                  child: setChild(),
                 ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
+                      DashBoardTab(),
+                      SizedBox(
+                        height: BASIC_PADDING * 2.h,
+                      ),
                       DashboardGraph(),
                     ],
                   ),
-                )
+                ),
+                //DashboardGraph(),
               ],
             ),
           )),
@@ -64,7 +59,8 @@ class DashBoard extends StatelessWidget {
   }
 
   Widget? setChild() {
-    if (getHiveBool(Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: false))) {
+    if (getHiveBool(
+        Hive.box(LOCAL_DB).get(KEY_SHOW_ADMOB, defaultValue: true))) {
       return DashBoardAdmob();
     } else {
       return null;
@@ -96,42 +92,74 @@ class DashBoardController extends GetxController {
       dio = await reqApi(param);
 
       // get Employees
-      final resEmployee = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES);
+      final resEmployee =
+          await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_EMPLOYEES);
       if (resEmployee.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resEmployee.data))[TAG_DATA] as List;
-        await Hive.box(LOCAL_DB).put(KEY_EMPLOYEE, parsedData.map((dataJson) => EmployeeModel.fromJson(dataJson)).toList());
+        parsedData =
+            await jsonDecode(jsonEncode(resEmployee.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(
+            KEY_EMPLOYEE,
+            parsedData
+                .map((dataJson) => EmployeeModel.fromJson(dataJson))
+                .toList());
       }
 
       // get Branches
-      final resBranches = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES);
+      final resBranches =
+          await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_BRANCHES);
       if (resBranches.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resBranches.data))[TAG_DATA] as List;
-        await Hive.box(LOCAL_DB).put(KEY_BRANCH, parsedData.map((dataJson) => BranchModel.fromJson(dataJson)).toList());
+        parsedData =
+            await jsonDecode(jsonEncode(resBranches.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(
+            KEY_BRANCH,
+            parsedData
+                .map((dataJson) => BranchModel.fromJson(dataJson))
+                .toList());
       }
 
       // get Teams
-      final resTeams = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS);
+      final resTeams =
+          await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_TEAMS);
       if (resTeams.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resTeams.data))[TAG_DATA] as List;
-        await Hive.box(LOCAL_DB).put(KEY_TEAM, parsedData.map((dataJson) => TeamModel.fromJson(dataJson)).toList());
+        parsedData =
+            await jsonDecode(jsonEncode(resTeams.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(
+            KEY_TEAM,
+            parsedData
+                .map((dataJson) => TeamModel.fromJson(dataJson))
+                .toList());
       }
 
       // get Warehouses
-      final resWarehouses = await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES);
+      final resWarehouses =
+          await dio.get(API_SYSTEM_MASTER + '$param' + API_SYSTEM_WAREHOUSES);
       if (resWarehouses.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resWarehouses.data))[TAG_DATA] as List;
-        await Hive.box(LOCAL_DB).put(KEY_WH, parsedData.map((dataJson) => WarehouseModel.fromJson(dataJson)).toList());
+        parsedData =
+            await jsonDecode(jsonEncode(resWarehouses.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(
+            KEY_WH,
+            parsedData
+                .map((dataJson) => WarehouseModel.fromJson(dataJson))
+                .toList());
       }
 
       // get System Common
-      final resSystem = await dio.get(API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM, data: param);
+      final resSystem = await dio.get(
+          API_SYSTEM_COMMON + '?codes=' + API_SYSTEM_COMMON_PARAM,
+          data: param);
       if (resSystem.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resSystem.data))[TAG_DATA] as List;
-        await Hive.box(LOCAL_DB).put(KEY_COMMON, parsedData.map((dataJson) => CommonModel.fromJson(dataJson)).toList());
+        parsedData =
+            await jsonDecode(jsonEncode(resSystem.data))[TAG_DATA] as List;
+        await Hive.box(LOCAL_DB).put(
+            KEY_COMMON,
+            parsedData
+                .map((dataJson) => CommonModel.fromJson(dataJson))
+                .toList());
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
 
@@ -146,47 +174,56 @@ class DashBoardController extends GetxController {
 
     dio = await reqApi(param);
 
-    // sn.ProgressDialog pd = sn.ProgressDialog(context: Get.context);
     try {
-      // pd.show(
-      //   max: 1000,
-      //   msg: 'Searching',
-      //   cancel: Cancel(),
-      //   backgroundColor: CommonColors.white,
-      //   progressValueColor: CommonColors.primary,
-      //   msgColor: CommonColors.primary,
-      // );
       ShowProgress(Get.context);
-      BranchModel branch = await Hive.box(LOCAL_DB).get(KEY_BRANCH).elementAt(0); // USER_INFO save
+      BranchModel branch = await Hive.box(LOCAL_DB)
+          .get(KEY_BRANCH)
+          .elementAt(0); // USER_INFO save
       var branchCode = branch.getBranchCode;
-      final resDashboard = await dio
-          .get(API_MANAGEMENT + API_SYSTEM_DASHBOARD + '?branch=' + branchCode! + '&from=' + getFirstDay() + '&to=' + getToday(), data: param);
+      final resDashboard = await dio.get(
+          API_MANAGEMENT +
+              API_SYSTEM_DASHBOARD +
+              '?branch=' +
+              branchCode! +
+              '&from=' +
+              getFirstDay() +
+              '&to=' +
+              getToday(),
+          data: param);
 
       if (resDashboard.statusCode == 200) {
-        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_CURRENT];
+        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA]
+            [TAG_CURRENT];
         controllerCurrentModel = DashboardStatusModel.fromJson(parsedData);
-        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_MONTH];
+        parsedData = await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA]
+            [TAG_MONTH];
         controllerMonthModel = DashboardStatusModel.fromJson(parsedData);
 
         salesList.clear();
         bondList.clear();
 
-        for (var list in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_SALES]) {
-          salesList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['total']));
+        for (var list
+            in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA]
+                [TAG_SALES]) {
+          salesList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['total']));
         }
 
-        for (var list in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA][TAG_GRAPH_BOND]) {
-          bondList.add(ChartSpot(list['date-name'].toString().substring(3, 6), list['amount']));
+        for (var list
+            in await jsonDecode(jsonEncode(resDashboard.data))[TAG_DATA]
+                [TAG_GRAPH_BOND]) {
+          bondList.add(ChartSpot(
+              list['date-name'].toString().substring(3, 6), list['amount']));
         }
 
         update();
       }
       Navigator.pop(Get.context!);
-      //ShowDialog(DIALOG_TYPE.NOTICE, '공지사항', '경영관리 리뉴얼 오픈', Get.context);
     } on DioException catch (e) {
       Navigator.pop(Get.context!);
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
   }

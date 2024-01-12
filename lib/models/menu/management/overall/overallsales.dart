@@ -21,7 +21,8 @@ class OverAllSalesModel {
     };
   }
 
-  factory OverAllSalesModel.fromJson(Map<String, dynamic> json) => _$OverAllSalesModelFromJson(json);
+  factory OverAllSalesModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllSalesModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllSalesModelToJson(this);
 }

@@ -9,7 +9,8 @@ class LendReportQuantityModel {
   var equipQuantity;
   var quantity;
 
-  LendReportQuantityModel(this.bottleQuantity, this.equipQuantity, this.quantity);
+  LendReportQuantityModel(
+      this.bottleQuantity, this.equipQuantity, this.quantity);
 
   Map<String, dynamic> toMap() {
     return {
@@ -19,7 +20,8 @@ class LendReportQuantityModel {
     };
   }
 
-  factory LendReportQuantityModel.fromJson(Map<String, dynamic> json) => _$LendReportQuantityModelFromJson(json);
+  factory LendReportQuantityModel.fromJson(Map<String, dynamic> json) =>
+      _$LendReportQuantityModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LendReportQuantityModelToJson(this);
 }

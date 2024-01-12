@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
@@ -25,7 +27,8 @@ class Navigation extends GetView<NavigationController> {
       onWillPop: () {
         // return Future(() => true); // HW Back key disenable
         DateTime now = DateTime.now();
-        if (currentBackPressTime == null || now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
+        if (currentBackPressTime == null ||
+            now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
           currentBackPressTime = now;
           ShowSnackBar(SNACK_TYPE.INFO, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.");
           return Future.value(false);
@@ -39,10 +42,22 @@ class Navigation extends GetView<NavigationController> {
           //   '${Get.find<DashBoardController>().clientNm}' ?? '',
           //   style: context.textTheme.titleLarge,
           // ),
+          centerTitle: false,
           title: Image.asset(
-            'lib/assets/icons/Dionysos.png',
+              fit: BoxFit.contain,
+            Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false)
+                ? 'lib/assets/icons/Dionysos_dark.png'
+                : 'lib/assets/icons/Dionysos_light.png',
+
           ),
           automaticallyImplyLeading: false,
+          // bottom: PreferredSize(
+          //   preferredSize: Size.fromHeight(8), // 줄의 높이를 설정합니다.
+          //   child: Divider(
+          //     height: 8, // 줄의 높이를 설정합니다.
+          //     color: Colors.grey, // 줄의 색상을 설정합니다.
+          //   ),
+          // ),
           // HW Back Key disenable
           // leading: IconButton(
           //   icon: Icon(Icons.account_circle_sharp),
@@ -51,7 +66,7 @@ class Navigation extends GetView<NavigationController> {
           //     ShowUserInfoDialog(context);
           //   },
           // ),
-          backgroundColor: Colors.white,
+          //backgroundColor: ,
           // actions: [
           //   // IconButton(
           //   //     icon: Icon(Icons.notifications_none_outlined),
@@ -70,10 +85,10 @@ class Navigation extends GetView<NavigationController> {
         // ),
         body: Obx(() {
           switch (NAVIGATION_BAR_ITEM.values[controller.currentIndex.value]) {
-            case NAVIGATION_BAR_ITEM.MENU:
-              return MenuListDrawer();
             case NAVIGATION_BAR_ITEM.HOME:
               return DashBoard();
+            case NAVIGATION_BAR_ITEM.MENU:
+              return MenuListDrawer();
             case NAVIGATION_BAR_ITEM.CONFIG:
               return Config();
             // case NAVIGATION_BAR_ITEM.MY:
@@ -86,40 +101,86 @@ class Navigation extends GetView<NavigationController> {
         bottomNavigationBar: Obx(() {
           return CurvedNavigationBar(
             index: controller.currentIndex.value,
-            height: 50,
+            height: 56,
             color: CommonColors.primary,
             backgroundColor: context.theme.canvasColor,
-            buttonBackgroundColor: CommonColors.primary,
+            buttonBackgroundColor: context.theme.canvasColor,
             items: [
               Container(
                 //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.MENU
+                child: NAVIGATION_BAR_ITEM
+                            .values[controller.currentIndex.value] !=
+                        NAVIGATION_BAR_ITEM.HOME
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.menu, color: context.theme.primaryColorLight),
+                          FittedBox(
+                            fit: BoxFit.contain,
+                            child: Icon(CupertinoIcons.home,
+                                color: context.theme.primaryColorLight),
+                          ),
                           Text(
-                            'nav_menu'.tr,
-                            style: TextStyle(color: context.theme.primaryColorLight),
+                            'nav_home'.tr,
+                            style: TextStyle(
+                                fontSize: 12.sp,
+                                fontFamily: 'SUITE',
+                                color: context.theme.primaryColorLight),
                           )
                         ],
                       )
-                    : Icon(Icons.menu, color: context.theme.primaryColorLight),
+                    : FittedBox(fit: BoxFit.contain,child: Icon(CupertinoIcons.home, color: CommonColors.primary)),
               ),
               Container(
                 //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.HOME
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.home, color: context.theme.primaryColorLight),
-                          Text(
-                            'nav_home'.tr,
-                            style: TextStyle(color: context.theme.primaryColorLight),
+                child:
+                    NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] !=
+                            NAVIGATION_BAR_ITEM.MENU
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Icon(Icons.drag_handle,
+                                    color: context.theme.primaryColorLight),
+                              ),
+                              Text(
+                                'nav_menu'.tr,
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'SUITE',
+                                    color: context.theme.primaryColorLight),
+                              )
+                            ],
                           )
-                        ],
-                      )
-                    : Icon(Icons.home, color: context.theme.primaryColorLight),
+                        : FittedBox(fit: BoxFit.contain,child: Icon(Icons.drag_handle, color: CommonColors.primary)),
+              ),
+              Container(
+                //height: 40,
+                child:
+                    NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] !=
+                            NAVIGATION_BAR_ITEM.CONFIG
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Icon(CupertinoIcons.slider_horizontal_3,
+                                    color: context.theme.primaryColorLight),
+                              ),
+                              Text(
+                                'nav_more'.tr,
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'SUITE',
+                                    color: context.theme.primaryColorLight),
+                              )
+                            ],
+                          )
+                        : FittedBox(
+                      fit: BoxFit.contain,
+                          child: Icon(CupertinoIcons.slider_horizontal_3,
+                              color: CommonColors.primary),
+                        ),
               ),
               // Container(
               //   height: 50,
@@ -133,21 +194,6 @@ class Navigation extends GetView<NavigationController> {
               //     ],
               //   ),
               // ),
-              Container(
-                //height: 40,
-                child: NAVIGATION_BAR_ITEM.values[controller.currentIndex.value] != NAVIGATION_BAR_ITEM.CONFIG
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
-                          Text(
-                            'nav_more'.tr,
-                            style: TextStyle(color: context.theme.primaryColorLight),
-                          )
-                        ],
-                      )
-                    : Icon(Icons.more_horiz_sharp, color: context.theme.primaryColorLight),
-              ),
               // Container(
               //   height: 50,
               //   child: Column(
@@ -172,18 +218,18 @@ class Navigation extends GetView<NavigationController> {
 }
 
 class NavigationController extends GetxController {
-  RxInt currentIndex = 1.obs;
+  RxInt currentIndex = 0.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
     changeIndex();
-    currentIndex.value = 1;
+    currentIndex.value = 0;
   }
 
   changeIndex() {
-    currentIndex.value = 1;
+    currentIndex.value = 0;
   }
 }
 

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -16,7 +17,6 @@ import '../../../models/menu/management/sales_class_status.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesClassStatus extends StatelessWidget {
@@ -24,67 +24,70 @@ class SalesClassStatus extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesClassStatusController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_sales_class_status'.tr), actions: []),
+          appBar: AppBar(
+              title: Text('menu_sub_sales_class_status'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<SalesClassStatusController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionPeriodPicker(),
-                                OptionCbBranch(),
-                                OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: Get.find<SalesClassStatusController>()
+                          .visible
+                          .value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: Column(
+                            children: [
+                              OptionPeriodPicker(),
+                              OptionCbBranch(),
+                              OptionBtnSearch(ROUTE_MENU_CLASSSTATUS),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.find<SalesClassStatusController>().visible.value ? 20 : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
+                    ),
+                    SizedBox(
+                      height:
+                          Get.find<SalesClassStatusController>().visible.value
+                              ? 20
+                              : 0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                          children: <Widget>[setChild()],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesClassStatusController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<SalesClassStatusController>()
+                              .visible
+                              .value),
                       onPressed: () {
                         Get.find<SalesClassStatusController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -97,7 +100,8 @@ class SalesClassStatus extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<SalesClassStatusController>().controllerModel != null) {
-      return SalesClassStatusItem(Get.find<SalesClassStatusController>().controllerModel);
+      return SalesClassStatusItem(
+          Get.find<SalesClassStatusController>().controllerModel);
     } else {
       return EmptyWidget();
     }
@@ -125,8 +129,12 @@ class SalesClassStatusController extends GetxController {
 
     var paramClientCd = user.getClientCode;
     var paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    var paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    var paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    var paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    var paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
 
     try {
       dio = await reqApi(paramClientCd);
@@ -143,12 +151,17 @@ class SalesClassStatusController extends GetxController {
           '');
 
       if (response.statusCode == 200) {
-        if ((dataObjsJson = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((dataObjsJson =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerModel = dataObjsJson.map((dataJson) => SalesClassStatusModel.fromJson(dataJson)).toList();
+          controllerModel = dataObjsJson
+              .map((dataJson) => SalesClassStatusModel.fromJson(dataJson))
+              .toList();
         }
 
         Get.find<SalesClassStatusController>().setVisible();
@@ -156,7 +169,8 @@ class SalesClassStatusController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print("other error");

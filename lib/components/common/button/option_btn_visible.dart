@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OptionBtnVisible extends StatelessWidget {
   bool visible;
@@ -9,13 +9,17 @@ class OptionBtnVisible extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return visible == true
-        ? Icon(
-            CupertinoIcons.rectangle_compress_vertical,
-            color: context.theme.primaryColorDark,
-          )
-        : Icon(
-            CupertinoIcons.rectangle_expand_vertical,
-            color: context.theme.primaryColorDark,
-          );
+        ? FittedBox(
+      fit: BoxFit.contain,
+          child: ImageIcon(
+              AssetImage('lib/assets/icons/Invisible.png'),
+            ),
+        )
+        : FittedBox(
+      fit: BoxFit.contain,
+          child: ImageIcon(
+              AssetImage('lib/assets/icons/Visible.png'),
+            ),
+        );
   }
 }

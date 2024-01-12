@@ -12,7 +12,8 @@ class CustomerInfoModel {
   String? note;
   String? address;
 
-  CustomerInfoModel(this.businessNo, this.tel1, this.tel2, this.fax, this.note, this.address);
+  CustomerInfoModel(
+      this.businessNo, this.tel1, this.tel2, this.fax, this.note, this.address);
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,7 +26,8 @@ class CustomerInfoModel {
     };
   }
 
-  factory CustomerInfoModel.fromJson(Map<String, dynamic> json) => _$CustomerInfoModelFromJson(json);
+  factory CustomerInfoModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomerInfoModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerInfoModelToJson(this);
 

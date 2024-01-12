@@ -16,7 +16,9 @@ class RentAssetHistoryModel {
   var status; //
   int? id;
 
-  RentAssetHistoryModel(this.date, this.code, this.name, this.amount, this.type, this.serialNo, this.memo, this.status, {this.id});
+  RentAssetHistoryModel(this.date, this.code, this.name, this.amount, this.type,
+      this.serialNo, this.memo, this.status,
+      {this.id});
 
   Map<String, dynamic> toMap() {
     return {
@@ -31,7 +33,8 @@ class RentAssetHistoryModel {
     };
   }
 
-  factory RentAssetHistoryModel.fromJson(Map<String, dynamic> json) => _$RentAssetHistoryModelFromJson(json);
+  factory RentAssetHistoryModel.fromJson(Map<String, dynamic> json) =>
+      _$RentAssetHistoryModelFromJson(json);
 }
 
 List<RentAssetHistoryModel> generateRentAssetHistoryList(dataList, count) {

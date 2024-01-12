@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/dialog/customer/search_customer_listitem.dart';
@@ -20,20 +21,22 @@ class SearchCustomerList extends StatelessWidget {
     Get.put(NetworkManager());
     return Obx(() => ListView.separated(
           shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
           itemCount: Get.find<SearchCustomerListController>().datas.length,
           // Divider 로 구분자 추가.
           separatorBuilder: (BuildContext context, int index) => const Divider(
-            height: 5,
-            color: CommonColors.white,
+            height: 0,
+            color: CommonColors.gray
           ),
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
                 child: Container(
-              height: 50,
-              color: context.theme.cardColor,
-              padding: const EdgeInsets.all(5),
-              child: selectSearchListItem(index),
+                  color: context.theme.canvasColor,
+                  padding: EdgeInsetsDirectional.fromSTEB(
+                      BASIC_PADDING * 2.w,
+                      BASIC_PADDING * 2.h,
+                      BASIC_PADDING * 2.w,
+                      BASIC_PADDING.h),
+                  child: selectSearchListItem(index),
             ));
           },
         ));
@@ -43,8 +46,10 @@ class SearchCustomerList extends StatelessWidget {
     return SearchCustomerListItem(
         Get.find<SearchCustomerListController>().datas[index].getCode ?? '',
         Get.find<SearchCustomerListController>().datas[index].getName ?? '',
-        Get.find<SearchCustomerListController>().datas[index].getBusinessItem ?? '',
-        Get.find<SearchCustomerListController>().datas[index].getStatuaName ?? '');
+        Get.find<SearchCustomerListController>().datas[index].getBusinessItem ??
+            '',
+        Get.find<SearchCustomerListController>().datas[index].getStatuaName ??
+            '');
   }
 }
 
@@ -67,15 +72,6 @@ class SearchCustomerListController extends GetxController {
   }
 
   void search(context) async {
-    // ProgressDialog pd = ProgressDialog(context: Get.context);
-    // pd.show(
-    //   max: 1000,
-    //   msg: 'Searching',
-    //   cancel: Cancel(),
-    //   backgroundColor: CommonColors.white,
-    //   progressValueColor: CommonColors.primary,
-    //   msgColor: CommonColors.primary,
-    // );
     ShowProgress(context);
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var param = user.getClientCode;
@@ -86,23 +82,35 @@ class SearchCustomerListController extends GetxController {
     dio = await reqApi(param);
 
     try {
-      String queryParam =
-          Uri.encodeComponent('=' + searchTxt + '&type=2' + '&like=' + Hive.box(LOCAL_DB).get(KEY_COMPARE_FIRST, defaultValue: true).toString());
-      final response = await dio.get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
+      String queryParam = Uri.encodeComponent('=' +
+          searchTxt +
+          '&type=2' +
+          '&like=' +
+          Hive.box(LOCAL_DB)
+              .get(KEY_COMPARE_FIRST, defaultValue: true)
+              .toString());
+      final response = await dio
+          .get(API_COMMON + API_COMMON_CUSTOMER + '?q=search' + queryParam);
 
       if (response.statusCode == 200) {
         Navigator.pop(context);
-        if (dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if (dataObjsJson =
+            jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
-          dataObjsJson = jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          parsedResponse = dataObjsJson.map((dataJson) => CustomerModel.fromJson(dataJson)).toList();
+          dataObjsJson =
+              jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          parsedResponse = dataObjsJson
+              .map((dataJson) => CustomerModel.fromJson(dataJson))
+              .toList();
         }
       }
     } on DioException catch (e) {
       Navigator.pop(context);
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     }
     datas.clear();

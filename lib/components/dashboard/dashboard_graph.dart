@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:misxV2/layouts/appframe/dashboard.dart';
+import 'package:misxV2/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../models/common/chart_spot.dart';
@@ -9,40 +10,38 @@ import '../../models/common/chart_spot.dart';
 class DashboardGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DashBoardController>(builder: (DashBoardController controller) {
+    return GetBuilder<DashBoardController>(
+        builder: (DashBoardController controller) {
       return Container(
-        decoration: BoxDecoration(
-          color: context.theme.cardColor,
-          borderRadius: BorderRadius.circular(20),
-          shape: BoxShape.rectangle,
-        ),
+        color: context.theme.canvasColor,
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: EdgeInsetsDirectional.fromSTEB(
+              BASIC_PADDING * 2.w,
+              BASIC_PADDING * 2.h,
+              BASIC_PADDING * 2.w,
+              BASIC_PADDING * 2.h),
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    flex: 7,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 15),
-                      child: Text(
-                        '최근 3개월 매출 추이',
-                        // style: context.textTheme.titleLarge,
-                        style: TextStyle(fontSize: 18.sp, color: Colors.black),
-                        textAlign: TextAlign.start,
-                      ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0, 0, 0, BASIC_PADDING * 2.h),
+                    child: Text(
+                      'dashboard_graph_title'.tr,
+                      style: context.textTheme.bodyLarge
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.start,
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 15),
-                      child: Text(
-                        '(단위:천원)',
-                        style: TextStyle(fontSize: 12.sp, color: Colors.grey),
-                        textAlign: TextAlign.end,
-                      ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0, 0, 0, BASIC_PADDING * 2.h),
+                    child: Text(
+                      'dashboard_graph_sub'.tr,
+                      style: context.textTheme.bodyMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant,),
+                      textAlign: TextAlign.end,
                     ),
                   ),
                 ],
@@ -83,7 +82,8 @@ class DashboardGraph extends StatelessWidget {
                     dataSource: Get.find<DashBoardController>().salesList,
                     xValueMapper: (ChartSpot data, _) => data.name,
                     yValueMapper: (ChartSpot data, _) => data.value,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(15)),
                     width: 0.2,
                   )
                 ],

@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
 import 'package:misxV2/components/common/datepicker/option_period_picker.dart';
-import 'package:misxV2/utils/theme/color_manager.dart';
 
 import '../../../components/common/button/option_btn_search.dart';
 import '../../../components/common/combobox/option_cb_branches.dart';
@@ -30,64 +30,61 @@ class OverallStatus extends StatelessWidget {
     Get.put(OverAllController());
     return Obx(() => Scaffold(
           appBar: AppBar(
-            title: Text('menu_sub_total'.tr),
+            title: Text(
+              'menu_sub_total'.tr,
+            ),
           ),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<OverAllController>().visible.value,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardColor,
-                                borderRadius: BorderRadius.circular(20),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.all(15),
-                                child: Column(
-                                  children: [
-                                    OptionPeriodPicker(),
-                                    OptionCbBranch(),
-                                    OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
-                                  ],
-                                ),
-                              ),
-                            )),
-                        SizedBox(
-                          height: Get.find<OverAllController>().visible.value ? 20 : 0,
-                        ),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: OverAllTable(),
+                Column(
+                  children: [
+                    Visibility(
+                        visible: Get.find<OverAllController>().visible.value,
+                        child: Container(
+                          color: context.theme.canvasColor,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h,
+                                BASIC_PADDING * 2.w,
+                                BASIC_PADDING * 2.h),
+                            child: Column(
+                              children: [
+                                OptionPeriodPicker(),
+                                OptionCbBranch(),
+                                OptionBtnSearch(ROUTE_MENU_OVERALL_STATUS),
+                              ],
                             ),
                           ),
-                        ),
-                      ],
-                    )),
+                        )),
+                    SizedBox(
+                      height: BASIC_PADDING.h,
+                    ),
+                    Expanded(
+                      child: Container(
+                        //padding: EdgeInsetsDirectional.all(16),
+                        child: OverAllTable(),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<OverAllController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible: Get.find<OverAllController>().visible.value),
                       onPressed: () {
                         Get.find<OverAllController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -120,8 +117,12 @@ class OverAllController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().fromDate.value).toString();
-    String paramToDate = DateFormat('yyyyMMdd').format(Get.find<PeriodPickerController>().toDate.value).toString();
+    String paramFromDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().fromDate.value)
+        .toString();
+    String paramToDate = DateFormat('yyyyMMdd')
+        .format(Get.find<PeriodPickerController>().toDate.value)
+        .toString();
 
     var param = user.getClientCode;
     var parsedDataSales;
@@ -135,22 +136,38 @@ class OverAllController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response =
-          await dio.get(API_MANAGEMENT + API_MANAGEMENT_OVERALL + '?branch=' + paramBranchCode + '&from=' + paramFromDate + '&to=' + paramToDate);
+      final response = await dio.get(API_MANAGEMENT +
+          API_MANAGEMENT_OVERALL +
+          '?branch=' +
+          paramBranchCode +
+          '&from=' +
+          paramFromDate +
+          '&to=' +
+          paramToDate);
 
       if (response.statusCode == 200) {
-        parsedDataSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];
-        parsedDataPurchase = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE];
-        parsedDataDeposit = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_DEPOSIT];
-        parsedDataWithdraw = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_WITHDRAW];
-        parsedDataReturn = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN];
-        parsedDataRental = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL];
-        parsedDataAsset = await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET];
+        parsedDataSales =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_SALES];
+        parsedDataPurchase =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_PURCHASE];
+        parsedDataDeposit =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_DEPOSIT];
+        parsedDataWithdraw =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_WITHDRAW];
+        parsedDataReturn =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RETURN];
+        parsedDataRental =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_RENTAL];
+        parsedDataAsset =
+            await jsonDecode(jsonEncode(response.data))[TAG_DATA][TAG_ASSET];
 
         controllerSalesModel = OverAllSalesModel.fromJson(parsedDataSales);
-        controllerPurchaseModel = OverAllPurchaseModel.fromJson(parsedDataPurchase);
-        controllerDepositModel = OverAllDepositModel.fromJson(parsedDataDeposit);
-        controllerWithdrawModel = OverAllWithdrawModel.fromJson(parsedDataWithdraw);
+        controllerPurchaseModel =
+            OverAllPurchaseModel.fromJson(parsedDataPurchase);
+        controllerDepositModel =
+            OverAllDepositModel.fromJson(parsedDataDeposit);
+        controllerWithdrawModel =
+            OverAllWithdrawModel.fromJson(parsedDataWithdraw);
         controllerReturnModel = OverAllReturnModel.fromJson(parsedDataReturn);
         controllerRentalModel = OverAllRentalModel.fromJson(parsedDataRental);
         controllerAssetModel = OverAllAssetModel.fromJson(parsedDataAsset);
@@ -160,7 +177,8 @@ class OverAllController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

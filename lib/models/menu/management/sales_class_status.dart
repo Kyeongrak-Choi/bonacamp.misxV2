@@ -19,8 +19,17 @@ class SalesClassStatusModel {
   var profitStandard; // 마진액 기준
   int? id;
 
-  SalesClassStatusModel(this.salesClassCode, this.salesClassName, this.boxQuantity, this.bottleQuantity, this.supplementAmount, this.total,
-      this.purchaseAmount, this.profitAmount, this.profitRate, this.profitStandard,
+  SalesClassStatusModel(
+      this.salesClassCode,
+      this.salesClassName,
+      this.boxQuantity,
+      this.bottleQuantity,
+      this.supplementAmount,
+      this.total,
+      this.purchaseAmount,
+      this.profitAmount,
+      this.profitRate,
+      this.profitStandard,
       {this.id});
 
   Map<String, dynamic> toMap() {
@@ -38,7 +47,8 @@ class SalesClassStatusModel {
     };
   }
 
-  factory SalesClassStatusModel.fromJson(Map<String, dynamic> json) => _$SalesClassStatusModelFromJson(json);
+  factory SalesClassStatusModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesClassStatusModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesClassStatusModelToJson(this);
 }

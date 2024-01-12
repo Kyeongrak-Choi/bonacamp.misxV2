@@ -21,7 +21,8 @@ class SalesLedgerListModel {
     };
   }
 
-  factory SalesLedgerListModel.fromJson(Map<String, dynamic> json) => _$SalesLedgerListModelFromJson(json);
+  factory SalesLedgerListModel.fromJson(Map<String, dynamic> json) =>
+      _$SalesLedgerListModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$SalesLedgerListModelToJson(this);
 }

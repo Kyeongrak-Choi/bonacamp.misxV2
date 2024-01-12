@@ -6,7 +6,9 @@ part of 'salesperson_contribute.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SalesPersonContributeModel _$SalesPersonContributeModelFromJson(Map<String, dynamic> json) => SalesPersonContributeModel(
+SalesPersonContributeModel _$SalesPersonContributeModelFromJson(
+        Map<String, dynamic> json) =>
+    SalesPersonContributeModel(
       json['customer-count'],
       json['sales-amount'],
       json['purchase-amount'],
@@ -26,7 +28,9 @@ SalesPersonContributeModel _$SalesPersonContributeModelFromJson(Map<String, dyna
       json['serve-total'],
     );
 
-Map<String, dynamic> _$SalesPersonContributeModelToJson(SalesPersonContributeModel instance) => <String, dynamic>{
+Map<String, dynamic> _$SalesPersonContributeModelToJson(
+        SalesPersonContributeModel instance) =>
+    <String, dynamic>{
       'customer-count': instance.customerCount,
       'sales-amount': instance.salesAmount,
       'purchase-amount': instance.purchaseAmount,

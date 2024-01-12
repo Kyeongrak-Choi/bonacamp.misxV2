@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -21,7 +22,6 @@ import '../../../models/menu/sales/salesperson_report_monthly/salesperson_report
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class SalesPersonReportMonthly extends StatelessWidget {
@@ -29,69 +29,84 @@ class SalesPersonReportMonthly extends StatelessWidget {
   Widget build(context) {
     Get.put(SalesPersonReportMonthlyController());
     return Obx(() => Scaffold(
-          appBar: AppBar(title: Text('menu_sub_report_monthly'.tr), actions: []),
+          appBar:
+              AppBar(title: Text('menu_sub_report_monthly'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.all(15),
-                    child: Column(
-                      children: [
-                        Visibility(
-                            visible: Get.find<SalesPersonReportMonthlyController>().visible.value,
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.theme.cardColor,
-                                    borderRadius: BorderRadius.circular(15),
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.all(15),
-                                    child: Column(
-                                      children: [
-                                        OptionYearMonthPicker(),
-                                        OptionTwoContent(OptionCbBranch(), OptionCbSalesType()),
-                                        OptionTwoContent(OptionCbEmployee(), OptionCbManager()),
-                                        OptionBtnSearch(ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
-                                      ],
-                                    ),
-                                  ),
+                Column(
+                  children: [
+                    Visibility(
+                        visible:
+                            Get.find<SalesPersonReportMonthlyController>()
+                                .visible
+                                .value,
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: context.theme.cardColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h,
+                                    BASIC_PADDING * 2.w,
+                                    BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionYearMonthPicker(),
+                                    OptionTwoContent(OptionCbBranch(),
+                                        OptionCbSalesType()),
+                                    OptionTwoContent(OptionCbEmployee(),
+                                        OptionCbManager()),
+                                    OptionBtnSearch(
+                                        ROUTE_MENU_SALESPERSON_REPORT_MONTHLY),
+                                  ],
                                 ),
-                              ],
-                            )),
-                        SizedBox(
-                          height: Get.find<SalesPersonReportMonthlyController>().visible.value ? 20 : 0,
-                        ),
-                        Expanded(
-                          flex: Get.find<SalesPersonReportMonthlyController>().visible.value ? 4 : 3,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: context.theme.cardColor,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
+                              ),
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.all(15),
-                              child: setChild(),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
+                          ],
+                        )),
+                    SizedBox(
+                      height: Get.find<SalesPersonReportMonthlyController>()
+                              .visible
+                              .value
+                          ? BASIC_PADDING.h
+                          : 0,
+                    ),
+                    Expanded(
+                      flex: Get.find<SalesPersonReportMonthlyController>()
+                              .visible
+                              .value
+                          ? 4
+                          : 3,
+                      child: Container(
+                        child: setChild(),
+                      ),
+                    ),
+                  ],
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<SalesPersonReportMonthlyController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<SalesPersonReportMonthlyController>()
+                                  .visible
+                                  .value),
                       onPressed: () {
-                        Get.find<SalesPersonReportMonthlyController>().setVisible();
+                        Get.find<SalesPersonReportMonthlyController>()
+                            .setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -103,8 +118,12 @@ class SalesPersonReportMonthly extends StatelessWidget {
   }
 
   Widget setChild() {
-    if (Get.find<SalesPersonReportMonthlyController>().controllerSalesPersonMonthlyReport != null) {
-      return SalesPersonReportMonthlyItem(Get.find<SalesPersonReportMonthlyController>().controllerSalesPersonMonthlyReport);
+    if (Get.find<SalesPersonReportMonthlyController>()
+            .controllerSalesPersonMonthlyReport !=
+        null) {
+      return SalesPersonReportMonthlyItem(
+          Get.find<SalesPersonReportMonthlyController>()
+              .controllerSalesPersonMonthlyReport);
     } else {
       return EmptyWidget();
     }
@@ -125,10 +144,14 @@ class SalesPersonReportMonthlyController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramYearMonth = DateFormat('yyyyMM').format(Get.find<MonthPickerController>().yearMonth.value).toString();
+    String paramYearMonth = DateFormat('yyyyMM')
+        .format(Get.find<MonthPickerController>().yearMonth.value)
+        .toString();
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
-    String paramManagementCode = Get.find<CbManagerController>().paramManagerCode;
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramManagementCode =
+        Get.find<CbManagerController>().paramManagerCode;
     String paramTypeCode = Get.find<CbSalesTypeController>().paramSalesTypeCode;
 
     var param = user.getClientCode;
@@ -153,17 +176,22 @@ class SalesPersonReportMonthlyController extends GetxController {
 
       if (response.statusCode == 200) {
         if (jsonDecode(jsonEncode(response.data))[TAG_DATA] == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
         } else {
           jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
           sumTotal = 0;
           log(response.data.toString());
 
-          parsedSalesPersonReportSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
-          controllerSalesPersonMonthlyReport =
-              parsedSalesPersonReportSales.map((dataJson) => SalesPersonReportMonthlyModel.fromJson(dataJson)).toList();
+          parsedSalesPersonReportSales =
+              await jsonDecode(jsonEncode(response.data))[TAG_DATA] as List;
+          controllerSalesPersonMonthlyReport = parsedSalesPersonReportSales
+              .map((dataJson) =>
+                  SalesPersonReportMonthlyModel.fromJson(dataJson))
+              .toList();
 
-          for (SalesPersonReportMonthlyModel calData in controllerSalesPersonMonthlyReport) {
+          for (SalesPersonReportMonthlyModel calData
+              in controllerSalesPersonMonthlyReport) {
             sumTotal += calData.total as int;
           }
 
@@ -173,7 +201,8 @@ class SalesPersonReportMonthlyController extends GetxController {
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

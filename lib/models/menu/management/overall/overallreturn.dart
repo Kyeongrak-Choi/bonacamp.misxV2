@@ -15,7 +15,8 @@ class OverAllReturnModel {
     };
   }
 
-  factory OverAllReturnModel.fromJson(Map<String, dynamic> json) => _$OverAllReturnModelFromJson(json);
+  factory OverAllReturnModel.fromJson(Map<String, dynamic> json) =>
+      _$OverAllReturnModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OverAllReturnModelToJson(this);
 }

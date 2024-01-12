@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 class IconTitleField extends StatelessWidget {
   String titleName;
@@ -10,30 +12,41 @@ class IconTitleField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Icon(iconData, color: context.theme.primaryColor),
-      Expanded(
-        flex: 5,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 15),
-          child: Text(
-            titleName,
-            style: context.textTheme.displaySmall,
-            textAlign: TextAlign.start,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
+      child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Icon(
+              iconData,
+            ),
           ),
         ),
-      ),
-      Expanded(
-        flex: 5,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 15),
-          child: Text(
-            value,
-            style: context.textTheme.bodyMedium,
-            textAlign: TextAlign.end,
+        Expanded(
+          flex: 4,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, 0.w, 0.h),
+            child: Text(
+              titleName,
+              style: context.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start,
+            ),
           ),
         ),
-      ),
-    ]);
+        Expanded(
+          flex: 6,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, 0.w, 0.h),
+            child: Text(
+              value,
+              style: context.textTheme.bodyLarge,
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ),
+      ]),
+    );
   }
 }

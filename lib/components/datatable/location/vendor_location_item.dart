@@ -6,6 +6,7 @@ import 'package:custom_info_window/custom_info_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,6 +14,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../../models/menu/location/place_model.dart';
 import '../../../layouts/menu/location/vendor_location.dart';
 import '../../../models/menu/location/vendor_location_model.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 import '../../common/field/icon_title_field_small_interval.dart';
 
@@ -26,7 +29,8 @@ class VendorLocationItem extends StatefulWidget {
 class _VendorLoationItemState extends State<VendorLocationItem> {
   ClusterManager? _manager;
 
-  CustomInfoWindowController customInfoWindowController = CustomInfoWindowController();
+  CustomInfoWindowController customInfoWindowController =
+      CustomInfoWindowController();
 
   Completer<GoogleMapController> _controller = Completer();
 
@@ -56,7 +60,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
   @override
   void initState() {
     loadMarkerImage();
-    _manager = ClusterManager<PlaceModel>(locationItems, _updateMarkers, markerBuilder: _getMarkerBuilder(Colors.red));
+    _manager = ClusterManager<PlaceModel>(locationItems, _updateMarkers,
+        markerBuilder: _getMarkerBuilder(Colors.red));
 
     super.initState();
   }
@@ -67,14 +72,16 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
 
     if (Get.find<VendorLocationController>().searchFlag == true) {
       locationItems = generateVendorLocationModelList(
-          Get.find<VendorLocationController>().controllerVendorLocation, Get.find<VendorLocationController>().controllerVendorLocation.length);
+          Get.find<VendorLocationController>().controllerVendorLocation,
+          Get.find<VendorLocationController>().controllerVendorLocation.length);
       _manager!.setItems(locationItems);
       Get.find<VendorLocationController>().searchFlag = false;
     }
   }
 
   void loadMarkerImage() async {
-    markerImage = await loadImage('lib/assets/icons/marker_map_icon.png', markerHeight, markerWidth);
+    markerImage = await loadImage(
+        'lib/assets/icons/marker_map_icon.png', markerHeight, markerWidth);
   }
 
   void _updateMarkers(Set<Marker> markers) {
@@ -83,7 +90,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
     });
   }
 
-  Future<Marker> Function(Cluster<PlaceModel>) _getMarkerBuilder(Color color) => (cluster) async {
+  Future<Marker> Function(Cluster<PlaceModel>) _getMarkerBuilder(Color color) =>
+      (cluster) async {
         return Marker(
           markerId: MarkerId(cluster.getId()),
           position: cluster.location,
@@ -98,7 +106,8 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 cluster.location,
               );
             } else {
-              if (cluster.items.every((element) => element.location == cluster.items.first.location)) {
+              if (cluster.items.every((element) =>
+                  element.location == cluster.items.first.location)) {
                 customInfoWindowController.addInfoWindow!(
                   markerDetailInfoWindow(cluster),
                   cluster.location,
@@ -108,22 +117,23 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
               }
             }
           },
-          icon: await _getMarkerBitmap(markerHeight, color, '매출처 이름', text: cluster.count.toString(), clustercount: cluster.count),
+          icon: await _getMarkerBitmap(markerHeight, color, '매출처 이름',
+              text: cluster.count.toString(), clustercount: cluster.count),
         );
       };
 
   Widget markerDetailInfoWindow(Cluster<PlaceModel> cluster) {
     return Container(
-      color: context.theme.cardColor,
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width * 0.85,
+      color: context.theme.canvasColor,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width ,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
             child: Text(
               cluster.items.first.locationInfo.name ?? '',
-              style: TextStyle(fontSize: 15, color: Colors.blue, fontWeight: FontWeight.bold),
+              style: context.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           ),
@@ -143,7 +153,10 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '사업자 번호'.tr,
-                  value: cluster.items.first.locationInfo.businessNo != null ? convertBusinessNo(cluster.items.first.locationInfo.businessNo) : '',
+                  value: cluster.items.first.locationInfo.businessNo != null
+                      ? convertBusinessNo(
+                          cluster.items.first.locationInfo.businessNo)
+                      : '',
                   iconData: Icons.numbers,
                 ),
                 IconTitleFieldSmallInterval(
@@ -156,41 +169,41 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                   value: cluster.items.first.locationInfo.salesDate ?? '',
                   iconData: Icons.date_range,
                 ),
-                SizedBox(height: 14),
+                const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '당일 매출'.tr,
-                  value: cluster.items.first.locationInfo.amount,
+                  value: cluster.items.first.locationInfo.amount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '당월 매출'.tr,
-                  value: cluster.items.first.locationInfo.monthlyAmount,
+                  value: cluster.items.first.locationInfo.monthlyAmount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '입금 금액'.tr,
-                  value: cluster.items.first.locationInfo.deposit,
+                  value: cluster.items.first.locationInfo.deposit + ' 원',
                   iconData: Icons.money,
                 ),
-                SizedBox(height: 14),
+                const Divider(color: CommonColors.gray,thickness: 0.5,height: 1,),
                 IconTitleFieldSmallInterval(
                   titleName: '미수 잔액'.tr,
-                  value: cluster.items.first.locationInfo.remainDeposit,
+                  value: cluster.items.first.locationInfo.remainDeposit + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '채권 잔액'.tr,
-                  value: cluster.items.first.locationInfo.balance,
+                  value: cluster.items.first.locationInfo.balance + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '대여 금액'.tr,
-                  value: cluster.items.first.locationInfo.rentAmount,
+                  value: cluster.items.first.locationInfo.rentAmount + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '대여 잔액'.tr,
-                  value: cluster.items.first.locationInfo.rentBalance,
+                  value: cluster.items.first.locationInfo.rentBalance + ' 원',
                   iconData: Icons.money,
                 ),
                 IconTitleFieldSmallInterval(
@@ -200,7 +213,7 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
                 ),
                 IconTitleFieldSmallInterval(
                   titleName: '마진율'.tr,
-                  value: cluster.items.first.locationInfo.marginRate.toString(),
+                  value: cluster.items.first.locationInfo.marginRate.toString() + ' %',
                   iconData: Icons.percent,
                 ),
               ]),
@@ -253,7 +266,9 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
     );
   }
 
-  Future<BitmapDescriptor> _getMarkerBitmap(int size, Color color, String markerName, {String? text, @required int? clustercount}) async {
+  Future<BitmapDescriptor> _getMarkerBitmap(
+      int size, Color color, String markerName,
+      {String? text, @required int? clustercount}) async {
     if (kIsWeb) size = (size / 2).floor();
 
     final PictureRecorder pictureRecorder = PictureRecorder();
@@ -274,12 +289,16 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       if (clustercount! > 1) {
         painter.text = TextSpan(
           text: text,
-          style: TextStyle(fontSize: size / 5, color: Colors.white, fontWeight: FontWeight.normal),
+          style: TextStyle(
+              fontSize: size / 5,
+              color: Colors.white,
+              fontWeight: FontWeight.normal),
         );
         painter.layout();
         painter.paint(
           canvas,
-          Offset(size / 2 - painter.width / 2, size / 2 - painter.height / 2 + 0),
+          Offset(
+              size / 2 - painter.width / 2, size / 2 - painter.height / 2 + 0),
         );
       }
     }
@@ -333,9 +352,11 @@ class _VendorLoationItemState extends State<VendorLocationItem> {
       ),
       CustomInfoWindow(
         controller: customInfoWindowController,
-        height: 485,
-        width: 250,
+        // height: 485,
+        // width: 250,
         offset: 0,
+        height: MediaQuery.of(context).size.height * 0.3,
+        width: MediaQuery.of(context).size.width * 0.8 ,
       ),
     ]));
   }

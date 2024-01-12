@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -14,13 +15,13 @@ import '../../../components/common/combobox/option_two_content.dart';
 import '../../../components/common/dialog/purchase/option_dialog_purchase.dart';
 import '../../../components/common/emptyWidget.dart';
 import '../../../components/common/field/sum_item_table.dart';
+import '../../../components/common/field/sum_one_item_table.dart';
 import '../../../components/common/field/sum_title_table.dart';
 import '../../../components/datatable/purchase/purchase_report_item.dart';
 import '../../../models/menu/purchase/purchase_report_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class PurchaseReport extends StatelessWidget {
@@ -30,7 +31,7 @@ class PurchaseReport extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_purchase_report'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
                 Column(
@@ -38,67 +39,58 @@ class PurchaseReport extends StatelessWidget {
                     Visibility(
                       visible: !Get.find<PurchaseReportController>().visible.value,
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: context.theme.cardColor,
-                        ),
+                        color: context.theme.canvasColor,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.all(15),
+                          padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
                           child: Column(
                             children: [
-                              SumTitleTable('기간 매입 합계'),
-                              SumItemTable('매입액', numberFormat.format(Get.find<PurchaseReportController>().sumPurchase), '출금합계',
-                                  numberFormat.format(Get.find<PurchaseReportController>().sumWithdraw)),
-                              SumItemTable(null, null, '채무잔액', numberFormat.format(Get.find<PurchaseReportController>().sumBalance)),
+                              SumTitleTable('기간 매입 합계',controller: Get.find<PurchaseReportController>()),
+                              Visibility(
+                                visible: Get.find<PurchaseReportController>().sumTableVisible.value,
+                                child: Column(
+                                  children: [
+                                    SumOneItemTable('매입액', numberFormat.format(Get.find<PurchaseReportController>().sumPurchase) + ' 원'),
+                                    SumOneItemTable('출금합계', numberFormat.format(Get.find<PurchaseReportController>().sumWithdraw) + ' 원'),
+                                    SumOneItemTable('채무잔액', numberFormat.format(Get.find<PurchaseReportController>().sumBalance) + ' 원'),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(15),
-                        child: Column(
-                          children: [
-                            Visibility(
-                              visible: Get.find<PurchaseReportController>().visible.value,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: Column(
-                                    children: [
-                                      OptionPeriodPicker(),
-                                      OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
-                                      OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
-                                    ],
-                                  ),
+                      child: Column(
+                        children: [
+                          Visibility(
+                            visible: Get.find<PurchaseReportController>().visible.value,
+                            child: Container(
+                              color: context.theme.canvasColor,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    BASIC_PADDING * 2.w, BASIC_PADDING * 2.h, BASIC_PADDING * 2.w, BASIC_PADDING * 2.h),
+                                child: Column(
+                                  children: [
+                                    OptionPeriodPicker(),
+                                    OptionTwoContent(OptionDialogPurchase(), OptionCbBranch()),
+                                    OptionBtnSearch(ROUTE_MENU_PURCHASE_REPORT),
+                                  ],
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: Get.find<PurchaseReportController>().visible.value ? 20 : 0,
-                            ),
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: context.theme.cardColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.all(15),
-                                  child: ListView(
-                                    children: <Widget>[setChild()],
-                                  ),
-                                ),
+                          ),
+                          SizedBox(
+                            height: BASIC_PADDING.h,
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: ListView(
+                                children: <Widget>[setChild()],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -106,14 +98,13 @@ class PurchaseReport extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.w, 0.h, BASIC_PADDING * 2.w, 0.h),
                     child: FloatingActionButton.small(
                       child: OptionBtnVisible(visible: Get.find<PurchaseReportController>().visible.value),
                       onPressed: () {
                         Get.find<PurchaseReportController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -137,6 +128,7 @@ class PurchaseReportController extends GetxController {
   var controllerPurchaseReport;
 
   var visible = true.obs;
+  var sumTableVisible = true.obs;
 
   int sumPurchase = 0;
   int sumWithdraw = 0;
@@ -144,6 +136,10 @@ class PurchaseReportController extends GetxController {
 
   setVisible() async {
     visible.value = !visible.value;
+  }
+
+  setSumTableVisible() async {
+    sumTableVisible.value = !sumTableVisible.value;
   }
 
   Future showResult() async {

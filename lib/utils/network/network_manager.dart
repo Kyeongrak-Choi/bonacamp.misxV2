@@ -19,9 +19,12 @@ class NetworkManager extends GetxController {
 }
 
 Future<bool> reqToken(bool isDev) async {
-  isDev ? await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_DEV) : await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_PROD);
+  isDev
+      ? await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_DEV)
+      : await Hive.box(LOCAL_DB).put(KEY_AUTH_URL, CERT_URL_PROD);
 
-  log('call auth url : ' + await Hive.box(LOCAL_DB).get(KEY_AUTH_URL, defaultValue: 'fail'));
+  log('call auth url : ' +
+      await Hive.box(LOCAL_DB).get(KEY_AUTH_URL, defaultValue: 'fail'));
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_AUTH_URL, defaultValue: 'fail'),
@@ -41,19 +44,24 @@ Future<bool> reqToken(bool isDev) async {
   }));
 
   try {
-    Res.Response response = await dio.post(CERT_AUTH + CERT_TOKEN, data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
+    Res.Response response = await dio.post(CERT_AUTH + CERT_TOKEN,
+        data: ReqTokenModel(AUTH_ID, AUTH_PW, AUTH_CLIENT_ID).toMap());
 
     if (response.statusCode == 200) {
       // target url 저장
-      for (var server in jsonDecode(await jsonEncode(response.data))[TAG_DATA][TAG_SERVER]) {
+      for (var server in jsonDecode(await jsonEncode(response.data))[TAG_DATA]
+          [TAG_SERVER]) {
         if (server['server-code'] == API_SERVER_CODE) {
-          await Hive.box(LOCAL_DB).put(KEY_BASE_URL, server['resource-url'] + '/api');
+          await Hive.box(LOCAL_DB)
+              .put(KEY_BASE_URL, server['resource-url'] + '/api');
         }
       }
 
       // Access token 저장
-      await Hive.box(LOCAL_DB).put(KEY_SAVED_TOKEN,
-          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() + response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
+      await Hive.box(LOCAL_DB).put(
+          KEY_SAVED_TOKEN,
+          response.data[TAG_DATA][TAG_TOKEN][TAG_GRANT_TYPE].toString() +
+              response.data[TAG_DATA][TAG_TOKEN][TAG_ACCESS_TOKEN].toString());
 
       return true;
     } else {
@@ -67,11 +75,15 @@ Future<bool> reqToken(bool isDev) async {
 }
 
 Future<Dio> reqLogin() async {
-  log('call login url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
+  log('call login url : ' +
+      await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')},
+    headers: {
+      'Authorization':
+          await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail')
+    },
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
     // 15s
@@ -92,7 +104,8 @@ Future<Dio> reqLogin() async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioException dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+  }, onError: (DioException dioError,
+      ErrorInterceptorHandler errorInterceptorHandler) async {
     if (dioError.response?.statusCode != 200) {
       return errorInterceptorHandler.next(dioError);
     }
@@ -118,11 +131,16 @@ Future<Dio> reqLogin() async {
 }
 
 Future<Dio> reqApi(header) async {
-  log('call api url : ' + await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
+  log('call api url : ' +
+      await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'));
 
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
+    headers: {
+      'Authorization':
+          await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
+      'Client-Code': header
+    },
     //headers: {'Authorization': 'Bearer asdasd', 'Client-Code': header},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
@@ -137,7 +155,8 @@ Future<Dio> reqApi(header) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioException dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+  }, onError: (DioException dioError,
+      ErrorInterceptorHandler errorInterceptorHandler) async {
     if (dioError.response?.statusCode == 200) {
     } else if (dioError.response?.statusCode == 401) {
       log('token renewal call');
@@ -148,7 +167,11 @@ Future<Dio> reqApi(header) async {
         final clonedRequest = await dio.request(dioError.requestOptions.path,
             options: Options(
               method: dioError.requestOptions.method,
-              headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
+              headers: {
+                'Authorization': await Hive.box(LOCAL_DB)
+                    .get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
+                'Client-Code': header
+              },
               contentType: Headers.jsonContentType,
             ),
             data: dioError.requestOptions.data,
@@ -158,7 +181,8 @@ Future<Dio> reqApi(header) async {
       } else {
         // 토큰 초기화
         initToken();
-        ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr, 'expiration_content'.tr, Get.context);
+        ShowDialog(DIALOG_TYPE.MSG, 'login_expiration'.tr,
+            'expiration_content'.tr, Get.context);
         Get.toNamed(ROUTE_LOGIN);
       }
     } else {

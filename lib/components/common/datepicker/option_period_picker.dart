@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:misxV2/utils/theme/text_theme.dart';
 
 import '../../../utils/constants.dart';
 import '../../../utils/utility.dart';
@@ -13,60 +13,116 @@ class OptionPeriodPicker extends StatelessWidget {
     return Column(
       children: [
         Align(
-          alignment: AlignmentDirectional(-1, 0),
+          alignment: Alignment.centerLeft,
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.only(bottom: BASIC_PADDING.h),
             child: Text(
               'opt_period'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Obx(
-                    () => TextButton(
-                      onPressed: () => Get.find<PeriodPickerController>().chooseFromDate(),
-                      child: Text(
-                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().fromDate.value).toString(),
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.center,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: context.theme.colorScheme.background),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodPickerController>().chooseFromDate();
+                          },
+                          //icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
+                    Expanded(
+                      child: Obx(
+                        () => TextButton(
+                          onPressed: () =>
+                              Get.find<PeriodPickerController>().chooseFromDate(),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              DateFormat('yyyy-MM-dd')
+                                  .format(Get.find<PeriodPickerController>()
+                                      .fromDate
+                                      .value)
+                                  .toString(),
+                              style: context.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<PeriodPickerController>().chooseFromDate();
-                      },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  Text(
-                    ' ~ ',
-                    style: context.textTheme.bodyMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                  Obx(
-                    () => TextButton(
-                      onPressed: () => Get.find<PeriodPickerController>().chooseToDate(),
-                      child: Text(
-                        DateFormat('yyyy-MM-dd').format(Get.find<PeriodPickerController>().toDate.value).toString(),
-                        style: context.textTheme.bodyMedium,
-                        textAlign: TextAlign.center,
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING.w, 0.h),
+              child: Text(
+                ' - ',
+                style: context.textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: context.theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(8),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: context.theme.colorScheme.background),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.find<PeriodPickerController>().chooseToDate();
+                          },
+                          icon: ImageIcon(
+                            AssetImage('lib/assets/icons/calendar.png'),
+                          )),
+                    ),
+                    Expanded(
+                      child: Obx(
+                        () => TextButton(
+                          onPressed: () =>
+                              Get.find<PeriodPickerController>().chooseToDate(),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              DateFormat('yyyy-MM-dd')
+                                  .format(Get.find<PeriodPickerController>()
+                                      .toDate
+                                      .value)
+                                  .toString(),
+                              style: context.textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        Get.find<PeriodPickerController>().chooseToDate();
-                      },
-                      icon: Icon(Icons.date_range, color: context.theme.primaryColor))
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -114,7 +170,8 @@ class PeriodPickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,
@@ -144,7 +201,8 @@ class PeriodPickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,

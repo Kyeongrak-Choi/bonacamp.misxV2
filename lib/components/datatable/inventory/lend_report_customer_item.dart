@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:misxV2/utils/constants.dart';
 
 import '../../../models/menu/inventory/lend_report_customer_model.dart';
 import '../../common/field/show_list_header_row.dart';
@@ -16,30 +18,39 @@ class LendReportCustomerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: context.theme.cardColor,
+        //color: context.theme.canvasColor,
         child: ExpansionPanelList.radio(
+          expandIconColor: context.theme.colorScheme.onPrimary,
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children: dataList.map<ExpansionPanelRadio>((LendReportCustomerModel model) {
+          children: dataList
+              .map<ExpansionPanelRadio>((LendReportCustomerModel model) {
             return ExpansionPanelRadio(
+                canTapOnHeader: true,
                 value: model.id.toString(),
-                backgroundColor: context.theme.cardColor,
+                backgroundColor: context.theme.canvasColor,
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return ShowListHeaderRow(titleName: model.name, value: '');
                 },
-                body: Column(
-                  children: [
-                    LendReportCustomerListHead(context),
-                    SizedBox(height: 14),
-                    ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: model.detailList.length,
-                        itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(
-                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0), child: LendReportCustomerDetailItem(model.detailList[idx]));
-                        }),
-                  ],
+                body: Container(
+                  color: context.theme.colorScheme.background,
+                  child: Column(
+                    children: [
+                      LendReportCustomerListHead(context),
+                      SizedBox(height: BASIC_PADDING.h),
+                      ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: model.detailList.length,
+                          itemBuilder: (BuildContext ctx, int idx) {
+                            return Container(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, 0.h, BASIC_PADDING.w, 0.h),
+                                child: LendReportCustomerDetailItem(
+                                    model.detailList[idx]));
+                          }),
+                    ],
+                  ),
                 ));
           }).toList(),
         ),
@@ -48,60 +59,64 @@ class LendReportCustomerItem extends StatelessWidget {
   }
 
   Widget LendReportCustomerListHead(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 4,
-          child: Text(
-            '용기공병',
-            textAlign: TextAlign.center,
-            style: context.textTheme.displayMedium,
-            overflow: TextOverflow.ellipsis,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(BASIC_PADDING.w, BASIC_PADDING.h, BASIC_PADDING.w, BASIC_PADDING.h),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Text(
+              '용기공병',
+              textAlign: TextAlign.center,
+              style: context.textTheme.bodyMedium,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-        ),
-        Expanded(
-          flex: 6,
-          child: Column(
-            children: [
-              Text(
-                '전일재고',
-                textAlign: TextAlign.center,
-                style: context.textTheme.displayMedium,
-                overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(height: 14),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      '입용기',
-                      textAlign: TextAlign.center,
-                      style: context.textTheme.displayMedium,
-                      overflow: TextOverflow.ellipsis,
+          Expanded(
+            flex: 6,
+            child: Column(
+              children: [
+                Text(
+                  '전일재고',
+                  textAlign: TextAlign.center,
+                  style: context.textTheme.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(height: BASIC_PADDING.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        '입용기',
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.bodyMedium,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      '공용기',
-                      textAlign: TextAlign.center,
-                      style: context.textTheme.displayMedium,
-                      overflow: TextOverflow.ellipsis,
+                    Expanded(
+                      child: Text(
+                        '공용기',
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.bodyMedium,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      '공병',
-                      textAlign: TextAlign.center,
-                      style: context.textTheme.displayMedium,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        )
-      ],
+                    Expanded(
+                      child: Text(
+                        '공병',
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.bodyMedium,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

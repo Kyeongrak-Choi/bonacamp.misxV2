@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
@@ -13,7 +14,6 @@ import '../../../models/menu/sales/item_status/item_status_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class ItemStatus extends StatelessWidget {
@@ -23,62 +23,60 @@ class ItemStatus extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_item_status'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<ItemStatusController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionDialogItem(),
-                                OptionBtnSearch(ROUTE_MENU_ITEM_STATUS),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible: Get.find<ItemStatusController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: Column(
+                            children: [
+                              OptionDialogItem(),
+                              OptionBtnSearch(ROUTE_MENU_ITEM_STATUS),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.find<ItemStatusController>().visible.value ? 20 : 0,
+                    ),
+                    SizedBox(
+                      height: Get.find<ItemStatusController>().visible.value
+                          ? BASIC_PADDING.h
+                          : 0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: ItemStatusTable(),
                       ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: ItemStatusTable(),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<ItemStatusController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<ItemStatusController>().visible.value),
                       onPressed: () {
                         Get.find<ItemStatusController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -107,7 +105,8 @@ class ItemStatusController extends GetxController {
     UserinfoModel user = Hive.box(LOCAL_DB).get(KEY_USERINFO); // USER_INFO save
     var dio;
 
-    String paramItemCode = Get.find<OptionDialogItemController>().paramItemCode.value;
+    String paramItemCode =
+        Get.find<OptionDialogItemController>().paramItemCode.value;
 
     var param = user.getClientCode;
     var parsedItemStatusSales;
@@ -120,28 +119,39 @@ class ItemStatusController extends GetxController {
     try {
       dio = await reqApi(param);
 
-      final response = await dio.get(API_SALES + API_SALES_ITEMSTATUS + '?code=' + paramItemCode);
+      final response = await dio
+          .get(API_SALES + API_SALES_ITEMSTATUS + '?code=' + paramItemCode);
 
       if (response.statusCode == 200) {
-        if ((parsedItemStatusSales = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedItemStatusSales =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
           //controllerItemStatus = parsedItemStatusSales.map((dataJson) => ItemStatusModel.fromJson(dataJson)).toList();
-          controllerItemStatus = ItemStatusModel.fromJson(parsedItemStatusSales);
+          controllerItemStatus =
+              ItemStatusModel.fromJson(parsedItemStatusSales);
 
-          totNormalBox = controllerItemStatus.normalBox.amount.round() + controllerItemStatus.normalBox.vat.round();
-          totNormalBottle = controllerItemStatus.normalBottle.amount.round() + controllerItemStatus.normalBottle.vat.round();
-          totPleasureBox = controllerItemStatus.pleasureBox.amount.round() + controllerItemStatus.pleasureBox.vat.round();
-          totPleasureBottle = controllerItemStatus.pleasureBottle.amount.round() + controllerItemStatus.pleasureBottle.vat.round();
+          totNormalBox = controllerItemStatus.normalBox.amount.round() +
+              controllerItemStatus.normalBox.vat.round();
+          totNormalBottle = controllerItemStatus.normalBottle.amount.round() +
+              controllerItemStatus.normalBottle.vat.round();
+          totPleasureBox = controllerItemStatus.pleasureBox.amount.round() +
+              controllerItemStatus.pleasureBox.vat.round();
+          totPleasureBottle =
+              controllerItemStatus.pleasureBottle.amount.round() +
+                  controllerItemStatus.pleasureBottle.vat.round();
         }
         Get.find<ItemStatusController>().setVisible();
         update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());

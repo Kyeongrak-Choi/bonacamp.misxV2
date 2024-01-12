@@ -18,7 +18,12 @@ class AnalysisModel {
   AnalysisRentalModel analysisRentalModell; // 분석그래프 - 대여
   AnalysisAssetModel analysisAssetModel; // 분석그래프 - 대여자산
 
-  AnalysisModel(this.analysisSalesModel, this.analysisBondModel, this.analysisPurchaseModel, this.analysisDebtModel, this.analysisRentalModell,
+  AnalysisModel(
+      this.analysisSalesModel,
+      this.analysisBondModel,
+      this.analysisPurchaseModel,
+      this.analysisDebtModel,
+      this.analysisRentalModell,
       this.analysisAssetModel);
 
   Map<String, dynamic> toMap() {
@@ -32,7 +37,8 @@ class AnalysisModel {
     };
   }
 
-  factory AnalysisModel.fromJson(Map<String, dynamic> json) => _$AnalysisModelFromJson(json);
+  factory AnalysisModel.fromJson(Map<String, dynamic> json) =>
+      _$AnalysisModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AnalysisModelToJson(this);
 }

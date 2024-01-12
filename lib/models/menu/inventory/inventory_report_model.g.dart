@@ -6,7 +6,9 @@ part of 'inventory_report_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-InventoryReportModel _$InventoryReportModelFromJson(Map<String, dynamic> json) => InventoryReportModel(
+InventoryReportModel _$InventoryReportModelFromJson(
+        Map<String, dynamic> json) =>
+    InventoryReportModel(
       json['item-code'],
       json['item-name'],
       json['box-quantity'],
@@ -14,8 +16,10 @@ InventoryReportModel _$InventoryReportModelFromJson(Map<String, dynamic> json) =
       json['amount'],
       json['customer-code'],
       json['customer-name'],
-      InventoryReportQuantityModel.fromJson(json['sales'] as Map<String, dynamic>),
-      InventoryReportQuantityModel.fromJson(json['purchase'] as Map<String, dynamic>),
+      InventoryReportQuantityModel.fromJson(
+          json['sales'] as Map<String, dynamic>),
+      InventoryReportQuantityModel.fromJson(
+          json['purchase'] as Map<String, dynamic>),
       json['package-quantity'],
       json['liquor-type'],
       json['sales-type-code'],
@@ -25,7 +29,9 @@ InventoryReportModel _$InventoryReportModelFromJson(Map<String, dynamic> json) =
       json['use'],
     );
 
-Map<String, dynamic> _$InventoryReportModelToJson(InventoryReportModel instance) => <String, dynamic>{
+Map<String, dynamic> _$InventoryReportModelToJson(
+        InventoryReportModel instance) =>
+    <String, dynamic>{
       'item-code': instance.itemCode,
       'item-name': instance.itemName,
       'box-quantity': instance.boxQuantity,

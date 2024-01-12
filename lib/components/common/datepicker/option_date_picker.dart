@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../../utils/theme/text_theme.dart';
+import '../../../utils/constants.dart';
 
 class OptionDatePicker extends StatelessWidget {
   @override
@@ -13,45 +14,56 @@ class OptionDatePicker extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.all(15),
+            padding: EdgeInsetsDirectional.fromSTEB(
+                0.w, BASIC_PADDING.h, 0.w, BASIC_PADDING.h),
             child: Text(
               'opt_date'.tr,
               textAlign: TextAlign.start,
-              style: textThemeCommon().bodyMedium,
+              style: context.textTheme.bodyLarge,
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 7,
-                    child: Obx(
-                      () => TextButton(
-                        onPressed: () => Get.find<DatePickerController>().chooseDate(),
-                        child: Text(
-                          DateFormat('yyyy-MM-dd').format(Get.find<DatePickerController>().date.value).toString(),
-                          style: context.textTheme.bodyMedium,
-                        ),
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+            shape: BoxShape.rectangle,
+            border: Border.all(color: context.theme.colorScheme.background),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              FittedBox(
+                fit: BoxFit.contain,
+                child: IconButton(
+                    onPressed: () {
+                      Get.find<DatePickerController>().chooseDate();
+                    },
+                    icon: ImageIcon(
+                      AssetImage('lib/assets/icons/calendar.png'),
+                    ),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              Expanded(
+                child: Obx(
+                  () => TextButton(
+                    onPressed: () =>
+                        Get.find<DatePickerController>().chooseDate(),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        DateFormat('yyyy-MM-dd')
+                            .format(Get.find<DatePickerController>().date.value)
+                            .toString(),
+                        style: context.textTheme.bodyMedium,
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                        onPressed: () {
-                          Get.find<DatePickerController>().chooseDate();
-                        },
-                        icon: Icon(Icons.date_range, color: context.theme.primaryColor)),
-                  )
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         )
       ],
     );
@@ -92,7 +104,8 @@ class DatePickerController extends GetxController {
             primaryColor: Colors.purple, // 선택한 날짜 표시 색상 변경
             hintColor: Colors.purple, // 선택한 날짜 밑줄 색상 변경
             primaryTextTheme: TextTheme(
-              titleMedium: TextStyle(fontSize: 20.0, color: Colors.black), // 글자 크기 조정
+              titleMedium:
+                  TextStyle(fontSize: 16.0, color: Colors.black), // 글자 크기 조정
             ),
           ),
           child: child!,

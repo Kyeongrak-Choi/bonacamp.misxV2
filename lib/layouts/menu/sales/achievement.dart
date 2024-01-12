@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:misxV2/components/common/button/option_btn_visible.dart';
@@ -17,7 +18,6 @@ import '../../../models/menu/sales/achievement/achievement_model.dart';
 import '../../../models/system/userinfo.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/network/network_manager.dart';
-import '../../../utils/theme/color_manager.dart';
 import '../../../utils/utility.dart';
 
 class Achievement extends StatelessWidget {
@@ -27,65 +27,65 @@ class Achievement extends StatelessWidget {
     return Obx(() => Scaffold(
           appBar: AppBar(title: Text('menu_sub_achievement'.tr), actions: []),
           body: Container(
-            color: context.theme.canvasColor,
+            color: context.theme.colorScheme.background,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.all(15),
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: Get.find<AchievementController>().visible.value,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: Column(
-                              children: [
-                                OptionPeriodYearmonthPicker(false),
-                                OptionTwoContent(OptionCbBranch(), OptionCbEmployee()),
-                                OptionBtnSearch(ROUTE_MENU_ACHIEVEMENT),
-                              ],
-                            ),
+                Column(
+                  children: [
+                    Visibility(
+                      visible:
+                          Get.find<AchievementController>().visible.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: context.theme.cardColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h,
+                              BASIC_PADDING * 2.w,
+                              BASIC_PADDING * 2.h),
+                          child: Column(
+                            children: [
+                              OptionPeriodYearmonthPicker(false),
+                              OptionTwoContent(
+                                  OptionCbBranch(), OptionCbEmployee()),
+                              OptionBtnSearch(ROUTE_MENU_ACHIEVEMENT),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.find<AchievementController>().visible.value ? 20 : 0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(15),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.all(15),
-                            child: ListView(
-                              children: <Widget>[setChild()],
-                            ),
-                          ),
+                    ),
+                    SizedBox(
+                      height: Get.find<AchievementController>().visible.value
+                          ? BASIC_PADDING.h
+                          : 0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                          children: <Widget>[setChild()],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                        0.w,
+                        0.h,
+                        BASIC_PADDING * 2.w,
+                        0.h),
                     child: FloatingActionButton.small(
-                      child: OptionBtnVisible(visible: Get.find<AchievementController>().visible.value),
+                      child: OptionBtnVisible(
+                          visible:
+                              Get.find<AchievementController>().visible.value),
                       onPressed: () {
                         Get.find<AchievementController>().setVisible();
                       },
-                      splashColor: CommonColors.primary,
-                      backgroundColor: Colors.white,
+                      backgroundColor: context.theme.colorScheme.onTertiary,
                       elevation: 1,
                     ),
                   ),
@@ -98,7 +98,8 @@ class Achievement extends StatelessWidget {
 
   Widget setChild() {
     if (Get.find<AchievementController>().controllerAchievement != null) {
-      return AchievementItem(Get.find<AchievementController>().controllerAchievement);
+      return AchievementItem(
+          Get.find<AchievementController>().controllerAchievement);
     } else {
       return EmptyWidget();
     }
@@ -119,9 +120,12 @@ class AchievementController extends GetxController {
     var dio;
 
     String paramBranchCode = Get.find<CbBranchController>().paramBranchCode;
-    String paramFromYearmonth = setFirstDay(Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
-    String paramToYearmonth = setLastDay(Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
-    String paramEmployeeCode = Get.find<CbEmployeeController>().paramEmployeeCode;
+    String paramFromYearmonth = setFirstDay(
+        Get.find<PeriodYearmonthPickerController>().fromYearMonth.value);
+    String paramToYearmonth = setLastDay(
+        Get.find<PeriodYearmonthPickerController>().toYearMonth.value);
+    String paramEmployeeCode =
+        Get.find<CbEmployeeController>().paramEmployeeCode;
 
     var param = user.getClientCode;
     var parsedAchievement;
@@ -141,19 +145,25 @@ class AchievementController extends GetxController {
           paramEmployeeCode);
 
       if (response.statusCode == 200) {
-        if ((parsedAchievement = await jsonDecode(jsonEncode(response.data))[TAG_DATA]) == null) {
-          ShowSnackBar(SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
+        if ((parsedAchievement =
+                await jsonDecode(jsonEncode(response.data))[TAG_DATA]) ==
+            null) {
+          ShowSnackBar(
+              SNACK_TYPE.INFO, jsonDecode(jsonEncode(response.data))[TAG_MSG]);
           clearValue();
         } else {
           clearValue();
-          controllerAchievement = parsedAchievement.map((dataJson) => AchievementModel.fromJson(dataJson)).toList();
+          controllerAchievement = parsedAchievement
+              .map((dataJson) => AchievementModel.fromJson(dataJson))
+              .toList();
         }
         Get.find<AchievementController>().setVisible();
         update();
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        ShowSnackBar(SNACK_TYPE.INFO, e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
+        ShowSnackBar(SNACK_TYPE.INFO,
+            e.response?.data[TAG_ERROR][0][TAG_MSG].toString());
       }
     } catch (e) {
       print(e.toString());
