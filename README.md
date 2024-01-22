@@ -1,6 +1,6 @@
 # dionysos.misxV2
 
-경영관리 Ver2 리뉴얼
+경영관리 Ver2 리뉴얼 test
 
 ## Getting Started
 
